@@ -1,0 +1,23 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "env": ["RIOSOMA_LOCALES"],
+      "inputs": ["$TURBO_EXTENDS$", "$TURBO_ROOT$/tools/locales.ts"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build", "@riosoma/server#build"]
+    },
+    "test": {
+      "inputs": [
+        "$TURBO_EXTENDS$",
+        "$TURBO_ROOT$/tools/locales.ts",
+        "$TURBO_ROOT$/apps/e2e/web-build.ts",
+        "$TURBO_ROOT$/Dockerfile"
+      ],
+      "dependsOn": ["^build", "@riosoma/server#build"],
+      "env": ["RIOSOMA_PROPERTY_RUNS", "RIOSOMA_PROPERTY_SEED", "RIOSOMA_PROPERTY_PATH"],
+      "passThroughEnv": ["RIOSOMA_PERF", "RIOSOMA_TEST_RETRY", "RIOSOMA_TEST_DATABASE_URL", "RIOSOMA_PG_BIN"]
+    }
+  }
+}

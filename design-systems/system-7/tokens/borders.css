@@ -1,0 +1,29 @@
+/* One-bit outlines and hard offset shadows. No blur, no soft radii. */
+:root{
+--s7-border-width:1px;
+--s7-border-field:1.5px;
+--s7-border-heavy:2px;
+--s7-border-window:0.1em;
+--s7-border-btn:5.5px;
+
+--s7-radius-none:0;
+--s7-radius-pressed:6px;
+--s7-radius-pressed-default:12px;
+--s7-radius-pill:999px;
+
+/* Hard drop shadow — the only shadow in the system */
+--s7-shadow-offset:2px;
+--s7-shadow-hard:2px 2px 0 0 var(--s7-ink);
+--s7-shadow-hard-lg:4px 4px 0 0 var(--s7-ink);
+--s7-shadow-inset:inset 1px 1px 0 0 var(--s7-ink);
+--box-shadow:2px 2px;
+
+/* Bevel edges for the greyscale chrome surfaces */
+--s7-bevel-out:inset -1px -1px 0 var(--s7-chrome-4),inset 1px 1px 0 var(--s7-chrome-0);
+--s7-bevel-in:inset 1px 1px 0 var(--s7-chrome-4),inset -1px -1px 0 var(--s7-chrome-0);
+
+/* Motion. The era had none; keep transitions instant or near-instant. */
+--s7-duration-0:0ms; /* @kind other */
+--s7-duration-1:80ms; /* @kind other */
+--s7-ease-step:steps(2,end); /* @kind other */
+}

@@ -1,0 +1,42 @@
+/* Colorful Minimalist — base layer. Element defaults + the small set of utility scopes
+   the system genuinely needs (inverted sections, motif fields, layout container). */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:var(--type-body);letter-spacing:var(--tracking-normal);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4,h5{font-family:var(--font-display);font-weight:var(--weight-bold);letter-spacing:var(--tracking-display);line-height:var(--leading-display);margin:0;text-wrap:balance}
+h1{font-size:var(--display-lg)}h2{font-size:var(--display-md)}h3{font-size:var(--display-sm)}h4{font-size:var(--text-xl)}h5{font-size:var(--text-lg)}
+p{margin:0}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);transition:var(--transition-color)}
+a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+small{font-size:var(--text-2xs)}
+hr{border:none;border-top:var(--rule);margin:0}
+::selection{background:var(--accent);color:var(--on-accent)}
+code,kbd,pre{font-family:var(--font-mono);font-size:0.94em}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+
+/* micro-label: the system's signature small text treatment */
+.cm-label{font:var(--type-label);text-transform:uppercase;letter-spacing:var(--tracking-label);color:var(--ink-3)}
+
+/* inverted full-bleed section: dark field, light type, accents unchanged.
+   The ink mixes below are contrast-tested, not eyeballed: --ink-2 at 86% and --ink-3 at 70%
+   are the lowest values that clear WCAG AA 4.5:1 against --invert in ALL twelve schemes
+   (worst case is `sage`: 70% -> 4.99:1, 66% -> 4.56:1, 48% -> 3.07:1). --line and
+   --surface-2 are non-text and stay low. Do not lower these. */
+.cm-invert{
+  --paper:var(--invert);--paper-2:var(--invert);--surface:var(--invert);--surface-2:color-mix(in oklab,var(--invert) 88%,var(--on-invert));
+  --ink:var(--on-invert);--ink-2:color-mix(in oklab,var(--on-invert) 86%,var(--invert));--ink-3:color-mix(in oklab,var(--on-invert) 70%,var(--invert));
+  --line:color-mix(in oklab,var(--on-invert) 18%,var(--invert));--line-strong:var(--on-invert);
+  background:var(--invert);color:var(--on-invert);
+}
+
+/* motif fields */
+.cm-stripe{background-image:var(--stripe)}
+.cm-stripe-accent{background-image:var(--stripe-accent)}
+.cm-dots{background-image:var(--dots)}
+.cm-dots-accent{background-image:var(--dots-accent)}
+
+/* layout container */
+.cm-container{width:100%;max-width:var(--max-content);margin-inline:auto;padding-inline:var(--page-pad)}
+@media (max-width:720px){.cm-container{padding-inline:var(--page-pad-mobile)}}

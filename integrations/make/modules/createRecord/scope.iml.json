@@ -1,0 +1,4 @@
+[
+  "schema.bases:read",
+  "data.records:write"
+]

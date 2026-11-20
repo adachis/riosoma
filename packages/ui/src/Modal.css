@@ -1,0 +1,129 @@
+@layer rio.components {
+  /* The scrim covers the viewport and centers the panel; its padding is the gap the panel keeps
+     from the edges, and the cap on the panel below is what keeps a tall dialog inside the viewport
+     so its body scrolls instead of the page. */
+  .rio-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--rio-z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --rio-modal-gap: var(--rio-space-6);
+    --rio-modal-top: max(var(--rio-modal-gap), env(safe-area-inset-top));
+    --rio-modal-bottom: max(var(--rio-modal-gap), env(safe-area-inset-bottom));
+    box-sizing: border-box;
+    block-size: 100dvb;
+    padding-block: var(--rio-modal-top) var(--rio-modal-bottom);
+    padding-inline: max(var(--rio-modal-gap), env(safe-area-inset-left))
+      max(var(--rio-modal-gap), env(safe-area-inset-right));
+    background-color: var(--rio-scrim);
+  }
+
+  .rio-modal {
+    --rio-modal-inline-size: 560px;
+    display: flex;
+    flex-direction: column;
+    inline-size: var(--rio-modal-inline-size);
+    max-inline-size: 100%;
+    box-sizing: border-box;
+    min-block-size: 0;
+    max-block-size: calc(100dvb - var(--rio-modal-top) - var(--rio-modal-bottom));
+    overflow: hidden;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    box-shadow: var(--rio-shadow-3);
+  }
+
+  @media (max-width: 600px) {
+    .rio-modal-overlay {
+      --rio-modal-gap: var(--rio-space-2);
+    }
+  }
+
+  .rio-modal[data-size='sm'] {
+    --rio-modal-inline-size: 400px;
+  }
+
+  .rio-modal[data-size='lg'] {
+    --rio-modal-inline-size: 800px;
+  }
+
+  /* Entering takes the slower curve and exiting the faster one, so closing never feels laggy.
+     Both directions travel the same distance, which keeps the panel under the pointer. */
+  .rio-modal-overlay[data-entering] {
+    animation: rio-modal-overlay-in var(--rio-duration-normal) var(--rio-ease-enter);
+  }
+
+  .rio-modal-overlay[data-exiting] {
+    animation: rio-modal-overlay-out var(--rio-duration-fast) var(--rio-ease-exit);
+  }
+
+  .rio-modal[data-entering] {
+    animation: rio-modal-in var(--rio-duration-normal) var(--rio-ease-enter);
+  }
+
+  .rio-modal[data-exiting] {
+    animation: rio-modal-out var(--rio-duration-fast) var(--rio-ease-exit);
+  }
+
+  @media (forced-colors: active) {
+    /* A translucent tint has no meaning here, so the scrim becomes a solid backdrop and the
+       panel's border is what separates it from the page. */
+    .rio-modal-overlay {
+      background-color: Canvas;
+    }
+
+    .rio-modal {
+      border-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+    }
+  }
+}
+
+@keyframes rio-modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rio-modal-overlay-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rio-modal-in {
+  from {
+    opacity: 0;
+    translate: 0 var(--rio-space-2);
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes rio-modal-out {
+  from {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  to {
+    opacity: 0;
+    translate: 0 var(--rio-space-2);
+  }
+}

@@ -1,0 +1,60 @@
+/* PERSONA — motion.
+   Everything overshoots or snaps. Nothing eases gently in and out.
+   Entrances fly in from off-screen right; exits leave the way they came. */
+:root {
+  --dur-instant: 70ms; /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur-base: 200ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+  --dur-entrance: 620ms; /* @kind other */
+
+  --ease-snap: cubic-bezier(0.16, 1.2, 0.3, 1); /* @kind other */
+  --ease-overshoot: cubic-bezier(0.34, 1.8, 0.5, 1); /* @kind other */
+  --ease-out-hard: cubic-bezier(0.05, 0.9, 0.15, 1); /* @kind other */
+  --ease-in-hard: cubic-bezier(0.85, 0, 1, 0.5); /* @kind other */
+  --ease-linear: linear; /* @kind other */
+
+  --wiggle-speed: 400ms; /* @kind other */
+}
+
+@keyframes psn-wiggle {
+  0%   { clip-path: polygon(1% 6%, 99% 1%, 98% 94%, 2% 99%); }
+  50%  { clip-path: polygon(0% 2%, 98% 9%, 100% 99%, 1% 92%); }
+  100% { clip-path: polygon(1% 6%, 99% 1%, 98% 94%, 2% 99%); }
+}
+@keyframes psn-fly-in {
+  0%   { transform: translateX(120vw) rotate(6deg); }
+  80%  { transform: translateX(-1.5%) rotate(var(--tilt-hair)); }
+  100% { transform: translateX(0) rotate(var(--tilt-hair)); }
+}
+@keyframes psn-fly-out {
+  0%   { transform: translateX(0) rotate(var(--tilt-hair)); }
+  100% { transform: translateX(120vw) rotate(8deg); }
+}
+@keyframes psn-stamp {
+  0%   { transform: scale(2.4) rotate(-14deg); opacity: 0; }
+  60%  { transform: scale(0.94) rotate(-6deg); opacity: 1; }
+  100% { transform: scale(1) rotate(var(--tilt-sm)); opacity: 1; }
+}
+@keyframes psn-jitter {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-1px, 1px) rotate(-0.4deg); }
+  50% { transform: translate(1px, -1px) rotate(0.4deg); }
+  75% { transform: translate(-1px, -1px) rotate(-0.2deg); }
+}
+@keyframes psn-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes psn-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes psn-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-base: 1ms; /* @kind other */ --dur-slow: 1ms; /* @kind other */ --dur-entrance: 1ms; /* @kind other */ --wiggle-speed: 0ms; /* @kind other */ }
+}

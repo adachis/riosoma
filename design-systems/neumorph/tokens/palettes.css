@@ -1,0 +1,821 @@
+/* Neumorph palettes — 13 colour schemes.
+   Every scheme redefines the same contract: one surface colour shared by page and
+   every component, a light stop and a dark stop for the dual shadow, three accents
+   and four semantics — PLUS the derived aliases and the full shadow set. The
+   derived tokens are repeated inside each scope on purpose: a custom property that
+   references another is resolved where it is DECLARED, so a scheme that only
+   redefined --neu-* would leave every alias stuck on the :root scheme's values.
+   Apply with class="neu-theme-<id>" on any container; :root carries Slate. */
+
+/* Slate — light */
+:root{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#E6EBF2;
+--neu-surface-2:#EDF1F7;
+--neu-light:#FFFFFF;
+--neu-dark:#A9B7CC;
+--neu-dark-strong:#8C9DB8;
+--neu-text:#222E42;
+--neu-text-muted:#5C6B84;
+--neu-text-faint:#8A97AB;
+--neu-accent:#4C6FE7;
+--neu-accent-2:#3AA79B;
+--neu-accent-3:#C25C86;
+--neu-on-accent:#FFFFFF;
+--neu-success:#3AA79B;
+--neu-warning:#C08508;
+--neu-danger:#D0433D;
+--neu-info:#4C6FE7;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Slate — light */
+.neu-theme-slate{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#E6EBF2;
+--neu-surface-2:#EDF1F7;
+--neu-light:#FFFFFF;
+--neu-dark:#A9B7CC;
+--neu-dark-strong:#8C9DB8;
+--neu-text:#222E42;
+--neu-text-muted:#5C6B84;
+--neu-text-faint:#8A97AB;
+--neu-accent:#4C6FE7;
+--neu-accent-2:#3AA79B;
+--neu-accent-3:#C25C86;
+--neu-on-accent:#FFFFFF;
+--neu-success:#3AA79B;
+--neu-warning:#C08508;
+--neu-danger:#D0433D;
+--neu-info:#4C6FE7;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Spectrum — light */
+.neu-theme-spectrum{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#ECE7E1;
+--neu-surface-2:#F3EFEA;
+--neu-light:#FFFFFF;
+--neu-dark:#C6BCB0;
+--neu-dark-strong:#AEA294;
+--neu-text:#332B22;
+--neu-text-muted:#6E6355;
+--neu-text-faint:#948977;
+--neu-accent:#F3722C;
+--neu-accent-2:#43AA8B;
+--neu-accent-3:#277DA1;
+--neu-on-accent:#3A2A18;
+--neu-success:#2F8E71;
+--neu-warning:#C4740E;
+--neu-danger:#D93436;
+--neu-info:#277DA1;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Midnight Gold — dark */
+.neu-theme-midnight{
+color-scheme:dark;
+--neu-scheme:dark; /* @kind other */
+--neu-surface:#0E1B2B;
+--neu-surface-2:#132335;
+--neu-light:#1D3350;
+--neu-dark:#05090F;
+--neu-dark-strong:#02040A;
+--neu-text:#EAF1FA;
+--neu-text-muted:#93A6BF;
+--neu-text-faint:#65788F;
+--neu-accent:#FFC300;
+--neu-accent-2:#FFD60A;
+--neu-accent-3:#003566;
+--neu-on-accent:#001D3D;
+--neu-success:#2FA98F;
+--neu-warning:#FFC300;
+--neu-danger:#E1495B;
+--neu-info:#4D8FD1;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Voltage — dark */
+.neu-theme-voltage{
+color-scheme:dark;
+--neu-scheme:dark; /* @kind other */
+--neu-surface:#1F1030;
+--neu-surface-2:#26143A;
+--neu-light:#331D4C;
+--neu-dark:#110818;
+--neu-dark-strong:#080310;
+--neu-text:#F4ECFF;
+--neu-text-muted:#B7A2D4;
+--neu-text-faint:#8570A3;
+--neu-accent:#FF0054;
+--neu-accent-2:#FFBD00;
+--neu-accent-3:#390099;
+--neu-on-accent:#1A0620;
+--neu-success:#00C48C;
+--neu-warning:#FFBD00;
+--neu-danger:#FF0054;
+--neu-info:#9B6BFF;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Harbor — light */
+.neu-theme-harbor{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#E3ECEF;
+--neu-surface-2:#EBF3F5;
+--neu-light:#FEFFFF;
+--neu-dark:#A7BEC6;
+--neu-dark-strong:#8DA8B2;
+--neu-text:#152A44;
+--neu-text-muted:#4E6A85;
+--neu-text-faint:#7D93A8;
+--neu-accent:#E63946;
+--neu-accent-2:#457B9D;
+--neu-accent-3:#1D3557;
+--neu-on-accent:#FFFFFF;
+--neu-success:#2F7A61;
+--neu-warning:#B07E14;
+--neu-danger:#E63946;
+--neu-info:#457B9D;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Apricot — light */
+.neu-theme-apricot{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#F1E4D8;
+--neu-surface-2:#F7EEE5;
+--neu-light:#FFF9F1;
+--neu-dark:#CDB49E;
+--neu-dark-strong:#B79D85;
+--neu-text:#42342A;
+--neu-text-muted:#7C6857;
+--neu-text-faint:#A08D7B;
+--neu-accent:#F28482;
+--neu-accent-2:#84A59D;
+--neu-accent-3:#F6BD60;
+--neu-on-accent:#3A2A20;
+--neu-success:#5E8378;
+--neu-warning:#B98A2E;
+--neu-danger:#D8615F;
+--neu-info:#5B7F94;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Ember — dark */
+.neu-theme-ember{
+color-scheme:dark;
+--neu-scheme:dark; /* @kind other */
+--neu-surface:#1E3542;
+--neu-surface-2:#25404F;
+--neu-light:#2E4E60;
+--neu-dark:#132330;
+--neu-dark-strong:#0B1720;
+--neu-text:#F3F0E7;
+--neu-text-muted:#A9BCC4;
+--neu-text-faint:#7E9199;
+--neu-accent:#FE7F2D;
+--neu-accent-2:#FCCA46;
+--neu-accent-3:#A1C181;
+--neu-on-accent:#20140A;
+--neu-success:#A1C181;
+--neu-warning:#FCCA46;
+--neu-danger:#FE7F2D;
+--neu-info:#7FC0AC;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Lagoon — light */
+.neu-theme-lagoon{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#DCEDE4;
+--neu-surface-2:#E6F4EC;
+--neu-light:#F6FFFA;
+--neu-dark:#A8C4B6;
+--neu-dark-strong:#8DAE9E;
+--neu-text:#0F3A54;
+--neu-text-muted:#3F6E77;
+--neu-text-faint:#6C9098;
+--neu-accent:#38A3A5;
+--neu-accent-2:#57CC99;
+--neu-accent-3:#22577A;
+--neu-on-accent:#04212C;
+--neu-success:#2F8F65;
+--neu-warning:#A97A16;
+--neu-danger:#C7444C;
+--neu-info:#22577A;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Moss Neon — dark */
+.neu-theme-mossneon{
+color-scheme:dark;
+--neu-scheme:dark; /* @kind other */
+--neu-surface:#2A3B2F;
+--neu-surface-2:#33473A;
+--neu-light:#3E5645;
+--neu-dark:#1A2620;
+--neu-dark-strong:#101A14;
+--neu-text:#EAF6EC;
+--neu-text-muted:#A7BFAE;
+--neu-text-faint:#7E9686;
+--neu-accent:#00FDDC;
+--neu-accent-2:#FF5666;
+--neu-accent-3:#FFCCC9;
+--neu-on-accent:#0F2019;
+--neu-success:#00FDDC;
+--neu-warning:#FFCCC9;
+--neu-danger:#FF5666;
+--neu-info:#8FD8C6;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Candy — light */
+.neu-theme-candy{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#EDE9F5;
+--neu-surface-2:#F4F1FA;
+--neu-light:#FFFFFF;
+--neu-dark:#BFB6D4;
+--neu-dark-strong:#A69BC0;
+--neu-text:#332C42;
+--neu-text-muted:#6E6488;
+--neu-text-faint:#948BA8;
+--neu-accent:#FF70A6;
+--neu-accent-2:#70D6FF;
+--neu-accent-3:#FFD670;
+--neu-on-accent:#3A1428;
+--neu-success:#2E8F6C;
+--neu-warning:#B58A16;
+--neu-danger:#E14C86;
+--neu-info:#2A8CB5;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Meadow — light */
+.neu-theme-meadow{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#E6EFE7;
+--neu-surface-2:#EEF5EF;
+--neu-light:#FBFFF6;
+--neu-dark:#B3C6B5;
+--neu-dark-strong:#9AB09D;
+--neu-text:#173840;
+--neu-text-muted:#4A6A62;
+--neu-text-faint:#788F86;
+--neu-accent:#247BA0;
+--neu-accent-2:#70C1B3;
+--neu-accent-3:#FF1654;
+--neu-on-accent:#FFFFFF;
+--neu-success:#2E8477;
+--neu-warning:#A97F13;
+--neu-danger:#D81046;
+--neu-info:#247BA0;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Marigold — light */
+.neu-theme-marigold{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#E7E7D3;
+--neu-surface-2:#F0F0E0;
+--neu-light:#FBFBEE;
+--neu-dark:#B8B8A0;
+--neu-dark-strong:#A0A088;
+--neu-text:#0A3462;
+--neu-text-muted:#5B6250;
+--neu-text-faint:#82886F;
+--neu-accent:#EE964B;
+--neu-accent-2:#F4D35E;
+--neu-accent-3:#083D77;
+--neu-on-accent:#2A1607;
+--neu-success:#3E7D55;
+--neu-warning:#A5851B;
+--neu-danger:#D8401E;
+--neu-info:#083D77;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+
+/* Sage — light */
+.neu-theme-sage{
+color-scheme:light;
+--neu-scheme:light; /* @kind other */
+--neu-surface:#E4EBE7;
+--neu-surface-2:#EDF3F0;
+--neu-light:#F8FFFC;
+--neu-dark:#B0BDB6;
+--neu-dark-strong:#98A79F;
+--neu-text:#2F3A32;
+--neu-text-muted:#617068;
+--neu-text-faint:#8A968E;
+--neu-accent:#4E8F6E;
+--neu-accent-2:#A2E3C4;
+--neu-accent-3:#7E8D85;
+--neu-on-accent:#FFFFFF;
+--neu-success:#3F7A5C;
+--neu-warning:#96751C;
+--neu-danger:#B0524E;
+--neu-info:#5E7169;
+--page-bg:var(--neu-surface);
+--surface-raised:var(--neu-surface);
+--surface-sunken:var(--neu-surface);
+--surface-tint:var(--neu-surface-2);
+--text-body:var(--neu-text);
+--text-heading:var(--neu-text);
+--text-muted:var(--neu-text-muted);
+--text-faint:var(--neu-text-faint);
+--text-on-accent:var(--neu-on-accent);
+--text-link:var(--neu-accent);
+--accent:var(--neu-accent);
+--accent-2:var(--neu-accent-2);
+--accent-3:var(--neu-accent-3);
+--focus-ring:var(--neu-accent);
+--edge-hairline:color-mix(in oklab,var(--neu-dark) 45%,transparent);
+--edge-highlight:color-mix(in oklab,var(--neu-light) 70%,transparent);
+--accent-wash:color-mix(in oklab,var(--neu-accent) 14%,var(--neu-surface));
+--accent-wash-strong:color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface));
+--accent-glow:color-mix(in oklab,var(--neu-accent) 45%,transparent);
+--success:var(--neu-success);
+--warning:var(--neu-warning);
+--danger:var(--neu-danger);
+--info:var(--neu-info);
+--track:color-mix(in oklab,var(--neu-dark) 22%,var(--neu-surface));
+--scrim:color-mix(in oklab,var(--neu-dark-strong) 55%,transparent);
+--sh-raise-1:-3px -3px 7px var(--neu-light), 3px 3px 7px var(--neu-dark); /* @kind shadow */
+--sh-raise-2:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark); /* @kind shadow */
+--sh-raise-3:-10px -10px 24px var(--neu-light), 10px 10px 24px var(--neu-dark); /* @kind shadow */
+--sh-raise-4:-16px -16px 38px var(--neu-light), 16px 16px 38px var(--neu-dark-strong); /* @kind shadow */
+--sh-inset-1:inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light); /* @kind shadow */
+--sh-inset-2:inset 6px 6px 14px var(--neu-dark), inset -6px -6px 14px var(--neu-light); /* @kind shadow */
+--sh-inset-3:inset 10px 10px 24px var(--neu-dark), inset -10px -10px 24px var(--neu-light); /* @kind shadow */
+--sh-dish:-6px -6px 14px var(--neu-light), 6px 6px 14px var(--neu-dark), inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light); /* @kind shadow */
+--sh-flush:inset 0 0 0 1px color-mix(in oklab,var(--neu-dark) 45%,transparent); /* @kind shadow */
+--sh-accent-glow:0 6px 20px color-mix(in oklab,var(--neu-accent) 45%,transparent); /* @kind shadow */
+--sh-focus:0 0 0 3px color-mix(in oklab,var(--neu-accent) 30%,var(--neu-surface)), 0 0 0 2px var(--neu-accent); /* @kind shadow */
+}
+

@@ -1,0 +1,722 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`snapshots every field type, required evidence, and the allowed choices 1`] = `
+{
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "minimum": 0,
+      "type": "integer",
+    },
+    "emptyReason": {
+      "type": [
+        "string",
+        "null",
+      ],
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "additionalProperties": false,
+            "properties": {
+              "row": {
+                "type": "integer",
+              },
+              "sheet": {
+                "type": "integer",
+              },
+            },
+            "required": [
+              "sheet",
+              "row",
+            ],
+            "type": "object",
+          },
+          "doubts": {
+            "items": {
+              "enum": [
+                "text",
+                "longText",
+                "number",
+                "checkbox",
+                "date",
+                "singleSelect",
+                "multipleSelect",
+                "email",
+                "url",
+                "phone",
+                "createdTime",
+                "lastModifiedTime",
+                "createdBy",
+                "lastModifiedBy",
+                "recordId",
+                "link",
+                "lineItems",
+                "lookup",
+                "rollup",
+                "count",
+                "formula",
+                "currency",
+                "percent",
+                "duration",
+                "rating",
+                "user",
+                "autoNumber",
+                "attachment",
+                "dateRange",
+                "json",
+                "location",
+                "signature",
+                "button",
+                "barcode",
+                "time",
+                "multiCurrency",
+                "changeLog",
+              ],
+              "type": "string",
+            },
+            "type": "array",
+            "uniqueItems": true,
+          },
+          "sources": {
+            "additionalProperties": false,
+            "properties": {
+              "attachment": {
+                "type": "string",
+              },
+              "autoNumber": {
+                "type": "string",
+              },
+              "barcode": {
+                "type": "string",
+              },
+              "button": {
+                "type": "string",
+              },
+              "changeLog": {
+                "type": "string",
+              },
+              "checkbox": {
+                "type": "string",
+              },
+              "count": {
+                "type": "string",
+              },
+              "createdBy": {
+                "type": "string",
+              },
+              "createdTime": {
+                "type": "string",
+              },
+              "currency": {
+                "type": "string",
+              },
+              "date": {
+                "type": "string",
+              },
+              "dateRange": {
+                "type": "string",
+              },
+              "duration": {
+                "type": "string",
+              },
+              "email": {
+                "type": "string",
+              },
+              "formula": {
+                "type": "string",
+              },
+              "json": {
+                "type": "string",
+              },
+              "lastModifiedBy": {
+                "type": "string",
+              },
+              "lastModifiedTime": {
+                "type": "string",
+              },
+              "lineItems": {
+                "type": "string",
+              },
+              "link": {
+                "type": "string",
+              },
+              "location": {
+                "type": "string",
+              },
+              "longText": {
+                "type": "string",
+              },
+              "lookup": {
+                "type": "string",
+              },
+              "multiCurrency": {
+                "type": "string",
+              },
+              "multipleSelect": {
+                "type": "string",
+              },
+              "number": {
+                "type": "string",
+              },
+              "percent": {
+                "type": "string",
+              },
+              "phone": {
+                "type": "string",
+              },
+              "rating": {
+                "type": "string",
+              },
+              "recordId": {
+                "type": "string",
+              },
+              "rollup": {
+                "type": "string",
+              },
+              "signature": {
+                "type": "string",
+              },
+              "singleSelect": {
+                "type": "string",
+              },
+              "text": {
+                "type": "string",
+              },
+              "time": {
+                "type": "string",
+              },
+              "url": {
+                "type": "string",
+              },
+              "user": {
+                "type": "string",
+              },
+            },
+            "required": [
+              "text",
+            ],
+            "type": "object",
+          },
+          "values": {
+            "additionalProperties": false,
+            "properties": {
+              "attachment": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string",
+                    },
+                    "type": "array",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The attachment value.",
+              },
+              "autoNumber": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The autoNumber value.",
+              },
+              "barcode": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The barcode value.",
+              },
+              "button": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The button value.",
+              },
+              "changeLog": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The changeLog value.",
+              },
+              "checkbox": {
+                "anyOf": [
+                  {
+                    "type": "boolean",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The checkbox value.",
+              },
+              "count": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The count value.",
+              },
+              "createdBy": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The createdBy value.",
+              },
+              "createdTime": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The createdTime value.",
+              },
+              "currency": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The currency value.",
+              },
+              "date": {
+                "anyOf": [
+                  {
+                    "format": "date",
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The date value.",
+              },
+              "dateRange": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "end": {
+                        "format": "date",
+                        "type": "string",
+                      },
+                      "start": {
+                        "format": "date",
+                        "type": "string",
+                      },
+                    },
+                    "required": [
+                      "start",
+                      "end",
+                    ],
+                    "type": "object",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The dateRange value.",
+              },
+              "duration": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The duration value.",
+              },
+              "email": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The email value.",
+              },
+              "formula": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The formula value.",
+              },
+              "json": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The json value.",
+              },
+              "lastModifiedBy": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The lastModifiedBy value.",
+              },
+              "lastModifiedTime": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The lastModifiedTime value.",
+              },
+              "lineItems": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                        },
+                        "values": {
+                          "type": "object",
+                        },
+                      },
+                      "required": [
+                        "id",
+                        "values",
+                      ],
+                      "type": "object",
+                    },
+                    "type": "array",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The lineItems value.",
+              },
+              "link": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string",
+                    },
+                    "type": "array",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The link value.",
+              },
+              "location": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "label": {
+                        "type": [
+                          "string",
+                          "null",
+                        ],
+                      },
+                      "lat": {
+                        "type": "number",
+                      },
+                      "lng": {
+                        "type": "number",
+                      },
+                    },
+                    "required": [
+                      "lat",
+                      "lng",
+                    ],
+                    "type": "object",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The location value.",
+              },
+              "longText": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The longText value.",
+              },
+              "lookup": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The lookup value.",
+              },
+              "multiCurrency": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "amount": {
+                        "type": "number",
+                      },
+                      "code": {
+                        "type": "string",
+                      },
+                    },
+                    "required": [
+                      "amount",
+                      "code",
+                    ],
+                    "type": "object",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The multiCurrency value.",
+              },
+              "multipleSelect": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "enum": [
+                        "Ready",
+                        "Sent",
+                      ],
+                      "type": "string",
+                    },
+                    "type": "array",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The multipleSelect value.",
+              },
+              "number": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The number value.",
+              },
+              "percent": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The percent value.",
+              },
+              "phone": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The phone value.",
+              },
+              "rating": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The rating value.",
+              },
+              "recordId": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The recordId value.",
+              },
+              "rollup": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The rollup value.",
+              },
+              "signature": {
+                "anyOf": [
+                  {
+                    "type": "null",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The signature value.",
+              },
+              "singleSelect": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "Ready",
+                      "Sent",
+                    ],
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The singleSelect value.",
+              },
+              "text": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The text value.",
+              },
+              "time": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The time value.",
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The url value.",
+              },
+              "user": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string",
+                    },
+                    "type": "array",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+                "description": "The user value.",
+              },
+            },
+            "required": [
+              "text",
+            ],
+            "type": "object",
+          },
+        },
+        "required": [
+          "values",
+          "at",
+          "sources",
+          "doubts",
+        ],
+        "type": "object",
+      },
+      "type": "array",
+    },
+  },
+  "required": [
+    "count",
+    "emptyReason",
+    "rows",
+  ],
+  "type": "object",
+}
+`;

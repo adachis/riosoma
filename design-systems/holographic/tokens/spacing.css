@@ -1,0 +1,29 @@
+/* Holographic — spacing. Base unit 4px, with a 6px half-step for
+   the tight insets glass chrome needs. */
+:root {
+  --s-0: 0px; /* @kind spacing */
+  --s-px: 1px; /* @kind spacing */
+  --s-1: 2px; /* @kind spacing */
+  --s-2: 4px; /* @kind spacing */
+  --s-3: 6px; /* @kind spacing */
+  --s-4: 8px; /* @kind spacing */
+  --s-5: 12px; /* @kind spacing */
+  --s-6: 16px; /* @kind spacing */
+  --s-7: 20px; /* @kind spacing */
+  --s-8: 24px; /* @kind spacing */
+  --s-9: 32px; /* @kind spacing */
+  --s-10: 40px; /* @kind spacing */
+  --s-11: 48px; /* @kind spacing */
+  --s-12: 64px; /* @kind spacing */
+  --s-13: 80px; /* @kind spacing */
+  --s-14: 96px; /* @kind spacing */
+  --s-15: 128px; /* @kind spacing */
+  --s-16: 160px; /* @kind spacing */
+
+  --gutter: var(--s-8); /* @kind spacing */
+  --page-pad: clamp(20px, 4vw, 64px); /* @kind spacing */
+  --measure: 68ch; /* @kind spacing */
+  --measure-tight: 46ch; /* @kind spacing */
+  --container: 1240px; /* @kind spacing */
+  --container-wide: 1560px; /* @kind spacing */
+}

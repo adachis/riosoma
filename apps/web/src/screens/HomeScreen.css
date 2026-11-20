@@ -1,0 +1,9 @@
+@layer rio.app {
+  .rio-home {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-3);
+    max-inline-size: 960px;
+    padding: var(--rio-space-8) var(--rio-space-6);
+  }
+}

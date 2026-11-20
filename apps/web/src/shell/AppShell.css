@@ -1,0 +1,357 @@
+@layer rio.app {
+  .rio-shell__sidebar-slot:not(:empty) + .rio-shell__default-nav {
+    display: none;
+  }
+
+  .rio-shell {
+    /* The footer is reserved on every route, before its settings controls arrive. */
+    display: grid;
+    /* One column no wider than the window, so a wide row inside scrolls in place instead of
+       widening the page. */
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: var(--rio-header-height) minmax(0, 1fr) var(--rio-footer-height);
+    block-size: 100dvh;
+    block-size: var(--rio-shell-viewport, 100dvh);
+    /* The shell is the box every absolutely positioned descendant is placed against, so the clip
+       below reaches them too.  A control's hidden input is one of those: left to find the page as
+       its containing block, it escapes the clip and stretches what the window can scroll to, which
+       lets a phone drag the whole app out of view and a wide row inside widen the page. */
+    position: relative;
+    overflow: hidden;
+    /* Hidden controls may scroll their ancestors when focused; the fixed footer must stay put. */
+    overflow: clip;
+  }
+
+  /* The shell fills the window, so whatever follows it starts at the window's bottom edge.  The
+     status line kept there for screen readers is hidden but still 1px tall, which made the page a
+     pixel taller than the window and let a phone scroll it.  Placed at the top, it stays inside. */
+  .rio-shell ~ .rio-visually-hidden {
+    inset-block-start: 0;
+  }
+
+  .rio-shell__header {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-4);
+    padding-inline: var(--rio-space-4);
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+  }
+
+  .rio-shell__brand {
+    display: inline-flex;
+    align-items: center;
+    /* Clear space around the mark, so it never crowds the menu button or the header's controls. */
+    margin-inline: var(--rio-space-2) var(--rio-space-5);
+    color: var(--rio-text);
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-lg);
+    font-weight: var(--rio-weight-bold);
+    text-decoration: none;
+  }
+
+  .rio-shell__header-end {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-3);
+    margin-inline-start: auto;
+  }
+
+  .rio-shell__org {
+    overflow: hidden;
+    max-inline-size: 240px;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rio-shell__body {
+    display: flex;
+    min-block-size: 0;
+  }
+
+  @media (min-width: 1024px) {
+    /* Record side panels stay beside the conversation instead of underneath it. */
+    .rio-shell:has(.rio-assistant__dock) .rio-shell__body {
+      padding-inline-end: min(30rem, 100vi);
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* An open record needs its controls beside the conversation at narrow tablet widths. */
+    .rio-shell:has(.rio-assistant__dock):has(.rio-record-host--panel) {
+      --rio-assistant-dock-width: min(30rem, 35vi);
+    }
+    .rio-shell:has(.rio-assistant__dock):has(.rio-record-host--panel) .rio-shell__body {
+      padding-inline-end: var(--rio-assistant-dock-width);
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    /* Both panels keep their controls reachable while leaving room for the page between them. */
+    .rio-shell:has(.rio-assistant__dock):has(.rio-shell__dock) {
+      --rio-assistant-dock-width: min(30rem, 25vi);
+    }
+    .rio-shell:has(.rio-assistant__dock):has(.rio-shell__dock) .rio-shell__body {
+      padding-inline-end: var(--rio-assistant-dock-width);
+    }
+    .rio-shell:has(.rio-assistant__dock) .rio-shell__dock {
+      inline-size: min(var(--rio-dock-width), 25vi);
+    }
+  }
+
+  .rio-shell__sidebar {
+    position: relative;
+    flex: none;
+    overflow-y: auto;
+    padding: var(--rio-space-3) var(--rio-space-2);
+    border-inline-end: 1px solid var(--rio-border);
+    background: var(--rio-surface-sunken);
+  }
+
+  .rio-shell__nav {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-shell__nav-item {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    block-size: var(--rio-control-height);
+    min-block-size: var(--rio-target-primary);
+    padding-inline: var(--rio-space-3);
+    border-radius: var(--rio-radius);
+    color: var(--rio-text);
+    text-decoration: none;
+  }
+
+  /* A sidebar entry that opens something rather than going somewhere, drawn like the links. */
+  .rio-shell__nav-button {
+    inline-size: 100%;
+    border: 0;
+    background: none;
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .rio-shell__nav-item:hover {
+    background: var(--rio-hover);
+  }
+
+  .rio-shell__nav-item[data-status='active'] {
+    background: var(--rio-selected);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-shell__dock {
+    flex: none;
+    inline-size: var(--rio-dock-width);
+    overflow-y: auto;
+    border-inline-start: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+  }
+
+  .rio-shell__main {
+    flex: 1;
+    min-inline-size: 0;
+    overflow: auto;
+    outline: none;
+  }
+
+  .rio-shell__footer {
+    display: flex;
+    min-inline-size: 0;
+    gap: var(--rio-space-3);
+    align-items: center;
+    padding-inline: var(--rio-space-4);
+    border-block-start: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+  @media (max-width: 640px) {
+    .rio-shell__brand .rio-org-logo {
+      inline-size: 94px;
+      block-size: 32px;
+    }
+    .rio-shell__brand {
+      margin-inline: var(--rio-space-1) var(--rio-space-2);
+    }
+  }
+
+  .rio-shell__menu,
+  .rio-shell__rio-header {
+    display: none;
+  }
+
+  .rio-shell__rio-header {
+    inline-size: 32px;
+    block-size: 32px;
+  }
+
+  @media (max-width: 767px) {
+    .rio-shell {
+      grid-template-rows:
+        minmax(var(--rio-header-height), max-content)
+        minmax(0, 1fr)
+        var(--rio-footer-height);
+    }
+
+    .rio-shell__sidebar,
+    .rio-shell__rio,
+    .rio-shell__org,
+    .rio-shell__label,
+    .rio-shell__help-menu {
+      display: none;
+    }
+
+    .rio-shell__menu,
+    .rio-shell__rio-header {
+      display: inline-flex;
+    }
+
+    .rio-shell__header {
+      gap: var(--rio-space-2);
+      padding-inline: var(--rio-space-2);
+    }
+
+    .rio-shell__brand {
+      min-inline-size: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .rio-shell__brand :is(.rio-org-logo, .rio-brand) {
+      max-inline-size: 100%;
+    }
+
+    .rio-shell__header-end {
+      flex-shrink: 0;
+    }
+
+    /* Icon targets supply their own spacing on phones. */
+    .rio-shell__header-end {
+      min-inline-size: 0;
+      gap: 0;
+    }
+  }
+}
+
+/* The base layout tokens are unlayered, so this shell-only size must share their cascade. */
+:root:has(.rio-shell) {
+  --rio-footer-height: 32px;
+  --rio-toast-offset-block-end: calc(var(--rio-footer-height) + var(--rio-space-4));
+}
+
+@media (max-width: 767px) {
+  :root:has(.rio-shell[data-settings-page]) {
+    --rio-footer-height: max(48px, calc(var(--rio-target-primary) + 4px));
+  }
+}
+
+@layer rio.app {
+  .rio-sidebar-resizer {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: -3px;
+    inline-size: 6px;
+    cursor: col-resize;
+    touch-action: none;
+  }
+
+  .rio-sidebar-resizer:hover,
+  .rio-sidebar-resizer:focus-visible {
+    background: var(--rio-aa-focus);
+    box-shadow: none;
+  }
+}
+
+@layer rio.app {
+  .rio-shell__footer-brand {
+    flex: none;
+    min-inline-size: 0;
+  }
+  .rio-shell__footer-brand .rio-platform-mark {
+    margin-inline-end: 0;
+  }
+  /* Narrow settings footers keep the platform identity while reserving room for touch actions. */
+  @media (max-width: 767px) {
+    .rio-shell[data-settings-page] .rio-platform-mark {
+      gap: var(--rio-space-1);
+    }
+    .rio-shell[data-settings-page] .rio-platform-mark .rio-brand {
+      inline-size: 52px;
+    }
+  }
+  .rio-shell__footer-page {
+    flex: 1;
+    min-inline-size: 0;
+  }
+  @media (max-width: 767px) {
+    /* The loading fallback and the saved controls share one touch-sized slot from first paint. */
+    .rio-shell[data-settings-page] .rio-shell__footer-page {
+      min-block-size: var(--rio-target-primary);
+      display: grid;
+      align-items: center;
+    }
+  }
+  .rio-personal-menu__trigger {
+    padding-inline: var(--rio-space-1);
+  }
+  .rio-quick-appearance {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+  .rio-shell__header-end {
+    min-inline-size: 0;
+    flex: none;
+  }
+  .rio-shell__overflow-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-2);
+  }
+  @media (max-width: 1023px) {
+    .rio-shell__org {
+      display: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .rio-shell__header-end > [data-help-trigger] {
+      display: none;
+    }
+    .rio-shell__header {
+      overflow: visible;
+    }
+    .rio-shell__header-end {
+      flex-wrap: nowrap;
+    }
+    .rio-shell__footer {
+      padding-inline: var(--rio-space-2);
+    }
+  }
+}
+
+.rio-demo-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rio-space-2) var(--rio-space-4);
+  padding: var(--rio-space-2) var(--rio-space-4);
+  color: var(--rio-aa-text-muted);
+  background: var(--rio-surface);
+  border-block-end: var(--rio-space-px) solid var(--rio-border);
+  font-size: var(--rio-text-sm);
+}
+
+.rio-shell[data-demo] {
+  grid-template-rows: var(--rio-header-height) auto minmax(0, 1fr) var(--rio-footer-height);
+}

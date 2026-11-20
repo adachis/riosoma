@@ -1,0 +1,10 @@
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-app);color:var(--text-primary);font-family:var(--font-ui);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--cyan-500);text-decoration:none}
+a:hover{color:var(--cyan-200)}
+::selection{background:rgba(56,247,255,.28);color:#fff}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:8px}
+::-webkit-scrollbar-track{background:transparent}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes td{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}

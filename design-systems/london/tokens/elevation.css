@@ -1,0 +1,13 @@
+/* hard offset shadows, printed-ink feel. no soft ambient blur on flat UI.
+   Declared for every theme scope so shadows follow the local ink colour. */
+:root,[data-theme]{
+  --shadow-0:none;
+  --shadow-1:2px 2px 0 var(--border-strong);
+  --shadow-2:4px 4px 0 var(--border-strong);
+  --shadow-3:8px 8px 0 var(--border-strong);
+  --shadow-brand:4px 4px 0 var(--brand);
+  /* the two exceptions: floating overlays and dark-theme depth */
+  --shadow-overlay:0 24px 48px -12px color-mix(in oklab,var(--ink) 45%,transparent);
+  --shadow-pop:0 8px 20px -6px color-mix(in oklab,var(--ink) 32%,transparent);
+  --blur-veil:blur(8px); /* @kind other */
+}

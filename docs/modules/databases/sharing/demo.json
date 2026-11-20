@@ -1,0 +1,28 @@
+{
+  "id": "sharing",
+  "where": "database",
+  "steps": [
+    {
+      "anchor": "database.share",
+      "say": "demos.sharing.open",
+      "do": "open"
+    },
+    {
+      "anchor": "share.add",
+      "say": "demos.sharing.add"
+    },
+    {
+      "anchor": "share.people",
+      "say": "demos.sharing.people"
+    },
+    {
+      "anchor": "share.role",
+      "say": "demos.sharing.role",
+      "do": "open"
+    },
+    {
+      "anchor": "share.everyone",
+      "say": "demos.sharing.everyone"
+    }
+  ]
+}

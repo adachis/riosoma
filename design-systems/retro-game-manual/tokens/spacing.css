@@ -1,0 +1,33 @@
+:root{
+--ds-space-0:0;
+--ds-space-1:2px;
+--ds-space-2:4px;
+--ds-space-3:8px;
+--ds-space-4:12px;
+--ds-space-5:16px;
+--ds-space-6:24px;
+--ds-space-7:32px;
+--ds-space-8:48px;
+--ds-space-9:64px;
+--ds-space-10:96px;
+/* component paddings lifted verbatim from the source kit */
+--ds-pad-btn:6px 8px;
+--ds-pad-btn-lg:10px 16px;
+--ds-pad-field:0.5rem 1rem;
+--ds-pad-container:1.5rem 2rem;
+--ds-pad-container-rounded:1rem 1.5rem;
+--ds-pad-balloon:1rem 1.5rem;
+--ds-gutter:24px;
+--ds-page-margin:48px;
+--ds-column-gap:28px;
+--ds-measure:66ch;
+--ds-measure-narrow:44ch;
+/* Reference booklet sheet geometry (1200x900 landscape) */
+--ds-sheet-w:1200px;
+--ds-sheet-h:900px;
+--ds-sheet-margin:60px;
+--ds-sheet-head-y:60px;
+--ds-sheet-rule-y:125px;
+--ds-sheet-body-y:185px;
+--ds-sheet-col:510px;
+}

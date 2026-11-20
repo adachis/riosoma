@@ -1,0 +1,80 @@
+/* Semantic layer.
+   A theme sets 8 seeds; every other colour, shadow and overlay derives from them.
+   Because custom properties resolve where they are declared, each theme scope in
+   tokens/themes.css restates this same derived block — do not "optimise" that away. */
+:root{
+  --nt-seed-ink:#374836;
+  --nt-seed-paper:#f9fbf3;
+  --nt-seed-accent:#77a32a;
+  --nt-seed-accent-2:#4d908e;
+  --nt-seed-accent-3:#f9c74f;
+  --nt-seed-accent-4:#a1c181;
+  --nt-seed-on-accent:#f9fbf3;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:var(--nt-grove-moss);
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}

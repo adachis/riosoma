@@ -1,0 +1,26 @@
+/* Type scale — sizes lifted verbatim from the source templates. */
+:root{
+  --nt-fs-display-1:100px; --nt-lh-display-1:1.08em;
+  --nt-fs-display-2:80px;  --nt-lh-display-2:1.1em;
+  --nt-fs-h1:56px;         --nt-lh-h1:1.2em;
+  --nt-fs-h2:42px;         --nt-lh-h2:1.2em;
+  --nt-fs-h3:32px;         --nt-lh-h3:1.25em;
+  --nt-fs-h4:24px;         --nt-lh-h4:1.33em;
+  --nt-fs-h5:20px;         --nt-lh-h5:1.5em;
+  --nt-fs-h6:18px;         --nt-lh-h6:1.5em;
+  --nt-fs-body:16px;       --nt-lh-body:1.5em;
+  --nt-fs-body-lg:20px;
+  --nt-fs-small:14px;      --nt-lh-small:1.5em;
+  --nt-fs-micro:12px;      --nt-lh-micro:1.4em;
+
+  --nt-fw-light:300; /* @kind font */
+  --nt-fw-normal:400; /* @kind font */
+  --nt-fw-medium:500; /* @kind font */
+  --nt-fw-semibold:600; /* @kind font */
+  --nt-fw-bold:700; /* @kind font */
+
+  --nt-tracking-tight:-0.01em; /* @kind other */
+  --nt-tracking-normal:0; /* @kind other */
+  --nt-tracking-label:0.08em; /* @kind other */
+  --nt-tracking-wide:0.16em; /* @kind other */
+}

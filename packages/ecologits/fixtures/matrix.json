@@ -1,0 +1,52 @@
+{
+  "description": "The cases tools/ecologits_reference.py asks the Python package about.  Every model runs at every token count in every zone, where a null zone is the provider's own default.  The latency cases run at 1,000 tokens in the WOR zone.",
+  "models": [
+    {
+      "provider": "mistralai",
+      "model": "mistral-small-latest",
+      "why": "mixture of experts with fixed counts and a measured deployment"
+    },
+    { "provider": "mistralai", "model": "mistral-large-latest", "why": "dense" },
+    { "provider": "mistralai", "model": "mistral-medium-latest", "why": "dense with a parameter range" },
+    { "provider": "mistralai", "model": "voxtral-mini-latest", "why": "no measured deployment" },
+    { "provider": "openai", "model": "gpt-4o-mini", "why": "dense with a parameter range" },
+    {
+      "provider": "openai",
+      "model": "gpt-4o",
+      "why": "mixture of experts with a range of active parameters"
+    },
+    { "provider": "openai", "model": "gpt-5.5-pro", "why": "mixture of experts across many GPUs" },
+    { "provider": "anthropic", "model": "claude-sonnet-4-6", "why": "mixture of experts with a PUE range" },
+    { "provider": "anthropic", "model": "claude-sonnet-4-0", "why": "an alias" },
+    { "provider": "anthropic", "model": "claude-haiku-4-5-20251001", "why": "dense range with a PUE range" },
+    { "provider": "google_genai", "model": "gemini-2.5-pro", "why": "large mixture of experts" },
+    {
+      "provider": "google_genai",
+      "model": "gemma-4-26b-a4b-it",
+      "why": "small mixture of experts with fixed counts"
+    },
+    {
+      "provider": "cohere",
+      "model": "command-a-plus-05-2026",
+      "why": "active parameters outside the schema, read as dense"
+    },
+    {
+      "provider": "huggingface_hub",
+      "model": "databricks/dbrx-instruct",
+      "why": "mixture of experts with no measured deployment"
+    },
+    {
+      "provider": "huggingface_hub",
+      "model": "databricks/dolly-v2-12b",
+      "why": "dense with no measured deployment"
+    }
+  ],
+  "outputTokens": [1, 150, 1000, 4096],
+  "zones": [null, "WOR", "FRA", "AFG"],
+  "requestLatencySeconds": [0.5, 3, 120],
+  "unknown": [
+    { "provider": "openai", "model": "no-such-model", "zone": "WOR" },
+    { "provider": "no-such-provider", "model": "gpt-4o", "zone": "WOR" },
+    { "provider": "mistralai", "model": "mistral-small-latest", "zone": "XXX" }
+  ]
+}

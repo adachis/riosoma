@@ -1,0 +1,529 @@
+@layer rio.app {
+  .rio-dashboard {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-block-size: 0;
+    overflow-block: auto;
+    background: var(--rio-bg);
+  }
+  .rio-dashboard__header {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-3);
+    flex: none;
+    min-block-size: 48px;
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-4);
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+  }
+  .rio-dashboard__title {
+    flex: 1 1 0;
+    /* A small floor so the actions shorten before the title disappears. */
+    min-inline-size: min(calc(var(--rio-space-12) * 2), 25%);
+    margin: 0;
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-lg);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-dashboard__actions > .rio-toolbar {
+    justify-content: flex-end;
+  }
+  .rio-dashboard__actions {
+    --rio-toolbar-flex: 0 1 var(--rio-toolbar-full);
+    min-inline-size: var(--rio-toolbar-icons);
+    display: flex;
+  }
+  .rio-dashboard__empty {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: var(--rio-space-4);
+    flex: 1;
+    padding: var(--rio-space-6);
+    text-align: center;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-dashboard__empty p {
+    max-inline-size: 32rem;
+    margin: 0;
+  }
+
+  /* Twelve columns of rows 80 pixels tall.  Each tile names its cells in custom properties, so
+     the phone layout below can set them aside and stack the tiles in reading order. */
+  .rio-dashboard-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: 80px;
+    gap: var(--rio-space-3);
+    align-content: start;
+    padding: var(--rio-space-4);
+  }
+  .rio-dashboard-grid[data-editing] {
+    background: var(--rio-surface-sunken);
+  }
+  .rio-dashboard-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    grid-column: var(--rio-dashboard-x) / span var(--rio-dashboard-w);
+    grid-row: var(--rio-dashboard-y) / span var(--rio-dashboard-h);
+    min-inline-size: 0;
+    min-block-size: 0;
+    overflow: hidden;
+    background: var(--rio-surface);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-dashboard-tile[data-editing] {
+    border-style: dashed;
+    border-color: var(--rio-aa-border);
+  }
+  .rio-dashboard-tile[data-dragging] {
+    z-index: var(--rio-z-sticky);
+    border-style: solid;
+    border-color: var(--rio-accent);
+    box-shadow: var(--rio-shadow-3);
+  }
+  .rio-dashboard-tile__header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    flex: none;
+    min-block-size: 36px;
+    padding-block-start: var(--rio-space-2);
+    padding-inline: var(--rio-space-3) var(--rio-space-2);
+  }
+  .rio-dashboard-tile__title {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-bold);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-dashboard-tile__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-block-size: 0;
+    padding: var(--rio-space-3);
+    overflow: auto;
+    container-type: size;
+  }
+  /* While laying out, the tile's contents stop taking the pointer and the whole tile drags. */
+  .rio-dashboard-tile__shield {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: move;
+    touch-action: manipulation;
+  }
+  .rio-dashboard-tile__resize {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    z-index: 3;
+    inline-size: var(--rio-space-4);
+    block-size: var(--rio-space-4);
+    background: linear-gradient(135deg, transparent 50%, var(--rio-aa-border) 50%);
+    cursor: nwse-resize;
+    touch-action: none;
+  }
+  .rio-dashboard-tile__resize:dir(rtl) {
+    background: linear-gradient(225deg, transparent 50%, var(--rio-aa-border) 50%);
+    cursor: nesw-resize;
+  }
+  .rio-dashboard-tile__status {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: var(--rio-space-2);
+    flex: 1;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    text-align: center;
+  }
+  .rio-dashboard-tile__status p {
+    margin: 0;
+  }
+
+  .rio-dashboard-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-block-size: 0;
+  }
+  .rio-dashboard-number__value {
+    margin: 0;
+    font-family: var(--rio-font-display);
+    font-size: clamp(var(--rio-text-2xl), 40cqb, calc(var(--rio-text-3xl) * 2));
+    font-variant-numeric: tabular-nums;
+    font-weight: var(--rio-weight-bold);
+    line-height: var(--rio-leading-tight);
+    /* The tile shrinks the text until the whole number shows, so nothing is cut to an ellipsis. */
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .rio-dashboard-count {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-dashboard-chart {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-block-size: 0;
+  }
+  .rio-dashboard-chart__canvas {
+    flex: 1;
+    min-inline-size: 0;
+    min-block-size: 0;
+  }
+  .rio-dashboard-table {
+    flex: 1;
+    min-block-size: 0;
+    overflow: auto;
+    border-radius: var(--rio-radius);
+  }
+  .rio-dashboard-table:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-dashboard-table table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dashboard-table th,
+  .rio-dashboard-table td {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+  }
+  .rio-dashboard-table td,
+  .rio-dashboard-table thead th + th {
+    text-align: end;
+  }
+  .rio-dashboard-table td {
+    font-variant-numeric: tabular-nums;
+  }
+  .rio-dashboard-table thead th {
+    position: sticky;
+    inset-block-start: 0;
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  /* Each number in a chart's table opens the records behind it. */
+  .rio-dashboard-table__cell {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    margin-inline: calc(-1 * var(--rio-space-2));
+    border: none;
+    border-radius: var(--rio-radius);
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+  }
+  .rio-dashboard-table__cell:hover {
+    background: var(--rio-hover);
+  }
+  .rio-dashboard-table__cell:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  /* The records behind a part of a chart, in a sheet at the inline end. */
+  .rio-dashboard-drill {
+    inline-size: min(calc(var(--rio-dock-width) * 1.25), 100vi);
+  }
+  .rio-dashboard-drill__dialog {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-3);
+    block-size: 100%;
+  }
+  .rio-dashboard-drill__dialog .rio-dialog__title {
+    padding-inline-end: var(--rio-space-8);
+    overflow-wrap: anywhere;
+  }
+  .rio-dashboard-drill__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+  }
+  .rio-dashboard-drill__footer {
+    justify-content: flex-start;
+    padding-block-start: var(--rio-space-2);
+    border-block-start: 1px solid var(--rio-border);
+  }
+  .rio-dashboard-drill__open {
+    color: var(--rio-aa-link);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-dashboard-drill__open:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+    border-radius: var(--rio-radius);
+  }
+  .rio-dashboard-drill__note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dashboard-drill-records__count {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dashboard-drill-records__status {
+    display: grid;
+    justify-items: center;
+    gap: var(--rio-space-2);
+    padding-block: var(--rio-space-4);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    text-align: center;
+  }
+  .rio-dashboard-drill-records__status p {
+    margin: 0;
+  }
+  .rio-dashboard-drill-records__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rio-dashboard-drill-records__item {
+    padding-block: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-dashboard-drill-records__name {
+    color: var(--rio-aa-link);
+    font-weight: var(--rio-weight-medium);
+    overflow-wrap: anywhere;
+  }
+  .rio-dashboard-drill-records__name:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+    border-radius: var(--rio-radius);
+  }
+  .rio-dashboard-drill-records__fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-1) var(--rio-space-3);
+    margin-block: var(--rio-space-1) 0;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dashboard-drill-records__fields div {
+    display: flex;
+    gap: var(--rio-space-1);
+  }
+  .rio-dashboard-drill-records__fields dt {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-dashboard-drill-records__fields dd {
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rio-dashboard-records {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    flex: 1;
+    min-block-size: 0;
+  }
+  .rio-dashboard-records__list {
+    flex: 1;
+    min-block-size: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+  }
+  .rio-dashboard-records__item {
+    padding-block: var(--rio-space-1);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-dashboard-records__name {
+    display: block;
+    color: var(--rio-aa-link);
+    font-weight: var(--rio-weight-medium);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: var(--rio-radius);
+  }
+  .rio-dashboard-records__name:hover {
+    text-decoration: underline;
+  }
+  .rio-dashboard-records__name:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-dashboard-records__fields {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--rio-space-3);
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+  .rio-dashboard-records__fields > div {
+    display: flex;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+  .rio-dashboard-records__fields dt {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-dashboard-records__fields dd {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rio-dashboard-note {
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+    overflow-wrap: anywhere;
+  }
+  .rio-dashboard-note > :first-child {
+    margin-block-start: 0;
+  }
+  .rio-dashboard-note h4,
+  .rio-dashboard-note h5,
+  .rio-dashboard-note h6 {
+    margin-block: var(--rio-space-2) var(--rio-space-1);
+    font-family: var(--rio-font-display);
+    line-height: var(--rio-leading-tight);
+  }
+  .rio-dashboard-note h4 {
+    font-size: var(--rio-text-lg);
+  }
+  .rio-dashboard-note h5 {
+    font-size: var(--rio-text-md);
+  }
+  .rio-dashboard-note h6 {
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dashboard-note p,
+  .rio-dashboard-note ul,
+  .rio-dashboard-note ol {
+    margin-block: 0 var(--rio-space-2);
+  }
+  .rio-dashboard-note ul,
+  .rio-dashboard-note ol {
+    padding-inline-start: var(--rio-space-6);
+  }
+  .rio-dashboard-note a {
+    color: var(--rio-aa-link);
+  }
+  .rio-dashboard-note code {
+    padding-inline: var(--rio-space-1);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-sunken);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-dashboard-editor {
+    block-size: min(85dvb, calc(var(--rio-space-12) * 16));
+  }
+  .rio-dashboard-editor__form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    min-block-size: 0;
+  }
+  .rio-dashboard-editor__fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    padding: var(--rio-space-1);
+  }
+  .rio-dashboard-editor__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: var(--rio-space-3);
+    align-items: start;
+  }
+  .rio-dashboard-editor__filter {
+    min-inline-size: 0;
+    margin: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-dashboard-editor__filter legend {
+    padding-inline: var(--rio-space-1);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-dashboard-editor__checkboxes .rio-checkbox-group__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: var(--rio-space-2);
+  }
+
+  .rio-dashboard-visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* Phones get one column: tiles keep their heights and stack in reading order. */
+  @media (max-width: 767px) {
+    .rio-dashboard-grid {
+      grid-template-columns: minmax(0, 1fr);
+      padding: var(--rio-space-3);
+    }
+    .rio-dashboard-tile {
+      grid-column: 1 / -1;
+      grid-row: auto / span var(--rio-dashboard-h);
+    }
+    /* The records behind a chart take the whole width of a phone. */
+    .rio-dashboard-drill {
+      inline-size: 100vi;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-dashboard-tile[data-dragging] {
+      outline: 2px solid;
+    }
+    .rio-dashboard-table__cell:focus-visible,
+    .rio-dashboard-drill__open:focus-visible,
+    .rio-dashboard-drill-records__name:focus-visible {
+      outline: 2px solid Highlight;
+    }
+    .rio-dashboard-tile__resize {
+      background: CanvasText;
+    }
+  }
+}

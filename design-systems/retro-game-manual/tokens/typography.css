@@ -1,0 +1,63 @@
+:root{
+--ds-font-display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+--ds-font-text:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+--ds-font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+--ds-font-pixel:"Press Start 2P","NES Pixel",monospace;
+--ds-font-pixel-ui:"NES Pixel","Press Start 2P",monospace;
+--ds-font-pixel-wide:"NES Pixel Wide","NES Pixel",monospace;
+--ds-font-pixel-narrow:"NES Pixel Narrow","NES Pixel",monospace;
+
+/* Manual display headlines: heavy, oblique. Section heads run at normal
+   width; cover and chapter titles run condensed, as the reference booklet does. */
+--ds-display-wdth:100; /* @kind other */
+--ds-display-wdth-cond:78; /* @kind other */
+--ds-display-weight:900;
+--ds-display-slant:italic; /* @kind other */
+
+--ds-text-3xs:10px;
+--ds-text-2xs:11px;
+--ds-text-xs:12px;
+--ds-text-sm:13px;
+--ds-text-base:15px;
+--ds-text-md:17px;
+--ds-text-lg:20px;
+--ds-text-xl:26px;
+--ds-text-2xl:34px;
+--ds-text-3xl:46px;
+--ds-text-4xl:62px;
+--ds-text-5xl:84px;
+/* Sheet-scale steps, lifted verbatim from the reference booklet (1200x900 page) */
+--ds-sheet-caption:26px;
+--ds-sheet-body:30px;
+--ds-sheet-head:34px;
+--ds-sheet-line:42px;
+--ds-sheet-cover:50px;
+--ds-sheet-title:100px;
+--ds-sheet-title-xl:180px;
+
+--ds-leading-tight:1.02;
+--ds-leading-manual:1.24;
+--ds-leading-manual-body:1.4;
+--ds-leading-snug:1.2;
+--ds-leading-body:1.45;
+--ds-leading-loose:1.7;
+--ds-leading-pixel:1.85;
+
+--ds-track-tight:-0.02em;
+--ds-track-normal:0; /* @kind spacing */
+--ds-track-wide:0.06em;
+--ds-track-caps:0.14em;
+}
+.ds-display{font-family:var(--ds-font-display);font-weight:var(--ds-display-weight);font-style:var(--ds-display-slant);font-stretch:100%;line-height:var(--ds-leading-tight);letter-spacing:var(--ds-track-tight);text-transform:none}
+.ds-display-cond{font-family:var(--ds-font-display);font-weight:900;font-style:italic;font-stretch:78%;line-height:.98;letter-spacing:-.015em;text-transform:uppercase}
+/* Section head: the reference booklet's one interior heading style. */
+.ds-sheet-head{font-family:var(--ds-font-display);font-weight:900;font-style:italic;font-size:var(--ds-sheet-head);line-height:var(--ds-sheet-line);letter-spacing:0;text-transform:uppercase;color:var(--ds-ink)}
+.ds-sheet-body{font-family:var(--ds-font-text);font-weight:400;font-style:normal;font-size:var(--ds-sheet-body);line-height:var(--ds-sheet-line);color:var(--ds-ink)}
+.ds-eyebrow{font-family:var(--ds-font-display);font-weight:700;font-size:var(--ds-text-2xs);letter-spacing:var(--ds-track-caps);text-transform:uppercase}
+.ds-body{font-family:var(--ds-font-text);font-size:var(--ds-text-base);line-height:var(--ds-leading-body)}
+.ds-body-oblique{font-family:var(--ds-font-text);font-style:italic;font-size:var(--ds-text-base);line-height:var(--ds-leading-body)}
+.ds-caption{font-family:var(--ds-font-text);font-size:var(--ds-text-xs);line-height:1.35}
+.ds-mono{font-family:var(--ds-font-mono);font-size:var(--ds-text-sm)}
+.ds-pixel{font-family:var(--ds-font-pixel);line-height:var(--ds-leading-pixel);letter-spacing:0}
+.ds-pixel-ui{font-family:var(--ds-font-pixel-ui);line-height:var(--ds-leading-pixel)}
+.ds-pixel-wide{font-family:var(--ds-font-pixel-wide);line-height:1.3}

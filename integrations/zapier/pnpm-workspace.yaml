@@ -1,0 +1,13 @@
+# The Zapier app is its own workspace, outside Riosoma's.  zapier-platform-core is licensed under the
+# Zapier Platform Agreement, so only this folder's install fetches it, never Riosoma's install or image.
+packages:
+  - .
+
+# Security fix newer than zapier-platform-core 19.1.0 pins: form-data 4.0.5 has an advisory fixed in
+# 4.0.6, a patch release.
+overrides:
+  form-data: 4.0.6
+
+# Newly published versions wait three days, as in Riosoma's workspace.  See
+# docs/developer/dependencies.md for letting one urgent security fix through early.
+minimumReleaseAge: 4320

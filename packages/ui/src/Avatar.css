@@ -1,0 +1,105 @@
+@layer rio.components {
+  /*
+   * Named after a person rather than after the component, because `.rio-avatar` already belongs to
+   * Rio's illustration in @riosoma/rio and both stylesheets load on the same page.
+   * The initials sit on a tint of the person's color, ringed in the color itself, which is the
+   * pairing a choice pill uses and the one the legibility tier keeps readable in every theme.  White
+   * on the color itself falls short of 4.5:1 for most of the palette.  The circle keeps one size in
+   * every state, so an avatar never changes the row it sits in.
+   */
+  .rio-person-avatar {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    inline-size: var(--rio-space-8);
+    block-size: var(--rio-space-8);
+    border: 1px solid transparent;
+    border-radius: 50%;
+    color: var(--rio-aa-choice-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-medium);
+    line-height: 1;
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
+  }
+
+  .rio-person-avatar img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .rio-person-avatar[data-deactivated] {
+    border-style: dashed;
+  }
+
+  .rio-person-avatar[data-size='sm'] {
+    inline-size: var(--rio-space-6);
+    block-size: var(--rio-space-6);
+    font-size: var(--rio-text-xs);
+  }
+
+  .rio-person-avatar[data-color='gray'] {
+    border-color: var(--rio-aa-choice-gray);
+    background-color: var(--rio-aa-choice-gray-soft);
+  }
+
+  .rio-person-avatar[data-color='red'] {
+    border-color: var(--rio-aa-choice-red);
+    background-color: var(--rio-aa-choice-red-soft);
+  }
+
+  .rio-person-avatar[data-color='orange'] {
+    border-color: var(--rio-aa-choice-orange);
+    background-color: var(--rio-aa-choice-orange-soft);
+  }
+
+  .rio-person-avatar[data-color='yellow'] {
+    border-color: var(--rio-aa-choice-yellow);
+    background-color: var(--rio-aa-choice-yellow-soft);
+  }
+
+  .rio-person-avatar[data-color='green'] {
+    border-color: var(--rio-aa-choice-green);
+    background-color: var(--rio-aa-choice-green-soft);
+  }
+
+  .rio-person-avatar[data-color='teal'] {
+    border-color: var(--rio-aa-choice-teal);
+    background-color: var(--rio-aa-choice-teal-soft);
+  }
+
+  .rio-person-avatar[data-color='blue'] {
+    border-color: var(--rio-aa-choice-blue);
+    background-color: var(--rio-aa-choice-blue-soft);
+  }
+
+  .rio-person-avatar[data-color='purple'] {
+    border-color: var(--rio-aa-choice-purple);
+    background-color: var(--rio-aa-choice-purple-soft);
+  }
+
+  .rio-person-avatar[data-color='pink'] {
+    border-color: var(--rio-aa-choice-pink);
+    background-color: var(--rio-aa-choice-pink-soft);
+  }
+
+  .rio-person-avatar[data-color='brown'] {
+    border-color: var(--rio-aa-choice-brown);
+    background-color: var(--rio-aa-choice-brown-soft);
+  }
+
+  @media (forced-colors: active) {
+    /* A person's color is a hint, not the information — the name is — so the avatar takes the
+       system colors instead of keeping its own the way a color swatch does. */
+    .rio-person-avatar {
+      border-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+/* Diagram — substrates. The page is drawing paper: a fine grid, a major grid,
+   and optional registration marks. Patterns are tokens so any surface can carry them. */
+:root,[data-theme]{
+--paper-grid-fine:repeating-linear-gradient(to right,var(--rule-ghost) 0 1px,transparent 1px var(--grid-fine)),repeating-linear-gradient(to bottom,var(--rule-ghost) 0 1px,transparent 1px var(--grid-fine));/* @kind other */
+--paper-grid-major:repeating-linear-gradient(to right,var(--rule-hair) 0 1px,transparent 1px var(--grid-major)),repeating-linear-gradient(to bottom,var(--rule-hair) 0 1px,transparent 1px var(--grid-major));/* @kind other */
+--paper-dots:radial-gradient(var(--rule-hair) 1px,transparent 1px);/* @kind other */
+--paper-dots-size:var(--grid-fine) var(--grid-fine);/* @kind spacing */
+--paper-hatch:repeating-linear-gradient(45deg,var(--rule-hair) 0 1px,transparent 1px 6px);/* @kind other */
+--paper-hatch-dense:repeating-linear-gradient(45deg,var(--rule-mid) 0 1px,transparent 1px 4px);/* @kind other */
+--paper-section:repeating-linear-gradient(45deg,var(--accent) 0 1px,transparent 1px 5px);/* @kind other */
+--paper-rule-h:repeating-linear-gradient(to bottom,var(--rule-ghost) 0 1px,transparent 1px 24px);/* @kind other */
+--scrim-ink:linear-gradient(to top,color-mix(in oklab,var(--ink) 82%,transparent),transparent);/* @kind other */
+--blur-panel:saturate(140%) blur(10px);/* @kind other */
+}
+/* Utility substrates */
+.dg-paper{background-color:var(--surface-paper);background-image:var(--paper-grid-fine),var(--paper-grid-major)}
+.dg-paper-dots{background-color:var(--surface-paper);background-image:var(--paper-dots);background-size:var(--paper-dots-size)}
+.dg-paper-plain{background-color:var(--surface-paper)}
+.dg-hatch{background-image:var(--paper-hatch)}

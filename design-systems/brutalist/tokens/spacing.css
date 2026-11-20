@@ -1,0 +1,48 @@
+/* SPACING + LAYOUT GRID
+   Padding is either flush (0) or generous. There is no cosy in-between.
+   Blocks butt directly against each other; gutters are hairlines, not air. */
+
+:root{
+  --sp-0:0px; /* @kind spacing */
+  --sp-1:4px; /* @kind spacing */
+  --sp-2:8px; /* @kind spacing */
+  --sp-3:12px; /* @kind spacing */
+  --sp-4:16px; /* @kind spacing */
+  --sp-5:24px; /* @kind spacing */
+  --sp-6:32px; /* @kind spacing */
+  --sp-7:48px; /* @kind spacing */
+  --sp-8:64px; /* @kind spacing */
+  --sp-9:96px; /* @kind spacing */
+  --sp-10:128px; /* @kind spacing */
+  --sp-11:192px; /* @kind spacing */
+
+  /* component insets */
+  --pad-control:10px 18px; /* @kind spacing */
+  --pad-control-sm:6px 12px; /* @kind spacing */
+  --pad-control-lg:16px 32px; /* @kind spacing */
+  --pad-cell:10px 14px; /* @kind spacing */
+  --pad-card:var(--sp-5); /* @kind spacing */
+  --pad-card-lg:var(--sp-7); /* @kind spacing */
+  --pad-section:var(--sp-9) var(--sp-7); /* @kind spacing */
+
+  /* grid */
+  --grid-cols:12; /* @kind other */
+  --gutter-flush:0px; /* @kind spacing */
+  --gutter-hair:2px; /* @kind spacing */
+  --gutter-rule:4px; /* @kind spacing */
+  --gutter-air:var(--sp-5); /* @kind spacing */
+  --measure:62ch; /* @kind other */
+  --measure-narrow:44ch; /* @kind other */
+  --page-max:1440px; /* @kind other */
+  --page-gutter:clamp(16px,4vw,64px); /* @kind spacing */
+
+  /* control heights */
+  --h-control-sm:30px; /* @kind spacing */
+  --h-control:42px; /* @kind spacing */
+  --h-control-lg:56px; /* @kind spacing */
+  --h-bar:56px; /* @kind spacing */
+  --h-titlebar-mac:28px; /* @kind spacing */
+  --h-titlebar-win:32px; /* @kind spacing */
+  --h-titlebar-linux:36px; /* @kind spacing */
+  --hit-min:44px; /* @kind spacing */
+}

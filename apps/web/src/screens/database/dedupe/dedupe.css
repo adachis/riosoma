@@ -1,0 +1,174 @@
+@layer rio.app {
+  /* Sets are read side by side, so the panel takes more room than a form. */
+  .rio-dedupe {
+    --rio-modal-inline-size: 1040px;
+  }
+  .rio-dedupe-note {
+    margin-block: 0 var(--rio-space-3);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dedupe-criteria {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin-block-end: var(--rio-space-4);
+  }
+  .rio-dedupe-criteria__list {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rio-dedupe-criterion {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr) auto;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+  .rio-dedupe-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+  .rio-dedupe-waiting {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    margin-block: var(--rio-space-3);
+  }
+  .rio-dedupe-progress {
+    margin-block: var(--rio-space-3);
+  }
+  .rio-dedupe-results {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin-block-start: var(--rio-space-4);
+  }
+  .rio-dedupe-results > .rio-dedupe-note {
+    margin: 0;
+  }
+  .rio-dedupe-found {
+    margin: 0;
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-dedupe-groups {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rio-dedupe-group {
+    display: grid;
+    gap: var(--rio-space-2);
+    padding-block: var(--rio-space-3);
+    padding-inline: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-dedupe-group[data-state='merged'],
+  .rio-dedupe-group[data-state='skipped'] {
+    background-color: var(--rio-surface-sunken);
+  }
+  .rio-dedupe-group__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--rio-space-1) var(--rio-space-3);
+  }
+  .rio-dedupe-group__name {
+    margin: 0;
+    font-size: var(--rio-text-md);
+    overflow-wrap: anywhere;
+  }
+  .rio-dedupe-group__count,
+  .rio-dedupe-group__state {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dedupe-group[data-state='failed'] .rio-dedupe-group__state {
+    color: var(--rio-aa-danger-text);
+  }
+  .rio-dedupe-table {
+    overflow-inline: auto;
+  }
+  .rio-dedupe-values {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dedupe-values th,
+  .rio-dedupe-values td {
+    min-inline-size: 8rem;
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+  }
+  .rio-dedupe-values th {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-dedupe-values thead th {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-dedupe-review {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  .rio-dedupe-review > .rio-dedupe-note {
+    margin: 0;
+  }
+  /* Each field is a row of choices, one column per record and one for combining, lined up with
+     every other row. */
+  .rio-dedupe-choices {
+    display: grid;
+    grid-template-columns:
+      minmax(7rem, max-content) repeat(var(--rio-dedupe-records), minmax(8rem, 1fr))
+      minmax(6rem, auto);
+    column-gap: var(--rio-space-4);
+    overflow-inline: auto;
+  }
+  .rio-dedupe-row {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: start;
+    padding-block: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-dedupe-row > .rio-radio-group__items {
+    display: contents;
+  }
+  .rio-dedupe-row > .rio-label {
+    font-weight: var(--rio-weight-medium);
+    overflow-wrap: anywhere;
+  }
+  .rio-dedupe-row .rio-radio__label {
+    overflow-wrap: anywhere;
+  }
+  .rio-dedupe-row--keep {
+    border-block-end-color: var(--rio-aa-border);
+  }
+  .rio-dedupe-same__list {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-dedupe-same__list > div {
+    display: grid;
+    grid-template-columns: minmax(7rem, max-content) minmax(0, 1fr);
+    gap: var(--rio-space-4);
+  }
+  .rio-dedupe-same__list dt {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-dedupe-same__list dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+}

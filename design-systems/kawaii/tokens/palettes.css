@@ -1,0 +1,18 @@
+/* Raw source palettes. Themes in themes.css alias these into semantic roles.
+   Values are the literal palette hexes; any hex marked (+) is derived by the
+   system to fill a role the source palette does not provide (deep line colors,
+   page tints, missing semantics). */
+:root{
+--pal-peachy-1:#f6bd60;--pal-peachy-2:#f7ede2;--pal-peachy-3:#f5cac3;--pal-peachy-4:#84a59d;--pal-peachy-5:#f28482;
+--pal-bubblegum-1:#70d6ff;--pal-bubblegum-2:#ff70a6;--pal-bubblegum-3:#ff9770;--pal-bubblegum-4:#ffd670;
+--pal-sherbet-1:#f94144;--pal-sherbet-2:#f3722c;--pal-sherbet-3:#f8961e;--pal-sherbet-4:#f9844a;--pal-sherbet-5:#f9c74f;--pal-sherbet-6:#90be6d;--pal-sherbet-7:#43aa8b;--pal-sherbet-8:#4d908e;--pal-sherbet-9:#577590;--pal-sherbet-10:#277da1;
+--pal-midnight-1:#000814;--pal-midnight-2:#001d3d;--pal-midnight-3:#003566;--pal-midnight-4:#ffc300;--pal-midnight-5:#ffd60a;
+--pal-arcade-1:#390099;--pal-arcade-2:#9e0059;--pal-arcade-3:#ff0054;--pal-arcade-4:#ff5400;--pal-arcade-5:#ffbd00;
+--pal-poppy-1:#e63946;--pal-poppy-2:#f1faee;--pal-poppy-3:#a8dadc;--pal-poppy-4:#457b9d;--pal-poppy-5:#1d3557;
+--pal-harvest-1:#233d4d;--pal-harvest-2:#fe7f2d;--pal-harvest-3:#fcca46;--pal-harvest-4:#a1c181;--pal-harvest-5:#619b8a;
+--pal-mint-1:#22577a;--pal-mint-2:#38a3a5;--pal-mint-3:#57cc99;--pal-mint-4:#80ed99;--pal-mint-5:#c7f9cc;
+--pal-neonmoss-1:#00fddc;--pal-neonmoss-2:#2e5339;--pal-neonmoss-3:#495f41;--pal-neonmoss-4:#ff5666;--pal-neonmoss-5:#ffccc9;
+--pal-lagoon-1:#247ba0;--pal-lagoon-2:#70c1b3;--pal-lagoon-3:#b2dbbf;--pal-lagoon-4:#f3ffbd;--pal-lagoon-5:#ff1654;
+--pal-sunbake-1:#083d77;--pal-sunbake-2:#ebebd3;--pal-sunbake-3:#f4d35e;--pal-sunbake-4:#ee964b;--pal-sunbake-5:#f95738;
+--pal-sage-1:#3c493f;--pal-sage-2:#7e8d85;--pal-sage-3:#b3bfb8;--pal-sage-4:#f0f7f4;--pal-sage-5:#a2e3c4;
+}

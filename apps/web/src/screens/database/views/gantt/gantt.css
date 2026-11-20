@@ -1,0 +1,129 @@
+@layer rio.app {
+  .rio-gantt__corner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+  .rio-gantt__corner-name {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /* The handle sits on the column's far edge and is wide enough to grab. */
+  .rio-gantt__resize {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: calc(-1 * var(--rio-space-3) - 4px);
+    z-index: 1;
+    inline-size: 8px;
+    cursor: col-resize;
+    touch-action: none;
+  }
+  .rio-gantt__resize:hover,
+  .rio-gantt__resize:focus-visible {
+    background: var(--rio-accent);
+    outline: 2px solid transparent;
+  }
+  .rio-gantt__label {
+    position: absolute;
+    inset-inline: 0;
+    display: flex;
+    align-items: center;
+    block-size: 40px;
+    box-sizing: border-box;
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-gantt__open {
+    flex: 1;
+    min-inline-size: 0;
+    block-size: 100%;
+    padding-inline: var(--rio-space-3);
+    border: 0;
+    background: transparent;
+    color: var(--rio-text);
+    font: inherit;
+    font-size: var(--rio-text-sm);
+    text-align: start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .rio-gantt__open:hover {
+    background: var(--rio-hover);
+  }
+  .rio-gantt__placeholder {
+    display: block;
+    inline-size: 60%;
+    block-size: 0.75rem;
+    margin-inline: var(--rio-space-3);
+    border-radius: var(--rio-radius);
+    background: var(--rio-hover);
+  }
+  /* Rows share the label column's lines, drawn once for the whole track. */
+  .rio-gantt .rio-timeline-chart__track {
+    background-image: linear-gradient(to bottom, transparent 39px, var(--rio-border) 39px);
+    background-size: 100% 40px;
+  }
+  /* With a progress field, the unfilled part of a bar is plain and the done part is filled. */
+  .rio-gantt .rio-timeline-bar[data-progress] {
+    background-image: none;
+  }
+  .rio-gantt__progress {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    box-sizing: border-box;
+    background: var(--rio-selected);
+    border-block-end: 3px solid var(--rio-accent);
+  }
+  .rio-gantt .rio-timeline-bar[data-late] {
+    border-inline-start: 3px solid var(--rio-aa-warning-text);
+  }
+  .rio-gantt__arrows {
+    position: absolute;
+    overflow: visible;
+    pointer-events: none;
+  }
+  /* The chart's coordinates run from the inline start, so the arrows turn around with the page. */
+  .rio-gantt__arrows:dir(rtl) {
+    transform: scaleX(-1);
+  }
+  .rio-gantt__arrow {
+    fill: none;
+    stroke: var(--rio-aa-text-muted);
+    stroke-width: 1.5;
+  }
+  .rio-gantt__arrow[data-late] {
+    stroke: var(--rio-aa-warning-text);
+    stroke-width: 2;
+    stroke-dasharray: 5 3;
+  }
+  .rio-gantt__arrowhead {
+    fill: var(--rio-aa-text-muted);
+  }
+  .rio-gantt__arrowhead[data-late] {
+    fill: var(--rio-aa-warning-text);
+  }
+  @media (forced-colors: active) {
+    .rio-gantt__arrow {
+      stroke: CanvasText;
+    }
+    .rio-gantt__arrow[data-late] {
+      stroke: Highlight;
+    }
+    .rio-gantt__arrowhead {
+      fill: CanvasText;
+    }
+    .rio-gantt__arrowhead[data-late] {
+      fill: Highlight;
+    }
+    .rio-gantt__progress {
+      background: Highlight;
+    }
+  }
+}

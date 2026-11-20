@@ -1,0 +1,20 @@
+:root{
+/* Motion is stepped, never smooth: 1980s hardware had no tweening. */
+--ds-ease-step:steps(4,end); /* @kind other */
+--ds-ease-step-2:steps(2,end); /* @kind other */
+--ds-ease-out:cubic-bezier(.2,.9,.3,1); /* @kind other */
+--ds-dur-instant:0ms; /* @kind other */
+--ds-dur-fast:80ms; /* @kind other */
+--ds-dur-base:140ms; /* @kind other */
+--ds-dur-slow:280ms; /* @kind other */
+--ds-blink:900ms; /* @kind other */
+}
+@keyframes ds-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes ds-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes ds-cursor{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+@keyframes ds-flash{0%,100%{filter:none}50%{filter:invert(1)}}
+@keyframes ds-scroll-x{to{background-position-x:-64px}}
+.ds-anim-blink{animation:ds-blink var(--ds-blink) var(--ds-ease-step-2) infinite}
+.ds-anim-bob{animation:ds-bob 600ms var(--ds-ease-step) infinite}
+.ds-anim-cursor{animation:ds-cursor 500ms var(--ds-ease-step-2) infinite}
+@media (prefers-reduced-motion:reduce){.ds-anim-blink,.ds-anim-bob,.ds-anim-cursor{animation:none}}

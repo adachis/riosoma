@@ -1,0 +1,66 @@
+/* Colors — the Signature theme lives on :root. Alternate palettes override the same
+   role tokens in themes.css, so every component is theme-agnostic. */
+:root{
+  /* --- ink & paper: the constant of the system --- */
+  --ink:#0E0E0E;
+  --ink-soft:#2B2B2B;
+  --paper:#FFF6E5;
+  --paper-2:#FFEFD2;
+  --panel:#FFFFFF;
+  --panel-sunk:#F2ECDD;
+
+  /* --- primary chromatic set (hard, unmixed, print-plate colors) --- */
+  --pop-red:#E8112D;
+  --pop-cyan:#00A7E1;
+  --pop-yellow:#FFD100;
+  --pop-magenta:#FF2E93;
+  --pop-violet:#6A2BD9;
+  --pop-green:#2FBF71;
+  --pop-orange:#FF6B00;
+  --pop-cream:#FFF6E5;
+
+  /* --- role aliases: components only ever reference these --- */
+  --accent:var(--pop-red);
+  --accent-2:var(--pop-cyan);
+  --accent-3:var(--pop-yellow);
+  --accent-4:var(--pop-magenta);
+  --accent-5:var(--pop-violet);
+
+  --on-accent:#FFFFFF;
+  --on-accent-2:#0E0E0E;
+  --on-accent-3:#0E0E0E;
+  --on-accent-4:#0E0E0E;
+  --on-accent-5:#FFFFFF;
+
+  /* --- text --- */
+  --text-strong:var(--ink);
+  --text-body:#1A1A1A;
+  --text-muted:#5C5648;
+  --text-inverse:#FFF6E5;
+  --text-link:var(--pop-red);
+  --text-link-hover:var(--pop-magenta);
+
+  /* --- surfaces --- */
+  --surface-page:var(--paper);
+  --surface-card:var(--panel);
+  --surface-raised:#FFFFFF;
+  --surface-sunk:var(--panel-sunk);
+  --surface-ink:var(--ink);
+
+  /* --- semantic --- */
+  --success:var(--pop-green);
+  --success-on:#0E0E0E;
+  --warning:var(--pop-yellow);
+  --warning-on:#0E0E0E;
+  --danger:var(--pop-red);
+  --danger-on:#FFFFFF;
+  --info:var(--pop-cyan);
+  --info-on:#0E0E0E;
+
+  /* --- halftone dot ink (used by the pattern tokens in effects.css) --- */
+  --dot:var(--pop-red);
+  --dot-2:var(--pop-cyan);
+
+  /* --- focus --- */
+  --focus-ring:var(--pop-violet);
+}

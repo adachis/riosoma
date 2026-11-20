@@ -1,0 +1,174 @@
+@layer rio.app {
+  .rio-chart-view {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-block-size: 0;
+    min-inline-size: 0;
+    block-size: 100%;
+    color: var(--rio-text);
+    background: var(--rio-bg);
+  }
+  .rio-chart-view__bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--rio-space-3);
+    flex: none;
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-4);
+  }
+  .rio-chart-view__note {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-chart-view__body {
+    display: flex;
+    flex: 1;
+    min-block-size: 0;
+  }
+  .rio-chart-view__main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-inline-size: 0;
+    min-block-size: 0;
+    padding-block: 0 var(--rio-space-4);
+    padding-inline: var(--rio-space-4);
+  }
+  .rio-chart-view__canvas {
+    flex: 1;
+    min-inline-size: 0;
+    min-block-size: 0;
+  }
+  .rio-chart-view__status {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: var(--rio-space-3);
+    flex: 1;
+    padding: var(--rio-space-6);
+    color: var(--rio-aa-text-muted);
+    text-align: center;
+  }
+  .rio-chart-view__status p {
+    max-inline-size: 32rem;
+    margin: 0;
+  }
+  .rio-chart-view__heading {
+    margin: 0;
+    color: var(--rio-text);
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-lg);
+  }
+  .rio-chart-view__table {
+    flex: 1;
+    min-block-size: 0;
+    overflow: auto;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+  .rio-chart-view__table:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-chart-view__table table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-chart-view__table th,
+  .rio-chart-view__table td {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-3);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+  }
+  .rio-chart-view__table td,
+  .rio-chart-view__table thead th + th {
+    text-align: end;
+  }
+  .rio-chart-view__table thead th {
+    position: sticky;
+    inset-block-start: 0;
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-chart-view__table tbody th {
+    font-weight: var(--rio-weight-regular);
+  }
+  .rio-chart-view__cell {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border: none;
+    border-radius: var(--rio-radius);
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+  }
+  .rio-chart-view__cell:hover {
+    background: var(--rio-hover);
+  }
+  .rio-chart-view__cell:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-chart-view__hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* The settings bar: labels beside their selects, so a row of them fits the controls' height. */
+  .rio-chart-view-settings {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-3);
+    flex: 1 1 0;
+    min-inline-size: 0;
+    padding-inline: var(--rio-space-2);
+    overflow-inline: auto;
+  }
+  .rio-chart-view-settings > .rio-select {
+    grid-template-columns: auto minmax(8rem, auto);
+    align-items: center;
+    column-gap: var(--rio-space-2);
+    flex: none;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-chart-view-settings > .rio-select > .rio-label {
+    color: var(--rio-aa-text-muted);
+    white-space: nowrap;
+  }
+  /* A phone's row is too short for every setting, so they wrap onto more lines instead of scrolling
+     sideways. */
+  @media (max-width: 767px) {
+    .rio-chart-view-settings {
+      flex-wrap: wrap;
+      padding-block: var(--rio-space-2);
+      overflow-inline: visible;
+    }
+  }
+  .rio-chart-view-settings__panel {
+    display: grid;
+    gap: var(--rio-space-4);
+    min-inline-size: 16rem;
+    padding: var(--rio-space-4);
+    outline: none;
+  }
+  @media (forced-colors: active) {
+    .rio-chart-view__cell:focus-visible {
+      outline: 2px solid Highlight;
+    }
+  }
+}

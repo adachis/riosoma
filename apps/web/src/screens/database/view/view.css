@@ -1,0 +1,177 @@
+@layer rio.app {
+  .rio-view-height-item .rio-menu-item__icon {
+    visibility: hidden;
+  }
+  .rio-view-height-item[data-selected] .rio-menu-item__icon {
+    visibility: visible;
+  }
+  .rio-view-editor,
+  .rio-view-filter-group,
+  .rio-view-value {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-view-row,
+  .rio-view-actions,
+  .rio-view-choices,
+  .rio-view-person,
+  .rio-view-filter-entry {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-view-filter-entry {
+    align-items: start;
+  }
+  .rio-view-actions,
+  .rio-view-choices {
+    flex-wrap: wrap;
+  }
+  .rio-view-condition {
+    flex: 1;
+    min-inline-size: 0;
+  }
+  .rio-view-condition-value {
+    inline-size: 15rem;
+    flex-shrink: 0;
+  }
+  .rio-view-row > .rio-select {
+    inline-size: 11rem;
+    flex-shrink: 0;
+  }
+  .rio-view-lead {
+    inline-size: 5rem;
+    flex-shrink: 0;
+    line-height: var(--rio-control-height);
+  }
+  /* These segmented controls keep the room their labels need, so "Newest first" and "Record"
+     never clip to an ellipsis.  Flooring each segment at its own content keeps the equal widths
+     while making the control reserve enough room in its row. */
+  .rio-view-segments {
+    flex: none;
+  }
+  .rio-view-segments .rio-segmented-control__segment {
+    min-inline-size: max-content;
+  }
+  .rio-view-lead > .rio-select {
+    inline-size: 100%;
+  }
+  .rio-view-warning {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    min-block-size: var(--rio-space-6);
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-warning-text);
+    visibility: hidden;
+  }
+  .rio-view-warning[data-invalid] {
+    visibility: visible;
+  }
+  .rio-view-nested {
+    flex: 1;
+    border-inline-start: 1px solid var(--rio-aa-border);
+    padding-inline-start: var(--rio-space-3);
+  }
+  .rio-view-popover {
+    max-inline-size: calc(100vi - var(--rio-space-6));
+    max-block-size: 80dvb;
+    overflow: auto;
+    padding: var(--rio-space-3);
+  }
+  .rio-view-dialog {
+    outline: none;
+  }
+  .rio-view-toolbar-container {
+    container-type: inline-size;
+    container-name: view-toolbar;
+    min-inline-size: 0;
+  }
+  /* As tall as its controls, which are primary actions and so grow to a fingertip on phones. */
+  .rio-view-toolbar {
+    flex-wrap: nowrap;
+    block-size: calc(max(var(--rio-control-height), var(--rio-target-primary)) + var(--rio-space-2));
+  }
+}
+
+@layer rio.app {
+  .rio-view-group-row {
+    flex-wrap: wrap;
+    max-inline-size: min(42rem, calc(100vw - var(--rio-space-6)));
+  }
+  @media (max-width: 600px) {
+    .rio-view-group-row > .rio-select {
+      inline-size: auto;
+      flex: 1;
+      min-inline-size: 8rem;
+    }
+  }
+}
+
+@layer rio.app {
+  .rio-view-group-header,
+  .rio-view-condition-entry,
+  .rio-view-condition-handle {
+    display: flex;
+    align-items: start;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+  .rio-view-condition-entry {
+    flex: 1;
+  }
+  .rio-view-group-header {
+    align-items: center;
+    margin-block-end: var(--rio-space-2);
+    flex-wrap: wrap;
+  }
+  .rio-view-group-header > .rio-select {
+    flex: 1;
+    min-inline-size: var(--rio-space-12);
+  }
+  @media (max-width: 600px) {
+    .rio-view-filter-entry {
+      flex-direction: column;
+    }
+    .rio-view-nested,
+    .rio-view-condition-entry {
+      inline-size: 100%;
+      box-sizing: border-box;
+    }
+    .rio-view-condition-handle {
+      flex-direction: column;
+    }
+    .rio-view-row {
+      flex-wrap: wrap;
+    }
+    .rio-view-row > .rio-select,
+    .rio-view-condition-value {
+      inline-size: 100%;
+      flex-shrink: 1;
+    }
+    .rio-view-lead {
+      inline-size: auto;
+    }
+  }
+
+  /* A link narrowed the view to the records behind part of a dashboard chart. */
+  .rio-narrowed-notice {
+    flex: none;
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+  }
+  .rio-narrowed-notice__body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2) var(--rio-space-3);
+  }
+  .rio-narrowed-notice__body p {
+    flex: 1 1 16rem;
+    margin: 0;
+  }
+}

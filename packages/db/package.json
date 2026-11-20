@@ -1,0 +1,36 @@
+{
+  "name": "@riosoma/db",
+  "version": "0.95.0-rc.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@aws-sdk/rds-signer": "3.1169.0",
+    "@azure/identity": "4.14.1",
+    "@riosoma/contracts": "workspace:*",
+    "google-auth-library": "11.3.4",
+    "pg": "8.23.1",
+    "ssh2": "1.17.0"
+  },
+  "devDependencies": {
+    "@riosoma/testkit": "workspace:*",
+    "@types/pg": "8.23.1",
+    "@types/ssh2": "1.15.6"
+  }
+}

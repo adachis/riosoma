@@ -1,0 +1,5 @@
+self-hosted-runner:
+  labels:
+    - riosoma
+    - riosoma-host
+    - riosoma-burst

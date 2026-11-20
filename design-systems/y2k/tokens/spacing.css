@@ -1,0 +1,38 @@
+:root{
+  /* Base unit is 4px, but the system leans on the odd small values that
+     bevelled chrome needs — 3px frames, 5px gutters, 6px insets. */
+  --sp-0:0px;   --sp-px:1px; --sp-2:2px;  --sp-3:3px;  --sp-4:4px;
+  --sp-5:5px;   --sp-6:6px;  --sp-8:8px;  --sp-10:10px; --sp-12:12px;
+  --sp-14:14px; --sp-16:16px; --sp-18:18px; --sp-20:20px; --sp-24:24px; --sp-28:28px;
+  --sp-32:32px; --sp-40:40px; --sp-48:48px; --sp-56:56px; --sp-64:64px;
+  --sp-80:80px; --sp-96:96px; --sp-128:128px;
+
+  /* Component insets */
+  --pad-window:3px;/* @kind spacing */        /* window body inset inside its frame */
+  --pad-titlebar:3px 5px;/* @kind spacing */
+  --pad-btn-sm:4px 10px;/* @kind spacing */
+  --pad-btn:7px 16px;/* @kind spacing */
+  --pad-btn-lg:11px 24px;/* @kind spacing */
+  --pad-field:7px 9px;/* @kind spacing */
+  --pad-card:16px;/* @kind spacing */
+  --pad-panel:12px;/* @kind spacing */
+  --pad-section:56px 32px;/* @kind spacing */
+
+  /* Control heights — mobile taps stay at 44px minimum */
+  --h-control-sm:24px;
+  --h-control:32px;
+  --h-control-lg:44px;
+  --h-titlebar:24px;
+  --h-menubar:26px;
+  --h-statusbar:22px;
+  --h-tap:44px;
+
+  /* Layout */
+  --w-page:1200px;
+  --w-prose:66ch;
+  --w-sidebar:232px;
+  --w-panel:320px;
+  --gutter:24px;
+  --gutter-tight:12px;
+  --z-window:100;/* @kind other */ --z-menu:400;/* @kind other */ --z-dialog:600;/* @kind other */ --z-toast:800;/* @kind other */ --z-tooltip:900;/* @kind other */
+}

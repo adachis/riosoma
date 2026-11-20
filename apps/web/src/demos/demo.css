@@ -1,0 +1,84 @@
+@layer rio.components {
+  /*
+   * The layer sits over everything and lets every press through to the page.  Menus and lists
+   * place themselves at 100000, above every token's layer, so the demo goes one above them.
+   */
+  .rio-demo-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 100001;
+    pointer-events: none;
+  }
+
+  /* A calm outline around the control a step points at. */
+  .rio-demo-highlight {
+    position: fixed;
+    box-sizing: border-box;
+    border: 2px solid var(--rio-aa-focus);
+    border-radius: var(--rio-radius);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--rio-aa-focus) 22%, transparent);
+    transition:
+      top var(--rio-duration-normal) var(--rio-ease-standard),
+      left var(--rio-duration-normal) var(--rio-ease-standard),
+      width var(--rio-duration-normal) var(--rio-ease-standard),
+      height var(--rio-duration-normal) var(--rio-ease-standard);
+  }
+
+  .rio-demo-card {
+    position: fixed;
+    box-sizing: border-box;
+    inline-size: min(360px, calc(100vw - 2 * var(--rio-space-4)));
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3) var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-raised);
+    color: var(--rio-text);
+    box-shadow: var(--rio-shadow-2);
+    font-family: var(--rio-font-body);
+    line-height: var(--rio-leading-normal);
+    pointer-events: auto;
+    transition:
+      top var(--rio-duration-normal) var(--rio-ease-standard),
+      left var(--rio-duration-normal) var(--rio-ease-standard);
+  }
+
+  /* Without a place beside the control, or on a narrow screen, the card waits at the foot. */
+  .rio-demo-card[data-docked] {
+    inset-block-end: var(--rio-space-4);
+    inset-inline: var(--rio-space-4);
+    inline-size: auto;
+    max-inline-size: 480px;
+    margin-inline: auto;
+  }
+
+  .rio-demo-card__step {
+    margin: 0;
+    font-size: var(--rio-text-sm);
+    color: var(--rio-text);
+  }
+
+  .rio-demo-card__caption {
+    margin: 0;
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-demo-card__controls {
+    flex-wrap: wrap;
+  }
+
+  .rio-demo-layer[data-motion='reduced'] .rio-demo-highlight,
+  .rio-demo-layer[data-motion='reduced'] .rio-demo-card {
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rio-demo-highlight,
+    .rio-demo-card {
+      transition: none;
+    }
+  }
+}

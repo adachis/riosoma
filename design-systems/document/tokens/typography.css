@@ -1,0 +1,40 @@
+:root{
+  /* Weights actually used. Display runs 400/500/600; text runs 400/500/700. */
+  --fw-light:300; /* @kind other */ --fw-regular:400; /* @kind other */ --fw-medium:500; /* @kind other */ --fw-semibold:600; /* @kind other */ --fw-bold:700; /* @kind other */
+
+  /* Size scale — derived from print body copy (16px = 11pt) outward.
+     Steps 11-14 are editorial display sizes and only appear once per page. */
+  --fs-01:11px; --fs-02:12px; --fs-03:13px; --fs-04:14px; --fs-05:16px;
+  --fs-06:18px; --fs-07:21px; --fs-08:26px; --fs-09:32px; --fs-10:42px;
+  --fs-11:56px; --fs-12:76px; --fs-13:104px; --fs-14:148px;
+
+  /* Line heights */
+  --lh-solid:1; /* @kind other */
+  --lh-display:1.02; /* @kind other */
+  --lh-tight:1.14; /* @kind other */
+  --lh-snug:1.3; /* @kind other */
+  --lh-body:1.55; /* @kind other */
+  --lh-loose:1.7; /* @kind other */
+
+  /* Tracking */
+  --tracking-display:-0.035em; /* @kind other */
+  --tracking-heading:-0.015em; /* @kind other */
+  --tracking-body:0; /* @kind other */
+  --tracking-label:0.14em; /* @kind other */
+  --tracking-label-wide:0.22em; /* @kind other */
+
+  /* Composed roles */
+  --type-display-1:var(--fw-medium) var(--fs-14)/var(--lh-solid) var(--font-display); /* @kind font */
+  --type-display-2:var(--fw-medium) var(--fs-12)/var(--lh-display) var(--font-display); /* @kind font */
+  --type-display-3:var(--fw-medium) var(--fs-10)/var(--lh-tight) var(--font-display); /* @kind font */
+  --type-heading-1:var(--fw-semibold) var(--fs-09)/var(--lh-tight) var(--font-display); /* @kind font */
+  --type-heading-2:var(--fw-semibold) var(--fs-07)/var(--lh-snug) var(--font-display); /* @kind font */
+  --type-heading-3:var(--fw-semibold) var(--fs-05)/var(--lh-snug) var(--font-display); /* @kind font */
+  --type-body:var(--fw-regular) var(--fs-05)/var(--lh-body) var(--font-text); /* @kind font */
+  --type-body-sm:var(--fw-regular) var(--fs-04)/var(--lh-body) var(--font-text); /* @kind font */
+  --type-caption:var(--fw-regular) var(--fs-03)/var(--lh-snug) var(--font-text); /* @kind font */
+  --type-label:var(--fw-medium) var(--fs-02)/var(--lh-snug) var(--font-mono); /* @kind font */
+  --type-micro:var(--fw-regular) var(--fs-01)/var(--lh-snug) var(--font-mono); /* @kind font */
+  --type-figure:var(--fw-medium) var(--fs-11)/var(--lh-solid) var(--font-display); /* @kind font */
+  --type-tabular:var(--fw-regular) var(--fs-04)/var(--lh-snug) var(--font-mono); /* @kind font */
+}

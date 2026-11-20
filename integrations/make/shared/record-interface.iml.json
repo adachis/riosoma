@@ -1,0 +1,18 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Record ID"
+  },
+  {
+    "name": "createdTime",
+    "type": "text",
+    "label": "Created time"
+  },
+  {
+    "name": "fields",
+    "type": "collection",
+    "label": "Fields",
+    "spec": []
+  }
+]

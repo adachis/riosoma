@@ -1,0 +1,86 @@
+/* Holographic — semantic colour.
+   Everything here derives from the active palette (tokens/palettes.css).
+   Two surface modes: the default deep-field mode, and [data-surface="light"]
+   for print, documents, and pale-frost screens. */
+
+:root {
+  /* --- canvas: the deep field the glass floats over --- */
+  --canvas-0: color-mix(in oklab, var(--tone-deep) 30%, #06070f); /* @kind color */
+  --canvas-1: color-mix(in oklab, var(--tone-deep) 42%, #0b0d18); /* @kind color */
+  --canvas-2: color-mix(in oklab, var(--tone-deep) 48%, #11131f); /* @kind color */
+  --canvas-void: #04050b; /* @kind color */
+
+  /* --- the iridescent gradients everything reuses --- */
+  --spectrum-linear: linear-gradient(100deg, var(--spectrum-stops)); /* @kind color */
+  --spectrum-conic: conic-gradient(from 210deg, var(--spectrum-stops), var(--accent)); /* @kind color */
+  --spectrum-soft: linear-gradient(120deg,
+      color-mix(in oklab, var(--accent) 70%, transparent),
+      color-mix(in oklab, var(--accent-2) 60%, transparent),
+      color-mix(in oklab, var(--accent-4) 70%, transparent)); /* @kind color */
+
+  /* --- field: full-page background, orbs of accent bloom over the void --- */
+  --field: radial-gradient(58% 72% at 10% 4%, color-mix(in srgb, var(--accent-4) 82%, transparent) 0%, transparent 60%),
+           radial-gradient(52% 66% at 92% 12%, color-mix(in srgb, var(--accent) 70%, transparent) 0%, transparent 58%),
+           radial-gradient(64% 58% at 76% 98%, color-mix(in srgb, var(--accent-2) 58%, transparent) 0%, transparent 62%),
+           radial-gradient(50% 54% at 26% 88%, color-mix(in srgb, var(--accent-3) 52%, transparent) 0%, transparent 64%),
+           linear-gradient(155deg, var(--canvas-1), var(--canvas-0) 46%, var(--canvas-void)); /* @kind color */
+
+  /* --- text --- */
+  --text-1: color-mix(in oklab, #ffffff 96%, var(--accent-3)); /* @kind color */
+  --text-2: color-mix(in oklab, var(--text-1) 74%, transparent); /* @kind color */
+  --text-3: color-mix(in oklab, var(--text-1) 52%, transparent); /* @kind color */
+  --text-4: color-mix(in oklab, var(--text-1) 34%, transparent); /* @kind color */
+  --text-accent: color-mix(in oklab, var(--accent) 82%, #ffffff); /* @kind color */
+  --text-on-accent: var(--on-accent); /* @kind color */
+  --text-inverse: color-mix(in oklab, var(--tone-deep) 40%, #06070d); /* @kind color */
+
+  /* --- links --- */
+  --link: var(--text-accent); /* @kind color */
+  --link-hover: color-mix(in oklab, var(--accent) 55%, #ffffff); /* @kind color */
+  --link-visited: color-mix(in oklab, var(--accent-4) 70%, #ffffff); /* @kind color */
+
+  /* --- status: intentionally palette-independent.
+         Twelve colourways cannot each carry four legible statuses, so status
+         reads the same everywhere and only its glow picks up the theme. --- */
+  --status-pos: #3ddc97; /* @kind color */
+  --status-neg: #ff5470; /* @kind color */
+  --status-warn: #ffc857; /* @kind color */
+  --status-info: #63d2ff; /* @kind color */
+  --status-pos-ink: #04241a; /* @kind color */
+  --status-neg-ink: #2c060f; /* @kind color */
+  --status-warn-ink: #2a1d02; /* @kind color */
+  --status-info-ink: #04202c; /* @kind color */
+
+  /* --- strokes --- */
+  --stroke-1: color-mix(in srgb, #ffffff 14%, transparent); /* @kind color */
+  --stroke-2: color-mix(in srgb, #ffffff 24%, transparent); /* @kind color */
+  --stroke-3: color-mix(in srgb, #ffffff 40%, transparent); /* @kind color */
+  --stroke-accent: color-mix(in srgb, var(--accent) 60%, transparent); /* @kind color */
+
+  /* --- focus --- */
+  --focus-ring: 0 0 0 2px color-mix(in srgb, var(--canvas-void) 90%, transparent),
+                0 0 0 4px color-mix(in srgb, var(--accent) 78%, transparent); /* @kind shadow */
+}
+
+[data-surface="light"] {
+  --canvas-0: color-mix(in oklab, var(--tone-deep) 6%, #f7f6fb); /* @kind color */
+  --canvas-1: color-mix(in oklab, var(--tone-deep) 3%, #fdfcff); /* @kind color */
+  --canvas-2: #ffffff; /* @kind color */
+  --canvas-void: color-mix(in oklab, var(--tone-deep) 10%, #eeecf6); /* @kind color */
+
+  --field: radial-gradient(70% 90% at 10% 6%, color-mix(in oklab, var(--accent-4) 28%, transparent) 0%, transparent 60%),
+           radial-gradient(60% 80% at 92% 14%, color-mix(in oklab, var(--accent) 22%, transparent) 0%, transparent 58%),
+           radial-gradient(80% 70% at 70% 98%, color-mix(in oklab, var(--accent-2) 20%, transparent) 0%, transparent 60%),
+           linear-gradient(180deg, var(--canvas-1), var(--canvas-0)); /* @kind color */
+
+  --text-1: color-mix(in oklab, var(--tone-deep) 24%, #0b0c14); /* @kind color */
+  --text-2: color-mix(in oklab, var(--text-1) 76%, transparent); /* @kind color */
+  --text-3: color-mix(in oklab, var(--text-1) 54%, transparent); /* @kind color */
+  --text-4: color-mix(in oklab, var(--text-1) 32%, transparent); /* @kind color */
+  --text-accent: color-mix(in oklab, var(--accent) 76%, #1a1020); /* @kind color */
+  --text-inverse: #ffffff; /* @kind color */
+
+  --stroke-1: color-mix(in srgb, var(--tone-deep) 14%, transparent); /* @kind color */
+  --stroke-2: color-mix(in srgb, var(--tone-deep) 24%, transparent); /* @kind color */
+  --stroke-3: color-mix(in srgb, var(--tone-deep) 38%, transparent); /* @kind color */
+}

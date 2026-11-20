@@ -1,0 +1,1849 @@
+{
+  "id": "y2k",
+  "name": "Y2K",
+  "css": "theme.css",
+  "defaultScheme": "rave",
+  "schemes": [
+    {
+      "id": "rave",
+      "name": "Rave",
+      "appearance": "light"
+    },
+    {
+      "id": "millennium",
+      "name": "Millennium",
+      "appearance": "dark"
+    },
+    {
+      "id": "spectrum",
+      "name": "Spectrum",
+      "appearance": "light"
+    },
+    {
+      "id": "siren",
+      "name": "Siren",
+      "appearance": "light"
+    },
+    {
+      "id": "sherbet",
+      "name": "Sherbet",
+      "appearance": "light"
+    },
+    {
+      "id": "arcade",
+      "name": "Arcade",
+      "appearance": "light"
+    },
+    {
+      "id": "aqua",
+      "name": "Aqua",
+      "appearance": "light"
+    },
+    {
+      "id": "mint",
+      "name": "Mint",
+      "appearance": "dark"
+    },
+    {
+      "id": "bubblegum",
+      "name": "Bubblegum",
+      "appearance": "light"
+    },
+    {
+      "id": "lagoon",
+      "name": "Lagoon",
+      "appearance": "light"
+    },
+    {
+      "id": "varsity",
+      "name": "Varsity",
+      "appearance": "light"
+    },
+    {
+      "id": "sage",
+      "name": "Sage",
+      "appearance": "light"
+    }
+  ],
+  "modes": [],
+  "defaultMode": null,
+  "surfaces": [],
+  "otherAttributes": [],
+  "externalImports": [],
+  "remoteFonts": [
+    {
+      "path": "assets/fonts/remote/alfa-slab-one-50154f64cfff.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+      "family": "Alfa Slab One"
+    },
+    {
+      "path": "assets/fonts/remote/alfa-slab-one-662ff74a6ff5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dxhe_escmAm9w.woff2",
+      "family": "Alfa Slab One"
+    },
+    {
+      "path": "assets/fonts/remote/alfa-slab-one-e619e6b577a2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2d1he_escmAm9w.woff2",
+      "family": "Alfa Slab One"
+    },
+    {
+      "path": "assets/fonts/remote/anton-34f7e336a751.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8CSKlv.woff2",
+      "family": "Anton"
+    },
+    {
+      "path": "assets/fonts/remote/anton-8e604ae3fff1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3K9-C8CSKlvPfE.woff2",
+      "family": "Anton"
+    },
+    {
+      "path": "assets/fonts/remote/anton-dd050d9cf137.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3K8-C8CSKlvPfE.woff2",
+      "family": "Anton"
+    },
+    {
+      "path": "assets/fonts/remote/archivo-0d8aa4ddc22d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/archivo/v25/k3kBo8UDI-1M0wlSfdzyIEkpwTM29hr-8mTYCx6muKZlYPTr_Q.woff2",
+      "family": "Archivo"
+    },
+    {
+      "path": "assets/fonts/remote/archivo-342b94066068.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLyTOxKsv4RnUPU.woff2",
+      "family": "Archivo"
+    },
+    {
+      "path": "assets/fonts/remote/archivo-6bbbcb21e619.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/archivo/v25/k3kBo8UDI-1M0wlSfdzyIEkpwTM29hr-8mTYCx-muKZlYPTr_Q.woff2",
+      "family": "Archivo"
+    },
+    {
+      "path": "assets/fonts/remote/archivo-6c3e036e1ac6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/archivo/v25/k3kBo8UDI-1M0wlSfdzyIEkpwTM29hr-8mTYCxCmuKZlYPQ.woff2",
+      "family": "Archivo"
+    },
+    {
+      "path": "assets/fonts/remote/archivo-97a2c1125708.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLySOxKsv4RnUPU.woff2",
+      "family": "Archivo"
+    },
+    {
+      "path": "assets/fonts/remote/archivo-d5751e0f253f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+      "family": "Archivo"
+    },
+    {
+      "path": "assets/fonts/remote/audiowide-5d12157287ee.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/audiowide/v22/l7gdbjpo0cum0ckerWCdlg_OMRlABg.woff2",
+      "family": "Audiowide"
+    },
+    {
+      "path": "assets/fonts/remote/audiowide-f4c3e1887ec9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/audiowide/v22/l7gdbjpo0cum0ckerWCdmA_OMRlABolM.woff2",
+      "family": "Audiowide"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-002797e9b376.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.52.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-02b8b6a16926.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.18.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-063b507c3213.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.109.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-06cf2b19d678.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.46.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-0ae223b40a5b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.2.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-0e83e46cb38b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.5.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-1bbf60844b3c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.108.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-1bd880dec5e5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.10.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-1e0457b22a68.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.49.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-20049e97ac54.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.50.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-2708184d3861.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.26.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-28e74c2e7c98.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.106.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-2c8fdc758ab0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.101.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-2d2c803228c7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.62.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-30d4cb107db3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.15.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-35927477ffe7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.7.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-35e4154f7aff.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.21.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-3a05975153a7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.27.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-3da51d0a5acc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.58.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-3ddfa242cddc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.28.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-3eaac5cc2350.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.42.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-42534cf0ab9e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.20.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-43373706b55c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.116.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-44663946757a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.51.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-47e8731a4389.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.55.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-481fd32a8e0b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.39.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-494cdd2c172b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.56.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-4e538a9ea1c0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.103.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-50fca29b5bbf.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.6.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-530c17017345.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.113.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-535416b6e257.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.24.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-5cf369fcda38.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.30.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-5d27d83a5a95.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.119.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-5e39e91de67a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.53.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-5f43643ca26e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.99.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-5f53c7047b01.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.102.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-64c4f21ebc8a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.4.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-68a2bd2ec091.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.12.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-693fd2a99d14.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.61.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-6de7c92a8069.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.36.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-6fe80dd9cd5f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.14.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-727b8d411759.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.3.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-7c06d58c5578.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.117.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-81dcfaceb9a6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.60.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-82ce1580a13e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.44.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-8321c5f973b8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.115.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-83711026415e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.112.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-8917d01e9207.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.37.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-8ce17a57f6e2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8kqSK3WGHPHd.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-9142bce2da31.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.59.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-96d335830ddc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.114.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-973f64dd7285.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.35.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-9bc6c6905e40.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.19.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-a5ff75b5916c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.95.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-a993fa1bd279.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.33.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-ab7a95900808.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.31.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-b6c57e73c0b9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.29.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-b6ecaded2401.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.16.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-b876686b2a12.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.47.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-b92de3885c2b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.25.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-bfcb1d226fe5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.110.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-c005acb3d9a0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.94.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-c35374b1b9eb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.38.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-c6b7341f04fa.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.64.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-c74b267df821.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.17.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-cce5eedc2541.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.100.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-cd55a8257e42.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.118.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-d64bbe9404b6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.11.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-d7a4be5219ed.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.107.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-d9be8823945b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.63.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-dfd255b995c4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.8.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-e15780cf3b49.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.105.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-e7e4029542e0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.40.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-e800069c442a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.43.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-e84e740f17ed.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.111.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-ea94c97aa176.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.41.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-eaefb6f1ae6e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.57.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-ebb2c25e1377.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.34.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-ec60127702f7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.22.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-f169d6fec13d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.104.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-f228ec288dca.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.48.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-f4d65d5d9513.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.9.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-f4e27d7357dd.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.45.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-f84b059e9fe9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.13.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-f9181afb05aa.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.54.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-fafc197706f9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.23.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-fc90c60755ab.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.32.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-han-sans-fe78ab90a5c8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackhansans/v24/ea8Aad44WunzF9a-dL6toA8r8nqQIXKkHrvPrhmwJuYZVG9tFX2k07El38ou.65.woff2",
+      "family": "Black Han Sans"
+    },
+    {
+      "path": "assets/fonts/remote/black-ops-one-47043f72e743.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackopsone/v21/qWcsB6-ypo7xBdr6Xshe96H3aDvbtxsis4I.woff2",
+      "family": "Black Ops One"
+    },
+    {
+      "path": "assets/fonts/remote/black-ops-one-9142d2bd6ecc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackopsone/v21/qWcsB6-ypo7xBdr6Xshe96H3aDbbtxsis4IxXw.woff2",
+      "family": "Black Ops One"
+    },
+    {
+      "path": "assets/fonts/remote/black-ops-one-9ac4cacb7afd.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackopsone/v21/qWcsB6-ypo7xBdr6Xshe96H3aDXbtxsis4IxXw.woff2",
+      "family": "Black Ops One"
+    },
+    {
+      "path": "assets/fonts/remote/black-ops-one-c7a5a29d3061.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/blackopsone/v21/qWcsB6-ypo7xBdr6Xshe96H3aDTbtxsis4IxXw.woff2",
+      "family": "Black Ops One"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-outline-05d474557963.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeoutline/v24/_6_mEDvmVP24UvU2MyiGDslL3TgwaBNIPmxp.woff2",
+      "family": "Bungee Outline"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-outline-9985ad666bbc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeoutline/v24/_6_mEDvmVP24UvU2MyiGDslL3Tg_aBNIPmxpyBs.woff2",
+      "family": "Bungee Outline"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-outline-b61f5c951f9d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeoutline/v24/_6_mEDvmVP24UvU2MyiGDslL3Tg-aBNIPmxpyBs.woff2",
+      "family": "Bungee Outline"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-shade-0622c44972c2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeshade/v17/DtVkJxarWL0t2KdzK3oI_jkc6SjTjQJElg.woff2",
+      "family": "Bungee Shade"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-shade-5cdf1e1f6b33.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeshade/v17/DtVkJxarWL0t2KdzK3oI_jkc5ijTjQJElti5.woff2",
+      "family": "Bungee Shade"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-shade-dd7aca8068f5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeshade/v17/DtVkJxarWL0t2KdzK3oI_jkc5yjTjQJElti5.woff2",
+      "family": "Bungee Shade"
+    },
+    {
+      "path": "assets/fonts/remote/changa-a4143f04e07e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/changa/v29/2-cm9JNi2YuVOUckY5y-eOz1paFD.woff2",
+      "family": "Changa"
+    },
+    {
+      "path": "assets/fonts/remote/changa-b5968c77c359.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/changa/v29/2-cm9JNi2YuVOUckaJy-eOz1paFD.woff2",
+      "family": "Changa"
+    },
+    {
+      "path": "assets/fonts/remote/changa-de42934476ee.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/changa/v29/2-cm9JNi2YuVOUckZpy-eOz1pQ.woff2",
+      "family": "Changa"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-002d49629510.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.118.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-014a802e661f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.78.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-028e8df5adf4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.92.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-0590ff65266b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.110.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-0f41309836cb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.91.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-1453f2f7f28d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.106.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-149bb1f12b9e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhr6C9BEwVT7-g.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-1584a6c39c5f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.100.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-1a78283b9a42.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.76.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-1ca014fa19b0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.116.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-2f6863be3b18.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.95.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-352d83f5302d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.93.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-368309a844ae.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhr6BdBEwVT7-jN3.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-3a1b5d0dbfb5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.111.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-3be34650a321.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.59.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-436ab0c0e2ec.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.90.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-445cfb485852.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.89.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-4925609b81d6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.94.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-4a05e9e7cbbf.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.112.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-4c30acfb1bd2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.61.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-53c91a6efe2b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.84.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-575061d51292.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.62.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-5911128f6963.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.54.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-5c1ff55b708b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.71.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-5e7ca1d76156.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.87.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-62bd39cee81b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.99.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-69d694b97ae4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.101.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-6d863ca08e39.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.104.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-6e040606b283.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.75.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-702b8eefd1f4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.3.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-774bf2b60a5f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.105.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-7aba440acc5d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.86.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-7d747a437a2e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.113.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-826ef307898e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.119.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-8acce4140b62.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhr6BNBEwVT7-jN3.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-91f2ecb2fcb5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.115.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-94fef8acdf0a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.66.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-98426832fe46.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.108.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-98a9ceb4e33b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.88.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-9a28028ba7c2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.96.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-a33fb262b6e0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.80.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-a4ab6f6bff5b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.102.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-aaad60d67c4e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.65.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-b26cd666c632.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.85.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-ba726ac1f7d4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.98.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-beffda9aab16.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.103.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-c44aded5fb02.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.109.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-cc4864f39528.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.117.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-db93db532536.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.58.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-e07e9e0bd00c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.70.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-e36edfa3bdab.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.79.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-e42a5c82bb93.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.81.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-f0cdfeeea252.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.97.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-f516052ada6c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.77.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-f683f540e1d5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.107.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-fd14c2ffed19.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.82.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-fe0365deb8a6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.114.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/chewy-28928759b918.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/chewy/v18/uK_94ruUb-k-wn52KjI9OPec.woff2",
+      "family": "Chewy"
+    },
+    {
+      "path": "assets/fonts/remote/fredericka-the-great-8644ef15c6ce.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/frederickathegreat/v23/9Bt33CxNwt7aOctW2xjbCstzwVKsIBVV--StxbcHcQ2KVFw.woff2",
+      "family": "Fredericka the Great"
+    },
+    {
+      "path": "assets/fonts/remote/fredericka-the-great-e2ba78567185.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/frederickathegreat/v23/9Bt33CxNwt7aOctW2xjbCstzwVKsIBVV--SjxbcHcQ2K.woff2",
+      "family": "Fredericka the Great"
+    },
+    {
+      "path": "assets/fonts/remote/orbitron-de7794122e5f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/orbitron/v35/yMJRMIlzdpvBhQQL_Qq7dy1biN15.woff2",
+      "family": "Orbitron"
+    },
+    {
+      "path": "assets/fonts/remote/righteous-3039403b8f20.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/righteous/v18/1cXxaUPXBpj2rGoU7C9WiHGFq8Kk1Q.woff2",
+      "family": "Righteous"
+    },
+    {
+      "path": "assets/fonts/remote/righteous-f68a8893576a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/righteous/v18/1cXxaUPXBpj2rGoU7C9WhnGFq8Kk1doH.woff2",
+      "family": "Righteous"
+    },
+    {
+      "path": "assets/fonts/remote/rubik-broken-fax-0a2cb487e139.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8URScd0Ohz0yyXQ.woff2",
+      "family": "Rubik Broken Fax"
+    },
+    {
+      "path": "assets/fonts/remote/rubik-broken-fax-295cde1e95d4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWWcd0Ohz0yyXQ.woff2",
+      "family": "Rubik Broken Fax"
+    },
+    {
+      "path": "assets/fonts/remote/rubik-broken-fax-4450fd223417.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWicd0Ohz0w.woff2",
+      "family": "Rubik Broken Fax"
+    },
+    {
+      "path": "assets/fonts/remote/rubik-broken-fax-68b86ab23515.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWqcd0Ohz0yyXQ.woff2",
+      "family": "Rubik Broken Fax"
+    },
+    {
+      "path": "assets/fonts/remote/rubik-broken-fax-6df66538c6e7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWycd0Ohz0yyXQ.woff2",
+      "family": "Rubik Broken Fax"
+    },
+    {
+      "path": "assets/fonts/remote/rubik-broken-fax-8fdc97ca1c33.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UQacd0Ohz0yyXQ.woff2",
+      "family": "Rubik Broken Fax"
+    },
+    {
+      "path": "assets/fonts/remote/rubik-broken-fax-a440f97483cc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rubikbrokenfax/v1/NGSvv4rXG042O-GzH9sg1cUgl8w8UWacd0Ohz0yyXQ.woff2",
+      "family": "Rubik Broken Fax"
+    },
+    {
+      "path": "assets/fonts/remote/russo-one-a9c193d696b4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/russoone/v18/Z9XUDmZRWg6M1LvRYsHOy8mJvLuL9BLT.woff2",
+      "family": "Russo One"
+    },
+    {
+      "path": "assets/fonts/remote/russo-one-bc7c101a15bc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/russoone/v18/Z9XUDmZRWg6M1LvRYsHOwcmJvLuL9BLT.woff2",
+      "family": "Russo One"
+    },
+    {
+      "path": "assets/fonts/remote/russo-one-e9263779a3f4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/russoone/v18/Z9XUDmZRWg6M1LvRYsHOz8mJvLuL9A.woff2",
+      "family": "Russo One"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-0909a1411909.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRMQgErUN8XuHNEtX81i9TmEkrnwdtJ0IiwrCS9JqA.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-0f4df011cddb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnGc5Q-K2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-14a38e953489.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnbcpQ962fhC61Hg.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-1ce198c723d1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJROQgErUN8XuHNEtX81i9TmEkrvretF2o-SrhS8.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-1f58c51b3feb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnIcxQ-a2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-23d29cc95495.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnfc9Q-a2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-2438c4aa886f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnCclQ-a2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-2e328413f66f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnbcpQ-K2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-2f32b6426cb2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnBc1Q-K2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-2f5235b87cd4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnGc5Q962fhC61Hg.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-306b16ed4982.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnBc1Q-a2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-35ceeb56ca6e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnCclQ-K2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-8190d4ad7827.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnBc1Q962fhC61Hg.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-990d15c2a036.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnIcxQ-K2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-9e93ada1a22a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRMQgErUN8XuHNEtX81i9TmEkrnwdtI0IiwrCS9JqA.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-a574cd984bdf.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnIcxQ962fhC61Hg.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-b2769b9c7d23.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnUchQ-a2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-b7e9c870705e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnGc5Q-a2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-b9fb418fbb24.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnUchQ-K2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-bfc0e9b64bf9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnCclQ962fhC61Hg.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-c25105295ac7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnfc9Q-K2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-c98df95f6239.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnfc9Q962fhC61Hg.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-cf648867efd4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnUchQ962fhC61Hg.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-db59d56108ab.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRMQgErUN8XuHNEtX81i9TmEkrnwdtH0IiwrCS9.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-e1702264a1ea.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJRLQgErUN8XuHNEtX81i9TmEkrnbcpQ-a2fhC61HpnY.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-ef8d3da36045.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJROQgErUN8XuHNEtX81i9TmEkrvoutF2o-Srg.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/saira-condensed-feac1766de5e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sairacondensed/v12/EJROQgErUN8XuHNEtX81i9TmEkrvrOtF2o-SrhS8.woff2",
+      "family": "Saira Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/share-tech-mono-30e3adb61bc9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sharetechmono/v16/J7aHnp1uDWRBEqV98dVQztYldFcLowEFA87Heg.woff2",
+      "family": "Share Tech Mono"
+    },
+    {
+      "path": "assets/fonts/remote/silkscreen-0df26f35f561.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/silkscreen/v6/m8JXjfVPf62XiF7kO-i9YLNla0GA1dM.woff2",
+      "family": "Silkscreen"
+    },
+    {
+      "path": "assets/fonts/remote/silkscreen-629b63da958c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/silkscreen/v6/m8JXjfVPf62XiF7kO-i9YL1la0GA1dOkDw.woff2",
+      "family": "Silkscreen"
+    },
+    {
+      "path": "assets/fonts/remote/silkscreen-f776288548a3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/silkscreen/v6/m8JUjfVPf62XiF7kO-i9aAhAfmKi2PmeBvYdbA.woff2",
+      "family": "Silkscreen"
+    },
+    {
+      "path": "assets/fonts/remote/silkscreen-f798d93bcc10.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/silkscreen/v6/m8JUjfVPf62XiF7kO-i9aAhAfmyi2PmeBvY.woff2",
+      "family": "Silkscreen"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-0031a602edf9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dMIFZifjKcF5UAWdDRaPpZUFqaHi6WZ3S_Yg.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-04b9632a1dda.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dPIFZifjKcF5UAWdDRYE98RXi4EwSsbg.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-0ea8344d4c65.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dMIFZifjKcF5UAWdDRaPpZUFuaHi6WZ3S_Yg.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-0fbef778a518.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dMIFZifjKcF5UAWdDRaPpZUFWaHi6WZ3Q.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-3d0d89cdbf4b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dNIFZifjKcF5UAWdDRYERMSXK_MQacb0yG.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-67dc236ec671.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dPIFZifjKcF5UAWdDRYE58RXi4EwSsbg.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-7114c2718ba6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dPIFZifjKcF5UAWdDRYEF8RXi4EwQ.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-86f4d5ce1f00.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dNIFZifjKcF5UAWdDRYERMSHK_MQacb0yG.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/space-mono-8b92305afade.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacemono/v17/i7dNIFZifjKcF5UAWdDRYERMR3K_MQacbw.woff2",
+      "family": "Space Mono"
+    },
+    {
+      "path": "assets/fonts/remote/wallpoet-bc762e0c1662.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/wallpoet/v21/f0X10em2_8RnXVVdUObp58Tt868H.woff2",
+      "family": "Wallpoet"
+    }
+  ],
+  "droppedImports": [],
+  "removedImportant": 3,
+  "removedMotionRules": 1,
+  "semantic": {
+    "--rio-bg": "--surface",
+    "--rio-surface": "--surface-card",
+    "--rio-text": "--text-body",
+    "--rio-text-muted": "--text-muted",
+    "--rio-border": "--border-soft",
+    "--rio-accent": "--accent",
+    "--rio-on-accent": "--on-accent",
+    "--rio-link": "--link",
+    "--rio-focus": "--focus-ring",
+    "--rio-success": "--ok",
+    "--rio-warning": "--warn",
+    "--rio-danger": "--bad",
+    "--rio-info": "--rio-accent",
+    "--rio-font-body": "--font-text",
+    "--rio-font-display": "--font-core",
+    "--rio-font-mono": "--font-mono",
+    "--rio-radius": "0px"
+  },
+  "legibilityOnColors": {
+    "on-success": "--on-ok",
+    "on-warning": "--on-warn",
+    "on-danger": "--on-bad",
+    "on-info": "--rio-on-accent"
+  },
+  "assets": [
+    {
+      "path": "assets/assets/textures/paper-90s-1.png",
+      "bytes": 1202504
+    },
+    {
+      "path": "assets/assets/textures/paper-summer-1.png",
+      "bytes": 1237423
+    },
+    {
+      "path": "assets/assets/textures/zebra-snake.png",
+      "bytes": 1362931
+    }
+  ],
+  "unresolvedUrls": [],
+  "source": {
+    "designSystem": "design-systems/y2k",
+    "originalSchemeSelector": "[data-theme=\"<id>\"]",
+    "tokenFiles": [
+      "tokens/fonts.css",
+      "tokens/colors.css",
+      "tokens/typography.css",
+      "tokens/spacing.css",
+      "tokens/effects.css",
+      "tokens/base.css"
+    ],
+    "zipFile": "Y2K Design System.zip",
+    "zipContentHash": "ee5a02985c569c1641c47b201a9672f2aef1f71cee233917aeb84cd965e7128b"
+  },
+  "legibility": {
+    "rave": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1a0033",
+        "--rio-aa-on-accent": "#1a0033",
+        "--rio-aa-accent-text": "#e2004a",
+        "--rio-aa-text-muted": "#5c3a70",
+        "--rio-aa-link": "#9e0059",
+        "--rio-aa-focus": "#ff0054",
+        "--rio-aa-border": "#9b8999",
+        "--rio-aa-success-text": "#006945",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#765600",
+        "--rio-aa-on-warning": "#1a0033",
+        "--rio-aa-danger-text": "#b8003a",
+        "--rio-aa-on-danger": "#1a0033",
+        "--rio-aa-info-text": "#b8003a",
+        "--rio-aa-on-info": "#1a0033",
+        "--rio-legible-text": "#1a0033",
+        "--rio-legible-text-muted": "#5c3a70",
+        "--rio-legible-on-accent": "#1a0033",
+        "--rio-aa-choice-text": "#1a0033",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1dbde",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ffd3d4",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#f9dbce",
+        "--rio-aa-choice-yellow": "#b58700",
+        "--rio-aa-choice-yellow-soft": "#efdecd",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d5e4d3",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d3e3e2",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d4dffd",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8d5f3",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fbd1e6",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9d7d0"
+      }
+    },
+    "millennium": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#eaf2ff",
+        "--rio-aa-on-accent": "#000814",
+        "--rio-aa-accent-text": "#ffc300",
+        "--rio-aa-text-muted": "#9ec1e8",
+        "--rio-aa-link": "#ffd60a",
+        "--rio-aa-focus": "#ffc300",
+        "--rio-aa-border": "#3c6ca2",
+        "--rio-aa-success-text": "#4fd18b",
+        "--rio-aa-on-success": "#000814",
+        "--rio-aa-warning-text": "#ffc300",
+        "--rio-aa-on-warning": "#000814",
+        "--rio-aa-danger-text": "#ff7e8b",
+        "--rio-aa-on-danger": "#000814",
+        "--rio-aa-info-text": "#ffc300",
+        "--rio-aa-on-info": "#000814",
+        "--rio-legible-text": "#eaf2ff",
+        "--rio-legible-text-muted": "#9ec1e8",
+        "--rio-legible-on-accent": "#000814",
+        "--rio-aa-choice-text": "#eaf2ff",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#1b314b",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#362d44",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#313341",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#283641",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#003944",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#00374e",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#083162",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#252b5b",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#342a52",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#243042"
+      }
+    },
+    "spectrum": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#23303a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#d6383a",
+        "--rio-aa-text-muted": "#3f6766",
+        "--rio-aa-link": "#216e8d",
+        "--rio-aa-focus": "#d6383a",
+        "--rio-aa-border": "#a08e72",
+        "--rio-aa-success-text": "#006e55",
+        "--rio-aa-on-success": "#23303a",
+        "--rio-aa-warning-text": "#8f5200",
+        "--rio-aa-on-warning": "#23303a",
+        "--rio-aa-danger-text": "#be1b26",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#be1b26",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#23303a",
+        "--rio-legible-text-muted": "#3f6766",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#23303a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1dfdb",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ffd8d0",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#f9dfcb",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#efe4ca",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d5e8cf",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d3e7df",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d4e3fa",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8d9f1",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fbd6e4",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9dccd"
+      }
+    },
+    "siren": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1d3557",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#d3303e",
+        "--rio-aa-text-muted": "#36627f",
+        "--rio-aa-link": "#3a6785",
+        "--rio-aa-focus": "#d83642",
+        "--rio-aa-border": "#789293",
+        "--rio-aa-success-text": "#006a60",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#815500",
+        "--rio-aa-on-warning": "#ffffff",
+        "--rio-aa-danger-text": "#bc0e2b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#bc0e2b",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#1d3557",
+        "--rio-legible-text-muted": "#36627f",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#1d3557",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d6ddd4",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f5d6ca",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#efddc4",
+        "--rio-aa-choice-yellow": "#b38600",
+        "--rio-aa-choice-yellow-soft": "#e4e0c3",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#cae6c8",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c8e5d8",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c9e1f3",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ded7ea",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f1d4dd",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dfd9c6"
+      }
+    },
+    "sherbet": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3b33",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#a15555",
+        "--rio-aa-text-muted": "#6a5649",
+        "--rio-aa-link": "#974c4b",
+        "--rio-aa-focus": "#a95c5b",
+        "--rio-aa-border": "#a57e78",
+        "--rio-aa-success-text": "#386256",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#7b5200",
+        "--rio-aa-on-warning": "#ffffff",
+        "--rio-aa-danger-text": "#a92a2b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#8e4444",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#4a3b33",
+        "--rio-legible-text-muted": "#6a5649",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3b33",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dbd3cb",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f8ccc0",
+        "--rio-aa-choice-orange": "#d16c09",
+        "--rio-aa-choice-orange-soft": "#f1d1b9",
+        "--rio-aa-choice-yellow": "#ac8000",
+        "--rio-aa-choice-yellow-soft": "#e6d5b9",
+        "--rio-aa-choice-green": "#2a9a41",
+        "--rio-aa-choice-green-soft": "#cedbbe",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#cedbcf",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#ced7ea",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e2cde1",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f4cad4",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e3cfbd"
+      }
+    },
+    "arcade": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#233d4d",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#b5591e",
+        "--rio-aa-text-muted": "#48626f",
+        "--rio-aa-link": "#3b7163",
+        "--rio-aa-focus": "#b75b20",
+        "--rio-aa-border": "#9e8e6e",
+        "--rio-aa-success-text": "#3b6a4c",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#7d5b00",
+        "--rio-aa-on-warning": "#ffffff",
+        "--rio-aa-danger-text": "#b43000",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#9f4600",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#233d4d",
+        "--rio-legible-text-muted": "#48626f",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#233d4d",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1ded5",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ffd6cb",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#f9dec5",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#efe2c5",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d5e7ca",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d3e6da",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d4e2f5",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8d8eb",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fbd5de",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9dac8"
+      }
+    },
+    "aqua": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#0f3140",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#22577a",
+        "--rio-aa-text-muted": "#1f5170",
+        "--rio-aa-link": "#22577a",
+        "--rio-aa-focus": "#22577a",
+        "--rio-aa-border": "#6b9a71",
+        "--rio-aa-success-text": "#006d46",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#795a00",
+        "--rio-aa-on-warning": "#ffffff",
+        "--rio-aa-danger-text": "#b22b23",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#22577a",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#0f3140",
+        "--rio-legible-text-muted": "#1f5170",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#0f3140",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d7dfd9",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f6d8cf",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#f0dfca",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#e6e4c9",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#cae8ce",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c9e7de",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c9e3f8",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dfdaef",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f2d6e2",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e0dccc"
+      }
+    },
+    "mint": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#eafff6",
+        "--rio-aa-on-accent": "#0c150f",
+        "--rio-aa-accent-text": "#00fddc",
+        "--rio-aa-text-muted": "#a8d8c4",
+        "--rio-aa-link": "#00fddc",
+        "--rio-aa-focus": "#00fddc",
+        "--rio-aa-border": "#62896c",
+        "--rio-aa-success-text": "#00fddc",
+        "--rio-aa-on-success": "#0c150f",
+        "--rio-aa-warning-text": "#ffccc9",
+        "--rio-aa-on-warning": "#1b0508",
+        "--rio-aa-danger-text": "#ffb3b3",
+        "--rio-aa-on-danger": "#1b0508",
+        "--rio-aa-info-text": "#00fddc",
+        "--rio-aa-on-info": "#0c150f",
+        "--rio-legible-text": "#eafff6",
+        "--rio-legible-text-muted": "#a8d8c4",
+        "--rio-legible-on-accent": "#0c150f",
+        "--rio-aa-choice-text": "#eafff6",
+        "--rio-aa-choice-gray": "#80807f",
+        "--rio-aa-choice-gray-soft": "#36493a",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#504230",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#4b482b",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#434b2a",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#274f2f",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#254e3d",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#264b53",
+        "--rio-aa-choice-purple": "#a362d9",
+        "--rio-aa-choice-purple-soft": "#3e454d",
+        "--rio-aa-choice-pink": "#d944a2",
+        "--rio-aa-choice-pink-soft": "#4d4241",
+        "--rio-aa-choice-brown": "#a77549",
+        "--rio-aa-choice-brown-soft": "#40472f"
+      }
+    },
+    "bubblegum": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#2b1b33",
+        "--rio-aa-on-accent": "#2b1b33",
+        "--rio-aa-accent-text": "#cb407a",
+        "--rio-aa-text-muted": "#5f4a68",
+        "--rio-aa-link": "#b83a70",
+        "--rio-aa-focus": "#ee6097",
+        "--rio-aa-border": "#8095a0",
+        "--rio-aa-success-text": "#006f47",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#795c00",
+        "--rio-aa-on-warning": "#2b1b33",
+        "--rio-aa-danger-text": "#c2003d",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#b22765",
+        "--rio-aa-on-info": "#2b1b33",
+        "--rio-legible-text": "#2b1b33",
+        "--rio-legible-text-muted": "#5f4a68",
+        "--rio-legible-on-accent": "#2b1b33",
+        "--rio-aa-choice-text": "#2b1b33",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1e1e1",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ffdad7",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#fae1d1",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#efe5d0",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d5ead6",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d3e9e5",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d4e5ff",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8dbf7",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fbd8ea",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9ddd3"
+      }
+    },
+    "lagoon": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#123a4b",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#e5144c",
+        "--rio-aa-text-muted": "#2b6070",
+        "--rio-aa-link": "#20708f",
+        "--rio-aa-focus": "#e5144c",
+        "--rio-aa-border": "#859672",
+        "--rio-aa-success-text": "#046d5d",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#765e00",
+        "--rio-aa-on-warning": "#ffffff",
+        "--rio-aa-danger-text": "#c2003d",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#c2003d",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#123a4b",
+        "--rio-legible-text-muted": "#2b6070",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#123a4b",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dce1cf",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fbd9c5",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#f5e1bf",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#ebe5be",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d0eac4",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#cee9d4",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#cfe5ef",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e4dbe6",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f7d8d8",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e5ddc1"
+      }
+    },
+    "varsity": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#12253c",
+        "--rio-aa-on-accent": "#12253c",
+        "--rio-aa-accent-text": "#c82800",
+        "--rio-aa-text-muted": "#3a5370",
+        "--rio-aa-link": "#083d77",
+        "--rio-aa-focus": "#ec4a2c",
+        "--rio-aa-border": "#868567",
+        "--rio-aa-success-text": "#256036",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#6c5100",
+        "--rio-aa-on-warning": "#ffffff",
+        "--rio-aa-danger-text": "#a61e00",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#a61f00",
+        "--rio-aa-on-info": "#12253c",
+        "--rio-legible-text": "#12253c",
+        "--rio-legible-text-muted": "#3a5370",
+        "--rio-legible-on-accent": "#12253c",
+        "--rio-aa-choice-text": "#12253c",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d1d2bf",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#efcab5",
+        "--rio-aa-choice-orange": "#cd6800",
+        "--rio-aa-choice-orange-soft": "#e7cfad",
+        "--rio-aa-choice-yellow": "#a87d00",
+        "--rio-aa-choice-yellow-soft": "#dcd2ad",
+        "--rio-aa-choice-green": "#26973e",
+        "--rio-aa-choice-green-soft": "#c4d9b2",
+        "--rio-aa-choice-teal": "#009489",
+        "--rio-aa-choice-teal-soft": "#c3d8c2",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c5d6df",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#d9ccd6",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#ebc9c8",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#daceb1"
+      }
+    },
+    "sage": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#242c26",
+        "--rio-aa-on-accent": "#f0f7f4",
+        "--rio-aa-accent-text": "#3c493f",
+        "--rio-aa-text-muted": "#424d46",
+        "--rio-aa-link": "#316b4d",
+        "--rio-aa-focus": "#3c493f",
+        "--rio-aa-border": "#838e88",
+        "--rio-aa-success-text": "#2c6841",
+        "--rio-aa-on-success": "#ffffff",
+        "--rio-aa-warning-text": "#765705",
+        "--rio-aa-on-warning": "#ffffff",
+        "--rio-aa-danger-text": "#a3382f",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#3c493f",
+        "--rio-aa-on-info": "#f0f7f4",
+        "--rio-legible-text": "#242c26",
+        "--rio-legible-text-muted": "#424d46",
+        "--rio-legible-on-accent": "#f0f7f4",
+        "--rio-aa-choice-text": "#242c26",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d5dbd8",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f4d4ce",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#eedbc9",
+        "--rio-aa-choice-yellow": "#b18500",
+        "--rio-aa-choice-yellow-soft": "#e2dec7",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#c9e4cd",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c7e2dd",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c8dff7",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ddd5ee",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f0d2e1",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#ded7cb"
+      }
+    }
+  },
+  "legibilityAdjusted": 76
+}

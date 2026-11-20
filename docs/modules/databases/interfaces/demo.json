@@ -1,0 +1,23 @@
+{
+  "id": "interfaces",
+  "where": "database",
+  "steps": [
+    {
+      "anchor": "interfaces.section",
+      "say": "demos.interfaces.section",
+      "do": "scroll"
+    },
+    {
+      "anchor": "interfaces.add",
+      "say": "demos.interfaces.add"
+    },
+    {
+      "anchor": "database.tables",
+      "say": "demos.interfaces.blocks"
+    },
+    {
+      "anchor": "database.share",
+      "say": "demos.interfaces.roles"
+    }
+  ]
+}

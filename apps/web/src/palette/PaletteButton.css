@@ -1,0 +1,25 @@
+@layer rio.app {
+  .rio-palette__keys {
+    padding-inline: var(--rio-space-1);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    color: var(--rio-aa-text-muted);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-xs);
+    line-height: var(--rio-leading-tight);
+  }
+
+  @media (max-width: 767px) {
+    .rio-palette__label,
+    .rio-palette__keys {
+      display: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-palette__keys {
+      border-color: CanvasText;
+      color: CanvasText;
+    }
+  }
+}

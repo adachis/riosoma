@@ -1,0 +1,53 @@
+.rio-sql {
+  display: grid;
+  gap: var(--rio-space-3);
+  color: var(--rio-text);
+}
+.rio-sql label {
+  display: block;
+  margin-block: var(--rio-space-2);
+}
+.rio-sql input,
+.rio-sql select,
+.rio-sql button {
+  color: var(--rio-text);
+  background: var(--rio-surface);
+  border: 1px solid var(--rio-border);
+  padding: var(--rio-space-2);
+}
+.rio-sql input:not([type='checkbox']) {
+  display: block;
+  width: 100%;
+}
+.rio-sql code {
+  font-family: var(--rio-font-mono);
+}
+.rio-sql details > button {
+  display: block;
+  text-align: start;
+}
+.rio-sql__actions {
+  display: flex;
+  gap: var(--rio-space-2);
+  flex-wrap: wrap;
+}
+.rio-sql__grid {
+  overflow: auto;
+  max-height: 28rem;
+}
+.rio-sql__grid table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.rio-sql__grid th,
+.rio-sql__grid td {
+  padding: var(--rio-space-2);
+  border: 1px solid var(--rio-border);
+  text-align: start;
+  white-space: pre-wrap;
+}
+.rio-sql__grid th {
+  background: var(--rio-surface);
+  position: sticky;
+  top: 0;
+}

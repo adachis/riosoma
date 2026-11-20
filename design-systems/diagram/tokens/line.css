@@ -1,0 +1,35 @@
+/* Diagram — line weights, radii and the drawing marks that replace shadow.
+   Radius is 0 by default. Technical drawings do not have rounded corners;
+   the only rounded things in Diagram are circles (callout bubbles, nodes, pills). */
+:root,[data-theme]{
+--stroke-hair:0.5px;/* @kind other */
+--stroke-1:1px;/* @kind other */
+--stroke-2:1.5px;/* @kind other */
+--stroke-3:2px;/* @kind other */
+--stroke-4:3px;/* @kind other */
+--radius-0:0px;--radius-1:2px;--radius-2:3px;--radius-pill:999px;--radius-round:50%;
+
+--border-hair:var(--stroke-1) solid var(--rule-hair);
+--border-mid:var(--stroke-1) solid var(--rule-mid);
+--border-strong:var(--stroke-1) solid var(--rule-strong);
+--border-ink:var(--stroke-1) solid var(--rule-ink);
+--border-accent:var(--stroke-1) solid var(--rule-accent);
+--border-hidden:var(--stroke-1) dashed var(--rule-mid);
+--border-construction:var(--stroke-1) dashed var(--rule-ghost);
+
+--dash-hidden:4 3;/* @kind other */
+--dash-construction:2 4;/* @kind other */
+--dash-centre:12 3 3 3;/* @kind other */
+
+/* Elevation. Diagram lifts things with a second hairline and a low, cool shadow,
+   never with a soft glow. */
+--lift-0:none;/* @kind shadow */
+--lift-1:0 1px 0 color-mix(in oklab,var(--ink) 6%,transparent);
+--lift-2:0 0 0 1px var(--rule-hair),0 6px 16px -10px color-mix(in oklab,var(--ink) 45%,transparent);
+--lift-3:0 0 0 1px var(--rule-mid),0 18px 40px -22px color-mix(in oklab,var(--ink) 60%,transparent);
+--lift-print:3px 3px 0 color-mix(in oklab,var(--ink) 10%,transparent);
+--inset-well:inset 0 1px 0 color-mix(in oklab,var(--ink) 8%,transparent);
+
+--focus-outline:var(--stroke-2) solid var(--focus-ring);
+--focus-offset:2px;/* @kind spacing */
+}

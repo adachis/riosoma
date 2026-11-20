@@ -1,0 +1,224 @@
+@layer rio.app {
+  .rio-map-view {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-block-size: 0;
+    min-inline-size: 0;
+    block-size: 100%;
+    color: var(--rio-text);
+    background: var(--rio-bg);
+  }
+  .rio-map-view--list {
+    gap: var(--rio-space-4);
+    overflow: auto;
+    padding-block: var(--rio-space-4);
+    padding-inline: var(--rio-space-4);
+  }
+  .rio-map-view__note {
+    max-inline-size: 40rem;
+    margin: 0;
+    padding-block: var(--rio-space-3);
+    padding-inline: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-map-view__canvas {
+    flex: 1;
+    min-block-size: 0;
+  }
+
+  /* What MapLibre needs of its own elements, in the theme's colors. */
+  .rio-map-view .maplibregl-map {
+    position: relative;
+    overflow: hidden;
+    font: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .rio-map-view .maplibregl-canvas {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
+  .rio-map-view .maplibregl-canvas:focus-visible {
+    outline: var(--rio-focus-ring);
+    outline-offset: -2px;
+  }
+  .rio-map-view .maplibregl-canvas-container.maplibregl-interactive {
+    cursor: grab;
+    user-select: none;
+  }
+  .rio-map-view .maplibregl-canvas-container.maplibregl-interactive:active {
+    cursor: grabbing;
+  }
+  .rio-map-view .maplibregl-canvas-container.maplibregl-touch-drag-pan,
+  .rio-map-view .maplibregl-canvas-container.maplibregl-touch-drag-pan .maplibregl-canvas {
+    touch-action: none;
+  }
+  .rio-map-view .maplibregl-ctrl-top-left,
+  .rio-map-view .maplibregl-ctrl-top-right,
+  .rio-map-view .maplibregl-ctrl-bottom-left,
+  .rio-map-view .maplibregl-ctrl-bottom-right {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .rio-map-view .maplibregl-ctrl-bottom-right {
+    inset-block-end: 0;
+    inset-inline-end: 0;
+  }
+  .rio-map-view .maplibregl-ctrl-bottom-left {
+    inset-block-end: 0;
+    inset-inline-start: 0;
+  }
+  .rio-map-view .maplibregl-ctrl {
+    pointer-events: auto;
+  }
+  .rio-map-view .maplibregl-ctrl-attrib {
+    max-inline-size: 40rem;
+    padding-block: 0;
+    padding-inline: var(--rio-space-2);
+    border-start-start-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    opacity: 0.9;
+  }
+  .rio-map-view .maplibregl-ctrl-attrib summary {
+    display: none;
+  }
+  .rio-map-view .maplibregl-ctrl-attrib a {
+    color: inherit;
+  }
+  .rio-map-view .maplibregl-attrib-empty {
+    display: none;
+  }
+
+  .rio-map-view__zoom {
+    position: absolute;
+    inset-block-start: var(--rio-space-3);
+    inset-inline-end: var(--rio-space-3);
+    z-index: 3;
+    display: grid;
+    gap: var(--rio-space-1);
+  }
+  .rio-map-view-card {
+    position: absolute;
+    inset-block-end: var(--rio-space-6);
+    inset-inline-start: var(--rio-space-3);
+    z-index: 3;
+    display: grid;
+    gap: var(--rio-space-2);
+    inline-size: 18rem;
+    max-inline-size: calc(100% - 2 * var(--rio-space-3));
+    padding-block: var(--rio-space-3);
+    padding-inline: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-raised);
+    box-shadow: var(--rio-shadow-2);
+  }
+  .rio-map-view-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+  .rio-map-view-card__title {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-map-view-card__place {
+    margin: 0;
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-map-view-card__fields {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+  }
+  .rio-map-view-card__fields dt {
+    color: var(--rio-text);
+    font-size: var(--rio-text-xs);
+  }
+  .rio-map-view-card__fields dd {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-map-view-card > .rio-button {
+    justify-self: start;
+  }
+
+  .rio-map-view-list {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-map-view-list th,
+  .rio-map-view-list td {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+    font-weight: var(--rio-weight-regular);
+  }
+  .rio-map-view-list thead th {
+    color: var(--rio-aa-text-muted);
+    font-weight: var(--rio-weight-medium);
+  }
+  /* A record a color rule colors has the rule's mark beside its name. */
+  .rio-map-view-list__record {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+  }
+  .rio-map-view__empty,
+  .rio-map-view__notice {
+    margin: 0;
+    text-align: center;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-map-view:not(.rio-map-view--list) .rio-map-view__empty,
+  .rio-map-view:not(.rio-map-view--list) .rio-map-view__notice {
+    position: absolute;
+    inset-block-start: var(--rio-space-3);
+    inset-inline: 25%;
+    z-index: 3;
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-3);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    pointer-events: none;
+  }
+  .rio-map-view__status,
+  .rio-map-view__sr-only {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (forced-colors: active) {
+    .rio-map-view-card,
+    .rio-map-view__note {
+      border-color: CanvasText;
+    }
+    .rio-map-view .maplibregl-canvas:focus-visible {
+      outline: 2px solid Highlight;
+    }
+  }
+}

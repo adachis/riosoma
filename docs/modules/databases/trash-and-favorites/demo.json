@@ -1,0 +1,23 @@
+{
+  "id": "trash-and-favorites",
+  "where": "database",
+  "steps": [
+    {
+      "anchor": "database.tables",
+      "say": "demos.trash.delete"
+    },
+    {
+      "anchor": "database.trash",
+      "say": "demos.trash.open",
+      "do": "open"
+    },
+    {
+      "anchor": "trash.list",
+      "say": "demos.trash.list"
+    },
+    {
+      "anchor": "shell.home",
+      "say": "demos.trash.favorites"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+:root{
+  /* ================= Base hues (the 19 values a theme overrides) ================= */
+  --paper:#f7f3ea;            /* page background */
+  --paper-2:#efe9dc;          /* alternate band */
+  --paper-3:#e4dccb;          /* dividers on paper */
+  --white:#ffffff;            /* raised card surface */
+  --ink:#141210;              /* every border, every display headline */
+  --ink-2:#2a2622;            /* inverted panel surface */
+  --ink-3:#4a443d;            /* body text */
+  --ink-4:#7c746a;            /* muted / caption text */
+
+  --flame:#f4522b;            /* primary */
+  --flame-dark:#d63e1a;
+  --lime:#d3f94c;             /* accent */
+  --lime-dark:#bde834;
+
+  --sun:#ffc531;              /* play palette */
+  --sea:#22a699;
+  --sky:#2b5bf4;
+  --grape:#8f6ce0;
+  --punch:#ff2e93;
+
+  /* Text colour that sits ON each fill */
+  --on-flame:#141210;
+  --on-lime:#141210;
+  --on-sun:#141210;
+  --on-sea:#ffffff;
+  --on-sky:#ffffff;
+  --on-grape:#ffffff;
+  --on-punch:#ffffff;
+
+  --text-on-dark:#f7f3ea;
+  --text-on-dark-muted:#a9a29a;
+
+  /* Semantic */
+  --ok:#22a699;
+  --warn:#ffc531;
+  --danger:#f4522b;
+  --info:#2b5bf4;
+
+  /* ================= Derived — follow every theme automatically ================= */
+  --flame-tint:color-mix(in oklab,var(--flame) 20%,var(--white));
+  --lime-tint:color-mix(in oklab,var(--lime) 20%,var(--white));
+  --sun-tint:color-mix(in oklab,var(--sun) 20%,var(--white));
+  --sea-tint:color-mix(in oklab,var(--sea) 20%,var(--white));
+  --sky-tint:color-mix(in oklab,var(--sky) 20%,var(--white));
+  --grape-tint:color-mix(in oklab,var(--grape) 20%,var(--white));
+  --punch-tint:color-mix(in oklab,var(--punch) 20%,var(--white));
+  --neutral-tint:var(--paper-2);
+
+  --on-flame-tint:color-mix(in oklab,var(--flame) 55%,var(--ink));
+  --on-lime-tint:color-mix(in oklab,var(--lime) 55%,var(--ink));
+  --on-sun-tint:color-mix(in oklab,var(--sun) 55%,var(--ink));
+  --on-sea-tint:color-mix(in oklab,var(--sea) 55%,var(--ink));
+  --on-sky-tint:color-mix(in oklab,var(--sky) 55%,var(--ink));
+  --on-grape-tint:color-mix(in oklab,var(--grape) 55%,var(--ink));
+  --on-punch-tint:color-mix(in oklab,var(--punch) 55%,var(--ink));
+
+  /* Body copy sitting on a saturated fill — softer than the heading colour */
+  --body-on-flame:color-mix(in oklab,var(--on-flame) 78%,var(--flame));
+  --body-on-lime:color-mix(in oklab,var(--on-lime) 78%,var(--lime));
+  --body-on-sun:color-mix(in oklab,var(--on-sun) 78%,var(--sun));
+  --body-on-sea:color-mix(in oklab,var(--on-sea) 78%,var(--sea));
+  --body-on-sky:color-mix(in oklab,var(--on-sky) 78%,var(--sky));
+  --body-on-grape:color-mix(in oklab,var(--on-grape) 78%,var(--grape));
+  --body-on-punch:color-mix(in oklab,var(--on-punch) 78%,var(--punch));
+
+  /* Accent that is guaranteed to contrast against this scheme's --ink-2 panel.
+     Defaults to --lime; the two schemes that invert --ink-2 to a light value
+     override it in themes.css. Never hardcode --lime on an ink-2 surface. */
+  --accent-on-dark:var(--lime);
+  /* Hairline / border veil for use on an --ink-2 panel */
+  --veil-on-dark:color-mix(in oklab,var(--text-on-dark) 22%,transparent);
+
+  /* Translucent ink, for chips inside a saturated block */
+  --ink-veil:color-mix(in oklab,var(--ink) 14%,transparent);
+  --paper-veil:color-mix(in oklab,var(--paper) 20%,transparent);
+
+  /* ================= Aliases ================= */
+  --surface-page:var(--paper);
+  --surface-band:var(--paper-2);
+  --surface-card:var(--white);
+  --surface-card-dark:var(--ink-2);
+  --surface-hero:var(--flame);
+  --text-display:var(--ink);
+  --text-body:var(--ink-3);
+  --text-muted:var(--ink-4);
+  --text-on-flame:var(--on-flame);
+  --border-ink:var(--ink);
+  --border-soft:var(--paper-3);
+  --focus-ring:var(--sky);
+}

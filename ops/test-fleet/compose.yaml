@@ -1,0 +1,2045 @@
+# Riosoma local test fleet.
+#
+# One Compose profile per service, plus a group profile for each family, so a
+# 16 GB Colima virtual machine only ever carries a few of these at a time.
+# Start one member with
+#   docker compose -f ops/test-fleet/compose.yaml --profile postgres16 up -d --wait
+# and start a family with
+#   docker compose -f ops/test-fleet/compose.yaml --profile sql up -d --wait
+#
+# Conventions used everywhere below:
+#   - Every published port binds to 127.0.0.1, so the fleet is never reachable
+#     from the network.
+#   - Every image tag is pinned.  Digest pinning is used where a publisher only
+#     ships rolling tags.
+#   - Every service has a healthcheck, because --wait is only as good as the
+#     checks behind it.  Services marked x-fleet-job are one-shot jobs, so their
+#     exit status is the check instead.
+#   - Credentials are the fixed, obviously fake values documented in
+#     ops/test-fleet/README.md.
+#   - License acceptance comes from the environment and is empty by default.
+
+name: riosoma-test-fleet
+
+networks:
+  default:
+    name: riosoma-fleet
+
+x-fleet-db-env: &db-env
+  POSTGRES_USER: riosoma_test
+  POSTGRES_PASSWORD: 'Riosoma-Test-2026!'
+  POSTGRES_DB: riosoma_test
+  # Scram keeps the pooled and proxied paths honest, because a test fleet that
+  # only ever speaks trust would hide a real authentication bug.
+  POSTGRES_INITDB_ARGS: '--auth-host=scram-sha-256 --auth-local=scram-sha-256'
+
+services:
+  # --------------------------------------------------------------------------
+  # PostgreSQL family
+  # --------------------------------------------------------------------------
+
+  postgres14:
+    image: postgres:14.24
+    profiles: ['postgres14', 'sql']
+    environment: *db-env
+    ports:
+      - '127.0.0.1:15432:5432'
+    volumes:
+      - fleet-postgres14:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U riosoma_test -d riosoma_test -h 127.0.0.1 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  postgres15:
+    image: postgres:15.19
+    profiles: ['postgres15', 'sql']
+    environment: *db-env
+    ports:
+      - '127.0.0.1:15433:5432'
+    volumes:
+      - fleet-postgres15:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U riosoma_test -d riosoma_test -h 127.0.0.1 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  postgres16:
+    image: postgres:16.15
+    profiles: ['postgres16', 'sql']
+    environment: *db-env
+    ports:
+      - '127.0.0.1:15434:5432'
+    volumes:
+      - fleet-postgres16:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U riosoma_test -d riosoma_test -h 127.0.0.1 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  postgres17:
+    image: postgres:17.11
+    profiles: ['postgres17', 'sql']
+    environment: *db-env
+    ports:
+      - '127.0.0.1:15435:5432'
+    volumes:
+      - fleet-postgres17:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U riosoma_test -d riosoma_test -h 127.0.0.1 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  postgres18:
+    image: postgres:18.6
+    profiles: ['postgres18', 'sql']
+    environment: *db-env
+    ports:
+      - '127.0.0.1:15436:5432'
+    volumes:
+      # The 18 image moved PGDATA to /var/lib/postgresql/18/docker, so the
+      # volume has to sit one level higher than it does for 14 through 17.
+      - fleet-postgres18:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U riosoma_test -d riosoma_test -h 127.0.0.1 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  pgbouncer:
+    image: pgbouncer/pgbouncer:1.25.2-20260920
+    profiles: ['pgbouncer', 'sql']
+    depends_on:
+      postgres16:
+        condition: service_healthy
+    environment:
+      DATABASES_HOST: postgres16
+      DATABASES_PORT: '5432'
+      DATABASES_USER: riosoma_test
+      DATABASES_PASSWORD: 'Riosoma-Test-2026!'
+      DATABASES_DBNAME: riosoma_test
+      PGBOUNCER_POOL_MODE: transaction
+      PGBOUNCER_AUTH_TYPE: scram-sha-256
+      PGBOUNCER_AUTH_FILE: /etc/pgbouncer/userlist.txt
+      PGBOUNCER_ADMIN_USERS: riosoma_test
+      PGBOUNCER_STATS_USERS: riosoma_test
+      PGBOUNCER_MAX_CLIENT_CONN: '100'
+      PGBOUNCER_DEFAULT_POOL_SIZE: '10'
+      PGBOUNCER_IGNORE_STARTUP_PARAMETERS: extra_float_digits
+    volumes:
+      - ./pgbouncer/userlist.txt:/etc/pgbouncer/userlist.txt:ro
+    ports:
+      - '127.0.0.1:15437:6432'
+    healthcheck:
+      test: ['CMD-SHELL', 'nc -z 127.0.0.1 6432 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+  pgcat:
+    image: ghcr.io/postgresml/pgcat:v1.2.0
+    profiles: ['pgcat', 'sql']
+    depends_on:
+      postgres17:
+        condition: service_healthy
+    command: ['pgcat', '/etc/pgcat/pgcat.toml']
+    volumes:
+      - ./pgcat/pgcat.toml:/etc/pgcat/pgcat.toml:ro
+    ports:
+      - '127.0.0.1:15438:6432'
+    healthcheck:
+      test: ['CMD-SHELL', "bash -c 'exec 3<>/dev/tcp/127.0.0.1/6432' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  # --------------------------------------------------------------------------
+  # MySQL family
+  # --------------------------------------------------------------------------
+
+  mysql84:
+    image: mysql:8.4.11
+    profiles: ['mysql84', 'sql']
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Riosoma-Test-2026!'
+      MYSQL_DATABASE: riosoma_test
+      MYSQL_USER: riosoma_test
+      MYSQL_PASSWORD: 'Riosoma-Test-2026!'
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_0900_ai_ci'
+    ports:
+      - '127.0.0.1:13306:3306'
+    volumes:
+      - fleet-mysql84:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "mysqladmin ping -h 127.0.0.1 -u riosoma_test -p'Riosoma-Test-2026!' --silent || exit 1",
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  mysql97:
+    image: mysql:9.7.2
+    profiles: ['mysql97', 'sql']
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Riosoma-Test-2026!'
+      MYSQL_DATABASE: riosoma_test
+      MYSQL_USER: riosoma_test
+      MYSQL_PASSWORD: 'Riosoma-Test-2026!'
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_0900_ai_ci'
+    ports:
+      - '127.0.0.1:13307:3306'
+    volumes:
+      - fleet-mysql97:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "mysqladmin ping -h 127.0.0.1 -u riosoma_test -p'Riosoma-Test-2026!' --silent || exit 1",
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  mariadb11:
+    image: mariadb:11.8.9
+    profiles: ['mariadb11', 'sql']
+    environment:
+      MARIADB_ROOT_PASSWORD: 'Riosoma-Test-2026!'
+      MARIADB_DATABASE: riosoma_test
+      MARIADB_USER: riosoma_test
+      MARIADB_PASSWORD: 'Riosoma-Test-2026!'
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_unicode_ci'
+    ports:
+      - '127.0.0.1:13308:3306'
+    volumes:
+      - fleet-mariadb11:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 768m
+
+  # --------------------------------------------------------------------------
+  # Commercial engines that still ship a free or community build
+  # --------------------------------------------------------------------------
+
+  mssql2022:
+    image: mcr.microsoft.com/mssql/server:2022-CU27-ubuntu-22.04
+    # SQL Server ships no arm64 build, so this one runs through Rosetta.
+    platform: linux/amd64
+    profiles: ['mssql2022', 'sql']
+    environment:
+      # Empty until the owner accepts the license.  See the README.
+      ACCEPT_EULA: ${FLEET_ACCEPT_MSSQL_EULA:-}
+      MSSQL_SA_PASSWORD: 'Riosoma-Test-2026!'
+      MSSQL_PID: Developer
+      MSSQL_TCP_PORT: '1433'
+      MSSQL_COLLATION: Latin1_General_CI_AS
+    ports:
+      - '127.0.0.1:11433:1433'
+    volumes:
+      - fleet-mssql:/var/opt/mssql
+    healthcheck:
+      # mssql-tools18 replaced mssql-tools in recent cumulative updates, and
+      # both paths are tried so a future base image does not break the check.
+      test:
+        - 'CMD-SHELL'
+        - "/opt/mssql-tools18/bin/sqlcmd -S 127.0.0.1 -U sa -P 'Riosoma-Test-2026!' -C -b -l 10 -Q 'SELECT 1' >/dev/null || /opt/mssql-tools/bin/sqlcmd -S 127.0.0.1 -U sa -P 'Riosoma-Test-2026!' -C -b -l 10 -Q 'SELECT 1' >/dev/null || exit 1"
+      interval: 15s
+      timeout: 15s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          # SQL Server refuses to start under two gigabytes.
+          memory: 2g
+
+  oracle:
+    image: gvenzl/oracle-free:23.26.3-slim-faststart
+    profiles: ['oracle', 'sql']
+    environment:
+      ORACLE_PASSWORD: 'Riosoma-Test-2026!'
+      # The faststart variant ships a prebuilt FREEPDB1 with this user, which
+      # cuts first boot from minutes to seconds.
+      APP_USER: riosoma_test
+      APP_USER_PASSWORD: 'Riosoma-Test-2026!'
+    ports:
+      - '127.0.0.1:11521:1521'
+    volumes:
+      - fleet-oracle:/opt/oracle/oradata
+    healthcheck:
+      test: ['CMD', '/opt/oracle/healthcheck.sh']
+      interval: 15s
+      timeout: 15s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 120s
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+  db2:
+    image: icr.io/db2_community/db2:12.1.5.0
+    # Db2 has no arm64 build, so this one runs through Rosetta.
+    platform: linux/amd64
+    profiles: ['db2', 'sql']
+    # IBM documents the community image as needing privileged mode, because the
+    # engine tunes shared memory and semaphores at first boot.
+    privileged: true
+    environment:
+      LICENSE: ${FLEET_ACCEPT_DB2_LICENSE:-}
+      DB2INSTANCE: db2inst1
+      DB2INST1_PASSWORD: 'Riosoma-Test-2026!'
+      DBNAME: riosoma
+      REPO_DB: riosoma
+      AUTOCONFIG: 'false'
+      ARCHIVE_LOGS: 'false'
+      LOG_DIR: /mnt/logs
+      TO_CREATE_SAMPLEDB: 'false'
+    ports:
+      - '127.0.0.1:15000:50000'
+    volumes:
+      - fleet-db2-database:/database
+      - fleet-db2-hadr:/hadr
+      - fleet-db2-logs:/mnt/logs
+    healthcheck:
+      test: ['CMD-SHELL', "su - db2inst1 -c 'db2 get snapshot for dbm' >/dev/null 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 40
+      start_period: 300s
+    stop_grace_period: 120s
+    deploy:
+      resources:
+        limits:
+          memory: 3g
+
+  informix:
+    image: icr.io/informix/informix-developer-database:15.0.1.0.3
+    # Informix Developer Edition ships amd64 only, so this runs through Rosetta.
+    platform: linux/amd64
+    profiles: ['informix', 'sql']
+    # IBM documents privileged mode for this image, because the engine configures
+    # kernel shared memory at first boot.
+    privileged: true
+    environment:
+      LICENSE: ${FLEET_ACCEPT_INFORMIX_LICENSE:-}
+      # small keeps the first-boot instance inside the memory limit below.
+      SIZE: small
+      TYPE: oltp
+      DB_SERVERNAME: riosoma
+    ports:
+      - '127.0.0.1:19088:9088'
+      # The CLI client uses DRDA rather than the SQLI listener.
+      - '127.0.0.1:19089:9089'
+    volumes:
+      - fleet-informix:/opt/ibm/data
+    healthcheck:
+      test: ['CMD-SHELL', "bash -c 'exec 3<>/dev/tcp/127.0.0.1/9088' || exit 1"]
+      interval: 30s
+      timeout: 15s
+      retries: 40
+      start_period: 300s
+    stop_grace_period: 120s
+    deploy:
+      resources:
+        limits:
+          memory: 1536m
+
+  # The project's official image, which ships arm64 builds from 5.0 on.  Its
+  # 3.0 and 4.0 tags are amd64 only.  The server keeps its default of
+  # WireCrypt = Required, so every client has to encrypt the connection.
+  firebird5:
+    image: firebirdsql/firebird:5.0.4
+    profiles: ['firebird5', 'firebird', 'sql']
+    environment:
+      FIREBIRD_ROOT_PASSWORD: 'Riosoma-Test-2026!'
+      FIREBIRD_DATABASE: riosoma_test.fdb
+      FIREBIRD_USER: riosoma_test
+      FIREBIRD_PASSWORD: 'Riosoma-Test-2026!'
+      FIREBIRD_DATABASE_DEFAULT_CHARSET: UTF8
+      # isc_password keeps the bundled command line tools usable without extra
+      # flags, which is what makes an interactive smoke test possible.
+      ISC_PASSWORD: 'Riosoma-Test-2026!'
+    ports:
+      - '127.0.0.1:13050:3050'
+    volumes:
+      - fleet-firebird5:/var/lib/firebird/data
+    healthcheck:
+      test: ['CMD-SHELL', "bash -c 'exec 3<>/dev/tcp/127.0.0.1/3050' || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  # --------------------------------------------------------------------------
+  # Warehouses and analytics
+  #
+  # DuckDB needs no container.  It is an in-process library, so the Riosoma
+  # test suite links it directly.
+  # --------------------------------------------------------------------------
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.8.33.6-alpine
+    profiles: ['clickhouse', 'warehouse']
+    environment:
+      CLICKHOUSE_USER: riosoma_test
+      CLICKHOUSE_PASSWORD: 'Riosoma-Test-2026!'
+      CLICKHOUSE_DB: riosoma_test
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: '1'
+    ports:
+      - '127.0.0.1:18123:8123'
+      - '127.0.0.1:19000:9000'
+    volumes:
+      - fleet-clickhouse-data:/var/lib/clickhouse
+      - fleet-clickhouse-logs:/var/log/clickhouse-server
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:8123/ping | grep -qi ok || exit 1']
+      interval: 10s
+      timeout: 10s
+      retries: 24
+      start_period: 40s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+  trino:
+    image: trinodb/trino:483
+    profiles: ['trino', 'warehouse']
+    ports:
+      - '127.0.0.1:18081:8080'
+    volumes:
+      # tpch gives a query target that needs no other profile, and the
+      # postgres catalog points at postgres17 for cross-engine tests.
+      - ./trino/catalog/tpch.properties:/etc/trino/catalog/tpch.properties:ro
+      - ./trino/catalog/riosoma_postgres.properties:/etc/trino/catalog/riosoma_postgres.properties:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8080/v1/info | grep -q ''"starting":false'' || exit 1']
+      interval: 15s
+      timeout: 10s
+      retries: 24
+      start_period: 90s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+  # Apache Druid runs the micro quickstart, which is five JVMs plus ZooKeeper.
+  # The heaps are cut well below the shipped defaults so the whole profile
+  # stays near four gigabytes.  Start it on its own.
+  druid-zookeeper:
+    image: zookeeper:3.9.5
+    profiles: ['druid-zookeeper', 'druid', 'warehouse']
+    environment:
+      ZOO_MY_ID: '1'
+      ZOO_4LW_COMMANDS_WHITELIST: 'srvr,ruok,stat,conf'
+      JVMFLAGS: '-Xms64m -Xmx192m'
+    volumes:
+      - fleet-druid-zookeeper:/data
+      - fleet-druid-zookeeper-datalog:/datalog
+    healthcheck:
+      test: ['CMD-SHELL', 'zkServer.sh status || exit 1']
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  druid-coordinator-overlord:
+    image: apache/druid:37.0.0
+    # Druid publishes amd64 only, so every node runs through Rosetta.
+    platform: linux/amd64
+    profiles: ['druid-coordinator-overlord', 'druid', 'warehouse']
+    depends_on:
+      druid-zookeeper:
+        condition: service_healthy
+    command: ['coordinator-overlord']
+    environment: &druid-env
+      DRUID_SINGLE_NODE_CONF: micro-quickstart
+      ZOOKEEPER: druid-zookeeper
+      DRUID_XMX: 384m
+      DRUID_XMS: 256m
+      druid_storage_type: local
+      druid_storage_storageDirectory: /opt/shared/segments
+      druid_indexer_logs_type: file
+      druid_indexer_logs_directory: /opt/shared/indexing-logs
+      druid_processing_numThreads: '1'
+      druid_processing_numMergeBuffers: '1'
+      DRUID_LOG_LEVEL: info
+    volumes:
+      - fleet-druid-shared:/opt/shared
+      - fleet-druid-coordinator-var:/opt/druid/var
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8081/status/health | grep -q ''"healthy":true'' || exit 1']
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  druid-broker:
+    image: apache/druid:37.0.0
+    platform: linux/amd64
+    profiles: ['druid-broker', 'druid', 'warehouse']
+    depends_on:
+      druid-zookeeper:
+        condition: service_healthy
+    command: ['broker']
+    environment:
+      <<: *druid-env
+      DRUID_XMX: 384m
+      DRUID_XMS: 256m
+      DRUID_MAXDIRECTMEMORYSIZE: 256m
+    volumes:
+      - fleet-druid-broker-var:/opt/druid/var
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8082/status/health | grep -q ''"healthy":true'' || exit 1']
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  druid-historical:
+    image: apache/druid:37.0.0
+    platform: linux/amd64
+    profiles: ['druid-historical', 'druid', 'warehouse']
+    depends_on:
+      druid-zookeeper:
+        condition: service_healthy
+    command: ['historical']
+    environment:
+      <<: *druid-env
+      DRUID_XMX: 512m
+      DRUID_XMS: 384m
+      DRUID_MAXDIRECTMEMORYSIZE: 512m
+    volumes:
+      - fleet-druid-shared:/opt/shared
+      - fleet-druid-historical-var:/opt/druid/var
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8083/status/health | grep -q ''"healthy":true'' || exit 1']
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1536m
+
+  druid-middlemanager:
+    image: apache/druid:37.0.0
+    platform: linux/amd64
+    profiles: ['druid-middlemanager', 'druid', 'warehouse']
+    depends_on:
+      druid-zookeeper:
+        condition: service_healthy
+    command: ['middleManager']
+    environment:
+      <<: *druid-env
+      DRUID_XMX: 128m
+      DRUID_XMS: 64m
+      # Peons are separate JVMs, so this budget is what indexing actually gets.
+      druid_indexer_runner_javaOptsArray: '["-server","-Xmx256m","-Xms256m","-XX:MaxDirectMemorySize=256m","-Duser.timezone=UTC","-Dfile.encoding=UTF-8"]'
+      druid_indexer_fork_property_druid_processing_buffer_sizeBytes: 64MiB
+    volumes:
+      - fleet-druid-shared:/opt/shared
+      - fleet-druid-middlemanager-var:/opt/druid/var
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8091/status/health | grep -q ''"healthy":true'' || exit 1']
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  druid-router:
+    image: apache/druid:37.0.0
+    platform: linux/amd64
+    profiles: ['druid-router', 'druid', 'warehouse']
+    depends_on:
+      druid-broker:
+        condition: service_started
+    command: ['router']
+    environment:
+      <<: *druid-env
+      DRUID_XMX: 192m
+      DRUID_XMS: 128m
+    volumes:
+      - fleet-druid-router-var:/opt/druid/var
+    ports:
+      # The router is the only Druid port the fleet publishes, and it is the
+      # entry point for the console and the query API.
+      - '127.0.0.1:18888:8888'
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8888/status/health | grep -q ''"healthy":true'' || exit 1']
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  # --------------------------------------------------------------------------
+  # Document, wide column, graph, and time series stores
+  # --------------------------------------------------------------------------
+
+  mongodb:
+    image: mongo:8.0.32
+    profiles: ['mongodb', 'nosql']
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: riosoma_test
+      MONGO_INITDB_ROOT_PASSWORD: 'Riosoma-Test-2026!'
+    ports:
+      - '127.0.0.1:17017:27017'
+    volumes:
+      - fleet-mongodb:/data/db
+    healthcheck:
+      test:
+        - 'CMD-SHELL'
+        - "mongosh --quiet -u riosoma_test -p 'Riosoma-Test-2026!' --authenticationDatabase admin --eval 'quit(db.adminCommand({ ping: 1 }).ok ? 0 : 2)' || exit 1"
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 40s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  dynamodb:
+    image: amazon/dynamodb-local:3.3.1
+    profiles: ['dynamodb', 'nosql', 'sources-nosql']
+    # sharedDb keeps every client on one file, so credentials do not have to
+    # carry an account identifier for the fleet to behave predictably.
+    command: ['-jar', 'DynamoDBLocal.jar', '-sharedDb', '-dbPath', '/home/dynamodblocal']
+    ports:
+      - '127.0.0.1:18000:8000'
+    volumes:
+      - fleet-dynamodb:/home/dynamodblocal
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "curl -fsS -o /dev/null http://127.0.0.1:8000/ || bash -c 'exec 3<>/dev/tcp/127.0.0.1/8000' || exit 1",
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  cosmos:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:vnext-EN20260907
+    profiles: ['cosmos', 'nosql', 'sources-nosql']
+    environment:
+      # HTTP keeps the emulator usable without importing a certificate.  The
+      # .NET and Java SDKs need HTTPS, so switch this to https-insecure when a
+      # test uses one of them.
+      PROTOCOL: http
+      ENABLE_EXPLORER: 'false'
+      LOG_LEVEL: warn
+      DATA_PATH: /data
+    ports:
+      - '127.0.0.1:18082:8081'
+    volumes:
+      - fleet-cosmos:/data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "curl -fsS -o /dev/null http://127.0.0.1:8081/ || bash -c 'exec 3<>/dev/tcp/127.0.0.1/8081' || exit 1",
+        ]
+      interval: 20s
+      timeout: 15s
+      retries: 40
+      start_period: 180s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 3g
+
+  firestore:
+    image: google/cloud-sdk:586.0.0-emulators
+    # The emulators image is amd64 only, so this runs through Rosetta.
+    platform: linux/amd64
+    profiles: ['firestore', 'nosql', 'sources-nosql']
+    command:
+      - 'gcloud'
+      - '--project=riosoma-test'
+      - 'beta'
+      - 'emulators'
+      - 'firestore'
+      - 'start'
+      - '--host-port=0.0.0.0:18083'
+    environment:
+      CLOUDSDK_CORE_PROJECT: riosoma-test
+      CLOUDSDK_CORE_DISABLE_PROMPTS: '1'
+      FIRESTORE_PROJECT_ID: riosoma-test
+    ports:
+      - '127.0.0.1:18083:18083'
+    healthcheck:
+      test: ['CMD-SHELL', "bash -c 'exec 3<>/dev/tcp/127.0.0.1/18083' || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 24
+      start_period: 90s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  couchbase:
+    image: couchbase:community-8.0.2
+    profiles: ['couchbase', 'nosql', 'sources-nosql']
+    ports:
+      - '127.0.0.1:18091:8091'
+      - '127.0.0.1:18092:8092'
+      - '127.0.0.1:18093:8093'
+      - '127.0.0.1:18094:8094'
+      - '127.0.0.1:18095:8095'
+      - '127.0.0.1:18096:8096'
+      # The data port is outside the published plan, because an SDK cannot do
+      # anything without it.
+      - '127.0.0.1:11210:11210'
+    volumes:
+      - fleet-couchbase:/opt/couchbase/var
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "curl -fsS -o /dev/null http://127.0.0.1:8091/pools || bash -c 'exec 3<>/dev/tcp/127.0.0.1/8091' || exit 1",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 24
+      start_period: 60s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+  couchbase-init:
+    image: couchbase:community-8.0.2
+    profiles: ['couchbase-init', 'couchbase', 'nosql', 'sources-nosql']
+    # A one-shot job, so its exit status is the health signal.
+    x-fleet-job: true
+    restart: 'no'
+    depends_on:
+      couchbase:
+        condition: service_healthy
+    entrypoint: ['/bin/bash', '-c']
+    command:
+      - |-
+        set -e
+        /opt/couchbase/bin/couchbase-cli cluster-init \
+          --cluster couchbase:8091 \
+          --cluster-name riosoma-test \
+          --cluster-username Administrator \
+          --cluster-password 'Riosoma-Test-2026!' \
+          --services data,index,query \
+          --cluster-ramsize 512 \
+          --cluster-index-ramsize 256 \
+          --cluster-query-ramsize 256 \
+          --index-storage-setting default
+        /opt/couchbase/bin/couchbase-cli bucket-create \
+          --cluster couchbase:8091 \
+          --username Administrator \
+          --password 'Riosoma-Test-2026!' \
+          --bucket riosoma_test \
+          --bucket-type couchbase \
+          --storage-backend couchstore \
+          --bucket-replica 0 \
+          --bucket-ramsize 256 \
+          --enable-flush 1
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  couchdb:
+    image: couchdb:3.5.2
+    profiles: ['couchdb', 'nosql', 'sources-nosql']
+    environment:
+      COUCHDB_USER: riosoma_test
+      COUCHDB_PASSWORD: 'Riosoma-Test-2026!'
+      COUCHDB_SECRET: riosoma-test-couchdb-secret
+    ports:
+      - '127.0.0.1:15984:5984'
+    volumes:
+      - fleet-couchdb:/opt/couchdb/data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "curl -fsS -u riosoma_test:'Riosoma-Test-2026!' -o /dev/null http://127.0.0.1:5984/_up || exit 1",
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 24
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  couchdb-init:
+    image: couchdb:3.5.2
+    profiles: ['couchdb-init', 'couchdb', 'nosql', 'sources-nosql']
+    x-fleet-job: true
+    restart: 'no'
+    depends_on:
+      couchdb:
+        condition: service_healthy
+    entrypoint: ['/bin/bash', '-c']
+    command:
+      - |-
+        set -e
+        for db in _users _replicator _global_changes
+        do
+          curl -fsS -u riosoma_test:'Riosoma-Test-2026!' -X PUT -o /dev/null "http://couchdb:5984/$$db" || true
+        done
+        curl -fsS -u riosoma_test:'Riosoma-Test-2026!' -X PUT -H 'Content-Type: application/json' -d '"true"' -o /dev/null http://couchdb:5984/_node/_local/_config/couchdb/single_node
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  neo4j:
+    image: neo4j:5.26.31-community
+    profiles: ['neo4j', 'nosql', 'sources-search-graph']
+    environment:
+      NEO4J_AUTH: 'neo4j/Riosoma-Test-2026!'
+      NEO4J_server_memory_heap_initial__size: 384m
+      NEO4J_server_memory_heap_max__size: 512m
+      NEO4J_server_memory_pagecache_size: 256m
+      NEO4J_server_default__listen__address: 0.0.0.0
+    ports:
+      - '127.0.0.1:17474:7474'
+      - '127.0.0.1:17687:7687'
+    volumes:
+      - fleet-neo4j-data:/data
+      - fleet-neo4j-logs:/logs
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'wget -q --spider http://127.0.0.1:7474/ || curl -fsS -o /dev/null http://127.0.0.1:7474/ || exit 1',
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 24
+      start_period: 90s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1536m
+
+  influxdb2:
+    image: influxdb:2.9.1
+    profiles: ['influxdb2', 'nosql', 'sources-search-graph']
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: riosoma_test
+      DOCKER_INFLUXDB_INIT_PASSWORD: 'Riosoma-Test-2026!'
+      DOCKER_INFLUXDB_INIT_ORG: riosoma
+      DOCKER_INFLUXDB_INIT_BUCKET: riosoma_test
+      DOCKER_INFLUXDB_INIT_RETENTION: 7d
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: riosoma-test-influxdb-token
+    ports:
+      - '127.0.0.1:18086:8086'
+    volumes:
+      - fleet-influxdb2:/var/lib/influxdb2
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1:8086/ping || influx ping --host http://127.0.0.1:8086 || exit 1',
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 24
+      start_period: 60s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  influxdb3:
+    image: influxdb:3.11.5-core
+    profiles: ['influxdb3', 'nosql', 'sources-search-graph']
+    command:
+      - 'influxdb3'
+      - 'serve'
+      - '--object-store'
+      - 'directory'
+      - '--db-dir'
+      - '/var/lib/influxdb3'
+      - '--http-bind-address'
+      - '0.0.0.0:8181'
+    environment:
+      INFLUXDB3_LOG_FILTER: info
+    ports:
+      - '127.0.0.1:18181:8181'
+    volumes:
+      - fleet-influxdb3:/var/lib/influxdb3
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -fsS -o /dev/null http://127.0.0.1:8181/health || exit 1']
+      interval: 10s
+      timeout: 10s
+      retries: 24
+      start_period: 60s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  prometheus:
+    image: prom/prometheus:v3.15.0
+    profiles: ['prometheus', 'nosql', 'sources-search-graph']
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=7d'
+      - '--web.listen-address=0.0.0.0:9090'
+    ports:
+      - '127.0.0.1:19090:9090'
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - fleet-prometheus:/prometheus
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -q --spider http://127.0.0.1:9090/-/healthy || exit 1']
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  # --------------------------------------------------------------------------
+  # Search engines
+  #
+  # Elasticsearch and OpenSearch both need vm.max_map_count=262144 in the
+  # Colima virtual machine.  The README explains how to set it once.
+  # --------------------------------------------------------------------------
+
+  elasticsearch:
+    image: elasticsearch:8.19.22
+    profiles: ['elasticsearch', 'search', 'sources-search-graph']
+    environment:
+      discovery.type: single-node
+      cluster.name: riosoma-test
+      ELASTIC_PASSWORD: 'Riosoma-Test-2026!'
+      # Security stays on, because Riosoma has to authenticate against a real
+      # Elasticsearch.  Transport TLS is off, because there is only one node and
+      # a self-signed certificate would hide certificate handling bugs.
+      xpack.security.enabled: 'true'
+      xpack.security.http.ssl.enabled: 'false'
+      xpack.security.transport.ssl.enabled: 'false'
+      xpack.ml.enabled: 'false'
+      ES_JAVA_OPTS: '-Xms512m -Xmx512m'
+    ports:
+      - '127.0.0.1:19200:9200'
+    volumes:
+      - fleet-elasticsearch:/usr/share/elasticsearch/data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "curl -fsS -u elastic:'Riosoma-Test-2026!' -o /dev/null http://127.0.0.1:9200/_cluster/health || exit 1",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1536m
+
+  opensearch:
+    image: opensearchproject/opensearch:3.8.0
+    profiles: ['opensearch', 'search', 'sources-search-graph']
+    environment:
+      discovery.type: single-node
+      cluster.name: riosoma-test
+      # The security plugin is off here on purpose.  Elasticsearch above covers
+      # the authenticated path, and plain HTTP keeps the two engines comparable.
+      DISABLE_SECURITY_PLUGIN: 'true'
+      OPENSEARCH_JAVA_OPTS: '-Xms512m -Xmx512m'
+    ports:
+      - '127.0.0.1:19201:9200'
+    volumes:
+      - fleet-opensearch:/usr/share/opensearch/data
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -fsS -o /dev/null http://127.0.0.1:9200/_cluster/health || exit 1']
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1536m
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.54.0
+    profiles: ['meilisearch', 'search', 'sources-search-graph']
+    environment:
+      MEILI_ENV: development
+      MEILI_MASTER_KEY: 'Riosoma-Test-2026!'
+      MEILI_MAX_INDEXING_MEMORY: 512MB
+      MEILI_NO_ANALYTICS: 'true'
+      MEILI_DB_PATH: /meili_data/data.mdb
+      MEILI_DUMP_DIR: /meili_data/dumps
+      MEILI_SNAPSHOT_DIR: /meili_data/snapshots
+    ports:
+      - '127.0.0.1:17700:7700'
+    volumes:
+      - fleet-meilisearch:/meili_data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1:7700/health || wget -q --spider http://127.0.0.1:7700/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  typesense:
+    image: typesense/typesense:30.2
+    profiles: ['typesense', 'search', 'sources-search-graph']
+    command: ['--data-dir', '/data', '--api-key', 'Riosoma-Test-2026!', '--enable-cors']
+    ports:
+      - '127.0.0.1:18108:8108'
+    volumes:
+      - fleet-typesense:/data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1:8108/health || wget -q --spider http://127.0.0.1:8108/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  # --------------------------------------------------------------------------
+  # Object stores and file protocols
+  # --------------------------------------------------------------------------
+
+  minio:
+    # MinIO no longer publishes an anonymously pullable image.  This is the last
+    # frozen public build, and the README explains the trade-off.
+    image: bitnamilegacy/minio:2025.7.23-debian-12-r5
+    profiles: ['minio', 'storage']
+    environment:
+      MINIO_ROOT_USER: riosoma_test
+      MINIO_ROOT_PASSWORD: 'Riosoma-Test-2026!'
+      MINIO_DEFAULT_BUCKETS: riosoma-test
+      MINIO_API_PORT_NUMBER: '9000'
+      MINIO_CONSOLE_PORT_NUMBER: '9001'
+      MINIO_BROWSER_REDIRECT_URL: 'http://127.0.0.1:19101'
+      MINIO_SCHEME: http
+    ports:
+      - '127.0.0.1:19100:9000'
+      - '127.0.0.1:19101:9001'
+    volumes:
+      # Bitnami keeps everything for the service under one root, and its
+      # entrypoint fixes ownership there on first boot.
+      - fleet-minio:/bitnami/minio
+    healthcheck:
+      test:
+        - 'CMD-SHELL'
+        - "mc ready local || curl -fsS -o /dev/null http://127.0.0.1:9000/minio/health/live || wget -q --spider http://127.0.0.1:9000/minio/health/live || bash -c 'exec 3<>/dev/tcp/127.0.0.1/9000' || exit 1"
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite:3.37.0
+    profiles: ['azurite', 'storage']
+    command:
+      - 'azurite'
+      - '-l'
+      - '/data'
+      - '--blobHost'
+      - '0.0.0.0'
+      - '--queueHost'
+      - '0.0.0.0'
+      - '--tableHost'
+      - '0.0.0.0'
+      - '--loose'
+      - '--skipApiVersionCheck'
+    ports:
+      - '127.0.0.1:20000:10000'
+      - '127.0.0.1:20001:10001'
+      - '127.0.0.1:20002:10002'
+    volumes:
+      - fleet-azurite:/data
+    healthcheck:
+      # The image is a Node image, so Node itself is the one tool that is
+      # guaranteed to be there.
+      test:
+        - 'CMD-SHELL'
+        - 'node -e "require(''net'').connect(10000,''127.0.0.1'').on(''connect'',()=>process.exit(0)).on(''error'',()=>process.exit(1))" || exit 1'
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  fakegcs:
+    image: fsouza/fake-gcs-server:1.56.1
+    profiles: ['fakegcs', 'storage']
+    # The entrypoint is replaced so the bucket directory exists before the
+    # server seeds from it.  The seed directory only has to hold empty bucket
+    # directories, and objects live in the filesystem backend volume instead.
+    entrypoint: ['/bin/sh', '-c']
+    command:
+      - |-
+        mkdir -p /data/riosoma-test
+        exec /bin/fake-gcs-server -scheme http -port 4443 -public-host 127.0.0.1:14443 -external-url http://127.0.0.1:14443 -backend filesystem -filesystem-root /storage -data /data
+    ports:
+      - '127.0.0.1:14443:4443'
+    volumes:
+      - fleet-fakegcs:/storage
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'wget -qO- http://127.0.0.1:4443/_internal/healthcheck >/dev/null || nc -z 127.0.0.1 4443 || exit 1',
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  sftp:
+    # The publisher ships rolling tags only, so the digest is the pin.
+    image: atmoz/sftp:debian@sha256:75dcc29683ad479bdb99010666f2f55e99014350a1e862fe32b565845feb0fcd
+    platform: linux/amd64
+    profiles: ['sftp', 'storage']
+    command: ['riosoma_test:Riosoma-Test-2026!:1001:1001:upload']
+    ports:
+      - '127.0.0.1:12222:22'
+    volumes:
+      - fleet-sftp:/home/riosoma_test/upload
+    healthcheck:
+      test: ['CMD-SHELL', "bash -c 'exec 3<>/dev/tcp/127.0.0.1/22' || nc -z 127.0.0.1 22 || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  webdav:
+    image: rclone/rclone:1.75.1
+    profiles: ['webdav', 'storage']
+    command:
+      - 'serve'
+      - 'webdav'
+      - '/data'
+      - '--addr'
+      - ':8090'
+      - '--htpasswd'
+      - '/config/htpasswd'
+    ports:
+      - '127.0.0.1:18090:8090'
+    volumes:
+      - fleet-webdav:/data
+      - ./webdav/htpasswd:/config/htpasswd:ro
+    healthcheck:
+      # The Authorization header carries riosoma_test:Riosoma-Test-2026! in base
+      # 64, because busybox wget in this image has no credential flags.
+      test:
+        - 'CMD-SHELL'
+        - "wget -q --spider --header 'Authorization: Basic cmlvc29tYV90ZXN0OlJpb3NvbWEtVGVzdC0yMDI2IQ==' http://127.0.0.1:8090/ || exit 1"
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+  ftp:
+    image: stilliard/pure-ftpd:trixie-1.0.50
+    platform: linux/amd64
+    profiles: ['ftp', 'storage']
+    environment:
+      FTP_USER_NAME: riosoma_test
+      FTP_USER_PASS: 'Riosoma-Test-2026!'
+      FTP_USER_HOME: /home/riosoma_test
+      FTP_USER_UID: '1000'
+      FTP_USER_GID: '1000'
+      FTP_MAX_CLIENTS: '10'
+      FTP_MAX_CONNECTIONS: '10'
+      FTP_PASSIVE_PORTS: '30000:30009'
+    ports:
+      - '127.0.0.1:12121:21'
+      # Passive transfers negotiate a port in this range, so the range has to be
+      # published or directory listings and uploads will hang.
+      - '127.0.0.1:30000-30009:30000-30009'
+    volumes:
+      - fleet-ftp:/home/riosoma_test
+    healthcheck:
+      test: ['CMD-SHELL', "bash -c 'exec 3<>/dev/tcp/127.0.0.1/21' || nc -z 127.0.0.1 21 || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  samba:
+    image: crazymax/samba:4.23.8
+    profiles: ['samba', 'storage']
+    environment:
+      SAMBA_WORKGROUP: WORKGROUP
+      SAMBA_SERVER_STRING: Riosoma test fleet
+      SAMBA_LOG_LEVEL: '1'
+      SAMBA_FOLLOW_SYMLINKS: 'yes'
+      SAMBA_WIDE_LINKS: 'yes'
+    ports:
+      # Clients reach this share with smbclient -p 14445, because SMB has no
+      # concept of a path prefix.
+      - '127.0.0.1:14445:445'
+    volumes:
+      - fleet-samba:/data
+      - ./samba/config.yml:/data/config.yml:ro
+      - fleet-samba-share:/samba/riosoma
+    healthcheck:
+      test: ['CMD-SHELL', "nc -z 127.0.0.1 445 || bash -c 'exec 3<>/dev/tcp/127.0.0.1/445' || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  # --------------------------------------------------------------------------
+  # Identity
+  # --------------------------------------------------------------------------
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.7.4
+    profiles: ['keycloak', 'identity']
+    command: ['start-dev', '--import-realm']
+    environment:
+      # 26 renamed the bootstrap administrator variables, and the old ones only
+      # warn, so the new names are the ones in use here.
+      KEYCLOAK_BOOTSTRAP_ADMIN_USERNAME: riosoma_admin
+      KEYCLOAK_BOOTSTRAP_ADMIN_PASSWORD: 'Riosoma-Test-2026!'
+      KC_HTTP_ENABLED: 'true'
+      KC_HEALTH_ENABLED: 'true'
+      KC_HOSTNAME_STRICT: 'false'
+      JAVA_OPTS_APPEND: '-Xms256m -Xmx768m'
+    ports:
+      - '127.0.0.1:18180:8080'
+    volumes:
+      - fleet-keycloak:/opt/keycloak/data
+      - ./keycloak/realm.json:/opt/keycloak/data/import/realm.json:ro
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1:8080/health/ready || wget -q --spider http://127.0.0.1:8080/health/ready || exit 1',
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1536m
+
+  authentik-postgres:
+    image: postgres:16.15-alpine
+    profiles: ['authentik-postgres', 'authentik', 'identity']
+    environment:
+      POSTGRES_DB: authentik
+      POSTGRES_USER: riosoma_test
+      POSTGRES_PASSWORD: 'Riosoma-Test-2026!'
+      POSTGRES_INITDB_ARGS: '--auth-host=scram-sha-256 --auth-local=scram-sha-256'
+    volumes:
+      - fleet-authentik-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U riosoma_test -d authentik -h 127.0.0.1 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  authentik-redis:
+    image: redis:8.6.7-alpine
+    profiles: ['authentik-redis', 'authentik', 'identity']
+    # No password, because this Redis is only reachable from inside the fleet
+    # network and Authentik has no variable for a Redis secret.
+    command: ['redis-server', '--save', '', '--appendonly', 'no']
+    healthcheck:
+      test: ['CMD-SHELL', 'redis-cli ping | grep -q PONG || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+  authentik:
+    image: ghcr.io/goauthentik/server:2026.8.3
+    profiles: ['authentik', 'identity']
+    command: ['server']
+    depends_on:
+      authentik-postgres:
+        condition: service_healthy
+      authentik-redis:
+        condition: service_healthy
+    environment: &authentik-env
+      AUTHENTIK_SECRET_KEY: riosoma-test-authentik-secret-key
+      AUTHENTIK_POSTGRESQL__HOST: authentik-postgres
+      AUTHENTIK_POSTGRESQL__PORT: '5432'
+      AUTHENTIK_POSTGRESQL__NAME: authentik
+      AUTHENTIK_POSTGRESQL__USER: riosoma_test
+      AUTHENTIK_POSTGRESQL__PASSWORD: 'Riosoma-Test-2026!'
+      AUTHENTIK_REDIS__HOST: authentik-redis
+      AUTHENTIK_ERROR_REPORTING__ENABLED: 'false'
+      AUTHENTIK_DISABLE_UPDATE_CHECK: 'true'
+      AUTHENTIK_DISABLE_STARTUP_ANALYTICS: 'true'
+      AUTHENTIK_LOG_LEVEL: info
+      # The bootstrap variables create the first administrator, so nobody has to
+      # click through the installer to start testing.
+      AUTHENTIK_BOOTSTRAP_EMAIL: admin@riosoma.test
+      AUTHENTIK_BOOTSTRAP_PASSWORD: 'Riosoma-Test-2026!'
+    ports:
+      - '127.0.0.1:19443:9443'
+    volumes:
+      - fleet-authentik-media:/media
+      - fleet-authentik-templates:/templates
+    healthcheck:
+      # The image is a slim Python image with no HTTP client installed, so Python
+      # itself performs the check.
+      test:
+        - 'CMD-SHELL'
+        - 'python -c ''import urllib.request,sys; sys.exit(0 if urllib.request.urlopen("http://127.0.0.1:9000/-/health/live/",timeout=5).status==200 else 1)'' || exit 1'
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  authentik-worker:
+    image: ghcr.io/goauthentik/server:2026.8.3
+    profiles: ['authentik-worker', 'authentik', 'identity']
+    command: ['worker']
+    depends_on:
+      authentik-postgres:
+        condition: service_healthy
+      authentik-redis:
+        condition: service_healthy
+    environment:
+      <<: *authentik-env
+    volumes:
+      - fleet-authentik-media:/media
+      - fleet-authentik-templates:/templates
+    healthcheck:
+      # The worker serves no port, so the check confirms that its process is
+      # still running.  The check ignores its own process and the shell that
+      # started it, because both contain the search string.
+      test:
+        - 'CMD-SHELL'
+        - 'python -c ''import glob,os,sys; skip={os.getpid(),os.getppid()}; sys.exit(0 if any(b"worker" in open(p,"rb").read() for p in glob.glob("/proc/[0-9]*/cmdline") if int(p.split("/")[2]) not in skip) else 1)'' || exit 1'
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  # --------------------------------------------------------------------------
+  # Secrets, API gateway
+  # --------------------------------------------------------------------------
+
+  vault:
+    image: hashicorp/vault:1.21.4
+    profiles: ['vault', 'secrets']
+    command: ['server', '-dev', '-dev-listen-address=0.0.0.0:8200']
+    environment:
+      VAULT_ADDR: http://127.0.0.1:8200
+      VAULT_DEV_ROOT_TOKEN_ID: riosoma-test-root-token
+      # Dev mode keeps everything in memory, which is exactly what a test fleet
+      # wants, so no volume is mounted.
+      SKIP_SETCAP: '1'
+    ports:
+      - '127.0.0.1:18200:8200'
+    cap_add:
+      - IPC_LOCK
+    healthcheck:
+      test: ['CMD-SHELL', 'vault status >/dev/null 2>&1 || exit 1']
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  openbao:
+    image: openbao/openbao:2.7.0
+    profiles: ['openbao', 'secrets']
+    command: ['server', '-dev', '-dev-listen-address=0.0.0.0:8200']
+    environment:
+      BAO_ADDR: http://127.0.0.1:8200
+      BAO_DEV_ROOT_TOKEN_ID: riosoma-test-root-token
+      SKIP_SETCAP: '1'
+    ports:
+      - '127.0.0.1:18201:8200'
+    cap_add:
+      - IPC_LOCK
+    healthcheck:
+      test: ['CMD-SHELL', 'bao status >/dev/null 2>&1 || exit 1']
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  kong:
+    image: kong:3.9.3
+    profiles: ['kong', 'secrets']
+    environment:
+      KONG_DATABASE: 'off'
+      KONG_DECLARATIVE_CONFIG: /home/kong/kong.yaml
+      KONG_PROXY_LISTEN: '0.0.0.0:8000'
+      KONG_ADMIN_LISTEN: '0.0.0.0:8001'
+      # The status listener gives the declarative service a target that is
+      # always up, so the sample route answers without another profile running.
+      KONG_STATUS_LISTEN: '0.0.0.0:8100'
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_LOG_LEVEL: info
+      KONG_ANONYMOUS_REPORTS: 'off'
+    ports:
+      - '127.0.0.1:18800:8000'
+      - '127.0.0.1:18801:8001'
+    volumes:
+      - ./kong/kong.yaml:/home/kong/kong.yaml:ro
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'kong health >/dev/null 2>&1 || curl -fsS -o /dev/null http://127.0.0.1:8100/status || exit 1',
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 24
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  # --------------------------------------------------------------------------
+  # Mail, scanning, search front end, automation
+  # --------------------------------------------------------------------------
+
+  mailpit:
+    image: axllent/mailpit:v1.31.3
+    profiles: ['mailpit', 'mail']
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: '1'
+      MP_SMTP_AUTH_ALLOW_INSECURE: '1'
+      MP_MAX_MESSAGES: '500'
+      MP_DATABASE: /data/mailpit.db
+    ports:
+      - '127.0.0.1:11025:1025'
+      - '127.0.0.1:18026:8025'
+    volumes:
+      - fleet-mailpit:/data
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:8025/readyz >/dev/null || exit 1']
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  clamav:
+    image: clamav/clamav:1.4.6-debian13-slim
+    profiles: ['clamav', 'mail', 'misc']
+    ports:
+      - '127.0.0.1:13310:3310'
+    volumes:
+      # The signature database is cached, so only the first start pays the
+      # download.
+      - fleet-clamav:/var/lib/clamav
+    healthcheck:
+      test: ['CMD-SHELL', "bash -c 'exec 3<>/dev/tcp/127.0.0.1/3310' || exit 1"]
+      interval: 20s
+      timeout: 10s
+      retries: 40
+      start_period: 300s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          # clamd loads the whole signature database into memory.
+          memory: 1536m
+
+  searxng:
+    image: searxng/searxng:2026.9.25-12f8b6515
+    profiles: ['searxng', 'misc']
+    environment:
+      SEARXNG_BASE_URL: 'http://127.0.0.1:18889/'
+      SEARXNG_SECRET: riosoma-test-searxng-secret
+    ports:
+      - '127.0.0.1:18889:8080'
+    volumes:
+      # Only the settings file is mounted, so the rest of the image
+      # configuration keeps its own ownership and permissions.
+      - ./searxng/settings.yml:/etc/searxng/settings.yml:ro
+      - fleet-searxng:/var/cache/searxng
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'wget -qO- http://127.0.0.1:8080/healthz >/dev/null || wget -q --spider http://127.0.0.1:8080/ || exit 1',
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  n8n:
+    image: n8nio/n8n:1.123.82
+    profiles: ['n8n', 'misc']
+    environment:
+      N8N_HOST: 127.0.0.1
+      N8N_PORT: '5678'
+      N8N_PROTOCOL: http
+      WEBHOOK_URL: 'http://127.0.0.1:15678/'
+      # The cookie would be refused over plain HTTP, and the fleet is plain HTTP.
+      N8N_SECURE_COOKIE: 'false'
+      N8N_DIAGNOSTICS_ENABLED: 'false'
+      N8N_PERSONALIZATION_ENABLED: 'false'
+      N8N_RUNNERS_ENABLED: 'true'
+      GENERIC_TIMEZONE: UTC
+      TZ: UTC
+    ports:
+      - '127.0.0.1:15678:5678'
+    volumes:
+      - fleet-n8n:/home/node/.n8n
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'wget -q --spider http://127.0.0.1:5678/healthz || curl -fsS -o /dev/null http://127.0.0.1:5678/healthz || exit 1',
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 24
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  # --------------------------------------------------------------------------
+  # Migration sources
+  #
+  # Each of these brings the smallest database or cache it needs, and those
+  # dependencies share the parent profile so one command starts a working app.
+  # --------------------------------------------------------------------------
+
+  teable-db:
+    # Teable runs Prisma migrations that expect the vector extension, so the
+    # pgvector build of PostgreSQL is used instead of the plain one.
+    image: pgvector/pgvector:0.8.6-pg16-trixie
+    profiles: ['teable-db', 'teable', 'migration-sources']
+    environment:
+      POSTGRES_DB: teable
+      POSTGRES_USER: riosoma_test
+      POSTGRES_PASSWORD: 'Riosoma-Test-2026!'
+      POSTGRES_INITDB_ARGS: '--auth-host=scram-sha-256 --auth-local=scram-sha-256'
+    volumes:
+      - fleet-teable-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U riosoma_test -d teable -h 127.0.0.1 || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  teable-cache:
+    image: redis:8.6.7-alpine
+    profiles: ['teable-cache', 'teable', 'migration-sources']
+    command: ['redis-server', '--save', '', '--appendonly', 'no']
+    healthcheck:
+      test: ['CMD-SHELL', 'redis-cli ping | grep -q PONG || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+  teable:
+    # Teable publishes only rolling and build tags, so a build tag is the pin.
+    image: teableio/teable:release.2026-09-27T02-14-26Z.3273
+    profiles: ['teable', 'migration-sources']
+    depends_on:
+      teable-db:
+        condition: service_healthy
+      teable-cache:
+        condition: service_healthy
+    environment:
+      TZ: UTC
+      PRISMA_DATABASE_URL: 'postgresql://riosoma_test:Riosoma-Test-2026!@teable-db:5432/teable?schema=teable'
+      PUBLIC_ORIGIN: 'http://127.0.0.1:13000'
+      BACKEND_CACHE_PROVIDER: redis
+      BACKEND_CACHE_REDIS_URI: 'redis://teable-cache:6379/0'
+    ports:
+      - '127.0.0.1:13000:3000'
+    volumes:
+      - fleet-teable:/app/.assets
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1:3000/api/health || wget -q --spider http://127.0.0.1:3000/ || exit 1',
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  baserow:
+    image: baserow/baserow:2.3.1
+    profiles: ['baserow', 'migration-sources']
+    environment:
+      BASEROW_PUBLIC_URL: 'http://127.0.0.1:13001'
+      BASEROW_AMOUNT_OF_GUNICORN_WORKERS: '2'
+      DJANGO_EMAIL_BACKEND: django.core.mail.backends.console.EmailBackend
+      # The all-in-one image bundles its own PostgreSQL, so these create the
+      # first administrator instead of asking for a signup flow.
+      INITIAL_ADMIN_EMAIL: admin@riosoma.test
+      INITIAL_ADMIN_PASSWORD: 'Riosoma-Test-2026!'
+    ports:
+      - '127.0.0.1:13001:80'
+    volumes:
+      - fleet-baserow:/baserow/data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1/api/_health/ || wget -q --spider http://127.0.0.1/ || exit 1',
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 40
+      start_period: 180s
+    stop_grace_period: 120s
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+  nocodb:
+    # NocoDB switched to calendar versioning, so this tag is the exact release.
+    image: nocodb/nocodb:2026.09.0
+    profiles: ['nocodb', 'migration-sources']
+    environment:
+      NC_ADMIN_EMAIL: admin@riosoma.test
+      NC_ADMIN_PASSWORD: 'Riosoma-Test-2026!'
+    ports:
+      - '127.0.0.1:13002:8080'
+    volumes:
+      - fleet-nocodb:/usr/app/data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1:8080/api/v1/health || wget -q --spider http://127.0.0.1:8080/ || exit 1',
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  grist:
+    image: gristlabs/grist:1.7.19
+    profiles: ['grist', 'migration-sources']
+    environment:
+      PORT: '8484'
+      # gVisor does not work under the Colima virtual machine, and formula
+      # sandboxing is not what this fleet is testing.
+      GRIST_SANDBOX_FLAVOR: unsandboxed
+      GRIST_SINGLE_USER: '1'
+      GRIST_SESSION_SECRET: riosoma-test-grist-session-secret
+      GRIST_TELEMETRY_LEVEL: 'off'
+    ports:
+      - '127.0.0.1:13003:8484'
+    volumes:
+      - fleet-grist:/persist
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1:8484/api/health || wget -q --spider http://127.0.0.1:8484/ || exit 1',
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 90s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+
+  seatable-db:
+    # SeaTable is tested against the MariaDB release its manual names, which is
+    # older than the MariaDB the fleet tests on purpose.
+    image: mariadb:10.11.19-ubi9
+    profiles: ['seatable-db', 'seatable', 'migration-sources', 'sql']
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_unicode_ci'
+      - '--max-connections=1000'
+    environment:
+      MARIADB_ROOT_PASSWORD: 'Riosoma-Test-2026!'
+      MARIADB_LOG_CONSOLE: 'true'
+    ports:
+      - '127.0.0.1:13309:3306'
+    volumes:
+      - fleet-seatable-db:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 512m
+
+  seatable-memcached:
+    image: memcached:1.6.45
+    profiles: ['seatable-memcached', 'seatable', 'migration-sources']
+    # SeaTable looks up the cache host as memcached, so the alias keeps the
+    # service name descriptive without breaking that lookup.
+    networks:
+      default:
+        aliases:
+          - memcached
+    command: ['memcached', '-m', '256']
+    healthcheck:
+      test: ['CMD-SHELL', "bash -c 'exec 3<>/dev/tcp/127.0.0.1/11211' || nc -z 127.0.0.1 11211 || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 384m
+
+  seatable:
+    # SeaTable publishes its developer edition build for amd64 only.
+    image: seatable/seatable-developer:6.2.1
+    platform: linux/amd64
+    profiles: ['seatable', 'migration-sources']
+    depends_on:
+      seatable-db:
+        condition: service_healthy
+      seatable-memcached:
+        condition: service_healthy
+    environment:
+      DB_HOST: seatable-db
+      DB_ROOT_PASSWORD: 'Riosoma-Test-2026!'
+      MEMCACHED_HOST: memcached
+      TIME_ZONE: Etc/UTC
+      SEATABLE_ADMIN_EMAIL: admin@riosoma.test
+      SEATABLE_ADMIN_PASSWORD: 'Riosoma-Test-2026!'
+      SSL: 'false'
+    ports:
+      - '127.0.0.1:13004:80'
+    volumes:
+      - fleet-seatable:/shared
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl -fsS -o /dev/null http://127.0.0.1/api/v2.1/ping/ || wget -q --spider http://127.0.0.1/ || exit 1',
+        ]
+      interval: 20s
+      timeout: 15s
+      retries: 40
+      start_period: 300s
+    stop_grace_period: 120s
+    deploy:
+      resources:
+        limits:
+          memory: 1536m
+
+volumes:
+  fleet-postgres14:
+  fleet-postgres15:
+  fleet-postgres16:
+  fleet-postgres17:
+  fleet-postgres18:
+  fleet-mysql84:
+  fleet-mysql97:
+  fleet-mariadb11:
+  fleet-mssql:
+  fleet-oracle:
+  fleet-db2-database:
+  fleet-db2-hadr:
+  fleet-db2-logs:
+  fleet-informix:
+  fleet-firebird5:
+  fleet-clickhouse-data:
+  fleet-clickhouse-logs:
+  fleet-druid-zookeeper:
+  fleet-druid-zookeeper-datalog:
+  fleet-druid-shared:
+  fleet-druid-coordinator-var:
+  fleet-druid-broker-var:
+  fleet-druid-historical-var:
+  fleet-druid-middlemanager-var:
+  fleet-druid-router-var:
+  fleet-mongodb:
+  fleet-dynamodb:
+  fleet-cosmos:
+  fleet-couchbase:
+  fleet-couchdb:
+  fleet-neo4j-data:
+  fleet-neo4j-logs:
+  fleet-influxdb2:
+  fleet-influxdb3:
+  fleet-prometheus:
+  fleet-elasticsearch:
+  fleet-opensearch:
+  fleet-meilisearch:
+  fleet-typesense:
+  fleet-minio:
+  fleet-azurite:
+  fleet-fakegcs:
+  fleet-sftp:
+  fleet-webdav:
+  fleet-ftp:
+  fleet-samba:
+  fleet-samba-share:
+  fleet-keycloak:
+  fleet-authentik-postgres:
+  fleet-authentik-media:
+  fleet-authentik-templates:
+  fleet-mailpit:
+  fleet-clamav:
+  fleet-searxng:
+  fleet-n8n:
+  fleet-teable:
+  fleet-teable-db:
+  fleet-baserow:
+  fleet-nocodb:
+  fleet-grist:
+  fleet-seatable:
+  fleet-seatable-db:

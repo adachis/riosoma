@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Silkscreen:wght@400;700&family=Chakra+Petch:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap");
+/* Iconography. The project's Font Awesome Pro kit is loaded per page:
+     <script src="https://kit.fontawesome.com/559791bdc6.js" crossorigin="anonymous"></script>
+   Pro kits are domain-restricted, so they render nothing on preview/sandbox origins. This
+   webfont fallback keeps every fa-solid / fa-regular / fa-brands class drawing everywhere;
+   on an allowlisted domain the kit's own payload takes over. Every glyph this system uses is
+   in the free set. */
+@import url("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css");
+/* Self-hosted copy of Play (OFL) lifted from the source framework's /fonts directory.
+   Declared under an alias so it can sit at the end of the display stack as an offline fallback. */
+@font-face{font-family:"PSOne Display Local";src:url("../assets/fonts/Play-Regular.woff") format("woff"),url("../assets/fonts/Play-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+:root{
+--font-display:"Play","PSOne Display Local","Trebuchet MS",sans-serif;
+--font-bitmap:"Silkscreen","Courier New",monospace;
+--font-body:"Chakra Petch","Play",system-ui,sans-serif;
+--font-mono:"Share Tech Mono",ui-monospace,monospace;
+--font-ui:var(--font-body);
+--font-title:var(--font-display);
+--font-hud:var(--font-bitmap);
+--font-data:var(--font-mono)}

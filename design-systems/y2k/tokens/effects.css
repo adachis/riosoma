@@ -1,0 +1,74 @@
+:root{
+  /* ── Radii — the system is square by default. Rounding is a deliberate
+     "bubble" mode used for stickers, pills and the kawaii voice. ── */
+  --r-0:0px; --r-1:2px; --r-2:4px; --r-3:6px; --r-4:10px; --r-5:16px; --r-pill:999px;
+  --r-window:0px;
+  --r-card:0px;
+  --r-bubble:14px;
+
+  /* ── Frames. Every surface is outlined in hard ink. No hairlines. ── */
+  --bw-hair:1px;/* @kind spacing */ --bw:2px;/* @kind spacing */ --bw-thick:3px;/* @kind spacing */ --bw-heavy:5px;/* @kind spacing */
+  --frame-window:var(--bw-thick) solid var(--frame);
+  --frame-card:var(--bw) solid var(--frame);
+  --frame-field:var(--bw) solid var(--frame);
+
+  /* ── Bevels. Two-tone inset shadows, no blur — the load-bearing motif. ── */
+  --bevel-out:inset 2px 2px 0 var(--edge-light), inset -2px -2px 0 var(--edge-dark);
+  --bevel-out-sm:inset 1px 1px 0 var(--edge-light), inset -1px -1px 0 var(--edge-dark);
+  --bevel-in:inset 2px 2px 0 var(--edge-dark), inset -2px -2px 0 var(--edge-light);
+  --bevel-in-sm:inset 1px 1px 0 var(--edge-dark), inset -1px -1px 0 var(--edge-light);
+  --bevel-well:inset 2px 2px 0 var(--edge-dark), inset -1px -1px 0 var(--edge-light);
+
+  /* ── Drop shadows. Always hard-offset, never blurred. ── */
+  --shadow-sm:2px 2px 0 var(--frame);
+  --shadow:4px 4px 0 var(--frame);
+  --shadow-lg:7px 7px 0 var(--frame);
+  --shadow-xl:12px 12px 0 var(--frame);
+  --shadow-accent:4px 4px 0 var(--accent);
+  --shadow-float:5px 5px 0 rgba(0,0,0,.35);
+  --glow-soft:0 0 12px var(--glow);
+  --glow-hard:0 0 0 2px var(--glow), 0 0 18px var(--glow);
+
+  /* ── Gradients ── */
+  --grad-chrome:linear-gradient(180deg,#fdfdfd 0%,#dcdcdc 24%,#8f8f96 49%,#f2f2f4 51%,#b8b8bf 76%,#6f6f78 100%);/* @kind other */
+  --grad-chrome-h:linear-gradient(90deg,#f6f6f8 0%,#a9a9b2 26%,#ffffff 50%,#9a9aa4 74%,#e9e9ee 100%);/* @kind other */
+  --grad-holo:linear-gradient(115deg,#b8f7ff 0%,#d9c2ff 22%,#ffc2ec 42%,#fff0b8 60%,#c2ffd9 80%,#b8e0ff 100%);/* @kind other */
+  --grad-title:linear-gradient(180deg,var(--title-from) 0%,var(--title-to) 100%);/* @kind other */
+  --grad-title-h:linear-gradient(90deg,var(--title-from) 0%,var(--title-to) 100%);/* @kind other */
+  --grad-accent:linear-gradient(180deg,var(--accent) 0%,var(--hot) 100%);/* @kind other */
+  --grad-sheen:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.06) 46%,rgba(0,0,0,.05) 54%,rgba(0,0,0,.12) 100%);/* @kind other */
+  --grad-desktop:radial-gradient(120% 90% at 50% 0%,var(--desktop) 0%,var(--desktop-2) 100%);/* @kind other */
+  --grad-sunset:linear-gradient(180deg,var(--t5) 0%,var(--t4) 38%,var(--t3) 68%,var(--t1) 100%);/* @kind other */
+
+  /* ── Textures. Pure CSS so they inherit the active theme. ── */
+  --tex-checker:repeating-conic-gradient(var(--surface-3) 0% 25%,var(--surface) 0% 50%) 0 0/20px 20px;/* @kind other */
+  --tex-checker-sm:repeating-conic-gradient(var(--surface-3) 0% 25%,var(--surface) 0% 50%) 0 0/8px 8px;/* @kind other */
+  --tex-grid:linear-gradient(var(--edge-dark) 1px,transparent 1px) 0 0/24px 24px,
+             linear-gradient(90deg,var(--edge-dark) 1px,transparent 1px) 0 0/24px 24px;/* @kind other */
+  --tex-scanline:repeating-linear-gradient(180deg,rgba(0,0,0,.16) 0px,rgba(0,0,0,.16) 1px,transparent 1px,transparent 3px);/* @kind other */
+  --tex-dither:repeating-conic-gradient(var(--edge-dark) 0% 25%,transparent 0% 50%) 0 0/2px 2px;/* @kind other */
+  --tex-stripe:repeating-linear-gradient(135deg,var(--accent) 0 8px,var(--frame) 8px 16px);/* @kind other */
+  --tex-halftone:radial-gradient(var(--edge-dark) 1px,transparent 1.4px) 0 0/6px 6px;/* @kind other */
+
+  /* Bundled raster textures (relative to the design-system root) */
+  --img-paper-90s:url("../assets/textures/paper-90s-1.png");/* @kind other */
+  --img-paper-summer:url("../assets/textures/paper-summer-1.png");/* @kind other */
+  --img-zebra:url("../assets/textures/zebra-snake.png");/* @kind other */
+
+  /* ── Motion. Short, mechanical, occasionally stepped. ── */
+  --dur-instant:80ms;/* @kind other */ --dur-fast:130ms;/* @kind other */ --dur-base:200ms;/* @kind other */ --dur-slow:340ms;/* @kind other */ --dur-marquee:18s;/* @kind other */
+  --ease-snap:cubic-bezier(.2,.9,.1,1);/* @kind other */
+  --ease-out:cubic-bezier(.22,1,.36,1);/* @kind other */
+  --ease-bounce:cubic-bezier(.34,1.56,.64,1);/* @kind other */
+  --ease-step:steps(5,end);/* @kind other */
+  --ease-step-2:steps(2,end);/* @kind other */
+
+  /* ── Interaction deltas ── */
+  --hover-lift:translate(-1px,-1px);/* @kind other */
+  --hover-shadow:5px 5px 0 var(--frame);
+  --press-shift:translate(2px,2px);/* @kind other */
+  --press-shadow:0px 0px 0 var(--frame);
+  --focus-outline:2px dashed var(--frame);/* @kind other */
+  --focus-offset:2px;/* @kind other */
+  --disabled-opacity:.45;/* @kind other */
+}

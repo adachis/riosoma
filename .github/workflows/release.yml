@@ -1,0 +1,268 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+concurrency:
+  # The feed and moving image tags are shared by all versions.
+  group: public-release
+  cancel-in-progress: false
+
+permissions: {}
+
+env:
+  TURBO_TELEMETRY_DISABLED: '1'
+  DO_NOT_TRACK: '1'
+  IMAGE: ghcr.io/adachis/riosoma
+  CONNECTORS_IMAGE: ghcr.io/adachis/riosoma-connectors
+
+jobs:
+  prepare:
+    if: github.repository == 'adachis/riosoma'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      minor: ${{ steps.version.outputs.minor }}
+      prerelease: ${{ steps.version.outputs.prerelease }}
+      feed: ${{ steps.credentials.outputs.available }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24'
+      - name: Check tag, versions, and release metadata
+        id: version
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="${TAG#v}"
+          node tools/release/version.mjs "$version" --check
+          VERSION="$version" node --input-type=module <<'JS'
+          import { readFileSync, appendFileSync } from 'node:fs';
+          import { releaseNotes } from './tools/release/build-feed.mjs';
+          const version = process.env.VERSION;
+          const changelog = readFileSync('CHANGELOG.md', 'utf8');
+          releaseNotes(changelog, version);
+          const metadata = JSON.parse(readFileSync('tools/release/releases.json', 'utf8'))[version];
+          if (!metadata || !changelog.split('\n').includes(`## [${version}] - ${metadata.date}`)) throw new Error('Release metadata missing or date disagrees');
+          const [major, minor] = version.split('.');
+          appendFileSync(process.env.GITHUB_OUTPUT, `version=${version}\nminor=${major}.${minor}\nprerelease=${version.includes('-')}\n`);
+          JS
+
+      - name: Check feed credentials
+        id: credentials
+        env:
+          RIOSOMA_FEED_SIGNING_KEY: ${{ secrets.RIOSOMA_FEED_SIGNING_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.RIOSOMA_FEED_R2_ACCOUNT_ID }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.RIOSOMA_FEED_R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.RIOSOMA_FEED_R2_SECRET_ACCESS_KEY }}
+        run: |
+          if [ -z "$RIOSOMA_FEED_SIGNING_KEY" ] || [ -z "$R2_ACCOUNT_ID" ] || [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
+            echo '::notice::Update feed skipped.  Configure RIOSOMA_FEED_SIGNING_KEY, RIOSOMA_FEED_R2_ACCOUNT_ID, RIOSOMA_FEED_R2_ACCESS_KEY_ID, and RIOSOMA_FEED_R2_SECRET_ACCESS_KEY.'
+            echo 'available=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'available=true' >> "$GITHUB_OUTPUT"
+          fi
+
+  image:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    outputs:
+      digest: ${{ steps.build.outputs.digest }}
+      connectors-digest: ${{ steps.build.outputs.connectors-digest }}
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+      MINOR: ${{ needs.prepare.outputs.minor }}
+      PRERELEASE: ${{ needs.prepare.outputs.prerelease }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24'
+      - name: Fetch verified theme assets
+        run: node tools/release/fetch-theme-assets.mjs "$VERSION" --required
+      - uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
+      - uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
+      - name: Registry login
+        env:
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: printf '%s' "$REGISTRY_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+      - name: Build and push both images by digest with SPDX SBOM and provenance
+        id: build
+        run: |
+          # No tag is published here.  The tags are applied only after the scans and the signatures succeed.
+          # The connector service's image comes first, since the server image names it by digest in a
+          # label, which the one-click updater trusts because the feed's digest covers the server image.
+          docker buildx build --platform linux/amd64,linux/arm64 --target connectors \
+            --build-arg "RIOSOMA_VERSION=$VERSION" --sbom=true --provenance=mode=max \
+            --metadata-file "$RUNNER_TEMP/connectors-build.json" \
+            --output "type=image,name=$CONNECTORS_IMAGE,push-by-digest=true,name-canonical=true,push=true" .
+          CONNECTORS_DIGEST=$(node -p "JSON.parse(require('node:fs').readFileSync(process.argv[1], 'utf8'))['containerimage.digest']" "$RUNNER_TEMP/connectors-build.json")
+          [[ "$CONNECTORS_DIGEST" =~ ^sha256:[a-f0-9]{64}$ ]] || { echo 'Image digest missing' >&2; exit 1; }
+          docker buildx build --platform linux/amd64,linux/arm64 \
+            --build-arg "RIOSOMA_VERSION=$VERSION" --build-arg "RIOSOMA_CONNECTORS_DIGEST=$CONNECTORS_DIGEST" \
+            --sbom=true --provenance=mode=max \
+            --metadata-file "$RUNNER_TEMP/build.json" \
+            --output "type=image,name=$IMAGE,push-by-digest=true,name-canonical=true,push=true" .
+          node --input-type=module <<'JS'
+          import { readFileSync, appendFileSync } from 'node:fs';
+          const digest = JSON.parse(readFileSync(`${process.env.RUNNER_TEMP}/build.json`, 'utf8'))['containerimage.digest'];
+          if (!/^sha256:[a-f0-9]{64}$/.test(digest)) throw new Error('Image digest missing');
+          appendFileSync(process.env.GITHUB_OUTPUT, `digest=${digest}\n`);
+          JS
+          echo "connectors-digest=$CONNECTORS_DIGEST" >> "$GITHUB_OUTPUT"
+      - name: Install signing and scanning tools
+        run: bash tools/release/install-tools.sh image
+      - name: Scan both images on both platforms for fixable high or critical findings
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+          CONNECTORS_DIGEST: ${{ steps.build.outputs.connectors-digest }}
+        run: |
+          for platform in linux/amd64 linux/arm64; do
+            trivy image --platform "$platform" --scanners vuln --severity HIGH,CRITICAL \
+              --ignore-unfixed --exit-code 1 "$CONNECTORS_IMAGE@$CONNECTORS_DIGEST"
+            trivy image --platform "$platform" --scanners vuln --severity HIGH,CRITICAL \
+              --ignore-unfixed --exit-code 1 "$IMAGE@$DIGEST"
+          done
+      - name: Sign both images with the job's OIDC identity
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+          CONNECTORS_DIGEST: ${{ steps.build.outputs.connectors-digest }}
+        run: |
+          cosign sign --yes "$CONNECTORS_IMAGE@$CONNECTORS_DIGEST"
+          cosign sign --yes "$IMAGE@$DIGEST"
+      - name: Publish the tags for the scanned and signed digests
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+          CONNECTORS_DIGEST: ${{ steps.build.outputs.connectors-digest }}
+        run: |
+          # The connector service's tags first, so a server tag never names a connector image without one.
+          tags=("$CONNECTORS_IMAGE:$VERSION" "$CONNECTORS_IMAGE:$MINOR")
+          if [ "$PRERELEASE" = false ]; then tags+=("$CONNECTORS_IMAGE:latest"); fi
+          flags=()
+          for tag in "${tags[@]}"; do flags+=(--tag "$tag"); done
+          docker buildx imagetools create "${flags[@]}" "$CONNECTORS_IMAGE@$CONNECTORS_DIGEST"
+          for tag in "${tags[@]}"; do
+            published="sha256:$(docker buildx imagetools inspect "$tag" --raw | sha256sum | cut -d ' ' -f 1)"
+            test "$published" = "$CONNECTORS_DIGEST"
+          done
+          tags=("$IMAGE:$VERSION" "$IMAGE:$MINOR")
+          if [ "$PRERELEASE" = false ]; then tags+=("$IMAGE:latest"); fi
+          flags=()
+          for tag in "${tags[@]}"; do flags+=(--tag "$tag"); done
+          docker buildx imagetools create "${flags[@]}" "$IMAGE@$DIGEST"
+          # Every tag must resolve to the same index that was scanned, signed, and handed to the feed.
+          for tag in "${tags[@]}"; do
+            published="sha256:$(docker buildx imagetools inspect "$tag" --raw | sha256sum | cut -d ' ' -f 1)"
+            test "$published" = "$DIGEST"
+          done
+
+  chart:
+    needs: [prepare, image]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: write
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install Helm
+        run: bash tools/release/install-tools.sh chart
+      - name: Package and push the chart
+        env:
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf '%s' "$REGISTRY_TOKEN" | helm registry login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+          helm lint deploy/helm/riosoma
+          helm package deploy/helm/riosoma --destination "$RUNNER_TEMP"
+          helm push "$RUNNER_TEMP/riosoma-$VERSION.tgz" oci://ghcr.io/adachis/charts
+
+  feed:
+    needs: [prepare, image, chart]
+    if: needs.prepare.outputs.feed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: read
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+      DIGEST: ${{ needs.image.outputs.digest }}
+      RIOSOMA_FEED_SIGNING_KEY: ${{ secrets.RIOSOMA_FEED_SIGNING_KEY }}
+      R2_ACCOUNT_ID: ${{ secrets.RIOSOMA_FEED_R2_ACCOUNT_ID }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.RIOSOMA_FEED_R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.RIOSOMA_FEED_R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_EC2_METADATA_DISABLED: 'true'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24'
+      - name: Registry login
+        env:
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: printf '%s' "$REGISTRY_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+      - name: Preserve the prior feed and resolve platform digests
+        run: |
+          endpoint="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+          if aws --endpoint-url "$endpoint" s3api head-object --bucket riosoma-feed --key updates.json > "$RUNNER_TEMP/feed-head.json" 2> "$RUNNER_TEMP/feed-head.err"; then
+            aws --endpoint-url "$endpoint" s3 cp s3://riosoma-feed/updates.json "$RUNNER_TEMP/previous-updates.json"
+          elif ! grep -Eq '\(404\)|Not Found' "$RUNNER_TEMP/feed-head.err"; then
+            cat "$RUNNER_TEMP/feed-head.err" >&2
+            exit 1
+          fi
+          docker buildx imagetools inspect "$IMAGE@$DIGEST" --raw > "$RUNNER_TEMP/image-manifest.json"
+      - name: Build, sign, and upload the feed
+        run: |
+          prior=()
+          if [ -f "$RUNNER_TEMP/previous-updates.json" ]; then prior=("$RUNNER_TEMP/previous-updates.json"); fi
+          node tools/release/build-feed.mjs "$VERSION" "$RUNNER_TEMP/image-manifest.json" "$RUNNER_TEMP/feed-payload.json" "${prior[@]}"
+          node tools/sign-feed.mjs "$RUNNER_TEMP/feed-payload.json" "$RUNNER_TEMP/updates.json" 2026-10
+          node tools/release/check-feed.mjs "$RUNNER_TEMP/updates.json"
+          aws --endpoint-url "https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com" s3 cp \
+            "$RUNNER_TEMP/updates.json" s3://riosoma-feed/updates.json --content-type application/json --cache-control 'public, max-age=300'
+
+  release:
+    needs: [prepare, image, chart, feed]
+    if: >-
+      always() && !cancelled() && needs.prepare.result == 'success' && needs.image.result == 'success'
+      && needs.chart.result == 'success' && (needs.feed.result == 'success' || needs.feed.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+      PRERELEASE: ${{ needs.prepare.outputs.prerelease }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24'
+      - name: Extract this version's changelog notes
+        run: |
+          node --input-type=module <<'JS'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          import { releaseNotes } from './tools/release/build-feed.mjs';
+          writeFileSync(`${process.env.RUNNER_TEMP}/release-notes.md`, releaseNotes(readFileSync('CHANGELOG.md', 'utf8'), process.env.VERSION));
+          JS
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          flags=()
+          if [ "$PRERELEASE" = true ]; then flags+=(--prerelease); fi
+          gh release create "v$VERSION" --verify-tag --title "Riosoma $VERSION" \
+            --notes-file "$RUNNER_TEMP/release-notes.md" "${flags[@]}"

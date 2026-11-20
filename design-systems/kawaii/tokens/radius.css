@@ -1,0 +1,6 @@
+:root{
+--r-xs:8px;--r-sm:12px;--r-md:18px;--r-lg:26px;--r-xl:36px;--r-2xl:48px;--r-pill:999px;
+/* the system never uses a radius under 8px; sharp corners read as "not ours" */
+--r-control:var(--r-pill);--r-card:var(--r-lg);--r-panel:var(--r-xl);--r-sticker:var(--r-md);
+--outline-w:3px;--outline-w-sm:2px;--outline-w-lg:4px;
+}

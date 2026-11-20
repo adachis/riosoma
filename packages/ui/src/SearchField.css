@@ -1,0 +1,30 @@
+@layer rio.components {
+  /* Reserve a separate target whether or not the clear button is present. */
+  .rio-search-field .rio-field__control {
+    padding-inline-end: calc(var(--rio-target-min) + var(--rio-space-4));
+  }
+  .rio-search-field .rio-field__input {
+    padding-inline-end: 0;
+  }
+
+  .rio-search-field__clear {
+    position: absolute;
+    inset-block: var(--rio-space-1);
+    inset-inline-end: var(--rio-space-1);
+  }
+  @media (max-width: 767px) {
+    .rio-search-field .rio-field__control {
+      padding-inline-end: calc(var(--rio-target-primary) + var(--rio-space-4));
+    }
+  }
+
+  /* input[type=search] brings its own cancel button and decorations in some browsers, and two ways
+     to clear one value is one too many. */
+  .rio-search-field .rio-field__input::-webkit-search-cancel-button,
+  .rio-search-field .rio-field__input::-webkit-search-decoration,
+  .rio-search-field .rio-field__input::-webkit-search-results-button,
+  .rio-search-field .rio-field__input::-webkit-search-results-decoration {
+    margin: 0;
+    appearance: none;
+  }
+}

@@ -1,0 +1,180 @@
+/* ── Colour scheme variants ─────────────────────────────────────
+   Apply on any ancestor: <html data-theme="kiosk"> or <div data-theme="coolant">.
+   Every scheme is a warm-platinum paper scheme; only the accents and the
+   paper tint move. Add data-mode="dark" (alias: "crt") for the phosphor
+   screen variant of any scheme. Default (no attribute) = Platinum Amber,
+   declared in colors.css. ── */
+
+[data-theme="spectrum"]{/* Spectrum */
+--bg-base:#f6efe2;--bg-panel:#fffdf7;--bg-panel-2:#f0e7d6;--bg-sunken:#e6dbc6;--bg-elevated:#ffffff;
+--bg-selected:rgba(224,122,19,.16);--screen-bg:#1b1207;
+--accent:#e07a13;--accent-hi:#f9c74f;--accent-lo:#c1521f;--accent-ink:#ffffff;
+--accent-soft:rgba(224,122,19,.14);--accent-line:rgba(224,122,19,.55);
+--accent-2:#43aa8b;--accent-2-soft:rgba(67,170,139,.14);--accent-3:#577590;
+--fg-accent:#e07a13;--fg-link:#e07a13;--fg-link-hover:#c1521f;
+--ok:#5f9145;--ok-soft:rgba(95,145,69,.14);--warn:#c67b23;--warn-soft:rgba(198,123,35,.14);
+--danger:#d33236;--danger-soft:rgba(211,50,54,.14);--info:#277da1;--info-soft:rgba(39,125,161,.14);
+--grad-hero:linear-gradient(180deg,#fffdf7,#f6efe2 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#f0e7d6 52%,#e6dbc6); /* @kind color */
+}
+
+[data-theme="arcade"]{/* Arcade Neon */
+--bg-base:#f3eaf1;--bg-panel:#fffdfe;--bg-panel-2:#ebdce8;--bg-sunken:#dfccdb;--bg-elevated:#ffffff;
+--bg-selected:rgba(224,0,73,.16);--screen-bg:#14001f;
+--accent:#e00049;--accent-hi:#ff5400;--accent-lo:#9e0059;--accent-ink:#ffffff;
+--accent-soft:rgba(224,0,73,.14);--accent-line:rgba(224,0,73,.55);
+--accent-2:#c79300;--accent-2-soft:rgba(199,147,0,.14);--accent-3:#390099;
+--fg-accent:#e00049;--fg-link:#e00049;--fg-link-hover:#9e0059;
+--ok:#8a7000;--ok-soft:rgba(138,112,0,.14);--warn:#d94800;--warn-soft:rgba(217,72,0,.14);
+--danger:#e00049;--danger-soft:rgba(224,0,73,.14);--info:#390099;--info-soft:rgba(57,0,153,.14);
+--grad-hero:linear-gradient(180deg,#fffdfe,#f3eaf1 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#ebdce8 52%,#dfccdb); /* @kind color */
+}
+
+[data-theme="cadet"]{/* Cadet */
+--bg-base:#eef6ec;--bg-panel:#ffffff;--bg-panel-2:#e2eee4;--bg-sunken:#d3e4da;--bg-elevated:#ffffff;
+--bg-selected:rgba(207,44,57,.16);--screen-bg:#101b27;
+--accent:#cf2c39;--accent-hi:#e63946;--accent-lo:#a01f2a;--accent-ink:#ffffff;
+--accent-soft:rgba(207,44,57,.14);--accent-line:rgba(207,44,57,.55);
+--accent-2:#457b9d;--accent-2-soft:rgba(69,123,157,.14);--accent-3:#1d3557;
+--fg-accent:#cf2c39;--fg-link:#cf2c39;--fg-link-hover:#a01f2a;
+--ok:#3d7f6a;--ok-soft:rgba(61,127,106,.14);--warn:#c08428;--warn-soft:rgba(192,132,40,.14);
+--danger:#cf2c39;--danger-soft:rgba(207,44,57,.14);--info:#457b9d;--info-soft:rgba(69,123,157,.14);
+--grad-hero:linear-gradient(180deg,#ffffff,#eef6ec 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#e2eee4 52%,#d3e4da); /* @kind color */
+}
+
+[data-theme="sorbet"]{/* Sorbet */
+--bg-base:#f7ede2;--bg-panel:#fffcf8;--bg-panel-2:#f2e1d3;--bg-sunken:#e7d2bf;--bg-elevated:#ffffff;
+--bg-selected:rgba(215,96,94,.16);--screen-bg:#241a17;
+--accent:#d7605e;--accent-hi:#f6bd60;--accent-lo:#a94745;--accent-ink:#ffffff;
+--accent-soft:rgba(215,96,94,.14);--accent-line:rgba(215,96,94,.55);
+--accent-2:#6b8b83;--accent-2-soft:rgba(107,139,131,.14);--accent-3:#f5cac3;
+--fg-accent:#d7605e;--fg-link:#d7605e;--fg-link-hover:#a94745;
+--ok:#6b8b83;--ok-soft:rgba(107,139,131,.14);--warn:#c98f2a;--warn-soft:rgba(201,143,42,.14);
+--danger:#d7605e;--danger-soft:rgba(215,96,94,.14);--info:#6b8b83;--info-soft:rgba(107,139,131,.14);
+--grad-hero:linear-gradient(180deg,#fffcf8,#f7ede2 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#f2e1d3 52%,#e7d2bf); /* @kind color */
+}
+
+[data-theme="ember"]{/* Ember Field */
+--bg-base:#f4efe4;--bg-panel:#fffdf8;--bg-panel-2:#ebe3d2;--bg-sunken:#ded4be;--bg-elevated:#ffffff;
+--bg-selected:rgba(226,102,30,.16);--screen-bg:#101c21;
+--accent:#e2661e;--accent-hi:#fcca46;--accent-lo:#a8480f;--accent-ink:#ffffff;
+--accent-soft:rgba(226,102,30,.14);--accent-line:rgba(226,102,30,.55);
+--accent-2:#5f8a49;--accent-2-soft:rgba(95,138,73,.14);--accent-3:#4a7b6c;
+--fg-accent:#e2661e;--fg-link:#e2661e;--fg-link-hover:#a8480f;
+--ok:#5f8a49;--ok-soft:rgba(95,138,73,.14);--warn:#c98a12;--warn-soft:rgba(201,138,18,.14);
+--danger:#c33a2e;--danger-soft:rgba(195,58,46,.14);--info:#4a7b6c;--info-soft:rgba(74,123,108,.14);
+--grad-hero:linear-gradient(180deg,#fffdf8,#f4efe4 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#ebe3d2 52%,#ded4be); /* @kind color */
+}
+
+[data-theme="coolant"]{/* Coolant */
+--bg-base:#edf7f0;--bg-panel:#ffffff;--bg-panel-2:#dfefe4;--bg-sunken:#cde4d6;--bg-elevated:#ffffff;
+--bg-selected:rgba(31,143,118,.16);--screen-bg:#06201f;
+--accent:#1f8f76;--accent-hi:#57cc99;--accent-lo:#22577a;--accent-ink:#ffffff;
+--accent-soft:rgba(31,143,118,.14);--accent-line:rgba(31,143,118,.55);
+--accent-2:#38a3a5;--accent-2-soft:rgba(56,163,165,.14);--accent-3:#22577a;
+--fg-accent:#1f8f76;--fg-link:#1f8f76;--fg-link-hover:#22577a;
+--ok:#1f8f76;--ok-soft:rgba(31,143,118,.14);--warn:#b98a1a;--warn-soft:rgba(185,138,26,.14);
+--danger:#c9463f;--danger-soft:rgba(201,70,63,.14);--info:#38a3a5;--info-soft:rgba(56,163,165,.14);
+--grad-hero:linear-gradient(180deg,#ffffff,#edf7f0 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#dfefe4 52%,#cde4d6); /* @kind color */
+}
+
+[data-theme="cathode"]{/* Cathode */
+--bg-base:#edf2ea;--bg-panel:#ffffff;--bg-panel-2:#dfe8da;--bg-sunken:#cbd8c3;--bg-elevated:#ffffff;
+--bg-selected:rgba(14,140,121,.16);--screen-bg:#06120b;
+--accent:#0e8c79;--accent-hi:#00fddc;--accent-lo:#2e5339;--accent-ink:#ffffff;
+--accent-soft:rgba(14,140,121,.14);--accent-line:rgba(14,140,121,.55);
+--accent-2:#e8404f;--accent-2-soft:rgba(232,64,79,.14);--accent-3:#495f41;
+--fg-accent:#0e8c79;--fg-link:#0e8c79;--fg-link-hover:#2e5339;
+--ok:#0e8c79;--ok-soft:rgba(14,140,121,.14);--warn:#a5852c;--warn-soft:rgba(165,133,44,.14);
+--danger:#e8404f;--danger-soft:rgba(232,64,79,.14);--info:#495f41;--info-soft:rgba(73,95,65,.14);
+--grad-hero:linear-gradient(180deg,#ffffff,#edf2ea 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#dfe8da 52%,#cbd8c3); /* @kind color */
+}
+
+[data-theme="bubblegum"]{/* Bubblegum */
+--bg-base:#fbeff3;--bg-panel:#ffffff;--bg-panel-2:#f6e1e9;--bg-sunken:#edceda;--bg-elevated:#ffffff;
+--bg-selected:rgba(214,63,121,.16);--screen-bg:#1b0d18;
+--accent:#d63f79;--accent-hi:#ff70a6;--accent-lo:#a62b58;--accent-ink:#ffffff;
+--accent-soft:rgba(214,63,121,.14);--accent-line:rgba(214,63,121,.55);
+--accent-2:#2f8fc0;--accent-2-soft:rgba(47,143,192,.14);--accent-3:#e0714a;
+--fg-accent:#d63f79;--fg-link:#d63f79;--fg-link-hover:#a62b58;
+--ok:#2f8fc0;--ok-soft:rgba(47,143,192,.14);--warn:#c39217;--warn-soft:rgba(195,146,23,.14);
+--danger:#e0714a;--danger-soft:rgba(224,113,74,.14);--info:#2f8fc0;--info-soft:rgba(47,143,192,.14);
+--grad-hero:linear-gradient(180deg,#ffffff,#fbeff3 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#f6e1e9 52%,#edceda); /* @kind color */
+}
+
+[data-theme="seasignal"]{/* Sea Signal */
+--bg-base:#f3fbe9;--bg-panel:#ffffff;--bg-panel-2:#e7f3d9;--bg-sunken:#d8e7c4;--bg-elevated:#ffffff;
+--bg-selected:rgba(224,13,69,.16);--screen-bg:#06202a;
+--accent:#e00d45;--accent-hi:#ff5c85;--accent-lo:#a80d36;--accent-ink:#ffffff;
+--accent-soft:rgba(224,13,69,.14);--accent-line:rgba(224,13,69,.55);
+--accent-2:#3d9384;--accent-2-soft:rgba(61,147,132,.14);--accent-3:#247ba0;
+--fg-accent:#e00d45;--fg-link:#e00d45;--fg-link-hover:#a80d36;
+--ok:#3d9384;--ok-soft:rgba(61,147,132,.14);--warn:#8a9a2a;--warn-soft:rgba(138,154,42,.14);
+--danger:#e00d45;--danger-soft:rgba(224,13,69,.14);--info:#247ba0;--info-soft:rgba(36,123,160,.14);
+--grad-hero:linear-gradient(180deg,#ffffff,#f3fbe9 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#e7f3d9 52%,#d8e7c4); /* @kind color */
+}
+
+[data-theme="kiosk"]{/* Kiosk */
+--bg-base:#ebebd3;--bg-panel:#fbfbf0;--bg-panel-2:#e1e1c4;--bg-sunken:#d2d2b0;--bg-elevated:#ffffff;
+--bg-selected:rgba(212,118,44,.16);--screen-bg:#05182e;
+--accent:#d4762c;--accent-hi:#f4d35e;--accent-lo:#a8471f;--accent-ink:#ffffff;
+--accent-soft:rgba(212,118,44,.14);--accent-line:rgba(212,118,44,.55);
+--accent-2:#083d77;--accent-2-soft:rgba(8,61,119,.14);--accent-3:#c33f22;
+--fg-accent:#d4762c;--fg-link:#d4762c;--fg-link-hover:#a8471f;
+--ok:#5f8a49;--ok-soft:rgba(95,138,73,.14);--warn:#c98a12;--warn-soft:rgba(201,138,18,.14);
+--danger:#c33f22;--danger-soft:rgba(195,63,34,.14);--info:#083d77;--info-soft:rgba(8,61,119,.14);
+--grad-hero:linear-gradient(180deg,#fbfbf0,#ebebd3 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#e1e1c4 52%,#d2d2b0); /* @kind color */
+}
+
+[data-theme="fatigue"]{/* Fatigue */
+--bg-base:#f0f7f4;--bg-panel:#ffffff;--bg-panel-2:#e3ede8;--bg-sunken:#cfdcd5;--bg-elevated:#ffffff;
+--bg-selected:rgba(61,127,104,.16);--screen-bg:#131a15;
+--accent:#3d7f68;--accent-hi:#a2e3c4;--accent-lo:#2b4a3d;--accent-ink:#ffffff;
+--accent-soft:rgba(61,127,104,.14);--accent-line:rgba(61,127,104,.55);
+--accent-2:#6d7d75;--accent-2-soft:rgba(109,125,117,.14);--accent-3:#b3bfb8;
+--fg-accent:#3d7f68;--fg-link:#3d7f68;--fg-link-hover:#2b4a3d;
+--ok:#3d7f68;--ok-soft:rgba(61,127,104,.14);--warn:#a58a3c;--warn-soft:rgba(165,138,60,.14);
+--danger:#b45a52;--danger-soft:rgba(180,90,82,.14);--info:#6d7d75;--info-soft:rgba(109,125,117,.14);
+--grad-hero:linear-gradient(180deg,#ffffff,#f0f7f4 100%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,#e3ede8 52%,#cfdcd5); /* @kind color */
+}
+
+/* ── Phosphor mode: the neutral ramp inverts to a lit screen,
+      accents hold. data-mode="dark" and data-mode="crt" are the same ramp;
+      "crt" additionally reads as a signal to add .rnf-scanlines. ── */
+[data-mode="dark"],[data-mode="crt"]{
+--bg-base:#14120c;--bg-sunken:#0b0a07;--bg-panel:#1e1b15;--bg-panel-2:#272319;--bg-elevated:#302b21;
+--bg-inset:#0b0a07;--bg-hover:rgba(246,236,216,.07);--bg-active:rgba(246,236,216,.14);
+--fg-1:#f6ecd8;--fg-2:#ded5c1;--fg-3:#a49b84;--fg-disabled:rgba(246,236,216,.32);--fg-invert:#14120c;
+--stroke-1:rgba(246,236,216,.18);--stroke-2:rgba(246,236,216,.34);--stroke-strong:rgba(246,236,216,.72);
+--bevel-light:rgba(255,255,255,.16);--bevel-dark:rgba(0,0,0,.6);--bevel-darker:rgba(0,0,0,.8);
+--focus:#f6ecd8;--focus-ring:0 0 0 2px #14120c,0 0 0 4px var(--focus); /* @kind shadow */
+--grid-line:rgba(246,236,216,.07);--scan-line:rgba(246,236,216,.045);--overlay:rgba(6,5,3,.72);
+--glass-bg:rgba(20,18,12,.82);--glass-stroke:rgba(246,236,216,.2);
+--grad-panel:linear-gradient(180deg,rgba(246,236,216,.07),rgba(246,236,216,0) 70%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#312c22,#211e17 52%,#14120c); /* @kind color */
+--grad-hero:linear-gradient(180deg,#1e1b15,#14120c 100%); /* @kind color */
+--grad-protect:linear-gradient(180deg,rgba(20,18,12,0),rgba(20,18,12,.88) 72%,rgba(20,18,12,.98)); /* @kind color */
+--sheen:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,0) 60%); /* @kind color */
+}
+
+/* Explicit light re-declaration so a two-way toggle works from any state. */
+[data-mode="light"]{
+--bg-inset:#ffffff;--bg-hover:rgba(26,24,21,.06);--bg-active:rgba(26,24,21,.13);
+--fg-1:#1a1815;--fg-2:#403b33;--fg-3:#6f6959;--fg-disabled:rgba(26,24,21,.35);--fg-invert:#fbf8f0;
+--stroke-1:rgba(26,24,21,.28);--stroke-2:rgba(26,24,21,.55);--stroke-strong:#1a1815;
+--bevel-light:rgba(255,255,255,.9);--bevel-dark:rgba(26,24,21,.34);--bevel-darker:rgba(26,24,21,.55);
+--focus:#1a1815;--grid-line:rgba(26,24,21,.07);--scan-line:rgba(26,24,21,.05);--overlay:rgba(26,24,21,.5);
+--glass-bg:rgba(251,248,240,.86);--glass-stroke:rgba(26,24,21,.28);
+--grad-panel:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0) 70%); /* @kind color */
+--sheen:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0) 60%); /* @kind color */
+}

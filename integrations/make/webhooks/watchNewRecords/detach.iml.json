@@ -1,0 +1,7 @@
+{
+  "url": "/databases/{{riosomaSegment(webhook.database, false)}}/webhooks/{{riosomaSegment(webhook.hookId, false)}}",
+  "method": "DELETE",
+  "response": {
+    "valid": "{{statusCode == 204 || statusCode == 404}}"
+  }
+}

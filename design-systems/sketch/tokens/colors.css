@@ -1,0 +1,35 @@
+/* Sketch — base palette. Ink and paper are constant across colour schemes;
+   only the accent ramp changes (see palettes.css). */
+:root{
+  /* ink — pen pressure, dark to light */
+  --ink-1:#1c1a17;
+  --ink-2:#3d3a34;
+  --ink-3:#6b665c;
+  --ink-4:#a8a29a;
+  --ink-5:#cfc9bd;
+
+  /* paper — stock, from shadowed fold to bright sheet */
+  --paper-1:#e9e4d6;
+  --paper-2:#f0ece0;
+  --paper-3:#f5f2e8;
+  --paper-4:#fbf9f3;
+  --paper-5:#ffffff;
+
+  /* rules and folds */
+  --rule:#d8d2c4;
+  --rule-soft:#e5e0d2;
+  --fold:#cdc6b5;
+
+  /* graphite (pencil under-drawing, always non-committal) */
+  --graphite:#8d8a83;
+  --graphite-soft:#b9b6ae;
+
+  /* ink with alpha — for hatching, shadows, wash */
+  --ink-a05:rgba(28,26,23,.05);
+  --ink-a08:rgba(28,26,23,.08);
+  --ink-a12:rgba(28,26,23,.12);
+  --ink-a20:rgba(28,26,23,.20);
+  --ink-a40:rgba(28,26,23,.40);
+  --paper-a70:rgba(251,249,243,.70);
+  --paper-a90:rgba(251,249,243,.92);
+}

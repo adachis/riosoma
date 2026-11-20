@@ -1,0 +1,6 @@
+function riosomaMessage(key) {
+  var messages = JSON.parse(
+    '{"field.json":"Enter a JSON value for this field.","field.true":"True","field.false":"False","error.address":"Enter an HTTPS address without a path, query, username, or password.","error.input":"Check the selected database, table, fields, and values.","error.json":"Enter valid JSON.","error.path":"Enter a path beginning with /api/v1 without a query, fragment, or relative path segments.","error.request":"Riosoma could not complete the request.  Check the connection, permissions, and input.","error.cursor":"Riosoma returned a repeated pagination cursor.","error.missing":"The record is missing, is inaccessible, or does not match the selected view.","error.files":"The app files are invalid.  Run the app build and tests.","error.environment":"Set MAKE_API_TOKEN and a MAKE_ZONE such as us2.make.com.","error.arguments":"Use deploy.mjs with no arguments to deploy, or with --check to validate offline.","error.deployment":"Deployment failed.  Check the account, zone, scopes, and custom function access.","error.ambiguous":"More than one matching app or component was found.  Check the account before deploying."}',
+  );
+  return messages[key] || key;
+}

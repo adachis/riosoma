@@ -1,0 +1,58 @@
+/* Brutalist Neo — spacing, sizing, radii */
+:root{
+  --nb-space-0:0px;
+  --nb-space-1:2px;
+  --nb-space-2:4px;
+  --nb-space-3:6px;
+  --nb-space-4:8px;
+  --nb-space-5:12px;
+  --nb-space-6:16px;
+  --nb-space-7:20px;
+  --nb-space-8:24px;
+  --nb-space-9:32px;
+  --nb-space-10:40px;
+  --nb-space-11:48px;
+  --nb-space-12:64px;
+  --nb-space-13:80px;
+  --nb-space-14:96px;
+  --nb-space-15:128px;
+
+  /* radii — the house default is 8px ("soft neo-brutalism"). 0 is the
+     hard-cut variant, used for print, tables and game HUD chrome. */
+  --nb-radius-sharp:0px;
+  --nb-radius-xs:4px;
+  --nb-radius-sm:6px;
+  --nb-radius-md:8px;
+  --nb-radius-lg:14px;
+  --nb-radius-xl:22px;
+  --nb-radius-pill:999px;
+  --nb-radius:var(--nb-radius-md);
+
+  /* control heights — 44px minimum on touch surfaces */
+  --nb-control-sm:32px;
+  --nb-control-md:40px;
+  --nb-control-lg:48px;
+  --nb-control-touch:52px;
+
+  /* layout */
+  --nb-container-sm:640px;
+  --nb-container-md:880px;
+  --nb-container-lg:1120px;
+  --nb-container-xl:1360px;
+  --nb-gutter:clamp(16px,4vw,48px); /* @kind spacing */
+
+  /* z-index */
+  --nb-z-base:0; /* @kind other */
+  --nb-z-raised:10; /* @kind other */
+  --nb-z-sticky:100; /* @kind other */
+  --nb-z-overlay:800; /* @kind other */
+  --nb-z-modal:900; /* @kind other */
+  --nb-z-toast:1000; /* @kind other */
+
+  /* semantic aliases */
+  --surface-page:var(--nb-paper);
+  --surface-card:var(--nb-surface);
+  --surface-sunken:var(--nb-surface-alt);
+  --text-ink:var(--nb-ink);
+  --text-muted:var(--nb-ink-soft);
+}

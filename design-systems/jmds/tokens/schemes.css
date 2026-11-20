@@ -1,0 +1,220 @@
+/* JMDS COLOR SCHEMES
+   Semantic tokens only. Consumers set data-scheme on <html>, <body>, or any
+   subtree — schemes nest, so a dark band inside a light page is just
+   <section data-scheme="yozora">.
+   Default (no attribute) = "hinomaru". */
+:root,
+[data-scheme="hinomaru"]{
+  color-scheme:light;
+  --bg-page:var(--kinari-0);
+  --bg-surface:var(--white-pure);
+  --bg-inset:var(--kinari-1);
+  --bg-sunk:var(--kinari-2);
+  --bg-inverse:var(--sumi-4);
+  --fg-1:var(--sumi-4);
+  --fg-2:var(--sumi-2);
+  --fg-3:var(--sumi-1);
+  --fg-inverse:var(--kinari-0);
+  --accent:var(--vermilion);
+  --accent-fg:var(--white-pure);
+  --accent-soft:#F8D9CF;
+  --accent-2:var(--sumi-4);
+  --accent-3:var(--kinari-3);
+  --rule:var(--kinari-3);
+  --rule-strong:var(--sumi-4);
+  --focus:var(--gunjo);
+  --positive:var(--jade);
+  --caution:var(--amber);
+  --critical:var(--crimson);
+  --info:var(--gunjo);
+  --shadow-ink:var(--sumi-4);
+}
+
+/* SUMI — ink monochrome, one red seal. Documents, long reads, data. */
+[data-scheme="sumi"]{
+  color-scheme:light;
+  --bg-page:var(--white-pure);
+  --bg-surface:var(--white-pure);
+  --bg-inset:#F3F2EF;
+  --bg-sunk:#E6E4DE;
+  --bg-inverse:var(--sumi-4);
+  --fg-1:var(--sumi-4);
+  --fg-2:var(--sumi-2);
+  --fg-3:var(--sumi-1);
+  --fg-inverse:var(--white-pure);
+  --accent:var(--sumi-4);
+  --accent-fg:var(--white-pure);
+  --accent-soft:#E6E4DE;
+  --accent-2:var(--vermilion);
+  --accent-3:#CFCCC4;
+  --rule:#D6D3CB;
+  --rule-strong:var(--sumi-4);
+  --focus:var(--vermilion);
+  --positive:var(--jade);
+  --caution:#8A6A12;
+  --critical:var(--crimson);
+  --info:var(--sumi-2);
+  --shadow-ink:var(--sumi-4);
+}
+
+/* TANAKA — poster modern. Kinari paper, six flat inks, jade primary. */
+[data-scheme="tanaka"]{
+  color-scheme:light;
+  --bg-page:var(--kinari-1);
+  --bg-surface:var(--kinari-0);
+  --bg-inset:var(--kinari-2);
+  --bg-sunk:var(--kinari-3);
+  --bg-inverse:var(--sumi-4);
+  --fg-1:var(--sumi-4);
+  --fg-2:var(--sumi-2);
+  --fg-3:var(--kinari-4);
+  --fg-inverse:var(--kinari-0);
+  --accent:var(--jade);
+  --accent-fg:var(--kinari-0);
+  --accent-soft:#CDE6D9;
+  --accent-2:var(--murasaki);
+  --accent-3:var(--turquoise);
+  --rule:var(--kinari-3);
+  --rule-strong:var(--sumi-4);
+  --focus:var(--gunjo);
+  --positive:var(--jade);
+  --caution:var(--mustard);
+  --critical:var(--crimson);
+  --info:var(--gunjo);
+  --shadow-ink:var(--sumi-4);
+}
+
+/* YOKOO — psychedelic. Black ground, magenta / cyan / coral. Campaigns, launch. */
+[data-scheme="yokoo"]{
+  color-scheme:dark;
+  --bg-page:#0C0B0A;
+  --bg-surface:#171512;
+  --bg-inset:#211E19;
+  --bg-sunk:#2C2822;
+  --bg-inverse:var(--kinari-0);
+  --fg-1:#FDF9F2;
+  --fg-2:#D6CFC2;
+  --fg-3:#948C7E;
+  --fg-inverse:#0C0B0A;
+  --accent:var(--beni);
+  --accent-fg:#0C0B0A;
+  --accent-soft:#4A1230;
+  --accent-2:var(--cyan);
+  --accent-3:var(--coral);
+  --rule:#332F28;
+  --rule-strong:var(--beni);
+  --focus:var(--cyan);
+  --positive:var(--matcha);
+  --caution:var(--kihada);
+  --critical:var(--coral);
+  --info:var(--mizu);
+  --shadow-ink:var(--beni);
+}
+
+/* RISO — fluorescent duotone on bright white. Editorial, zines, marketing. */
+[data-scheme="riso"]{
+  color-scheme:light;
+  --bg-page:#FDFDFB;
+  --bg-surface:var(--white-pure);
+  --bg-inset:#FDEBF2;
+  --bg-sunk:#FAD8E5;
+  --bg-inverse:var(--sumi-3);
+  --fg-1:var(--sumi-3);
+  --fg-2:#4E4A43;
+  --fg-3:#8B857B;
+  --fg-inverse:var(--white-pure);
+  --accent:var(--fluoro-pink);
+  --accent-fg:var(--white-pure);
+  --accent-soft:#FFD9E6;
+  --accent-2:var(--matcha);
+  --accent-3:var(--mizu);
+  --rule:#E2DFD8;
+  --rule-strong:var(--fluoro-pink);
+  --focus:var(--matcha);
+  --positive:var(--jade);
+  --caution:var(--amber);
+  --critical:var(--fluoro-pink);
+  --info:var(--cyan);
+  --shadow-ink:var(--fluoro-pink);
+}
+
+/* YOZORA — night. Sumi ground, amber hairlines. Dark mode, dashboards. */
+[data-scheme="yozora"]{
+  color-scheme:dark;
+  --bg-page:#100E0B;
+  --bg-surface:#1A1713;
+  --bg-inset:#231F1A;
+  --bg-sunk:#2E2921;
+  --bg-inverse:var(--kinari-0);
+  --fg-1:#F6EFE1;
+  --fg-2:#CDC3AF;
+  --fg-3:#8C8471;
+  --fg-inverse:#100E0B;
+  --accent:var(--amber);
+  --accent-fg:#100E0B;
+  --accent-soft:#402C10;
+  --accent-2:var(--kihada);
+  --accent-3:var(--turquoise);
+  --rule:#332C22;
+  --rule-strong:var(--amber);
+  --focus:var(--kihada);
+  --positive:var(--matcha);
+  --caution:var(--mustard);
+  --critical:var(--coral);
+  --info:var(--mizu);
+  --shadow-ink:var(--amber);
+}
+
+/* SHOWA — 1930s advertising. Mustard ground, red and ultramarine. Retail, events. */
+[data-scheme="showa"]{
+  color-scheme:light;
+  --bg-page:#F6E3A8;
+  --bg-surface:#FDF4D8;
+  --bg-inset:#EED893;
+  --bg-sunk:#E3C871;
+  --bg-inverse:var(--sumi-4);
+  --fg-1:#241B08;
+  --fg-2:#4A3A15;
+  --fg-3:#7A6633;
+  --fg-inverse:#FDF4D8;
+  --accent:var(--crimson);
+  --accent-fg:#FDF4D8;
+  --accent-soft:#F3C0B4;
+  --accent-2:var(--gunjo);
+  --accent-3:var(--jade);
+  --rule:#D9BE71;
+  --rule-strong:#241B08;
+  --focus:var(--gunjo);
+  --positive:var(--jade);
+  --caution:#9A6B00;
+  --critical:var(--crimson);
+  --info:var(--gunjo);
+  --shadow-ink:#241B08;
+}
+
+/* SAKURA — quiet. Dusty pink paper, ink brown. Wellness, editorial features. */
+[data-scheme="sakura"]{
+  color-scheme:light;
+  --bg-page:#F7E7E5;
+  --bg-surface:#FDF6F4;
+  --bg-inset:#F0D8D6;
+  --bg-sunk:#E3C2C0;
+  --bg-inverse:#3A2321;
+  --fg-1:#3A2321;
+  --fg-2:#5E403C;
+  --fg-3:#96736E;
+  --fg-inverse:#FDF6F4;
+  --accent:#B23A48;
+  --accent-fg:#FDF6F4;
+  --accent-soft:#EFC9CE;
+  --accent-2:var(--jade);
+  --accent-3:var(--sakura);
+  --rule:#E0C4C1;
+  --rule-strong:#3A2321;
+  --focus:var(--ai);
+  --positive:var(--jade);
+  --caution:var(--amber);
+  --critical:#B23A48;
+  --info:var(--ai);
+  --shadow-ink:#3A2321;
+}

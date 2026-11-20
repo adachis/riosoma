@@ -1,0 +1,656 @@
+{
+  "answers": [
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ListBoards",
+      "variables": {
+        "page": 1
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1000,
+            "after": 4000000,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "id": "500",
+              "name": "Riosoma tests",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadBoard",
+      "variables": {
+        "ids": ["500"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1000,
+            "after": 4000000,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "id": "500",
+              "name": "Riosoma tests",
+              "description": null,
+              "state": "active",
+              "hierarchy_type": "multi_level",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              },
+              "columns": [
+                {
+                  "id": "name",
+                  "title": "Name",
+                  "type": "name",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "qty",
+                  "title": "Quantity",
+                  "type": "numbers",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "status",
+                  "title": "Status",
+                  "type": "status",
+                  "description": null,
+                  "settings": {
+                    "type": "status",
+                    "labels": [
+                      {
+                        "id": 0,
+                        "label": "Working",
+                        "color": "working_orange",
+                        "index": 0,
+                        "is_done": false
+                      },
+                      {
+                        "id": 1,
+                        "label": "Done",
+                        "color": "done_green",
+                        "index": 1,
+                        "is_done": true
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "date",
+                  "title": "Due",
+                  "type": "date",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "range",
+                  "title": "Timeline",
+                  "type": "timeline",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "subtasks",
+                  "title": "Subitems",
+                  "type": "subtasks",
+                  "description": null,
+                  "settings": {}
+                }
+              ],
+              "groups": [
+                {
+                  "id": "g",
+                  "title": "Milestones",
+                  "color": "#00c875"
+                }
+              ],
+              "views": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "DiscoverBoardItems",
+      "variables": {
+        "ids": ["500"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1000,
+            "after": 4000000,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "items_page": {
+                "cursor": null,
+                "items": [
+                  {
+                    "id": "5001",
+                    "state": "active",
+                    "subitems": [
+                      {
+                        "id": "5002",
+                        "board": {
+                          "id": "500"
+                        },
+                        "parent_item": {
+                          "id": "5001"
+                        }
+                      },
+                      {
+                        "id": "5003",
+                        "board": {
+                          "id": "500"
+                        },
+                        "parent_item": {
+                          "id": "5002"
+                        }
+                      },
+                      {
+                        "id": "5004",
+                        "board": {
+                          "id": "500"
+                        },
+                        "parent_item": {
+                          "id": "5003"
+                        }
+                      },
+                      {
+                        "id": "5005",
+                        "board": {
+                          "id": "500"
+                        },
+                        "parent_item": {
+                          "id": "5004"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadBoardItems",
+      "variables": {
+        "ids": ["500"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1000,
+            "after": 4000000,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "items_page": {
+                "cursor": null,
+                "items": [
+                  {
+                    "id": "5001",
+                    "name": "Root",
+                    "state": "active",
+                    "board": {
+                      "id": "500"
+                    },
+                    "group": {
+                      "id": "g",
+                      "title": "Milestones"
+                    },
+                    "parent_item": null,
+                    "subitems": [
+                      {
+                        "id": "5002",
+                        "board": {
+                          "id": "500"
+                        },
+                        "parent_item": {
+                          "id": "5001"
+                        }
+                      },
+                      {
+                        "id": "5003",
+                        "board": {
+                          "id": "500"
+                        },
+                        "parent_item": {
+                          "id": "5002"
+                        }
+                      },
+                      {
+                        "id": "5004",
+                        "board": {
+                          "id": "500"
+                        },
+                        "parent_item": {
+                          "id": "5003"
+                        }
+                      },
+                      {
+                        "id": "5005",
+                        "board": {
+                          "id": "500"
+                        },
+                        "parent_item": {
+                          "id": "5004"
+                        }
+                      }
+                    ],
+                    "column_values": [
+                      {
+                        "id": "qty",
+                        "type": "numbers",
+                        "text": null,
+                        "value": null,
+                        "number": 1
+                      },
+                      {
+                        "id": "status",
+                        "type": "status",
+                        "text": null,
+                        "value": null,
+                        "battery_value": [
+                          {
+                            "key": "1",
+                            "count": 1
+                          }
+                        ]
+                      },
+                      {
+                        "id": "date",
+                        "type": "date",
+                        "text": null,
+                        "value": null,
+                        "date": "2026-09-15T00:00:00+00:00",
+                        "time": null
+                      },
+                      {
+                        "id": "range",
+                        "type": "timeline",
+                        "text": null,
+                        "value": null,
+                        "from": "2026-09-01T00:00:00+00:00",
+                        "to": "2026-09-15T00:00:00+00:00"
+                      },
+                      {
+                        "id": "subtasks",
+                        "type": "subtasks",
+                        "text": null,
+                        "value": null,
+                        "subitems_ids": ["5002", "5003", "5004", "5005"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadChildren",
+      "variables": {
+        "ids": ["5002", "5003", "5004", "5005"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1000,
+            "after": 4000000,
+            "reset_in_x_seconds": 60
+          },
+          "items": [
+            {
+              "id": "5002",
+              "name": "Level 2",
+              "state": "active",
+              "board": {
+                "id": "500"
+              },
+              "group": {
+                "id": "g",
+                "title": "Milestones"
+              },
+              "parent_item": {
+                "id": "5001",
+                "parent_item": null
+              },
+              "subitems": [
+                {
+                  "id": "5003",
+                  "board": {
+                    "id": "500"
+                  },
+                  "parent_item": {
+                    "id": "5002"
+                  }
+                },
+                {
+                  "id": "5004",
+                  "board": {
+                    "id": "500"
+                  },
+                  "parent_item": {
+                    "id": "5003"
+                  }
+                },
+                {
+                  "id": "5005",
+                  "board": {
+                    "id": "500"
+                  },
+                  "parent_item": {
+                    "id": "5004"
+                  }
+                }
+              ],
+              "column_values": [
+                {
+                  "id": "qty",
+                  "type": "numbers",
+                  "text": null,
+                  "value": null,
+                  "number": 1
+                },
+                {
+                  "id": "status",
+                  "type": "status",
+                  "text": null,
+                  "value": null,
+                  "battery_value": [
+                    {
+                      "key": "1",
+                      "count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "date",
+                  "type": "date",
+                  "text": null,
+                  "value": null,
+                  "date": "2026-09-15T00:00:00+00:00",
+                  "time": null
+                },
+                {
+                  "id": "range",
+                  "type": "timeline",
+                  "text": null,
+                  "value": null,
+                  "from": "2026-09-01T00:00:00+00:00",
+                  "to": "2026-09-15T00:00:00+00:00"
+                },
+                {
+                  "id": "subtasks",
+                  "type": "subtasks",
+                  "text": null,
+                  "value": null,
+                  "subitems_ids": ["5003", "5004", "5005"]
+                }
+              ]
+            },
+            {
+              "id": "5003",
+              "name": "Level 3",
+              "state": "active",
+              "board": {
+                "id": "500"
+              },
+              "group": {
+                "id": "g",
+                "title": "Milestones"
+              },
+              "parent_item": {
+                "id": "5002",
+                "parent_item": {
+                  "id": "5001"
+                }
+              },
+              "subitems": [
+                {
+                  "id": "5004",
+                  "board": {
+                    "id": "500"
+                  },
+                  "parent_item": {
+                    "id": "5003"
+                  }
+                },
+                {
+                  "id": "5005",
+                  "board": {
+                    "id": "500"
+                  },
+                  "parent_item": {
+                    "id": "5004"
+                  }
+                }
+              ],
+              "column_values": [
+                {
+                  "id": "qty",
+                  "type": "numbers",
+                  "text": null,
+                  "value": null,
+                  "number": 1
+                },
+                {
+                  "id": "status",
+                  "type": "status",
+                  "text": null,
+                  "value": null,
+                  "battery_value": [
+                    {
+                      "key": "1",
+                      "count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "date",
+                  "type": "date",
+                  "text": null,
+                  "value": null,
+                  "date": "2026-09-15T00:00:00+00:00",
+                  "time": null
+                },
+                {
+                  "id": "range",
+                  "type": "timeline",
+                  "text": null,
+                  "value": null,
+                  "from": "2026-09-01T00:00:00+00:00",
+                  "to": "2026-09-15T00:00:00+00:00"
+                },
+                {
+                  "id": "subtasks",
+                  "type": "subtasks",
+                  "text": null,
+                  "value": null,
+                  "subitems_ids": ["5004", "5005"]
+                }
+              ]
+            },
+            {
+              "id": "5004",
+              "name": "Level 4",
+              "state": "active",
+              "board": {
+                "id": "500"
+              },
+              "group": {
+                "id": "g",
+                "title": "Milestones"
+              },
+              "parent_item": {
+                "id": "5003",
+                "parent_item": {
+                  "id": "5002"
+                }
+              },
+              "subitems": [
+                {
+                  "id": "5005",
+                  "board": {
+                    "id": "500"
+                  },
+                  "parent_item": {
+                    "id": "5004"
+                  }
+                }
+              ],
+              "column_values": [
+                {
+                  "id": "qty",
+                  "type": "numbers",
+                  "text": null,
+                  "value": null,
+                  "number": 1
+                },
+                {
+                  "id": "status",
+                  "type": "status",
+                  "text": null,
+                  "value": null,
+                  "battery_value": [
+                    {
+                      "key": "1",
+                      "count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "date",
+                  "type": "date",
+                  "text": null,
+                  "value": null,
+                  "date": "2026-09-15T00:00:00+00:00",
+                  "time": null
+                },
+                {
+                  "id": "range",
+                  "type": "timeline",
+                  "text": null,
+                  "value": null,
+                  "from": "2026-09-01T00:00:00+00:00",
+                  "to": "2026-09-15T00:00:00+00:00"
+                },
+                {
+                  "id": "subtasks",
+                  "type": "subtasks",
+                  "text": null,
+                  "value": null,
+                  "subitems_ids": ["5005"]
+                }
+              ]
+            },
+            {
+              "id": "5005",
+              "name": "Level 5",
+              "state": "active",
+              "board": {
+                "id": "500"
+              },
+              "group": {
+                "id": "g",
+                "title": "Milestones"
+              },
+              "parent_item": {
+                "id": "5004",
+                "parent_item": {
+                  "id": "5003"
+                }
+              },
+              "subitems": [],
+              "column_values": [
+                {
+                  "id": "qty",
+                  "type": "numbers",
+                  "text": null,
+                  "value": null,
+                  "number": 1
+                },
+                {
+                  "id": "status",
+                  "type": "status",
+                  "text": null,
+                  "value": null,
+                  "battery_value": [
+                    {
+                      "key": "1",
+                      "count": 1
+                    }
+                  ]
+                },
+                {
+                  "id": "date",
+                  "type": "date",
+                  "text": null,
+                  "value": null,
+                  "date": "2026-09-15T00:00:00+00:00",
+                  "time": null
+                },
+                {
+                  "id": "range",
+                  "type": "timeline",
+                  "text": null,
+                  "value": null,
+                  "from": "2026-09-01T00:00:00+00:00",
+                  "to": "2026-09-15T00:00:00+00:00"
+                },
+                {
+                  "id": "subtasks",
+                  "type": "subtasks",
+                  "text": null,
+                  "value": null,
+                  "subitems_ids": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "error": {
+    "errors": [
+      {
+        "message": "Invalid token",
+        "extensions": {
+          "code": "NOT_AUTHENTICATED"
+        }
+      }
+    ]
+  }
+}

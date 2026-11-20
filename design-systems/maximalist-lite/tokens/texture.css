@@ -1,0 +1,21 @@
+/* Texture. Pure-CSS pattern fills — the background layer of the brand.
+   Apply as background-image; they inherit theme colour automatically. */
+:root{
+  --tex-dot-size:14px;
+  --tex-stripe-size:22px;
+  --tex-check-size:26px;
+
+  --tex-halftone:radial-gradient(var(--ink) 22%,transparent 23%);
+  --tex-halftone-loose:radial-gradient(var(--ink) 13%,transparent 14%);
+  --tex-stripe:repeating-linear-gradient(45deg,var(--ink) 0 8px,transparent 8px 22px);
+  --tex-stripe-accent:repeating-linear-gradient(45deg,var(--accent) 0 11px,var(--accent-3) 11px 22px);
+  --tex-stripe-v:repeating-linear-gradient(90deg,var(--ink) 0 5px,transparent 5px 16px);
+  --tex-check:conic-gradient(var(--ink) 0 25%,transparent 0 50%,var(--ink) 0 75%,transparent 0);
+  --tex-grid:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px);
+  --tex-zigzag:repeating-conic-gradient(from 45deg at 50% 0,var(--accent) 0 25%,transparent 0 50%);
+  --tex-noise:repeating-radial-gradient(circle at 0 0,var(--ink) 0 1px,transparent 1px 3px);
+}
+.mx-tex-halftone{background-image:var(--tex-halftone);background-size:var(--tex-dot-size) var(--tex-dot-size)}
+.mx-tex-stripe{background-image:var(--tex-stripe)}
+.mx-tex-check{background-image:var(--tex-check);background-size:var(--tex-check-size) var(--tex-check-size)}
+.mx-tex-grid{background-image:var(--tex-grid);background-size:var(--tex-stripe-size) var(--tex-stripe-size)}

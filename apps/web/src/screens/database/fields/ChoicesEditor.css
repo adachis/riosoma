@@ -1,0 +1,33 @@
+@layer rio.app {
+  .rio-choices-editor,
+  .rio-choices-editor__rows {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-choices-editor__row {
+    display: grid;
+    grid-template-columns: auto var(--rio-space-12) minmax(0, 1fr) auto;
+    align-items: start;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-choices-editor__title {
+    margin: 0;
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-choices-editor__color {
+    inline-size: var(--rio-space-12);
+    overflow: hidden;
+  }
+
+  .rio-choices-editor__row .rio-text-field {
+    min-block-size: calc(var(--rio-control-height) + var(--rio-space-12));
+  }
+}

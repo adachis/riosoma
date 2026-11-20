@@ -1,0 +1,19 @@
+/* Fashion — webfonts.
+   All four families are served from Google Fonts. No binaries ship with this system;
+   see readme.md → VISUAL FOUNDATIONS → Type for the substitution note. */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Antonio:wght@100..700&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+:root {
+  /* base families */
+  --font-display: "Instrument Serif", "Times New Roman", Times, serif;
+  --font-poster: "Antonio", "Haettenschweiler", "Arial Narrow", sans-serif;
+  --font-ui: "Hanken Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* semantic aliases */
+  --font-body: var(--font-ui);
+  --font-heading: var(--font-display);
+  --font-eyebrow: var(--font-ui);
+  --font-numeric: var(--font-mono);
+  --font-statement: var(--font-poster);
+}

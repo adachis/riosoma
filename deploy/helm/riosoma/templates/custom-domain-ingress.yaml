@@ -1,0 +1,34 @@
+{{- if .Values.ingress.enabled }}
+{{- range $index, $domain := .Values.ingress.customDomains }}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ printf "%s-public-%d" (include "riosoma.fullname" $ | trunc 48 | trimSuffix "-") $index }}
+  labels:
+    {{- include "riosoma.labels" $ | nindent 4 }}
+  {{- with $.Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- with $.Values.ingress.className }}
+  ingressClassName: {{ . | quote }}
+  {{- end }}
+  tls:
+    - hosts:
+        - {{ required "custom domain host is required" $domain.host | quote }}
+      secretName: {{ required "custom domain TLS secretName is required" $domain.secretName | quote }}
+  rules:
+    - host: {{ $domain.host | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "riosoma.fullname" $ }}
+                port:
+                  name: http
+{{- end }}
+{{- end }}

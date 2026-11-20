@@ -1,0 +1,148 @@
+@layer rio.components {
+  .rio-color-swatch-picker {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+  }
+
+  /* A row that wraps: ten swatches do not fit a narrow dock, and the arrow keys still walk them in
+     the order they are drawn. */
+  .rio-color-swatch-picker__swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-1);
+  }
+
+  .rio-color-swatch-picker__field {
+    display: inline-flex;
+  }
+
+  /* The control is the pointer's target and the swatch inside it is the color.  Keeping the two
+     apart is what lets the focus ring sit around the color without growing anything. */
+  .rio-color-swatch-picker__control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--rio-control-height-sm);
+    block-size: var(--rio-control-height-sm);
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* The border is always there and only takes a color in forced colors, so the swatch keeps its
+     size in every mode. */
+  .rio-color-swatch-picker__swatch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--rio-space-5);
+    block-size: var(--rio-space-5);
+    border: 1px solid transparent;
+    border-radius: 50%;
+    transition:
+      background-image var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='gray'] {
+    background-color: var(--rio-aa-choice-gray);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='red'] {
+    background-color: var(--rio-aa-choice-red);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='orange'] {
+    background-color: var(--rio-aa-choice-orange);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='yellow'] {
+    background-color: var(--rio-aa-choice-yellow);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='green'] {
+    background-color: var(--rio-aa-choice-green);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='teal'] {
+    background-color: var(--rio-aa-choice-teal);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='blue'] {
+    background-color: var(--rio-aa-choice-blue);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='purple'] {
+    background-color: var(--rio-aa-choice-purple);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='pink'] {
+    background-color: var(--rio-aa-choice-pink);
+  }
+
+  .rio-color-swatch-picker__swatch[data-color='brown'] {
+    background-color: var(--rio-aa-choice-brown);
+  }
+
+  /* The tick stays laid out and only fades, so a chosen swatch is exactly as big as any other. */
+  .rio-color-swatch-picker__check {
+    color: var(--rio-choice-on);
+    opacity: 0;
+    transition: opacity var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-color-swatch-picker__control[data-selected] .rio-color-swatch-picker__check {
+    opacity: 1;
+  }
+
+  /* Hover and press tint the swatch without replacing its color, so every theme keeps working. */
+  .rio-color-swatch-picker__control[data-hovered] .rio-color-swatch-picker__swatch {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-color-swatch-picker__control[data-pressed] .rio-color-swatch-picker__swatch {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-color-swatch-picker__control[data-focus-visible] .rio-color-swatch-picker__swatch {
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-color-swatch-picker__control[data-invalid] .rio-color-swatch-picker__swatch {
+    border-color: var(--rio-aa-danger-text);
+  }
+
+  /* Group labels retain their generated foreground.  Swatches show the disabled state. */
+  .rio-color-swatch-picker[data-disabled] {
+    cursor: not-allowed;
+  }
+
+  .rio-color-swatch-picker__field[data-disabled] {
+    opacity: 0.5;
+  }
+
+  .rio-color-swatch-picker__field[data-disabled] .rio-color-swatch-picker__control {
+    cursor: not-allowed;
+  }
+
+  .rio-color-swatch-picker__field[data-readonly] .rio-color-swatch-picker__control {
+    cursor: default;
+  }
+
+  @media (forced-colors: active) {
+    /* Here the color is the information, not a decoration, so it survives forced colors; the
+       outline keeps the edge of the swatch against the page. */
+    .rio-color-swatch-picker__swatch {
+      forced-color-adjust: none;
+      border-color: CanvasText;
+    }
+
+    /* Forced colors drops box shadows, so the focus ring needs a real outline. */
+    .rio-color-swatch-picker__control[data-focus-visible] .rio-color-swatch-picker__swatch {
+      outline: 2px solid CanvasText;
+      outline-offset: 2px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "database",
+    "type": "select",
+    "label": "Database",
+    "required": true,
+    "options": {
+      "store": "rpc://databases",
+      "nested": [
+        {
+          "name": "table",
+          "type": "select",
+          "label": "Table",
+          "required": true,
+          "options": {
+            "store": "rpc://tables",
+            "nested": []
+          },
+          "mappable": false
+        }
+      ]
+    },
+    "mappable": false
+  }
+]

@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Baloo+2:wght@400..800&display=swap");
+/* Local display faces shipped with the system (assets/fonts/). All are display-only:
+   novelty bubble faces with limited glyph coverage. Never set body copy in them. */
+@font-face{font-family:"Kawaii Round";src:url("../assets/fonts/Kawaii.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Kawaii Heavy";src:url("../assets/fonts/Dango.ttf") format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Kawaii Label";src:url("../assets/fonts/ChibiGirls.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Kawaii Hollow";src:url("../assets/fonts/KawaiiCloud.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Kawaii Serif";src:url("../assets/fonts/Cuteloopy.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Kawaii Smile";src:url("../assets/fonts/KawaiiSmile.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Kawaii Ears";src:url("../assets/fonts/KawaiiEars.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Kawaii Heartsy";src:url("../assets/fonts/KawaiiHeartsy.ttf") format("truetype");font-weight:400;font-display:swap}

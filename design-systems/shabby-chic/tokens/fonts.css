@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Karla:ital,wght@0,300..800;1,300..800&family=La+Belle+Aurore&family=Cutive+Mono&display=swap");
+/* Icon webfont. The brand Font Awesome kit (559791bdc6) is loaded per page by
+   its script tag, but that kit runs in SVG+JS mode and its SVG host is not
+   reachable from every sandbox. This CSS-mode stylesheet is the rendering
+   path that always works; with the Pro kit present the kit wins. */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+
+/* Licensed display faces shipped with the system (from the brand asset library) */
+@font-face{font-family:"SC Claire";src:url("../assets/fonts/Claire-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SC Penelope";src:url("../assets/fonts/Penelope-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SC Lace";src:url("../assets/fonts/PinkRoseLace.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SC Enamored";src:url("../assets/fonts/Overenamored.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SC Enamored";src:url("../assets/fonts/Overenamored-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"SC Enamored Condensed";src:url("../assets/fonts/Overenamored-Condensed.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SC Enamored Serif";src:url("../assets/fonts/Overenamored-Serif.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SC Enamored Serif Condensed";src:url("../assets/fonts/Overenamored-Serif-Condensed.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"SC Flourishes";src:url("../assets/fonts/ShabbyFlourishes.otf") format("opentype");font-weight:400;font-style:normal;font-display:block}

@@ -1,0 +1,160 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "riosoma.fullname" . }}
+  labels:
+    {{- include "riosoma.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    {{- toYaml .Values.strategy | nindent 4 }}
+  selector:
+    matchLabels:
+      {{- include "riosoma.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        # Settings are read at start, so a change to them restarts the pod.
+        checksum/settings: {{ include "riosoma.settings" . | sha256sum }}
+        {{- if not .Values.secret.existingSecret }}
+        checksum/secret: {{ toYaml .Values.secret.values | sha256sum }}
+        {{- end }}
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "riosoma.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      serviceAccountName: {{ include "riosoma.serviceAccountName" . }}
+      automountServiceAccountToken: {{ .Values.serviceAccount.automountToken }}
+      # A Service named riosoma would otherwise inject RIOSOMA_PORT=tcp://..., which Riosoma reads
+      # as its listening port and rejects.
+      enableServiceLinks: false
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.priorityClassName }}
+      priorityClassName: {{ . | quote }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+      {{- if .Values.postgresql.enabled }}
+      # The server exits when it can't reach its database at start, so wait for the bundled one
+      # instead of restarting until it's up.
+      initContainers:
+        - name: wait-for-postgresql
+          image: {{ printf "%s:%s" .Values.postgresql.image.repository .Values.postgresql.image.tag | quote }}
+          imagePullPolicy: {{ .Values.postgresql.image.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          command:
+            - sh
+            - -c
+            # -U matters: without it, libpq asks the system for a user name this UID doesn't have.
+            - until pg_isready -q -h {{ include "riosoma.postgresql.fullname" . }} -p 5432 -U {{ .Values.postgresql.username }}; do sleep 2; done
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              memory: 64Mi
+      {{- end }}
+      containers:
+        - name: riosoma
+          image: {{ include "riosoma.image" . | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: {{ include "riosoma.fullname" . }}
+            - secretRef:
+                name: {{ include "riosoma.secretName" . }}
+          {{- if or .Values.postgresql.enabled .Values.extraEnv .Values.connectors.enabled }}
+          env:
+            {{- if .Values.connectors.enabled }}
+            # The token shared with the connector service, from the chart's Secret or yours.
+            - name: RIOSOMA_CONNECTOR_SERVICE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "riosoma.connectors.secretName" . }}
+                  key: RIOSOMA_CONNECTOR_SERVICE_TOKEN
+            {{- end }}
+            {{- if .Values.postgresql.enabled }}
+            # Kubernetes expands $(BUNDLED_POSTGRES_PASSWORD) below, and this entry wins over any
+            # RIOSOMA_DATABASE_URL from the Secret.
+            - name: BUNDLED_POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "riosoma.postgresql.fullname" . }}
+                  key: password
+            - name: RIOSOMA_DATABASE_URL
+              value: {{ printf "postgres://%s:$(BUNDLED_POSTGRES_PASSWORD)@%s:5432/%s?sslmode=disable" .Values.postgresql.username (include "riosoma.postgresql.fullname" .) .Values.postgresql.database | quote }}
+            {{- end }}
+            {{- with .Values.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          {{- end }}
+          {{- with .Values.startupProbe }}
+          startupProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: tmp
+              mountPath: /tmp
+            {{- with .Values.extraVolumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+      volumes:
+        - name: config
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ default (include "riosoma.fullname" .) .Values.persistence.existingClaim }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        - name: tmp
+          emptyDir:
+            {{- with .Values.tmp.sizeLimit }}
+            sizeLimit: {{ . }}
+            {{- end }}
+        {{- with .Values.extraVolumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.topologySpreadConstraints }}
+      topologySpreadConstraints:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

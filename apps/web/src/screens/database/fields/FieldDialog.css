@@ -1,0 +1,24 @@
+@layer rio.app {
+  .rio-field-dialog {
+    block-size: min(80dvb, calc(var(--rio-space-12) * 15));
+  }
+
+  .rio-field-dialog__form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    min-block-size: 0;
+  }
+
+  .rio-field-dialog__fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    padding: var(--rio-space-1);
+  }
+
+  .rio-field-dialog__fields > .rio-text-field {
+    min-block-size: calc(var(--rio-control-height) + var(--rio-space-12));
+  }
+}

@@ -1,0 +1,30 @@
+:root{
+  /* 10px baseline. 2 and 5 exist for hairline-adjacent nudges only. */
+  --s-2:2px;
+  --s-5:5px;
+  --s-10:10px;
+  --s-15:15px;
+  --s-20:20px;
+  --s-30:30px;
+  --s-40:40px;
+  --s-60:60px;
+  --s-80:80px;
+  --s-120:120px;
+  --s-180:180px;
+
+  /* Layout chassis: 12 columns of 65px, 10px gutters, 45px page margins. */
+  --layout-columns:12; /* @kind other */
+  --layout-page-w:980px;
+  --layout-wide-w:1440px;
+  --layout-margin:45px;
+  --layout-gutter:10px;
+  --layout-column:65px;
+  --layout-baseline:10px;
+
+  /* Control geometry — physical minimums, do not shrink. */
+  --hit-min:44px;
+  --key-h:44px;
+  --key-h-sm:32px;
+  --key-h-lg:56px;
+  --field-h:36px;
+}

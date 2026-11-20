@@ -1,0 +1,27 @@
+@layer rio.app {
+  .rio-platform-preview {
+    display: grid;
+    gap: var(--rio-space-3);
+    overflow-wrap: anywhere;
+  }
+  .rio-platform-preview summary {
+    cursor: pointer;
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-platform-preview ul {
+    padding-inline-start: var(--rio-space-4);
+  }
+  .rio-platform-preview details li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+  .rio-platform-preview details li span:last-child {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-platform-preview__notes {
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+}

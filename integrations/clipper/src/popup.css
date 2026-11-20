@@ -1,0 +1,77 @@
+/* The theme supplies every color, font, and radius through the --rio-* contract, and base.css the
+   spacing and type scale.  Readable foregrounds and control edges use the legibility tier. */
+@layer rio.app {
+  html,
+  body {
+    block-size: auto;
+  }
+  body {
+    padding: var(--rio-space-3);
+    inline-size: 360px;
+    max-inline-size: 100vw;
+  }
+  main,
+  form,
+  fieldset,
+  label {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-inline-size: 0;
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-xl);
+    line-height: var(--rio-leading-tight);
+  }
+  input,
+  select,
+  textarea,
+  button {
+    inline-size: 100%;
+    min-block-size: var(--rio-target-touch);
+    padding: var(--rio-space-2) var(--rio-space-3);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    font: inherit;
+  }
+  button {
+    cursor: pointer;
+  }
+  button[type='submit'] {
+    background: var(--rio-accent);
+    border-color: var(--rio-accent);
+    color: var(--rio-aa-on-accent);
+  }
+  button:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+  input[type='checkbox'] {
+    inline-size: var(--rio-target-min);
+    min-block-size: var(--rio-target-min);
+    accent-color: var(--rio-accent);
+  }
+  a {
+    color: var(--rio-aa-link);
+    overflow-wrap: anywhere;
+  }
+  :focus-visible {
+    outline: 3px solid var(--rio-aa-focus);
+    outline-offset: 2px;
+  }
+  [hidden] {
+    display: none;
+  }
+  [role='status'] {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+}

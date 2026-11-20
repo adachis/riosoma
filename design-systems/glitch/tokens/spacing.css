@@ -1,0 +1,11 @@
+/* Spacing & layout — 5px base unit, 30px rhythm, 30px page frame. */
+:root{
+--gl-space-0:0;--gl-space-1:5px;--gl-space-2:10px;--gl-space-3:15px;--gl-space-4:20px;--gl-space-5:25px;--gl-space-6:30px;--gl-space-7:40px;--gl-space-8:50px;--gl-space-9:60px;--gl-space-10:80px;--gl-space-11:120px;--gl-space-12:150px;
+--gl-rhythm:30px;
+--gl-frame:30px;--gl-frame-sm:15px;
+--gl-section-pad:80px;--gl-section-pad-sm:40px;--gl-section-gap:150px;
+--gl-wrapper:1060px;--gl-wrapper-wide:1440px;--gl-measure:64ch;
+--gl-control-h-sm:32px;--gl-control-h:42px;--gl-control-h-lg:52px;--gl-field-h:60px;--gl-hit-min:44px;
+--gl-titlebar-h:36px;--gl-toolbar-h:44px;--gl-statusbar-h:26px;--gl-sidebar-w:248px;--gl-tabbar-h:52px;
+--gl-grid-gap:30px;--gl-grid-gap-sm:15px;--gl-tile-gap:3%;
+}

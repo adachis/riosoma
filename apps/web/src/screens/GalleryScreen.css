@@ -1,0 +1,35 @@
+@layer rio.app {
+  .rio-gallery {
+    display: grid;
+    gap: var(--rio-space-6);
+    padding: var(--rio-space-6);
+  }
+
+  .rio-gallery__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-gallery__entry {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-gallery__entry h2 {
+    margin: 0;
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-xl);
+  }
+
+  .rio-gallery__example {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--rio-space-3);
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+}

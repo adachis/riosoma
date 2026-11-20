@@ -1,0 +1,61 @@
+@layer rio.app {
+  .rio-assistant__trigger {
+    display: inline-flex;
+    flex: none;
+  }
+  .rio-assistant__trigger > .rio-button {
+    gap: var(--rio-space-1);
+    font-weight: var(--rio-weight-medium, 500);
+  }
+  .rio-assistant__trigger > .rio-button[aria-expanded='true'] {
+    background: var(--rio-selected);
+  }
+  /* A phone's header keeps the wand alone, at a fingertip-sized target. */
+  .rio-assistant__trigger[data-phone='true'] .rio-assistant__trigger-label {
+    display: none;
+  }
+  .rio-assistant__dock {
+    position: fixed;
+    inset-inline-end: 0;
+    inset-block-start: var(--rio-header-height);
+    inset-block-end: var(--rio-footer-height);
+    inline-size: var(--rio-assistant-dock-width, min(30rem, 100vi));
+    z-index: var(--rio-z-popover);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border-inline-start: 1px solid var(--rio-border);
+    box-shadow: var(--rio-shadow-3);
+  }
+  /*
+   * A short dance: a sway and a hop to each side, then back to rest.  A transform moves the picture
+   * without moving anything around it, and the dance stays still at reduced motion.
+   */
+  .rio-assistant__mascot[data-dancing] .rio-avatar {
+    animation: rio-assistant-dance 2.4s ease-in-out both;
+    transform-origin: 50% 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rio-assistant__mascot[data-dancing] .rio-avatar {
+      animation: none;
+    }
+  }
+}
+
+@keyframes rio-assistant-dance {
+  0%,
+  100% {
+    transform: none;
+  }
+  12.5%,
+  62.5% {
+    transform: translateY(-12%) rotate(-12deg);
+  }
+  25%,
+  75% {
+    transform: rotate(0deg);
+  }
+  37.5%,
+  87.5% {
+    transform: translateY(-12%) rotate(12deg);
+  }
+}

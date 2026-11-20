@@ -1,0 +1,11 @@
+/* Colorful Minimalist — webfonts.
+   All three families are served from Google Fonts. No local binaries ship with this
+   system; if you need self-hosted files, download the families below and replace this
+   file with local @font-face rules pointing at assets/fonts/. */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap");
+
+:root{
+  --font-display:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --font-text:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}

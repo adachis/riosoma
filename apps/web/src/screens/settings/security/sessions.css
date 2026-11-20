@@ -1,0 +1,21 @@
+@layer components {
+  .rio-account-sessions__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-account-sessions__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+    padding-block: var(--rio-space-3);
+    border-bottom: 1px solid var(--rio-border);
+  }
+  @media (max-width: 40rem) {
+    .rio-account-sessions__row {
+      align-items: start;
+      flex-direction: column;
+    }
+  }
+}

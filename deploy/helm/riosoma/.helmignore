@@ -1,0 +1,10 @@
+# Patterns to leave out of the packaged chart.
+.DS_Store
+*.swp
+*.bak
+*.tmp
+*.orig
+*~
+.git/
+.gitignore
+ci/

@@ -1,0 +1,6 @@
+.rio-payments {
+  display: grid;
+  gap: var(--rio-space-3);
+  padding: var(--rio-space-4);
+  color: var(--rio-text);
+}

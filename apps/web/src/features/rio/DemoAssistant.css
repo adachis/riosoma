@@ -1,0 +1,23 @@
+@layer rio.app {
+  .rio-demo-help {
+    padding: var(--rio-space-4);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    overflow: auto;
+    max-block-size: calc(100dvh - var(--rio-space-12));
+  }
+
+  .rio-demo-help__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-demo-help form,
+  .rio-demo-help article {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin-block: var(--rio-space-4);
+  }
+}

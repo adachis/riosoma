@@ -1,0 +1,102 @@
+/* Japandi — theme variants.
+   Each block re-seeds the palette; `colors.css` re-derives the whole system.
+   Apply with `data-theme="<name>"` on <html> or on any wrapper element.
+   Themes are for previewing and for products that need a different mood —
+   the default (Sumi) is the brand. */
+
+/* 01 — Kiln: full-spectrum earthenware. Ten-colour, chart-friendly. */
+[data-theme="kiln"] {
+  --seed-paper: #fef8e9; --seed-ink: #1f4c63;
+  --seed-accent: #277da1; --seed-accent-ink: #fef8e9;
+  --seed-accent-2: #f3722c; --seed-accent-2-ink: #24140a;
+  --seed-tint: #90be6d;
+  --seed-ok: #43aa8b; --seed-warn: #f8961e; --seed-danger: #f94144; --seed-info: #577590;
+}
+/* 02 — Yozora: night sky over the bay. Dark. */
+[data-theme="yozora"] {
+  --seed-paper: #000814; --seed-ink: #e8e3d6;
+  --seed-accent: #ffc300; --seed-accent-ink: #000814;
+  --seed-accent-2: #003566; --seed-accent-2-ink: #ffd60a;
+  --seed-tint: #001d3d;
+  --seed-ok: #7fd1a6; --seed-warn: #ffd60a; --seed-danger: #ff6b6b; --seed-info: #5aa0d6;
+}
+/* 03 — Kabuki: stage lacquer. Loud, high-chroma. */
+[data-theme="kabuki"] {
+  --seed-paper: #fff6e0; --seed-ink: #390099;
+  --seed-accent: #ff0054; --seed-accent-ink: #fff6e0;
+  --seed-accent-2: #390099; --seed-accent-2-ink: #ffbd00;
+  --seed-tint: #ff5400;
+  --seed-ok: #2f9e78; --seed-warn: #ffbd00; --seed-danger: #ff0054; --seed-info: #9e0059;
+}
+/* 04 — Setouchi: inland sea. Cool, calm, very legible. */
+[data-theme="setouchi"] {
+  --seed-paper: #f1faee; --seed-ink: #1d3557;
+  --seed-accent: #457b9d; --seed-accent-ink: #f1faee;
+  --seed-accent-2: #e63946; --seed-accent-2-ink: #f1faee;
+  --seed-tint: #a8dadc;
+  --seed-ok: #4b8b6a; --seed-warn: #c88a2b; --seed-danger: #e63946; --seed-info: #457b9d;
+}
+/* 05 — Sakura: blush and sage. The softest theme. */
+[data-theme="sakura"] {
+  --seed-paper: #f7ede2; --seed-ink: #43332e;
+  --seed-accent: #84a59d; --seed-accent-ink: #12201c;
+  --seed-accent-2: #f28482; --seed-accent-2-ink: #43332e;
+  --seed-tint: #f5cac3;
+  --seed-ok: #84a59d; --seed-warn: #f6bd60; --seed-danger: #d9605e; --seed-info: #7c8fa5;
+}
+/* 06 — Momiji: autumn maple. Warm accent on deep slate ink. */
+[data-theme="momiji"] {
+  --seed-paper: #fbf6ea; --seed-ink: #233d4d;
+  --seed-accent: #fe7f2d; --seed-accent-ink: #233d4d;
+  --seed-accent-2: #619b8a; --seed-accent-2-ink: #fbf6ea;
+  --seed-tint: #a1c181;
+  --seed-ok: #619b8a; --seed-warn: #fcca46; --seed-danger: #d1502a; --seed-info: #233d4d;
+}
+/* 07 — Shinrin: forest bathing. Graded greens. */
+[data-theme="shinrin"] {
+  --seed-paper: #eefbf2; --seed-ink: #22577a;
+  --seed-accent: #38a3a5; --seed-accent-ink: #eefbf2;
+  --seed-accent-2: #57cc99; --seed-accent-2-ink: #0f3a2a;
+  --seed-tint: #c7f9cc;
+  --seed-ok: #2f9e6f; --seed-warn: #c9a227; --seed-danger: #cf5050; --seed-info: #22577a;
+}
+/* 08 — Kokedama: moss ball under a neon lamp. Dark. */
+[data-theme="kokedama"] {
+  --seed-paper: #2e5339; --seed-ink: #ffccc9;
+  --seed-accent: #00fddc; --seed-accent-ink: #16301f;
+  --seed-accent-2: #ff5666; --seed-accent-2-ink: #2b0f12;
+  --seed-tint: #495f41;
+  --seed-ok: #00fddc; --seed-warn: #ffd18f; --seed-danger: #ff5666; --seed-info: #8fd8e8;
+}
+/* 09 — Amezaiku: pulled sugar candy. Playful, for youth surfaces. */
+[data-theme="amezaiku"] {
+  --seed-paper: #fffbef; --seed-ink: #3b2e3b;
+  --seed-accent: #ff70a6; --seed-accent-ink: #3b2e3b;
+  --seed-accent-2: #70d6ff; --seed-accent-2-ink: #123445;
+  --seed-tint: #ffd670;
+  --seed-ok: #5fbf9a; --seed-warn: #ffd670; --seed-danger: #ff7080; --seed-info: #70d6ff;
+}
+/* 10 — Nagisa: tideline. Citrus paper, one hot signal colour. */
+[data-theme="nagisa"] {
+  --seed-paper: #f8ffde; --seed-ink: #1a4f68;
+  --seed-accent: #247ba0; --seed-accent-ink: #f8ffde;
+  --seed-accent-2: #ff1654; --seed-accent-2-ink: #fff6f6;
+  --seed-tint: #b2dbbf;
+  --seed-ok: #70c1b3; --seed-warn: #c9a227; --seed-danger: #ff1654; --seed-info: #247ba0;
+}
+/* 11 — Kitsune: fox on oat linen. Editorial, print-leaning. */
+[data-theme="kitsune"] {
+  --seed-paper: #ebebd3; --seed-ink: #083d77;
+  --seed-accent: #ee964b; --seed-accent-ink: #2b1608;
+  --seed-accent-2: #083d77; --seed-accent-2-ink: #f4d35e;
+  --seed-tint: #f4d35e;
+  --seed-ok: #5c8a5e; --seed-warn: #f4d35e; --seed-danger: #f95738; --seed-info: #083d77;
+}
+/* 12 — Sugi: cedar and mist. Nearly monochrome, the quietest theme. */
+[data-theme="sugi"] {
+  --seed-paper: #f0f7f4; --seed-ink: #3c493f;
+  --seed-accent: #3c493f; --seed-accent-ink: #f0f7f4;
+  --seed-accent-2: #a2e3c4; --seed-accent-2-ink: #22322a;
+  --seed-tint: #b3bfb8;
+  --seed-ok: #5c8a70; --seed-warn: #a3894f; --seed-danger: #a65a52; --seed-info: #7e8d85;
+}

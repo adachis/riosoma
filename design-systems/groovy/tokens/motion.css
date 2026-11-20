@@ -1,0 +1,41 @@
+/* Groovy — motion. The house easing overshoots slightly: things settle
+   like a needle dropping onto vinyl. Nothing linear, nothing instant. */
+:root{
+  --dur-instant:90ms; /* @kind other */
+  --dur-fast:150ms; /* @kind other */
+  --dur-base:240ms; /* @kind other */
+  --dur-slow:420ms; /* @kind other */
+  --dur-lazy:700ms; /* @kind other */
+  --dur-marquee:22s; /* @kind other */
+  --dur-spin:9s; /* @kind other */
+
+  --ease-groove:cubic-bezier(.34,1.42,.64,1); /* @kind other */
+  --ease-out:cubic-bezier(.22,1,.36,1); /* @kind other */
+  --ease-in-out:cubic-bezier(.65,.05,.36,1); /* @kind other */
+  --ease-bounce:cubic-bezier(.28,1.7,.5,.94); /* @kind other */
+
+  --lift:translate(-2px,-2px); /* @kind other */
+  --sink:translate(2px,2px); /* @kind other */
+
+  /* tilts — nothing in this system needs to sit perfectly square */
+  --tilt-xs:-1.5deg; /* @kind other */
+  --tilt-sm:-3deg; /* @kind other */
+  --tilt-md:-5deg; /* @kind other */
+  --tilt-lg:-8deg; /* @kind other */
+  --tilt-xs-cw:1.5deg; /* @kind other */
+  --tilt-sm-cw:3deg; /* @kind other */
+  --tilt-md-cw:5deg; /* @kind other */
+  --tilt-lg-cw:8deg; /* @kind other */
+  --drift:14px; /* @kind spacing */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{
+    --dur-instant:1ms; /* @kind other */
+    --dur-fast:1ms; /* @kind other */
+    --dur-base:1ms; /* @kind other */
+    --dur-slow:1ms; /* @kind other */
+    --dur-lazy:1ms; /* @kind other */
+    --dur-marquee:0s; /* @kind other */
+    --dur-spin:0s; /* @kind other */
+  }
+}

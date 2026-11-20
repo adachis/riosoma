@@ -1,0 +1,284 @@
+@layer rio.app {
+  .rio-assistant__sheet {
+    inline-size: 100vi;
+    block-size: 100dvb;
+  }
+  .rio-assistant__dialog {
+    padding: 0;
+    block-size: 100%;
+    min-block-size: 0;
+  }
+  .rio-assistant__panel {
+    container: rio-conversation / inline-size;
+    display: flex;
+    flex-direction: column;
+    block-size: 100%;
+    min-block-size: 0;
+  }
+  .rio-assistant__header,
+  .rio-assistant__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+  .rio-assistant__header {
+    flex-wrap: nowrap;
+    padding: var(--rio-space-3);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-assistant__header > .rio-select {
+    flex: 1;
+    min-inline-size: 7rem;
+  }
+  .rio-assistant__secondary-action {
+    display: contents;
+  }
+  .rio-assistant__header-overflow {
+    display: none;
+  }
+  @container rio-conversation (max-width: 22rem) {
+    /* History takes its own row so Close stays reachable beside the monthly usage control. */
+    .rio-assistant__header {
+      flex-wrap: wrap;
+      row-gap: var(--rio-space-1);
+      padding-block: var(--rio-space-1);
+    }
+    .rio-assistant__header > .rio-select {
+      flex-basis: 100%;
+      min-inline-size: 0;
+    }
+    .rio-assistant__secondary-action {
+      display: none;
+    }
+    .rio-assistant__header-overflow {
+      display: inline-flex;
+      flex: none;
+    }
+  }
+  .rio-assistant__header-end {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    margin-inline-start: auto;
+    flex: none;
+  }
+  .rio-assistant__close {
+    flex: none;
+  }
+  .rio-assistant__panel {
+    /* The avatar's box includes air around the drawing, so the figure itself is about 100 pixels. */
+    --rio-mascot-size: 144px;
+    /* How far Rio stands above the line that separates the conversation from the composer. */
+    --rio-mascot-rise: calc(var(--rio-mascot-size) * 0.54);
+  }
+  .rio-assistant__conversation {
+    flex: 1;
+    overflow: auto;
+    min-block-size: 0;
+    padding: var(--rio-space-4);
+    /* The last lines rest above Rio instead of under him. */
+    padding-block-end: calc(var(--rio-mascot-rise) + var(--rio-space-3));
+    scroll-padding-block-end: calc(var(--rio-mascot-rise) + var(--rio-space-3));
+  }
+  .rio-assistant__message {
+    margin-block-end: var(--rio-space-4);
+    overflow-wrap: anywhere;
+  }
+  .rio-assistant__message[data-role='person'] {
+    padding: var(--rio-space-2);
+    background: var(--rio-selected);
+    border-radius: var(--rio-radius);
+  }
+  .rio-assistant__foot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    min-block-size: 0;
+    max-block-size: 55%;
+  }
+  .rio-assistant__composer {
+    display: grid;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+    min-block-size: 0;
+    overflow: auto;
+  }
+  /* Status and the reply choices keep clear of Rio, who stands in the trailing corner. */
+  .rio-assistant__composer-top {
+    display: grid;
+    gap: var(--rio-space-2);
+    align-content: start;
+    min-block-size: calc(var(--rio-mascot-size) - var(--rio-mascot-rise) - var(--rio-space-3));
+    padding-inline-end: calc(var(--rio-mascot-size) + var(--rio-space-2));
+  }
+  @container rio-conversation (max-width: 14rem) {
+    /* Below the avatar, status and reply choices can use the narrow panel's whole width. */
+    .rio-assistant__composer-top {
+      padding-inline-end: 0;
+      padding-block-start: calc(var(--rio-mascot-size) - var(--rio-mascot-rise));
+    }
+  }
+  /* Rio is drawn large enough to read, across the line above the composer. */
+  .rio-assistant__mascot {
+    position: absolute;
+    inset-block-start: calc(var(--rio-mascot-rise) * -1);
+    inset-inline-end: var(--rio-space-3);
+    z-index: 1;
+    inline-size: var(--rio-mascot-size);
+    block-size: var(--rio-mascot-size);
+    pointer-events: none;
+  }
+  /* A phone's sheet draws him smaller, at the size the panel passes to the avatar. */
+  .rio-assistant__panel[data-compact] {
+    --rio-mascot-size: 88px;
+  }
+  /* A short panel gives its room to the conversation. */
+  @media (max-height: 480px) {
+    .rio-assistant__mascot {
+      display: none;
+    }
+    .rio-assistant__composer-top {
+      min-block-size: 0;
+      padding-inline-end: 0;
+    }
+    .rio-assistant__conversation {
+      padding-block-end: var(--rio-space-4);
+    }
+  }
+  /* The routines view takes the conversation's place, and the composer waits out of sight. */
+  .rio-assistant__foot[hidden],
+  .rio-assistant__conversation[hidden] {
+    display: none;
+  }
+  .rio-assistant__quiet {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    min-block-size: 1.25em;
+  }
+  .rio-assistant__block,
+  .rio-assistant__attention {
+    padding: var(--rio-space-2);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    margin-block: var(--rio-space-2);
+  }
+  .rio-assistant__attention {
+    border-inline-start: var(--rio-space-1) solid var(--rio-warning);
+  }
+  .rio-assistant__markdown {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .rio-assistant__markdown p {
+    margin-block: var(--rio-space-2);
+  }
+  .rio-assistant__markdown code {
+    font-family: var(--rio-font-mono);
+  }
+  .rio-assistant__records {
+    container: rio-records / inline-size;
+    min-inline-size: 0;
+  }
+  .rio-assistant__table-scroll {
+    max-inline-size: 100%;
+    overflow-x: auto;
+    white-space: normal;
+    overflow-wrap: normal;
+  }
+  .rio-assistant__table-scroll:focus-visible {
+    outline: 2px solid var(--rio-focus);
+    outline-offset: -2px;
+  }
+  .rio-assistant__table {
+    border-collapse: collapse;
+    inline-size: max-content;
+    min-inline-size: 100%;
+    table-layout: fixed;
+  }
+  .rio-assistant__table th,
+  .rio-assistant__table td {
+    min-inline-size: 10rem;
+    inline-size: 10rem;
+    text-align: start;
+    padding: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-assistant__value {
+    display: block;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+  .rio-assistant__table .rio-assistant__value {
+    max-inline-size: 10rem;
+  }
+  .rio-assistant__record-cards {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+  .rio-assistant__record-cards > li {
+    min-inline-size: 0;
+    padding: var(--rio-space-2);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-assistant__record-cards h3 {
+    margin: 0;
+    font-size: var(--rio-text-md);
+  }
+  .rio-assistant__record-cards dl {
+    margin-block: var(--rio-space-2);
+  }
+  .rio-assistant__record-cards dl > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--rio-space-2);
+  }
+  .rio-assistant__record-cards dd {
+    min-inline-size: 0;
+    margin: 0;
+  }
+  .rio-assistant__record-table {
+    display: none;
+  }
+  /* Every column needs room before the panel trades its cards for a table. */
+  @container rio-records (min-width: 24rem) {
+    .rio-assistant__record-table[data-columns='1'],
+    .rio-assistant__record-table[data-columns='2'] {
+      display: block;
+    }
+    .rio-assistant__records:has(.rio-assistant__record-table[data-columns='1'])
+      > .rio-assistant__record-cards,
+    .rio-assistant__records:has(.rio-assistant__record-table[data-columns='2'])
+      > .rio-assistant__record-cards {
+      display: none;
+    }
+  }
+  @container rio-records (min-width: 36rem) {
+    .rio-assistant__record-table[data-columns='3'] {
+      display: block;
+    }
+    .rio-assistant__records:has(.rio-assistant__record-table[data-columns='3'])
+      > .rio-assistant__record-cards {
+      display: none;
+    }
+  }
+  @container rio-records (min-width: 48rem) {
+    .rio-assistant__record-table[data-columns='4'] {
+      display: block;
+    }
+    .rio-assistant__records:has(.rio-assistant__record-table[data-columns='4'])
+      > .rio-assistant__record-cards {
+      display: none;
+    }
+  }
+}

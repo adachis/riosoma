@@ -1,0 +1,23 @@
+[
+  {
+    "url": "/databases/{{riosomaSegment(parameters.database, false)}}/tables",
+    "method": "GET",
+    "response": {
+      "temp": {
+        "table": "{{riosomaTable(body.tables, parameters.table)}}"
+      }
+    }
+  },
+  {
+    "url": "/tables/{{riosomaSegment(parameters.table, false)}}/records",
+    "method": "PATCH",
+    "qs": {
+      "shape": "airtable",
+      "fieldKey": "id"
+    },
+    "body": "{{riosomaWrite(parameters, temp.table, true)}}",
+    "response": {
+      "output": "{{riosomaRecord(body)}}"
+    }
+  }
+]

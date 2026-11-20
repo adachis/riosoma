@@ -1,0 +1,121 @@
+@layer rio.components {
+  /* A sunken frame around the segments, so the chosen one can sit raised on it.  The border is
+     always there, and the padding is the same in every size, so the frame never changes shape. */
+  .rio-segmented-control {
+    display: inline-flex;
+    align-items: stretch;
+    gap: calc(var(--rio-space-1) / 2);
+    max-inline-size: 100%;
+    block-size: var(--rio-control-height);
+    padding: calc(var(--rio-space-1) / 2);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface-sunken);
+  }
+
+  .rio-segmented-control[data-size='sm'] {
+    block-size: var(--rio-control-height-sm);
+  }
+
+  /* Equal widths: a chosen label turns heavier without pushing its neighbors around. */
+  .rio-segmented-control__segment {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 0;
+    padding-inline: var(--rio-space-2);
+    border: 1px solid transparent;
+    border-radius: calc(var(--rio-radius) / 2);
+    background-color: transparent;
+    color: var(--rio-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-regular);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-segmented-control[data-size='sm'] .rio-segmented-control__segment {
+    padding-inline: var(--rio-space-1);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-segmented-control__content {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  /* A label too long for its share of the frame clips instead of stealing room from a segment. */
+  .rio-segmented-control__label {
+    overflow: hidden;
+    min-inline-size: 0;
+    text-overflow: ellipsis;
+  }
+
+  .rio-segmented-control__segment[data-selected] {
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    font-weight: var(--rio-weight-medium);
+    box-shadow: var(--rio-shadow-1);
+  }
+
+  /* Hover and press tint a segment without replacing its fill, so the raised one keeps standing
+     out and every theme keeps working. */
+  .rio-segmented-control__segment[data-hovered] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+    color: var(--rio-text);
+  }
+
+  .rio-segmented-control__segment[data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+    color: var(--rio-text);
+  }
+
+  .rio-segmented-control__segment[data-focus-visible] {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-segmented-control__segment[data-selected][data-focus-visible] {
+    box-shadow: var(--rio-focus-ring), var(--rio-shadow-1);
+  }
+
+  .rio-segmented-control__segment[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    .rio-segmented-control {
+      border-color: CanvasText;
+      background-color: Canvas;
+    }
+
+    .rio-segmented-control__segment {
+      border-color: transparent;
+      color: CanvasText;
+    }
+
+    /* The chosen segment takes the system's own selection colors, as a chosen radio does. */
+    .rio-segmented-control__segment[data-selected] {
+      background-color: Highlight;
+      color: HighlightText;
+      box-shadow: none;
+    }
+
+    /* Forced colors drops box shadows, so the focus ring needs a real outline, drawn inside the
+       frame that already surrounds it. */
+    .rio-segmented-control__segment[data-focus-visible] {
+      outline: 2px solid CanvasText;
+      outline-offset: -2px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@layer rio.components {
+  /* The frame takes the textarea's rows instead of a control height, and the text starts at the
+     top rather than being centered on the first line. */
+  .rio-text-area .rio-field__control {
+    align-items: stretch;
+    block-size: auto;
+    padding-block: var(--rio-space-1);
+  }
+
+  .rio-text-area .rio-field__input {
+    block-size: auto;
+    line-height: var(--rio-leading-normal);
+    /* Growing on its own would move everything below the field; the reader's handle may. */
+    resize: vertical;
+    /* Long words wrap instead of adding a second scrollbar inside the frame. */
+    overflow-wrap: break-word;
+  }
+}

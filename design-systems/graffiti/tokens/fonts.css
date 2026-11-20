@@ -1,0 +1,13 @@
+/* Graffiti — webfonts. Local display faces (licensed source pack) + Google Fonts for text. */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+@font-face{font-family:"GF Wall";src:url("../assets/fonts/Sonnz.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"GF Marker";src:url("../assets/fonts/StreetMemories.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"GF Tag";src:url("../assets/fonts/StreetEagle.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"GF Throwie";src:url("../assets/fonts/BoyGraffiti.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"GF Wildstyle";src:url("../assets/fonts/GoGraffiti.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"GF Broken";src:url("../assets/fonts/BrokenGraffiti.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"GF Sound";src:url("../assets/fonts/StreetSound.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"GF Sound";src:url("../assets/fonts/StreetSoundOblique.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"GF Sonic";src:url("../assets/fonts/EnterSonicGraffiti.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"GF Impact";src:url("../assets/fonts/GraffitiImpact.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}

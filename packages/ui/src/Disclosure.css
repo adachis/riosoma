@@ -1,0 +1,78 @@
+@layer rio.components {
+  .rio-disclosure {
+    min-inline-size: 0;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+  }
+
+  /* A trigger sits in a heading, but the section is not a screen title, so it steps down to the
+     body size.  Two classes beat `h3.rio-heading` whatever order the stylesheets load in. */
+  .rio-disclosure .rio-disclosure__heading {
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  /* The trigger is the library's quiet button stretched over the row; it keeps the container's
+     rounded start corners so the hover tint does not spill past them. */
+  .rio-disclosure .rio-disclosure__trigger {
+    inline-size: 100%;
+    justify-content: flex-start;
+    border-start-start-radius: var(--rio-radius);
+    border-start-end-radius: var(--rio-radius);
+  }
+
+  .rio-disclosure .rio-disclosure__trigger .rio-button__content {
+    inline-size: 100%;
+  }
+
+  .rio-disclosure__chevron {
+    margin-inline-start: auto;
+    color: var(--rio-aa-text-muted);
+    transition: transform var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  /* Closed points along the reading direction, open points down the block axis; rotating rather
+     than swapping the icon keeps the header the same size in both states. */
+  .rio-disclosure[data-expanded] .rio-disclosure__chevron {
+    transform: rotate(90deg);
+  }
+
+  .rio-disclosure__chevron:dir(rtl) {
+    transform: scaleX(-1);
+  }
+
+  .rio-disclosure[data-expanded] .rio-disclosure__chevron:dir(rtl) {
+    transform: scaleX(-1) rotate(90deg);
+  }
+
+  .rio-disclosure__panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    padding-block: var(--rio-space-3);
+    padding-inline: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  /* The panel carries `hidden` while it is collapsed.  An author-level display beats the user
+     agent's rule for `hidden`, and `hidden="until-found"` on its own would still leave this
+     panel's own padding and rule behind as an empty strip, so collapsed means not rendered. */
+  .rio-disclosure__panel[hidden] {
+    display: none;
+  }
+
+  .rio-disclosure-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  @media (forced-colors: active) {
+    .rio-disclosure,
+    .rio-disclosure__panel {
+      border-color: CanvasText;
+    }
+  }
+}

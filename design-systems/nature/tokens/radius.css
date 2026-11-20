@@ -1,0 +1,12 @@
+/* Corner radii — the source uses a 3/5/7/10/15/20 ladder plus pills and circles. */
+:root{
+  --nt-radius-xs:3px;
+  --nt-radius-sm:5px;
+  --nt-radius-md:7px;
+  --nt-radius-lg:10px;
+  --nt-radius-xl:15px;
+  --nt-radius-2xl:20px;
+  --nt-radius-pill:1.6em;
+  --nt-radius-round:50%;
+  --nt-radius-none:0px;
+}

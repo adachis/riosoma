@@ -1,0 +1,7 @@
+/* Bubble webfonts. Served from Google Fonts (see readme.md > Visual Foundations > Type).
+   Display: Baloo 2 (heavy rounded grotesque) · Text: Manrope · Mono: JetBrains Mono */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap");
+
+@font-face{font-family:"Bubble Display";font-style:normal;font-weight:600 800;font-display:swap;src:local("Baloo 2"),url("https://fonts.gstatic.com/s/baloo2/v21/wXKrE3kTposypRydzVT08TS3JnAmtdgozapv9Fat7WcN.woff2") format("woff2")}
+@font-face{font-family:"Bubble Text";font-style:normal;font-weight:400 800;font-display:swap;src:local("Manrope"),url("https://fonts.gstatic.com/s/manrope/v15/xn7gYHE41ni1AdIRggexSg.woff2") format("woff2")}
+@font-face{font-family:"Bubble Mono";font-style:normal;font-weight:400 600;font-display:swap;src:local("JetBrains Mono"),url("https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.woff2") format("woff2")}

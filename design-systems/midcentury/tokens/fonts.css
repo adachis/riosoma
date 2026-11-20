@@ -1,0 +1,8 @@
+/* Webfonts. No binaries shipped with the source asset pack, so these are the
+   nearest Google Fonts matches to the era's metal + phototype faces.
+   Jost        -> Futura / Erbar geometric sans (core UI + display)
+   Archivo Black -> Aurora Grotesk / Standard heavy poster grotesque
+   Anton       -> News Gothic Extra Condensed / the shouted advertising headline
+   Grand Hotel -> 1950s brush-script signature lettering
+   Space Mono  -> typewriter / technical annotation */
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Archivo+Black&family=Anton&family=Grand+Hotel&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");

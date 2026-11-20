@@ -1,0 +1,44 @@
+@layer rio.app {
+  .rio-site-editor {
+    display: grid;
+    gap: 1rem;
+  }
+  .rio-site-editor fieldset {
+    display: grid;
+    gap: 0.75rem;
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    padding: 1rem;
+    min-width: 0;
+  }
+  .rio-site-editor label {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .rio-site-editor select {
+    font: inherit;
+    padding: 0.5rem;
+    color: var(--rio-aa-text-muted);
+    background: var(--rio-bg);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    max-width: 100%;
+  }
+  .rio-site-editor :focus-visible {
+    outline: 3px solid var(--rio-aa-focus);
+    outline-offset: 3px;
+  }
+}
+
+@layer rio.app {
+  .rio-site-preview {
+    overflow: auto;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+  .rio-site-preview iframe {
+    display: block;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+}

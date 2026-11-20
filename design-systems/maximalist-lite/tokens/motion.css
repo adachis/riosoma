@@ -1,0 +1,30 @@
+/* Motion. Snappy, mechanical, slightly overshooting. Nothing fades in slowly. */
+:root{
+  --dur-instant:70ms;/* @kind other */
+  --dur-fast:130ms;/* @kind other */
+  --dur-base:210ms;/* @kind other */
+  --dur-slow:380ms;/* @kind other */
+  --dur-marquee:22s;/* @kind other */
+  --dur-marquee-fast:11s;/* @kind other */
+
+  --ease-snap:cubic-bezier(.2,.9,.1,1);/* @kind other */
+  --ease-overshoot:cubic-bezier(.34,1.56,.36,1);/* @kind other */
+  --ease-out:cubic-bezier(.22,1,.36,1);/* @kind other */
+  --ease-step:steps(6,end);/* @kind other */
+
+  --lift:translate(-2px,-2px);/* @kind other */
+  --press:translate(3px,3px);/* @kind other */
+  --tilt-a:-2.5deg;/* @kind other */
+  --tilt-b:1.75deg;/* @kind other */
+  --tilt-c:-6deg;/* @kind other */
+}
+@keyframes mx-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mx-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes mx-spin{to{transform:rotate(360deg)}}
+@keyframes mx-pop{0%{transform:scale(.86) rotate(-3deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes mx-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+@keyframes mx-stripe-drift{to{background-position:60px 0}}
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-fast:1ms;/* @kind other */--dur-base:1ms;/* @kind other */--dur-slow:1ms/* @kind other */}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important}
+}

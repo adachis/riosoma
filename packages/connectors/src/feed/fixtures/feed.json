@@ -1,0 +1,28 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Small Things",
+  "home_page_url": "https://small.example.test/",
+  "feed_url": "https://small.example.test/feed.json",
+  "authors": [{ "name": "Pat Kim" }],
+  "items": [
+    {
+      "id": "2",
+      "url": "/posts/two",
+      "title": "Second <em>thing</em>",
+      "content_html": "<p>Second <a href=\"https://small.example.test/more\">thing</a>.</p><style>p{}</style>",
+      "summary": "The second thing.",
+      "date_published": "2026-09-24T10:00:00Z",
+      "date_modified": "2026-09-25T10:00:00Z",
+      "tags": ["things", "small"],
+      "attachments": [{ "url": "https://small.example.test/two.m4a", "mime_type": "audio/x-m4a" }]
+    },
+    {
+      "id": 1,
+      "url": "https://small.example.test/posts/one",
+      "title": "First thing",
+      "content_text": "Just text.\nTwo lines.",
+      "date_published": "2026-09-23T10:00:00Z",
+      "authors": [{ "name": "Lee Wong" }]
+    }
+  ]
+}

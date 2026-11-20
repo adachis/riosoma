@@ -1,0 +1,32 @@
+@layer rio.components {
+  .rio-heading {
+    margin: 0;
+    color: var(--rio-text);
+    font-weight: var(--rio-weight-bold);
+    line-height: var(--rio-leading-tight);
+  }
+
+  /* The two levels that head a screen or a major section wear the theme's display face. */
+  h1.rio-heading,
+  h2.rio-heading {
+    font-family: var(--rio-font-display);
+  }
+
+  h1.rio-heading {
+    font-size: var(--rio-text-3xl);
+  }
+
+  h2.rio-heading {
+    font-size: var(--rio-text-2xl);
+  }
+
+  h3.rio-heading {
+    font-size: var(--rio-text-xl);
+  }
+
+  /* The smallest heading sits right above body text, so a lighter weight keeps it readable. */
+  h4.rio-heading {
+    font-size: var(--rio-text-lg);
+    font-weight: var(--rio-weight-medium);
+  }
+}

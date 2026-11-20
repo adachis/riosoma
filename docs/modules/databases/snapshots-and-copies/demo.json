@@ -1,0 +1,36 @@
+{
+  "id": "snapshots-and-copies",
+  "where": "database",
+  "steps": [
+    {
+      "anchor": "database.menu",
+      "say": "demos.snapshots.menu",
+      "do": "open"
+    },
+    {
+      "anchor": "database.menu.snapshots",
+      "say": "demos.snapshots.open",
+      "do": "open"
+    },
+    {
+      "anchor": "archives.snapshot.name",
+      "say": "demos.snapshots.name",
+      "do": "type",
+      "text": "demos.snapshots.sampleName"
+    },
+    {
+      "anchor": "archives.snapshot.take",
+      "say": "demos.snapshots.take"
+    },
+    {
+      "anchor": "database.menu",
+      "say": "demos.snapshots.more",
+      "do": "open"
+    },
+    {
+      "anchor": "database.menu",
+      "item": "duplicate",
+      "say": "demos.snapshots.duplicate"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "url": "/databases/{{riosomaSegment(parameters.database, false)}}/webhooks",
+  "method": "POST",
+  "body": {
+    "url": "{{webhook.url}}",
+    "events": [
+      "record.created"
+    ],
+    "tableIds": [
+      "{{riosomaSegment(parameters.table, false)}}"
+    ]
+  },
+  "response": {
+    "data": {
+      "hookId": "{{body.id}}",
+      "database": "{{parameters.database}}",
+      "table": "{{parameters.table}}"
+    }
+  }
+}

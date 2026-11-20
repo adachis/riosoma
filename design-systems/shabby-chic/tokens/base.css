@@ -1,0 +1,44 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:var(--type-body);letter-spacing:var(--ls-body);text-wrap:pretty;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6{margin:0 0 var(--sp-5);color:var(--text-heading);font-family:var(--font-serif);font-weight:var(--fw-light);line-height:var(--lh-heading);letter-spacing:var(--ls-title)}
+h1{font-size:var(--fs-3xl)}h2{font-size:var(--fs-2xl)}h3{font-size:var(--fs-xl)}h4{font-size:var(--fs-lg)}h5{font-size:var(--fs-md)}
+h6{font-family:var(--font-ui);font-size:var(--fs-2xs);font-weight:var(--fw-semibold);text-transform:uppercase;letter-spacing:var(--ls-label);color:var(--text-muted)}
+p{margin:0 0 var(--sp-6);max-width:var(--measure)}
+a{color:var(--text-link);text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:var(--accent-soft-2);transition:var(--t-control)}
+a:hover{color:var(--text-link-hover);text-decoration-color:currentColor}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+small{font-size:var(--fs-xs);color:var(--text-muted)}
+strong{font-weight:var(--fw-semibold)}
+em{font-style:italic}
+hr{height:0;margin:var(--sp-8) 0;border:0;border-top:var(--bw-hair) solid var(--rule-hair)}
+img,svg,video{max-width:100%;height:auto;display:block}
+figure{margin:0}
+blockquote{margin:0;padding-left:var(--sp-7);border-left:var(--bw-thick) solid var(--accent-soft-2);font-family:var(--font-serif);font-size:var(--fs-md);font-style:italic;color:var(--text-muted)}
+code,kbd,pre{font-family:var(--font-mono);font-size:.92em}
+::selection{background:var(--accent-soft-2);color:var(--text-heading)}
+::placeholder{color:var(--text-faint);opacity:1}
+table{border-collapse:collapse}
+
+/* ── Utilities ──────────────────────────────────────────────────────────── */
+.sc-eyebrow{font-family:var(--font-ui);font-size:var(--fs-2xs);font-weight:var(--fw-semibold);text-transform:uppercase;letter-spacing:var(--ls-eyebrow);color:var(--text-muted)}
+.sc-display{font-family:var(--font-display);font-weight:var(--fw-regular);letter-spacing:var(--ls-display);text-transform:uppercase;line-height:var(--lh-tight);color:var(--text-heading)}
+.sc-hand{font-family:var(--font-hand);font-size:var(--fs-md);color:var(--accent-deep);line-height:1.4}
+/* Decorative only: --font-label is a colour font that paints its own pale ink,
+   so it must never carry text that has to be read. Large sizes on paper only. */
+.sc-label{font-family:var(--font-label);text-transform:uppercase;letter-spacing:var(--ls-label);font-size:var(--fs-2xl)}
+
+/* Aged-paper surface: flat paper + a scan multiplied over it */
+.sc-paper{position:relative;background:var(--surface-card);isolation:isolate}
+.sc-paper::before{content:"";position:absolute;inset:0;background:var(--tex-lace) center/cover;mix-blend-mode:var(--tex-blend);opacity:var(--tex-opacity-faint);pointer-events:none;z-index:-1}
+.sc-paper--floral::before{background:var(--pat-blossom) 0 0/var(--pat-tile);opacity:var(--tex-opacity-soft)}
+.sc-paper--damask::before{background:var(--tex-damask) 0 0/420px;opacity:var(--tex-opacity-soft)}
+
+/* Watercolour wash fill: tint underneath, wash multiplies on top */
+.sc-wash{background-color:var(--accent);background-image:var(--wash-2);background-size:130% 190%;background-position:48% 42%;background-blend-mode:multiply}
+
+/* Photographic grade */
+.sc-photo{filter:var(--img-grade)}
+
+/* Ornamental divider drawn with the dingbat face, never hand-rolled SVG */
+.sc-ornament{font-family:var(--font-ornament);color:var(--accent-mid);line-height:1;-webkit-font-smoothing:antialiased}

@@ -1,0 +1,77 @@
+{{- if .Values.clamav.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "riosoma.fullname" . }}-clamav
+data:
+  clamd.conf: |
+    Foreground yes
+    User clamav
+    TCPSocket 3310
+    TCPAddr 0.0.0.0
+    LocalSocket /tmp/clamd.sock
+    DatabaseDirectory /var/lib/clamav
+    StreamMaxLength 2048M
+    MaxFileSize 2048M
+    MaxScanSize 4096M
+    AlertExceedsMax yes
+    LogTime yes
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "riosoma.fullname" . }}-clamav
+spec:
+  selector:
+    app.kubernetes.io/name: {{ include "riosoma.name" . }}-clamav
+    app.kubernetes.io/instance: {{ .Release.Name }}
+  ports:
+    - name: clamd
+      port: 3310
+      targetPort: clamd
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "riosoma.fullname" . }}-clamav
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "riosoma.name" . }}-clamav
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "riosoma.name" . }}-clamav
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: clamav
+          image: {{ .Values.clamav.image | quote }}
+          ports:
+            - name: clamd
+              containerPort: 3310
+          startupProbe:
+            tcpSocket:
+              port: clamd
+            periodSeconds: 10
+            failureThreshold: 60
+          readinessProbe:
+            tcpSocket:
+              port: clamd
+          resources:
+            {{- toYaml .Values.clamav.resources | nindent 12 }}
+          volumeMounts:
+            - name: definitions
+              mountPath: /var/lib/clamav
+            - name: config
+              mountPath: /etc/clamav/clamd.conf
+              subPath: clamd.conf
+      volumes:
+        - name: definitions
+          emptyDir: {}
+        - name: config
+          configMap:
+            name: {{ include "riosoma.fullname" . }}-clamav
+{{- end }}

@@ -1,0 +1,92 @@
+# Nice People License, Version 1.0
+
+This software was created to be used and enjoyed by nice people who are kind to others and prioritize love.  It was not designed to be used by assholes, and these terms expressly forbid its use by those defined as an 'asshole' herein.
+
+## 1. Scope
+
+**Software** means Riosoma's code and accompanying files Adam Dachis releases under this license, including executable versions and modifications.  This is a source-available license, not an open source license.  The opening states its purpose, and the numbered terms define eligibility and permissions.
+
+**You** means the individual or organization exercising these permissions.  Each affiliate is a separate organization.  An organization and everyone running, administering, or using the Software for it must be eligible.
+
+## 2. What you may do
+
+Subject to these terms, if you are not an **Asshole**, as defined in Section 4, Adam Dachis grants you a free, nonexclusive copyright license to:
+
+- Run the Software on infrastructure you or your organization owns or controls, including rented servers.
+- Use it for any personal or business purpose allowed by this license.
+- Copy and modify it, including backups and new versions.
+- Share modified or unmodified copies with anyone, publicly or privately, free of charge under Section 7.
+
+Eligible employees, contractors, and consultants may install, modify, and administer it for you if you direct their work and control the infrastructure accounts and deployment.
+
+Your data, databases, pages, automations, other original outputs, and original changes remain yours, subject to existing rights in incorporated Software code or third-party material.  Adam claims no ownership of your creations.
+
+## 3. What you may not do
+
+- Sell, rent, or sublicense the Software.  Recipients receive any license directly under these terms.
+- Charge for copies, delivery, access, or use of the Software, or include copies in a paid bundle.  Separately sold installation, training, and support are allowed, but obtaining the Software cannot require a purchase.
+- Offer it as a hosted, managed, or white-label service, even for one client, for free, or inside another offering.  Section 2 assistance is allowed.  Operating a client instance under your own control is not.
+- Copy **substantial portions** of its code into other products, apart from modified versions under Section 7.  Substantial portions means copyright-protected code significant in amount or importance to the Software or a feature, counting copied or adapted pieces together.
+- Remove or alter this license or copyright notices.
+
+You may sell your outputs and use the Software as the internal database for your pages or applications.  Giving others a Riosoma workspace or its database-management, query, page-building, or automation tools is a prohibited service, even through another interface.  Receiving outputs alone is not using the Software.
+
+## 4. The Asshole Clause
+
+An Asshole is any of:
+
+(a) Anyone who uses the Software to harass people, including through threats, intimidation, or targeted abuse, to incite hatred, discrimination, or violence against people because of a **protected characteristic**, or to deny people equal treatment because of one.  This concerns Software use, not identity or belief alone.  A protected characteristic is an actual or perceived race, color, ethnicity, national origin, religion, sex, sexual orientation, gender identity, age, disability, or another characteristic protected by anti-discrimination law applicable to that conduct.
+
+(b) An organization whose primary purpose is promoting hate or discrimination, assessed from its mission and principal activities, regardless of its Software use.
+
+(c) Anyone using the Software for a **Politician**'s office, campaign, or political activities, including constituent, donor, or voter work, or otherwise in that person's political capacity.  This covers Politicians and anyone acting for them.  A Politician currently holds elected public office or is a declared candidate for it, at any government level worldwide.  This includes offices filled by public election or an elected legislature's vote, including appointed vacancy holders.  Declaration means publicly announcing a run, including for nomination, or making or authorizing an official candidacy filing.  Private, hobby, family, and unrelated business use is allowed under the other terms.
+
+(d) **Political Organizations**, meaning campaign committees, political action committees (including super PACs), party committees, and other organizations primarily organized to influence elections, including foreign equivalents.
+
+(e) Anyone using the Software to help elect or support a **candidate** or elected official, or to raise campaign money.  For this limb, a candidate is anyone seeking elected public office, whether declared or not.  Support means promoting or assisting their election, political work, or political activities.  Independent reporting, criticism, or issue discussion is not support unless used for that purpose.
+
+An organization that directs, authorizes, or knowingly permits excluded use is also an Asshole.  A person's candidacy or officeholding alone does not disqualify them or their organization.
+
+Assholes get no license at all.  Eligibility is assessed at each activity under Section 6.
+
+To the few politicians who may not be assholes: we're sorry.  We're following the law's own model of restricting a broader group because it's easier.  This apology is non-binding and changes no exclusion.
+
+## 5. Carve-outs
+
+Nonprofit organizations, human-rights and civil-liberties organizations, and government bodies using the Software for internal operations unrelated to elections are not Assholes merely because of what they are.  Section 4 still applies.  Government operations do not constitute support merely because an elected official oversees them.  Use in that official's political capacity remains prohibited under Section 4(c).
+
+## 6. Notice, termination, and reinstatement
+
+For violations outside Section 4, your license ends at the end of the 30th calendar day after receipt of **written notice** unless you stop the violation and correct continuing effects within your control by then.  Written notice is an email or letter from Adam Dachis identifying the violation.  Receipt means delivery to your or your authorized representative's email inbox or postal address, not sending alone.  Permission continues during this cure period, although violations remain breaches.  Timely cure prevents termination.  Later complete cure automatically reinstates a license terminated only for these ordinary violations.
+
+Being or becoming an Asshole prevents a license from arising or ends it immediately, without notice or cure.  Under Section 4(c), forbidden political use triggers this rule, not candidacy or officeholding alone.  Reinstatement requires renewed eligibility and Adam Dachis's express written permission.  Stopping the conduct alone does not restore rights.  Obtaining another copy does not reset termination.
+
+After termination, stop using, copying, modifying, and sharing the Software, including for data export.  You keep your outputs and may retrieve them without using the Software.  Termination or reinstatement does not erase earlier liability or end eligible recipients' direct licenses.
+
+Output ownership, notice preservation for retained copies, this section, and Sections 9 through 11 survive termination.
+
+## 7. Modified versions
+
+All shared copies, including modified versions and patches containing Software code, must carry this license unchanged, including the Asshole Clause, and preserve copyright notices.  Modified versions must plainly state that they were changed.  You grant recipients the same permissions in your original changes under this license.  Recipients may exercise permissions only if eligible.  Modified versions may not use the Riosoma name or logo as their own name or branding, under Section 10.
+
+## 8. Third-party components
+
+Files marked as under another license, such as the Mozilla Public License 2.0, remain governed by it, including its rules for modifications.  This license does not restrict those files or end their separate licenses.  This does not authorize relicensing other Software code by moving it into those files.
+
+## 9. No warranty and limitation of liability
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT EXPRESS OR IMPLIED WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+To the extent permitted by law, Adam Dachis and contributors are not liable for claims, damages, or other liability arising from the Software or its use, including lost data, lost profits, and direct or indirect damages.
+
+## 10. Trademarks
+
+This license grants no rights to the Riosoma name or logo beyond truthfully describing the Software's origin, and no right to imply endorsement.
+
+## 11. General
+
+Exercising permissions under this license means accepting its terms.  It does not restrict rights you have independently under applicable law.
+
+This license is governed by the laws of the State of California, United States, without regard to its conflict-of-law rules.  If a court finds a term unenforceable, the rest stays.  The court should narrow it where legally permitted and possible, removing it only if narrowing cannot make it enforceable.
+
+For questions, notices to Adam Dachis, or written permissions, write to Adam Dachis, HG Dynamics, 926 Diablo Ave Ste A #1101, Novato, CA 94947.

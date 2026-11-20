@@ -1,0 +1,140 @@
+@layer rio.components {
+  .rio-tabs {
+    display: flex;
+    min-inline-size: 0;
+  }
+
+  .rio-tabs[data-orientation='horizontal'] {
+    flex-direction: column;
+  }
+
+  .rio-tabs[data-orientation='vertical'] {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .rio-tab-list {
+    position: relative;
+    display: flex;
+    gap: var(--rio-space-1);
+  }
+
+  .rio-tab-list[data-orientation='horizontal'] {
+    flex-direction: row;
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-tab-list[data-orientation='vertical'] {
+    flex-direction: column;
+    border-inline-end: 1px solid var(--rio-border);
+  }
+
+  /* The tab keeps one height and one label weight in every state, so switching tabs never nudges
+     the row or the pointer. */
+  .rio-tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    block-size: var(--rio-control-height);
+    padding-inline: var(--rio-space-3);
+    border-radius: var(--rio-radius);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-md);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition:
+      color var(--rio-duration-fast) var(--rio-ease-standard),
+      background-color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-tab__content {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-tab[data-hovered] {
+    background-color: var(--rio-hover);
+    color: var(--rio-text);
+  }
+
+  .rio-tab[data-pressed] {
+    background-color: var(--rio-pressed);
+    color: var(--rio-text);
+  }
+
+  .rio-tab[data-selected] {
+    color: var(--rio-text);
+  }
+
+  .rio-tab[data-focus-visible] {
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-tab[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Out of flow, so it never adds to the tab's box, and it travels by animating `translate`, which
+     the shared-element transition writes for us. */
+  .rio-tab__indicator {
+    position: absolute;
+    border-radius: 1px;
+    background-color: var(--rio-accent);
+    pointer-events: none;
+    transition: translate var(--rio-duration-normal) var(--rio-ease-standard);
+  }
+
+  /* Pulled over the list's hairline so the bar and the rule read as one line. */
+  .rio-tab-list[data-orientation='horizontal'] .rio-tab__indicator {
+    inset-block-end: -1px;
+    inset-inline: var(--rio-space-2);
+    block-size: 2px;
+  }
+
+  .rio-tab-list[data-orientation='vertical'] .rio-tab__indicator {
+    inset-inline-end: -1px;
+    inset-block: var(--rio-space-1);
+    inline-size: 2px;
+  }
+
+  .rio-tab-panel {
+    min-inline-size: 0;
+    padding-block: var(--rio-space-4);
+    color: var(--rio-text);
+    outline: none;
+  }
+
+  .rio-tab-panel[data-focus-visible] {
+    border-radius: var(--rio-radius);
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-tabs[data-orientation='vertical'] .rio-tab-panel {
+    padding-block: var(--rio-space-1);
+    padding-inline-start: var(--rio-space-4);
+  }
+
+  @media (forced-colors: active) {
+    .rio-tab-list[data-orientation='horizontal'] {
+      border-block-end-color: CanvasText;
+    }
+
+    .rio-tab-list[data-orientation='vertical'] {
+      border-inline-end-color: CanvasText;
+    }
+
+    .rio-tab[data-selected] {
+      /* The indicator carries selection.  Text still needs the legible foreground. */
+      color: var(--rio-aa-accent-text);
+    }
+
+    .rio-tab__indicator {
+      background-color: Highlight;
+    }
+  }
+}

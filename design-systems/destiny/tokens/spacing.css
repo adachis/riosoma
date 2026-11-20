@@ -1,0 +1,26 @@
+:root{
+  /* Compact, screen-native spacing — not a strict 8pt grid (macOS values are odd on purpose) */
+  --sp-1:4px;
+  --sp-2:6px;
+  --sp-3:8px;
+  --sp-4:9px;
+  --sp-5:11px;
+  --sp-6:12px;
+  --sp-7:14px;
+  --sp-8:16px;
+  --sp-9:18px;
+  --sp-10:22px;
+  --sp-11:26px;
+  --sp-12:32px;
+  --sp-14:40px;
+
+  /* Layout rails (macOS window) */
+  --rail-session:64px;   /* icon rail */
+  --rail-list:250px;     /* chat/list column */
+  --titlebar-h:42px;
+
+  /* Gaps */
+  --gap-card:14px;
+  --gap-row:7px;
+  --gap-inline:8px;
+}

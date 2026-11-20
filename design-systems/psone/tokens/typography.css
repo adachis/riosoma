@@ -1,0 +1,39 @@
+:root{
+/* Type scale — bitmap HUD sizes stay on whole even pixels so they never resample soft. */
+--fs-hud:11px;
+--fs-micro:12px;
+--fs-label:13px;
+--fs-small:14px;
+--fs-body:16px;
+--fs-lg:20px;
+--fs-xl:24px;
+--fs-title:28px;
+--fs-display:40px;
+--fs-hero:64px;
+--fs-mega:96px;
+
+--lh-tight:1; /* @kind other */
+--lh-hud:1.2; /* @kind other */
+--lh-snug:1.3; /* @kind other */
+--lh-body:1.5; /* @kind other */
+--lh-loose:1.7; /* @kind other */
+
+--tracking-tight:-0.01em; /* @kind other */
+--tracking-normal:0; /* @kind other */
+--tracking-wide:0.06em; /* @kind other */
+--tracking-wider:0.14em; /* @kind other */
+--tracking-widest:0.24em; /* @kind other */
+
+--fw-regular:400; /* @kind other */
+--fw-medium:500; /* @kind other */
+--fw-semibold:600; /* @kind other */
+--fw-bold:700; /* @kind other */
+
+/* Role aliases */
+--type-hero:var(--fw-bold) var(--fs-hero)/var(--lh-tight) var(--font-display); /* @kind font */
+--type-title:var(--fw-bold) var(--fs-title)/var(--lh-tight) var(--font-display); /* @kind font */
+--type-subtitle:var(--fw-semibold) var(--fs-lg)/var(--lh-snug) var(--font-display); /* @kind font */
+--type-body:var(--fw-regular) var(--fs-body)/var(--lh-body) var(--font-body); /* @kind font */
+--type-label:var(--fw-semibold) var(--fs-label)/var(--lh-snug) var(--font-body); /* @kind font */
+--type-hud:var(--fw-regular) var(--fs-hud)/var(--lh-hud) var(--font-bitmap); /* @kind font */
+--type-data:var(--fw-regular) var(--fs-small)/var(--lh-hud) var(--font-mono) /* @kind font */}

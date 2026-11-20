@@ -1,0 +1,40 @@
+/* Typography. Every size and line-height is an integer multiple of the art pixel,
+   so glyph rows never land on a half pixel. Never use fractional font sizes. */
+:root{
+  --font-display:"Micro 5",system-ui,sans-serif;      /* hero titles, huge numerals — 40px and up only */
+  --font-ui:"Silkscreen",system-ui,sans-serif;        /* buttons, labels, nav, tables, HUD */
+  --font-body:"Pixelify Sans",system-ui,sans-serif;   /* running prose, descriptions, chat */
+  --font-mono:"Silkscreen",ui-monospace,monospace;    /* code, stats, coordinates */
+
+  /* Display — Micro 5 is a 5-pixel-tall face. Illegible below 40px; glorious above it. */
+  --text-hero:96px;      --lh-hero:88px;
+  --text-display:64px;   --lh-display:60px;
+  --text-title:40px;     --lh-title:40px;
+
+  /* UI — Silkscreen. Sizes are 8px-grid multiples of its 8px em box. */
+  --text-h1:32px;        --lh-h1:40px;
+  --text-h2:24px;        --lh-h2:32px;
+  --text-h3:16px;        --lh-h3:24px;
+  --text-label:12px;     --lh-label:16px;
+  --text-micro:8px;      --lh-micro:12px;   /* 2x-scaled contexts only (game HUD, print) */
+
+  /* Body — Pixelify Sans. */
+  --text-lead:20px;      --lh-lead:32px;
+  --text-body:16px;      --lh-body:24px;
+  --text-small:14px;     --lh-small:20px;
+
+  --tracking-ui:0.04em;      /* Silkscreen wants air between caps */
+  --tracking-display:0.02em;
+  --tracking-body:0;
+  --weight-regular:400;
+  --weight-bold:700;
+
+  /* Semantic aliases */
+  --type-page-title:var(--weight-regular) var(--text-display)/var(--lh-display) var(--font-display);
+  --type-section:var(--weight-bold) var(--text-h2)/var(--lh-h2) var(--font-ui);
+  --type-card-title:var(--weight-bold) var(--text-h3)/var(--lh-h3) var(--font-ui);
+  --type-button:var(--weight-regular) var(--text-label)/var(--lh-label) var(--font-ui);
+  --type-label:var(--weight-regular) var(--text-label)/var(--lh-label) var(--font-ui);
+  --type-copy:var(--weight-regular) var(--text-body)/var(--lh-body) var(--font-body);
+  --type-copy-small:var(--weight-regular) var(--text-small)/var(--lh-small) var(--font-body);
+}

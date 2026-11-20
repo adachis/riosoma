@@ -1,0 +1,35 @@
+/* Print texture. The era's graphics were screen-printed and offset-litho on
+   uncoated stock: paper tooth, visible halftone, ink laid slightly off register.
+   These are the tokens that keep surfaces from reading as clean vector. */
+:root{
+--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='.5'/%3E%3C/svg%3E"); /* @kind other */
+--dots-fine:radial-gradient(currentColor 1px,transparent 1.1px); /* @kind other */
+--dots:radial-gradient(currentColor 1.7px,transparent 1.8px); /* @kind other */
+--dots-coarse:radial-gradient(currentColor 2.6px,transparent 2.7px); /* @kind other */
+--hatch:repeating-linear-gradient(45deg,currentColor 0 1px,transparent 1px 7px); /* @kind other */
+--bars:repeating-linear-gradient(90deg,currentColor 0 6px,transparent 6px 12px); /* @kind other */
+--rules:repeating-linear-gradient(0deg,currentColor 0 2px,transparent 2px 9px); /* @kind other */
+--grain-op:.3; /* @kind other */
+}
+/* Stock: paper tooth over a whole ground. Cheap enough for full-page use. */
+.mc-stock{position:relative}
+.mc-stock::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--grain);background-size:180px;mix-blend-mode:multiply;opacity:var(--grain-op)}
+.mc-stock--tooth::after{opacity:.52}
+.mc-stock--faint::after{opacity:.16}
+/* Plate: same tooth, but stacked above absolutely-positioned collage art. */
+.mc-plate{position:relative;isolation:isolate}
+.mc-plate::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--grain);background-size:180px;mix-blend-mode:multiply;opacity:var(--grain-op);z-index:9}
+/* Halftone screens. currentColor carries the ink, so these theme themselves. */
+.mc-screen-dots{background-image:var(--dots);background-size:7px 7px}
+.mc-screen-dots-fine{background-image:var(--dots-fine);background-size:5px 5px}
+.mc-screen-dots-coarse{background-image:var(--dots-coarse);background-size:11px 11px}
+.mc-screen-hatch{background-image:var(--hatch)}
+.mc-screen-bars{background-image:var(--bars)}
+.mc-screen-rules{background-image:var(--rules)}
+/* Off-register overprint on display type. Keep it under a tenth of an em. */
+.mc-overprint{text-shadow:.055em .055em 0 var(--overprint,var(--accent))}
+.mc-overprint--tight{text-shadow:.03em .03em 0 var(--overprint,var(--accent))}
+.mc-overprint--double{text-shadow:.05em .05em 0 var(--overprint,var(--accent)),.1em .1em 0 var(--overprint-2,var(--secondary))}
+/* Knockout: type cut out of an ink field, the era's cheapest second colour. */
+.mc-knockout{-webkit-text-stroke:0;color:var(--paper);paint-order:stroke fill}
+.mc-outline-type{color:transparent;-webkit-text-stroke:var(--stroke-w,2px) var(--stroke,currentColor)}

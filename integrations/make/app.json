@@ -1,0 +1,10 @@
+{
+  "name": "riosoma",
+  "label": "Riosoma",
+  "description": "Watch, find, create, and update records in Riosoma.",
+  "version": 1,
+  "language": "en",
+  "theme": "#256b60",
+  "public": false,
+  "beta": true
+}

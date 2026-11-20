@@ -1,0 +1,42 @@
+{
+  "id": "formulas",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "grid.field.add",
+      "say": "demos.formulas.add",
+      "do": "open"
+    },
+    {
+      "anchor": "field.name",
+      "say": "demos.formulas.name",
+      "do": "type",
+      "text": "demos.formulas.sampleName"
+    },
+    {
+      "anchor": "field.type",
+      "say": "demos.formulas.type",
+      "do": "open"
+    },
+    {
+      "anchor": "field.type",
+      "item": "formula",
+      "say": "demos.formulas.formula",
+      "do": "choose"
+    },
+    {
+      "anchor": "field.formula.expression",
+      "say": "demos.formulas.expression",
+      "do": "type",
+      "text": "demos.formulas.sample"
+    },
+    {
+      "anchor": "field.formula.expression",
+      "say": "demos.formulas.check"
+    },
+    {
+      "anchor": "field.create",
+      "say": "demos.formulas.create"
+    }
+  ]
+}

@@ -1,0 +1,467 @@
+@layer rio.app {
+  /* The chart timelines and Gantt charts share. */
+  .rio-timeline-chart {
+    position: relative;
+    block-size: 100%;
+    min-block-size: 0;
+    color: var(--rio-text);
+    background: var(--rio-bg);
+  }
+  .rio-timeline-chart__scroller {
+    position: relative;
+    block-size: 100%;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  .rio-timeline-chart__canvas {
+    position: relative;
+  }
+  .rio-timeline-chart__header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 3;
+    display: flex;
+    block-size: 48px;
+    box-sizing: border-box;
+    background: var(--rio-surface);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-timeline-chart__corner {
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex: none;
+    box-sizing: border-box;
+    padding-inline: var(--rio-space-3);
+    background: var(--rio-surface);
+    border-inline-end: 1px solid var(--rio-border);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+  }
+  /* No overflow of its own here: that would make the scale the container its sticky labels stick to. */
+  .rio-timeline-chart__scale {
+    position: relative;
+    flex: none;
+    block-size: 100%;
+  }
+  .rio-timeline-chart__cell {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    block-size: 24px;
+    box-sizing: border-box;
+    padding-inline: var(--rio-space-1);
+    border-inline-start: 1px solid var(--rio-border);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .rio-timeline-chart__cell[data-row='top'] {
+    inset-block-start: 0;
+    overflow: visible;
+    color: var(--rio-text);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-timeline-chart__cell[data-row='bottom'] {
+    inset-block-start: 24px;
+    justify-content: center;
+  }
+  .rio-timeline-chart__cell[data-today] {
+    color: var(--rio-aa-accent-text);
+    font-weight: var(--rio-weight-bold);
+  }
+  /* A month or year keeps its name in view while its cell scrolls past the start. */
+  .rio-timeline-chart__cell-label {
+    position: sticky;
+    padding-inline: var(--rio-space-1);
+  }
+  .rio-timeline-chart__body {
+    position: relative;
+    display: flex;
+  }
+  .rio-timeline-chart__side {
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 2;
+    flex: none;
+    box-sizing: border-box;
+    background: var(--rio-surface);
+    border-inline-end: 1px solid var(--rio-border);
+  }
+  .rio-timeline-chart__track {
+    position: relative;
+    flex: none;
+    block-size: 100%;
+  }
+  .rio-timeline-chart__gridline {
+    position: absolute;
+    inset-block: 0;
+    inline-size: 1px;
+    background: var(--rio-border);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  /* Under the bars, so their text stays readable where the line crosses them. */
+  .rio-timeline-chart__today {
+    position: absolute;
+    inset-block: 0;
+    inline-size: 2px;
+    margin-inline-start: -1px;
+    background: var(--rio-accent);
+    pointer-events: none;
+  }
+  .rio-timeline-chart__tooltip {
+    position: absolute;
+    z-index: 4;
+    display: grid;
+    gap: var(--rio-space-1);
+    max-inline-size: 20rem;
+    padding: var(--rio-space-2) var(--rio-space-3);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-raised);
+    box-shadow: var(--rio-shadow-2);
+    font-size: var(--rio-text-sm);
+    pointer-events: none;
+  }
+  .rio-timeline-chart__tooltip-field {
+    display: flex;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-timeline-chart__tooltip-name {
+    flex: none;
+    color: var(--rio-text);
+  }
+  .rio-timeline-chart__status {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .rio-timeline-chart__notice,
+  .rio-timeline-chart__empty {
+    position: absolute;
+    z-index: 5;
+    margin: 0;
+    padding: var(--rio-space-2) var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-timeline-chart__notice {
+    inset-block-end: var(--rio-space-3);
+    inset-inline-end: var(--rio-space-3);
+  }
+  .rio-timeline-chart__empty {
+    inset-block-start: calc(48px + var(--rio-space-6));
+    inset-inline: 0;
+    inline-size: fit-content;
+    max-inline-size: 30rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .rio-timeline-chart[data-dragging] {
+    cursor: grabbing;
+    user-select: none;
+  }
+
+  /* One record's bar. */
+  .rio-timeline-bar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    block-size: 28px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    background-image: linear-gradient(var(--rio-selected), var(--rio-selected));
+    color: var(--rio-text);
+    font: inherit;
+    font-size: var(--rio-text-sm);
+    text-align: start;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .rio-timeline-bar[data-movable] {
+    cursor: grab;
+    touch-action: manipulation;
+  }
+  .rio-timeline-bar:hover {
+    box-shadow: var(--rio-shadow-1);
+  }
+  .rio-timeline-bar:focus-visible {
+    outline: 2px solid transparent;
+    box-shadow: var(--rio-focus-ring);
+    z-index: 1;
+  }
+  .rio-timeline-bar[data-dragging] {
+    z-index: 2;
+    box-shadow: var(--rio-shadow-2);
+    cursor: grabbing;
+  }
+  /* A record with no end is drawn one unit long, and a dashed far edge says it has no finish of its own. */
+  .rio-timeline-bar[data-open] {
+    border-inline-end-style: dashed;
+  }
+  .rio-timeline-bar__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Fields that do not fit beside the label wrap to a second line below this one-line box,
+       which clips them whole, so a field is shown whole or hidden whole and never cut mid-word.
+       The box is as tall as the tallest item a bar can show, a choice pill, so the first line
+       keeps the same height whether or not anything wrapped, and centering the box in the bar
+       keeps the text centered at every width.  */
+    flex-wrap: wrap;
+    align-self: center;
+    align-content: flex-start;
+    block-size: max(1lh, var(--rio-space-5));
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    box-sizing: border-box;
+    padding-inline: var(--rio-space-2);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .rio-timeline-bar__label {
+    flex: none;
+    max-inline-size: 100%;
+    /* The label fills the same one-line height as every field and centers its line inside, so
+       it never moves when fields wrap.  It stays a block box so the ellipsis keeps working.  */
+    min-block-size: max(1lh, var(--rio-space-5));
+    align-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-timeline-bar__field {
+    /* Fields keep their natural width and wrap whole to the clipped line when they do not fit,
+       so the words left visible stay a prefix of the bar's spoken name.  Every field fills the
+       same one-line height and centers its value, so a pill on either line never lifts the
+       visible line.  */
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    min-inline-size: 0;
+    min-block-size: max(1lh, var(--rio-space-5));
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-timeline-bar__edge {
+    position: absolute;
+    inset-block: 0;
+    inline-size: 6px;
+    cursor: ew-resize;
+    touch-action: manipulation;
+  }
+  .rio-timeline-bar__edge[data-edge='start'] {
+    inset-inline-start: 0;
+  }
+  .rio-timeline-bar__edge[data-edge='end'] {
+    inset-inline-end: 0;
+  }
+  .rio-timeline-bar__edge:hover {
+    background: var(--rio-pressed);
+  }
+
+  /* The timeline's lanes. */
+  .rio-timeline__corner {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-timeline__lane {
+    position: absolute;
+    inset-inline: 0;
+    box-sizing: border-box;
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-timeline__lane-name {
+    position: sticky;
+    inset-block-start: 48px;
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    block-size: 40px;
+    padding-inline: var(--rio-space-3);
+    min-inline-size: 0;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-timeline__lane-text {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-timeline__lane-count {
+    margin-inline-start: auto;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+  .rio-timeline__lane-rule {
+    position: absolute;
+    inset-inline: 0;
+    block-size: 1px;
+    margin-block-start: -1px;
+    background: var(--rio-border);
+    pointer-events: none;
+  }
+
+  /* The settings bar and its panels. */
+  .rio-timeline-settings {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    flex: none;
+    padding-inline: var(--rio-space-2);
+  }
+  .rio-timeline-settings__zoom {
+    inline-size: 7.5rem;
+  }
+  .rio-timeline-settings__count {
+    margin-inline-start: var(--rio-space-2);
+    padding-inline: var(--rio-space-2);
+    border-radius: var(--rio-radius);
+    background: var(--rio-selected);
+    font-size: var(--rio-text-xs);
+  }
+  .rio-timeline-settings__panel {
+    display: grid;
+    gap: var(--rio-space-4);
+    min-inline-size: 16rem;
+    padding: var(--rio-space-4);
+  }
+  .rio-timeline-undated {
+    display: grid;
+    gap: var(--rio-space-2);
+    inline-size: 20rem;
+    max-block-size: 24rem;
+    overflow: auto;
+    padding: var(--rio-space-3);
+  }
+  .rio-timeline-undated__heading {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-timeline-undated__list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rio-timeline-list {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-timeline-list th,
+  .rio-timeline-list td {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+    font-weight: var(--rio-weight-regular);
+  }
+  .rio-timeline-list thead th {
+    color: var(--rio-aa-text-muted);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-timeline-setup {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: var(--rio-space-4);
+    block-size: 100%;
+    padding: var(--rio-space-6);
+    text-align: center;
+  }
+  .rio-timeline-setup h2 {
+    margin: 0;
+    font-size: var(--rio-text-lg);
+  }
+  .rio-timeline-setup p {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+  }
+
+  @media (max-width: 48rem) {
+    .rio-timeline-settings__label {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+  }
+  @media (forced-colors: active) {
+    .rio-timeline-bar {
+      border-color: CanvasText;
+      background: Canvas;
+      color: CanvasText;
+    }
+    /* Progress fills may use Highlight; the label keeps its own system-color surface. */
+    .rio-timeline-bar__content {
+      background: Canvas;
+    }
+    .rio-timeline-bar__label,
+    .rio-timeline-bar__field {
+      color: CanvasText;
+    }
+    .rio-timeline-bar:focus-visible {
+      outline: 2px solid Highlight;
+    }
+    .rio-timeline-chart__today {
+      background: Highlight;
+    }
+    .rio-timeline-chart__gridline,
+    .rio-timeline__lane-rule {
+      background: GrayText;
+    }
+  }
+}
+
+.rio-timeline-bar__dependency {
+  position: absolute;
+  inset-block-start: 4px;
+  inset-inline-end: 12px;
+  z-index: 2;
+  padding-inline: 4px;
+  background: var(--rio-surface);
+  color: var(--rio-text);
+  cursor: crosshair;
+}
+
+@media (pointer: coarse) {
+  .rio-timeline-bar__edge {
+    inline-size: max(0px, min(24px, 25%, calc(50% - 12px)));
+    min-block-size: 32px;
+  }
+  .rio-timeline-bar__dependency {
+    display: grid;
+    place-items: center;
+    min-inline-size: 32px;
+    min-block-size: 32px;
+    inset-block-start: 0;
+    inset-inline-end: 24px;
+    padding: 0;
+  }
+}
+
+@media (pointer: coarse) {
+  .rio-timeline-bar__dependency[data-coarse-hidden] {
+    display: none;
+  }
+}

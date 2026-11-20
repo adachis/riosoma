@@ -1,0 +1,30 @@
+/* Shadows, glows and border treatments.
+   The system is low-shadow: depth comes from surface steps and 2px borders.
+   Glows are the accent-coloured equivalent of a shadow and carry all emphasis. */
+:root {
+  --shadow-none: none; /* @kind shadow */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.11); /* @kind shadow */
+  --shadow-sm: 0 3px 20px 0 rgba(0, 0, 0, 0.14); /* @kind shadow */
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.18); /* @kind shadow */
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.35); /* @kind shadow */
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06); /* @kind shadow */
+
+  /* Accent glows — the primary emphasis device */
+  --glow-sm: 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent); /* @kind shadow */
+  --glow-md: 0 0 24px color-mix(in srgb, var(--accent) 45%, transparent); /* @kind shadow */
+  --glow-lg: 0 0 48px color-mix(in srgb, var(--accent) 40%, transparent); /* @kind shadow */
+  --glow-ring: 0 0 0 2px color-mix(in srgb, var(--accent) 55%, transparent); /* @kind shadow */
+  --glow-inner: inset 0 0 24px color-mix(in srgb, var(--accent) 18%, transparent); /* @kind shadow */
+
+  /* Blur / glass */
+  --blur-sm: blur(6px); /* @kind other */
+  --blur-md: blur(14px); /* @kind other */
+  --blur-lg: blur(28px); /* @kind other */
+
+  --z-base: 1; /* @kind other */
+  --z-sticky: 99; /* @kind other */
+  --z-drawer: 999; /* @kind other */
+  --z-modal: 1050; /* @kind other */
+  --z-toast: 1100; /* @kind other */
+  --z-preloader: 99999; /* @kind other */
+}

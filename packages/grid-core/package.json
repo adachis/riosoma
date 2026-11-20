@@ -1,0 +1,27 @@
+{
+  "name": "@riosoma/grid-core",
+  "version": "0.95.0-rc.1",
+  "private": true,
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./grid.css": "./src/grid.css"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests",
+    "demo": "vite demo --port 5190 --strictPort",
+    "test:browser": "playwright test -c browser/playwright.config.ts"
+  },
+  "dependencies": {
+    "@riosoma/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "happy-dom": "21.0.4",
+    "vite": "8.3.8"
+  }
+}

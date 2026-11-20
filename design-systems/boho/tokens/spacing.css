@@ -1,0 +1,9 @@
+:root{
+--sp-0:0; /* @kind spacing */
+--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:18px;--sp-5:26px;--sp-6:36px;--sp-7:52px;--sp-8:72px;--sp-9:104px;--sp-10:144px;
+--gutter-sm:18px;--gutter-md:36px;--gutter-lg:72px;
+--section-y-sm:52px;--section-y-md:104px;--section-y-lg:144px;
+--container-sm:640px;--container-md:920px;--container-lg:1180px;--container-xl:1440px;
+--control-h-sm:34px;--control-h-md:42px;--control-h-lg:52px;
+--touch-min:44px; /* @kind spacing */
+}

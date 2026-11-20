@@ -1,0 +1,21 @@
+@layer rio.components {
+  /* One gap does all the spacing, so a field, a group of fields, and the actions row below them
+     keep the same rhythm however a screen composes them. */
+  .rio-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+  }
+
+  .rio-form__actions {
+    display: flex;
+    /* Long labels wrap to a second line instead of spilling out of narrow cards. */
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--rio-space-2);
+    /* Holds the height of one control even while the buttons in it are still arriving. */
+    min-block-size: var(--rio-control-height);
+  }
+}

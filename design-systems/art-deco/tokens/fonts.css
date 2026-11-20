@@ -1,0 +1,40 @@
+/* Licensed display faces shipped with the system, plus two Google substitutions
+   for text sizes (no text-grade face existed in the supplied pack). */
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300..700;1,300..600&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@font-face{font-family:"AD Modern";src:url("../assets/fonts/ModernRegular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Junia";src:url("../assets/fonts/JuniaRegular.otf") format("opentype");font-weight:700;font-display:swap}
+@font-face{font-family:"AD Nyxar";src:url("../assets/fonts/NyxarRegular.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"AD Metrobrew";src:url("../assets/fonts/Metrobrew.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Monsante";src:url("../assets/fonts/MonsanteRegular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Monsante Inline";src:url("../assets/fonts/MonsanteInline.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Inline Heritage";src:url("../assets/fonts/InlineHeritage.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Emoritz";src:url("../assets/fonts/EmoritzLight.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"AD Emoritz";src:url("../assets/fonts/EmoritzRegular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Emoritz";src:url("../assets/fonts/EmoritzMedium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"AD Haarlem";src:url("../assets/fonts/HaarlemSans.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AD Haarlem";src:url("../assets/fonts/HaarlemSansItalic.otf") format("opentype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"AD Cleveland";src:url("../assets/fonts/Cleveland.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Decohead";src:url("../assets/fonts/Decohead.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Decohead Display";src:url("../assets/fonts/DecoheadDisplay.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Brodo";src:url("../assets/fonts/Brodo.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Brodo Inline";src:url("../assets/fonts/BrodoInline.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"AD Deco";src:url("../assets/fonts/ArtDeco.otf") format("opentype");font-weight:400;font-display:swap}
+
+:root{
+  --font-display:"AD Nyxar","AD Modern","Jost",system-ui,sans-serif;
+  --font-heading:"AD Modern","AD Nyxar","Jost",system-ui,sans-serif;
+  --font-title:"AD Junia","AD Modern","Jost",system-ui,sans-serif;
+  --font-inline:"AD Monsante Inline","AD Modern","Jost",sans-serif;
+  --font-label:"AD Emoritz","Jost",system-ui,sans-serif;
+  --font-body:"Jost",system-ui,-apple-system,sans-serif;
+  --font-serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  --font-alt-display:"AD Cleveland","AD Modern",sans-serif;
+  --font-alt-letterpress:"AD Modern","Jost",sans-serif;
+  --font-alt-poster:"AD Metrobrew","AD Modern",sans-serif;
+  --font-alt-caps:"AD Haarlem","Jost",sans-serif;
+  --font-alt-inline:"AD Inline Heritage","AD Modern",sans-serif;
+  --font-alt-slab:"AD Decohead","AD Modern",sans-serif;
+  --font-alt-thin:"AD Brodo","AD Modern",sans-serif;
+}

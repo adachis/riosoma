@@ -1,0 +1,21 @@
+/* Machine readout face. Univers has no monospace cut; Martian Mono (OFL, Google Fonts)
+   is the sanctioned stand-in — squared terminals, grotesque skeleton, same tone. */
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500;700&display=swap");
+
+/* Core grotesque — Univers Next Pro (licensed; supplied by the brand owner). */
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-Thin.ttf") format("truetype");font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-LightItalic.ttf") format("truetype");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-BoldItalic.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-Heavy.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro";src:url("../assets/fonts/UniversNextPro-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
+
+/* Condensed cut — display headlines, silkscreen labels, spec tables. */
+@font-face{font-family:"Univers Next Pro Cond";src:url("../assets/fonts/UniversNextProCond-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro Cond";src:url("../assets/fonts/UniversNextProCond-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro Cond";src:url("../assets/fonts/UniversNextProCond-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Univers Next Pro Cond";src:url("../assets/fonts/UniversNextProCond-Heavy.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}

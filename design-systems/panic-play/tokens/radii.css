@@ -1,0 +1,9 @@
+:root{
+  --radius-xs:4px; --radius-sm:8px; --radius-md:14px; --radius-lg:22px;
+  --radius-xl:32px; --radius-pill:999px;
+  --radius-control:var(--radius-md);
+  --radius-card:var(--radius-lg);
+  --radius-sheet:var(--radius-xl);
+  --border-w:2px; --border-w-thick:3px;
+  --outline:var(--border-w) solid var(--line-1);
+}

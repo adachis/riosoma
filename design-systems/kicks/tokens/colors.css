@@ -1,0 +1,71 @@
+/* Neutral ramp + semantic roles. Accents live in themes.css — every theme
+   redefines --k-accent-1..5; nothing else in the system hardcodes a hue. */
+:root{
+  /* ink / paper ramp — warm-neutral, print-press feel */
+  --k-ink-1000:#0b0b0c;
+  --k-ink-900:#141416;
+  --k-ink-800:#1e1e21;
+  --k-ink-700:#2c2c30;
+  --k-ink-600:#45454b;
+  --k-ink-500:#6b6b73;
+  --k-ink-400:#9a9aa2;
+  --k-ink-300:#c4c4c9;
+  --k-ink-200:#dedee1;
+  --k-ink-150:#e9e9e6;
+  --k-ink-100:#f2f1ec;
+  --k-paper:#faf9f5;
+  --k-white:#ffffff;
+
+  /* semantic surfaces */
+  --k-bg:var(--k-paper);
+  --k-bg-alt:var(--k-ink-100);
+  --k-surface:var(--k-white);
+  --k-surface-2:var(--k-ink-100);
+  --k-surface-invert:var(--k-ink-1000);
+  --k-overlay:color-mix(in srgb,var(--k-ink-1000) 72%,transparent);
+
+  /* semantic text */
+  --k-text:var(--k-ink-1000);
+  --k-text-2:var(--k-ink-600);
+  --k-text-muted:var(--k-ink-500);
+  --k-text-invert:var(--k-paper);
+  --k-text-on-accent:var(--k-accent-ink);
+  --k-link:var(--k-text);
+  --k-link-hover:var(--k-accent-3);
+
+  /* lines */
+  --k-border:var(--k-ink-200);
+  --k-border-strong:var(--k-ink-1000);
+  --k-border-invert:color-mix(in srgb,var(--k-paper) 26%,transparent);
+  --k-focus:var(--k-accent-3);
+
+  /* status — theme-independent so warnings never read as decoration */
+  --k-success:#1f7a4d;
+  --k-success-soft:#e2f3e9;
+  --k-warning:#a86a00;
+  --k-warning-soft:#fdf0d8;
+  --k-danger:#c02121;
+  --k-danger-soft:#fbe4e2;
+  --k-info:#1f5f9e;
+  --k-info-soft:#e2edf8;
+}
+
+/* Dark mode is a neutral swap; the active theme's accents ride through unchanged. */
+[data-mode="dark"]{
+  --k-bg:var(--k-ink-1000);
+  --k-bg-alt:var(--k-ink-900);
+  --k-surface:var(--k-ink-900);
+  --k-surface-2:var(--k-ink-800);
+  --k-surface-invert:var(--k-paper);
+  --k-text:var(--k-paper);
+  --k-text-2:var(--k-ink-300);
+  --k-text-muted:var(--k-ink-400);
+  --k-text-invert:var(--k-ink-1000);
+  --k-border:var(--k-ink-700);
+  --k-border-strong:var(--k-paper);
+  --k-border-invert:color-mix(in srgb,var(--k-ink-1000) 26%,transparent);
+  --k-success-soft:#12301f;
+  --k-warning-soft:#332305;
+  --k-danger-soft:#3a1210;
+  --k-info-soft:#0f2438;
+}

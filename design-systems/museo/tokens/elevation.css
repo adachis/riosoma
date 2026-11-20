@@ -1,0 +1,15 @@
+:root{
+/* Museo is a paper system: rules first, shadow only when something genuinely floats. */
+--shadow-none:none;
+--shadow-hairline:inset 0 0 0 1px var(--border-subtle);
+--shadow-1:0 1px 2px color-mix(in oklab,var(--t-ink) 8%,transparent);
+--shadow-2:0 6px 18px -6px color-mix(in oklab,var(--t-ink) 20%,transparent);
+--shadow-3:0 24px 60px -22px color-mix(in oklab,var(--t-ink) 32%,transparent);
+--shadow-lift:0 2px 0 0 var(--t-ink);
+--shadow-focus:0 0 0 2px var(--focus-ring-offset),0 0 0 4px var(--focus-ring);
+--blur-veil:saturate(1.1) blur(14px);/* @kind other */
+--blur-heavy:saturate(1.2) blur(28px);/* @kind other */
+--protect-top:linear-gradient(to bottom,color-mix(in oklab,var(--t-inverse-surface) 72%,transparent),transparent);/* @kind other */
+--protect-bottom:linear-gradient(to top,color-mix(in oklab,var(--t-inverse-surface) 82%,transparent),transparent 72%);/* @kind other */
+--texture-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");/* @kind other */
+}

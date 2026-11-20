@@ -1,0 +1,58 @@
+/* Semantic aliases. COMPONENTS READ ONLY THESE (plus type/space/shape tokens).
+   tokens/themes.css re-declares this exact set inside [data-theme="…"] scopes,
+   which is what makes every colour scheme variant work everywhere. */
+:root {
+  /* Surfaces, darkest → lightest */
+  --surface-base: var(--ink-100);
+  --surface-1: var(--ink-200);
+  --surface-2: var(--ink-300);
+  --surface-3: var(--ink-400);
+  --surface-sunken: var(--ink-000);
+  --surface-overlay: rgba(5, 4, 14, 0.82);
+  --surface-glass: rgba(23, 20, 54, 0.62);
+
+  /* Lines */
+  --border-subtle: var(--ink-400);
+  --border-strong: var(--ink-500);
+  --border-hairline: rgba(255, 255, 255, 0.12);
+  --border-width: 2px; /* @kind spacing */
+
+  /* Text */
+  --text-strong: #ffffff;
+  --text-body: #e7e6f2;
+  --text-muted: #9c9cbc;
+  --text-faint: #6e6b93;
+  --text-inverse: var(--ink-100);
+  --text-link: var(--accent);
+
+  /* Accents */
+  --accent: var(--brand-primary);
+  --accent-hi: var(--brand-primary-hi);
+  --accent-lo: var(--brand-primary-lo);
+  --on-accent: var(--ink-100);
+
+  --accent-2: var(--brand-secondary);
+  --accent-2-hi: var(--brand-secondary-hi);
+  --on-accent-2: #ffffff;
+
+  --accent-3: var(--brand-tertiary);
+
+  /* Status */
+  --positive: var(--signal-positive);
+  --warning: var(--signal-warning);
+  --negative: var(--signal-negative);
+  --info: var(--signal-info);
+
+  /* Composites used across every surface */
+  --gradient-accent: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 78%); /* @kind color */
+  --gradient-accent-flat: linear-gradient(90deg, var(--accent) 0%, var(--accent-hi) 100%); /* @kind color */
+  --gradient-scrim: linear-gradient(0deg, var(--surface-base) 0%, rgba(10, 9, 22, 0.05) 100%); /* @kind color */
+  --glow-accent: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent), 0 8px 32px color-mix(in srgb, var(--accent) 28%, transparent); /* @kind shadow */
+
+  /* Palette specimen swatches (overridden per theme) */
+  --swatch-1: var(--brand-primary);
+  --swatch-2: var(--brand-secondary);
+  --swatch-3: var(--brand-tertiary);
+  --swatch-4: var(--signal-warning);
+  --swatch-5: var(--signal-negative);
+}

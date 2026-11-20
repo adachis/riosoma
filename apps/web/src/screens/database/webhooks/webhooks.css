@@ -1,0 +1,192 @@
+@layer rio.app {
+  .rio-webhooks,
+  .rio-webhooks__deliveries,
+  .rio-webhooks__reveal {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-webhooks p,
+  .rio-webhooks__deliveries p,
+  .rio-webhooks__reveal p {
+    margin-block: 0;
+  }
+
+  .rio-webhooks__intro {
+    max-inline-size: 62ch;
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* One Add button at a time, in the empty state or above the list, so its name is never on the
+     page twice. */
+  .rio-webhooks__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-webhooks__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .rio-webhooks__list,
+  .rio-webhooks__delivery-list,
+  .rio-webhooks__attempt-list {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-webhooks__item,
+  .rio-webhooks__delivery {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+
+  .rio-webhooks__head,
+  .rio-webhooks__delivery-head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  /* Addresses run long and have no spaces, so they break anywhere rather than widen the dialog. */
+  .rio-webhooks__switch,
+  .rio-webhooks__url {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-webhooks__facts {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: var(--rio-space-1) var(--rio-space-3);
+    margin: 0;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-webhooks__facts > div {
+    display: contents;
+  }
+
+  .rio-webhooks__facts dt {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-webhooks__facts dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-webhooks__status,
+  .rio-webhooks__muted {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-webhooks__status[data-tone='warning'] {
+    color: var(--rio-aa-warning-text);
+  }
+
+  .rio-webhooks__status[data-tone='danger'] {
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-webhooks__back {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .rio-webhooks__summary,
+  .rio-webhooks__line,
+  .rio-webhooks__attempt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-1) var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-webhooks__icon {
+    flex: none;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-webhooks__delivery[data-state='succeeded'] .rio-webhooks__icon {
+    color: var(--rio-aa-success-text);
+  }
+
+  .rio-webhooks__delivery[data-state='failed'] .rio-webhooks__icon {
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-webhooks__delivery[data-state='retrying'] .rio-webhooks__icon,
+  .rio-webhooks__delivery[data-state='held'] .rio-webhooks__icon {
+    color: var(--rio-aa-warning-text);
+  }
+
+  .rio-webhooks__state {
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-webhooks__result {
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-webhooks__tag {
+    padding-inline: var(--rio-space-2);
+    border-radius: 999px;
+    background: var(--rio-selected);
+    font-size: var(--rio-text-xs);
+  }
+
+  .rio-webhooks__attempt-list {
+    gap: var(--rio-space-1);
+  }
+
+  /* The form stands in for the dialog's own column, so the fields inside it still scroll. */
+  .rio-webhooks__form {
+    flex: 1 1 auto;
+    min-block-size: 0;
+  }
+
+  .rio-webhooks__fields {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-5);
+  }
+
+  /* The picker belongs to the choice above it, so it lines up under that choice's label. */
+  .rio-webhooks__pick {
+    margin-inline-start: var(--rio-space-6);
+  }
+
+  .rio-webhooks__note {
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* The secret fills the row and Copy waits at its end, level with the field. */
+  .rio-webhooks__secret {
+    display: flex;
+    align-items: end;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-webhooks__secret-field {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+}

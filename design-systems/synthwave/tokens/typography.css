@@ -1,0 +1,27 @@
+:root{
+/* families */
+--font-display:"Static Surge","Impact",sans-serif;/* @kind font */
+--font-heading:"Neon Sugarez","Chakra Petch",sans-serif;/* @kind font */
+--font-body:"Chakra Petch",system-ui,sans-serif;/* @kind font */
+--font-mono:"JetBrains Mono",ui-monospace,monospace;/* @kind font */
+--font-readout:"Mono Circuit","JetBrains Mono",monospace;/* @kind font */
+--font-pixel:"Pixelvolt","Courier New",monospace;/* @kind font */
+/* alternate display faces from the asset library */
+--font-alt-terminal:"Playback",monospace;/* @kind font */
+--font-alt-wide:"Binko",sans-serif;/* @kind font */
+--font-alt-deco:"Redsun",serif;/* @kind font */
+--font-alt-slab:"Vapor Synth",serif;/* @kind font */
+
+/* size scale — 1.25 major third off 16px */
+--fs-3xs:10px;/* @kind font */--fs-2xs:11px;/* @kind font */--fs-xs:12px;/* @kind font */--fs-sm:14px;/* @kind font */--fs-md:16px;/* @kind font */--fs-lg:18px;/* @kind font */
+--fs-xl:21px;/* @kind font */--fs-2xl:26px;/* @kind font */--fs-3xl:33px;/* @kind font */--fs-4xl:42px;/* @kind font */--fs-5xl:56px;/* @kind font */--fs-6xl:76px;/* @kind font */--fs-7xl:104px;/* @kind font */--fs-8xl:140px;/* @kind font */
+
+/* line heights */
+--lh-tight:.92;/* @kind font */--lh-snug:1.15;/* @kind font */--lh-heading:1.2;/* @kind font */--lh-body:1.6;/* @kind font */--lh-loose:1.75;/* @kind font */
+
+/* tracking — synthwave leans wide on caps, tight on display slabs */
+--tr-display:-0.01em;/* @kind font */--tr-heading:0.06em;/* @kind font */--tr-eyebrow:0.28em;/* @kind font */--tr-label:0.14em;/* @kind font */--tr-body:0.005em;/* @kind font */--tr-mono:0.04em;/* @kind font */
+
+/* weights (Chakra Petch) */
+--fw-light:300;/* @kind font */--fw-regular:400;/* @kind font */--fw-medium:500;/* @kind font */--fw-semibold:600;/* @kind font */--fw-bold:700;/* @kind font */
+}

@@ -1,0 +1,48 @@
+@layer rio.components {
+  .rio-plan-preview-modal {
+    inline-size: min(1100px, calc(100vw - var(--rio-space-4)));
+    max-inline-size: none;
+  }
+
+  .rio-plan-preview {
+    inline-size: 100%;
+    max-block-size: calc(100dvh - var(--rio-space-4));
+  }
+
+  .rio-plan-preview__targets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+    margin-block: var(--rio-space-3);
+  }
+
+  .rio-plan-preview__surface {
+    position: relative;
+    min-block-size: 360px;
+    border: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    overflow: auto;
+  }
+
+  .rio-plan-preview__surface > .rio-grid-view {
+    block-size: 360px;
+  }
+
+  @media (max-width: 767px) {
+    .rio-plan-preview-modal {
+      inline-size: 100vw;
+    }
+
+    .rio-plan-preview {
+      max-block-size: 100dvh;
+    }
+  }
+}
+
+.rio-plan-details pre {
+  max-height: 20rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  unicode-bidi: plaintext;
+}

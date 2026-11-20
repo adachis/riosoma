@@ -1,0 +1,29 @@
+/* MOTION
+   Brutalist motion is a CUT, not a curve. Transitions are near-instant and
+   step-like; nothing eases in from below, nothing bounces, nothing fades
+   slowly. Longer moves are reserved for marquees and glitch loops. */
+
+:root{
+  --dur-instant:0ms; /* @kind other */
+  --dur-snap:60ms; /* @kind other */
+  --dur-quick:110ms; /* @kind other */
+  --dur-marquee:22s; /* @kind other */
+  --dur-glitch:2.4s; /* @kind other */
+  --dur-blink:1.05s; /* @kind other */
+
+  --ease-cut:steps(1,end); /* @kind other */
+  --ease-step-3:steps(3,end); /* @kind other */
+  --ease-flat:linear; /* @kind other */
+  --ease-hard:cubic-bezier(.2,0,0,1); /* @kind other */
+
+  --transition-control:background-color var(--dur-snap) var(--ease-flat),color var(--dur-snap) var(--ease-flat),border-color var(--dur-snap) var(--ease-flat); /* @kind other */
+  --transition-none:none; /* @kind other */
+}
+
+@media (prefers-reduced-motion:reduce){
+  :root{
+    --dur-marquee:0s; /* @kind other */
+    --dur-glitch:0s; /* @kind other */
+    --dur-blink:0s; /* @kind other */
+  }
+}

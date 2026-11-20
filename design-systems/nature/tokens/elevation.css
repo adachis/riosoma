@@ -1,0 +1,6 @@
+/* Elevation is restrained. The shadow and overlay values themselves live in
+   tokens/theme.css so they can pick up each theme's ink and paper. */
+:root{
+  --nt-shadow-none:none;
+  --nt-glass-blur:blur(5px); /* @kind other */
+}

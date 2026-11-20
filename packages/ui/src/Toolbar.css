@@ -1,0 +1,38 @@
+@layer rio.components {
+  /* A toolbar is a layout, so it has no surface of its own; it only spaces the controls in it and
+     keeps a stable height so a row of buttons never changes the frame around it. */
+  .rio-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-block-size: var(--rio-toolbar-height);
+    min-inline-size: 0;
+    padding-inline: var(--rio-space-2);
+  }
+
+  .rio-toolbar[data-density='compact'] {
+    gap: var(--rio-space-1);
+    min-block-size: var(--rio-control-height);
+    padding-inline: var(--rio-space-1);
+  }
+
+  .rio-toolbar[data-orientation='vertical'] {
+    flex-direction: column;
+    align-items: stretch;
+    min-block-size: 0;
+    padding-inline: 0;
+    padding-block: var(--rio-space-2);
+  }
+
+  /* A divider in a row is as tall as a small control and sits on the row's middle, instead of
+     stretching over the toolbar's own padding. */
+  .rio-toolbar[data-orientation='horizontal'] .rio-separator[aria-orientation='vertical'] {
+    align-self: center;
+    block-size: var(--rio-control-height-sm);
+    min-block-size: 0;
+  }
+
+  .rio-toolbar[data-orientation='vertical'] .rio-separator:not([aria-orientation='vertical']) {
+    margin-block: var(--rio-space-1);
+  }
+}

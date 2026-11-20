@@ -1,0 +1,122 @@
+@layer rio.app {
+  .rio-brand[data-introduce='true'] :is(#letter-r, #letter-i, #letters-oso, #letter-m, #letter-a) {
+    animation: rio-brand-rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  }
+  .rio-brand[data-introduce='true'] #letter-i {
+    animation-delay: 80ms;
+  }
+  .rio-brand[data-introduce='true'] #letters-oso {
+    animation-delay: 160ms;
+  }
+  .rio-brand[data-introduce='true'] #letter-m {
+    animation-delay: 240ms;
+  }
+  .rio-brand[data-introduce='true'] #letter-a {
+    animation-delay: 320ms;
+  }
+  .rio-brand[data-introduce='true'] #leaf {
+    animation:
+      rio-brand-pop 800ms 600ms cubic-bezier(0.3, 1.6, 0.5, 1) backwards,
+      rio-brand-sway 3200ms 1400ms ease-in-out;
+  }
+  .rio-brand[data-introduce='true'] #body {
+    animation: rio-brand-body 700ms cubic-bezier(0.3, 1.4, 0.5, 1) backwards;
+  }
+  .rio-brand[data-introduce='true'] :is(#openings, #highlights) path {
+    animation: rio-brand-detail 450ms calc(400ms + var(--rio-brand-step, 0) * 50ms)
+      cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  }
+  .rio-brand #opening-left {
+    --rio-brand-step: 1;
+  }
+  .rio-brand #opening-right {
+    --rio-brand-step: 2;
+  }
+  .rio-brand #highlight-1 {
+    --rio-brand-step: 3;
+  }
+  .rio-brand #highlight-2 {
+    --rio-brand-step: 4;
+  }
+  .rio-brand #highlight-3 {
+    --rio-brand-step: 5;
+  }
+  .rio-brand #highlight-4 {
+    --rio-brand-step: 6;
+  }
+  .rio-brand #highlight-5 {
+    --rio-brand-step: 7;
+  }
+  .rio-brand #highlight-6 {
+    --rio-brand-step: 8;
+  }
+  .rio-brand #highlight-7 {
+    --rio-brand-step: 9;
+  }
+  .rio-brand[data-introduce='true'] :is(#eye-left, #eye-right) {
+    animation: rio-brand-blink 3600ms 900ms;
+  }
+  .rio-brand[data-introduce='true'] #riosoma-mascot {
+    animation: rio-brand-bob 3000ms 1000ms ease-in-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rio-brand * {
+      animation: none !important;
+    }
+  }
+  @keyframes rio-brand-rise {
+    from {
+      transform: translateY(40%);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @keyframes rio-brand-pop {
+    from {
+      transform: scale(0) rotate(-40deg);
+    }
+    to {
+      transform: none;
+    }
+  }
+  @keyframes rio-brand-detail {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: none;
+    }
+  }
+  @keyframes rio-brand-body {
+    from {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @keyframes rio-brand-sway {
+    50% {
+      transform: rotate(-6deg);
+    }
+  }
+  @keyframes rio-brand-blink {
+    92%,
+    100% {
+      transform: scaleY(1);
+    }
+    96% {
+      transform: scaleY(0.1);
+    }
+  }
+  @keyframes rio-brand-bob {
+    50% {
+      transform: translateY(-1.5%);
+    }
+  }
+}

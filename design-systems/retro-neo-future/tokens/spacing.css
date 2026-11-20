@@ -1,0 +1,11 @@
+:root{
+--sp-0:0; /* @kind spacing */--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;
+--sp-7:32px;--sp-8:40px;--sp-9:48px;--sp-10:64px;--sp-11:80px;--sp-12:96px;--sp-13:128px;--sp-14:160px;
+--gutter:24px; /* @kind spacing */--gutter-lg:48px; /* @kind spacing */
+--container:1240px; /* @kind spacing */--container-narrow:820px; /* @kind spacing */--container-wide:1600px; /* @kind spacing */
+--section-y:var(--sp-13); /* @kind spacing */--section-y-sm:var(--sp-10); /* @kind spacing */
+--panel-pad:20px; /* @kind spacing */--panel-pad-sm:14px; /* @kind spacing */--card-pad:24px; /* @kind spacing */
+--control-h-sm:30px; /* @kind spacing */--control-h:38px; /* @kind spacing */--control-h-lg:48px; /* @kind spacing */--control-h-xl:58px; /* @kind spacing */
+--hit-min:44px; /* @kind spacing */
+--sidebar-w:248px; /* @kind spacing */--sidebar-w-collapsed:68px; /* @kind spacing */--titlebar-h:44px; /* @kind spacing */--tabbar-h:56px; /* @kind spacing */--topnav-h:72px; /* @kind spacing */
+}

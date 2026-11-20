@@ -1,0 +1,4 @@
+/* Fonts — Archivo Black (display) + Azeret Mono (everything else).
+   No binaries shipped with the source kit; both faces are served from Google Fonts. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Azeret+Mono:wght@300;400;500;600;700&display=swap");
+:root{--gl-font-display:"Archivo Black","Arial Black",Impact,sans-serif;--gl-font-mono:"Azeret Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;--gl-font-body:var(--gl-font-mono);--gl-font-ui:var(--gl-font-mono)}

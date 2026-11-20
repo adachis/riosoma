@@ -1,0 +1,225 @@
+@layer rio.components {
+  /* A card of its own, so it looks the same in a popover and standing on a page. */
+  .rio-calendar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+    border: 1px solid transparent;
+    /* Reserve six weeks so paging between months never resizes the calendar. */
+    min-block-size: calc(
+      var(--rio-space-3) * 2 + var(--rio-control-height-sm) + var(--rio-space-2) + var(--rio-space-6) +
+        var(--rio-space-8) * 6 + 2px
+    );
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-sm);
+    box-shadow: var(--rio-shadow-2);
+  }
+
+  .rio-calendar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+    block-size: var(--rio-control-height-sm);
+  }
+
+  /* The month's name; React Aria keeps the accessible copy of it elsewhere, so this one only has
+     to hold its line. */
+  .rio-calendar__title {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    margin: 0;
+    color: var(--rio-text);
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-bold);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .rio-calendar__nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    inline-size: var(--rio-control-height-sm);
+    block-size: var(--rio-control-height-sm);
+    padding: 0;
+    border: 0;
+    border-radius: var(--rio-radius);
+    background-color: transparent;
+    color: var(--rio-aa-text-muted);
+    font: inherit;
+    cursor: pointer;
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-calendar__nav[data-hovered] {
+    background-color: var(--rio-hover);
+    color: var(--rio-text);
+  }
+
+  .rio-calendar__nav:dir(rtl) svg {
+    scale: -1 1;
+  }
+
+  .rio-calendar__nav[data-pressed] {
+    background-color: var(--rio-pressed);
+  }
+
+  .rio-calendar__nav[data-focus-visible] {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+    color: var(--rio-text);
+  }
+
+  /* Unavailable at a bound, not missing: the month keeps its two buttons either way. */
+  .rio-calendar__nav[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-calendar__grid {
+    border-spacing: 0;
+  }
+
+  .rio-calendar__weekday {
+    inline-size: var(--rio-space-8);
+    block-size: var(--rio-space-6);
+    padding: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-medium);
+    text-align: center;
+  }
+
+  .rio-calendar__grid td {
+    padding: 0;
+  }
+
+  /* Every day keeps the same box, whatever state it is in. */
+  .rio-calendar__day {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--rio-space-8);
+    block-size: var(--rio-space-8);
+    border-radius: var(--rio-radius);
+    color: var(--rio-text);
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    outline: none;
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-calendar__day[data-outside-month] {
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* Today is bold with a dot under it, so it stays marked once the accent means "chosen". */
+  .rio-calendar__day[data-today] {
+    font-weight: var(--rio-weight-bold);
+  }
+
+  .rio-calendar__day[data-today]::after {
+    content: '';
+    position: absolute;
+    inset-block-end: var(--rio-space-1);
+    inset-inline-start: 50%;
+    translate: -50% 0;
+    inline-size: var(--rio-space-1);
+    block-size: var(--rio-space-1);
+    border-radius: 50%;
+    background-color: currentColor;
+  }
+
+  .rio-calendar__day[data-hovered] {
+    background-color: var(--rio-hover);
+  }
+
+  .rio-calendar__day[data-pressed] {
+    background-color: var(--rio-pressed);
+  }
+
+  .rio-calendar__day[data-selected] {
+    background-color: var(--rio-accent);
+    color: var(--rio-aa-on-accent);
+  }
+
+  /* Hover and press tint the chosen day without replacing its fill, the way a button does. */
+  .rio-calendar__day[data-selected][data-hovered] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-calendar__day[data-selected][data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-calendar__day[data-focus-visible] {
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  /* A day nobody may choose stays in the month, struck through, so the grid never has a hole. */
+  .rio-calendar__day[data-unavailable] {
+    color: var(--rio-aa-danger-text);
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+
+  .rio-calendar__day[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    .rio-calendar {
+      border: 1px solid CanvasText;
+      box-shadow: none;
+    }
+
+    .rio-calendar__nav,
+    .rio-calendar__day {
+      color: ButtonText;
+    }
+
+    .rio-calendar__nav[data-focus-visible],
+    .rio-calendar__day[data-focus-visible] {
+      outline: 2px solid Highlight;
+      outline-offset: 1px;
+      box-shadow: none;
+    }
+
+    .rio-calendar__day[data-selected] {
+      forced-color-adjust: none;
+      background-color: Highlight;
+      color: HighlightText;
+    }
+
+    /* A dot in the page's own color would disappear, so today keeps the system's. */
+    .rio-calendar__day[data-today]::after {
+      background-color: CanvasText;
+    }
+
+    .rio-calendar__day[data-selected][data-today]::after {
+      background-color: HighlightText;
+    }
+
+    .rio-calendar__day[data-unavailable] {
+      color: GrayText;
+    }
+
+    .rio-calendar__day[data-disabled] {
+      color: GrayText;
+      opacity: 1;
+    }
+  }
+}

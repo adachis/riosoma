@@ -1,0 +1,275 @@
+/* 12 accent schemes + the monochrome default.
+   Apply with data-theme on <html>, <body>, or any container:
+     <body data-theme="lagoon">
+   Every scheme sets the same contract: --accent, --accent-2..5, --accent-ink,
+   --accent-soft, --accent-on-soft, --paper-tint, and the raw source ramp --c1..--cN.
+   --accent-on-soft is the ONLY legal foreground on --accent-soft: in light-accent schemes
+   --accent itself drops below 3:1 there, so those schemes darken it.
+   Paper and ink neutrals do NOT change between schemes: the system is a
+   monochrome document system with one swappable accent voice. */
+
+/* Monochrome (default) */
+:root,
+[data-theme="mono"]{
+  --theme-name:"Monochrome (default)"; /* @kind other */
+  --accent:#0e0e0d;
+  --accent-2:#3d3d39;
+  --accent-3:#84847c;
+  --accent-4:#d8d8d2;
+  --accent-5:#f1f1ee;
+  --accent-ink:#ffffff;
+  --accent-on-soft:var(--ink-0);
+  --accent-soft:#f1f1ee;
+  --paper-tint:#f8f8f6;
+  --c1:#0e0e0d;
+  --c2:#3d3d39;
+  --c3:#5f5f59;
+  --c4:#84847c;
+  --c5:#a9a9a0;
+  --c6:#d8d8d2;
+  --c-count:6; /* @kind other */
+}
+
+/* Spectrum */
+[data-theme="spectrum"]{
+  --theme-name:"Spectrum"; /* @kind other */
+  --accent:#277da1;
+  --accent-2:#f94144;
+  --accent-3:#f9c74f;
+  --accent-4:#90be6d;
+  --accent-5:#577590;
+  --accent-ink:#ffffff;
+  --accent-on-soft:#1c4a5e;
+  --accent-soft:#eaf2f6;
+  --paper-tint:#fcfbf8;
+  --c1:#f94144;
+  --c2:#f3722c;
+  --c3:#f8961e;
+  --c4:#f9844a;
+  --c5:#f9c74f;
+  --c6:#90be6d;
+  --c7:#43aa8b;
+  --c8:#4d908e;
+  --c9:#577590;
+  --c10:#277da1;
+  --c-count:10; /* @kind other */
+}
+
+/* Midnight */
+[data-theme="midnight"]{
+  --theme-name:"Midnight"; /* @kind other */
+  --accent:#003566;
+  --accent-2:#001d3d;
+  --accent-3:#ffc300;
+  --accent-4:#ffd60a;
+  --accent-5:#000814;
+  --accent-ink:#ffffff;
+  --accent-on-soft:var(--accent);
+  --accent-soft:#e6edf4;
+  --paper-tint:#f6f7f9;
+  --c1:#000814;
+  --c2:#001d3d;
+  --c3:#003566;
+  --c4:#ffc300;
+  --c5:#ffd60a;
+  --c-count:5; /* @kind other */
+}
+
+/* Electric */
+[data-theme="electric"]{
+  --theme-name:"Electric"; /* @kind other */
+  --accent:#ff0054;
+  --accent-2:#390099;
+  --accent-3:#9e0059;
+  --accent-4:#ff5400;
+  --accent-5:#ffbd00;
+  --accent-ink:#0e0e0d;
+  --accent-on-soft:#8a004d;
+  --accent-soft:#ffe9f0;
+  --paper-tint:#fff9fa;
+  --c1:#390099;
+  --c2:#9e0059;
+  --c3:#ff0054;
+  --c4:#ff5400;
+  --c5:#ffbd00;
+  --c-count:5; /* @kind other */
+}
+
+/* Archive */
+[data-theme="archive"]{
+  --theme-name:"Archive"; /* @kind other */
+  --accent:#1d3557;
+  --accent-2:#457b9d;
+  --accent-3:#a8dadc;
+  --accent-4:#e63946;
+  --accent-5:#f1faee;
+  --accent-ink:#ffffff;
+  --accent-on-soft:var(--accent);
+  --accent-soft:#e8eef3;
+  --paper-tint:#f7fbf6;
+  --c1:#e63946;
+  --c2:#f1faee;
+  --c3:#a8dadc;
+  --c4:#457b9d;
+  --c5:#1d3557;
+  --c-count:5; /* @kind other */
+}
+
+/* Apricot */
+[data-theme="apricot"]{
+  --theme-name:"Apricot"; /* @kind other */
+  --accent:#f28482;
+  --accent-2:#84a59d;
+  --accent-3:#f6bd60;
+  --accent-4:#f5cac3;
+  --accent-5:#f7ede2;
+  --accent-ink:#2a1b18;
+  --accent-on-soft:#8a2f2d;
+  --accent-soft:#fdedec;
+  --paper-tint:#fdf7f1;
+  --c1:#f6bd60;
+  --c2:#f7ede2;
+  --c3:#f5cac3;
+  --c4:#84a59d;
+  --c5:#f28482;
+  --c-count:5; /* @kind other */
+}
+
+/* Field */
+[data-theme="field"]{
+  --theme-name:"Field"; /* @kind other */
+  --accent:#fe7f2d;
+  --accent-2:#233d4d;
+  --accent-3:#fcca46;
+  --accent-4:#a1c181;
+  --accent-5:#619b8a;
+  --accent-ink:#1a1206;
+  --accent-on-soft:#8a3d06;
+  --accent-soft:#fff0e4;
+  --paper-tint:#fbfaf6;
+  --c1:#233d4d;
+  --c2:#fe7f2d;
+  --c3:#fcca46;
+  --c4:#a1c181;
+  --c5:#619b8a;
+  --c-count:5; /* @kind other */
+}
+
+/* Lagoon */
+[data-theme="lagoon"]{
+  --theme-name:"Lagoon"; /* @kind other */
+  --accent:#22577a;
+  --accent-2:#38a3a5;
+  --accent-3:#57cc99;
+  --accent-4:#80ed99;
+  --accent-5:#c7f9cc;
+  --accent-ink:#ffffff;
+  --accent-on-soft:var(--accent);
+  --accent-soft:#e7f1f5;
+  --paper-tint:#f5fbf8;
+  --c1:#22577a;
+  --c2:#38a3a5;
+  --c3:#57cc99;
+  --c4:#80ed99;
+  --c5:#c7f9cc;
+  --c-count:5; /* @kind other */
+}
+
+/* Signal */
+[data-theme="signal"]{
+  --theme-name:"Signal"; /* @kind other */
+  --accent:#2e5339;
+  --accent-2:#495f41;
+  --accent-3:#00fddc;
+  --accent-4:#ff5666;
+  --accent-5:#ffccc9;
+  --accent-ink:#ffffff;
+  --accent-on-soft:var(--accent);
+  --accent-soft:#e7efe9;
+  --paper-tint:#f7f9f6;
+  --c1:#00fddc;
+  --c2:#2e5339;
+  --c3:#495f41;
+  --c4:#ff5666;
+  --c5:#ffccc9;
+  --c-count:5; /* @kind other */
+}
+
+/* Candy */
+[data-theme="candy"]{
+  --theme-name:"Candy"; /* @kind other */
+  --accent:#ff70a6;
+  --accent-2:#70d6ff;
+  --accent-3:#ff9770;
+  --accent-4:#ffd670;
+  --accent-5:#fff3d6;
+  --accent-ink:#2b1220;
+  --accent-on-soft:#a3195b;
+  --accent-soft:#ffeaf2;
+  --paper-tint:#fbfaff;
+  --c1:#70d6ff;
+  --c2:#ff70a6;
+  --c3:#ff9770;
+  --c4:#ffd670;
+  --c-count:4; /* @kind other */
+}
+
+/* Reef */
+[data-theme="reef"]{
+  --theme-name:"Reef"; /* @kind other */
+  --accent:#247ba0;
+  --accent-2:#70c1b3;
+  --accent-3:#b2dbbf;
+  --accent-4:#f3ffbd;
+  --accent-5:#ff1654;
+  --accent-ink:#ffffff;
+  --accent-on-soft:#1a5a76;
+  --accent-soft:#e7f0f5;
+  --paper-tint:#fafdf3;
+  --c1:#247ba0;
+  --c2:#70c1b3;
+  --c3:#b2dbbf;
+  --c4:#f3ffbd;
+  --c5:#ff1654;
+  --c-count:5; /* @kind other */
+}
+
+/* Press */
+[data-theme="press"]{
+  --theme-name:"Press"; /* @kind other */
+  --accent:#083d77;
+  --accent-2:#f4d35e;
+  --accent-3:#ee964b;
+  --accent-4:#f95738;
+  --accent-5:#ebebd3;
+  --accent-ink:#ffffff;
+  --accent-on-soft:var(--accent);
+  --accent-soft:#e5ebf2;
+  --paper-tint:#fafaf2;
+  --c1:#083d77;
+  --c2:#ebebd3;
+  --c3:#f4d35e;
+  --c4:#ee964b;
+  --c5:#f95738;
+  --c-count:5; /* @kind other */
+}
+
+/* Sage */
+[data-theme="sage"]{
+  --theme-name:"Sage"; /* @kind other */
+  --accent:#3c493f;
+  --accent-2:#7e8d85;
+  --accent-3:#b3bfb8;
+  --accent-4:#a2e3c4;
+  --accent-5:#f0f7f4;
+  --accent-ink:#ffffff;
+  --accent-on-soft:var(--accent);
+  --accent-soft:#e9eeeb;
+  --paper-tint:#f6f8f6;
+  --c1:#3c493f;
+  --c2:#7e8d85;
+  --c3:#b3bfb8;
+  --c4:#f0f7f4;
+  --c5:#a2e3c4;
+  --c-count:5; /* @kind other */
+}

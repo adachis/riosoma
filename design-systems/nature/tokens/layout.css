@@ -1,0 +1,17 @@
+:root{
+  --nt-container:1296px;
+  --nt-container-narrow:880px;
+  --nt-gutter:24px;
+  --nt-measure:70ch; /* @kind other */
+
+  --nt-header-h:88px;
+  --nt-titlebar-h:38px;
+  --nt-tabbar-h:56px;
+
+  --nt-z-base:1; /* @kind other */
+  --nt-z-sticky:100; /* @kind other */
+  --nt-z-header:200; /* @kind other */
+  --nt-z-overlay:800; /* @kind other */
+  --nt-z-modal:900; /* @kind other */
+  --nt-z-toast:1000; /* @kind other */
+}

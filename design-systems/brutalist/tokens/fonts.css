@@ -1,0 +1,44 @@
+/* Webfonts shipped with this system. All licensed display/text faces from the
+   attached "Brutalism Assets" library. Monospace is a system stack (no mono
+   face existed in the source library) — see readme.md TYPE. */
+
+@font-face{font-family:"Concrete Condensed";src:url("../assets/fonts/ConcreteCondensed-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Concrete Condensed";src:url("../assets/fonts/ConcreteCondensed-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:block}
+@font-face{font-family:"Railtown Condensed";src:url("../assets/fonts/RailtownCondensed-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Skyliner Condensed";src:url("../assets/fonts/SkylinerCondensed-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Voltage Condensed";src:url("../assets/fonts/VoltageCondensed-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:block}
+
+@font-face{font-family:"Timun";src:url("../assets/fonts/Timun-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Timun";src:url("../assets/fonts/Timun-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Timun";src:url("../assets/fonts/Timun-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Timun";src:url("../assets/fonts/Timun-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
+
+@font-face{font-family:"Beinhart";src:url("../assets/fonts/Beinhart.ttf") format("truetype");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Heavy Brutalist";src:url("../assets/fonts/HeavyBrutalist.otf") format("opentype");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Brutalist Bold";src:url("../assets/fonts/BrutalistBold.otf") format("opentype");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Base Edge";src:url("../assets/fonts/BaseEdge.otf") format("opentype");font-weight:400;font-style:normal;font-display:block}
+
+:root{
+  /* families */
+  --font-condensed:"Concrete Condensed","Arial Narrow",sans-serif;
+  --font-condensed-alt:"Railtown Condensed","Concrete Condensed","Arial Narrow",sans-serif;
+  --font-condensed-tall:"Skyliner Condensed","Concrete Condensed","Arial Narrow",sans-serif;
+  --font-condensed-tech:"Voltage Condensed","Concrete Condensed","Arial Narrow",sans-serif;
+  --font-core:"Timun","Helvetica Neue",Helvetica,sans-serif;
+  --font-slab:"Beinhart","Timun",sans-serif;
+  --font-heavy:"Heavy Brutalist","Timun",sans-serif;
+  --font-poster:"Brutalist Bold","Timun",sans-serif;
+  --font-edge:"Base Edge","Timun",sans-serif;
+  --font-mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+  /* raw defaults — brutalism uses the browser's own faces on purpose */
+  --font-grotesk:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-serif:"Times New Roman",Times,serif;
+
+  /* roles */
+  --font-display:var(--font-condensed);
+  --font-ui:var(--font-core);
+  --font-body:var(--font-grotesk);
+  --font-editorial:var(--font-serif);
+  --font-label:var(--font-mono);
+  --font-data:var(--font-mono);
+}

@@ -1,0 +1,11 @@
+/* Kicks type stack. No binaries were supplied with the source packs, so the three
+   roles are served from Google Fonts. Swap the @import for local @font-face rules
+   if licensed binaries become available. */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
+
+:root{
+  --k-font-display:"Anton","Arial Narrow",Impact,sans-serif;
+  --k-font-body:"Manrope","Helvetica Neue",Helvetica,sans-serif;
+  --k-font-mono:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --k-font-sans:var(--k-font-body);
+}

@@ -1,0 +1,205 @@
+@layer rio.components {
+  .rio-sortable-item,
+  .rio-sortable-end {
+    position: relative;
+    min-inline-size: 0;
+  }
+  .rio-layout-activator {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    inline-size: var(--rio-target-min);
+    block-size: var(--rio-control-height);
+    opacity: 0;
+    pointer-events: none;
+  }
+  article:has(> .rio-layout-activator:focus-visible) {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: var(--rio-space-1);
+  }
+  .rio-sortable-item[data-dragging] {
+    outline: 1px dashed var(--rio-aa-focus);
+    outline-offset: var(--rio-space-1);
+  }
+  .rio-sortable-grip {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+  }
+  .rio-sortable-handle {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    opacity: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--rio-target-min);
+    inline-size: var(--rio-target-min);
+    min-block-size: max(var(--rio-control-height), var(--rio-target-primary));
+    padding: var(--rio-space-1);
+    border: 0;
+    border-radius: var(--rio-radius);
+    background: transparent;
+    color: var(--rio-aa-text-muted);
+    cursor: grab;
+    touch-action: manipulation;
+  }
+  .rio-sortable-item[data-sortable-controls]:is(:hover, :focus-within) > .rio-sortable-handle,
+  .rio-sortable-item[data-sortable-controls]:is(:hover, :focus-within)
+    > .rio-sortable-grip
+    .rio-sortable-handle,
+  tr.rio-sortable-item[data-sortable-controls]:is(:hover, :focus-within)
+    > td:first-child
+    > .rio-sortable-handle {
+    opacity: 1;
+    background: var(--rio-surface);
+  }
+  .rio-sortable-item:not([data-sortable-controls]) > .rio-sortable-handle svg {
+    visibility: hidden;
+  }
+  .rio-sortable-item:not([data-sortable-controls]) > .rio-sortable-handle {
+    pointer-events: none;
+  }
+  .rio-sortable-item:has(> .rio-sortable-handle:focus-visible) {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: var(--rio-space-1);
+  }
+  .rio-sortable-actions {
+    position: absolute;
+    inset-inline-end: var(--rio-space-1);
+    inset-block-start: 0;
+    opacity: 0;
+  }
+  .rio-sortable-item:is(:hover, :focus-within) > .rio-sortable-actions,
+  .rio-sortable-surface:is(:hover, :focus-within) > .rio-sortable-actions,
+  .rio-sortable-actions:has([aria-expanded='true']) {
+    opacity: 1;
+  }
+  .rio-sortable-item[data-sortable-menu] {
+    padding-inline-end: calc(max(var(--rio-control-height), var(--rio-target-primary)) + var(--rio-space-2));
+  }
+  .rio-sortable-surface {
+    position: relative;
+    padding-inline-end: calc(max(var(--rio-control-height), var(--rio-target-primary)) + var(--rio-space-2));
+  }
+  .rio-sortable-item[data-sortable-controls] {
+    padding-inline-start: var(--rio-space-6);
+  }
+  tr.rio-sortable-item > td:first-child,
+  tr.rio-sortable-item > td:last-child {
+    position: relative;
+  }
+  tr.rio-sortable-item > td:first-child {
+    padding-inline-start: var(--rio-space-6);
+    padding-inline-end: var(--rio-space-1);
+    min-block-size: max(var(--rio-control-height), var(--rio-target-primary));
+  }
+  tr.rio-sortable-item[data-sortable-menu] > td:last-child {
+    padding-inline-start: var(--rio-space-1);
+    padding-inline-end: calc(max(var(--rio-control-height), var(--rio-target-primary)) + var(--rio-space-2));
+  }
+  tr.rio-sortable-item:is(:hover, :focus-within) > td > .rio-sortable-actions {
+    opacity: 1;
+  }
+  @media (hover: none) {
+    .rio-sortable-handle {
+      pointer-events: none;
+    }
+    .rio-sortable-actions {
+      opacity: 1;
+    }
+  }
+  .rio-sortable-handle:focus-visible {
+    outline: 2px solid var(--rio-aa-focus);
+  }
+  .rio-sortable-handle:disabled {
+    cursor: default;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-sortable-item[data-drop-before]::before,
+  .rio-sortable-end[data-drop-before]::before {
+    content: '';
+    position: absolute;
+    inset-block-start: calc(-1 * var(--rio-space-1));
+    inset-inline: 0;
+    border-block-start: 3px solid var(--rio-aa-focus);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .rio-sortable-item[data-orientation='horizontal'][data-drop-before]::before,
+  .rio-sortable-item[data-orientation='grid'][data-drop-before]::before,
+  .rio-sortable-end[data-orientation='horizontal'][data-drop-before]::before,
+  .rio-sortable-end[data-orientation='grid'][data-drop-before]::before {
+    inset-block: 0;
+    inset-inline-start: calc(-1 * var(--rio-space-1));
+    inset-inline-end: auto;
+    border-block-start: 0;
+    border-inline-start: 3px solid var(--rio-aa-focus);
+  }
+  .rio-sortable-end {
+    block-size: var(--rio-space-6);
+    white-space: nowrap;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-sortable-end:not([data-active]) {
+    visibility: hidden;
+  }
+  .rio-sortable-overlay {
+    z-index: var(--rio-z-tooltip) !important;
+    inline-size: max-content !important;
+    block-size: auto !important;
+    max-inline-size: calc(100vi - var(--rio-space-6));
+    padding: var(--rio-space-2) var(--rio-space-3);
+    border: 2px solid var(--rio-aa-focus);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    box-shadow: var(--rio-shadow-2);
+    cursor: grabbing;
+    pointer-events: none;
+  }
+  .rio-sortable-announcement,
+  .rio-sortable-description {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    /* Keeps the hidden text from extending the page by a pixel when it sits in the body. */
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rio-sortable-item,
+    .rio-sortable-overlay {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+@layer rio.components {
+  .rio-sortable-target[data-drop-target] {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: var(--rio-space-1);
+  }
+  .rio-sortable-refusal {
+    position: fixed;
+    inset-block-end: var(--rio-space-4);
+    inset-inline: var(--rio-space-4);
+    z-index: var(--rio-z-tooltip);
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-aa-focus);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+  }
+}
+
+.rio-sortable-refusal:empty {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}

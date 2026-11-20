@@ -1,0 +1,23 @@
+@layer rio.components {
+  .rio-label {
+    display: block;
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    line-height: var(--rio-leading-tight);
+  }
+
+  .rio-description {
+    display: block;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-normal);
+  }
+
+  .rio-field-error {
+    display: block;
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-normal);
+  }
+}

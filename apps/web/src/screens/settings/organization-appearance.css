@@ -1,0 +1,38 @@
+@layer rio.app {
+  .rio-organization-appearance {
+    display: grid;
+    gap: var(--rio-space-4);
+    max-inline-size: 640px;
+  }
+  .rio-organization-appearance label {
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+  .rio-organization-appearance input {
+    max-inline-size: 100%;
+    color: var(--rio-text);
+  }
+  .rio-logo-previews {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--rio-space-3);
+  }
+  .rio-logo-preview {
+    display: grid;
+    gap: var(--rio-space-3);
+    padding: var(--rio-space-4);
+    background: var(--rio-preview-background);
+    color: var(--rio-preview-ink);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-logo-preview__art {
+    --rio-text: var(--rio-preview-ink);
+    --rio-surface: var(--rio-preview-background);
+  }
+  @media (max-width: 640px) {
+    .rio-logo-previews {
+      grid-template-columns: 1fr;
+    }
+  }
+}

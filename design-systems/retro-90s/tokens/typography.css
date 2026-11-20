@@ -1,0 +1,29 @@
+:root{
+  /* Type scale — 1.25 major third, snapped to whole pixels */
+  --fs-3xs:10px;
+  --fs-2xs:11px;
+  --fs-xs:12px;
+  --fs-sm:14px;
+  --fs-md:16px;
+  --fs-lg:20px;
+  --fs-xl:25px;
+  --fs-2xl:31px;
+  --fs-3xl:39px;
+  --fs-4xl:49px;
+  --fs-5xl:61px;
+  --fs-6xl:76px;
+
+  --lh-tight:1.02; /* @kind font */
+  --lh-snug:1.16; /* @kind font */
+  --lh-normal:1.5; /* @kind font */
+  --lh-loose:1.7; /* @kind font */
+
+  --ls-display:-0.02em; /* @kind font */
+  --ls-normal:0em; /* @kind font */
+  --ls-wide:0.06em; /* @kind font */
+  --ls-shout:0.14em; /* @kind font */
+
+  --fw-regular:400; /* @kind font */
+  --fw-medium:500; /* @kind font */
+  --fw-bold:700; /* @kind font */
+}

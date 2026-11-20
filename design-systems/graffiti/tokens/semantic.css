@@ -1,0 +1,48 @@
+/* Graffiti — semantic aliases. Build with these, not with raw palette values.
+   Default surface is the WALL (dark). Add data-gf-surface="paper" for print + light UI. */
+:root{
+  --gf-bg:var(--gf-theme-wall);
+  --gf-bg-raised:var(--gf-wall-2);
+  --gf-bg-sunken:var(--gf-wall-0);
+  --gf-surface-card:var(--gf-wall-2);
+  --gf-surface-overlay:var(--gf-scrim-ink-70);
+
+  --gf-text-body:var(--gf-chalk-1);
+  --gf-text-muted:var(--gf-chalk-3);
+  --gf-text-heading:var(--gf-paper-0);
+  --gf-text-inverse:var(--gf-ink);
+  --gf-text-link:var(--gf-accent);
+  --gf-text-link-hover:var(--gf-accent-2);
+  --gf-text-on-accent:var(--gf-on-accent);
+
+  --gf-line:var(--gf-wall-4);
+  --gf-line-strong:var(--gf-chalk-1);
+  --gf-keyline:var(--gf-ink);
+
+  --gf-field-bg:var(--gf-wall-1);
+  --gf-field-text:var(--gf-chalk-1);
+  --gf-field-placeholder:var(--gf-chalk-3);
+  --gf-field-border:var(--gf-chalk-2);
+
+  --gf-tape:var(--gf-accent-2);
+}
+
+[data-gf-surface="paper"]{
+  --gf-bg:var(--gf-theme-paper);
+  --gf-bg-raised:var(--gf-paper-0);
+  --gf-bg-sunken:var(--gf-paper-2);
+  --gf-surface-card:var(--gf-paper-0);
+  --gf-surface-overlay:var(--gf-scrim-paper-85);
+
+  --gf-text-body:var(--gf-ink);
+  --gf-text-muted:#5A554C;
+  --gf-text-heading:var(--gf-ink);
+  --gf-text-inverse:var(--gf-paper-1);
+  --gf-line:var(--gf-paper-3);
+  --gf-line-strong:var(--gf-ink);
+
+  --gf-field-bg:var(--gf-paper-0);
+  --gf-field-text:var(--gf-ink);
+  --gf-field-placeholder:#8A8478;
+  --gf-field-border:var(--gf-ink);
+}

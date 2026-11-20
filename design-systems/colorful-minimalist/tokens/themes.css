@@ -1,0 +1,500 @@
+/* Colorful Minimalist — 12 color schemes.
+   Default scheme is "spectrum", applied to :root. Any subtree can be re-themed:
+     <div data-theme="ember"> … </div>
+   Scheme names: spectrum, midnight, neonviolet, signal, apricot, field, mint, fernpop, candy, lagoon, ember, sage
+   Where a source palette had no green/amber/red for status, that value is derived in the
+   palette's own hue family rather than borrowed from another scheme. */
+
+:root{
+  --theme-name:"spectrum"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f6f4f1;
+  --surface:#ffffff;
+  --surface-2:#faf8f6;
+  --ink:#16232b;
+  --ink-2:#4b5c66;
+  --ink-3:#637078;
+  --line:#e4e2de;
+  --line-strong:#16232b;
+  --accent:#f94144;
+  --on-accent:#111a20;
+  --accent-2:#277da1;
+  --on-accent-2:#ffffff;
+  --accent-3:#f9c74f;
+  --on-accent-3:#16232b;
+  --pop:#f8961e;
+  --success:#43aa8b;
+  --on-success:#111a20;
+  --warning:#f9c74f;
+  --on-warning:#16232b;
+  --danger:#f94144;
+  --on-danger:#111a20;
+  --info:#4d908e;
+  --on-info:#111a20;
+  --invert:#16232b;
+  --on-invert:#f6f4f1;
+  --focus:#277da1;
+  --chart-1:#f94144;
+  --chart-2:#f8961e;
+  --chart-3:#f9c74f;
+  --chart-4:#90be6d;
+  --chart-5:#43aa8b;
+  --chart-6:#277da1;
+}
+
+[data-theme="spectrum"]{
+  --theme-name:"spectrum"; /* @kind other */
+  --theme-label:"Spectrum"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f6f4f1;
+  --surface:#ffffff;
+  --surface-2:#faf8f6;
+  --ink:#16232b;
+  --ink-2:#4b5c66;
+  --ink-3:#637078;
+  --line:#e4e2de;
+  --line-strong:#16232b;
+  --accent:#f94144;
+  --on-accent:#111a20;
+  --accent-2:#277da1;
+  --on-accent-2:#ffffff;
+  --accent-3:#f9c74f;
+  --on-accent-3:#16232b;
+  --pop:#f8961e;
+  --success:#43aa8b;
+  --on-success:#111a20;
+  --warning:#f9c74f;
+  --on-warning:#16232b;
+  --danger:#f94144;
+  --on-danger:#111a20;
+  --info:#4d908e;
+  --on-info:#111a20;
+  --invert:#16232b;
+  --on-invert:#f6f4f1;
+  --focus:#277da1;
+  --chart-1:#f94144;
+  --chart-2:#f8961e;
+  --chart-3:#f9c74f;
+  --chart-4:#90be6d;
+  --chart-5:#43aa8b;
+  --chart-6:#277da1;
+}
+
+[data-theme="midnight"]{
+  --theme-name:"midnight"; /* @kind other */
+  --theme-label:"Midnight Gold"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f1f5f9;
+  --surface:#ffffff;
+  --surface-2:#f7fafc;
+  --ink:#000814;
+  --ink-2:#001d3d;
+  --ink-3:#5b6b80;
+  --line:#dbe3ec;
+  --line-strong:#000814;
+  --accent:#003566;
+  --on-accent:#ffffff;
+  --accent-2:#ffc300;
+  --on-accent-2:#000814;
+  --accent-3:#001d3d;
+  --on-accent-3:#ffd60a;
+  --pop:#ffd60a;
+  --success:#1f7a5c;
+  --on-success:#ffffff;
+  --warning:#ffc300;
+  --on-warning:#000814;
+  --danger:#b3261e;
+  --on-danger:#ffffff;
+  --info:#003566;
+  --on-info:#ffffff;
+  --invert:#000814;
+  --on-invert:#e7edf5;
+  --focus:#ffc300;
+  --chart-1:#003566;
+  --chart-2:#ffc300;
+  --chart-3:#001d3d;
+  --chart-4:#ffd60a;
+  --chart-5:#5b6b80;
+  --chart-6:#1f7a5c;
+}
+
+[data-theme="neonviolet"]{
+  --theme-name:"neonviolet"; /* @kind other */
+  --theme-label:"Neon Violet"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f7f3ff;
+  --surface:#ffffff;
+  --surface-2:#fbf9ff;
+  --ink:#1b0347;
+  --ink-2:#390099;
+  --ink-3:#6f5e96;
+  --line:#e6def7;
+  --line-strong:#1b0347;
+  --accent:#ff0054;
+  --on-accent:#140235;
+  --accent-2:#390099;
+  --on-accent-2:#ffffff;
+  --accent-3:#ffbd00;
+  --on-accent-3:#1b0347;
+  --pop:#ff5400;
+  --success:#0f8a5f;
+  --on-success:#0f0227;
+  --warning:#ffbd00;
+  --on-warning:#1b0347;
+  --danger:#ff0054;
+  --on-danger:#140235;
+  --info:#390099;
+  --on-info:#ffffff;
+  --invert:#1b0347;
+  --on-invert:#efe8ff;
+  --focus:#ff0054;
+  --chart-1:#390099;
+  --chart-2:#9e0059;
+  --chart-3:#ff0054;
+  --chart-4:#ff5400;
+  --chart-5:#ffbd00;
+  --chart-6:#6f5e96;
+}
+
+[data-theme="signal"]{
+  --theme-name:"signal"; /* @kind other */
+  --theme-label:"Signal"; /* @kind other */
+  --paper:#f1faee;
+  --paper-2:#ffffff;
+  --surface:#ffffff;
+  --surface-2:#f7fcf5;
+  --ink:#1d3557;
+  --ink-2:#417496;
+  --ink-3:#59728c;
+  --line:#d6e4de;
+  --line-strong:#1d3557;
+  --accent:#e63946;
+  --on-accent:#09101a;
+  --accent-2:#457b9d;
+  --on-accent-2:#ffffff;
+  --accent-3:#a8dadc;
+  --on-accent-3:#1d3557;
+  --pop:#e63946;
+  --success:#2f8f6b;
+  --on-success:#0c1523;
+  --warning:#e0a32e;
+  --on-warning:#1d3557;
+  --danger:#e63946;
+  --on-danger:#09101a;
+  --info:#457b9d;
+  --on-info:#ffffff;
+  --invert:#1d3557;
+  --on-invert:#f1faee;
+  --focus:#457b9d;
+  --chart-1:#e63946;
+  --chart-2:#457b9d;
+  --chart-3:#a8dadc;
+  --chart-4:#1d3557;
+  --chart-5:#2f8f6b;
+  --chart-6:#e0a32e;
+}
+
+[data-theme="apricot"]{
+  --theme-name:"apricot"; /* @kind other */
+  --theme-label:"Apricot"; /* @kind other */
+  --paper:#f7ede2;
+  --paper-2:#fffdfb;
+  --surface:#ffffff;
+  --surface-2:#fdf7f0;
+  --ink:#3a2e2a;
+  --ink-2:#6e5c55;
+  --ink-3:#776761;
+  --line:#e7d8c9;
+  --line-strong:#3a2e2a;
+  --accent:#f28482;
+  --on-accent:#3a2e2a;
+  --accent-2:#84a59d;
+  --on-accent-2:#3a2e2a;
+  --accent-3:#f6bd60;
+  --on-accent-3:#3a2e2a;
+  --pop:#f28482;
+  --success:#5d8a7c;
+  --on-success:#1a1513;
+  --warning:#f6bd60;
+  --on-warning:#3a2e2a;
+  --danger:#c9564f;
+  --on-danger:#0e0b0a;
+  --info:#84a59d;
+  --on-info:#3a2e2a;
+  --invert:#3a2e2a;
+  --on-invert:#f7ede2;
+  --focus:#84a59d;
+  --chart-1:#f28482;
+  --chart-2:#f6bd60;
+  --chart-3:#84a59d;
+  --chart-4:#f5cac3;
+  --chart-5:#6e5c55;
+  --chart-6:#c9564f;
+}
+
+[data-theme="field"]{
+  --theme-name:"field"; /* @kind other */
+  --theme-label:"Field"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f4f6f5;
+  --surface:#ffffff;
+  --surface-2:#f9fbfa;
+  --ink:#233d4d;
+  --ink-2:#4a6373;
+  --ink-3:#5e727f;
+  --line:#dfe5e7;
+  --line-strong:#233d4d;
+  --accent:#fe7f2d;
+  --on-accent:#1a2e3a;
+  --accent-2:#233d4d;
+  --on-accent-2:#fcca46;
+  --accent-3:#fcca46;
+  --on-accent-3:#233d4d;
+  --pop:#fe7f2d;
+  --success:#619b8a;
+  --on-success:#192b36;
+  --warning:#fcca46;
+  --on-warning:#233d4d;
+  --danger:#d1552f;
+  --on-danger:#090f13;
+  --info:#4a6373;
+  --on-info:#ffffff;
+  --invert:#233d4d;
+  --on-invert:#eef2f1;
+  --focus:#fe7f2d;
+  --chart-1:#fe7f2d;
+  --chart-2:#fcca46;
+  --chart-3:#a1c181;
+  --chart-4:#619b8a;
+  --chart-5:#233d4d;
+  --chart-6:#4a6373;
+}
+
+[data-theme="mint"]{
+  --theme-name:"mint"; /* @kind other */
+  --theme-label:"Mint"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f2fbf5;
+  --surface:#ffffff;
+  --surface-2:#f8fdfa;
+  --ink:#12354d;
+  --ink-2:#22577a;
+  --ink-3:#507386;
+  --line:#d8eee2;
+  --line-strong:#12354d;
+  --accent:#22577a;
+  --on-accent:#c7f9cc;
+  --accent-2:#38a3a5;
+  --on-accent-2:#0e283a;
+  --accent-3:#57cc99;
+  --on-accent-3:#12354d;
+  --pop:#80ed99;
+  --success:#2f9b6e;
+  --on-success:#0c2232;
+  --warning:#d9a53a;
+  --on-warning:#12354d;
+  --danger:#c94a48;
+  --on-danger:#ffffff;
+  --info:#38a3a5;
+  --on-info:#0e283a;
+  --invert:#12354d;
+  --on-invert:#c7f9cc;
+  --focus:#38a3a5;
+  --chart-1:#22577a;
+  --chart-2:#38a3a5;
+  --chart-3:#57cc99;
+  --chart-4:#80ed99;
+  --chart-5:#c7f9cc;
+  --chart-6:#648799;
+}
+
+[data-theme="fernpop"]{
+  --theme-name:"fernpop"; /* @kind other */
+  --theme-label:"Fern Pop"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f3f6f3;
+  --surface:#ffffff;
+  --surface-2:#f9faf8;
+  --ink:#1d2e22;
+  --ink-2:#495f41;
+  --ink-3:#637462;
+  --line:#dde4dc;
+  --line-strong:#1d2e22;
+  --accent:#2e5339;
+  --on-accent:#00fddc;
+  --accent-2:#ff5666;
+  --on-accent-2:#16231a;
+  --accent-3:#00fddc;
+  --on-accent-3:#1d2e22;
+  --pop:#00fddc;
+  --success:#2e5339;
+  --on-success:#ffffff;
+  --warning:#d19a2e;
+  --on-warning:#1d2e22;
+  --danger:#ff5666;
+  --on-danger:#16231a;
+  --info:#495f41;
+  --on-info:#ffffff;
+  --invert:#1d2e22;
+  --on-invert:#ffccc9;
+  --focus:#00fddc;
+  --chart-1:#2e5339;
+  --chart-2:#495f41;
+  --chart-3:#00fddc;
+  --chart-4:#ff5666;
+  --chart-5:#ffccc9;
+  --chart-6:#7a8b77;
+}
+
+[data-theme="candy"]{
+  --theme-name:"candy"; /* @kind other */
+  --theme-label:"Candy"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f4fafd;
+  --surface:#ffffff;
+  --surface-2:#fafdff;
+  --ink:#23303a;
+  --ink-2:#4e5f6b;
+  --ink-3:#61727c;
+  --line:#e2eaef;
+  --line-strong:#23303a;
+  --accent:#ff70a6;
+  --on-accent:#23303a;
+  --accent-2:#70d6ff;
+  --on-accent-2:#23303a;
+  --accent-3:#ffd670;
+  --on-accent-3:#23303a;
+  --pop:#ff9770;
+  --success:#3d9e7a;
+  --on-success:#1a242c;
+  --warning:#ffd670;
+  --on-warning:#23303a;
+  --danger:#e5556f;
+  --on-danger:#171f26;
+  --info:#70d6ff;
+  --on-info:#23303a;
+  --invert:#23303a;
+  --on-invert:#f4fafd;
+  --focus:#ff70a6;
+  --chart-1:#ff70a6;
+  --chart-2:#70d6ff;
+  --chart-3:#ff9770;
+  --chart-4:#ffd670;
+  --chart-5:#4e5f6b;
+  --chart-6:#3d9e7a;
+}
+
+[data-theme="lagoon"]{
+  --theme-name:"lagoon"; /* @kind other */
+  --theme-label:"Lagoon"; /* @kind other */
+  --paper:#ffffff;
+  --paper-2:#f6fbf7;
+  --surface:#ffffff;
+  --surface-2:#fbfdfb;
+  --ink:#123b4d;
+  --ink-2:#23789c;
+  --ink-3:#547482;
+  --line:#dce9e3;
+  --line-strong:#123b4d;
+  --accent:#247ba0;
+  --on-accent:#ffffff;
+  --accent-2:#ff1654;
+  --on-accent-2:#081b23;
+  --accent-3:#70c1b3;
+  --on-accent-3:#123b4d;
+  --pop:#f3ffbd;
+  --success:#3f9d84;
+  --on-success:#0d2936;
+  --warning:#d9a83a;
+  --on-warning:#123b4d;
+  --danger:#ff1654;
+  --on-danger:#081b23;
+  --info:#247ba0;
+  --on-info:#ffffff;
+  --invert:#123b4d;
+  --on-invert:#f3ffbd;
+  --focus:#ff1654;
+  --chart-1:#247ba0;
+  --chart-2:#70c1b3;
+  --chart-3:#b2dbbf;
+  --chart-4:#f3ffbd;
+  --chart-5:#ff1654;
+  --chart-6:#6a8794;
+}
+
+[data-theme="ember"]{
+  --theme-name:"ember"; /* @kind other */
+  --theme-label:"Ember"; /* @kind other */
+  --paper:#ebebd3;
+  --paper-2:#f7f7ec;
+  --surface:#ffffff;
+  --surface-2:#fbfbf3;
+  --ink:#083d77;
+  --ink-2:#2f5c8c;
+  --ink-3:#496a92;
+  --line:#d8d8be;
+  --line-strong:#083d77;
+  --accent:#f95738;
+  --on-accent:#05284d;
+  --accent-2:#083d77;
+  --on-accent-2:#f4d35e;
+  --accent-3:#f4d35e;
+  --on-accent-3:#083d77;
+  --pop:#ee964b;
+  --success:#4a8f6d;
+  --on-success:#031830;
+  --warning:#f4d35e;
+  --on-warning:#083d77;
+  --danger:#f95738;
+  --on-danger:#05284d;
+  --info:#2f5c8c;
+  --on-info:#ffffff;
+  --invert:#083d77;
+  --on-invert:#ebebd3;
+  --focus:#f95738;
+  --chart-1:#083d77;
+  --chart-2:#f95738;
+  --chart-3:#ee964b;
+  --chart-4:#f4d35e;
+  --chart-5:#2f5c8c;
+  --chart-6:#4a8f6d;
+}
+
+[data-theme="sage"]{
+  --theme-name:"sage"; /* @kind other */
+  --theme-label:"Sage"; /* @kind other */
+  --paper:#f0f7f4;
+  --paper-2:#ffffff;
+  --surface:#ffffff;
+  --surface-2:#f7fbf9;
+  --ink:#2a332c;
+  --ink-2:#3c493f;
+  --ink-3:#65726a;
+  --line:#d3ded8;
+  --line-strong:#2a332c;
+  --accent:#3c493f;
+  --on-accent:#a2e3c4;
+  --accent-2:#a2e3c4;
+  --on-accent-2:#2a332c;
+  --accent-3:#7e8d85;
+  --on-accent-3:#1d241f;
+  --pop:#a2e3c4;
+  --success:#4b8f6c;
+  --on-success:#151a16;
+  --warning:#c39a45;
+  --on-warning:#2a332c;
+  --danger:#b7574f;
+  --on-danger:#ffffff;
+  --info:#7e8d85;
+  --on-info:#1d241f;
+  --invert:#2a332c;
+  --on-invert:#a2e3c4;
+  --focus:#a2e3c4;
+  --chart-1:#3c493f;
+  --chart-2:#7e8d85;
+  --chart-3:#b3bfb8;
+  --chart-4:#a2e3c4;
+  --chart-5:#4b8f6c;
+  --chart-6:#2a332c;
+}
+

@@ -1,0 +1,184 @@
+/* Graffiti — colour scheme variants. Apply on any element: <body data-gf-theme="riot">.
+   Every variant supplies 5 raw crew colours plus accent / accent-2 / deep, wall + paper grounds. */
+:root{--gf-theme-name:"Riot" /* @kind other */}
+
+:root,
+[data-gf-theme="riot"]{
+  --gf-theme-name:"Riot"; /* @kind other */
+  --gf-c1:#390099;
+  --gf-c2:#9E0059;
+  --gf-c3:#FF0054;
+  --gf-c4:#FF5400;
+  --gf-c5:#FFBD00;
+  --gf-accent:#FF0054;
+  --gf-accent-2:#FFBD00;
+  --gf-accent-deep:#390099;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#0B0210;
+  --gf-theme-paper:#F4F2ED;
+}
+
+[data-gf-theme="spectrum"]{
+  --gf-theme-name:"Spectrum"; /* @kind other */
+  --gf-c1:#F94144;
+  --gf-c2:#F8961E;
+  --gf-c3:#F9C74F;
+  --gf-c4:#90BE6D;
+  --gf-c5:#277DA1;
+  --gf-accent:#F94144;
+  --gf-accent-2:#F9C74F;
+  --gf-accent-deep:#277DA1;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#12100E;
+  --gf-theme-paper:#F4F2ED;
+}
+
+[data-gf-theme="midnight"]{
+  --gf-theme-name:"Midnight"; /* @kind other */
+  --gf-c1:#000814;
+  --gf-c2:#001D3D;
+  --gf-c3:#003566;
+  --gf-c4:#FFC300;
+  --gf-c5:#FFD60A;
+  --gf-accent:#FFC300;
+  --gf-accent-2:#FFD60A;
+  --gf-accent-deep:#003566;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#000814;
+  --gf-theme-paper:#EFF3F8;
+}
+
+[data-gf-theme="alarm"]{
+  --gf-theme-name:"Alarm"; /* @kind other */
+  --gf-c1:#E63946;
+  --gf-c2:#F1FAEE;
+  --gf-c3:#A8DADC;
+  --gf-c4:#457B9D;
+  --gf-c5:#1D3557;
+  --gf-accent:#E63946;
+  --gf-accent-2:#A8DADC;
+  --gf-accent-deep:#1D3557;
+  --gf-on-accent:var(--gf-paper-1);
+  --gf-theme-wall:#0E1420;
+  --gf-theme-paper:#F1FAEE;
+}
+
+[data-gf-theme="peach"]{
+  --gf-theme-name:"Peach"; /* @kind other */
+  --gf-c1:#F6BD60;
+  --gf-c2:#F7EDE2;
+  --gf-c3:#F5CAC3;
+  --gf-c4:#84A59D;
+  --gf-c5:#F28482;
+  --gf-accent:#F28482;
+  --gf-accent-2:#F6BD60;
+  --gf-accent-deep:#84A59D;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#1B1614;
+  --gf-theme-paper:#F7EDE2;
+}
+
+[data-gf-theme="slate"]{
+  --gf-theme-name:"Slate"; /* @kind other */
+  --gf-c1:#233D4D;
+  --gf-c2:#FE7F2D;
+  --gf-c3:#FCCA46;
+  --gf-c4:#A1C181;
+  --gf-c5:#619B8A;
+  --gf-accent:#FE7F2D;
+  --gf-accent-2:#FCCA46;
+  --gf-accent-deep:#619B8A;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#0F1A21;
+  --gf-theme-paper:#F3F1E9;
+}
+
+[data-gf-theme="mint"]{
+  --gf-theme-name:"Mint"; /* @kind other */
+  --gf-c1:#22577A;
+  --gf-c2:#38A3A5;
+  --gf-c3:#57CC99;
+  --gf-c4:#80ED99;
+  --gf-c5:#C7F9CC;
+  --gf-accent:#57CC99;
+  --gf-accent-2:#80ED99;
+  --gf-accent-deep:#22577A;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#08161E;
+  --gf-theme-paper:#EAFBEE;
+}
+
+[data-gf-theme="neon"]{
+  --gf-theme-name:"Neon"; /* @kind other */
+  --gf-c1:#00FDDC;
+  --gf-c2:#2E5339;
+  --gf-c3:#495F41;
+  --gf-c4:#FF5666;
+  --gf-c5:#FFCCC9;
+  --gf-accent:#00FDDC;
+  --gf-accent-2:#FF5666;
+  --gf-accent-deep:#495F41;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#050C08;
+  --gf-theme-paper:#F0F5F0;
+}
+
+[data-gf-theme="bubble"]{
+  --gf-theme-name:"Bubble"; /* @kind other */
+  --gf-c1:#70D6FF;
+  --gf-c2:#FF70A6;
+  --gf-c3:#FF9770;
+  --gf-c4:#FFD670;
+  --gf-c5:#FF70A6;
+  --gf-accent:#FF70A6;
+  --gf-accent-2:#FFD670;
+  --gf-accent-deep:#70D6FF;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#101018;
+  --gf-theme-paper:#F5F3EE;
+}
+
+[data-gf-theme="lagoon"]{
+  --gf-theme-name:"Lagoon"; /* @kind other */
+  --gf-c1:#247BA0;
+  --gf-c2:#70C1B3;
+  --gf-c3:#B2DBBF;
+  --gf-c4:#F3FFBD;
+  --gf-c5:#FF1654;
+  --gf-accent:#FF1654;
+  --gf-accent-2:#F3FFBD;
+  --gf-accent-deep:#247BA0;
+  --gf-on-accent:var(--gf-paper-1);
+  --gf-theme-wall:#08161B;
+  --gf-theme-paper:#F3FFBD;
+}
+
+[data-gf-theme="cobalt"]{
+  --gf-theme-name:"Cobalt"; /* @kind other */
+  --gf-c1:#083D77;
+  --gf-c2:#EBEBD3;
+  --gf-c3:#F4D35E;
+  --gf-c4:#EE964B;
+  --gf-c5:#F95738;
+  --gf-accent:#F95738;
+  --gf-accent-2:#F4D35E;
+  --gf-accent-deep:#083D77;
+  --gf-on-accent:var(--gf-paper-1);
+  --gf-theme-wall:#04121F;
+  --gf-theme-paper:#EBEBD3;
+}
+
+[data-gf-theme="sage"]{
+  --gf-theme-name:"Sage"; /* @kind other */
+  --gf-c1:#3C493F;
+  --gf-c2:#7E8D85;
+  --gf-c3:#B3BFB8;
+  --gf-c4:#F0F7F4;
+  --gf-c5:#A2E3C4;
+  --gf-accent:#A2E3C4;
+  --gf-accent-2:#F0F7F4;
+  --gf-accent-deep:#3C493F;
+  --gf-on-accent:var(--gf-ink);
+  --gf-theme-wall:#0C110E;
+  --gf-theme-paper:#F0F7F4;
+}

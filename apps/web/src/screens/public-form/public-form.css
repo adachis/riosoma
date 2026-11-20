@@ -1,0 +1,196 @@
+@layer rio.app {
+  .rio-public-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--rio-space-4);
+    min-block-size: 100%;
+    padding-block: var(--rio-space-8);
+    padding-inline: var(--rio-space-4);
+    background: var(--rio-bg);
+    color: var(--rio-text);
+  }
+
+  .rio-public-form__page {
+    min-inline-size: 0;
+    inline-size: 100%;
+    max-inline-size: 44rem;
+    padding-block: var(--rio-space-6);
+    padding-inline: var(--rio-space-6);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-public-form__page h1 {
+    margin-block: 0 var(--rio-space-4);
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-2xl);
+    line-height: var(--rio-leading-tight);
+  }
+
+  .rio-public-form__notice {
+    display: grid;
+    gap: var(--rio-space-3);
+    justify-items: start;
+    max-inline-size: 32rem;
+  }
+
+  .rio-public-form__notice p,
+  .rio-public-form__thanks p {
+    margin-block: 0;
+  }
+
+  .rio-public-form__description,
+  .rio-public-form__help,
+  .rio-public-form__thanks {
+    white-space: pre-wrap;
+  }
+
+  .rio-public-form__edit-link {
+    color: var(--rio-aa-link);
+    text-decoration: underline;
+    padding-block: var(--rio-space-2);
+  }
+
+  .rio-public-form__description {
+    margin-block: 0 var(--rio-space-2);
+  }
+
+  .rio-public-form__thanks {
+    display: grid;
+    gap: var(--rio-space-4);
+    justify-items: start;
+    margin-block-start: var(--rio-space-6);
+    outline: none;
+  }
+
+  .rio-public-form__question {
+    margin-block-start: var(--rio-space-6);
+    min-inline-size: 0;
+  }
+
+  .rio-public-form__question-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+    font-weight: 600;
+  }
+
+  .rio-public-form__help,
+  .rio-public-form__required {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    font-weight: normal;
+  }
+
+  .rio-public-form__help {
+    margin-block: var(--rio-space-2);
+  }
+
+  .rio-public-form__help:empty {
+    margin-block: var(--rio-space-1);
+  }
+
+  .rio-public-form__editor {
+    border: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    min-inline-size: 0;
+  }
+
+  .rio-public-form__error,
+  .rio-public-form .rio-record-card__error {
+    /* Messages appear after someone answers or submits, so empty ones take no room. */
+    block-size: auto;
+    max-block-size: 3lh;
+    overflow: auto;
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-public-form__error:empty,
+  .rio-public-form .rio-record-card__error:empty {
+    display: none;
+  }
+
+  .rio-public-form__error[role='alert'] {
+    margin-block-start: var(--rio-space-4);
+  }
+
+  .rio-public-form .rio-field,
+  .rio-public-form .rio-field__control,
+  .rio-public-form .rio-field__input,
+  .rio-public-form__submit {
+    min-inline-size: 0;
+    inline-size: 100%;
+    max-inline-size: 100%;
+  }
+
+  .rio-public-form__submit {
+    margin-block-start: var(--rio-space-6);
+  }
+
+  .rio-public-form .rio-record-card__choices {
+    display: flex;
+    gap: var(--rio-space-2);
+    block-size: var(--rio-control-height);
+    overflow: auto;
+  }
+
+  /* Web addresses, email addresses, and phone numbers link out only once they're valid, so the empty slot takes no room. */
+  .rio-public-form .rio-record-card__open:empty {
+    display: none;
+  }
+
+  .rio-public-form :focus-visible {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: 2px;
+  }
+
+  /* Clipped in place so either writing direction keeps it out of the page's scroll area. */
+  .rio-public-form__trap {
+    position: absolute;
+    inset-inline-start: 0;
+    inline-size: 1px;
+    block-size: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+
+  .rio-public-form__footer {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  @media (max-width: 480px) {
+    .rio-public-form {
+      padding-block: var(--rio-space-4);
+      padding-inline: var(--rio-space-3);
+    }
+
+    .rio-public-form__page {
+      padding-block: var(--rio-space-4);
+      padding-inline: var(--rio-space-4);
+    }
+
+    .rio-public-form .rio-record-card__text-control {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-public-form__page {
+      border-color: CanvasText;
+    }
+
+    .rio-public-form__error {
+      color: CanvasText;
+    }
+  }
+}

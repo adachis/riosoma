@@ -1,0 +1,193 @@
+/* Japandi — derived colour system.
+   Components reference ONLY the tokens in this file. Never a seed, never a
+   literal hex. That is what lets all thirteen themes drop in cleanly.
+
+   The block is emitted twice — once for :root and once for [data-theme] —
+   because a custom property's var() substitutions resolve on the element
+   that declares them. Without the second block a scoped wrapper would
+   inherit the root's already-resolved values and never reskin. */
+:root {
+  /* Grounds — the page and its bands */
+  --ground: var(--seed-paper);
+  --ground-2: color-mix(in oklab, var(--seed-paper) 88%, var(--seed-ink));
+  --ground-3: color-mix(in oklab, var(--seed-paper) 78%, var(--seed-ink));
+  --ground-invert: color-mix(in oklab, var(--seed-ink) 94%, var(--seed-paper));
+
+  /* Surfaces — cards, sheets, inputs */
+  --surface: color-mix(in oklab, var(--seed-paper) 88%, white);
+  --surface-2: color-mix(in oklab, var(--seed-paper) 93%, var(--seed-ink));
+  --surface-sunken: color-mix(in oklab, var(--seed-paper) 86%, var(--seed-ink));
+  --surface-hover: color-mix(in oklab, var(--seed-paper) 95%, var(--seed-ink));
+
+  /* Ink — text and glyphs */
+  --ink: var(--seed-ink);
+  --ink-2: color-mix(in oklab, var(--seed-ink) 82%, var(--seed-paper));
+  /* --ink-3 carries every label, eyebrow, caption and column header in the
+     system, all at 10-12px, so it must clear 4.5:1 on ground, ground-2,
+     surface and surface-2. 70% is the lowest mix that does across those four
+     in the default theme. */
+  --ink-3: color-mix(in oklab, var(--seed-ink) 70%, var(--seed-paper));
+  /* --ink-4 is for disabled text and decorative glyphs only — separators,
+     empty slots, spent objectives. Never prose, never a label a reader needs. */
+  --ink-4: color-mix(in oklab, var(--seed-ink) 55%, var(--seed-paper));
+  --ink-invert: var(--seed-paper);
+
+  /* Hairlines — the load-bearing structural device of this system */
+  --line: color-mix(in oklab, var(--seed-ink) 15%, var(--seed-paper));
+  --line-2: color-mix(in oklab, var(--seed-ink) 28%, var(--seed-paper));
+  --line-strong: color-mix(in oklab, var(--seed-ink) 55%, var(--seed-paper));
+
+  /* Primary accent */
+  --accent: var(--seed-accent);
+  --accent-hover: color-mix(in oklab, var(--seed-accent) 84%, var(--seed-ink));
+  --accent-active: color-mix(in oklab, var(--seed-accent) 70%, var(--seed-ink));
+  --accent-ink: var(--seed-accent-ink);
+  --accent-soft: color-mix(in oklab, var(--seed-accent) 11%, var(--seed-paper));
+  --accent-soft-2: color-mix(in oklab, var(--seed-accent) 22%, var(--seed-paper));
+  --accent-line: color-mix(in oklab, var(--seed-accent) 38%, var(--seed-paper));
+
+  /* Secondary accent — used sparingly, one mark per view */
+  --accent-2: var(--seed-accent-2);
+  --accent-2-hover: color-mix(in oklab, var(--seed-accent-2) 84%, var(--seed-ink));
+  --accent-2-ink: var(--seed-accent-2-ink);
+  --accent-2-soft: color-mix(in oklab, var(--seed-accent-2) 13%, var(--seed-paper));
+
+  /* Tint — the third, quietest colour. Fills, patterns, chart bands. */
+  --tint: var(--seed-tint);
+  --tint-soft: color-mix(in oklab, var(--seed-tint) 40%, var(--seed-paper));
+
+  /* Semantics */
+  --ok: var(--seed-ok);
+  --ok-soft: color-mix(in oklab, var(--seed-ok) 14%, var(--seed-paper));
+  --warn: var(--seed-warn);
+  --warn-soft: color-mix(in oklab, var(--seed-warn) 16%, var(--seed-paper));
+  --danger: var(--seed-danger);
+  --danger-soft: color-mix(in oklab, var(--seed-danger) 13%, var(--seed-paper));
+  --info: var(--seed-info);
+  --info-soft: color-mix(in oklab, var(--seed-info) 13%, var(--seed-paper));
+
+  /* Text-safe semantics. The raw tone above is for FILLS, bars, rules and dots
+     — non-text, where hue fidelity to the source palette matters more than
+     luminance. As 11px text those tones fail 4.5:1, so every tone rendered as
+     type uses its -text pair: the hue held at 28% over the theme's ink, which
+     is the highest tone share that still clears the floor in 12 of 13 themes.
+     Measured in the default theme: ok 9.6:1, warn 8.9:1, danger 10.2:1,
+     info 10.1:1 on their own soft grounds. */
+  --ok-text: color-mix(in oklab, var(--seed-ok) 28%, var(--ink));
+  --warn-text: color-mix(in oklab, var(--seed-warn) 28%, var(--ink));
+  --danger-text: color-mix(in oklab, var(--seed-danger) 28%, var(--ink));
+  --info-text: color-mix(in oklab, var(--seed-info) 28%, var(--ink));
+  --accent-text: color-mix(in oklab, var(--seed-accent) 28%, var(--ink));
+  --accent-2-text: color-mix(in oklab, var(--seed-accent-2) 28%, var(--ink));
+
+  /* Focus + selection */
+  --focus-ring: color-mix(in oklab, var(--seed-accent) 60%, var(--seed-paper));
+  --selection-bg: color-mix(in oklab, var(--seed-accent) 24%, var(--seed-paper));
+
+  /* Scrims: warm, never neutral grey */
+  --scrim: color-mix(in srgb, var(--seed-ink) 52%, transparent);
+  --scrim-soft: color-mix(in srgb, var(--seed-ink) 22%, transparent);
+  /* Protection gradients. Alpha is solved for #f7f4ee type over PURE WHITE —
+     the worst case for this brand's window-light photography — where 0.64 is
+     the floor for 4.5:1. Both bands hold 0.66+ across the zone that carries
+     type, then fade. Two-sided, because chrome sits at the top of a hero and
+     the headline and caption sit at the bottom. */
+  --scrim-gradient: linear-gradient(to top, color-mix(in srgb, var(--seed-ink) 74%, transparent) 0%, color-mix(in srgb, var(--seed-ink) 66%, transparent) 56%, transparent 72%);
+  /* Painted by a bar pinned to the top of an image — the bar's own height is
+     the band, so type in its middle 30-70% always sits on 0.68+. */
+  --scrim-gradient-top: linear-gradient(to bottom, color-mix(in srgb, var(--seed-ink) 74%, transparent) 0%, color-mix(in srgb, var(--seed-ink) 68%, transparent) 74%, transparent 100%);
+}
+
+[data-theme] {
+  /* Grounds — the page and its bands */
+  --ground: var(--seed-paper);
+  --ground-2: color-mix(in oklab, var(--seed-paper) 88%, var(--seed-ink));
+  --ground-3: color-mix(in oklab, var(--seed-paper) 78%, var(--seed-ink));
+  --ground-invert: color-mix(in oklab, var(--seed-ink) 94%, var(--seed-paper));
+
+  /* Surfaces — cards, sheets, inputs */
+  --surface: color-mix(in oklab, var(--seed-paper) 88%, white);
+  --surface-2: color-mix(in oklab, var(--seed-paper) 93%, var(--seed-ink));
+  --surface-sunken: color-mix(in oklab, var(--seed-paper) 86%, var(--seed-ink));
+  --surface-hover: color-mix(in oklab, var(--seed-paper) 95%, var(--seed-ink));
+
+  /* Ink — text and glyphs */
+  --ink: var(--seed-ink);
+  --ink-2: color-mix(in oklab, var(--seed-ink) 82%, var(--seed-paper));
+  /* --ink-3 carries every label, eyebrow, caption and column header in the
+     system, all at 10-12px, so it must clear 4.5:1 on ground, ground-2,
+     surface and surface-2. 70% is the lowest mix that does across those four
+     in the default theme. */
+  --ink-3: color-mix(in oklab, var(--seed-ink) 70%, var(--seed-paper));
+  /* --ink-4 is for disabled text and decorative glyphs only — separators,
+     empty slots, spent objectives. Never prose, never a label a reader needs. */
+  --ink-4: color-mix(in oklab, var(--seed-ink) 55%, var(--seed-paper));
+  --ink-invert: var(--seed-paper);
+
+  /* Hairlines — the load-bearing structural device of this system */
+  --line: color-mix(in oklab, var(--seed-ink) 15%, var(--seed-paper));
+  --line-2: color-mix(in oklab, var(--seed-ink) 28%, var(--seed-paper));
+  --line-strong: color-mix(in oklab, var(--seed-ink) 55%, var(--seed-paper));
+
+  /* Primary accent */
+  --accent: var(--seed-accent);
+  --accent-hover: color-mix(in oklab, var(--seed-accent) 84%, var(--seed-ink));
+  --accent-active: color-mix(in oklab, var(--seed-accent) 70%, var(--seed-ink));
+  --accent-ink: var(--seed-accent-ink);
+  --accent-soft: color-mix(in oklab, var(--seed-accent) 11%, var(--seed-paper));
+  --accent-soft-2: color-mix(in oklab, var(--seed-accent) 22%, var(--seed-paper));
+  --accent-line: color-mix(in oklab, var(--seed-accent) 38%, var(--seed-paper));
+
+  /* Secondary accent — used sparingly, one mark per view */
+  --accent-2: var(--seed-accent-2);
+  --accent-2-hover: color-mix(in oklab, var(--seed-accent-2) 84%, var(--seed-ink));
+  --accent-2-ink: var(--seed-accent-2-ink);
+  --accent-2-soft: color-mix(in oklab, var(--seed-accent-2) 13%, var(--seed-paper));
+
+  /* Tint — the third, quietest colour. Fills, patterns, chart bands. */
+  --tint: var(--seed-tint);
+  --tint-soft: color-mix(in oklab, var(--seed-tint) 40%, var(--seed-paper));
+
+  /* Semantics */
+  --ok: var(--seed-ok);
+  --ok-soft: color-mix(in oklab, var(--seed-ok) 14%, var(--seed-paper));
+  --warn: var(--seed-warn);
+  --warn-soft: color-mix(in oklab, var(--seed-warn) 16%, var(--seed-paper));
+  --danger: var(--seed-danger);
+  --danger-soft: color-mix(in oklab, var(--seed-danger) 13%, var(--seed-paper));
+  --info: var(--seed-info);
+  --info-soft: color-mix(in oklab, var(--seed-info) 13%, var(--seed-paper));
+
+  /* Text-safe semantics. The raw tone above is for FILLS, bars, rules and dots
+     — non-text, where hue fidelity to the source palette matters more than
+     luminance. As 11px text those tones fail 4.5:1, so every tone rendered as
+     type uses its -text pair: the hue held at 28% over the theme's ink, which
+     is the highest tone share that still clears the floor in 12 of 13 themes.
+     Measured in the default theme: ok 9.6:1, warn 8.9:1, danger 10.2:1,
+     info 10.1:1 on their own soft grounds. */
+  --ok-text: color-mix(in oklab, var(--seed-ok) 28%, var(--ink));
+  --warn-text: color-mix(in oklab, var(--seed-warn) 28%, var(--ink));
+  --danger-text: color-mix(in oklab, var(--seed-danger) 28%, var(--ink));
+  --info-text: color-mix(in oklab, var(--seed-info) 28%, var(--ink));
+  --accent-text: color-mix(in oklab, var(--seed-accent) 28%, var(--ink));
+  --accent-2-text: color-mix(in oklab, var(--seed-accent-2) 28%, var(--ink));
+
+  /* Focus + selection */
+  --focus-ring: color-mix(in oklab, var(--seed-accent) 60%, var(--seed-paper));
+  --selection-bg: color-mix(in oklab, var(--seed-accent) 24%, var(--seed-paper));
+
+  /* Scrims: warm, never neutral grey */
+  --scrim: color-mix(in srgb, var(--seed-ink) 52%, transparent);
+  --scrim-soft: color-mix(in srgb, var(--seed-ink) 22%, transparent);
+  /* Protection gradients. Alpha is solved for #f7f4ee type over PURE WHITE —
+     the worst case for this brand's window-light photography — where 0.64 is
+     the floor for 4.5:1. Both bands hold 0.66+ across the zone that carries
+     type, then fade. Two-sided, because chrome sits at the top of a hero and
+     the headline and caption sit at the bottom. */
+  --scrim-gradient: linear-gradient(to top, color-mix(in srgb, var(--seed-ink) 74%, transparent) 0%, color-mix(in srgb, var(--seed-ink) 66%, transparent) 56%, transparent 72%);
+  /* Painted by a bar pinned to the top of an image — the bar's own height is
+     the band, so type in its middle 30-70% always sits on 0.68+. */
+  --scrim-gradient-top: linear-gradient(to bottom, color-mix(in srgb, var(--seed-ink) 74%, transparent) 0%, color-mix(in srgb, var(--seed-ink) 68%, transparent) 74%, transparent 100%);
+}
+
+::selection { background: var(--selection-bg); }

@@ -1,0 +1,74 @@
+@layer rio.app {
+  .rio-grid-view {
+    position: relative;
+    min-block-size: 0;
+    min-inline-size: 0;
+    flex: 1;
+  }
+  .rio-grid-view__engine {
+    position: absolute;
+    inset: 0;
+  }
+  .rio-grid-view:has(> .rio-db-prompt) > .rio-grid-view__engine {
+    inset-block-start: calc(max(var(--rio-control-height), var(--rio-target-primary)) + var(--rio-space-2));
+  }
+  .rio-grid-menu-anchor {
+    position: fixed;
+    inline-size: 1px;
+    block-size: 1px;
+    pointer-events: none;
+  }
+  .rio-grid-row-left {
+    opacity: 0.55;
+  }
+}
+
+@layer rio.app {
+  .rio-grid-appearance {
+    inline-size: min(100%, 32rem);
+  }
+  .rio-grid-appearance label {
+    display: flex;
+    gap: var(--rio-space-2);
+    align-items: center;
+    margin-block: var(--rio-space-2);
+  }
+  .rio-grid-appearance select {
+    max-inline-size: 100%;
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-border);
+    padding: var(--rio-space-2);
+  }
+  .rio-grid-appearance fieldset {
+    border: 1px solid var(--rio-border);
+    max-block-size: 35vh;
+    overflow: auto;
+  }
+}
+
+@layer rio.app {
+  .rio-grid__comment {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inline-size: 24px;
+    block-size: 24px;
+    border: 0;
+    background: transparent;
+    color: var(--rio-accent);
+    cursor: pointer;
+  }
+  .rio-grid__comment::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 2px;
+    inset-inline-end: 2px;
+    border-block-start: 8px solid currentColor;
+    border-inline-start: 8px solid transparent;
+  }
+  .rio-grid__comment:focus-visible {
+    outline: 2px solid var(--rio-focus);
+    outline-offset: -2px;
+  }
+}

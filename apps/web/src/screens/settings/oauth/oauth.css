@@ -1,0 +1,44 @@
+@layer rio.app {
+  .rio-oauth {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    color: var(--rio-text);
+  }
+  .rio-oauth__card,
+  .rio-oauth__consent {
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+  .rio-oauth__card,
+  .rio-oauth__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-3);
+  }
+  .rio-oauth__identity,
+  .rio-oauth__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-3);
+  }
+  .rio-oauth code {
+    overflow-wrap: anywhere;
+    font-size: var(--rio-text-sm);
+  }
+  /* Where the code goes, as the browser reads it, on a line of its own. */
+  .rio-oauth__destination {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+  }
+  .rio-oauth__host {
+    overflow-wrap: anywhere;
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-lg);
+    font-weight: var(--rio-weight-bold);
+  }
+}

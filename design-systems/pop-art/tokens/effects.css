@@ -1,0 +1,87 @@
+/* Borders, ink outlines, hard shadows, print patterns, motion.
+   The whole system is built from four physical ideas:
+     1. every object is drawn with a black ink outline
+     2. every object sits on a hard, un-blurred offset shadow (a mis-registered plate)
+     3. flat areas are filled with ben-day dots, rays or stripes — never a soft gradient
+     4. interaction is mechanical: things lift, then slam back down */
+:root{
+  /* ink outlines */
+  --border-hair:1px;
+  --border-thin:2px;
+  --border-ink:3px;
+  --border-bold:4px;
+  --border-heavy:6px;
+  --border-slab:10px;
+  --outline-ink:var(--border-ink) solid var(--ink);
+  --outline-bold:var(--border-bold) solid var(--ink);
+  --outline-heavy:var(--border-heavy) solid var(--ink);
+
+  /* corner radii — panels are square, controls are slightly softened, tags are pills */
+  --radius-none:0;
+  --radius-xs:2px;
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:14px;
+  --radius-xl:22px;
+  --radius-pill:999px;
+  --radius-bubble:26px 26px 26px 6px;
+
+  /* hard offset shadows — no blur, ever */
+  --shadow-xs:2px 2px 0 var(--ink);
+  --shadow-sm:3px 3px 0 var(--ink);
+  --shadow-md:5px 5px 0 var(--ink);
+  --shadow-lg:8px 8px 0 var(--ink);
+  --shadow-xl:12px 12px 0 var(--ink);
+  --shadow-pressed:1px 1px 0 var(--ink);
+  /* colour-plate mis-registration: two offset copies, cyan then magenta */
+  --shadow-misprint:4px 4px 0 var(--accent-2),8px 8px 0 var(--accent-4);
+  --shadow-plate:6px 6px 0 var(--accent-3),6px 6px 0 1px var(--ink);
+  /* inset "printed on card" edge */
+  --shadow-inset:inset 0 -4px 0 rgba(0,0,0,.18);
+  --shadow-none:none;
+
+  /* text effects */
+  --text-shadow-hard:3px 3px 0 var(--ink);
+  --text-shadow-hard-lg:6px 6px 0 var(--ink);
+  --text-shadow-misprint:3px 3px 0 var(--accent-2),6px 6px 0 var(--accent-4);
+  --text-stroke-ink:2px var(--ink);
+
+  /* print patterns — assign the layer, then set background-size from the -size token */
+  --pattern-benday:radial-gradient(circle,var(--dot) 1.9px,transparent 2px),radial-gradient(circle,var(--dot) 1.9px,transparent 2px);
+  --pattern-benday-size:12px 12px;
+  --pattern-benday-pos:0 0,6px 6px; /* @kind other */
+  --pattern-benday-fine:radial-gradient(circle,var(--dot) 1px,transparent 1.2px);
+  --pattern-benday-fine-size:6px 6px;
+  --pattern-benday-coarse:radial-gradient(circle,var(--dot) 5px,transparent 5.6px);
+  --pattern-benday-coarse-size:22px 22px;
+  --pattern-halftone-fade:radial-gradient(circle at 50% 50%,var(--dot) 0 12%,transparent 60%),radial-gradient(circle,var(--dot) 1.6px,transparent 1.8px);
+  --pattern-rays:repeating-conic-gradient(from 0deg at 50% 50%,var(--accent-3) 0deg 7deg,transparent 7deg 14deg);
+  --pattern-rays-tight:repeating-conic-gradient(from 0deg at 50% 55%,var(--accent-3) 0deg 3.5deg,transparent 3.5deg 7deg);
+  --pattern-stripes:repeating-linear-gradient(45deg,var(--accent-3) 0 10px,transparent 10px 20px);
+  --pattern-stripes-wide:repeating-linear-gradient(-45deg,var(--accent-2) 0 22px,transparent 22px 44px);
+  --pattern-speedlines:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 9px);
+  --pattern-grid:repeating-linear-gradient(0deg,var(--ink) 0 1px,transparent 1px 24px),repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 24px);
+
+  /* motion — short, mechanical, with a small overshoot */
+  --dur-instant:80ms; /* @kind other */
+  --dur-fast:120ms; /* @kind other */
+  --dur-med:200ms; /* @kind other */
+  --dur-slow:340ms; /* @kind other */
+  --ease-pop:cubic-bezier(.2,1.5,.35,1); /* @kind other */
+  --ease-slam:cubic-bezier(.7,0,.3,1); /* @kind other */
+  --ease-out:cubic-bezier(.2,.8,.3,1); /* @kind other */
+  --lift:-2px;
+  --slam:2px;
+
+  --focus-width:4px;
+  --focus-offset:2px;
+
+  /* z layers */
+  --z-base:0; /* @kind other */
+  --z-raised:10; /* @kind other */
+  --z-sticky:100; /* @kind other */
+  --z-overlay:500; /* @kind other */
+  --z-modal:600; /* @kind other */
+  --z-toast:700; /* @kind other */
+  --z-tooltip:800; /* @kind other */
+}

@@ -1,0 +1,24 @@
+{
+  "id": "comments-and-history",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "grid",
+      "say": "demos.comments.where",
+      "do": "scroll"
+    },
+    {
+      "anchor": "grid.record.expand",
+      "say": "demos.comments.expand"
+    },
+    {
+      "anchor": "notifications.open",
+      "say": "demos.comments.bell",
+      "do": "open"
+    },
+    {
+      "anchor": "notifications.list",
+      "say": "demos.comments.notice"
+    }
+  ]
+}

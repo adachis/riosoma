@@ -1,0 +1,178 @@
+/* ─── Colour scheme variants ──────────────────────────────────────────────
+   Apply on any element: <body data-theme="neon-riot"> or <div data-theme="moss">.
+   Nesting works — a themed block inside another themed block re-scopes cleanly.
+   Every variant redeclares the same semantic contract from tokens/semantic.css.
+   `--scheme-name` is readable from JS for switcher UIs.
+   ───────────────────────────────────────────────────────────────────────── */
+
+[data-theme="core"] { --scheme-name: "Core"; /* @kind other */ }
+
+/* 1 ── Spectrum — ten-step warm-to-cool ramp, slate base */
+[data-theme="spectrum"] {
+  --scheme-name: "Spectrum"; /* @kind other */
+  --surface-base: #0e1a22; --surface-1: #14262f; --surface-2: #1c333f; --surface-3: #26485a;
+  --surface-sunken: #08131a; --surface-overlay: rgba(8,19,26,.85); --surface-glass: rgba(28,51,63,.62);
+  --border-subtle: #26485a; --border-strong: #38637a;
+  --text-strong: #ffffff; --text-body: #e4eef2; --text-muted: #93aebd; --text-faint: #6b8798; --text-inverse: #0e1a22;
+  --accent: #f94144; --accent-hi: #f3722c; --accent-lo: #c92f34; --on-accent: #ffffff;
+  --accent-2: #f9c74f; --accent-2-hi: #f9844a; --on-accent-2: #0e1a22;
+  --accent-3: #43aa8b;
+  --positive: #90be6d; --warning: #f8961e; --negative: #f94144; --info: #277da1;
+  --swatch-1: #f94144; --swatch-2: #f8961e; --swatch-3: #f9c74f; --swatch-4: #43aa8b; --swatch-5: #277da1;
+}
+
+/* 2 ── Midnight Gold — navy stack, gold signal */
+[data-theme="midnight-gold"] {
+  --scheme-name: "Midnight Gold"; /* @kind other */
+  --surface-base: #000814; --surface-1: #001229; --surface-2: #001d3d; --surface-3: #003566;
+  --surface-sunken: #00040b; --surface-overlay: rgba(0,8,20,.88); --surface-glass: rgba(0,29,61,.66);
+  --border-subtle: #003566; --border-strong: #0a4a86;
+  --text-strong: #ffffff; --text-body: #dfe9f5; --text-muted: #8aa8c9; --text-faint: #5b7b9d; --text-inverse: #000814;
+  --accent: #ffc300; --accent-hi: #ffd60a; --accent-lo: #cc9c00; --on-accent: #000814;
+  --accent-2: #003566; --accent-2-hi: #0a4a86; --on-accent-2: #ffd60a;
+  --accent-3: #ffd60a;
+  --positive: #38e08c; --warning: #ffc300; --negative: #ff4d5e; --info: #4d94ff;
+  --swatch-1: #ffd60a; --swatch-2: #ffc300; --swatch-3: #003566; --swatch-4: #001d3d; --swatch-5: #000814;
+}
+
+/* 3 ── Neon Riot — saturated violet-to-amber, highest energy */
+[data-theme="neon-riot"] {
+  --scheme-name: "Neon Riot"; /* @kind other */
+  --surface-base: #10002b; --surface-1: #1c0050; --surface-2: #2a0074; --surface-3: #390099;
+  --surface-sunken: #0a001c; --surface-overlay: rgba(16,0,43,.88); --surface-glass: rgba(42,0,116,.62);
+  --border-subtle: #390099; --border-strong: #5a12cc;
+  --text-strong: #ffffff; --text-body: #eee3ff; --text-muted: #b195e0; --text-faint: #8a6cc0; --text-inverse: #10002b;
+  --accent: #ff0054; --accent-hi: #ff5400; --accent-lo: #cc0043; --on-accent: #ffffff;
+  --accent-2: #ffbd00; --accent-2-hi: #ffd44d; --on-accent-2: #10002b;
+  --accent-3: #9e0059;
+  --positive: #ffbd00; --warning: #ff5400; --negative: #ff0054; --info: #9e0059;
+  --swatch-1: #ffbd00; --swatch-2: #ff5400; --swatch-3: #ff0054; --swatch-4: #9e0059; --swatch-5: #390099;
+}
+
+/* 4 ── Cobalt Flare — navy + crimson, broadcast-desk look */
+[data-theme="cobalt-flare"] {
+  --scheme-name: "Cobalt Flare"; /* @kind other */
+  --surface-base: #14243d; --surface-1: #1d3557; --surface-2: #26436c; --surface-3: #34557f;
+  --surface-sunken: #0e1a2c; --surface-overlay: rgba(20,36,61,.88); --surface-glass: rgba(38,67,108,.62);
+  --border-subtle: #34557f; --border-strong: #457b9d;
+  --text-strong: #f1faee; --text-body: #e2efe6; --text-muted: #a8dadc; --text-faint: #7fa8bb; --text-inverse: #1d3557;
+  --accent: #e63946; --accent-hi: #f4606c; --accent-lo: #b82c37; --on-accent: #f1faee;
+  --accent-2: #a8dadc; --accent-2-hi: #c6e9ea; --on-accent-2: #1d3557;
+  --accent-3: #457b9d;
+  --positive: #a8dadc; --warning: #f1c40f; --negative: #e63946; --info: #457b9d;
+  --swatch-1: #f1faee; --swatch-2: #a8dadc; --swatch-3: #457b9d; --swatch-4: #e63946; --swatch-5: #1d3557;
+}
+
+/* 5 ── Soft Arcade — LIGHT scheme, cosy handheld */
+[data-theme="soft-arcade"] {
+  --scheme-name: "Soft Arcade"; /* @kind other */
+  --scheme-mode: light; /* @kind other */
+  --surface-base: #f7ede2; --surface-1: #fdf8f2; --surface-2: #ffffff; --surface-3: #f5cac3;
+  --surface-sunken: #efe1d2; --surface-overlay: rgba(74,59,52,.55); --surface-glass: rgba(255,255,255,.7);
+  --border-subtle: #ead8cb; --border-strong: #d9b6a9;
+  --text-strong: #43332c; --text-body: #5c4a41; --text-muted: #8a7268; --text-faint: #a89388; --text-inverse: #fdf8f2;
+  --accent: #f28482; --accent-hi: #f7a3a1; --accent-lo: #d96a68; --on-accent: #ffffff;
+  --accent-2: #f6bd60; --accent-2-hi: #fbd28e; --on-accent-2: #43332c;
+  --accent-3: #84a59d;
+  --positive: #84a59d; --warning: #f6bd60; --negative: #f28482; --info: #84a59d;
+  --swatch-1: #f7ede2; --swatch-2: #f5cac3; --swatch-3: #f6bd60; --swatch-4: #f28482; --swatch-5: #84a59d;
+}
+
+/* 6 ── Ember Grove — teal-slate base, orange ember */
+[data-theme="ember-grove"] {
+  --scheme-name: "Ember Grove"; /* @kind other */
+  --surface-base: #16272f; --surface-1: #1d3341; --surface-2: #233d4d; --surface-3: #2e5165;
+  --surface-sunken: #101d23; --surface-overlay: rgba(22,39,47,.88); --surface-glass: rgba(35,61,77,.62);
+  --border-subtle: #2e5165; --border-strong: #3f6b83;
+  --text-strong: #ffffff; --text-body: #e6efe9; --text-muted: #a1c181; --text-faint: #7d9a90; --text-inverse: #233d4d;
+  --accent: #fe7f2d; --accent-hi: #ff9c5c; --accent-lo: #d96520; --on-accent: #16272f;
+  --accent-2: #fcca46; --accent-2-hi: #ffdb7d; --on-accent-2: #233d4d;
+  --accent-3: #619b8a;
+  --positive: #a1c181; --warning: #fcca46; --negative: #fe7f2d; --info: #619b8a;
+  --swatch-1: #fcca46; --swatch-2: #fe7f2d; --swatch-3: #a1c181; --swatch-4: #619b8a; --swatch-5: #233d4d;
+}
+
+/* 7 ── Hydra — deep teal to mint, calm competitive */
+[data-theme="hydra"] {
+  --scheme-name: "Hydra"; /* @kind other */
+  --surface-base: #0b2434; --surface-1: #133c56; --surface-2: #22577a; --surface-3: #2c6d96;
+  --surface-sunken: #071926; --surface-overlay: rgba(11,36,52,.88); --surface-glass: rgba(34,87,122,.62);
+  --border-subtle: #2c6d96; --border-strong: #38a3a5;
+  --text-strong: #ffffff; --text-body: #dff5e6; --text-muted: #80ed99; --text-faint: #6ba98b; --text-inverse: #0b2434;
+  --accent: #57cc99; --accent-hi: #80ed99; --accent-lo: #3fa87b; --on-accent: #0b2434;
+  --accent-2: #38a3a5; --accent-2-hi: #4fc3c5; --on-accent-2: #04212b;
+  --accent-3: #c7f9cc;
+  --positive: #80ed99; --warning: #f0c05a; --negative: #ff6b6b; --info: #38a3a5;
+  --swatch-1: #c7f9cc; --swatch-2: #80ed99; --swatch-3: #57cc99; --swatch-4: #38a3a5; --swatch-5: #22577a;
+}
+
+/* 8 ── Toxic Bloom — military green with hot cyan */
+[data-theme="toxic-bloom"] {
+  --scheme-name: "Toxic Bloom"; /* @kind other */
+  --surface-base: #142118; --surface-1: #1f3527; --surface-2: #2e5339; --surface-3: #495f41;
+  --surface-sunken: #0d1710; --surface-overlay: rgba(20,33,24,.88); --surface-glass: rgba(46,83,57,.62);
+  --border-subtle: #495f41; --border-strong: #5f7a54;
+  --text-strong: #ffffff; --text-body: #e8f2e9; --text-muted: #9fb79a; --text-faint: #7b9077; --text-inverse: #142118;
+  --accent: #00fddc; --accent-hi: #5cffe9; --accent-lo: #00c9ae; --on-accent: #142118;
+  --accent-2: #ff5666; --accent-2-hi: #ff8792; --on-accent-2: #ffffff;
+  --accent-3: #ffccc9;
+  --positive: #00fddc; --warning: #ffccc9; --negative: #ff5666; --info: #00fddc;
+  --swatch-1: #00fddc; --swatch-2: #ffccc9; --swatch-3: #ff5666; --swatch-4: #495f41; --swatch-5: #2e5339;
+}
+
+/* 9 ── Vaporwave — candy pastels on midnight */
+[data-theme="vaporwave"] {
+  --scheme-name: "Vaporwave"; /* @kind other */
+  --surface-base: #0f1424; --surface-1: #171e34; --surface-2: #202946; --surface-3: #2c3760;
+  --surface-sunken: #0a0e1a; --surface-overlay: rgba(15,20,36,.88); --surface-glass: rgba(32,41,70,.62);
+  --border-subtle: #2c3760; --border-strong: #3d4c80;
+  --text-strong: #ffffff; --text-body: #e8ecfa; --text-muted: #9aa6cf; --text-faint: #6f7aa5; --text-inverse: #0f1424;
+  --accent: #ff70a6; --accent-hi: #ff9ec2; --accent-lo: #e2568c; --on-accent: #0f1424;
+  --accent-2: #70d6ff; --accent-2-hi: #a3e6ff; --on-accent-2: #0f1424;
+  --accent-3: #ffd670;
+  --positive: #70d6ff; --warning: #ffd670; --negative: #ff9770; --info: #70d6ff;
+  --swatch-1: #70d6ff; --swatch-2: #ff70a6; --swatch-3: #ff9770; --swatch-4: #ffd670; --swatch-5: #0f1424;
+}
+
+/* 10 ── Lagoon — sea greens with a single hot red signal */
+[data-theme="lagoon"] {
+  --scheme-name: "Lagoon"; /* @kind other */
+  --surface-base: #0b2836; --surface-1: #123c50; --surface-2: #185a7a; --surface-3: #247ba0;
+  --surface-sunken: #071c26; --surface-overlay: rgba(11,40,54,.88); --surface-glass: rgba(24,90,122,.62);
+  --border-subtle: #247ba0; --border-strong: #3b97bd;
+  --text-strong: #ffffff; --text-body: #eafbe4; --text-muted: #b2dbbf; --text-faint: #7fae90; --text-inverse: #0b2836;
+  --accent: #ff1654; --accent-hi: #ff5279; --accent-lo: #d10f43; --on-accent: #ffffff;
+  --accent-2: #70c1b3; --accent-2-hi: #99d6cb; --on-accent-2: #0b2836;
+  --accent-3: #f3ffbd;
+  --positive: #b2dbbf; --warning: #f3ffbd; --negative: #ff1654; --info: #247ba0;
+  --swatch-1: #f3ffbd; --swatch-2: #b2dbbf; --swatch-3: #70c1b3; --swatch-4: #247ba0; --swatch-5: #ff1654;
+}
+
+/* 11 ── Sunset Cup — tournament navy with sunset heat */
+[data-theme="sunset-cup"] {
+  --scheme-name: "Sunset Cup"; /* @kind other */
+  --surface-base: #04203f; --surface-1: #063060; --surface-2: #083d77; --surface-3: #0d5099;
+  --surface-sunken: #02162c; --surface-overlay: rgba(4,32,63,.88); --surface-glass: rgba(8,61,119,.62);
+  --border-subtle: #0d5099; --border-strong: #1a68bd;
+  --text-strong: #ffffff; --text-body: #ebebd3; --text-muted: #b3b8a8; --text-faint: #8a9490; --text-inverse: #083d77;
+  --accent: #f95738; --accent-hi: #ff7a60; --accent-lo: #d2412a; --on-accent: #ffffff;
+  --accent-2: #f4d35e; --accent-2-hi: #f8e18f; --on-accent-2: #083d77;
+  --accent-3: #ee964b;
+  --positive: #f4d35e; --warning: #ee964b; --negative: #f95738; --info: #083d77;
+  --swatch-1: #ebebd3; --swatch-2: #f4d35e; --swatch-3: #ee964b; --swatch-4: #f95738; --swatch-5: #083d77;
+}
+
+/* 12 ── Moss — LIGHT scheme, understated editorial / print-first */
+[data-theme="moss"] {
+  --scheme-name: "Moss"; /* @kind other */
+  --scheme-mode: light; /* @kind other */
+  --surface-base: #f0f7f4; --surface-1: #ffffff; --surface-2: #e4ede9; --surface-3: #b3bfb8;
+  --surface-sunken: #e0e9e5; --surface-overlay: rgba(60,73,63,.6); --surface-glass: rgba(255,255,255,.72);
+  --border-subtle: #d3ded8; --border-strong: #b3bfb8;
+  --text-strong: #2b352d; --text-body: #3c493f; --text-muted: #6d7c74; --text-faint: #90a099; --text-inverse: #f0f7f4;
+  --accent: #3c493f; --accent-hi: #55655a; --accent-lo: #2b352d; --on-accent: #f0f7f4;
+  --accent-2: #a2e3c4; --accent-2-hi: #c0eed8; --on-accent-2: #2b352d;
+  --accent-3: #7e8d85;
+  --positive: #a2e3c4; --warning: #c8a961; --negative: #b4574f; --info: #7e8d85;
+  --swatch-1: #f0f7f4; --swatch-2: #b3bfb8; --swatch-3: #a2e3c4; --swatch-4: #7e8d85; --swatch-5: #3c493f;
+}

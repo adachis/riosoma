@@ -1,0 +1,44 @@
+{
+  "answers": [
+    {
+      "method": "GET",
+      "path": "/sheets?page=1&pageSize=200",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"pageNumber\":1,\"totalPages\":1,\"data\":[{\"id\":6100000000000003,\"name\":\"Value fidelity\"}]}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/sheets/6100000000000003/path",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"name\":\"Riosoma tests\",\"sheets\":[{\"id\":6100000000000003,\"name\":\"Value fidelity\"}]}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/sheets/6100000000000003?level=2&include=objectValue,crossSheetReferences,filterDefinitions&page=1&pageSize=200",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"id\":6100000000000003,\"name\":\"Value fidelity\",\"version\":1,\"totalRowCount\":3,\"columns\":[{\"id\":1,\"title\":\"Task\",\"type\":\"TEXT_NUMBER\",\"index\":0,\"primary\":true},{\"id\":2,\"title\":\"Numeric choice\",\"type\":\"PICKLIST\",\"index\":1,\"options\":[\"42\"]},{\"id\":3,\"title\":\"Status\",\"type\":\"PICKLIST\",\"index\":2,\"options\":[\"Planned\"]},{\"id\":4,\"title\":\"Tags\",\"type\":\"MULTI_PICKLIST\",\"index\":3,\"options\":[\"Web\"]},{\"id\":5,\"title\":\"Loose choice\",\"type\":\"PICKLIST\",\"index\":4,\"options\":[\"Planned\"]},{\"id\":6,\"title\":\"Loose tags\",\"type\":\"MULTI_PICKLIST\",\"index\":5,\"options\":[\"Web\"]},{\"id\":7,\"title\":\"Local start\",\"type\":\"ABSTRACT_DATETIME\",\"index\":6},{\"id\":8,\"title\":\"Zoned start\",\"type\":\"ABSTRACT_DATETIME\",\"index\":7}],\"rows\":[{\"id\":11,\"cells\":[{\"columnId\":1,\"value\":\"First\"},{\"columnId\":2,\"value\":42},{\"columnId\":3,\"value\":\"Planned\"},{\"columnId\":4,\"objectValue\":{\"objectType\":\"MULTI_PICKLIST\",\"values\":[\"Web\"]}},{\"columnId\":5,\"value\":false},{\"columnId\":6,\"objectValue\":{\"objectType\":\"MULTI_PICKLIST\",\"values\":[\"Web\"]}},{\"columnId\":7,\"objectValue\":{\"objectType\":\"ABSTRACT_DATETIME\",\"value\":\"2025-03-03T16:59:59\"}},{\"columnId\":8,\"value\":\"2025-03-03T16:59:59-08:00\"}]}]}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/sheets/6100000000000003?level=2&include=objectValue,crossSheetReferences,filterDefinitions&page=2&pageSize=200",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"id\":6100000000000003,\"name\":\"Value fidelity\",\"version\":1,\"totalRowCount\":3,\"columns\":[{\"id\":1,\"title\":\"Task\",\"type\":\"TEXT_NUMBER\",\"index\":0,\"primary\":true},{\"id\":2,\"title\":\"Numeric choice\",\"type\":\"PICKLIST\",\"index\":1,\"options\":[\"42\"]},{\"id\":3,\"title\":\"Status\",\"type\":\"PICKLIST\",\"index\":2,\"options\":[\"Planned\"]},{\"id\":4,\"title\":\"Tags\",\"type\":\"MULTI_PICKLIST\",\"index\":3,\"options\":[\"Web\"]},{\"id\":5,\"title\":\"Loose choice\",\"type\":\"PICKLIST\",\"index\":4,\"options\":[\"Planned\"]},{\"id\":6,\"title\":\"Loose tags\",\"type\":\"MULTI_PICKLIST\",\"index\":5,\"options\":[\"Web\"]},{\"id\":7,\"title\":\"Local start\",\"type\":\"ABSTRACT_DATETIME\",\"index\":6},{\"id\":8,\"title\":\"Zoned start\",\"type\":\"ABSTRACT_DATETIME\",\"index\":7}],\"rows\":[{\"id\":12,\"cells\":[{\"columnId\":1,\"value\":\"Second\"},{\"columnId\":2,\"value\":7},{\"columnId\":3,\"value\":\"Unlisted\"},{\"columnId\":4,\"objectValue\":{\"objectType\":\"MULTI_PICKLIST\",\"values\":[\"Web\",\"Unlisted\"]}},{\"columnId\":5,\"value\":\"Planned\"},{\"columnId\":6,\"value\":\"Free-form tags\"},{\"columnId\":7,\"value\":\"2025-03-03T16:59:59Z\"},{\"columnId\":8,\"objectValue\":{\"objectType\":\"ABSTRACT_DATETIME\",\"value\":\"2025-03-03T16:59:59Z\"}}]},{\"id\":13,\"cells\":[{\"columnId\":1,\"value\":\"Empty\"}]}]}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/sheets/6100000000000003/attachments?page=1&pageSize=200",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"pageNumber\":1,\"totalPages\":0,\"data\":[]}",
+      "encoding": "text"
+    }
+  ]
+}

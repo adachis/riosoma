@@ -1,0 +1,46 @@
+/* Raw brand ramps (theme-independent). Semantic tokens live in themes.css. */
+:root{
+--cream-50:#FFFCF4;--cream-100:#FBF3E4;--cream-200:#F5EAD7;--cream-300:#EADCC5;
+--ink-900:#241F2E;--ink-700:#3B3448;--ink-500:#5C5468;--ink-300:#8A8296;--ink-100:#C9C2D1;
+--teal-700:#12504A;--teal-600:#196257;--teal-500:#1F7A6F;--teal-300:#7FBDB2;--teal-100:#DDEDE9;
+--coral-600:#C33F2C;--coral-500:#E8563F;--coral-300:#F4A091;--coral-100:#FBE0DA;
+--gold-600:#C98F14;--gold-500:#F0B429;--gold-300:#F7D68A;--gold-100:#FCEFD2;
+--plum-600:#4A3F63;--plum-500:#6C6A8C;--plum-300:#A9A6C0;
+--night-900:#17141F;--night-800:#1E1A28;--night-700:#221D2E;--night-600:#2B2539;
+
+--status-success:#3F9E62;--status-warn:#E0A030;--status-danger:#D9432F;--status-info:#3E7EA6;
+}
+
+/* Derived semantics. Re-declared on every theme scope so nested previews resolve
+   against their own --accent / --ink / --paper rather than the inherited ones. */
+:root,[data-theme]{
+--paper-2:color-mix(in oklab,var(--ink) 5%,var(--paper));
+--surface-2:color-mix(in oklab,var(--ink) 6%,var(--surface));
+--surface-3:color-mix(in oklab,var(--ink) 11%,var(--surface));
+--ink-2:color-mix(in oklab,var(--ink) 72%,var(--paper));
+--ink-3:color-mix(in oklab,var(--ink) 52%,var(--paper));
+--ink-4:color-mix(in oklab,var(--ink) 34%,var(--paper));
+--line:color-mix(in oklab,var(--ink) 13%,transparent);
+--line-strong:color-mix(in oklab,var(--ink) 26%,transparent);
+--line-solid:color-mix(in oklab,var(--ink) 13%,var(--surface));
+
+--accent-hover:color-mix(in oklab,var(--accent) 86%,var(--ink));
+--accent-press:color-mix(in oklab,var(--accent) 72%,var(--ink));
+--accent-soft:color-mix(in oklab,var(--accent) 15%,var(--surface));
+--accent-soft-2:color-mix(in oklab,var(--accent) 28%,var(--surface));
+--accent-line:color-mix(in oklab,var(--accent) 38%,transparent);
+--accent-2-hover:color-mix(in oklab,var(--accent-2) 86%,var(--ink));
+--accent-2-soft:color-mix(in oklab,var(--accent-2) 15%,var(--surface));
+--accent-3-soft:color-mix(in oklab,var(--accent-3) 20%,var(--surface));
+
+--success:var(--status-success);--warn:var(--status-warn);--danger:var(--status-danger);--info:var(--status-info);
+--success-soft:color-mix(in oklab,var(--success) 16%,var(--surface));
+--warn-soft:color-mix(in oklab,var(--warn) 18%,var(--surface));
+--danger-soft:color-mix(in oklab,var(--danger) 14%,var(--surface));
+--info-soft:color-mix(in oklab,var(--info) 14%,var(--surface));
+
+--focus-ring:color-mix(in oklab,var(--accent) 55%,transparent);
+--overlay:color-mix(in oklab,var(--ink) 62%,transparent);
+--scrim-top:linear-gradient(to bottom,color-mix(in oklab,var(--ink) 62%,transparent),transparent);
+--scrim-bottom:linear-gradient(to top,color-mix(in oklab,var(--ink) 72%,transparent),transparent 78%);
+}

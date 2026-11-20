@@ -1,0 +1,25 @@
+# The n8n community node is its own workspace, outside Riosoma's.  n8n-workflow and n8n's lint rules,
+# which it builds and lints against, are only listed in this folder's lockfile, so Riosoma's own install
+# and image never fetch them.
+packages:
+  - .
+
+# Install scripts run only for packages allowed here.  n8n-workflow brings ssh2 and a sandbox for n8n's
+# own expressions.  The node never evaluates expressions, and ssh2 works without its optional native
+# speedups, so nothing compiles during install.
+allowBuilds:
+  isolated-vm: false
+  cpu-features: false
+  ssh2: false
+
+# Security fixes newer than what these dependencies ask for (checked by osv-scanner):
+# follow-redirects (through n8n-workflow's axios) has fixes through 1.16.2.  minimatch (through ESLint and TypeScript ESLint, which n8n's lint rules bring) has no
+# fix backports, and those consumers use named exports, all retained in minimatch 11.
+# n8n-workflow and its expression runtime still require zod 3.25.76; do not override them to zod 4.
+overrides:
+  follow-redirects: 1.16.2
+  minimatch: 11.0.1
+
+# Newly published versions wait three days, as in Riosoma's workspace.  See
+# docs/developer/dependencies.md for letting one urgent security fix through early.
+minimumReleaseAge: 4320

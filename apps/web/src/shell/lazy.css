@@ -1,0 +1,74 @@
+@layer rio.app {
+  .rio-deferred-menu-trigger {
+    display: contents;
+  }
+  .rio-deferred-menu-loading {
+    position: fixed;
+    z-index: var(--rio-z-popover);
+    inline-size: 16rem;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    box-shadow: var(--rio-shadow-3);
+  }
+  .rio-feature-loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--rio-z-modal);
+    display: grid;
+    place-items: center;
+    padding: var(--rio-space-6);
+    background: var(--rio-scrim);
+  }
+  .rio-feature-loading-dialog {
+    inline-size: min(560px, 100%);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    box-shadow: var(--rio-shadow-3);
+    overflow: hidden;
+  }
+  .rio-feature-error-dialog {
+    inline-size: min(560px, calc(100% - 2 * var(--rio-space-6)));
+    max-block-size: calc(100% - 2 * var(--rio-space-6));
+    padding: 0;
+    margin: auto;
+    color: var(--rio-text);
+    background: var(--rio-surface);
+    overflow: visible;
+  }
+  .rio-feature-error-dialog::backdrop {
+    background: var(--rio-scrim);
+  }
+  .rio-feature-loading {
+    display: grid;
+    place-items: center;
+    color: var(--rio-aa-text-muted);
+    background: var(--rio-surface);
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+  .rio-feature-loading--page,
+  .rio-feature-loading--panel {
+    block-size: 100%;
+    min-block-size: 0;
+    flex: 1;
+  }
+  .rio-feature-loading--editor {
+    min-block-size: 12rem;
+  }
+  .rio-feature-loading--controls {
+    min-block-size: var(--rio-control-height, 2.5rem);
+  }
+  .rio-feature-error {
+    padding: var(--rio-space-4);
+    gap: var(--rio-space-3);
+    color: var(--rio-text);
+    overflow: auto;
+  }
+  .rio-feature-error-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--rio-space-2);
+    background: var(--rio-surface);
+  }
+}

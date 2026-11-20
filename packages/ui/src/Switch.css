@@ -1,0 +1,118 @@
+@layer rio.components {
+  .rio-switch {
+    display: block;
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+  }
+
+  /* The row is the label, so the switch can be turned from its text as well as its track. */
+  .rio-switch__control {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    max-inline-size: 100%;
+    min-block-size: var(--rio-control-height-sm);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .rio-switch__track {
+    position: relative;
+    flex: none;
+    inline-size: var(--rio-space-8);
+    block-size: var(--rio-space-4);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: calc(var(--rio-space-4) / 2);
+    background-color: var(--rio-surface);
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  /* Sliding the logical inset instead of a transform keeps the travel direction correct in
+     right-to-left layouts, and the duration token drops to zero for reduced motion. */
+  .rio-switch__thumb {
+    position: absolute;
+    inset-block-start: 1px;
+    inset-inline-start: 1px;
+    inline-size: var(--rio-space-3);
+    block-size: var(--rio-space-3);
+    border-radius: 50%;
+    background-color: var(--rio-aa-text-muted);
+    transition:
+      inset-inline-start var(--rio-duration-fast) var(--rio-ease-standard),
+      background-color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-switch__control[data-selected] .rio-switch__track {
+    border-color: var(--rio-accent);
+    background-color: var(--rio-accent);
+  }
+
+  .rio-switch__control[data-selected] .rio-switch__thumb {
+    /* The full inner width minus the thumb and the 1px gap it keeps from the end edge. */
+    inset-inline-start: calc(100% - var(--rio-space-3) - 1px);
+    background-color: var(--rio-aa-on-accent);
+  }
+
+  /* Hover and press tint the track without replacing its fill, so every theme keeps working. */
+  .rio-switch__control[data-hovered] .rio-switch__track {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-switch__control[data-pressed] .rio-switch__track {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-switch__control[data-focus-visible] .rio-switch__track {
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-switch__control[data-invalid] .rio-switch__track {
+    border-color: var(--rio-aa-danger-text);
+  }
+
+  /* Supporting text retains its generated foreground when the control is disabled. */
+  .rio-switch[data-disabled] .rio-switch__control {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-switch[data-readonly] .rio-switch__control {
+    cursor: default;
+  }
+
+  /* Help text lines up under the label instead of under the track. */
+  .rio-switch .rio-description,
+  .rio-switch .rio-field-error {
+    margin-inline-start: calc(var(--rio-space-8) + var(--rio-space-2));
+  }
+
+  @media (forced-colors: active) {
+    .rio-switch__track {
+      border-color: ButtonText;
+      background-color: Field;
+    }
+
+    .rio-switch__thumb {
+      background-color: ButtonText;
+    }
+
+    .rio-switch__control[data-selected] .rio-switch__track {
+      border-color: Highlight;
+      background-color: Highlight;
+    }
+
+    .rio-switch__control[data-selected] .rio-switch__thumb {
+      background-color: HighlightText;
+    }
+
+    /* Forced colors drops box shadows, so the focus ring needs a real outline. */
+    .rio-switch__control[data-focus-visible] .rio-switch__track {
+      outline: 2px solid CanvasText;
+      outline-offset: 2px;
+    }
+  }
+}

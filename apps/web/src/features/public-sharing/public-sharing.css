@@ -1,0 +1,25 @@
+@layer rio.app {
+  .rio-public-sharing,
+  .rio-public-sharing__files {
+    display: grid;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+
+  .rio-public-sharing__files {
+    border: 1px solid var(--rio-border);
+    padding: var(--rio-space-3);
+    margin: 0;
+  }
+
+  .rio-public-sharing p {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-public-sharing > .rio-button {
+    justify-self: start;
+  }
+}

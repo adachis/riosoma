@@ -1,0 +1,15 @@
+:root{
+--bp-ink-950:#05070a;--bp-ink-900:#0b0e13;--bp-ink-800:#14181f;--bp-ink-700:#1d222b;--bp-ink-600:#282e38;--bp-ink-500:#3a424e;--bp-ink-400:#5b6470;--bp-ink-300:#8b939e;--bp-ink-200:#b9c0c9;--bp-ink-100:#dfe3e8;--bp-ink-050:#f2f4f7;--bp-paper:#ffffff;
+--bp-p1-1:#f94144;--bp-p1-2:#f3722c;--bp-p1-3:#f8961e;--bp-p1-4:#f9844a;--bp-p1-5:#f9c74f;--bp-p1-6:#90be6d;--bp-p1-7:#43aa8b;--bp-p1-8:#4d908e;--bp-p1-9:#577590;--bp-p1-10:#277da1;
+--bp-p2-1:#000814;--bp-p2-2:#001d3d;--bp-p2-3:#003566;--bp-p2-4:#ffc300;--bp-p2-5:#ffd60a;
+--bp-p3-1:#390099;--bp-p3-2:#9e0059;--bp-p3-3:#ff0054;--bp-p3-4:#ff5400;--bp-p3-5:#ffbd00;
+--bp-p4-1:#e63946;--bp-p4-2:#f1faee;--bp-p4-3:#a8dadc;--bp-p4-4:#457b9d;--bp-p4-5:#1d3557;
+--bp-p5-1:#f6bd60;--bp-p5-2:#f7ede2;--bp-p5-3:#f5cac3;--bp-p5-4:#84a59d;--bp-p5-5:#f28482;
+--bp-p6-1:#233d4d;--bp-p6-2:#fe7f2d;--bp-p6-3:#fcca46;--bp-p6-4:#a1c181;--bp-p6-5:#619b8a;
+--bp-p7-1:#22577a;--bp-p7-2:#38a3a5;--bp-p7-3:#57cc99;--bp-p7-4:#80ed99;--bp-p7-5:#c7f9cc;
+--bp-p8-1:#00fddc;--bp-p8-2:#2e5339;--bp-p8-3:#495f41;--bp-p8-4:#ff5666;--bp-p8-5:#ffccc9;
+--bp-p9-1:#70d6ff;--bp-p9-2:#ff70a6;--bp-p9-3:#ff9770;--bp-p9-4:#ffd670;
+--bp-p10-1:#247ba0;--bp-p10-2:#70c1b3;--bp-p10-3:#b2dbbf;--bp-p10-4:#f3ffbd;--bp-p10-5:#ff1654;
+--bp-p11-1:#083d77;--bp-p11-2:#ebebd3;--bp-p11-3:#f4d35e;--bp-p11-4:#ee964b;--bp-p11-5:#f95738;
+--bp-p12-1:#3c493f;--bp-p12-2:#7e8d85;--bp-p12-3:#b3bfb8;--bp-p12-4:#f0f7f4;--bp-p12-5:#a2e3c4;
+}

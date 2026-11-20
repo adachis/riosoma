@@ -1,0 +1,14 @@
+themes/
+design-systems/
+pnpm-lock.yaml
+dist/
+coverage/
+*.md
+tools/
+# Helm templates are Go templates, not YAML.
+deploy/helm/*/templates/
+# Unchanged copies of EcoLogits' data, and the reference its Python package writes.
+packages/ecologits/src/data/
+packages/ecologits/fixtures/reference.json
+# The Make app's component files are written by its build and compared byte for byte by its tests.
+integrations/make/**/*.iml.json

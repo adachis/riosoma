@@ -1,0 +1,10 @@
+/* London DS webfonts. Google Fonts stand-ins for the metal/board lettering of the
+   source references: Archivo (display), Hanken Grotesk (text/UI), IBM Plex Mono (data + labels). */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+
+:root{
+  --font-display:"Archivo","Archivo Expanded",system-ui,sans-serif;
+  --font-text:"Hanken Grotesk","Archivo",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+  --font-ui:var(--font-text);
+}

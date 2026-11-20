@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Italianno&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+/* Licensed display faces shipped with the system. Sources noted in readme.md. */
+@font-face{font-family:"Condensed Victorian";src:url("../assets/fonts/CondensedVictorian.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Old Vintage Victorian";src:url("../assets/fonts/OldVintageVictorianIII.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Victorian Parlor";src:url("../assets/fonts/VictorianParlor.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Victorian Parlor";src:url("../assets/fonts/VictorianParlor-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Victorian Parlor";src:url("../assets/fonts/VictorianParlor-Italic.otf") format("opentype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Victorian Initials";src:url("../assets/fonts/VictorianAlphabets.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Victorian Initials Seven";src:url("../assets/fonts/VictorianAlphabetsSeven.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Victorian Initials Eight";src:url("../assets/fonts/VictorianAlphabetsEight.otf") format("opentype");font-weight:400;font-display:swap}
+
+:root{
+--font-wood:"Condensed Victorian","Playfair Display",Georgia,serif;
+--font-ornate:"Old Vintage Victorian","Playfair Display",Georgia,serif;
+--font-parlor:"Victorian Parlor","Playfair Display",Georgia,serif;
+--font-didone:"Playfair Display","Victorian Parlor",Georgia,serif;
+--font-body:"Vollkorn","IM Fell English",Georgia,"Times New Roman",serif;
+--font-text-old:"IM Fell English",Georgia,serif;
+--font-label:"IM Fell English SC","Victorian Parlor",Georgia,serif;
+--font-script:"Italianno","Snell Roundhand",cursive;
+--font-mono:"Courier Prime","Courier New",monospace;
+--font-initial:"Victorian Initials",serif;
+--font-initial-alt:"Victorian Initials Seven",serif;
+--font-initial-alt-2:"Victorian Initials Eight",serif;
+}

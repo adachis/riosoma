@@ -1,0 +1,1152 @@
+{
+  "id": "shabby-chic",
+  "name": "Shabby Chic",
+  "css": "theme.css",
+  "defaultScheme": "heirloom",
+  "schemes": [
+    {
+      "id": "heirloom",
+      "name": "Heirloom",
+      "appearance": "light"
+    },
+    {
+      "id": "spectrum",
+      "name": "Spectrum",
+      "appearance": "light"
+    },
+    {
+      "id": "midnight-gilt",
+      "name": "Midnight Gilt",
+      "appearance": "light"
+    },
+    {
+      "id": "carnival",
+      "name": "Carnival",
+      "appearance": "light"
+    },
+    {
+      "id": "harbour",
+      "name": "Harbour",
+      "appearance": "light"
+    },
+    {
+      "id": "peony",
+      "name": "Peony",
+      "appearance": "light"
+    },
+    {
+      "id": "orchard",
+      "name": "Orchard",
+      "appearance": "light"
+    },
+    {
+      "id": "seaglass",
+      "name": "Seaglass",
+      "appearance": "light"
+    },
+    {
+      "id": "fernlight",
+      "name": "Fernlight",
+      "appearance": "light"
+    },
+    {
+      "id": "sorbet",
+      "name": "Sorbet",
+      "appearance": "light"
+    },
+    {
+      "id": "meadow",
+      "name": "Meadow",
+      "appearance": "light"
+    },
+    {
+      "id": "provence",
+      "name": "Provence",
+      "appearance": "light"
+    },
+    {
+      "id": "eucalyptus",
+      "name": "Eucalyptus",
+      "appearance": "light"
+    }
+  ],
+  "modes": [],
+  "defaultMode": null,
+  "surfaces": [],
+  "otherAttributes": [],
+  "externalImports": [],
+  "remoteFonts": [
+    {
+      "path": "assets/fonts/remote/berkshire-swash-68ede9518557.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/berkshireswash/v22/ptRRTi-cavZOGqCvnNJDl5m5XmN_pM4zT305QaYc.woff2",
+      "family": "Berkshire Swash"
+    },
+    {
+      "path": "assets/fonts/remote/berkshire-swash-793104357762.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/berkshireswash/v22/ptRRTi-cavZOGqCvnNJDl5m5XmN_qs4zT305QQ.woff2",
+      "family": "Berkshire Swash"
+    },
+    {
+      "path": "assets/fonts/remote/cabin-sketch-3330d0230250.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cabinsketch/v23/QGY2z_kZZAGCONcK2A4bGOj0I_1Y5tjzAYOcFg.woff2",
+      "family": "Cabin Sketch"
+    },
+    {
+      "path": "assets/fonts/remote/cabin-sketch-81201c1c486e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cabinsketch/v23/QGYpz_kZZAGCONcK2A4bGOj8mNhNy_r-Kw.woff2",
+      "family": "Cabin Sketch"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-30893fb892fb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKky2F7i6C.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-3ed39130134b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-5e51dee1dd36.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYrXtKky2F7i6C.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-6ac0105b2e1b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-8f1497dfb3b0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpntKky2F7i6C.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-ad81319b4c4a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtHmSqn7B6DxjY.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-b78d0c75ff04.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-e463450c44fd.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtGmSqn7B6DxjY.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-ef11131371d0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtMmSqn7B6DxjY.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-garamond-fd9e550aefd8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtFmSqn7B6DxjY.woff2",
+      "family": "Cormorant Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-042f1f4d30d7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_QiZUaILtOqhqgDeXoF_n1_fTGX9valMIFxGC8NAU.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-081a2d6a9049.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9MLsNcs5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-0963298710bf.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9N_ttcs5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-28d549dc5360.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Nvsdco5m2WDgzT.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-2c7e174847d3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Mnt9cl5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-2f8ae4c4499a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9N_ttcm5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-2fdaa64bc774.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9MLsNcl5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-37013bf3438b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Nvsdcs5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-3f7422cb5912.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9N_ttco5m2WDgzT.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-511ae1708301.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_QiZUaILtOqhqgDeXoF_n1_fTGX9vZlMIFxGC8NAU.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-5a75ef4ffe5c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Mnt9cs5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-5b766a2b6769.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Nvsdcl5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-5c6e53c4479d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Mnt9co5m2WDgzT.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-5e88c3b04b4c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9MLsNco5m2WDgzT.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-60587008ffc4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9MLsNcn5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-6f3f291e8e22.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Nvsdcm5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-75503d01b8d0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_QiZUaILtOqhqgDeXoF_n1_fTGX9vQlMIFxGC8NAU.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-7935d3e07aa6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Nvsdcn5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-98347bd08310.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_QiZUaILtOqhqgDeXoF_n1_fTGX9vUlMIFxGC8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-ae6df10273d4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Mnt9cn5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-c3fe003ae5ba.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9N_ttcl5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-ccaea3df2b12.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_QiZUaILtOqhqgDeXoF_n1_fTGX9vblMIFxGC8NAU.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-d353022566f1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9N_ttcn5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-d7523c2018d7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9Mnt9cm5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cormorant-unicase-ddeb1f15e6ac.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cormorantunicase/v25/HI_ViZUaILtOqhqgDeXoF_n1_fTGX9MLsNcm5m2WDgzTnM8.woff2",
+      "family": "Cormorant Unicase"
+    },
+    {
+      "path": "assets/fonts/remote/cutive-mono-d061824358c2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cutivemono/v23/m8JWjfRfY7WVjVi2E-K9H6RMTm6o39ucNvc.woff2",
+      "family": "Cutive Mono"
+    },
+    {
+      "path": "assets/fonts/remote/cutive-mono-dd99f05949ac.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cutivemono/v23/m8JWjfRfY7WVjVi2E-K9H6RCTm6o39uc.woff2",
+      "family": "Cutive Mono"
+    },
+    {
+      "path": "assets/fonts/remote/karla-b22f10a06d1d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/karla/v33/qkBVXvYC6trAT7RQHtCe4ZRNkAT7MQ.woff2",
+      "family": "Karla"
+    },
+    {
+      "path": "assets/fonts/remote/karla-b4b6adce61ce.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/karla/v33/qkBbXvYC6trAT7RVLtyU5rZP.woff2",
+      "family": "Karla"
+    },
+    {
+      "path": "assets/fonts/remote/karla-b7dd2f43b203.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/karla/v33/qkBVXvYC6trAT7RQHt6e4ZRNkAQ.woff2",
+      "family": "Karla"
+    },
+    {
+      "path": "assets/fonts/remote/karla-ff9beacf98f7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/karla/v33/qkBbXvYC6trAT7RbLtyU5rZPoAU.woff2",
+      "family": "Karla"
+    },
+    {
+      "path": "assets/fonts/remote/la-belle-aurore-3d7f492ec732.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/labelleaurore/v23/RrQIbot8-mNYKnGNDkWlocovHeI4HO2EF1qELw.woff2",
+      "family": "La Belle Aurore"
+    },
+    {
+      "path": "assets/fonts/remote/la-belle-aurore-e7637b70a843.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/labelleaurore/v23/RrQIbot8-mNYKnGNDkWlocovHeI4Eu2EF1qEL0gy.woff2",
+      "family": "La Belle Aurore"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-sketch-e2f46c69c947.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasketch/v27/c4m41npxGMTnomOHtRU68eIJn8qvXmP4HIgqCQ.woff2",
+      "family": "Londrina Sketch"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-solid-35785a801467.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasolid/v19/flUiRq6sw40kQEJxWNgkLuudGfv1CgYzlZzKTacK.woff2",
+      "family": "Londrina Solid"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-solid-3db8cc867352.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasolid/v19/flUhRq6sw40kQEJxWNgkLuudGfNeKBMet5Hg.woff2",
+      "family": "Londrina Solid"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-solid-3def8fffcdd7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasolid/v19/flUjRq6sw40kQEJxWNgkLuudGfs9GBEUsLPiR68.woff2",
+      "family": "Londrina Solid"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-solid-68e1b4d4be08.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasolid/v19/flUiRq6sw40kQEJxWNgkLuudGfvdDwYzlZzKTacK.woff2",
+      "family": "Londrina Solid"
+    },
+    {
+      "path": "assets/fonts/remote/rye-9811c4e390f8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rye/v17/r05XGLJT86YzH57tfumh4gok.woff2",
+      "family": "Rye"
+    },
+    {
+      "path": "assets/fonts/remote/rye-f7876596ec2c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/rye/v17/r05XGLJT86YzEZ7tfumh4g.woff2",
+      "family": "Rye"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-058db33f617f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMO21la7UVSby1.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-151e91a5f422.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8wU8PWdiSbclSA.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-2fca17b4f150.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMMG1la7UVSby1.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-4cbbcccc11e5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMMW1la7UVSby1.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-55b95b224b5d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMMm1la7UVSby1.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-59a26ae428ce.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8ws8PWdiSbc.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-81760cc61494.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8wY8PWdiSbclSA.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-93e6aa5f2329.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8wQ8PWdiSbclSA.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-c0191ec98320.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMP21la7UVSQ.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-f64dcfc89494.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8w88PWdiSbclSA.woff2",
+      "family": "Shantell Sans"
+    }
+  ],
+  "droppedImports": [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  ],
+  "removedImportant": 0,
+  "removedMotionRules": 0,
+  "semantic": {
+    "--rio-bg": "--surface-page",
+    "--rio-surface": "--surface-card",
+    "--rio-text": "--text-body",
+    "--rio-text-muted": "--text-muted",
+    "--rio-border": "--rule",
+    "--rio-accent": "--accent",
+    "--rio-on-accent": "--text-on-accent",
+    "--rio-link": "--text-link",
+    "--rio-focus": "--rio-accent",
+    "--rio-success": "--ok-3",
+    "--rio-warning": "--warn-3",
+    "--rio-danger": "--alert-3",
+    "--rio-info": "--info-3",
+    "--rio-font-body": "--font-ui",
+    "--rio-font-display": "--font-serif",
+    "--rio-font-mono": "--font-mono",
+    "--rio-radius": "--r-md"
+  },
+  "legibilityOnColors": {
+    "on-success": "--rio-on-accent",
+    "on-warning": "--rio-on-accent",
+    "on-danger": "--rio-on-accent",
+    "on-info": "--rio-on-accent"
+  },
+  "assets": [
+    {
+      "path": "assets/assets/florals/banner-01.png",
+      "bytes": 11748157
+    },
+    {
+      "path": "assets/assets/florals/floral-01.png",
+      "bytes": 6471959
+    },
+    {
+      "path": "assets/assets/florals/floral-03.png",
+      "bytes": 549143
+    },
+    {
+      "path": "assets/assets/florals/frame-01.png",
+      "bytes": 15414404
+    },
+    {
+      "path": "assets/assets/florals/frame-02.png",
+      "bytes": 15904184
+    },
+    {
+      "path": "assets/assets/florals/wash-01.png",
+      "bytes": 6667405
+    },
+    {
+      "path": "assets/assets/textures/journal-floral-01.jpg",
+      "bytes": 3055313
+    },
+    {
+      "path": "assets/assets/textures/journal-rose-01.jpg",
+      "bytes": 2790221
+    },
+    {
+      "path": "assets/assets/textures/journal-rustic-01.jpg",
+      "bytes": 2122820
+    },
+    {
+      "path": "assets/assets/textures/journal-wisteria-01.jpg",
+      "bytes": 2164156
+    },
+    {
+      "path": "assets/assets/textures/paper-blue-01.png",
+      "bytes": 14057981
+    },
+    {
+      "path": "assets/assets/textures/paper-blue-02.png",
+      "bytes": 16633440
+    },
+    {
+      "path": "assets/assets/textures/paper-lace-pink-01.jpg",
+      "bytes": 2715379
+    },
+    {
+      "path": "assets/assets/textures/paper-lace-pink-02.jpg",
+      "bytes": 2961503
+    },
+    {
+      "path": "assets/assets/textures/paper-lace-pink-03.jpg",
+      "bytes": 2247444
+    },
+    {
+      "path": "assets/assets/textures/pattern-seamless-01.jpg",
+      "bytes": 11711618
+    },
+    {
+      "path": "assets/assets/textures/pattern-seamless-02.jpg",
+      "bytes": 10393725
+    },
+    {
+      "path": "assets/assets/textures/pattern-seamless-03.jpg",
+      "bytes": 12785718
+    },
+    {
+      "path": "assets/assets/textures/wash-square-01.png",
+      "bytes": 2008220
+    },
+    {
+      "path": "assets/assets/textures/wash-square-02.png",
+      "bytes": 2017748
+    },
+    {
+      "path": "assets/assets/textures/wash-square-03.png",
+      "bytes": 2355194
+    },
+    {
+      "path": "assets/assets/textures/wash-square-04.png",
+      "bytes": 2446372
+    }
+  ],
+  "unresolvedUrls": [],
+  "source": {
+    "designSystem": "design-systems/shabby-chic",
+    "originalSchemeSelector": "[data-theme=\"<id>\"]",
+    "tokenFiles": [
+      "tokens/fonts.css",
+      "tokens/colors.css",
+      "tokens/themes.css",
+      "tokens/typography.css",
+      "tokens/spacing.css",
+      "tokens/elevation.css",
+      "tokens/texture.css",
+      "tokens/motion.css",
+      "tokens/base.css"
+    ],
+    "zipFile": "Shabby Chic Design System.zip",
+    "zipContentHash": "c4fee6d2bfe245a08fd4b59e6833a83c30494bc646344e398664c2a3ff3948c5"
+  },
+  "legibility": {
+    "heirloom": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#965862",
+        "--rio-aa-text-muted": "#65574d",
+        "--rio-aa-link": "#89565d",
+        "--rio-aa-focus": "#a2626c",
+        "--rio-aa-border": "#988172",
+        "--rio-aa-success-text": "#476036",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#765300",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8c4440",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#415d6f",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#65574d",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d8d2cb",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f6cac1",
+        "--rio-aa-choice-orange": "#d06a06",
+        "--rio-aa-choice-orange-soft": "#efcfba",
+        "--rio-aa-choice-yellow": "#aa7f00",
+        "--rio-aa-choice-yellow-soft": "#e4d3b9",
+        "--rio-aa-choice-green": "#299940",
+        "--rio-aa-choice-green-soft": "#ccdabf",
+        "--rio-aa-choice-teal": "#02968c",
+        "--rio-aa-choice-teal-soft": "#cad8cf",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#ccd6ea",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e0cce1",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f2c8d4",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e1cebe"
+      }
+    },
+    "spectrum": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#313030",
+        "--rio-aa-accent-text": "#007a5f",
+        "--rio-aa-text-muted": "#66584e",
+        "--rio-aa-link": "#2c7760",
+        "--rio-aa-focus": "#2c9779",
+        "--rio-aa-border": "#898874",
+        "--rio-aa-success-text": "#486137",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#775400",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8d4541",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#425e70",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#66584e",
+        "--rio-legible-on-accent": "#313030",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d5d5cd",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f3cdc3",
+        "--rio-aa-choice-orange": "#d16c0b",
+        "--rio-aa-choice-orange-soft": "#ecd3bc",
+        "--rio-aa-choice-yellow": "#ac8000",
+        "--rio-aa-choice-yellow-soft": "#e1d6bb",
+        "--rio-aa-choice-green": "#2a9b41",
+        "--rio-aa-choice-green-soft": "#c9ddc1",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c8dcd2",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c8d9ec",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ddcfe3",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#efccd6",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#ded1bf"
+      }
+    },
+    "midnight-gilt": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#003566",
+        "--rio-aa-text-muted": "#5f5047",
+        "--rio-aa-link": "#113359",
+        "--rio-aa-focus": "#003566",
+        "--rio-aa-border": "#87837c",
+        "--rio-aa-success-text": "#455e34",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#735100",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8a423f",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#3f5b6d",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#5f5047",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d2d0cb",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#efc9c1",
+        "--rio-aa-choice-orange": "#cd6800",
+        "--rio-aa-choice-orange-soft": "#e7cdb9",
+        "--rio-aa-choice-yellow": "#a77d00",
+        "--rio-aa-choice-yellow-soft": "#dcd1b9",
+        "--rio-aa-choice-green": "#26973e",
+        "--rio-aa-choice-green-soft": "#c4d8bf",
+        "--rio-aa-choice-teal": "#009389",
+        "--rio-aa-choice-teal-soft": "#c3d6cf",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c5d4ea",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#d9cae1",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#ebc7d4",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#daccbe"
+      }
+    },
+    "carnival": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#9e0059",
+        "--rio-aa-text-muted": "#605148",
+        "--rio-aa-link": "#87194e",
+        "--rio-aa-focus": "#9e0059",
+        "--rio-aa-border": "#9e7d74",
+        "--rio-aa-success-text": "#465f35",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#755200",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8b423f",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#3f5c6d",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#605148",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d9cfcb",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f6c8c0",
+        "--rio-aa-choice-orange": "#ce6903",
+        "--rio-aa-choice-orange-soft": "#efcdb9",
+        "--rio-aa-choice-yellow": "#a87e00",
+        "--rio-aa-choice-yellow-soft": "#e4d1b9",
+        "--rio-aa-choice-green": "#27983f",
+        "--rio-aa-choice-green-soft": "#ccd7be",
+        "--rio-aa-choice-teal": "#00948a",
+        "--rio-aa-choice-teal-soft": "#cbd6ce",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#cdd3ea",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e0c9e0",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f2c6d3",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e1ccbd"
+      }
+    },
+    "harbour": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#1d3557",
+        "--rio-aa-text-muted": "#605148",
+        "--rio-aa-link": "#22334d",
+        "--rio-aa-focus": "#1d3557",
+        "--rio-aa-border": "#8b827a",
+        "--rio-aa-success-text": "#455e34",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#735200",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8a423f",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#3f5b6d",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#605148",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d2d0cb",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f0c9c0",
+        "--rio-aa-choice-orange": "#cd6800",
+        "--rio-aa-choice-orange-soft": "#e8cdb9",
+        "--rio-aa-choice-yellow": "#a77d00",
+        "--rio-aa-choice-yellow-soft": "#ddd1b9",
+        "--rio-aa-choice-green": "#26973e",
+        "--rio-aa-choice-green-soft": "#c5d8be",
+        "--rio-aa-choice-teal": "#009389",
+        "--rio-aa-choice-teal-soft": "#c4d6ce",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c6d4ea",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dacae0",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#ecc7d3",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dbccbd"
+      }
+    },
+    "peony": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#353434",
+        "--rio-aa-accent-text": "#52716a",
+        "--rio-aa-text-muted": "#67584e",
+        "--rio-aa-link": "#59706a",
+        "--rio-aa-focus": "#6e8e87",
+        "--rio-aa-border": "#8e8776",
+        "--rio-aa-success-text": "#486237",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#775400",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8e4541",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#425e70",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#67584e",
+        "--rio-legible-on-accent": "#353434",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d7d5ce",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f5cdc3",
+        "--rio-aa-choice-orange": "#d26c0c",
+        "--rio-aa-choice-orange-soft": "#eed3bd",
+        "--rio-aa-choice-yellow": "#ac8000",
+        "--rio-aa-choice-yellow-soft": "#e3d6bc",
+        "--rio-aa-choice-green": "#2c9b42",
+        "--rio-aa-choice-green-soft": "#caddc2",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c9dcd2",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#cad9ed",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#decfe4",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f1cbd7",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dfd1c0"
+      }
+    },
+    "orchard": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#282828",
+        "--rio-aa-accent-text": "#3c7566",
+        "--rio-aa-text-muted": "#66584e",
+        "--rio-aa-link": "#4a7366",
+        "--rio-aa-focus": "#599282",
+        "--rio-aa-border": "#8c8776",
+        "--rio-aa-success-text": "#486137",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#775400",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8d4541",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#425e70",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#66584e",
+        "--rio-legible-on-accent": "#282828",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d5d5cd",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f3cdc3",
+        "--rio-aa-choice-orange": "#d16c0b",
+        "--rio-aa-choice-orange-soft": "#ecd3bc",
+        "--rio-aa-choice-yellow": "#ac8000",
+        "--rio-aa-choice-yellow-soft": "#e1d6bb",
+        "--rio-aa-choice-green": "#2a9b41",
+        "--rio-aa-choice-green-soft": "#c9ddc1",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c8dcd2",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c8d9ec",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ddcfe3",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#efccd6",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#ded1bf"
+      }
+    },
+    "seaglass": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#2d2c2c",
+        "--rio-aa-accent-text": "#00777a",
+        "--rio-aa-text-muted": "#66584e",
+        "--rio-aa-link": "#287677",
+        "--rio-aa-focus": "#269598",
+        "--rio-aa-border": "#898878",
+        "--rio-aa-success-text": "#486137",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#775400",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8d4541",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#425e70",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#66584e",
+        "--rio-legible-on-accent": "#2d2c2c",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d5d5ce",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f3cdc4",
+        "--rio-aa-choice-orange": "#d16c0b",
+        "--rio-aa-choice-orange-soft": "#ebd3bd",
+        "--rio-aa-choice-yellow": "#ac8000",
+        "--rio-aa-choice-yellow-soft": "#e0d6bd",
+        "--rio-aa-choice-green": "#2a9a41",
+        "--rio-aa-choice-green-soft": "#c8ddc2",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c7dcd3",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c8d9ee",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dccfe4",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#eeccd7",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#ddd1c1"
+      }
+    },
+    "fernlight": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#2e5339",
+        "--rio-aa-text-muted": "#63544b",
+        "--rio-aa-link": "#304a35",
+        "--rio-aa-focus": "#2e5339",
+        "--rio-aa-border": "#8b846f",
+        "--rio-aa-success-text": "#465f35",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#745200",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8b423f",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#3f5b6d",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#63544b",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d3d1c9",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f1c9bf",
+        "--rio-aa-choice-orange": "#cd6900",
+        "--rio-aa-choice-orange-soft": "#e9ceb7",
+        "--rio-aa-choice-yellow": "#a87d00",
+        "--rio-aa-choice-yellow-soft": "#ded2b7",
+        "--rio-aa-choice-green": "#26973e",
+        "--rio-aa-choice-green-soft": "#c6d8bc",
+        "--rio-aa-choice-teal": "#00948a",
+        "--rio-aa-choice-teal-soft": "#c4d7cd",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c6d5e8",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dacbdf",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#edc8d2",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dccdbc"
+      }
+    },
+    "sorbet": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#373737",
+        "--rio-aa-accent-text": "#c03570",
+        "--rio-aa-text-muted": "#67584f",
+        "--rio-aa-link": "#b2456f",
+        "--rio-aa-focus": "#e1558d",
+        "--rio-aa-border": "#a38077",
+        "--rio-aa-success-text": "#496238",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#785500",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8e4642",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#435f70",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#67584f",
+        "--rio-legible-on-accent": "#373737",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#ddd3ce",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#facbc4",
+        "--rio-aa-choice-orange": "#d26c0c",
+        "--rio-aa-choice-orange-soft": "#f3d1bd",
+        "--rio-aa-choice-yellow": "#ac8100",
+        "--rio-aa-choice-yellow-soft": "#e9d5bd",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d2dcc3",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d0dbd3",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d1d7ee",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e4cde4",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f6cad7",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e5cfc1"
+      }
+    },
+    "meadow": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#177296",
+        "--rio-aa-text-muted": "#66574e",
+        "--rio-aa-link": "#2e6985",
+        "--rio-aa-focus": "#247ba0",
+        "--rio-aa-border": "#88867d",
+        "--rio-aa-success-text": "#486137",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#765400",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8d4441",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#415d6f",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#66574e",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d4d3ce",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f2ccc4",
+        "--rio-aa-choice-orange": "#d06a06",
+        "--rio-aa-choice-orange-soft": "#ead1bc",
+        "--rio-aa-choice-yellow": "#aa7f00",
+        "--rio-aa-choice-yellow-soft": "#dfd5bc",
+        "--rio-aa-choice-green": "#299940",
+        "--rio-aa-choice-green-soft": "#c7dbc1",
+        "--rio-aa-choice-teal": "#02968c",
+        "--rio-aa-choice-teal-soft": "#c5dad2",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c7d7ed",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dbcde4",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#eecad6",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dccfc0"
+      }
+    },
+    "provence": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#083d77",
+        "--rio-aa-text-muted": "#605148",
+        "--rio-aa-link": "#173a66",
+        "--rio-aa-focus": "#083d77",
+        "--rio-aa-border": "#87837d",
+        "--rio-aa-success-text": "#455e34",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#735200",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8a423f",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#3f5b6d",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#605148",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d2d0cd",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#efc9c3",
+        "--rio-aa-choice-orange": "#cd6800",
+        "--rio-aa-choice-orange-soft": "#e7cdbb",
+        "--rio-aa-choice-yellow": "#a77d00",
+        "--rio-aa-choice-yellow-soft": "#dcd1bb",
+        "--rio-aa-choice-green": "#26973e",
+        "--rio-aa-choice-green-soft": "#c4d8c0",
+        "--rio-aa-choice-teal": "#009389",
+        "--rio-aa-choice-teal-soft": "#c3d6d0",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c5d4ec",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#d9cae3",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#ebc7d6",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#daccc0"
+      }
+    },
+    "eucalyptus": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a3f3a",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#3c493f",
+        "--rio-aa-text-muted": "#62544a",
+        "--rio-aa-link": "#394239",
+        "--rio-aa-focus": "#3c493f",
+        "--rio-aa-border": "#8e8371",
+        "--rio-aa-success-text": "#465f35",
+        "--rio-aa-on-success": "#353434",
+        "--rio-aa-warning-text": "#755200",
+        "--rio-aa-on-warning": "#4a3f3a",
+        "--rio-aa-danger-text": "#8b423f",
+        "--rio-aa-on-danger": "#2c2c2c",
+        "--rio-aa-info-text": "#405c6d",
+        "--rio-aa-on-info": "#3a3939",
+        "--rio-legible-text": "#4a3f3a",
+        "--rio-legible-text-muted": "#62544a",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#4a3f3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d4d1ca",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f2c9c0",
+        "--rio-aa-choice-orange": "#cd6900",
+        "--rio-aa-choice-orange-soft": "#e9ceb8",
+        "--rio-aa-choice-yellow": "#a87d00",
+        "--rio-aa-choice-yellow-soft": "#dfd2b8",
+        "--rio-aa-choice-green": "#26973e",
+        "--rio-aa-choice-green-soft": "#c7d8bd",
+        "--rio-aa-choice-teal": "#00948a",
+        "--rio-aa-choice-teal-soft": "#c5d7cd",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c7d5e9",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dbcbe0",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#edc8d3",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dccdbc"
+      }
+    }
+  },
+  "legibilityAdjusted": 198
+}

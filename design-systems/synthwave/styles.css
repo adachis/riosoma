@@ -1,0 +1,25 @@
+/* Synthwave Design System — global entry point.
+   Consumers link this one file. */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap");
+/* Icon family. The brand's Font Awesome kit (559791bdc6) is loaded per-page as a
+   <script> tag; this CDN stylesheet is the fallback that guarantees glyphs render
+   on any domain the kit is not allow-listed for. */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css");
+@import "./tokens/fonts.css";
+@import "./tokens/themes.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/effects.css";
+@import "./tokens/motion.css";
+@import "./tokens/base.css";
+@import "./css/controls.css";
+@import "./css/forms.css";
+@import "./css/surfaces.css";
+@import "./css/navigation.css";
+@import "./css/feedback.css";
+@import "./css/data.css";
+@import "./css/chrome.css";
+@import "./css/game.css";
+@import "./css/effects.css";
+@import "./css/print.css";
+@import "./tokens/utilities.css";

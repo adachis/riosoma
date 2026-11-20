@@ -1,0 +1,8 @@
+/* React Aria's press handling needs this rule and would inject it as an inline <style>, which the
+   security policy blocks.  It skips the injection when an element with its id already exists, so
+   index.html links this file with that id instead. */
+@layer rio.base {
+  [data-react-aria-pressable] {
+    touch-action: pan-x pan-y pinch-zoom;
+  }
+}

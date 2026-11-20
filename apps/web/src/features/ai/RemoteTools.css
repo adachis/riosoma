@@ -1,0 +1,55 @@
+.rio-remote-tools {
+  display: grid;
+  gap: var(--rio-space-4);
+  min-width: 0;
+}
+.rio-remote-tools form,
+.rio-remote-tools fieldset {
+  display: grid;
+  gap: var(--rio-space-3);
+  min-width: 0;
+}
+.rio-remote-tools fieldset {
+  border: 1px solid var(--rio-border);
+  border-radius: var(--rio-radius);
+  padding: var(--rio-space-3);
+}
+.rio-remote-tools ul {
+  padding-inline-start: var(--rio-space-5);
+}
+.rio-remote-tools li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--rio-space-2);
+  margin-block: var(--rio-space-3);
+  overflow-wrap: anywhere;
+}
+.rio-remote-tools__name {
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rio-remote-tools__refresh {
+  grid-column: 2;
+  grid-row: 1;
+}
+.rio-remote-tools__status,
+.rio-remote-tools__authorize {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+.rio-remote-tools__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rio-space-2);
+}
+.rio-remote-approval pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 20rem;
+  overflow: auto;
+  background: var(--rio-bg);
+  padding: var(--rio-space-3);
+}

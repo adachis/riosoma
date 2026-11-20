@@ -1,0 +1,24 @@
+@layer rio.app {
+  .rio-card-value--choices {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-1);
+  }
+  .rio-card-value--check {
+    display: inline-flex;
+    align-items: center;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-card-value--check[data-checked='true'] {
+    color: var(--rio-aa-choice-green);
+  }
+  /* The word stays for screen readers; sighted people see the mark. */
+  .rio-card-value__text {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

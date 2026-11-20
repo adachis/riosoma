@@ -1,0 +1,20 @@
+/* Art Deco — global entry. Import lines only. */
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/themes.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/geometry.css";
+@import "tokens/elevation.css";
+@import "tokens/motion.css";
+@import "css/base.css";
+@import "css/ornament.css";
+@import "css/buttons.css";
+@import "css/forms.css";
+@import "css/surfaces.css";
+@import "css/navigation.css";
+@import "css/feedback.css";
+@import "css/chrome.css";
+@import "css/game.css";
+@import "css/mobile.css";
+@import "css/print.css";

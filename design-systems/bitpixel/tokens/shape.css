@@ -1,0 +1,14 @@
+:root{
+--bp-radius-0:0px;--bp-radius-1:2px;--bp-radius-2:4px;--bp-radius-3:6px;--bp-radius-4:10px;--bp-radius-5:16px;--bp-radius-pill:999px;
+--bp-border:1px;--bp-border-thick:2px;
+--bp-hairline:var(--bp-border) solid var(--bp-line);--bp-hairline-strong:var(--bp-border) solid var(--bp-line-strong);
+--bp-shadow-0:none;
+--bp-shadow-1:0 1px 0 0 color-mix(in oklab, var(--bp-line) 70%, transparent);
+--bp-shadow-2:0 6px 18px -8px rgba(0,0,0,.45);
+--bp-shadow-3:0 22px 60px -18px rgba(0,0,0,.6);
+--bp-inset-hairline:inset 0 0 0 1px var(--bp-line);
+--bp-glow-ring:0 0 0 1px var(--bp-accent), 0 0 24px -4px var(--bp-glow);
+--bp-focus-ring:0 0 0 2px var(--bp-bg), 0 0 0 4px var(--bp-focus);
+--bp-grid-bg:linear-gradient(var(--bp-grid-line) 1px, transparent 1px) 0 0/var(--bp-grid-cell) var(--bp-grid-cell), linear-gradient(90deg, var(--bp-grid-line) 1px, transparent 1px) 0 0/var(--bp-grid-cell) var(--bp-grid-cell);
+--bp-scanline-bg:repeating-linear-gradient(to bottom, color-mix(in oklab, var(--bp-line) 45%, transparent) 0 1px, transparent 1px 3px);
+}

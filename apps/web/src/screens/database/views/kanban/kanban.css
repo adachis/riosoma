@@ -1,0 +1,312 @@
+@layer rio.app {
+  .rio-kanban {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 0;
+    block-size: 100%;
+    position: relative;
+  }
+  .rio-kanban__board {
+    display: flex;
+    flex: 1;
+    gap: var(--rio-space-4);
+    padding: var(--rio-space-4);
+    overflow-inline: auto;
+    min-block-size: 0;
+    align-items: stretch;
+  }
+  .rio-kanban-stack {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 20rem;
+    min-block-size: 0;
+    background: var(--rio-surface);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-kanban-stack[data-drop-target] {
+    outline: var(--rio-focus-ring);
+  }
+  .rio-kanban-stack__header {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+    min-block-size: 4rem;
+  }
+  .rio-kanban-stack__header h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    font-size: var(--rio-text-sm);
+    margin: 0;
+    min-inline-size: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+  .rio-kanban-stack__count {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    white-space: nowrap;
+  }
+  .rio-kanban-stack__scroll {
+    overflow-block: auto;
+    flex: 1;
+    min-block-size: 10rem;
+    padding-inline: var(--rio-space-2);
+    overflow-anchor: none;
+  }
+  .rio-kanban-stack__space {
+    position: relative;
+  }
+  .rio-kanban-stack__slot {
+    position: absolute;
+    inline-size: 100%;
+    padding-block-end: var(--rio-space-3);
+    box-sizing: border-box;
+  }
+  .rio-kanban-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    block-size: 100%;
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-bg);
+    overflow: hidden;
+  }
+  .rio-kanban-card__open {
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    block-size: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--rio-text);
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+  .rio-kanban-card__open:focus-visible {
+    outline: var(--rio-focus-ring);
+    outline-offset: -3px;
+  }
+  .rio-kanban-card__title {
+    display: block;
+    padding-block: var(--rio-space-3);
+    padding-inline: var(--rio-space-3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-inline-size: 100%;
+    box-sizing: border-box;
+  }
+  .rio-kanban-card__field {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 48px;
+    padding-inline: var(--rio-space-3);
+    box-sizing: border-box;
+    max-inline-size: 100%;
+  }
+  .rio-kanban-card__label {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+  .rio-kanban-card__label,
+  .rio-kanban-card__value {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .rio-kanban-card__cover {
+    display: block;
+    flex: 0 0 140px;
+    inline-size: 100%;
+    background: var(--rio-surface);
+    overflow: hidden;
+  }
+  .rio-kanban-card__cover img {
+    inline-size: 100%;
+    block-size: 140px;
+    object-fit: cover;
+  }
+  .rio-kanban-card__cover[data-fit='fit'] img {
+    object-fit: contain;
+  }
+  .rio-kanban-card__actions {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+  }
+  .rio-kanban-card__actions a {
+    pointer-events: auto;
+  }
+  .rio-kanban-card__menu {
+    align-self: start;
+    margin-block-start: var(--rio-space-2);
+    margin-inline-end: var(--rio-space-2);
+    background: var(--rio-bg);
+    border-radius: var(--rio-radius);
+    opacity: 0;
+  }
+  .rio-kanban-card:is(:hover, :focus-within) .rio-kanban-card__menu {
+    opacity: 1;
+  }
+  @media (hover: none) {
+    .rio-kanban-card__menu {
+      opacity: 1;
+    }
+  }
+  .rio-kanban-card--loading {
+    background: var(--rio-surface);
+    border-color: var(--rio-border);
+  }
+  .rio-kanban-stack__new {
+    margin: var(--rio-space-2);
+    flex-shrink: 0;
+  }
+  .rio-kanban__hidden {
+    flex: 0 0 auto;
+  }
+  /* A finger scrolls and swipes over cards and headers, and picks one up with a long press, so
+     neither the browser's callout nor a text selection may take that press. */
+  .rio-kanban [data-draggable] {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .rio-kanban[data-dragging] {
+    user-select: none;
+    cursor: grabbing;
+  }
+  .rio-kanban__status {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  /* A phone shows one stack across the screen at a time.  The row of stacks snaps a stack into
+     place after each swipe, and the pager above it turns to the next or previous one. */
+  .rio-kanban__pager {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+  }
+  .rio-kanban__position {
+    flex: 1;
+    min-inline-size: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .rio-kanban__pager .rio-kanban__hidden {
+    display: flex;
+  }
+  [dir='rtl'] .rio-kanban__turn .rio-icon {
+    transform: scaleX(-1);
+  }
+  .rio-kanban[data-phone] .rio-kanban__board {
+    gap: 0;
+    padding: 0;
+    scroll-snap-type: inline mandatory;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+  .rio-kanban[data-phone] .rio-kanban__board::-webkit-scrollbar {
+    display: none;
+  }
+  .rio-kanban[data-phone] .rio-kanban-stack {
+    flex: 0 0 100%;
+    border: 0;
+    border-radius: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .rio-kanban[data-phone] .rio-kanban-stack__header {
+    min-block-size: 0;
+  }
+  /* While a finger carries a card on a phone, the stacks to drop it on wait over the pager. */
+  .rio-kanban__drop {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: var(--rio-z-sticky);
+    display: grid;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    box-shadow: var(--rio-shadow-2);
+  }
+  .rio-kanban__drop-label {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-kanban__drop-targets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+  .rio-kanban__drop-target {
+    display: flex;
+    align-items: center;
+    min-block-size: var(--rio-target-primary);
+    max-inline-size: 100%;
+    padding-inline: var(--rio-space-3);
+    overflow: hidden;
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-bg);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-kanban__drop-target[data-drop-target] {
+    background: var(--rio-selected);
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-kanban-empty {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: var(--rio-space-4);
+    padding: var(--rio-space-6);
+    block-size: 100%;
+    text-align: center;
+  }
+  .rio-kanban-empty p {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-kanban-settings {
+    display: flex;
+    gap: var(--rio-space-3);
+    align-items: end;
+  }
+  .rio-kanban-settings__panel {
+    display: grid;
+    gap: var(--rio-space-4);
+    min-inline-size: 16rem;
+    padding: var(--rio-space-4);
+  }
+  @media (forced-colors: active) {
+    .rio-kanban-stack[data-drop-target],
+    .rio-kanban__drop-target[data-drop-target] {
+      outline: 2px solid Highlight;
+    }
+    .rio-kanban-card,
+    .rio-kanban-stack {
+      border-color: CanvasText;
+    }
+  }
+}

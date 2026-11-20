@@ -1,0 +1,45 @@
+/* Base palette. Every value here is a raw ramp step — never reference these
+   directly in components; use tokens/semantic.css aliases so theme variants work. */
+:root {
+  /* Ink ramp — the deep indigo stack the whole system sits on */
+  --ink-000: #05040e;
+  --ink-100: #0a0916;
+  --ink-200: #100e24;
+  --ink-300: #171436;
+  --ink-400: #221e4a;
+  --ink-500: #2b2657;
+  --ink-600: #3a3470;
+  --ink-700: #524a92;
+
+  /* Neutral ramp — for light surfaces, print, and inverted UI */
+  --neutral-000: #ffffff;
+  --neutral-050: #f6f6f9;
+  --neutral-100: #ededf2;
+  --neutral-200: #dcdce4;
+  --neutral-300: #b8b8c6;
+  --neutral-400: #8b8b9d;
+  --neutral-500: #5f5f72;
+  --neutral-600: #3b3b4a;
+  --neutral-900: #101018;
+
+  /* Default scheme ("Core") accents */
+  --brand-primary: #b6f000;
+  --brand-primary-hi: #cbff3d;
+  --brand-primary-lo: #8dbb00;
+  --brand-secondary: #8b5cf6;
+  --brand-secondary-hi: #a882ff;
+  --brand-tertiary: #22d3ee;
+
+  /* Status */
+  --signal-positive: #38e08c;
+  --signal-warning: #ffb020;
+  --signal-negative: #ff3b4e;
+  --signal-info: #22d3ee;
+
+  /* Rarity / tier scale — used by game UI, leaderboards, tier tables */
+  --tier-common: #8b8b9d;
+  --tier-rare: #22d3ee;
+  --tier-epic: #8b5cf6;
+  --tier-legendary: #ffb020;
+  --tier-mythic: #ff3b4e;
+}

@@ -1,0 +1,57 @@
+/* COLOUR SCHEME VARIANTS
+   Apply with [data-theme="…"] on <html>, <body>, or any container.
+   Ten of the thirteen are strict three-colour schemes (paper / ink / accent).
+   Three — SPECTRUM, CLAY, CANDY — carry extra accents for variety.
+   Source palettes: see readme.md COLOUR. */
+
+/* 00 RAW — the default. Newsprint, ink, one signal red. */
+[data-theme="raw"]{--paper:#efece4;--ink:#111111;--accent:#ff2d16;--on-accent:#111111}
+
+/* 01 SPECTRUM — 6 accents. coolors f94144…277da1 */
+[data-theme="spectrum"]{
+  --paper:#f7f3e8;--ink:#101010;--accent:#f94144;--on-accent:#101010;
+  --accent-2:#f8961e;--accent-3:#f9c74f;--accent-4:#90be6d;--accent-5:#43aa8b;--accent-6:#277da1;
+}
+
+/* 02 NAVY FLARE — 000814 / 003566 / ffd60a */
+/* Themes that reverse out of a dark ground set --duotone-base / --duotone-flood
+   explicitly: --ink is the LIGHT value there, so the derived default would put a
+   light colour under the screened image and wash the plate out. Rule: BASE is
+   always the darkest colour in the scheme, FLOOD the saturated one. */
+[data-theme="navy-flare"]{--paper:#003566;--ink:#ffd60a;--accent:#000814;--on-accent:#ffd60a;--duotone-base:#000814;--duotone-flood:#ffd60a}
+
+/* 03 VIOLENT — 390099 / ff0054 / ffbd00 */
+[data-theme="violent"]{--paper:#390099;--ink:#ffbd00;--accent:#ff0054;--on-accent:#12002b;--duotone-base:#390099;--duotone-flood:#ff0054}
+
+/* 04 CIVIC — f1faee / 1d3557 / e63946 */
+[data-theme="civic"]{--paper:#f1faee;--ink:#1d3557;--accent:#e63946;--on-accent:#08111c}
+
+/* 05 CLAY — 4 colours. f6bd60 f7ede2 f5cac3 84a59d f28482 */
+[data-theme="clay"]{
+  --paper:#f7ede2;--ink:#2f2a26;--accent:#f28482;--on-accent:#2f2a26;
+  --accent-2:#f6bd60;--accent-3:#84a59d;--accent-4:#f5cac3;--accent-5:#f6bd60;--accent-6:#84a59d;
+}
+
+/* 06 TERRA — 233d4d / fe7f2d / fcca46 */
+[data-theme="terra"]{--paper:#233d4d;--ink:#fcca46;--accent:#fe7f2d;--on-accent:#12202a;--duotone-base:#233d4d;--duotone-flood:#fcca46}
+
+/* 07 LAGOON — 22577a / 57cc99 / c7f9cc */
+[data-theme="lagoon"]{--paper:#22577a;--ink:#c7f9cc;--accent:#57cc99;--on-accent:#0d2233;--duotone-base:#22577a;--duotone-flood:#c7f9cc}
+
+/* 08 TOXIC — 2e5339 / 00fddc / ff5666 */
+[data-theme="toxic"]{--paper:#2e5339;--ink:#00fddc;--accent:#ff5666;--on-accent:#16281b;--duotone-base:#2e5339;--duotone-flood:#00fddc}
+
+/* 09 CANDY — 4 colours. 70d6ff ff70a6 ff9770 ffd670 */
+[data-theme="candy"]{
+  --paper:#70d6ff;--ink:#14141e;--accent:#ff70a6;--on-accent:#14141e;
+  --accent-2:#ff9770;--accent-3:#ffd670;--accent-4:#ff70a6;--accent-5:#ff9770;--accent-6:#ffd670;
+}
+
+/* 10 SIGNAL — f3ffbd / 247ba0 / ff1654 */
+[data-theme="signal"]{--paper:#f3ffbd;--ink:#0f4a63;--accent:#ff1654;--on-accent:#06131c}
+
+/* 11 DOSSIER — ebebd3 / 083d77 / f95738 */
+[data-theme="dossier"]{--paper:#ebebd3;--ink:#083d77;--accent:#f95738;--on-accent:#041f3d}
+
+/* 12 CONCRETE — 3c493f / f0f7f4 / a2e3c4 */
+[data-theme="concrete"]{--paper:#3c493f;--ink:#f0f7f4;--accent:#a2e3c4;--on-accent:#22301f;--duotone-base:#3c493f;--duotone-flood:#a2e3c4}

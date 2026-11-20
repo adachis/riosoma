@@ -1,0 +1,14 @@
+:root{
+--s-0:0;/* @kind spacing */--s-1:2px;--s-2:4px;--s-3:6px;--s-4:8px;--s-5:12px;--s-6:16px;--s-7:20px;
+--s-8:24px;--s-9:32px;--s-10:40px;--s-11:48px;--s-12:64px;--s-13:80px;--s-14:96px;--s-15:128px;
+
+--r-xs:4px;--r-sm:6px;--r-md:10px;--r-lg:14px;--r-xl:20px;--r-2xl:28px;--r-pill:999px;
+--r-artwork:6px;--r-card:10px;--r-control:8px;--r-sheet:20px;
+
+--gutter:24px;--gutter-lg:40px;
+--measure:64ch;/* @kind other */--measure-tight:46ch;/* @kind other */
+--page-max:1240px;--page-max-narrow:820px;
+--control-h-sm:30px;--control-h:38px;--control-h-lg:46px;
+--touch-min:44px;
+--border-w:1px;/* @kind spacing */--border-w-strong:2px;/* @kind spacing */--border-w-sticker:2.5px;/* @kind spacing */
+}

@@ -1,0 +1,97 @@
+# Every option on at once, for helm lint and helm template in CI.  Not a recommended setup.
+image:
+  digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+imagePullSecrets:
+  - name: registry-example
+replicaCount: 2
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 0
+    maxSurge: 1
+settings:
+  RIOSOMA_LOG_LEVEL: debug
+  RIOSOMA_MAIL_FROM: Riosoma <riosoma@example.com>
+  RIOSOMA_SESSION_IDLE_DAYS: 14
+  RIOSOMA_FILES_STORAGE: local
+  RIOSOMA_FILES_DIR: /files
+secret:
+  values:
+    RIOSOMA_SECRET_KEY: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+    RIOSOMA_SMTP_URL: smtps://user:password@smtp.example.com:465
+    RIOSOMA_SETUP_TOKEN: example-setup-token-0123456789
+extraEnv:
+  - name: TZ
+    value: UTC
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::111122223333:role/riosoma
+podAnnotations:
+  example.com/team: data
+podLabels:
+  example.com/tier: web
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1g
+    cert-manager.io/cluster-issuer: letsencrypt
+  host: riosoma.example.com
+persistence:
+  accessMode: ReadWriteMany
+  storageClass: shared-files
+  size: 2Gi
+  keep: false
+extraVolumes:
+  - name: files
+    persistentVolumeClaim:
+      claimName: riosoma-files
+extraVolumeMounts:
+  - name: files
+    mountPath: /files
+podDisruptionBudget:
+  minAvailable: 1
+nodeSelector:
+  kubernetes.io/os: linux
+tolerations:
+  - key: dedicated
+    operator: Equal
+    value: riosoma
+    effect: NoSchedule
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          topologyKey: kubernetes.io/hostname
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: riosoma
+topologySpreadConstraints:
+  - maxSkew: 1
+    topologyKey: topology.kubernetes.io/zone
+    whenUnsatisfiable: ScheduleAnyway
+    labelSelector:
+      matchLabels:
+        app.kubernetes.io/name: riosoma
+priorityClassName: example-priority
+postgresql:
+  enabled: true
+  password: examplepassword123
+  persistence:
+    storageClass: fast
+    size: 20Gi
+clamav:
+  enabled: true
+search:
+  enabled: true
+  existingSecret: example-search-settings
+connectors:
+  image:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+  existingSecret: riosoma-connector-token
+  replicaCount: 1
+  podAnnotations:
+    example.com/team: data
+  nodeSelector:
+    kubernetes.io/os: linux

@@ -1,0 +1,33 @@
+@layer rio.app {
+  .rio-footprint-pill {
+    min-inline-size: 0;
+    color: var(--rio-aa-text-muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .rio-footprint-pill__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .rio-footprint-pill__icon {
+    display: none;
+  }
+  /* A narrow conversation panel, which includes every phone, shows the leaf alone. */
+  @container rio-conversation (max-width: 26rem) {
+    .rio-footprint-pill__label {
+      display: none;
+    }
+    .rio-footprint-pill__icon {
+      display: inline-block;
+    }
+    .rio-footprint-pill {
+      flex: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .rio-footprint-pill {
+      min-inline-size: var(--rio-target-primary);
+      min-block-size: var(--rio-target-primary);
+    }
+  }
+}

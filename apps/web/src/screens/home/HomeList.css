@@ -1,0 +1,32 @@
+[data-home-virtual] {
+  max-block-size: min(20vh, 12rem);
+  overflow: auto;
+  scrollbar-gutter: stable;
+  align-content: start;
+  overscroll-behavior: contain;
+}
+[data-home-virtual]:focus-visible {
+  outline: none;
+  box-shadow: var(--rio-focus-ring);
+}
+/* Spacer rows retain scroll geometry without becoming cards or drop targets. */
+ul > li.rio-home-list__space {
+  grid-column: 1 / -1;
+  padding: 0;
+  border: 0;
+  background: none;
+  pointer-events: none;
+}
+.rio-home-files__folder-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--rio-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-inline-size: 0;
+  inline-size: 100%;
+}
+.rio-home-files__folder-links[data-home-virtual] {
+  max-block-size: min(30vh, 20rem);
+}

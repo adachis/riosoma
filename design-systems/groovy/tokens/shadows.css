@@ -1,0 +1,12 @@
+/* Groovy — border weights. The colour-dependent shadow tokens are declared
+   inside each theme scope (colors.css / themes.css) so a scheme swap recolours them.
+   Available there: --shadow-sticker-sm|--shadow-sticker|-lg|-xl, --shadow-press,
+   --shadow-tint, --shadow-double, --shadow-lifted, --shadow-inset, --shadow-inset-deep,
+   --shadow-glow, --outline-ink, --outline-ink-thick. */
+:root{
+  --bw-hair:1px; /* @kind spacing */
+  --bw-1:2px; /* @kind spacing */
+  --bw-2:3px; /* @kind spacing */
+  --bw-3:4px; /* @kind spacing */
+  --bw-4:6px; /* @kind spacing */
+}

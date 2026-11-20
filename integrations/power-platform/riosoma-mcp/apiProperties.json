@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "connectionParameters": {
+      "token": {
+        "type": "oauthSetting",
+        "oAuthSettings": {
+          "identityProvider": "oauth2pkce",
+          "clientId": "REPLACE_WITH_CLIENT_ID",
+          "scopes": ["schema.bases:read schema.bases:write data.records:read data.records:write"],
+          "redirectMode": "GlobalPerConnector",
+          "properties": {
+            "IsFirstParty": "False"
+          },
+          "customParameters": {
+            "authorizationUrl": {
+              "value": "https://example.invalid/oauth/authorize?resource=https%3A%2F%2Fexample.invalid%2Fmcp"
+            },
+            "tokenUrl": {
+              "value": "https://example.invalid/oauth/token"
+            },
+            "refreshUrl": {
+              "value": "https://example.invalid/oauth/token"
+            }
+          }
+        }
+      },
+      "gateway": {
+        "type": "gatewaySetting"
+      }
+    },
+    "capabilities": []
+  }
+}

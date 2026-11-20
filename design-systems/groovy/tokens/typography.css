@@ -1,0 +1,42 @@
+/* Groovy — typography tokens.
+   Five roles: Chunk (hero), Slab (headings), Script (accents), Text (UI/body), Mono (data). */
+:root{
+  --font-chunk:"Groovy Chunk","Groovy Poster",system-ui,sans-serif; /* @kind font */
+  --font-slab:"Groovy Slab","Groovy Chunk",Georgia,serif; /* @kind font */
+  --font-script:"Groovy Script","Groovy Chunk",cursive; /* @kind font */
+  --font-poster:"Groovy Poster","Groovy Chunk",system-ui,sans-serif; /* @kind font */
+  --font-caps:"Groovy Caps","Groovy Poster",system-ui,sans-serif; /* @kind font */
+  --font-vintage:"Groovy Vintage",Georgia,serif; /* @kind font */
+  --font-text:"Groovy Text",ui-rounded,"Segoe UI",system-ui,sans-serif; /* @kind font */
+  --font-mono:"Space Mono",ui-monospace,SFMono-Regular,monospace; /* @kind font */
+
+  --fs-hero:clamp(56px,9vw,132px); /* @kind font */
+  --fs-display:clamp(40px,6vw,84px); /* @kind font */
+  --fs-h1:44px; /* @kind font */
+  --fs-h2:34px; /* @kind font */
+  --fs-h3:26px; /* @kind font */
+  --fs-h4:20px; /* @kind font */
+  --fs-lead:20px; /* @kind font */
+  --fs-body:16px; /* @kind font */
+  --fs-sm:14px; /* @kind font */
+  --fs-xs:12px; /* @kind font */
+  --fs-micro:11px; /* @kind font */
+
+  --lh-tight:0.92; /* @kind font */
+  --lh-snug:1.08; /* @kind font */
+  --lh-heading:1.16; /* @kind font */
+  --lh-body:1.55; /* @kind font */
+  --lh-loose:1.7; /* @kind font */
+
+  --ls-hero:-0.02em; /* @kind font */
+  --ls-heading:0.005em; /* @kind font */
+  --ls-body:0.005em; /* @kind font */
+  --ls-caps:0.12em; /* @kind font */
+  --ls-mono:0.04em; /* @kind font */
+
+  --fw-light:300; /* @kind font */
+  --fw-regular:400; /* @kind font */
+  --fw-medium:500; /* @kind font */
+  --fw-bold:700; /* @kind font */
+  --fw-black:900; /* @kind font */
+}

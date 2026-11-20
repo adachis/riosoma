@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Press+Start+2P&display=swap");
+/* Local pixel faces. Family names are project-local aliases. */
+@font-face{font-family:"NES Pixel";src:url("../assets/fonts/pixelmix.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"NES Pixel";src:url("../assets/fonts/pixelmix-bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"NES Pixel Wide";src:url("../assets/fonts/pixelwide.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"NES Pixel Wide";src:url("../assets/fonts/pixelwide-bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"NES Pixel Narrow";src:url("../assets/fonts/pixelnarrow.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}

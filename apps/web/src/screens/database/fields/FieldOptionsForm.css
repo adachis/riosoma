@@ -1,0 +1,77 @@
+@layer rio.app {
+  .rio-field-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+  }
+}
+
+@layer rio.app {
+  .rio-formula-editor textarea,
+  .rio-formula-editor__problem {
+    font-family: var(--rio-font-mono);
+  }
+  .rio-formula-editor__problem {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .rio-formula-editor__problem mark {
+    background: var(--rio-surface);
+    color: var(--rio-aa-danger-text);
+    text-decoration: underline wavy;
+  }
+  .rio-formula-editor__error {
+    color: var(--rio-aa-danger-text);
+  }
+  .rio-formula-editor [role='listbox'] {
+    display: flex;
+    flex-direction: column;
+    max-block-size: 12rem;
+    overflow: auto;
+  }
+  .rio-formula-editor__suggestion {
+    border: 0;
+    padding: var(--rio-space-2);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    font: inherit;
+    text-align: start;
+  }
+  .rio-formula-editor [aria-selected='true'] {
+    background: var(--rio-surface);
+    outline: 1px solid var(--rio-aa-border);
+  }
+}
+
+@layer rio.app {
+  .rio-relational-filter {
+    min-inline-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .rio-relational-filter legend {
+    margin-block-end: var(--rio-space-2);
+  }
+}
+
+.rio-validation-options,
+.rio-default-options {
+  display: grid;
+  gap: var(--rio-space-3);
+  min-width: 0;
+  border: 1px solid var(--rio-border);
+  padding: var(--rio-space-3);
+}
+
+.rio-default-options p {
+  margin: 0;
+}
+
+.rio-default-options__help {
+  color: var(--rio-aa-text-muted);
+}
+
+.rio-default-options__error {
+  color: var(--rio-aa-danger-text);
+}

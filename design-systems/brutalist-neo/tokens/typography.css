@@ -1,0 +1,61 @@
+/* Brutalist Neo — typography tokens */
+:root{
+  /* families ------------------------------------------------------------ */
+  --nb-font-display:'Rayone','Arial Black','Helvetica Neue',sans-serif;      /* hero headlines, caps only */
+  --nb-font-display-alt:'Nomine','Arial Narrow',sans-serif;                  /* condensed slab caps: eyebrows, tags, mastheads */
+  --nb-font-poster:'Song','Arial Narrow',sans-serif;                         /* poster / print headline */
+  --nb-font-zen:'Zenitha','Arial Narrow',sans-serif;                         /* condensed alt */
+  --nb-font-techno:'Neonova','Courier New',monospace;                        /* game HUD, numerals */
+  --nb-font-round:'Brutelo','Trebuchet MS',sans-serif;                       /* friendly mixed-case display */
+  --nb-font-soft:'Brodish','Trebuchet MS',sans-serif;                        /* sticker / handwritten-adjacent */
+  --nb-font-quirk:'Vectra','Trebuchet MS',sans-serif;                        /* decorative accents only */
+  --nb-font-ui:'Space Grotesk','Helvetica Neue',Arial,sans-serif;            /* all interface + body text */
+  --nb-font-mono:'DM Mono','SFMono-Regular',Menlo,monospace;                 /* code, data, labels */
+
+  /* size scale (1.25 major-third-ish, clamped for fluid pages) ---------- */
+  --nb-text-2xs:10px;
+  --nb-text-xs:12px;
+  --nb-text-sm:14px;
+  --nb-text-md:16px;
+  --nb-text-lg:18px;
+  --nb-text-xl:22px;
+  --nb-text-2xl:28px;
+  --nb-text-3xl:36px;
+  --nb-text-4xl:48px;
+  --nb-text-5xl:64px;
+  --nb-text-6xl:88px;
+  --nb-text-7xl:120px;
+  --nb-text-hero:clamp(44px,9vw,140px);
+
+  /* weights ------------------------------------------------------------- */
+  --nb-weight-light:300; /* @kind font */
+  --nb-weight-regular:400; /* @kind font */
+  --nb-weight-medium:500; /* @kind font */
+  --nb-weight-semibold:600; /* @kind font */
+  --nb-weight-bold:700; /* @kind font */
+
+  /* line heights --------------------------------------------------------- */
+  --nb-leading-crush:0.82; /* @kind other */   /* stacked display lockups */
+  --nb-leading-tight:0.95; /* @kind other */
+  --nb-leading-snug:1.15; /* @kind other */
+  --nb-leading-normal:1.45; /* @kind other */
+  --nb-leading-loose:1.65; /* @kind other */
+
+  /* tracking ------------------------------------------------------------- */
+  --nb-tracking-tighter:-0.03em;
+  --nb-tracking-tight:-0.015em;
+  --nb-tracking-normal:0em;
+  --nb-tracking-wide:0.04em;
+  --nb-tracking-wider:0.09em;
+  --nb-tracking-widest:0.18em;   /* eyebrows / micro-labels */
+
+  /* semantic type aliases ------------------------------------------------ */
+  --text-hero:var(--nb-text-hero);
+  --text-display:var(--nb-text-5xl);
+  --text-title:var(--nb-text-3xl);
+  --text-heading:var(--nb-text-xl);
+  --text-body:var(--nb-text-md);
+  --text-body-sm:var(--nb-text-sm);
+  --text-label:var(--nb-text-xs);
+  --text-micro:var(--nb-text-2xs);
+}

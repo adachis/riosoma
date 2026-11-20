@@ -1,0 +1,47 @@
+/* Brutalist Neo — borders + the hard-offset shadow system.
+   There are no blurred shadows anywhere in this system. Elevation is a solid
+   ink rectangle offset down-right. Distance from the shadow = importance. */
+:root{
+  --nb-border-hair:1px;
+  --nb-border-thin:2px;
+  --nb-border:3px;          /* house default on cards, inputs, buttons */
+  --nb-border-thick:4px;
+  --nb-border-heavy:6px;
+  --nb-border-slab:10px;    /* posters, mastheads, game HUD */
+
+  --nb-stroke:var(--nb-border) solid var(--nb-ink); /* @kind other */
+  --nb-stroke-thin:var(--nb-border-thin) solid var(--nb-ink); /* @kind other */
+  --nb-stroke-thick:var(--nb-border-thick) solid var(--nb-ink); /* @kind other */
+  --nb-stroke-heavy:var(--nb-border-heavy) solid var(--nb-ink); /* @kind other */
+
+  /* hard offsets — no blur, no spread, ever */
+  --nb-shadow-xs:1px 1px 0 0 var(--nb-shadow-ink);
+  --nb-shadow-sm:2px 2px 0 0 var(--nb-shadow-ink);
+  --nb-shadow:4px 4px 0 0 var(--nb-shadow-ink);
+  --nb-shadow-md:4px 4px 0 0 var(--nb-shadow-ink);
+  --nb-shadow-lg:6px 6px 0 0 var(--nb-shadow-ink);
+  --nb-shadow-xl:10px 10px 0 0 var(--nb-shadow-ink);
+  --nb-shadow-slab:16px 16px 0 0 var(--nb-shadow-ink);
+  --nb-shadow-none:0 0 0 0 transparent;
+
+  /* inverse offset: shadow up-left, for pinned / docked chrome */
+  --nb-shadow-up:-4px -4px 0 0 var(--nb-shadow-ink);
+
+  /* stacked double shadow — colour then ink. Reserved for hero elements. */
+  --nb-shadow-stack:4px 4px 0 0 var(--nb-accent),8px 8px 0 0 var(--nb-shadow-ink);
+
+  /* pressed state uses an inset hairline instead of an offset */
+  --nb-shadow-inset:inset 3px 3px 0 0 color-mix(in srgb,var(--nb-ink) 22%,transparent);
+
+  /* focus ring — dashed, never a soft glow */
+  --nb-focus-ring:3px dashed var(--nb-ink); /* @kind other */
+  --nb-focus-offset:3px; /* @kind spacing */
+
+  /* how far an element travels on hover / press */
+  --nb-lift:2px; /* @kind spacing */
+  --nb-sink:4px; /* @kind spacing */
+
+  /* semantic aliases */
+  --border-strong:var(--nb-stroke);
+  --shadow-hard:var(--nb-shadow-md);
+}

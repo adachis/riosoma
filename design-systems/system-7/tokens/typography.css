@@ -1,0 +1,23 @@
+/* Four faces. Display for headings, UI for chrome and controls, Small for dense metadata, Mono for code. */
+:root{
+--s7-font-display:"Seven Display","Seven UI",Geneva,Verdana,sans-serif;
+--s7-font-ui:"Seven UI","Seven Display",Geneva,Verdana,sans-serif;
+--s7-font-small:"Seven Small","Seven UI",Geneva,Verdana,sans-serif;
+--s7-font-mono:"Seven Mono",Monaco,"Courier New",monospace;
+
+/* Bitmap-safe steps. Prefer these exact values; arbitrary sizes blur the glyphs. */
+--s7-text-xs:12px;
+--s7-text-sm:14px;
+--s7-text-md:18px;
+--s7-text-lg:24px;
+--s7-text-xl:32px;
+--s7-text-2xl:48px;
+--s7-text-3xl:64px;
+
+--s7-leading-tight:1.1;
+--s7-leading-ui:1.2;
+--s7-leading-body:1.4;
+--s7-tracking-tight:-0.025em;
+--s7-tracking-none:0;
+--s7-tracking-wide:0.06em;
+}

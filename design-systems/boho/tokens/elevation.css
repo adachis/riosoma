@@ -1,0 +1,14 @@
+:root{
+--shadow-0:none;
+--shadow-1:0 1px 2px rgba(46,42,38,.06);
+--shadow-2:0 6px 18px -8px rgba(46,42,38,.16);
+--shadow-3:0 18px 44px -20px rgba(46,42,38,.26);
+--shadow-4:0 36px 84px -36px rgba(46,42,38,.34);
+--shadow-inset-top:inset 0 1px 0 rgba(255,255,255,.55);
+--shadow-inset-well:inset 0 2px 5px rgba(46,42,38,.10);
+--shadow-press:inset 0 2px 4px rgba(46,42,38,.18);
+--glow-accent:0 0 0 1px color-mix(in oklab,var(--brand-primary) 40%,transparent),0 10px 30px -14px color-mix(in oklab,var(--brand-primary) 60%,transparent);
+--ring-focus:0 0 0 2px var(--surface-page),0 0 0 4px color-mix(in oklab,var(--focus-ring) 70%,transparent);
+--protect-bottom:linear-gradient(to top,color-mix(in oklab,var(--surface-inverse) 78%,transparent),transparent); /* @kind other */
+--protect-top:linear-gradient(to bottom,color-mix(in oklab,var(--surface-inverse) 70%,transparent),transparent); /* @kind other */
+}

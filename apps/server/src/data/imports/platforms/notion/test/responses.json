@@ -1,0 +1,2584 @@
+{
+  "answers": [
+    {
+      "method": "POST",
+      "path": "/v1/search",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "data_source",
+            "id": "22222222-2222-4222-8222-222222222222",
+            "parent": {
+              "type": "database_id",
+              "database_id": "11111111-1111-4111-8111-111111111111"
+            }
+          }
+        ],
+        "has_more": true,
+        "next_cursor": "search-next"
+      },
+      "body": {
+        "filter": {
+          "value": "data_source",
+          "property": "object"
+        },
+        "page_size": 100
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/search",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "data_source",
+            "id": "33333333-3333-4333-8333-333333333333",
+            "parent": {
+              "type": "database_id",
+              "database_id": "11111111-1111-4111-8111-111111111111"
+            }
+          },
+          {
+            "id": "deleted-source",
+            "object": "data_source",
+            "in_trash": true
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "body": {
+        "filter": {
+          "value": "data_source",
+          "property": "object"
+        },
+        "page_size": 100,
+        "start_cursor": "search-next"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/databases/11111111-1111-4111-8111-111111111111",
+      "response": {
+        "object": "database",
+        "id": "11111111-1111-4111-8111-111111111111",
+        "title": [
+          {
+            "type": "text",
+            "plain_text": "Riosoma tests",
+            "text": {
+              "content": "Riosoma tests",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ],
+        "data_sources": [
+          {
+            "id": "22222222-2222-4222-8222-222222222222",
+            "name": "Tasks"
+          },
+          {
+            "id": "33333333-3333-4333-8333-333333333333",
+            "name": "Related"
+          }
+        ],
+        "parent": {
+          "type": "page_id",
+          "page_id": "77777777-7777-4777-8777-777777777777"
+        },
+        "in_trash": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/77777777-7777-4777-8777-777777777777",
+      "response": {
+        "properties": {
+          "title": {
+            "id": "title",
+            "type": "title",
+            "title": [
+              {
+                "type": "text",
+                "plain_text": "Projects",
+                "text": {
+                  "content": "Projects",
+                  "link": null
+                },
+                "annotations": {
+                  "bold": false,
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false,
+                  "code": false,
+                  "color": "default"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/data_sources/22222222-2222-4222-8222-222222222222",
+      "response": {
+        "object": "data_source",
+        "id": "22222222-2222-4222-8222-222222222222",
+        "title": [
+          {
+            "type": "text",
+            "plain_text": "Tasks",
+            "text": {
+              "content": "Tasks",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ],
+        "properties": {
+          "Name": {
+            "id": "title",
+            "name": "Name",
+            "type": "title",
+            "description": null,
+            "title": {}
+          },
+          "Description": {
+            "id": "desc",
+            "name": "Description",
+            "type": "rich_text",
+            "description": null,
+            "rich_text": {}
+          },
+          "Quantity": {
+            "id": "qty",
+            "name": "Quantity",
+            "type": "number",
+            "description": null,
+            "number": {
+              "format": "number"
+            }
+          },
+          "Percent": {
+            "id": "percent",
+            "name": "Percent",
+            "type": "number",
+            "description": null,
+            "number": {
+              "format": "percent"
+            }
+          },
+          "Cost": {
+            "id": "cost",
+            "name": "Cost",
+            "type": "number",
+            "description": null,
+            "number": {
+              "format": "dollar"
+            }
+          },
+          "Done": {
+            "id": "done",
+            "name": "Done",
+            "type": "checkbox",
+            "description": null,
+            "checkbox": {}
+          },
+          "Website": {
+            "id": "url",
+            "name": "Website",
+            "type": "url",
+            "description": null,
+            "url": {}
+          },
+          "Email": {
+            "id": "email",
+            "name": "Email",
+            "type": "email",
+            "description": null,
+            "email": {}
+          },
+          "Phone": {
+            "id": "phone",
+            "name": "Phone",
+            "type": "phone_number",
+            "description": null,
+            "phone_number": {}
+          },
+          "Due": {
+            "id": "due",
+            "name": "Due",
+            "type": "date",
+            "description": null,
+            "date": {}
+          },
+          "Created": {
+            "id": "created",
+            "name": "Created",
+            "type": "created_time",
+            "description": null,
+            "created_time": {}
+          },
+          "Edited": {
+            "id": "edited",
+            "name": "Edited",
+            "type": "last_edited_time",
+            "description": null,
+            "last_edited_time": {}
+          },
+          "Status": {
+            "id": "status",
+            "name": "Status",
+            "type": "status",
+            "description": null,
+            "status": {
+              "options": [
+                {
+                  "id": "s1",
+                  "name": "Ready",
+                  "color": "green"
+                },
+                {
+                  "id": "s2",
+                  "name": "Working",
+                  "color": "blue"
+                }
+              ],
+              "groups": [
+                {
+                  "id": "g1",
+                  "name": "In progress",
+                  "color": "blue",
+                  "option_ids": ["s2"]
+                }
+              ]
+            }
+          },
+          "Priority": {
+            "id": "select",
+            "name": "Priority",
+            "type": "select",
+            "description": null,
+            "select": {
+              "options": [
+                {
+                  "id": "s1",
+                  "name": "Ready",
+                  "color": "green"
+                },
+                {
+                  "id": "s2",
+                  "name": "Working",
+                  "color": "blue"
+                }
+              ]
+            }
+          },
+          "Tags": {
+            "id": "multi",
+            "name": "Tags",
+            "type": "multi_select",
+            "description": null,
+            "multi_select": {
+              "options": [
+                {
+                  "id": "s1",
+                  "name": "Ready",
+                  "color": "green"
+                },
+                {
+                  "id": "s2",
+                  "name": "Working",
+                  "color": "blue"
+                }
+              ]
+            }
+          },
+          "People": {
+            "id": "people",
+            "name": "People",
+            "type": "people",
+            "description": null,
+            "people": {}
+          },
+          "Creator": {
+            "id": "creator",
+            "name": "Creator",
+            "type": "created_by",
+            "description": null,
+            "created_by": {}
+          },
+          "Editor": {
+            "id": "editor",
+            "name": "Editor",
+            "type": "last_edited_by",
+            "description": null,
+            "last_edited_by": {}
+          },
+          "Files": {
+            "id": "files",
+            "name": "Files",
+            "type": "files",
+            "description": null,
+            "files": {}
+          },
+          "Related": {
+            "id": "rel%3A",
+            "name": "Related",
+            "type": "relation",
+            "description": null,
+            "relation": {
+              "data_source_id": "33333333-3333-4333-8333-333333333333",
+              "type": "single_property",
+              "single_property": {}
+            }
+          },
+          "Missing target": {
+            "id": "missing",
+            "name": "Missing target",
+            "type": "relation",
+            "description": null,
+            "relation": {
+              "data_source_id": "88888888-8888-4888-8888-888888888888",
+              "type": "single_property",
+              "single_property": {}
+            }
+          },
+          "Double": {
+            "id": "calc",
+            "name": "Double",
+            "type": "formula",
+            "description": null,
+            "formula": {
+              "expression": "prop(\"Quantity\") * 2"
+            }
+          },
+          "List formula": {
+            "id": "unsupported",
+            "name": "List formula",
+            "type": "formula",
+            "description": null,
+            "formula": {
+              "expression": "prop(\"Related\").map(current.prop(\"Name\"))"
+            }
+          },
+          "Total": {
+            "id": "roll",
+            "name": "Total",
+            "type": "rollup",
+            "description": null,
+            "rollup": {
+              "relation_property_id": "rel%3A",
+              "rollup_property_id": "amount",
+              "function": "sum"
+            }
+          },
+          "Names": {
+            "id": "lookup",
+            "name": "Names",
+            "type": "rollup",
+            "description": null,
+            "rollup": {
+              "relation_property_id": "rel%3A",
+              "rollup_property_id": "title",
+              "function": "show_original"
+            }
+          },
+          "Ticket": {
+            "id": "id",
+            "name": "Ticket",
+            "type": "unique_id",
+            "description": null,
+            "unique_id": {
+              "prefix": "TASK"
+            }
+          },
+          "Verification": {
+            "id": "verify",
+            "name": "Verification",
+            "type": "verification",
+            "description": null,
+            "verification": {}
+          },
+          "Button": {
+            "id": "button",
+            "name": "Button",
+            "type": "button",
+            "description": null,
+            "button": {}
+          },
+          "Future": {
+            "id": "future",
+            "name": "Future",
+            "type": "future_type",
+            "description": null,
+            "future_type": {}
+          },
+          "Median": {
+            "id": "median",
+            "name": "Median",
+            "type": "rollup",
+            "rollup": {
+              "relation_property_id": "rel%3A",
+              "rollup_property_id": "amount",
+              "function": "median"
+            }
+          },
+          "Office": {
+            "id": "plce",
+            "name": "Office",
+            "description": null,
+            "type": "place",
+            "place": {}
+          }
+        },
+        "in_trash": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/data_sources/33333333-3333-4333-8333-333333333333",
+      "response": {
+        "object": "data_source",
+        "id": "33333333-3333-4333-8333-333333333333",
+        "title": [
+          {
+            "type": "text",
+            "plain_text": "Related",
+            "text": {
+              "content": "Related",
+              "link": null
+            },
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ],
+        "properties": {
+          "Name": {
+            "id": "title",
+            "name": "Name",
+            "type": "title",
+            "title": {}
+          },
+          "Amount": {
+            "id": "amount",
+            "name": "Amount",
+            "type": "number",
+            "number": {
+              "format": "number"
+            }
+          }
+        },
+        "in_trash": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/data_sources/88888888-8888-4888-8888-888888888888",
+      "response": {
+        "object": "error",
+        "status": 404,
+        "code": "object_not_found",
+        "message": "Data source not found"
+      },
+      "status": 404
+    },
+    {
+      "method": "POST",
+      "path": "/v1/data_sources/22222222-2222-4222-8222-222222222222/query",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "page",
+            "id": "44444444-4444-4444-8444-444444444444",
+            "archived": false,
+            "in_trash": false,
+            "properties": {
+              "Name": {
+                "id": "title",
+                "type": "title",
+                "title": [
+                  {
+                    "type": "text",
+                    "plain_text": "Launch",
+                    "text": {
+                      "content": "Launch",
+                      "link": null
+                    },
+                    "annotations": {
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "code": false,
+                      "color": "default"
+                    }
+                  }
+                ]
+              },
+              "Description": {
+                "id": "desc",
+                "type": "rich_text",
+                "rich_text": [
+                  {
+                    "type": "text",
+                    "plain_text": "Long description",
+                    "text": {
+                      "content": "Long description",
+                      "link": null
+                    },
+                    "annotations": {
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "code": false,
+                      "color": "default"
+                    }
+                  }
+                ]
+              },
+              "Quantity": {
+                "id": "qty",
+                "type": "number",
+                "number": 8
+              },
+              "Percent": {
+                "id": "percent",
+                "type": "number",
+                "number": 0.25
+              },
+              "Cost": {
+                "id": "cost",
+                "type": "number",
+                "number": 12.5
+              },
+              "Done": {
+                "id": "done",
+                "type": "checkbox",
+                "checkbox": true
+              },
+              "Website": {
+                "id": "url",
+                "type": "url",
+                "url": "https://example.com"
+              },
+              "Email": {
+                "id": "email",
+                "type": "email",
+                "email": "owner@example.com"
+              },
+              "Phone": {
+                "id": "phone",
+                "type": "phone_number",
+                "phone_number": "+15555550101"
+              },
+              "Due": {
+                "id": "due",
+                "type": "date",
+                "date": {
+                  "start": "2026-09-01",
+                  "end": "2026-09-15",
+                  "time_zone": null
+                }
+              },
+              "Created": {
+                "id": "created",
+                "type": "created_time",
+                "created_time": "2026-09-01T12:00:00.000Z"
+              },
+              "Edited": {
+                "id": "edited",
+                "type": "last_edited_time",
+                "last_edited_time": "2026-09-02T12:00:00.000Z"
+              },
+              "Status": {
+                "id": "status",
+                "type": "status",
+                "status": {
+                  "id": "s2",
+                  "name": "Working",
+                  "color": "blue"
+                }
+              },
+              "Priority": {
+                "id": "select",
+                "type": "select",
+                "select": {
+                  "id": "s1",
+                  "name": "Ready",
+                  "color": "green"
+                }
+              },
+              "Tags": {
+                "id": "multi",
+                "type": "multi_select",
+                "multi_select": [
+                  {
+                    "id": "s1",
+                    "name": "Ready",
+                    "color": "green"
+                  },
+                  {
+                    "id": "s2",
+                    "name": "Working",
+                    "color": "blue"
+                  }
+                ]
+              },
+              "People": {
+                "id": "people",
+                "type": "people",
+                "people": [
+                  {
+                    "object": "user",
+                    "id": "u1",
+                    "type": "person",
+                    "name": "Owner",
+                    "person": {
+                      "email": "owner@example.com"
+                    }
+                  }
+                ]
+              },
+              "Creator": {
+                "id": "creator",
+                "type": "created_by",
+                "created_by": {
+                  "object": "user",
+                  "id": "u1"
+                }
+              },
+              "Editor": {
+                "id": "editor",
+                "type": "last_edited_by",
+                "last_edited_by": {
+                  "object": "user",
+                  "id": "u1"
+                }
+              },
+              "Files": {
+                "id": "files",
+                "type": "files",
+                "files": [
+                  {
+                    "name": "brief.txt",
+                    "type": "file",
+                    "file": {
+                      "url": "{{origin}}/files/brief.txt",
+                      "expiry_time": "2026-10-01T12:00:00.000Z"
+                    }
+                  }
+                ]
+              },
+              "Related": {
+                "id": "rel%3A",
+                "type": "relation",
+                "relation": [
+                  {
+                    "id": "66666666-6666-4666-8666-666666666666"
+                  }
+                ],
+                "has_more": true
+              },
+              "Missing target": {
+                "id": "missing",
+                "type": "relation",
+                "relation": [
+                  {
+                    "id": "missing-page"
+                  }
+                ]
+              },
+              "Double": {
+                "id": "calc",
+                "type": "formula",
+                "formula": {
+                  "type": "number",
+                  "number": 16
+                }
+              },
+              "List formula": {
+                "id": "unsupported",
+                "type": "formula",
+                "formula": {
+                  "type": "string",
+                  "string": "Related task"
+                }
+              },
+              "Total": {
+                "id": "roll",
+                "type": "rollup",
+                "rollup": {
+                  "type": "number",
+                  "number": 12,
+                  "function": "sum"
+                }
+              },
+              "Names": {
+                "id": "lookup",
+                "type": "rollup",
+                "rollup": {
+                  "type": "array",
+                  "array": [
+                    {
+                      "type": "title",
+                      "title": [
+                        {
+                          "type": "text",
+                          "plain_text": "Related task",
+                          "text": {
+                            "content": "Related task",
+                            "link": null
+                          },
+                          "annotations": {
+                            "bold": false,
+                            "italic": false,
+                            "strikethrough": false,
+                            "underline": false,
+                            "code": false,
+                            "color": "default"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "function": "show_original"
+                }
+              },
+              "Ticket": {
+                "id": "id",
+                "type": "unique_id",
+                "unique_id": {
+                  "prefix": "TASK",
+                  "number": 9
+                }
+              },
+              "Verification": {
+                "id": "verify",
+                "type": "verification",
+                "verification": {
+                  "state": "verified",
+                  "date": null,
+                  "verified_by": {
+                    "object": "user",
+                    "id": "u1",
+                    "type": "person",
+                    "name": "Owner",
+                    "person": {
+                      "email": "owner@example.com"
+                    }
+                  }
+                }
+              },
+              "Button": {
+                "id": "button",
+                "type": "button",
+                "button": {}
+              },
+              "Future": {
+                "id": "future",
+                "type": "future_type",
+                "future_type": {
+                  "meaning": "kept"
+                }
+              },
+              "Median": {
+                "id": "median",
+                "type": "rollup",
+                "rollup": {
+                  "type": "number",
+                  "number": 12,
+                  "function": "median"
+                }
+              },
+              "Office": {
+                "id": "plce",
+                "type": "place",
+                "place": {
+                  "lat": 37.7749,
+                  "lon": -122.4194,
+                  "name": "San Francisco",
+                  "address": "1 Market St, San Francisco, CA",
+                  "aws_place_id": "place-aws-1",
+                  "google_place_id": "place-google-1"
+                }
+              }
+            }
+          }
+        ],
+        "has_more": true,
+        "next_cursor": "records-next"
+      },
+      "body": {
+        "page_size": 100
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/data_sources/22222222-2222-4222-8222-222222222222/query",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "page",
+            "id": "55555555-5555-4555-8555-555555555555",
+            "archived": false,
+            "in_trash": false,
+            "properties": {
+              "Name": {
+                "id": "title",
+                "type": "title",
+                "title": [
+                  {
+                    "type": "text",
+                    "plain_text": "Empty",
+                    "text": {
+                      "content": "Empty",
+                      "link": null
+                    },
+                    "annotations": {
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "code": false,
+                      "color": "default"
+                    }
+                  }
+                ]
+              },
+              "Description": {
+                "id": "desc",
+                "type": "rich_text",
+                "rich_text": []
+              },
+              "Quantity": {
+                "id": "qty",
+                "type": "number",
+                "number": null
+              },
+              "Percent": {
+                "id": "percent",
+                "type": "number",
+                "number": null
+              },
+              "Cost": {
+                "id": "cost",
+                "type": "number",
+                "number": null
+              },
+              "Done": {
+                "id": "done",
+                "type": "checkbox",
+                "checkbox": null
+              },
+              "Website": {
+                "id": "url",
+                "type": "url",
+                "url": null
+              },
+              "Email": {
+                "id": "email",
+                "type": "email",
+                "email": null
+              },
+              "Phone": {
+                "id": "phone",
+                "type": "phone_number",
+                "phone_number": null
+              },
+              "Due": {
+                "id": "due",
+                "type": "date",
+                "date": null
+              },
+              "Created": {
+                "id": "created",
+                "type": "created_time",
+                "created_time": null
+              },
+              "Edited": {
+                "id": "edited",
+                "type": "last_edited_time",
+                "last_edited_time": null
+              },
+              "Status": {
+                "id": "status",
+                "type": "status",
+                "status": null
+              },
+              "Priority": {
+                "id": "select",
+                "type": "select",
+                "select": null
+              },
+              "Tags": {
+                "id": "multi",
+                "type": "multi_select",
+                "multi_select": []
+              },
+              "People": {
+                "id": "people",
+                "type": "people",
+                "people": []
+              },
+              "Creator": {
+                "id": "creator",
+                "type": "created_by",
+                "created_by": null
+              },
+              "Editor": {
+                "id": "editor",
+                "type": "last_edited_by",
+                "last_edited_by": null
+              },
+              "Files": {
+                "id": "files",
+                "type": "files",
+                "files": []
+              },
+              "Related": {
+                "id": "rel%3A",
+                "type": "relation",
+                "relation": []
+              },
+              "Missing target": {
+                "id": "missing",
+                "type": "relation",
+                "relation": []
+              },
+              "Double": {
+                "id": "calc",
+                "type": "formula",
+                "formula": null
+              },
+              "List formula": {
+                "id": "unsupported",
+                "type": "formula",
+                "formula": null
+              },
+              "Total": {
+                "id": "roll",
+                "type": "rollup",
+                "rollup": null
+              },
+              "Names": {
+                "id": "lookup",
+                "type": "rollup",
+                "rollup": null
+              },
+              "Ticket": {
+                "id": "id",
+                "type": "unique_id",
+                "unique_id": null
+              },
+              "Verification": {
+                "id": "verify",
+                "type": "verification",
+                "verification": null
+              },
+              "Button": {
+                "id": "button",
+                "type": "button",
+                "button": null
+              },
+              "Future": {
+                "id": "future",
+                "type": "future_type",
+                "future_type": null
+              },
+              "Median": {
+                "id": "median",
+                "type": "rollup",
+                "rollup": {
+                  "type": "number",
+                  "number": null,
+                  "function": "median"
+                }
+              },
+              "Office": {
+                "id": "plce",
+                "type": "place",
+                "place": null
+              }
+            }
+          },
+          {
+            "object": "page",
+            "id": "archived-page",
+            "archived": true,
+            "in_trash": false,
+            "properties": {
+              "Name": {
+                "id": "title",
+                "type": "title",
+                "title": [
+                  {
+                    "type": "text",
+                    "plain_text": "Launch",
+                    "text": {
+                      "content": "Launch",
+                      "link": null
+                    },
+                    "annotations": {
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "code": false,
+                      "color": "default"
+                    }
+                  }
+                ]
+              },
+              "Description": {
+                "id": "desc",
+                "type": "rich_text",
+                "rich_text": [
+                  {
+                    "type": "text",
+                    "plain_text": "Long description",
+                    "text": {
+                      "content": "Long description",
+                      "link": null
+                    },
+                    "annotations": {
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "code": false,
+                      "color": "default"
+                    }
+                  }
+                ]
+              },
+              "Quantity": {
+                "id": "qty",
+                "type": "number",
+                "number": 8
+              },
+              "Percent": {
+                "id": "percent",
+                "type": "number",
+                "number": 0.25
+              },
+              "Cost": {
+                "id": "cost",
+                "type": "number",
+                "number": 12.5
+              },
+              "Done": {
+                "id": "done",
+                "type": "checkbox",
+                "checkbox": true
+              },
+              "Website": {
+                "id": "url",
+                "type": "url",
+                "url": "https://example.com"
+              },
+              "Email": {
+                "id": "email",
+                "type": "email",
+                "email": "owner@example.com"
+              },
+              "Phone": {
+                "id": "phone",
+                "type": "phone_number",
+                "phone_number": "+15555550101"
+              },
+              "Due": {
+                "id": "due",
+                "type": "date",
+                "date": {
+                  "start": "2026-09-01",
+                  "end": "2026-09-15",
+                  "time_zone": null
+                }
+              },
+              "Created": {
+                "id": "created",
+                "type": "created_time",
+                "created_time": "2026-09-01T12:00:00.000Z"
+              },
+              "Edited": {
+                "id": "edited",
+                "type": "last_edited_time",
+                "last_edited_time": "2026-09-02T12:00:00.000Z"
+              },
+              "Status": {
+                "id": "status",
+                "type": "status",
+                "status": {
+                  "id": "s2",
+                  "name": "Working",
+                  "color": "blue"
+                }
+              },
+              "Priority": {
+                "id": "select",
+                "type": "select",
+                "select": {
+                  "id": "s1",
+                  "name": "Ready",
+                  "color": "green"
+                }
+              },
+              "Tags": {
+                "id": "multi",
+                "type": "multi_select",
+                "multi_select": [
+                  {
+                    "id": "s1",
+                    "name": "Ready",
+                    "color": "green"
+                  },
+                  {
+                    "id": "s2",
+                    "name": "Working",
+                    "color": "blue"
+                  }
+                ]
+              },
+              "People": {
+                "id": "people",
+                "type": "people",
+                "people": [
+                  {
+                    "object": "user",
+                    "id": "u1",
+                    "type": "person",
+                    "name": "Owner",
+                    "person": {
+                      "email": "owner@example.com"
+                    }
+                  }
+                ]
+              },
+              "Creator": {
+                "id": "creator",
+                "type": "created_by",
+                "created_by": {
+                  "object": "user",
+                  "id": "u1"
+                }
+              },
+              "Editor": {
+                "id": "editor",
+                "type": "last_edited_by",
+                "last_edited_by": {
+                  "object": "user",
+                  "id": "u1"
+                }
+              },
+              "Files": {
+                "id": "files",
+                "type": "files",
+                "files": [
+                  {
+                    "name": "brief.txt",
+                    "type": "file",
+                    "file": {
+                      "url": "{{origin}}/files/brief.txt",
+                      "expiry_time": "2026-10-01T12:00:00.000Z"
+                    }
+                  }
+                ]
+              },
+              "Related": {
+                "id": "rel%3A",
+                "type": "relation",
+                "relation": [
+                  {
+                    "id": "66666666-6666-4666-8666-666666666666"
+                  }
+                ],
+                "has_more": true
+              },
+              "Missing target": {
+                "id": "missing",
+                "type": "relation",
+                "relation": [
+                  {
+                    "id": "missing-page"
+                  }
+                ]
+              },
+              "Double": {
+                "id": "calc",
+                "type": "formula",
+                "formula": {
+                  "type": "number",
+                  "number": 16
+                }
+              },
+              "List formula": {
+                "id": "unsupported",
+                "type": "formula",
+                "formula": {
+                  "type": "string",
+                  "string": "Related task"
+                }
+              },
+              "Total": {
+                "id": "roll",
+                "type": "rollup",
+                "rollup": {
+                  "type": "number",
+                  "number": 12,
+                  "function": "sum"
+                }
+              },
+              "Names": {
+                "id": "lookup",
+                "type": "rollup",
+                "rollup": {
+                  "type": "array",
+                  "array": [
+                    {
+                      "type": "title",
+                      "title": [
+                        {
+                          "type": "text",
+                          "plain_text": "Related task",
+                          "text": {
+                            "content": "Related task",
+                            "link": null
+                          },
+                          "annotations": {
+                            "bold": false,
+                            "italic": false,
+                            "strikethrough": false,
+                            "underline": false,
+                            "code": false,
+                            "color": "default"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "function": "show_original"
+                }
+              },
+              "Ticket": {
+                "id": "id",
+                "type": "unique_id",
+                "unique_id": {
+                  "prefix": "TASK",
+                  "number": 9
+                }
+              },
+              "Verification": {
+                "id": "verify",
+                "type": "verification",
+                "verification": {
+                  "state": "verified",
+                  "date": null,
+                  "verified_by": {
+                    "object": "user",
+                    "id": "u1",
+                    "type": "person",
+                    "name": "Owner",
+                    "person": {
+                      "email": "owner@example.com"
+                    }
+                  }
+                }
+              },
+              "Button": {
+                "id": "button",
+                "type": "button",
+                "button": {}
+              },
+              "Future": {
+                "id": "future",
+                "type": "future_type",
+                "future_type": {
+                  "meaning": "kept"
+                }
+              },
+              "Office": {
+                "id": "plce",
+                "type": "place",
+                "place": {
+                  "lat": 37.7749,
+                  "lon": -122.4194,
+                  "name": "San Francisco",
+                  "address": "1 Market St, San Francisco, CA",
+                  "aws_place_id": "place-aws-1",
+                  "google_place_id": "place-google-1"
+                }
+              }
+            }
+          },
+          {
+            "object": "page",
+            "id": "deleted-page",
+            "archived": false,
+            "in_trash": true,
+            "properties": {
+              "Name": {
+                "id": "title",
+                "type": "title",
+                "title": [
+                  {
+                    "type": "text",
+                    "plain_text": "Launch",
+                    "text": {
+                      "content": "Launch",
+                      "link": null
+                    },
+                    "annotations": {
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "code": false,
+                      "color": "default"
+                    }
+                  }
+                ]
+              },
+              "Description": {
+                "id": "desc",
+                "type": "rich_text",
+                "rich_text": [
+                  {
+                    "type": "text",
+                    "plain_text": "Long description",
+                    "text": {
+                      "content": "Long description",
+                      "link": null
+                    },
+                    "annotations": {
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "code": false,
+                      "color": "default"
+                    }
+                  }
+                ]
+              },
+              "Quantity": {
+                "id": "qty",
+                "type": "number",
+                "number": 8
+              },
+              "Percent": {
+                "id": "percent",
+                "type": "number",
+                "number": 0.25
+              },
+              "Cost": {
+                "id": "cost",
+                "type": "number",
+                "number": 12.5
+              },
+              "Done": {
+                "id": "done",
+                "type": "checkbox",
+                "checkbox": true
+              },
+              "Website": {
+                "id": "url",
+                "type": "url",
+                "url": "https://example.com"
+              },
+              "Email": {
+                "id": "email",
+                "type": "email",
+                "email": "owner@example.com"
+              },
+              "Phone": {
+                "id": "phone",
+                "type": "phone_number",
+                "phone_number": "+15555550101"
+              },
+              "Due": {
+                "id": "due",
+                "type": "date",
+                "date": {
+                  "start": "2026-09-01",
+                  "end": "2026-09-15",
+                  "time_zone": null
+                }
+              },
+              "Created": {
+                "id": "created",
+                "type": "created_time",
+                "created_time": "2026-09-01T12:00:00.000Z"
+              },
+              "Edited": {
+                "id": "edited",
+                "type": "last_edited_time",
+                "last_edited_time": "2026-09-02T12:00:00.000Z"
+              },
+              "Status": {
+                "id": "status",
+                "type": "status",
+                "status": {
+                  "id": "s2",
+                  "name": "Working",
+                  "color": "blue"
+                }
+              },
+              "Priority": {
+                "id": "select",
+                "type": "select",
+                "select": {
+                  "id": "s1",
+                  "name": "Ready",
+                  "color": "green"
+                }
+              },
+              "Tags": {
+                "id": "multi",
+                "type": "multi_select",
+                "multi_select": [
+                  {
+                    "id": "s1",
+                    "name": "Ready",
+                    "color": "green"
+                  },
+                  {
+                    "id": "s2",
+                    "name": "Working",
+                    "color": "blue"
+                  }
+                ]
+              },
+              "People": {
+                "id": "people",
+                "type": "people",
+                "people": [
+                  {
+                    "object": "user",
+                    "id": "u1",
+                    "type": "person",
+                    "name": "Owner",
+                    "person": {
+                      "email": "owner@example.com"
+                    }
+                  }
+                ]
+              },
+              "Creator": {
+                "id": "creator",
+                "type": "created_by",
+                "created_by": {
+                  "object": "user",
+                  "id": "u1"
+                }
+              },
+              "Editor": {
+                "id": "editor",
+                "type": "last_edited_by",
+                "last_edited_by": {
+                  "object": "user",
+                  "id": "u1"
+                }
+              },
+              "Files": {
+                "id": "files",
+                "type": "files",
+                "files": [
+                  {
+                    "name": "brief.txt",
+                    "type": "file",
+                    "file": {
+                      "url": "{{origin}}/files/brief.txt",
+                      "expiry_time": "2026-10-01T12:00:00.000Z"
+                    }
+                  }
+                ]
+              },
+              "Related": {
+                "id": "rel%3A",
+                "type": "relation",
+                "relation": [
+                  {
+                    "id": "66666666-6666-4666-8666-666666666666"
+                  }
+                ],
+                "has_more": true
+              },
+              "Missing target": {
+                "id": "missing",
+                "type": "relation",
+                "relation": [
+                  {
+                    "id": "missing-page"
+                  }
+                ]
+              },
+              "Double": {
+                "id": "calc",
+                "type": "formula",
+                "formula": {
+                  "type": "number",
+                  "number": 16
+                }
+              },
+              "List formula": {
+                "id": "unsupported",
+                "type": "formula",
+                "formula": {
+                  "type": "string",
+                  "string": "Related task"
+                }
+              },
+              "Total": {
+                "id": "roll",
+                "type": "rollup",
+                "rollup": {
+                  "type": "number",
+                  "number": 12,
+                  "function": "sum"
+                }
+              },
+              "Names": {
+                "id": "lookup",
+                "type": "rollup",
+                "rollup": {
+                  "type": "array",
+                  "array": [
+                    {
+                      "type": "title",
+                      "title": [
+                        {
+                          "type": "text",
+                          "plain_text": "Related task",
+                          "text": {
+                            "content": "Related task",
+                            "link": null
+                          },
+                          "annotations": {
+                            "bold": false,
+                            "italic": false,
+                            "strikethrough": false,
+                            "underline": false,
+                            "code": false,
+                            "color": "default"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "function": "show_original"
+                }
+              },
+              "Ticket": {
+                "id": "id",
+                "type": "unique_id",
+                "unique_id": {
+                  "prefix": "TASK",
+                  "number": 9
+                }
+              },
+              "Verification": {
+                "id": "verify",
+                "type": "verification",
+                "verification": {
+                  "state": "verified",
+                  "date": null,
+                  "verified_by": {
+                    "object": "user",
+                    "id": "u1",
+                    "type": "person",
+                    "name": "Owner",
+                    "person": {
+                      "email": "owner@example.com"
+                    }
+                  }
+                }
+              },
+              "Button": {
+                "id": "button",
+                "type": "button",
+                "button": {}
+              },
+              "Future": {
+                "id": "future",
+                "type": "future_type",
+                "future_type": {
+                  "meaning": "kept"
+                }
+              },
+              "Office": {
+                "id": "plce",
+                "type": "place",
+                "place": {
+                  "lat": 37.7749,
+                  "lon": -122.4194,
+                  "name": "San Francisco",
+                  "address": "1 Market St, San Francisco, CA",
+                  "aws_place_id": "place-aws-1",
+                  "google_place_id": "place-google-1"
+                }
+              }
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "body": {
+        "page_size": 100,
+        "start_cursor": "records-next"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/data_sources/33333333-3333-4333-8333-333333333333/query",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "page",
+            "id": "66666666-6666-4666-8666-666666666666",
+            "in_trash": false,
+            "properties": {
+              "Name": {
+                "id": "title",
+                "type": "title",
+                "title": [
+                  {
+                    "type": "text",
+                    "plain_text": "Related task",
+                    "text": {
+                      "content": "Related task",
+                      "link": null
+                    },
+                    "annotations": {
+                      "bold": false,
+                      "italic": false,
+                      "strikethrough": false,
+                      "underline": false,
+                      "code": false,
+                      "color": "default"
+                    }
+                  }
+                ]
+              },
+              "Amount": {
+                "id": "amount",
+                "type": "number",
+                "number": 12
+              }
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "body": {
+        "page_size": 100
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/title",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "title",
+            "type": "title",
+            "title": {
+              "type": "text",
+              "plain_text": "Launch",
+              "text": {
+                "content": "Launch",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              }
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/desc",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "desc",
+            "type": "rich_text",
+            "rich_text": {
+              "type": "text",
+              "plain_text": "Long description",
+              "text": {
+                "content": "Long description",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              }
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/people",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "people",
+            "type": "people",
+            "people": {
+              "object": "user",
+              "id": "u1",
+              "type": "person",
+              "name": "Owner",
+              "person": {
+                "email": "owner@example.com"
+              }
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/rel%3A",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "rel%3A",
+            "type": "relation",
+            "relation": {
+              "id": "66666666-6666-4666-8666-666666666666"
+            }
+          }
+        ],
+        "has_more": true,
+        "next_cursor": "relation-next"
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/rel%3A",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "rel%3A",
+            "type": "relation",
+            "relation": {
+              "id": "66666666-6666-4666-8666-666666666666"
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100",
+        "start_cursor": "relation-next"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/missing",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "missing",
+            "type": "relation",
+            "relation": {
+              "id": "missing-page"
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/calc",
+      "response": {
+        "object": "property_item",
+        "id": "calc",
+        "type": "formula",
+        "formula": {
+          "type": "number",
+          "number": 16
+        }
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/unsupported",
+      "response": {
+        "object": "property_item",
+        "id": "unsupported",
+        "type": "formula",
+        "formula": {
+          "type": "string",
+          "string": "Related task"
+        }
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/roll",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": true,
+        "next_cursor": "roll-next",
+        "property_item": {
+          "id": "roll",
+          "type": "rollup",
+          "rollup": {
+            "type": "incomplete",
+            "incomplete": {},
+            "function": "sum"
+          }
+        }
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/roll",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null,
+        "property_item": {
+          "id": "roll",
+          "type": "rollup",
+          "rollup": {
+            "type": "number",
+            "number": 12,
+            "function": "sum"
+          }
+        }
+      },
+      "query": {
+        "page_size": "100",
+        "start_cursor": "roll-next"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/lookup",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "lookup",
+            "type": "title",
+            "title": [
+              {
+                "type": "text",
+                "plain_text": "Related task",
+                "text": {
+                  "content": "Related task",
+                  "link": null
+                },
+                "annotations": {
+                  "bold": false,
+                  "italic": false,
+                  "strikethrough": false,
+                  "underline": false,
+                  "code": false,
+                  "color": "default"
+                }
+              }
+            ]
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null,
+        "property_item": {
+          "id": "lookup",
+          "type": "rollup",
+          "rollup": {
+            "type": "array",
+            "array": [],
+            "function": "show_original"
+          }
+        }
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/title",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "title",
+            "type": "title",
+            "title": {
+              "type": "text",
+              "plain_text": "Empty",
+              "text": {
+                "content": "Empty",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              }
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/desc",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/people",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/rel%3A",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/missing",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/calc",
+      "response": {
+        "object": "property_item",
+        "id": "calc",
+        "type": "formula",
+        "formula": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/unsupported",
+      "response": {
+        "object": "property_item",
+        "id": "unsupported",
+        "type": "formula",
+        "formula": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/roll",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null,
+        "property_item": {
+          "id": "roll",
+          "type": "rollup",
+          "rollup": {
+            "type": "number",
+            "number": null,
+            "function": "sum"
+          }
+        }
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/lookup",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null,
+        "property_item": {
+          "id": "lookup",
+          "type": "rollup",
+          "rollup": {
+            "type": "number",
+            "number": null,
+            "function": "sum"
+          }
+        }
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/66666666-6666-4666-8666-666666666666/properties/title",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "property_item",
+            "id": "title",
+            "type": "title",
+            "title": {
+              "type": "text",
+              "plain_text": "Related task",
+              "text": {
+                "content": "Related task",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              }
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/users/u1",
+      "response": {
+        "object": "user",
+        "id": "u1",
+        "type": "person",
+        "name": "Owner",
+        "person": {
+          "email": "owner@example.com"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/blocks/44444444-4444-4444-8444-444444444444/children",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "block",
+            "id": "block1",
+            "type": "paragraph",
+            "has_children": true,
+            "paragraph": {
+              "rich_text": [
+                {
+                  "type": "text",
+                  "plain_text": "Page text",
+                  "text": {
+                    "content": "Page text",
+                    "link": null
+                  },
+                  "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/blocks/55555555-5555-4555-8555-555555555555/children",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/blocks/66666666-6666-4666-8666-666666666666/children",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/blocks/block1/children",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "block",
+            "id": "block2",
+            "type": "paragraph",
+            "has_children": false,
+            "paragraph": {
+              "rich_text": [
+                {
+                  "type": "text",
+                  "plain_text": "Nested text",
+                  "text": {
+                    "content": "Nested text",
+                    "link": null
+                  },
+                  "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "has_more": true,
+        "next_cursor": "body-next"
+      },
+      "query": {
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/blocks/block1/children",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "block",
+            "id": "block3",
+            "type": "image",
+            "has_children": false,
+            "image": {
+              "type": "external",
+              "external": {
+                "url": "https://example.com/image.png"
+              },
+              "caption": [
+                {
+                  "type": "text",
+                  "plain_text": "Image caption",
+                  "text": {
+                    "content": "Image caption",
+                    "link": null
+                  },
+                  "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "page_size": "100",
+        "start_cursor": "body-next"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/views",
+      "response": {
+        "object": "list",
+        "results": [
+          {
+            "object": "view",
+            "id": "view1"
+          }
+        ],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "data_source_id": "22222222-2222-4222-8222-222222222222",
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/views",
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null
+      },
+      "query": {
+        "data_source_id": "33333333-3333-4333-8333-333333333333",
+        "page_size": "100"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/views/view1",
+      "response": {
+        "object": "view",
+        "id": "view1",
+        "name": "Working",
+        "type": "table",
+        "data_source_id": "22222222-2222-4222-8222-222222222222",
+        "filter": {
+          "property": "Status",
+          "status": {
+            "equals": "Working"
+          }
+        },
+        "sorts": [
+          {
+            "property": "Quantity",
+            "direction": "descending"
+          }
+        ],
+        "configuration": {
+          "type": "table",
+          "properties": [
+            {
+              "property_id": "title",
+              "visible": true
+            },
+            {
+              "property_id": "desc",
+              "visible": true
+            },
+            {
+              "property_id": "qty",
+              "visible": true
+            },
+            {
+              "property_id": "percent",
+              "visible": true
+            },
+            {
+              "property_id": "cost",
+              "visible": true
+            },
+            {
+              "property_id": "done",
+              "visible": true
+            },
+            {
+              "property_id": "url",
+              "visible": true
+            },
+            {
+              "property_id": "email",
+              "visible": true
+            },
+            {
+              "property_id": "phone",
+              "visible": true
+            },
+            {
+              "property_id": "due",
+              "visible": true
+            },
+            {
+              "property_id": "created",
+              "visible": true
+            },
+            {
+              "property_id": "edited",
+              "visible": true
+            },
+            {
+              "property_id": "status",
+              "visible": true
+            },
+            {
+              "property_id": "select",
+              "visible": true
+            },
+            {
+              "property_id": "multi",
+              "visible": true
+            },
+            {
+              "property_id": "people",
+              "visible": true
+            },
+            {
+              "property_id": "creator",
+              "visible": true
+            },
+            {
+              "property_id": "editor",
+              "visible": true
+            },
+            {
+              "property_id": "files",
+              "visible": true
+            },
+            {
+              "property_id": "rel%3A",
+              "visible": true
+            },
+            {
+              "property_id": "missing",
+              "visible": true
+            },
+            {
+              "property_id": "calc",
+              "visible": true
+            },
+            {
+              "property_id": "unsupported",
+              "visible": true
+            },
+            {
+              "property_id": "roll",
+              "visible": true
+            },
+            {
+              "property_id": "lookup",
+              "visible": true
+            },
+            {
+              "property_id": "id",
+              "visible": true
+            },
+            {
+              "property_id": "verify",
+              "visible": true
+            },
+            {
+              "property_id": "button",
+              "visible": true
+            },
+            {
+              "property_id": "future",
+              "visible": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/files/brief.txt",
+      "response": "A documented attachment.\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/44444444-4444-4444-8444-444444444444/properties/median",
+      "query": {
+        "page_size": "100"
+      },
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null,
+        "property_item": {
+          "id": "median",
+          "type": "rollup",
+          "rollup": {
+            "type": "unsupported",
+            "unsupported": {},
+            "function": "median"
+          }
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/pages/55555555-5555-4555-8555-555555555555/properties/median",
+      "query": {
+        "page_size": "100"
+      },
+      "response": {
+        "object": "list",
+        "results": [],
+        "has_more": false,
+        "next_cursor": null,
+        "property_item": {
+          "id": "median",
+          "type": "rollup",
+          "rollup": {
+            "type": "unsupported",
+            "unsupported": {},
+            "function": "median"
+          }
+        }
+      }
+    }
+  ],
+  "error": {
+    "object": "error",
+    "status": 401,
+    "code": "unauthorized",
+    "message": "Invalid token"
+  }
+}

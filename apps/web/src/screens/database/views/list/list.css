@@ -1,0 +1,294 @@
+@layer rio.app {
+  .rio-list-view {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-block-size: 0;
+    min-inline-size: 0;
+    block-size: 100%;
+    color: var(--rio-text);
+    background: var(--rio-bg);
+  }
+  .rio-list-view__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2) var(--rio-space-4);
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-4);
+  }
+  .rio-list-view__hint {
+    flex: 1 1 16rem;
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-list-view__viewport {
+    flex: 1;
+    min-block-size: 0;
+    overflow: auto;
+    scrollbar-gutter: stable;
+    overflow-anchor: none;
+  }
+  .rio-list-view__canvas {
+    position: relative;
+  }
+  .rio-list-view[data-dragging] {
+    cursor: grabbing;
+    user-select: none;
+  }
+
+  /* One line per group or record, each the same height, placed by its number. */
+  .rio-list-view__line {
+    position: absolute;
+    inset-inline: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    padding-inline: var(--rio-space-4);
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    cursor: pointer;
+  }
+  .rio-list-view__line:hover {
+    background: var(--rio-hover);
+  }
+  .rio-list-view__line.rio-sortable-surface {
+    padding-inline-end: max(var(--rio-control-height), var(--rio-target-primary));
+  }
+  .rio-list-view__line:focus-visible {
+    outline: var(--rio-focus-ring);
+    outline-offset: -2px;
+  }
+  .rio-list-view__group {
+    background: var(--rio-surface-sunken);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-list-view__group-name {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-list-view__chevron {
+    flex: none;
+    transition: transform var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+  .rio-list-view__chevron:dir(rtl) {
+    transform: scaleX(-1);
+  }
+  .rio-list-view__group[aria-expanded='true'] .rio-list-view__chevron,
+  .rio-list-view__record[aria-expanded='true'] .rio-list-view__chevron {
+    transform: rotate(90deg);
+  }
+  .rio-list-view__group[aria-expanded='true'] .rio-list-view__chevron:dir(rtl),
+  .rio-list-view__record[aria-expanded='true'] .rio-list-view__chevron:dir(rtl) {
+    transform: scaleX(-1) rotate(90deg);
+  }
+  .rio-list-view__text,
+  .rio-list-view__title {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-list-view__title {
+    flex: 1 1 12rem;
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-list-view__count {
+    flex: none;
+    padding-inline: var(--rio-space-2);
+    border-radius: var(--rio-radius);
+    background: var(--rio-selected);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-regular);
+  }
+  .rio-list-view__indent {
+    flex: none;
+  }
+  .rio-list-view__toggle {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--rio-icon-size);
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-list-view__edit {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    color: var(--rio-aa-text-muted);
+    opacity: 0;
+  }
+  .rio-list-view__line:hover .rio-list-view__edit,
+  .rio-list-view__line:focus-within .rio-list-view__edit {
+    opacity: 1;
+  }
+  @media (hover: none) {
+    .rio-list-view__edit {
+      opacity: 1;
+    }
+  }
+  .rio-list-view__fields {
+    display: flex;
+    flex: 0 1 auto;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+    overflow: hidden;
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-list-view__field {
+    min-inline-size: 0;
+    max-inline-size: 12rem;
+    /* Ellipsis clips text at the inline end without making its label a scroll container. */
+    overflow: clip;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-list-view__editor {
+    display: flex;
+    flex: 1 1 12rem;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-list-view__input {
+    flex: 1;
+    min-inline-size: 0;
+    block-size: var(--rio-control-height-sm);
+    padding-inline: var(--rio-space-2);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    color: var(--rio-text);
+    background: var(--rio-surface);
+    font: inherit;
+  }
+  .rio-list-view__input:focus-visible {
+    outline: var(--rio-focus-ring);
+  }
+  .rio-list-view__input[aria-invalid='true'] {
+    border-color: var(--rio-danger);
+  }
+  .rio-list-view__error {
+    flex: none;
+    max-inline-size: 16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-xs);
+  }
+
+  /* Dragging: the line being moved fades, and the group or record it would go into is marked. */
+  .rio-list-view__line[data-dragging] {
+    opacity: 0.5;
+  }
+  .rio-list-view__line[data-drop='group'],
+  .rio-list-view__line[data-drop='into'] {
+    background: var(--rio-selected);
+  }
+  /* A drop in the list's own order marks the spot between two lines. */
+  .rio-list-view__drop {
+    position: absolute;
+    z-index: 2;
+    inset-inline: 0;
+    block-size: 2px;
+    background: var(--rio-accent);
+    pointer-events: none;
+  }
+  .rio-list-view__drop[data-side='before'] {
+    inset-block-start: -1px;
+  }
+  .rio-list-view__drop[data-side='after'] {
+    inset-block-end: -1px;
+  }
+
+  /* A record rule's color marks the line's start edge, in the legibility tier's line color. */
+  .rio-list-view__color {
+    position: absolute;
+    z-index: 1;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: var(--rio-space-1);
+    background: var(--rio-list-view-color);
+    pointer-events: none;
+  }
+
+  /* Moving to the top level marks the line under the pointer with a bar at its start. */
+  .rio-list-view__line[data-drop='top']::before {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 3px;
+    background: var(--rio-accent);
+    content: '';
+  }
+
+  .rio-list-view__empty,
+  .rio-list-view__notice {
+    position: absolute;
+    inset-block-end: var(--rio-space-4);
+    inset-inline: var(--rio-space-4);
+    margin: 0;
+    text-align: center;
+    color: var(--rio-aa-text-muted);
+    pointer-events: none;
+  }
+  .rio-list-view__empty {
+    inset-block-end: auto;
+    inset-block-start: 50%;
+  }
+  .rio-list-view__status,
+  .rio-list-view__sr-only {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .rio-list-view-settings__hint {
+    max-inline-size: 16rem;
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rio-list-view__chevron {
+      transition: none;
+    }
+  }
+  @media (forced-colors: active) {
+    .rio-list-view__line {
+      border-color: CanvasText;
+    }
+    .rio-list-view__line:focus-visible {
+      outline: 2px solid Highlight;
+    }
+    .rio-list-view__line[data-drop] {
+      outline: 2px dashed Highlight;
+      outline-offset: -2px;
+    }
+    .rio-list-view__edit {
+      opacity: 1;
+    }
+    .rio-list-view__drop {
+      background: Highlight;
+    }
+    .rio-list-view__color {
+      forced-color-adjust: none;
+    }
+  }
+  @media print {
+    .rio-list-view__color {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+}

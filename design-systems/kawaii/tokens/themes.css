@@ -1,0 +1,171 @@
+/* 12 switchable colour schemes. Default (:root) is "peachy".
+   Apply a scheme by setting data-theme on any element: <body data-theme="mint">.
+   Every component reads only the semantic roles below, so all schemes work everywhere. */
+:root, [data-theme="peachy"]{
+--mode:light;/* @kind other */
+--paper:#fdf6ef;--paper-2:#f7ede2;
+--surface:#fffaf4;--surface-2:#f7ede2;
+--line:#6b4a44;--line-soft:#dcbfb6;
+--text:#4a332e;--text-dim:#8a6a62;--text-invert:#fffaf4;
+--primary:#f28482;--primary-2:#dd5f5f;--on-primary:#ffffff;
+--secondary:#84a59d;--secondary-2:#5f8b81;--on-secondary:#ffffff;
+--accent:#f6bd60;--accent-2:#deA33f;--on-accent:#4a332e;
+--success:#6d9a8e;--warning:#e2a134;--danger:#dd5f5f;--info:#7fa9bd;
+--on-success:#ffffff;--on-warning:#4a332e;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#ffe4d6;
+--focus-ring:#f28482;
+}
+[data-theme="bubblegum"]{
+--mode:light;/* @kind other */
+--paper:#f4fbff;--paper-2:#e6f6ff;
+--surface:#ffffff;--surface-2:#eaf7ff;
+--line:#5c3f6b;--line-soft:#d6c4de;
+--text:#3e2d4a;--text-dim:#7a6688;--text-invert:#ffffff;
+--primary:#ff70a6;--primary-2:#e6417f;--on-primary:#ffffff;
+--secondary:#70d6ff;--secondary-2:#33b3e6;--on-secondary:#16323f;
+--accent:#ffd670;--accent-2:#eeb92f;--on-accent:#4a3a1a;
+--success:#4fb98a;--warning:#ff9770;--danger:#e6417f;--info:#33b3e6;
+--on-success:#ffffff;--on-warning:#3e2d4a;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#ffe3f1;
+--focus-ring:#ff70a6;
+}
+[data-theme="sherbet"]{
+--mode:light;/* @kind other */
+--paper:#fffaf2;--paper-2:#fff3e2;
+--surface:#ffffff;--surface-2:#fff3e2;
+--line:#43302e;--line-soft:#e2c9b8;
+--text:#33262b;--text-dim:#77605f;--text-invert:#ffffff;
+--primary:#f94144;--primary-2:#d0272b;--on-primary:#ffffff;
+--secondary:#277da1;--secondary-2:#1b5f7d;--on-secondary:#ffffff;
+--accent:#f9c74f;--accent-2:#dda823;--on-accent:#3a2c10;
+--success:#5b8f42;--warning:#d97a07;--danger:#e02e31;--info:#4d908e;
+--on-success:#ffffff;--on-warning:#33262b;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#ffe9c9;
+--focus-ring:#f94144;
+}
+[data-theme="midnight"]{
+--mode:dark;/* @kind other */
+--paper:#000814;--paper-2:#001129;
+--surface:#001d3d;--surface-2:#003566;
+--line:#ffc300;--line-soft:#003566;
+--text:#eaf2ff;--text-dim:#9fb6d4;--text-invert:#000814;
+--primary:#ffc300;--primary-2:#dda600;--on-primary:#000814;
+--secondary:#003566;--secondary-2:#001d3d;--on-secondary:#eaf2ff;
+--accent:#ffd60a;--accent-2:#e0bb00;--on-accent:#000814;
+--success:#5fd6a0;--warning:#ffc300;--danger:#ff6b81;--info:#5aa9ef;
+--on-success:#ffffff;--on-warning:#eaf2ff;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#ffd60a;
+--focus-ring:#ffc300;
+}
+[data-theme="arcade"]{
+--mode:dark;/* @kind other */
+--paper:#1b0044;--paper-2:#26005e;
+--surface:#2d0077;--surface-2:#390099;
+--line:#ffbd00;--line-soft:#6a2ac7;
+--text:#ffeaf6;--text-dim:#c2a3ff;--text-invert:#1b0044;
+--primary:#ff0054;--primary-2:#cc0043;--on-primary:#ffffff;
+--secondary:#9e0059;--secondary-2:#780043;--on-secondary:#ffffff;
+--accent:#ffbd00;--accent-2:#dfa500;--on-accent:#1b0044;
+--success:#00e5a8;--warning:#ff5400;--danger:#ff0054;--info:#7b3cff;
+--on-success:#ffffff;--on-warning:#ffeaf6;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#ff0054;
+--focus-ring:#ff0054;
+}
+[data-theme="poppy"]{
+--mode:light;/* @kind other */
+--paper:#f1faee;--paper-2:#e4f3e6;
+--surface:#ffffff;--surface-2:#eef8f6;
+--line:#1d3557;--line-soft:#b9cfd8;
+--text:#1d3557;--text-dim:#4d6a88;--text-invert:#ffffff;
+--primary:#e63946;--primary-2:#bf2530;--on-primary:#ffffff;
+--secondary:#457b9d;--secondary-2:#325f7c;--on-secondary:#ffffff;
+--accent:#a8dadc;--accent-2:#79c3c7;--on-accent:#1d3557;
+--success:#3f8f63;--warning:#d98324;--danger:#e63946;--info:#457b9d;
+--on-success:#ffffff;--on-warning:#1d3557;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#d9f0f2;
+--focus-ring:#e63946;
+}
+[data-theme="harvest"]{
+--mode:light;/* @kind other */
+--paper:#fdf7ec;--paper-2:#f6ecd8;
+--surface:#ffffff;--surface-2:#f6ecd8;
+--line:#233d4d;--line-soft:#c8d3d9;
+--text:#233d4d;--text-dim:#55707f;--text-invert:#ffffff;
+--primary:#fe7f2d;--primary-2:#dd6413;--on-primary:#26150a;
+--secondary:#619b8a;--secondary-2:#487a6b;--on-secondary:#ffffff;
+--accent:#fcca46;--accent-2:#e0ae26;--on-accent:#233d4d;
+--success:#6d9a52;--warning:#e0a324;--danger:#d0503f;--info:#3f7f99;
+--on-success:#ffffff;--on-warning:#233d4d;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#ffe6b8;
+--focus-ring:#fe7f2d;
+}
+[data-theme="mint"]{
+--mode:light;/* @kind other */
+--paper:#f1fff4;--paper-2:#dcfae2;
+--surface:#ffffff;--surface-2:#e7fbec;
+--line:#22577a;--line-soft:#b6dcd0;
+--text:#14384f;--text-dim:#47788f;--text-invert:#ffffff;
+--primary:#38a3a5;--primary-2:#287f81;--on-primary:#ffffff;
+--secondary:#22577a;--secondary-2:#16415c;--on-secondary:#ffffff;
+--accent:#80ed99;--accent-2:#4fc47a;--on-accent:#14384f;
+--success:#2f9e6b;--warning:#d9a327;--danger:#d9536b;--info:#38a3a5;
+--on-success:#ffffff;--on-warning:#14384f;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#c7f9cc;
+--focus-ring:#38a3a5;
+}
+[data-theme="neonmoss"]{
+--mode:dark;/* @kind other */
+--paper:#16241b;--paper-2:#1f3527;
+--surface:#2e5339;--surface-2:#495f41;
+--line:#00fddc;--line-soft:#5f7d5f;
+--text:#f2fff9;--text-dim:#b6d6c2;--text-invert:#10241a;
+--primary:#00fddc;--primary-2:#00cfb4;--on-primary:#10241a;
+--secondary:#ff5666;--secondary-2:#dd3446;--on-secondary:#ffffff;
+--accent:#ffccc9;--accent-2:#ffa39e;--on-accent:#2e5339;
+--success:#00fddc;--warning:#f5c26b;--danger:#ff5666;--info:#7fe6d6;
+--on-success:#ffffff;--on-warning:#f2fff9;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#00fddc;
+--focus-ring:#00fddc;
+}
+[data-theme="lagoon"]{
+--mode:light;/* @kind other */
+--paper:#f8ffe8;--paper-2:#eef8dc;
+--surface:#ffffff;--surface-2:#eef7f2;
+--line:#17506b;--line-soft:#b6d4c8;
+--text:#17506b;--text-dim:#4d7f95;--text-invert:#ffffff;
+--primary:#247ba0;--primary-2:#1a5c78;--on-primary:#ffffff;
+--secondary:#70c1b3;--secondary-2:#4c9f91;--on-secondary:#0f3b34;
+--accent:#f3ffbd;--accent-2:#dcf08c;--on-accent:#17506b;
+--success:#3f9b7f;--warning:#d9a63f;--danger:#ff1654;--info:#247ba0;
+--on-success:#ffffff;--on-warning:#17506b;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#d6f2e6;
+--focus-ring:#247ba0;
+}
+[data-theme="sunbake"]{
+--mode:light;/* @kind other */
+--paper:#f9f9ec;--paper-2:#ebebd3;
+--surface:#ffffff;--surface-2:#ebebd3;
+--line:#083d77;--line-soft:#c2cbd9;
+--text:#083d77;--text-dim:#476488;--text-invert:#ffffff;
+--primary:#f95738;--primary-2:#d13b1f;--on-primary:#ffffff;
+--secondary:#083d77;--secondary-2:#052a55;--on-secondary:#ffffff;
+--accent:#f4d35e;--accent-2:#dab63a;--on-accent:#083d77;
+--success:#5e8f4f;--warning:#ee964b;--danger:#f95738;--info:#2d6ba8;
+--on-success:#ffffff;--on-warning:#083d77;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#ffe9b8;
+--focus-ring:#f95738;
+}
+[data-theme="sage"]{
+--mode:light;/* @kind other */
+--paper:#f0f7f4;--paper-2:#e4efe9;
+--surface:#ffffff;--surface-2:#eaf3ee;
+--line:#3c493f;--line-soft:#c2cec7;
+--text:#2e3a31;--text-dim:#66756c;--text-invert:#f0f7f4;
+--primary:#3c493f;--primary-2:#28322b;--on-primary:#f0f7f4;
+--secondary:#7e8d85;--secondary-2:#606d66;--on-secondary:#ffffff;
+--accent:#a2e3c4;--accent-2:#74cfa4;--on-accent:#2e3a31;
+--success:#4f8f6d;--warning:#b39a4a;--danger:#b95555;--info:#5f7f8f;
+--on-success:#ffffff;--on-warning:#2e3a31;--on-danger:#ffffff;--on-info:#ffffff;
+--glow:#d6f0e2;
+--focus-ring:#3c493f;
+}

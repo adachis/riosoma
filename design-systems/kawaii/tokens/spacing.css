@@ -1,0 +1,13 @@
+:root{
+--sp-0:0;/* @kind spacing */--sp-1:2px;--sp-2:4px;--sp-3:6px;--sp-4:8px;--sp-5:12px;--sp-6:16px;
+--sp-7:20px;--sp-8:24px;--sp-9:32px;--sp-10:40px;--sp-11:56px;--sp-12:72px;--sp-13:96px;
+
+/* component rhythm */
+--pad-control-y:10px;--pad-control-x:18px;
+--pad-card:20px;--pad-panel:22px;--pad-section:56px;
+--gap-tight:6px;--gap-inline:10px;--gap-stack:16px;--gap-group:24px;--gap-block:40px;
+
+/* layout */
+--page-max:1160px;--reading-max:66ch;/* @kind spacing */--sidebar-w:248px;--rail-w:76px;
+--tap-min:44px;--control-h-sm:32px;--control-h:44px;--control-h-lg:56px;
+}

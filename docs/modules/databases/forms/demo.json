@@ -1,0 +1,28 @@
+{
+  "id": "forms",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "database.views.add",
+      "say": "demos.forms.add",
+      "do": "open"
+    },
+    {
+      "anchor": "database.views.add",
+      "item": "form",
+      "say": "demos.forms.form"
+    },
+    {
+      "anchor": "database.views",
+      "say": "demos.forms.tabs"
+    },
+    {
+      "anchor": "grid",
+      "say": "demos.forms.records"
+    },
+    {
+      "anchor": "database.views",
+      "say": "demos.forms.public"
+    }
+  ]
+}

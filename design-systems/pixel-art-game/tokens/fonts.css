@@ -1,0 +1,9 @@
+/* Webfonts.
+
+   The source project rendered all text with bitmap fonts baked into sprite atlases
+   (`pypx` by Pyrious, `mana_trunk` / `mana_branches` by tiopalada). Those are PNG
+   glyph sheets consumed by a game engine, not webfonts, so they cannot ship here.
+   These three Google Fonts are the closest web equivalents and are the system's
+   canonical faces. See readme.md → "Font substitutions". */
+
+@import url("https://fonts.googleapis.com/css2?family=Micro+5&family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&display=swap");

@@ -1,0 +1,43 @@
+@layer rio.app {
+  .rio-sso-sign-in {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin-block: 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  /* A link, since it leaves for the provider's page, drawn as a full-width button. */
+  .rio-sso-sign-in__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--rio-control-height);
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-3);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    font-weight: var(--rio-weight-medium);
+    text-align: center;
+    text-decoration-line: none;
+  }
+
+  .rio-sso-sign-in__button[data-hovered] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+    text-decoration-line: none;
+  }
+
+  .rio-sso-sign-in__button[data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+    text-decoration-line: none;
+  }
+
+  @media (forced-colors: active) {
+    .rio-sso-sign-in__button {
+      border-color: ButtonText;
+      color: LinkText;
+    }
+  }
+}

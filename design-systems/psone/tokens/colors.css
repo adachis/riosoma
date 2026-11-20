@@ -1,0 +1,95 @@
+:root{
+/* ---- Void / substrate ---- */
+--ink-void:#000000;
+--ink-abyss:#05060F;
+--ink-deep:#06093B;
+--ink-blue:#0D2289;
+--ink-blue-hi:#1637C4;
+
+/* ---- Hardware plastic ramp (console + controller shells) ---- */
+--grey-900:#29292A;
+--grey-800:#3C3D3F;
+--grey-700:#47484A;
+--grey-600:#504F51;
+--grey-500:#5F5E60;
+--grey-400:#8A8B8A;
+--grey-300:#AEAFAE;
+--grey-250:#AAA9AF;
+--grey-200:#C6C6C6;
+--grey-100:#D3D3D3;
+--grey-050:#ECECEC;
+--white:#FFFFFF;
+
+/* ---- Chromatic accents ---- */
+--blue-500:#3E8CA5;
+--blue-400:#49A7C6;
+--green-500:#4EA35B;
+--green-400:#5DC66D;
+--amber-500:#F19C42;
+--amber-400:#FFB544;
+--red-500:#B62F28;
+--red-400:#E93F36;
+--red-600:#E03C34;
+--lime-400:#79F372;
+--cyan-300:#77F9FB;
+--yellow-300:#F4F251;
+--yellow-500:#FFFF00;
+--olive-400:#C6C843;
+--orange-500:#E84437;
+
+/* ---- Marker glyph colours (four face-button hues) ---- */
+--glyph-a:#D592BD;
+--glyph-b:#20AF93;
+--glyph-c:#E94B0E;
+--glyph-d:#9DA5D5;
+
+/* ---- Semantic: accent + status ---- */
+--accent:var(--blue-500);
+--accent-hi:var(--blue-400);
+--accent-ink:var(--white);
+--positive:var(--green-500);
+--positive-hi:var(--green-400);
+--caution:var(--amber-500);
+--caution-hi:var(--amber-400);
+--critical:var(--red-500);
+--critical-hi:var(--red-400);
+--exotic:var(--lime-400);
+--exotic-hi:var(--cyan-300);
+--neutral:var(--grey-300);
+--neutral-hi:var(--grey-100);
+
+/* ---- Semantic: text ---- */
+--text-body:var(--white);
+--text-title:var(--grey-100);
+--text-muted:var(--grey-300);
+--text-dim:var(--grey-400);
+--text-invert:var(--ink-void);
+--text-link:var(--yellow-500);
+--text-link-hover:var(--olive-400);
+--text-placeholder:var(--olive-400);
+--text-disabled:var(--grey-300);
+--text-hud:var(--white);
+--text-data:var(--cyan-300);
+
+/* ---- Semantic: surfaces ---- */
+--surface-app:var(--ink-void);
+--surface-app-2:var(--ink-abyss);
+--surface-panel-top:var(--ink-blue);
+--surface-panel-bottom:var(--ink-deep);
+--surface-panel:linear-gradient(var(--surface-panel-top),var(--surface-panel-bottom));
+--surface-panel-dark:rgba(0,0,0,.4);
+--surface-panel-light:rgba(255,255,255,.2);
+--surface-card:linear-gradient(var(--surface-panel-top),var(--surface-panel-bottom));
+--surface-sunken:rgba(0,0,0,.5);
+--surface-hardware:linear-gradient(var(--grey-500),var(--grey-800));
+--surface-hardware-flat:var(--grey-800);
+--surface-titlebar:linear-gradient(var(--grey-600),var(--grey-900));
+--surface-selected:linear-gradient(90deg,transparent,var(--accent),transparent);
+--surface-paper:var(--grey-050);
+
+/* ---- Semantic: lines ---- */
+--border-panel:var(--grey-200);
+--border-inner:var(--white);
+--border-hairline:rgba(255,255,255,.25);
+--border-hardware:var(--grey-900);
+--rule-gradient:linear-gradient(to right,transparent,rgba(255,255,255,.2),transparent) /* @kind color */}

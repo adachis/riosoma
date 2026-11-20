@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Silkscreen:wght@400;700&family=IBM+Plex+Mono:wght@400;600&display=swap");
+/* Retro 90s ships no licensed binaries. All four families are Google Fonts, loaded from the Google CDN.
+   Swap the @import for self-hosted @font-face rules if the consuming product needs offline builds. */
+:root{
+  --font-display:"Archivo Black","Arial Black",system-ui,sans-serif;
+  --font-body:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --font-pixel:"Silkscreen","Courier New",monospace;
+  --font-mono:"IBM Plex Mono",ui-monospace,"Courier New",monospace;
+}

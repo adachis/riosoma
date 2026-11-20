@@ -1,0 +1,47 @@
+@layer rio.components {
+  .rio-demo {
+    display: flex;
+    flex-direction: column;
+    block-size: 100%;
+    padding: var(--rio-space-4);
+    gap: var(--rio-space-2);
+  }
+
+  .rio-demo h1 {
+    margin: 0;
+    font: var(--rio-weight-bold) var(--rio-text-xl) / var(--rio-leading-tight) var(--rio-font-display);
+  }
+
+  .rio-demo p {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-demo__editor {
+    position: fixed;
+    z-index: var(--rio-z-popover);
+    display: flex;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-aa-border);
+    box-shadow: var(--rio-shadow-2);
+  }
+
+  .rio-demo__editor input,
+  .rio-demo__editor button {
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-aa-border);
+    font: inherit;
+  }
+
+  .rio-demo__grid {
+    flex: 1;
+    min-block-size: 0;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+}

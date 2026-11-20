@@ -1,0 +1,49 @@
+:root{
+  --font-display: "Playfair Display", "Times New Roman", serif;
+  --font-text: "Libre Baskerville", Georgia, serif;
+  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-condensed: "Oswald", "Archivo Narrow", "Arial Narrow", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Display scale — magazine headline sizes, not a web h1..h6 ramp */
+  --size-poster: 132px;
+  --size-cover: 92px;
+  --size-hed-1: 64px;
+  --size-hed-2: 46px;
+  --size-hed-3: 34px;
+  --size-hed-4: 26px;
+  --size-deck: 21px;
+  --size-body: 17px;
+  --size-body-print: 10.5pt; /* @kind font */
+  --size-caption: 13px;
+  --size-kicker: 11px;
+  --size-folio: 12px;
+  --size-micro: 10px;
+
+  --lh-poster: 0.86; /* @kind font */
+  --lh-hed: 0.98; /* @kind font */
+  --lh-deck: 1.35; /* @kind font */
+  --lh-body: 1.62; /* @kind font */
+  --lh-caption: 1.42; /* @kind font */
+  --lh-tight: 1.15; /* @kind font */
+
+  --track-poster: -0.045em; /* @kind font */
+  --track-hed: -0.02em; /* @kind font */
+  --track-body: 0em; /* @kind font */
+  --track-kicker: 0.22em; /* @kind font */
+  --track-folio: 0.14em; /* @kind font */
+  --track-caps: 0.09em; /* @kind font */
+
+  --weight-light: 300; /* @kind font */
+  --weight-regular: 400; /* @kind font */
+  --weight-medium: 500; /* @kind font */
+  --weight-semibold: 600; /* @kind font */
+  --weight-bold: 700; /* @kind font */
+  --weight-black: 900; /* @kind font */
+
+  --measure-column: 34ch; /* @kind font */
+  --measure-text: 66ch; /* @kind font */
+  --measure-deck: 44ch; /* @kind font */
+
+  --dropcap-lines: 3; /* @kind other */
+}

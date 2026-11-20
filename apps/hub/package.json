@@ -1,0 +1,17 @@
+{
+  "name": "@riosoma/hub",
+  "version": "0.95.0-rc.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "lint": "node ../../node_modules/eslint/bin/eslint.js src test vitest.config.ts",
+    "typecheck": "node ../../node_modules/typescript/bin/tsc --noEmit",
+    "test": "pnpm run typecheck && pnpm run lint && pnpm run build && node ../../node_modules/vitest/vitest.mjs run",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261115.1",
+    "wrangler": "4.116.0"
+  }
+}

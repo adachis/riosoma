@@ -1,0 +1,65 @@
+@layer rio.app {
+  .rio-shortcuts-modal {
+    --rio-modal-inline-size: 72rem;
+  }
+  .rio-shortcuts-modal--compact {
+    --rio-modal-inline-size: 24rem;
+  }
+  .rio-shortcuts-modal--medium {
+    --rio-modal-inline-size: 48rem;
+  }
+  .rio-shortcuts-groups {
+    columns: 19rem;
+    column-gap: var(--rio-space-6);
+  }
+  .rio-shortcuts-group {
+    break-inside: avoid;
+    margin-block-end: var(--rio-space-5);
+  }
+  .rio-shortcuts-group h3 {
+    margin: 0 0 var(--rio-space-2);
+    font-size: var(--rio-text-md);
+    text-align: start;
+  }
+  .rio-shortcuts-group dl {
+    margin: 0;
+  }
+  .rio-shortcuts-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+    padding-block: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-shortcuts-row dt {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+    text-align: start;
+  }
+  .rio-shortcuts-row dd {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--rio-space-1);
+    max-inline-size: 55%;
+    flex: none;
+    margin: 0;
+    text-align: end;
+  }
+  .rio-shortcuts-row kbd {
+    display: inline-block;
+    padding: var(--rio-space-1) var(--rio-space-2);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-sunken);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+    white-space: nowrap;
+  }
+  @media (max-width: 767px) {
+    .rio-shortcuts-groups {
+      columns: 1;
+    }
+  }
+}

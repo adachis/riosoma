@@ -1,0 +1,31 @@
+/* ── Theme palettes ────────────────────────────────────────────────────────
+   Apply with data-theme on <html> or any container: <div data-theme="candy">.
+   Each theme sets --p1..--p5 (p1 = accent) and the ink colour that sits on it.
+   Themes compose with data-mode="light|dark".  */
+/* Spectrum */
+[data-theme="spectrum"]{--p1:#f94144;--p2:#f8961e;--p3:#f9c74f;--p4:#43aa8b;--p5:#277da1;--text-on-accent:#fff}
+/* Midnight */
+[data-theme="midnight"]{--p1:#ffc300;--p2:#ffd60a;--p3:#003566;--p4:#001d3d;--p5:#000814;--text-on-accent:#000814}
+/* Voltage */
+[data-theme="voltage"]{--p1:#ff0054;--p2:#390099;--p3:#9e0059;--p4:#ff5400;--p5:#ffbd00;--text-on-accent:#fff}
+/* Signal */
+[data-theme="signal"]{--p1:#e63946;--p2:#457b9d;--p3:#1d3557;--p4:#a8dadc;--p5:#f1faee;--text-on-accent:#fff}
+/* Blush */
+[data-theme="blush"]{--p1:#f28482;--p2:#f6bd60;--p3:#84a59d;--p4:#f5cac3;--p5:#f7ede2;--text-on-accent:#fff}
+/* Ember */
+[data-theme="ember"]{--p1:#fe7f2d;--p2:#fcca46;--p3:#a1c181;--p4:#619b8a;--p5:#233d4d;--text-on-accent:#fff}
+/* Reef */
+[data-theme="reef"]{--p1:#38a3a5;--p2:#57cc99;--p3:#80ed99;--p4:#c7f9cc;--p5:#22577a;--text-on-accent:#fff}
+/* Moss */
+[data-theme="moss"]{--p1:#00fddc;--p2:#ff5666;--p3:#ffccc9;--p4:#495f41;--p5:#2e5339;--text-on-accent:#0a0a0b}
+/* Candy */
+[data-theme="candy"]{--p1:#ff70a6;--p2:#70d6ff;--p3:#ff9770;--p4:#ffd670;--p5:#ff70a6;--text-on-accent:#fff}
+/* Lagoon */
+[data-theme="lagoon"]{--p1:#ff1654;--p2:#247ba0;--p3:#70c1b3;--p4:#b2dbbf;--p5:#f3ffbd;--text-on-accent:#fff}
+/* Flare */
+[data-theme="flare"]{--p1:#f95738;--p2:#ee964b;--p3:#f4d35e;--p4:#083d77;--p5:#ebebd3;--text-on-accent:#fff}
+/* Fern */
+[data-theme="fern"]{--p1:#a2e3c4;--p2:#7e8d85;--p3:#b3bfb8;--p4:#f0f7f4;--p5:#3c493f;--text-on-accent:#0a0a0b}
+
+/* House default, stated explicitly so it can be re-applied inside a themed region */
+[data-theme="bubble"]{--p1:var(--violet);--p2:var(--lime);--p3:var(--lemon);--p4:var(--coral);--p5:var(--ink-400);--text-on-accent:#fff}

@@ -1,0 +1,19 @@
+/* JMDS base element defaults. Tokens only — no component styling here. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg-page);color:var(--fg-1);font:var(--type-body);text-wrap:pretty;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6,p,figure,blockquote{margin:0}
+h1{font:var(--type-display);letter-spacing:var(--track-tight)}
+h2{font:var(--type-headline);letter-spacing:var(--track-snug)}
+h3{font:var(--type-title)}
+h4,h5,h6{font:var(--type-label);letter-spacing:var(--track-caps);text-transform:uppercase}
+a{color:var(--accent);text-decoration:none;border-bottom:var(--border-hair) solid currentColor;transition:var(--transition-flat)}
+a:hover{color:var(--fg-1);background:var(--accent-soft)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:none;box-shadow:var(--ring)}
+hr{border:none;border-top:var(--border-hair) solid var(--rule);margin:var(--space-32) 0}
+code,kbd,samp,pre{font-family:var(--font-mono);font-size:0.92em}
+small{font:var(--type-caption)}
+img,svg,video{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--accent);color:var(--accent-fg)}
+@media (prefers-reduced-motion:reduce){*{transition-duration:1ms!important;animation-duration:1ms!important}}

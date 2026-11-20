@@ -1,0 +1,11 @@
+{
+  "url": "/databases/{{riosomaSegment(parameters.database, false)}}/tables",
+  "method": "GET",
+  "response": {
+    "iterate": "{{riosomaTable(body.tables, parameters.table).views}}",
+    "output": {
+      "label": "{{item.name}}",
+      "value": "{{item.id}}"
+    }
+  }
+}

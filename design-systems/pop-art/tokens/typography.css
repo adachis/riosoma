@@ -1,0 +1,51 @@
+/* Typography. Display faces are drawn lettering — always uppercase, always short.
+   Chivo carries every functional string; Courier Prime carries print marginalia. */
+:root{
+  --font-display:"Pop Display","Alfa Slab One",Impact,sans-serif;      /* brush comic caps — hero words only */
+  --font-display-outline:"Pop Display Outline","Pop Display",Impact,sans-serif;
+  --font-headline:"Alfa Slab One","Pop Newsprint",Georgia,serif;        /* fat slab — page & section heads */
+  --font-newsprint:"Pop Newsprint","Alfa Slab One",Impact,sans-serif;   /* condensed printed caps — eyebrows, kickers */
+  --font-marquee:"Pop Marquee","Alfa Slab One",Impact,sans-serif;       /* tall condensed — vertical & poster lockups */
+  --font-bubble:"Pop Bubble","Chivo",sans-serif;                        /* rounded soft caps — playful/game UI */
+  --font-benday:"Pop Benday","Pop Display",sans-serif;                  /* dotted-fill caps — decorative only */
+  --font-benday-outline:"Pop Benday Outline","Pop Display",sans-serif;
+  --font-sign:"Pop Sign","Alfa Slab One",sans-serif;
+  --font-panel:"Pop Panel","Alfa Slab One",sans-serif;
+  --font-comic:"Pop Comic","Chivo",sans-serif;                          /* lettering for speech bubbles */
+  --font-script:"Pop Script",cursive;
+  --font-ui:"Chivo",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+  --font-body:"Chivo",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+  --font-mono:"Courier Prime","Courier New",monospace;
+
+  /* size ramp — 1.25 base, opened up at the top so display type can shout */
+  --text-2xs:11px;
+  --text-xs:12px;
+  --text-sm:14px;
+  --text-base:16px;
+  --text-md:18px;
+  --text-lg:21px;
+  --text-xl:26px;
+  --text-2xl:32px;
+  --text-3xl:42px;
+  --text-4xl:56px;
+  --text-5xl:76px;
+  --text-6xl:104px;
+  --text-7xl:140px;
+
+  --leading-tight:0.92;
+  --leading-snug:1.05;
+  --leading-normal:1.45;
+  --leading-loose:1.65;
+
+  --tracking-display:-0.02em;
+  --tracking-headline:-0.01em;
+  --tracking-normal:0;
+  --tracking-wide:0.06em;
+  --tracking-caps:0.14em;
+
+  --weight-light:300;
+  --weight-regular:400;
+  --weight-semibold:600;
+  --weight-bold:700;
+  --weight-black:900;
+}

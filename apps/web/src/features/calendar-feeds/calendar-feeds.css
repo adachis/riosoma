@@ -1,0 +1,63 @@
+@layer rio.app {
+  .rio-calendar-feed {
+    display: grid;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-calendar-feed p {
+    margin-block: 0;
+  }
+
+  .rio-calendar-feed__help,
+  .rio-calendar-feed__note {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-calendar-feed__copy,
+  .rio-calendar-feed__actions {
+    display: flex;
+    align-items: end;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-calendar-feed__actions {
+    flex-wrap: wrap;
+    padding-block-start: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  .rio-calendar-feed__copy > .rio-field {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .rio-calendar-feed__start,
+  .rio-calendar-feed__open {
+    justify-self: start;
+  }
+
+  .rio-calendar-feed__error {
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-calendar-feed__note:empty,
+  .rio-calendar-feed__error:empty {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    .rio-calendar-feed__copy {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-calendar-feed__error {
+      color: CanvasText;
+    }
+  }
+}

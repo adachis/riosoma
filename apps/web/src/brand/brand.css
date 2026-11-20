@@ -1,0 +1,102 @@
+@layer rio.app {
+  .rio-brand {
+    --rs-ink: var(--rio-text);
+    --rs-leaf: var(--rio-text);
+    --rs-detail: var(--rio-surface);
+    --rs-highlight: var(--rio-surface);
+    --rs-face: var(--rio-surface);
+    display: inline-flex;
+    /* The wordmark's own proportions, 1478 by 406. */
+    inline-size: 88px;
+    block-size: 24px;
+    flex: none;
+    color: var(--rio-text);
+  }
+  .rio-brand[data-size='large'] {
+    inline-size: 132px;
+    block-size: 36px;
+  }
+  .rio-brand__mask {
+    inline-size: 100%;
+    block-size: 100%;
+    background: var(--rio-text);
+    mask-image: var(--rio-brand-mask);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+  .rio-brand[data-pending='true'] .rio-brand__mask {
+    opacity: 0;
+  }
+  .rio-brand__art {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+  .rio-brand svg {
+    inline-size: 100%;
+    block-size: 100%;
+    overflow: visible;
+  }
+  .rio-brand[data-variant='mascot'] {
+    inline-size: 36px;
+    block-size: 41px;
+  }
+  .rio-brand[data-variant='lockup'] {
+    inline-size: 160px;
+    block-size: 41px;
+  }
+}
+@layer rio.app {
+  .rio-org-logo {
+    display: inline-flex;
+    inline-size: 160px;
+    block-size: 41px;
+    flex: none;
+    overflow: hidden;
+    border-radius: var(--rio-radius);
+  }
+  .rio-org-logo picture,
+  .rio-org-logo img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+  }
+  .rio-org-logo[data-logo-colors='original'] {
+    background: var(--rio-logo-background, var(--rio-surface));
+    padding: var(--rio-space-1);
+    box-sizing: border-box;
+  }
+  .rio-org-logo__mask {
+    inline-size: 100%;
+    block-size: 100%;
+    background: var(--rio-text);
+    mask-image: var(--rio-logo-main);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+  }
+  .rio-platform-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    margin-inline-end: var(--rio-space-3);
+    flex: none;
+  }
+  .rio-platform-mark .rio-brand {
+    inline-size: 65px;
+    block-size: 18px;
+  }
+  .rio-sign-in-page {
+    align-content: center;
+    gap: var(--rio-space-3);
+  }
+  .rio-sign-in-platform {
+    text-align: center;
+    min-block-size: 26px;
+  }
+  @media (max-width: 640px) {
+    .rio-org-logo__mask {
+      mask-image: var(--rio-logo-compact);
+    }
+  }
+}

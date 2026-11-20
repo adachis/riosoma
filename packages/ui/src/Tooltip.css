@@ -1,0 +1,54 @@
+@layer rio.components {
+  /*
+   * The one surface that reads backwards: text color as the background and page color as the text.
+   * That contrast is what marks a tooltip as an annotation instead of part of the page, and it
+   * holds in every theme and scheme.
+   */
+  .rio-tooltip {
+    /* A named item can have one long compound name, which still needs to fit the tooltip. */
+    max-inline-size: min(calc(var(--rio-space-6) * 10), calc(100vi - var(--rio-space-4) * 2));
+    overflow-wrap: anywhere;
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    /* Always a border, transparent outside forced colors, so the box never grows between modes. */
+    border: 1px solid transparent;
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-text);
+    color: var(--rio-bg);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-normal);
+    text-align: start;
+    box-shadow: var(--rio-shadow-2);
+  }
+
+  /* A tooltip fades where it stands: it appears under a pointer that must not have to chase it. */
+  .rio-tooltip[data-entering] {
+    animation: rio-tooltip-in var(--rio-duration-fast) var(--rio-ease-enter);
+  }
+
+  .rio-tooltip[data-exiting] {
+    animation: rio-tooltip-out var(--rio-duration-fast) var(--rio-ease-exit);
+  }
+
+  @media (forced-colors: active) {
+    .rio-tooltip {
+      border-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+      box-shadow: none;
+    }
+  }
+}
+
+@keyframes rio-tooltip-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes rio-tooltip-out {
+  to {
+    opacity: 0;
+  }
+}

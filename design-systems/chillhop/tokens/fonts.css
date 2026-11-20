@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+/* Type families. Substitutions: the source brand sets its wordmark in a proprietary
+   geometric rounded sans; Bricolage Grotesque is the nearest open counterpart. */
+:root{
+--font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+--font-text:"Figtree",-apple-system,"Segoe UI",system-ui,sans-serif;
+--font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+--font-sticker:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+}

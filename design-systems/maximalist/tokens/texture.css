@@ -1,0 +1,74 @@
+/* Texture. Two sources, both theme-aware.
+
+   1. CSS-drawn fills (--tex-halftone … --tex-noise). Cheap, infinite, inherit theme colour.
+   2. SOURCE ARTWORK. Three seamless tiles and sixteen line marks ship as SVG in assets/.
+      Every one of them is a MASK, not an image: the file paints solid black, CSS masks a
+      theme-coloured box through it. That is why a houndstooth ground is magenta in OI Prime
+      and vermilion in Geo Slate without a second file existing.
+      The mask data URIs live in tokens/masks.css. Use --tex-* as background-image only for
+      the CSS fills; use .mx-mask-* / .mx-ground-* / .mx-mark for the source artwork.
+
+   Raster grounds (assets/grounds/*.jpg) and photographs (assets/photos/*.jpg) are NOT
+   theme-aware — they are fixed artwork. Put ink borders and solid type panels over them,
+   never body copy directly. */
+:root{
+  --tex-dot-size:14px;
+  --tex-stripe-size:22px;
+  --tex-check-size:26px;
+  --tex-tile:52px;
+  --tex-tile-lg:120px;
+  --tex-tile-sm:26px;
+
+  --tex-halftone:radial-gradient(var(--ink) 22%,transparent 23%);
+  --tex-halftone-loose:radial-gradient(var(--ink) 13%,transparent 14%);
+  --tex-stripe:repeating-linear-gradient(45deg,var(--ink) 0 8px,transparent 8px 22px);
+  --tex-stripe-accent:repeating-linear-gradient(45deg,var(--accent) 0 11px,var(--accent-3) 11px 22px);
+  --tex-stripe-v:repeating-linear-gradient(90deg,var(--ink) 0 5px,transparent 5px 16px);
+  --tex-check:conic-gradient(var(--ink) 0 25%,transparent 0 50%,var(--ink) 0 75%,transparent 0);
+  --tex-grid:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px);
+  --tex-zigzag:repeating-conic-gradient(from 45deg at 50% 0,var(--accent) 0 25%,transparent 0 50%);
+  --tex-noise:repeating-radial-gradient(circle at 0 0,var(--ink) 0 1px,transparent 1px 3px);
+}
+.mx-tex-halftone{background-image:var(--tex-halftone);background-size:var(--tex-dot-size) var(--tex-dot-size)}
+.mx-tex-stripe{background-image:var(--tex-stripe)}
+.mx-tex-check{background-image:var(--tex-check);background-size:var(--tex-check-size) var(--tex-check-size)}
+.mx-tex-grid{background-image:var(--tex-grid);background-size:var(--tex-stripe-size) var(--tex-stripe-size)}
+
+/* ── Source tiles ─────────────────────────────────────────────────────────
+   .mx-mask-* fills the element with the current colour through a source tile.
+   Set the colour with `color:`, the tile scale with --tile. Pair with .mx-ground
+   on a parent when you want the tile to sit over another fill. */
+.mx-mask-houndstooth,.mx-mask-chevron,.mx-mask-blade{background-color:currentColor;-webkit-mask-repeat:repeat;mask-repeat:repeat}
+.mx-mask-houndstooth{-webkit-mask-image:var(--mask-houndstooth);mask-image:var(--mask-houndstooth);-webkit-mask-size:var(--tex-tile) var(--tex-tile);mask-size:var(--tex-tile) var(--tex-tile)}
+.mx-mask-chevron{-webkit-mask-image:var(--mask-chevron);mask-image:var(--mask-chevron);-webkit-mask-size:var(--tex-tile-lg) var(--tex-tile-lg);mask-size:var(--tex-tile-lg) var(--tex-tile-lg)}
+.mx-mask-blade{-webkit-mask-image:var(--mask-blade);mask-image:var(--mask-blade);-webkit-mask-size:var(--tex-tile-lg) var(--tex-tile-lg);mask-size:var(--tex-tile-lg) var(--tex-tile-lg)}
+.mx-mask--sm{-webkit-mask-size:var(--tex-tile-sm) var(--tex-tile-sm);mask-size:var(--tex-tile-sm) var(--tex-tile-sm)}
+.mx-mask--lg{-webkit-mask-size:var(--tex-tile-lg) var(--tex-tile-lg);mask-size:var(--tex-tile-lg) var(--tex-tile-lg)}
+
+/* Ground layers: an absolutely-positioned tile behind whatever sits in the box.
+   The parent needs position:relative; content needs a stacking context above it. */
+.mx-ground{position:relative;isolation:isolate}
+.mx-ground>*{position:relative;z-index:1}
+.mx-ground::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-color:var(--accent-3);-webkit-mask-repeat:repeat;mask-repeat:repeat;-webkit-mask-size:var(--tex-tile) var(--tex-tile);mask-size:var(--tex-tile) var(--tex-tile);-webkit-mask-image:var(--mask-houndstooth);mask-image:var(--mask-houndstooth)}
+.mx-ground--chevron::before{-webkit-mask-image:var(--mask-chevron);mask-image:var(--mask-chevron);-webkit-mask-size:var(--tex-tile-lg) var(--tex-tile-lg);mask-size:var(--tex-tile-lg) var(--tex-tile-lg)}
+.mx-ground--blade::before{-webkit-mask-image:var(--mask-blade);mask-image:var(--mask-blade);-webkit-mask-size:var(--tex-tile-lg) var(--tex-tile-lg);mask-size:var(--tex-tile-lg) var(--tex-tile-lg)}
+.mx-ground--accent::before{background-color:var(--accent)}
+.mx-ground--accent-2::before{background-color:var(--accent-2)}
+.mx-ground--accent-4::before{background-color:var(--accent-4)}
+.mx-ground--ink::before{background-color:var(--ink)}
+.mx-ground--tight::before{-webkit-mask-size:var(--tex-tile-sm) var(--tex-tile-sm);mask-size:var(--tex-tile-sm) var(--tex-tile-sm)}
+
+/* Fixed raster backdrops. Six pattern-collage sheets and two mist gradients.
+   These carry their own colour; they do not follow the scheme. */
+.mx-backdrop{background-size:cover;background-position:center;position:relative;isolation:isolate}
+.mx-backdrop>*{position:relative;z-index:1}
+.mx-backdrop--geo-1{background-image:url("../assets/grounds/geo-01.jpg")}
+.mx-backdrop--geo-2{background-image:url("../assets/grounds/geo-02.jpg")}
+.mx-backdrop--geo-3{background-image:url("../assets/grounds/geo-03.jpg")}
+.mx-backdrop--geo-4{background-image:url("../assets/grounds/geo-04.jpg")}
+.mx-backdrop--geo-5{background-image:url("../assets/grounds/geo-05.jpg")}
+.mx-backdrop--geo-6{background-image:url("../assets/grounds/geo-06.jpg")}
+.mx-backdrop--mist-1{background-image:url("../assets/grounds/mist-01.jpg")}
+.mx-backdrop--mist-2{background-image:url("../assets/grounds/mist-02.jpg")}
+/* Tiled small so the collage sheets read as texture rather than picture. */
+.mx-backdrop--tiled{background-size:340px auto;background-repeat:repeat}

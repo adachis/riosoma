@@ -1,0 +1,33 @@
+:root{
+  /* Magazine geometry is square. Radius is the exception, never the default. */
+  --radius-0: 0px;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-pill: 999px;
+
+  --rule-hair: 1px;
+  --rule-thin: 2px;
+  --rule-heavy: 4px;
+  --rule-slab: 8px;
+  --border-hair: var(--rule-hair) solid var(--rule-color); /* @kind other */
+  --border-thin: var(--rule-thin) solid var(--rule-color); /* @kind other */
+  --border-heavy: var(--rule-heavy) solid var(--rule-color); /* @kind other */
+  --border-muted: var(--rule-hair) solid color-mix(in srgb, var(--rule-color) 22%, transparent);
+
+  /* Ink never floats. Shadows exist only for things physically above the page. */
+  --shadow-none: none; /* @kind shadow */
+  --shadow-lift: 0 2px 0 0 color-mix(in srgb, var(--rule-color) 100%, transparent);
+  --shadow-sheet: 0 24px 48px -28px color-mix(in srgb, var(--ink) 55%, transparent);
+  --shadow-overlay: 0 40px 90px -40px color-mix(in srgb, var(--ink) 70%, transparent);
+  --shadow-window: 0 18px 60px -18px color-mix(in srgb, var(--ink) 45%, transparent);
+  --shadow-inset-field: inset 0 -1px 0 0 var(--rule-color);
+
+  --overlay-scrim: color-mix(in srgb, var(--ink) 72%, transparent); /* @kind color */
+  --overlay-protection: linear-gradient(to top, color-mix(in srgb, var(--ink) 88%, transparent) 0%, color-mix(in srgb, var(--ink) 40%, transparent) 42%, transparent 78%); /* @kind other */
+  --blur-chrome: saturate(150%) blur(14px); /* @kind other */
+
+  /* Halftone / newsprint texture, drawn from tokens so it re-themes */
+  --texture-halftone: radial-gradient(color-mix(in srgb, var(--ink) 26%, transparent) 1px, transparent 1.1px); /* @kind other */
+  --texture-halftone-size: 4px 4px; /* @kind other */
+  --texture-rules: repeating-linear-gradient(to bottom, color-mix(in srgb, var(--ink) 12%, transparent) 0 1px, transparent 1px 8px); /* @kind other */
+}

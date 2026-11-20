@@ -1,0 +1,93 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    target-branch: dev
+    schedule:
+      interval: weekly
+    # Matches minimumReleaseAge in pnpm-workspace.yaml: no version younger than three days.
+    cooldown:
+      default-days: 3
+    # These folders keep their own lockfiles and have their own entries below.  Without this, the
+    # workspace groups also bump their manifests and leave their lockfiles behind.
+    exclude-paths:
+      - 'apps/hub/**'
+      - 'integrations/n8n/**'
+      - 'integrations/zapier/**'
+    # One group for the whole workspace outlasts the update job, so split it by dependency type.
+    groups:
+      runtime-patch-and-minor:
+        dependency-type: production
+        patterns: ['*']
+        update-types: [patch, minor]
+      tooling-patch-and-minor:
+        dependency-type: development
+        patterns: ['*']
+        update-types: [patch, minor]
+    ignore:
+      - dependency-name: '*'
+        update-types: [version-update:semver-major]
+      # Held until rechecked by 2027-02-13.  pdfmake's next release brings pdfkit 0.20, whose png-js
+      # declares no license and whose charts fail on the server.  postal-mime 4.2.0 stops reading
+      # headers at the first malformed line.  The advisory gate still blocks if either gets an advisory.
+      - dependency-name: pdfmake
+        versions: ['> 0.3.11']
+      - dependency-name: postal-mime
+        versions: ['> 4.0.8']
+      # Held at 1.64.1 (recheck by 2026-12-17).  Firefox in Playwright 1.65.1 crashes the page
+      # while axe scans the setup screen, so the boot, journey, and offline specs fail in Firefox.  Before
+      # landing any Playwright update, dispatch the nightly with every browser, not only Chromium.
+      - dependency-name: playwright
+        versions: ['1.65.1']
+      - dependency-name: '@playwright/test'
+        versions: ['1.65.1']
+  - package-ecosystem: npm
+    directory: /apps/hub
+    target-branch: dev
+    schedule:
+      interval: weekly
+    # Matches minimumReleaseAge in this folder's pnpm-workspace.yaml: no version younger than three days.
+    cooldown:
+      default-days: 3
+    groups:
+      patch-and-minor:
+        patterns: ['*']
+        update-types: [patch, minor]
+    ignore:
+      - dependency-name: '*'
+        update-types: [version-update:semver-major]
+      # Held until Miniflare 5 has a stable release (recheck by 2027-02-13).  Every Wrangler after 4.116.0
+      # runs a Miniflare 5 prerelease, which test/dependencies.test.ts rejects and whose constructor takes
+      # different options.
+      - dependency-name: wrangler
+        versions: ['> 4.116.0']
+  - package-ecosystem: npm
+    directory: /integrations/n8n
+    target-branch: dev
+    schedule:
+      interval: weekly
+    # Matches minimumReleaseAge in this folder's pnpm-workspace.yaml: no version younger than three days.
+    cooldown:
+      default-days: 3
+    groups:
+      patch-and-minor:
+        patterns: ['*']
+        update-types: [patch, minor]
+    ignore:
+      - dependency-name: '*'
+        update-types: [version-update:semver-major]
+  - package-ecosystem: npm
+    directory: /integrations/zapier
+    target-branch: dev
+    schedule:
+      interval: weekly
+    # Matches minimumReleaseAge in pnpm-workspace.yaml: no version younger than three days.
+    cooldown:
+      default-days: 3
+    groups:
+      patch-and-minor:
+        patterns: ['*']
+        update-types: [patch, minor]
+    ignore:
+      - dependency-name: '*'
+        update-types: [version-update:semver-major]

@@ -1,0 +1,37 @@
+:root{
+/* Compositor's scale: multiples of a 4px em-quad, with the odd 6 and 10 that
+   letterpress furniture actually gives you. */
+--space-hair:1px;
+--space-0:2px;
+--space-1:4px;
+--space-2:6px;
+--space-3:8px;
+--space-4:10px;
+--space-5:12px;
+--space-6:16px;
+--space-7:20px;
+--space-8:24px;
+--space-9:32px;
+--space-10:40px;
+--space-11:56px;
+--space-12:72px;
+--space-13:96px;
+--space-14:128px;
+
+/* Page furniture */
+--gutter-column:28px;
+--gutter-column-tight:18px;
+--margin-page:clamp(16px,4vw,56px);
+--margin-print:0.75in;
+--width-page:1180px;
+--width-page-narrow:820px;
+
+/* Control sizing */
+--control-h-sm:28px;
+--control-h-md:36px;
+--control-h-lg:46px;
+--control-pad-x-sm:12px;
+--control-pad-x-md:18px;
+--control-pad-x-lg:26px;
+--tap-min:44px;
+}

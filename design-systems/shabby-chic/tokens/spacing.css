@@ -1,0 +1,30 @@
+:root{
+/* ── Space: 4px root, but the useful sizes are the odd ones in between ── */
+--sp-0:0; /* @kind spacing */
+--sp-1:2px;--sp-2:4px;--sp-3:6px;--sp-4:9px;--sp-5:12px;--sp-6:15px;
+--sp-7:20px;--sp-8:26px;--sp-9:34px;--sp-10:44px;--sp-11:58px;--sp-12:76px;--sp-13:100px;--sp-14:132px;
+
+/* ── Component insets ── */
+--pad-control-y:9px;--pad-control-x:18px;
+--pad-control-sm-y:5px;--pad-control-sm-x:12px;
+--pad-control-lg-y:13px;--pad-control-lg-x:26px;
+--pad-card:22px;--pad-card-lg:34px;--pad-panel:26px;
+--gap-inline:9px;--gap-stack:15px;--gap-section:44px;
+
+/* ── Measure ── */
+--measure-tight:46ch; /* @kind spacing */
+--measure:68ch; /* @kind spacing */
+--measure-wide:84ch; /* @kind spacing */
+--width-page:1180px;--width-prose:720px;--width-app:1440px;
+
+/* ── Radii: mostly square. Vintage print has corners. ── */
+--r-none:0; /* @kind radius */
+--r-xs:2px;--r-sm:3px;--r-md:5px;--r-lg:9px;--r-xl:16px;--r-pill:999px;
+--r-card:4px;--r-control:3px;--r-tag:999px;--r-window:8px;
+
+/* ── Hairlines ── */
+--bw-hair:1px;--bw:1px;--bw-thick:2px;--bw-frame:3px; /* @kind spacing */
+
+/* ── Touch ── */
+--hit-min:44px;--hit-comfy:48px; /* @kind spacing */
+}

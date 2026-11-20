@@ -1,0 +1,40 @@
+:root{
+  /* metal fills */
+  --grad-metal:linear-gradient(180deg,var(--m-hi) 0%,var(--m-mid) 46%,var(--m-lo) 100%);
+  --grad-metal-rail:linear-gradient(90deg,var(--m-lo),var(--m-mid) 18%,var(--m-hi) 50%,var(--m-mid) 82%,var(--m-lo));
+  --grad-metal-worn:linear-gradient(168deg,var(--m-hi) 0%,var(--m-mid) 38%,var(--m-lo) 72%,var(--m-mid) 100%);
+  --grad-paper:linear-gradient(184deg,var(--panel-2),var(--panel) 40%,var(--paper) 100%);
+  --grad-deep:linear-gradient(180deg,var(--deep-2),var(--deep) 70%);
+  --grad-lamp:radial-gradient(circle at 50% 32%,var(--glow) 0%,color-mix(in oklab,var(--glow) 40%,transparent) 45%,transparent 72%);
+
+  /* parchment tooth + iron grime, built from gradients so no bitmap is required */
+  --tex-paper:repeating-linear-gradient(97deg,rgba(120,88,40,.045) 0 1px,transparent 1px 3px),
+              repeating-linear-gradient(7deg,rgba(120,88,40,.035) 0 1px,transparent 1px 4px); /* @kind other */
+  --tex-iron:repeating-linear-gradient(122deg,rgba(255,255,255,.028) 0 1px,transparent 1px 3px),
+             radial-gradient(120% 90% at 20% 0%,rgba(255,255,255,.06),transparent 60%); /* @kind other */
+  --tex-rivet:radial-gradient(circle at 34% 32%,color-mix(in oklab,var(--m-hi) 85%,#fff) 0 22%,var(--m-mid) 40%,var(--m-lo) 72%,var(--m-edge) 100%);
+
+  /* shadow system — hard, warm, mechanical. No soft modern diffusion. */
+  --sh-plate:inset 0 1px 0 color-mix(in oklab,var(--m-hi) 70%,#fff),
+             inset 0 -2px 0 color-mix(in oklab,var(--m-edge) 55%,transparent),
+             0 2px 0 var(--m-edge),
+             0 6px 14px -4px rgba(28,16,4,.45);
+  --sh-plate-press:inset 0 2px 5px color-mix(in oklab,var(--m-edge) 70%,transparent),
+                   inset 0 -1px 0 color-mix(in oklab,var(--m-hi) 45%,transparent);
+  --sh-panel:0 1px 0 color-mix(in oklab,var(--panel-2) 80%,#fff) inset,
+             0 2px 0 color-mix(in oklab,var(--line-2) 40%,transparent),
+             0 12px 26px -12px rgba(28,16,4,.5);
+  --sh-inset:inset 0 2px 6px color-mix(in oklab,var(--m-edge) 45%,transparent);
+  --sh-well:inset 0 3px 8px rgba(24,14,4,.4),inset 0 -1px 0 rgba(255,255,255,.18); /* @kind shadow */
+  --sh-etch:inset 0 0 0 1px color-mix(in oklab,var(--m-hi) 40%,transparent);
+  --sh-lamp:0 0 0 1px var(--m-edge),0 0 20px -2px var(--glow);
+  --sh-window:0 20px 60px -18px rgba(14,8,2,.62),0 3px 0 rgba(0,0,0,.28);
+
+  /* frames — the double rule that reads as riveted brass over iron */
+  --frame-brass:var(--bw-hair) solid var(--m-edge); /* @kind other */
+  --frame-inner:0 0 0 var(--bw) color-mix(in oklab,var(--m-mid) 80%,transparent);
+
+  /* blur / glass — used sparingly: only over photography or game scenes */
+  --glass:color-mix(in oklab,var(--deep) 72%,transparent);
+  --glass-blur:blur(6px) saturate(.9); /* @kind other */
+}

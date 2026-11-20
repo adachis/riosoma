@@ -1,0 +1,119 @@
+@layer rio.app {
+  .rio-org-chart {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-inline-size: 0;
+    min-block-size: 0;
+    block-size: 100%;
+    color: var(--rio-text);
+    background: var(--rio-bg);
+  }
+  .rio-org-chart__tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-2);
+  }
+  .rio-org-chart__tools input {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    padding: var(--rio-space-2);
+    color: var(--rio-text);
+    background: var(--rio-surface);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    font: inherit;
+  }
+  .rio-org-chart__tools input:focus-visible {
+    outline: var(--rio-focus-ring);
+  }
+  .rio-org-chart__viewport {
+    flex: 1;
+    min-block-size: 12rem;
+    overflow: hidden;
+    touch-action: none;
+    cursor: grab;
+  }
+  .rio-org-chart__viewport > svg {
+    display: block;
+  }
+  .rio-org-chart__edges {
+    fill: none;
+    stroke: var(--rio-aa-text-muted);
+    stroke-width: 2;
+    pointer-events: none;
+  }
+  .rio-org-chart__card {
+    cursor: pointer;
+    outline: none;
+  }
+  .rio-org-chart__card > rect {
+    fill: var(--rio-surface);
+    stroke: var(--rio-border);
+    stroke-width: 2;
+  }
+  .rio-org-chart__card[data-drop] > rect,
+  .rio-org-chart__card[aria-selected='true'] > rect,
+  .rio-org-chart__card:focus-visible > rect {
+    stroke: var(--rio-accent);
+    stroke-width: 3;
+  }
+  .rio-org-chart__card text {
+    fill: var(--rio-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-md);
+    pointer-events: none;
+  }
+  .rio-org-chart__card .rio-org-chart__title {
+    font-weight: var(--rio-weight-bold);
+    font-size: var(--rio-text-lg);
+  }
+  .rio-org-chart__toggle circle {
+    fill: var(--rio-surface);
+    stroke: var(--rio-border);
+  }
+  .rio-org-chart__toggle path {
+    fill: none;
+    stroke: var(--rio-text);
+    stroke-width: 2;
+    pointer-events: none;
+  }
+  .rio-org-chart__notice {
+    margin: var(--rio-space-3);
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-org-chart__sr {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  @media (max-width: 600px) {
+    .rio-org-chart__tools {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    .rio-org-chart__tools > * {
+      flex-shrink: 0;
+    }
+    .rio-org-chart__tools input {
+      inline-size: 9rem;
+    }
+    .rio-org-chart__viewport {
+      min-block-size: 18rem;
+    }
+  }
+  @media print {
+    .rio-org-chart__tools,
+    .rio-org-chart__toggle {
+      display: none;
+    }
+    .rio-org-chart__viewport {
+      block-size: 80vh;
+      pointer-events: none;
+    }
+  }
+}

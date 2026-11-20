@@ -1,0 +1,15 @@
+/* Typefaces — all three are Google Fonts substitutions for the commercial faces
+   used in the source templates (a wide sci-fi display face and a squarish
+   techno grotesque). See readme.md → FONT SUBSTITUTIONS. */
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Oxanium:wght@400;500;600;700;800&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  /* Wordmark / hero display. All-caps only, very wide, never below 24px. */
+  --font-display: "Michroma", "Oxanium", sans-serif; /* @kind font */
+  /* Headings, UI labels, numerics, buttons. */
+  --font-heading: "Oxanium", "Exo 2", sans-serif; /* @kind font */
+  /* Body copy, long-form, form fields. */
+  --font-body: "Exo 2", system-ui, sans-serif; /* @kind font */
+  /* Data, addresses, code, wallet strings, timers. */
+  --font-mono: "JetBrains Mono", ui-monospace, monospace; /* @kind font */
+}

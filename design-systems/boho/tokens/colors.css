@@ -1,0 +1,19 @@
+/* Base earth ramps. Palette-scoped semantics live in palettes.css. */
+:root{
+--linen-50:#FFFBF5;--linen-100:#F7F1E8;--linen-200:#EFE4D6;--linen-300:#E2D3C2;--linen-400:#C9B6A2;
+--stone-500:#A99A8B;--stone-600:#8B7D70;--stone-700:#6B5F54;
+--bark-800:#4E453D;--bark-900:#2E2A26;--bark-950:#1C1916;
+--clay-300:#EFDDCE;--clay-400:#DFA184;--clay-500:#BE6E4A;--clay-600:#A85C3C;--clay-700:#914E31;
+--rust-600:#A8442F;--ochre-400:#E6BE86;--ochre-500:#D9A05B;--ochre-600:#BE843F;
+--sage-300:#C7CFBC;--sage-500:#7C8C6F;--sage-600:#68785C;--sage-700:#4E5A45;
+--blush-300:#F0D4C6;--blush-400:#E6BCA8;
+--indigo-700:#3E4A5A;--teal-600:#5F8A86;
+
+/* Fixed non-themed values */
+--white:#FFFFFF;--black:#000000;
+--scrim:color-mix(in oklab,var(--bark-950) 62%,transparent);
+--tint-white-08:rgba(255,255,255,.08);
+--tint-white-16:rgba(255,255,255,.16);
+--tint-black-06:rgba(28,25,22,.06);
+--tint-black-12:rgba(28,25,22,.12);
+}

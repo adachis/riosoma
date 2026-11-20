@@ -1,0 +1,130 @@
+@layer rio.components {
+  .rio-checkbox {
+    display: block;
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+  }
+
+  /* The row is the label, so the checkbox can be toggled from its text as well as its box. */
+  .rio-checkbox__control {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    max-inline-size: 100%;
+    min-block-size: var(--rio-control-height-sm);
+    cursor: pointer;
+    user-select: none;
+  }
+  .rio-checkbox__label {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 767px) {
+    .rio-checkbox__control {
+      min-block-size: var(--rio-target-primary);
+    }
+  }
+
+  .rio-checkbox__box {
+    position: relative;
+    flex: none;
+    inline-size: var(--rio-space-4);
+    block-size: var(--rio-space-4);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: calc(var(--rio-radius) / 2);
+    background-color: var(--rio-surface);
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  /* Both marks stay mounted and only fade, which is what keeps the box the same size whether it
+     is empty, ticked, or dashed.  They center with auto margins because a translate would not
+     mirror in a right-to-left layout. */
+  .rio-checkbox__tick,
+  .rio-checkbox__dash {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline: 0;
+    margin-inline: auto;
+    color: var(--rio-aa-on-accent);
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-checkbox__control[data-selected] .rio-checkbox__box,
+  .rio-checkbox__control[data-indeterminate] .rio-checkbox__box {
+    border-color: var(--rio-accent);
+    background-color: var(--rio-accent);
+  }
+
+  .rio-checkbox__control[data-selected] .rio-checkbox__tick,
+  .rio-checkbox__control[data-indeterminate] .rio-checkbox__dash {
+    opacity: 1;
+  }
+
+  /* Indeterminate wins over checked: the dash replaces the tick rather than joining it. */
+  .rio-checkbox__control[data-indeterminate] .rio-checkbox__tick {
+    opacity: 0;
+  }
+
+  /* Hover and press tint the box without replacing its fill, so every theme keeps working. */
+  .rio-checkbox__control[data-hovered] .rio-checkbox__box {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-checkbox__control[data-pressed] .rio-checkbox__box {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-checkbox__control[data-focus-visible] .rio-checkbox__box {
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-checkbox__control[data-invalid] .rio-checkbox__box {
+    border-color: var(--rio-aa-danger-text);
+  }
+
+  /* Supporting text retains its generated foreground when the control is disabled. */
+  .rio-checkbox[data-disabled] .rio-checkbox__control {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-checkbox[data-readonly] .rio-checkbox__control {
+    cursor: default;
+  }
+
+  /* Help text lines up under the label instead of under the box. */
+  .rio-checkbox .rio-description,
+  .rio-checkbox .rio-field-error {
+    margin-inline-start: calc(var(--rio-space-4) + var(--rio-space-2));
+  }
+
+  @media (forced-colors: active) {
+    .rio-checkbox__box {
+      border-color: ButtonText;
+      background-color: Field;
+    }
+
+    .rio-checkbox__control[data-selected] .rio-checkbox__box,
+    .rio-checkbox__control[data-indeterminate] .rio-checkbox__box {
+      border-color: Highlight;
+      background-color: Highlight;
+    }
+
+    .rio-checkbox__tick,
+    .rio-checkbox__dash {
+      color: HighlightText;
+    }
+
+    /* Forced colors drops box shadows, so the focus ring needs a real outline. */
+    .rio-checkbox__control[data-focus-visible] .rio-checkbox__box {
+      outline: 2px solid CanvasText;
+      outline-offset: 2px;
+    }
+  }
+}

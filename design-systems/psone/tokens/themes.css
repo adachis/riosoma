@@ -1,0 +1,35 @@
+/* Colour-scheme variants. Apply on any ancestor: <body data-theme="hyperdrive">.
+   Each variant re-points the chromatic + surface aliases only; the neutral hardware
+   ramp and the structural token names never change. */
+[data-theme="core"]{--accent:#3E8CA5;--accent-hi:#49A7C6;--positive:#4EA35B;--positive-hi:#5DC66D;--caution:#F19C42;--caution-hi:#FFB544;--critical:#B62F28;--critical-hi:#E93F36;--exotic:#79F372;--exotic-hi:#77F9FB;--surface-panel-top:#0D2289;--surface-panel-bottom:#06093B;--text-link:#FFFF00;--text-placeholder:#C6C843;--glyph-a:#D592BD;--glyph-b:#20AF93;--glyph-c:#E94B0E;--glyph-d:#9DA5D5}
+
+[data-theme="spectra"]{--accent:#277DA1;--accent-hi:#4D908E;--positive:#90BE6D;--positive-hi:#43AA8B;--caution:#F9C74F;--caution-hi:#F8961E;--critical:#F94144;--critical-hi:#F3722C;--exotic:#F9844A;--exotic-hi:#577590;--surface-panel-top:#577590;--surface-panel-bottom:#1E2C36;--text-link:#F9C74F;--text-placeholder:#F9844A;--glyph-a:#F94144;--glyph-b:#43AA8B;--glyph-c:#F8961E;--glyph-d:#4D908E}
+
+[data-theme="midnight"]{--accent:#003566;--accent-hi:#0057A8;--positive:#FFD60A;--positive-hi:#FFE566;--caution:#FFC300;--caution-hi:#FFD60A;--critical:#B3261E;--critical-hi:#E0473C;--exotic:#FFD60A;--exotic-hi:#FFC300;--surface-panel-top:#001D3D;--surface-panel-bottom:#000814;--text-link:#FFC300;--text-placeholder:#FFD60A;--glyph-a:#FFC300;--glyph-b:#003566;--glyph-c:#FFD60A;--glyph-d:#5C7BA0}
+
+[data-theme="hyperdrive"]{--accent:#390099;--accent-hi:#5A17D6;--positive:#FFBD00;--positive-hi:#FFD54A;--caution:#FF5400;--caution-hi:#FF7A33;--critical:#FF0054;--critical-hi:#FF4785;--exotic:#9E0059;--exotic-hi:#FF0054;--surface-panel-top:#390099;--surface-panel-bottom:#14003A;--text-link:#FFBD00;--text-placeholder:#FF5400;--glyph-a:#FF0054;--glyph-b:#9E0059;--glyph-c:#FF5400;--glyph-d:#FFBD00}
+
+[data-theme="coolant"]{--accent:#457B9D;--accent-hi:#5E9CC2;--positive:#A8DADC;--positive-hi:#CDEBEC;--caution:#E9A03A;--caution-hi:#F3BC63;--critical:#E63946;--critical-hi:#F16A74;--exotic:#A8DADC;--exotic-hi:#F1FAEE;--surface-panel-top:#1D3557;--surface-panel-bottom:#0C1A2E;--text-link:#A8DADC;--text-placeholder:#8FBBCF;--glyph-a:#E63946;--glyph-b:#457B9D;--glyph-c:#F1FAEE;--glyph-d:#A8DADC}
+
+[data-theme="sunbleach"]{--accent:#84A59D;--accent-hi:#A2C0B8;--positive:#84A59D;--positive-hi:#A2C0B8;--caution:#F6BD60;--caution-hi:#FAD28F;--critical:#F28482;--critical-hi:#F7A9A7;--exotic:#F5CAC3;--exotic-hi:#F7EDE2;--surface-panel-top:#4C5F5A;--surface-panel-bottom:#232C2A;--text-link:#F6BD60;--text-placeholder:#F5CAC3;--glyph-a:#F28482;--glyph-b:#84A59D;--glyph-c:#F6BD60;--glyph-d:#F5CAC3}
+
+[data-theme="cartridge"]{--accent:#619B8A;--accent-hi:#7FBBA8;--positive:#A1C181;--positive-hi:#BCD5A2;--caution:#FCCA46;--caution-hi:#FDDC7E;--critical:#FE7F2D;--critical-hi:#FFA063;--exotic:#FCCA46;--exotic-hi:#A1C181;--surface-panel-top:#233D4D;--surface-panel-bottom:#111F27;--text-link:#FCCA46;--text-placeholder:#A1C181;--glyph-a:#FE7F2D;--glyph-b:#619B8A;--glyph-c:#FCCA46;--glyph-d:#A1C181}
+
+[data-theme="aquifer"]{--accent:#38A3A5;--accent-hi:#57CC99;--positive:#57CC99;--positive-hi:#80ED99;--caution:#C7F9CC;--caution-hi:#E4FCE7;--critical:#E0473C;--critical-hi:#F0685E;--exotic:#80ED99;--exotic-hi:#C7F9CC;--surface-panel-top:#22577A;--surface-panel-bottom:#0E2436;--text-link:#80ED99;--text-placeholder:#57CC99;--glyph-a:#C7F9CC;--glyph-b:#38A3A5;--glyph-c:#80ED99;--glyph-d:#57CC99}
+
+[data-theme="biohazard"]{--accent:#495F41;--accent-hi:#00FDDC;--positive:#00FDDC;--positive-hi:#8CFFF0;--caution:#FFCCC9;--caution-hi:#FFE3E1;--critical:#FF5666;--critical-hi:#FF8B96;--exotic:#00FDDC;--exotic-hi:#FFCCC9;--surface-panel-top:#2E5339;--surface-panel-bottom:#141F18;--text-link:#00FDDC;--text-placeholder:#A0C0A6;--glyph-a:#FF5666;--glyph-b:#00FDDC;--glyph-c:#FFCCC9;--glyph-d:#495F41}
+
+[data-theme="bubblegum"]{--accent:#70D6FF;--accent-hi:#A3E5FF;--positive:#FFD670;--positive-hi:#FFE4A3;--caution:#FF9770;--caution-hi:#FFB29A;--critical:#FF70A6;--critical-hi:#FF9CC1;--exotic:#FF70A6;--exotic-hi:#70D6FF;--surface-panel-top:#1F4B78;--surface-panel-bottom:#0B1F33;--text-link:#FFD670;--text-placeholder:#FF9770;--glyph-a:#FF70A6;--glyph-b:#70D6FF;--glyph-c:#FF9770;--glyph-d:#FFD670}
+
+[data-theme="arcade"]{--accent:#247BA0;--accent-hi:#70C1B3;--positive:#70C1B3;--positive-hi:#B2DBBF;--caution:#F3FFBD;--caution-hi:#FAFFE0;--critical:#FF1654;--critical-hi:#FF5583;--exotic:#F3FFBD;--exotic-hi:#B2DBBF;--surface-panel-top:#247BA0;--surface-panel-bottom:#0D3143;--text-link:#F3FFBD;--text-placeholder:#B2DBBF;--glyph-a:#FF1654;--glyph-b:#70C1B3;--glyph-c:#F3FFBD;--glyph-d:#247BA0}
+
+[data-theme="mission"]{--accent:#083D77;--accent-hi:#1160B4;--positive:#F4D35E;--positive-hi:#F8E495;--caution:#EE964B;--caution-hi:#F4B37D;--critical:#F95738;--critical-hi:#FC8570;--exotic:#F4D35E;--exotic-hi:#EBEBD3;--surface-panel-top:#083D77;--surface-panel-bottom:#031B34;--text-link:#F4D35E;--text-placeholder:#EBEBD3;--glyph-a:#F95738;--glyph-b:#083D77;--glyph-c:#EE964B;--glyph-d:#F4D35E}
+
+[data-theme="static"]{--accent:#7E8D85;--accent-hi:#A2E3C4;--positive:#A2E3C4;--positive-hi:#C6EFDB;--caution:#B3BFB8;--caution-hi:#D1DAD5;--critical:#B5564E;--critical-hi:#CE7A73;--exotic:#A2E3C4;--exotic-hi:#F0F7F4;--surface-panel-top:#3C493F;--surface-panel-bottom:#1B211D;--text-link:#A2E3C4;--text-placeholder:#B3BFB8;--glyph-a:#B5564E;--glyph-b:#A2E3C4;--glyph-c:#B3BFB8;--glyph-d:#7E8D85}
+
+/* Paper mode: print / editorial layouts invert the substrate but keep the accents. */
+[data-surface="paper"]{--surface-app:var(--grey-050);--surface-app-2:var(--white);--text-body:#141414;--text-title:#141414;--text-muted:#5A5A5A;--text-dim:#8A8B8A;--border-panel:#141414;--border-inner:#141414;--border-hairline:rgba(0,0,0,.2);--shadow-text:none;--shadow-text-lg:none;--shadow-title:none;--text-link:#141414}
+/* The stamp is inherited from `body`, so overriding the token is not enough — a 2px black
+   shadow under near-black type on light stock reads as a printing double-strike. Kill it
+   outright across the paper subtree. */
+[data-surface="paper"],[data-surface="paper"] *{text-shadow:none}

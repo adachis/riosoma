@@ -1,0 +1,255 @@
+# Riosoma: one image serves the web app and the API on port 8080 and keeps its settings in /config,
+# and a second runs the connector service, which holds the drivers for MySQL, SQL Server, Oracle,
+# Firebird, Snowflake, BigQuery, Databricks, ClickHouse, and MongoDB.  It needs PostgreSQL 14 or
+# later.  Every setting is described in docs/install/settings.md.
+
+image:
+  repository: ghcr.io/adachis/riosoma
+  # Empty means the chart's appVersion.
+  tag: ''
+  # A digest (sha256:...) pins the exact image and wins over the tag.
+  digest: ''
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ''
+fullnameOverride: ''
+
+# One replica is the default and the simplest.  Running several needs all of these:
+#   - one RIOSOMA_SECRET_KEY for every replica, which the chart's Secret provides
+#   - the database named in settings (RIOSOMA_DATABASE_URL or RIOSOMA_DATABASE_PROFILE), not chosen
+#     in the setup wizard, which writes it to one pod's /config
+#   - RIOSOMA_SETUP_TOKEN set, or setup finished with one replica first, since each pod otherwise
+#     makes its own setup token
+#   - persistence.accessMode ReadWriteMany, or persistence.enabled false once the above are set,
+#     since a ReadWriteOnce volume attaches to one node
+#   - strategy.type RollingUpdate
+#   - RIOSOMA_FILES_STORAGE left at postgres, set to s3 or azure-blob, or RIOSOMA_FILES_DIR on a volume
+#     every replica shares
+# Shared view rate limits and the view cache are kept per replica.
+replicaCount: 1
+
+# Recreate stops the old pod before the new one starts, so a ReadWriteOnce volume can move and two
+# releases never run against the database at once.  Switch to RollingUpdate for several replicas.
+strategy:
+  type: Recreate
+
+# Settings that aren't secret, as environment variables named exactly as in the settings
+# reference.  Empty values are left out.  With the ingress on, RIOSOMA_BASE_URL defaults to its
+# host and RIOSOMA_TRUST_PROXY to 1.
+settings:
+  RIOSOMA_BASE_URL: ''
+  RIOSOMA_LOG_LEVEL: info
+  RIOSOMA_DRIVERS_DIR: /config/drivers
+  RIOSOMA_DRIVER_INSTALLS: 'on'
+  RIOSOMA_TRUST_PROXY: ''
+
+# Secret settings: RIOSOMA_SECRET_KEY, RIOSOMA_DATABASE_URL, RIOSOMA_DATABASE_PROFILE,
+# RIOSOMA_SMTP_URL, RIOSOMA_SETUP_TOKEN, RIOSOMA_FILES_S3_SECRET_ACCESS_KEY, and
+# RIOSOMA_FILES_AZURE_ACCOUNT_KEY.
+secret:
+  # The name of a Secret you manage, whose keys are setting names.  The chart then makes no Secret
+  # of its own, so include RIOSOMA_SECRET_KEY in yours or the server keeps its key in /config.
+  existingSecret: ''
+  # Otherwise the chart makes a Secret from these.  Empty values are left out.  RIOSOMA_SECRET_KEY
+  # is generated once when empty and kept across upgrades, and the Secret outlives helm uninstall so
+  # a reinstall can still read what the old key sealed.  Tools that render charts without a cluster
+  # (helm template, some GitOps controllers) can't see the old key, so set it yourself there.
+  values:
+    RIOSOMA_SECRET_KEY: ''
+    RIOSOMA_DATABASE_URL: ''
+
+# More environment variables for the container, in Kubernetes form.
+extraEnv: []
+
+serviceAccount:
+  create: true
+  # Empty means the release's full name.
+  name: ''
+  # For cloud identity sign-in to the database, such as EKS IAM roles, Azure workload identity, or
+  # GKE workload identity.
+  annotations: {}
+  automountToken: false
+
+podAnnotations: {}
+podLabels: {}
+
+# The image runs as the distroless nonroot user.
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 65532
+  runAsGroup: 65532
+  fsGroup: 65532
+  fsGroupChangePolicy: OnRootMismatch
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: [ALL]
+
+# The view cache takes up to about two and a half times RIOSOMA_SNAPSHOT_CACHE_MB (256 by default),
+# so raise the memory limit with it.
+resources:
+  requests:
+    cpu: 250m
+    memory: 512Mi
+  limits:
+    memory: 1536Mi
+
+# Migrations run before the server listens, and each may take up to 10 minutes, so the startup
+# probe allows that long before the liveness probe takes over.
+startupProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  periodSeconds: 5
+  timeoutSeconds: 3
+  failureThreshold: 120
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  periodSeconds: 20
+  timeoutSeconds: 5
+  failureThreshold: 3
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  periodSeconds: 10
+  timeoutSeconds: 3
+  failureThreshold: 3
+
+service:
+  type: ClusterIP
+  port: 80
+  annotations: {}
+
+ingress:
+  enabled: false
+  className: ''
+  # For large attachments behind ingress-nginx, raise its 1 MB default:
+  #   nginx.ingress.kubernetes.io/proxy-body-size: 1g
+  # With cert-manager, name the issuer here and it fills tls.secretName:
+  #   cert-manager.io/cluster-issuer: letsencrypt
+  annotations: {}
+  host: riosoma.example.com
+  # Add hosts only after organization verification, each with its own certificate secret.
+  customDomains: []
+  tls:
+    enabled: true
+    # Empty means <full name>-tls.
+    secretName: ''
+
+# The volume for /config.  With it off, /config is an emptyDir that each new pod starts empty, which
+# is fine only when the database, RIOSOMA_SECRET_KEY, and RIOSOMA_BASE_URL are all set.
+persistence:
+  enabled: true
+  existingClaim: ''
+  storageClass: ''
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  # Keep the claim when the release is uninstalled.
+  keep: true
+
+# /tmp holds file previews and file source downloads, which are up to RIOSOMA_SOURCE_FILE_MAX_MB
+# (2048 by default) each.
+tmp:
+  sizeLimit: 3Gi
+
+extraVolumes: []
+extraVolumeMounts: []
+
+podDisruptionBudget:
+  enabled: true
+  # With one replica, 1 lets a node drain.  Use minAvailable instead with several replicas.
+  maxUnavailable: 1
+  minAvailable: null
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+topologySpreadConstraints: []
+priorityClassName: ''
+terminationGracePeriodSeconds: 30
+
+# A PostgreSQL for trying Riosoma out: one pod, no backups, no high availability, and no tuning.
+# For production, use a managed database (Azure Database for PostgreSQL, Amazon RDS, Cloud SQL, or
+# your own) and name it in secret.values.RIOSOMA_DATABASE_URL instead.  When on, the chart points
+# Riosoma at it and ignores any RIOSOMA_DATABASE_URL given elsewhere.
+postgresql:
+  enabled: false
+  image:
+    repository: postgres
+    tag: 16.15-alpine
+    pullPolicy: IfNotPresent
+  database: riosoma
+  username: riosoma
+  # Letters and digits only, since it goes into a URL.  Generated once when empty and kept, with its
+  # data volume, when the release is uninstalled.
+  password: ''
+  persistence:
+    storageClass: ''
+    size: 8Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      memory: 1Gi
+
+# Optional scanner, reachable only inside the cluster.
+clamav:
+  enabled: false
+  image: clamav/clamav-debian:1.4.6
+  resources:
+    requests:
+      memory: 2Gi
+      cpu: 250m
+    limits:
+      memory: 4Gi
+
+# The connector service, a Deployment and Service of its own that only Riosoma's pods reach.  The
+# chart points Riosoma at it and generates the token the two share, once, keeping it across upgrades.
+connectors:
+  enabled: true
+  image:
+    repository: ghcr.io/adachis/riosoma-connectors
+    # Empty means image.tag, or the chart's appVersion when that's empty too.
+    tag: ''
+    # A digest (sha256:...) pins the exact image and wins over the tag.
+    digest: ''
+    pullPolicy: IfNotPresent
+  # The name of a Secret you manage with a RIOSOMA_CONNECTOR_SERVICE_TOKEN key, of at least 32
+  # letters, digits, dashes, or underscores, in place of the generated one.
+  existingSecret: ''
+  # Must be exactly 1 because live sessions stay in one process.  Upgrades recreate this pod.
+  replicaCount: 1
+  podAnnotations: {}
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      memory: 1Gi
+  # Lets only Riosoma's pods reach the service, where the cluster enforces network policies.
+  networkPolicy:
+    enabled: true
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+search:
+  enabled: false
+  image: searxng/searxng:2026.9.25-12f8b6515
+  # An existing Secret with a secret-key entry.
+  existingSecret: ''
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      memory: 512Mi

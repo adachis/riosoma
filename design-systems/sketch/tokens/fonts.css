@@ -1,0 +1,12 @@
+/* Sketch — webfonts.
+   All four faces are Google Fonts, loaded from the Google CDN as woff2.
+   SUBSTITUTION NOTE: no font binaries were supplied with the source material.
+   These are nearest-match public faces chosen for the ink-on-paper voice. */
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Caveat:wght@400..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root{
+  --font-display:"Cabin Sketch","Marker Felt","Comic Sans MS",cursive; /* @kind font */
+  --font-ui:"Shantell Sans","Trebuchet MS",system-ui,sans-serif; /* @kind font */
+  --font-hand:"Caveat","Bradley Hand",cursive; /* @kind font */
+  --font-mono:"Courier Prime","Courier New",monospace; /* @kind font */
+}

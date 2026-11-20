@@ -1,0 +1,73 @@
+@layer rio.components {
+  .rio-list-popover {
+    /* An automatic width shrinks as positioning changes the space beside the anchor.  Keep
+       the content width independent of that position, with a cap for narrow viewports. */
+    inline-size: max-content;
+    max-inline-size: calc(
+      100dvi - var(--rio-space-4) - env(safe-area-inset-left) - env(safe-area-inset-right)
+    );
+    max-block-size: calc(
+      100dvb - var(--rio-space-12) - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    padding-block: var(--rio-space-1);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+    box-shadow: var(--rio-shadow-2);
+    outline: none;
+  }
+
+  /*
+   * A panel is never narrower than the field or button that opened it.  A submenu's trigger is a
+   * menu item, so matching that width would make the submenu as wide as the whole menu.
+   */
+  .rio-list-popover:not([data-trigger='SubmenuTrigger']) {
+    min-inline-size: var(--trigger-width, auto);
+  }
+
+  /* Only opacity animates: the panel never moves under the pointer that opened it. */
+  .rio-list-popover[data-entering] {
+    animation: rio-list-popover-in var(--rio-duration-fast) var(--rio-ease-enter);
+  }
+
+  .rio-list-popover[data-exiting] {
+    animation: rio-list-popover-out var(--rio-duration-fast) var(--rio-ease-exit);
+  }
+
+  @media (forced-colors: active) {
+    .rio-list-popover {
+      border-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+    }
+  }
+}
+
+@keyframes rio-list-popover-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rio-list-popover-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

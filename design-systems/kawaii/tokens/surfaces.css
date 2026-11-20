@@ -1,0 +1,24 @@
+:root{
+/* Fills. Every solid surface in the system is a soft vertical gradient, never flat. */
+--fill-surface:linear-gradient(180deg, color-mix(in oklab, var(--surface) 92%, #fff) 0%, var(--surface) 100%);
+--fill-primary:linear-gradient(180deg, color-mix(in oklab, var(--primary) 80%, #fff) 0%, var(--primary) 55%, var(--primary-2) 100%);
+--fill-secondary:linear-gradient(180deg, color-mix(in oklab, var(--secondary) 80%, #fff) 0%, var(--secondary) 55%, var(--secondary-2) 100%);
+--fill-accent:linear-gradient(180deg, color-mix(in oklab, var(--accent) 82%, #fff) 0%, var(--accent) 55%, var(--accent-2) 100%);
+--fill-danger:linear-gradient(180deg, color-mix(in oklab, var(--danger) 80%, #fff) 0%, var(--danger) 100%);
+--fill-paper:linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+--fill-sky:linear-gradient(180deg, color-mix(in oklab, var(--secondary) 24%, var(--paper)) 0%, var(--paper) 62%);
+
+/* Repeating background textures — used at low contrast behind content, never under body copy. */
+--tex-dots:radial-gradient(color-mix(in oklab, var(--line) 12%, transparent) 2px, transparent 2px);
+--tex-dots-size:18px 18px;/* @kind other */
+--tex-check:repeating-conic-gradient(color-mix(in oklab, var(--line) 5%, transparent) 0% 25%, transparent 0% 50%);
+--tex-check-size:26px 26px;/* @kind other */
+--tex-stripe:repeating-linear-gradient(135deg, color-mix(in oklab, var(--line) 7%, transparent) 0 10px, transparent 10px 20px);
+--tex-stripe-size:auto;/* @kind other */
+--tex-hearts:radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--primary) 16%, transparent) 3px, transparent 4px), radial-gradient(circle at 70% 65%, color-mix(in oklab, var(--accent) 18%, transparent) 3px, transparent 4px);
+--tex-hearts-size:34px 34px;/* @kind other */
+
+/* scallop / cloud edges, applied as a mask or a repeating radial along one edge */
+--scallop-top:radial-gradient(circle at 10px 0, transparent 10px, var(--surface) 11px) repeat-x;
+--scallop-size:20px 20px;/* @kind other */
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "database",
+    "type": "select",
+    "label": "Database",
+    "required": true,
+    "options": {
+      "store": "rpc://databases",
+      "nested": [
+        {
+          "name": "table",
+          "type": "select",
+          "label": "Table",
+          "required": true,
+          "options": {
+            "store": "rpc://tables",
+            "nested": [
+              {
+                "name": "record",
+                "type": "text",
+                "label": "Record ID",
+                "required": true
+              },
+              {
+                "name": "fields",
+                "type": "collection",
+                "label": "Fields",
+                "spec": "rpc://fields"
+              }
+            ]
+          },
+          "mappable": false
+        }
+      ]
+    },
+    "mappable": false
+  }
+]

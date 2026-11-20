@@ -1,0 +1,22 @@
+/* Filigree ornament utilities — all ornament is drawn from rules, gradients and type.
+   No raster art, no illustration files. */
+:root{
+--lattice-size:22px; /* @kind spacing */
+--slot-cols:6; /* @kind other */
+--ground-lattice:repeating-linear-gradient(45deg,var(--line-1) 0 1px,transparent 1px var(--lattice-size)),repeating-linear-gradient(-45deg,var(--line-1) 0 1px,transparent 1px var(--lattice-size)); /* @kind other */
+--ground-hatch:repeating-linear-gradient(-45deg,var(--line-1) 0 1px,transparent 1px 6px); /* @kind other */
+--ground-guilloche:repeating-radial-gradient(circle at 50% 50%,transparent 0 9px,var(--line-1) 9px 10px,transparent 10px 20px); /* @kind other */
+--ground-rule-grid:repeating-linear-gradient(0deg,var(--line-1) 0 1px,transparent 1px 32px),repeating-linear-gradient(90deg,var(--line-1) 0 1px,transparent 1px 32px); /* @kind other */
+}
+.fg-lattice{background-image:var(--ground-lattice)}
+.fg-hatch{background-image:var(--ground-hatch)}
+.fg-guilloche{background-image:var(--ground-guilloche);background-size:40px 40px}
+.fg-rule-grid{background-image:var(--ground-rule-grid)}
+.fg-frame{border:var(--hair) solid var(--line-2);box-shadow:inset 0 0 0 var(--frame-gap) var(--bg),inset 0 0 0 4px var(--line-1)}
+.fg-frame-plain{border:var(--hair) solid var(--line-1)}
+.fg-plaque{border:var(--hair) solid var(--line-2);background:var(--surface-1);box-shadow:inset 0 0 0 var(--frame-gap) var(--surface-1),inset 0 0 0 4px var(--line-1),var(--shadow-2)}
+.fg-gilt-text{background:var(--metal-sheen);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fg-label{font:var(--text-label);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--text-3)}
+.fg-eyebrow{font-family:var(--font-mono);font-size:var(--fs-micro);letter-spacing:var(--ls-micro);text-transform:uppercase;color:var(--accent-1)}
+.fg-rule{height:var(--hair);border:0;background:var(--line-2)}
+.fg-rule-double{height:4px;border:0;border-top:var(--hair) solid var(--line-2);border-bottom:var(--hair) solid var(--line-1);background:none}

@@ -1,0 +1,1164 @@
+{
+  "id": "kawaii",
+  "name": "Kawaii",
+  "css": "theme.css",
+  "defaultScheme": "peachy",
+  "schemes": [
+    {
+      "id": "peachy",
+      "name": "Peachy",
+      "appearance": "light"
+    },
+    {
+      "id": "bubblegum",
+      "name": "Bubblegum",
+      "appearance": "light"
+    },
+    {
+      "id": "sherbet",
+      "name": "Sherbet",
+      "appearance": "light"
+    },
+    {
+      "id": "midnight",
+      "name": "Midnight",
+      "appearance": "dark"
+    },
+    {
+      "id": "arcade",
+      "name": "Arcade",
+      "appearance": "dark"
+    },
+    {
+      "id": "poppy",
+      "name": "Poppy",
+      "appearance": "light"
+    },
+    {
+      "id": "harvest",
+      "name": "Harvest",
+      "appearance": "light"
+    },
+    {
+      "id": "mint",
+      "name": "Mint",
+      "appearance": "light"
+    },
+    {
+      "id": "neonmoss",
+      "name": "Neonmoss",
+      "appearance": "dark"
+    },
+    {
+      "id": "lagoon",
+      "name": "Lagoon",
+      "appearance": "light"
+    },
+    {
+      "id": "sunbake",
+      "name": "Sunbake",
+      "appearance": "light"
+    },
+    {
+      "id": "sage",
+      "name": "Sage",
+      "appearance": "light"
+    }
+  ],
+  "modes": [],
+  "defaultMode": null,
+  "surfaces": [],
+  "otherAttributes": [],
+  "externalImports": [],
+  "remoteFonts": [
+    {
+      "path": "assets/fonts/remote/baloo-2-8be5db7b0348.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51bcAM4olXcLtA.woff2",
+      "family": "Baloo 2"
+    },
+    {
+      "path": "assets/fonts/remote/baloo-2-e23bd6c3b14a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51ncAM4olXcLtA.woff2",
+      "family": "Baloo 2"
+    },
+    {
+      "path": "assets/fonts/remote/baloo-2-f20d01a4701e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51fcAM4olXcLtA.woff2",
+      "family": "Baloo 2"
+    },
+    {
+      "path": "assets/fonts/remote/baloo-2-f288713a7651.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/baloo2/v23/wXKrE3kTposypRyd51jcAM4olXc.woff2",
+      "family": "Baloo 2"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-outline-05d474557963.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeoutline/v24/_6_mEDvmVP24UvU2MyiGDslL3TgwaBNIPmxp.woff2",
+      "family": "Bungee Outline"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-outline-9985ad666bbc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeoutline/v24/_6_mEDvmVP24UvU2MyiGDslL3Tg_aBNIPmxpyBs.woff2",
+      "family": "Bungee Outline"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-outline-b61f5c951f9d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeoutline/v24/_6_mEDvmVP24UvU2MyiGDslL3Tg-aBNIPmxpyBs.woff2",
+      "family": "Bungee Outline"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-shade-0622c44972c2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeshade/v17/DtVkJxarWL0t2KdzK3oI_jkc6SjTjQJElg.woff2",
+      "family": "Bungee Shade"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-shade-5cdf1e1f6b33.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeshade/v17/DtVkJxarWL0t2KdzK3oI_jkc5ijTjQJElti5.woff2",
+      "family": "Bungee Shade"
+    },
+    {
+      "path": "assets/fonts/remote/bungee-shade-dd7aca8068f5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/bungeeshade/v17/DtVkJxarWL0t2KdzK3oI_jkc5yjTjQJElti5.woff2",
+      "family": "Bungee Shade"
+    },
+    {
+      "path": "assets/fonts/remote/cabin-sketch-3330d0230250.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cabinsketch/v23/QGY2z_kZZAGCONcK2A4bGOj0I_1Y5tjzAYOcFg.woff2",
+      "family": "Cabin Sketch"
+    },
+    {
+      "path": "assets/fonts/remote/cabin-sketch-81201c1c486e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cabinsketch/v23/QGYpz_kZZAGCONcK2A4bGOj8mNhNy_r-Kw.woff2",
+      "family": "Cabin Sketch"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-002d49629510.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.118.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-014a802e661f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.78.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-028e8df5adf4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.92.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-0590ff65266b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.110.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-0f41309836cb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.91.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-1453f2f7f28d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.106.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-149bb1f12b9e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhr6C9BEwVT7-g.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-1584a6c39c5f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.100.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-1a78283b9a42.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.76.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-1ca014fa19b0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.116.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-2f6863be3b18.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.95.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-352d83f5302d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.93.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-368309a844ae.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhr6BdBEwVT7-jN3.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-3a1b5d0dbfb5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.111.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-3be34650a321.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.59.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-436ab0c0e2ec.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.90.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-445cfb485852.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.89.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-4925609b81d6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.94.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-4a05e9e7cbbf.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.112.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-4c30acfb1bd2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.61.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-53c91a6efe2b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.84.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-575061d51292.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.62.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-5911128f6963.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.54.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-5c1ff55b708b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.71.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-5e7ca1d76156.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.87.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-62bd39cee81b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.99.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-69d694b97ae4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.101.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-6d863ca08e39.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.104.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-6e040606b283.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.75.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-702b8eefd1f4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.3.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-774bf2b60a5f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.105.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-7aba440acc5d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.86.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-7d747a437a2e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.113.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-826ef307898e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.119.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-8acce4140b62.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhr6BNBEwVT7-jN3.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-91f2ecb2fcb5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.115.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-94fef8acdf0a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.66.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-98426832fe46.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.108.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-98a9ceb4e33b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.88.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-9a28028ba7c2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.96.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-a33fb262b6e0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.80.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-a4ab6f6bff5b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.102.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-aaad60d67c4e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.65.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-b26cd666c632.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.85.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-ba726ac1f7d4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.98.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-beffda9aab16.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.103.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-c44aded5fb02.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.109.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-cc4864f39528.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.117.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-db93db532536.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.58.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-e07e9e0bd00c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.70.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-e36edfa3bdab.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.79.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-e42a5c82bb93.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.81.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-f0cdfeeea252.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.97.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-f516052ada6c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.77.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-f683f540e1d5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.107.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-fd14c2ffed19.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.82.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/cherry-bomb-one-fe0365deb8a6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/cherrybombone/v11/y83DW4od1h6KlV3c6JJhRhGOdhrKCdpD41ax7gFmz9zO-SLQTZFHR-amh8VAywMS.114.woff2",
+      "family": "Cherry Bomb One"
+    },
+    {
+      "path": "assets/fonts/remote/chewy-28928759b918.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/chewy/v18/uK_94ruUb-k-wn52KjI9OPec.woff2",
+      "family": "Chewy"
+    },
+    {
+      "path": "assets/fonts/remote/henny-penny-e354bb738651.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/hennypenny/v18/wXKvE3UZookzsxz_kjGSfPQtvXIZt9DS.woff2",
+      "family": "Henny Penny"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-solid-35785a801467.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasolid/v19/flUiRq6sw40kQEJxWNgkLuudGfv1CgYzlZzKTacK.woff2",
+      "family": "Londrina Solid"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-solid-3db8cc867352.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasolid/v19/flUhRq6sw40kQEJxWNgkLuudGfNeKBMet5Hg.woff2",
+      "family": "Londrina Solid"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-solid-3def8fffcdd7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasolid/v19/flUjRq6sw40kQEJxWNgkLuudGfs9GBEUsLPiR68.woff2",
+      "family": "Londrina Solid"
+    },
+    {
+      "path": "assets/fonts/remote/londrina-solid-68e1b4d4be08.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/londrinasolid/v19/flUiRq6sw40kQEJxWNgkLuudGfvdDwYzlZzKTacK.woff2",
+      "family": "Londrina Solid"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-473d4db65b14.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXX3I6Li01BKofIMNaNRs7nczIHNHI.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-59c4439e43d7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofIOuaBTMnFcQIG.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-66cf9f0cd1c7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXX3I6Li01BKofIMNaORs7nczIHNHI.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-6712cb5122db.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXX3I6Li01BKofIMNaHRs7nczIHNHI.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-73a68363498c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofIMeaBTMnFcQIG.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-b2b539d389ce.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXX3I6Li01BKofIMNaDRs7nczIH.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-d8992a5338f7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofIOOaBTMnFcQIG.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-d95b7307bfc2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofIO-aBTMnFcQIG.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-dbc43460b8f7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaBTMnFcQ.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/nunito-e9e731bbec11.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/nunito/v32/XRXX3I6Li01BKofIMNaMRs7nczIHNHI.woff2",
+      "family": "Nunito"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-058db33f617f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMO21la7UVSby1.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-151e91a5f422.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8wU8PWdiSbclSA.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-2fca17b4f150.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMMG1la7UVSby1.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-4cbbcccc11e5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMMW1la7UVSby1.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-55b95b224b5d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMMm1la7UVSby1.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-59a26ae428ce.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8ws8PWdiSbc.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-81760cc61494.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8wY8PWdiSbclSA.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-93e6aa5f2329.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8wQ8PWdiSbclSA.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-c0191ec98320.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVhS0pCoLIo-lcdY7kjvNoQg2xkycTqsuA6bi9pTt8YiT-NXidjb_ee-maigL6R8nKVh8BbE1mv4wwMP21la7UVSQ.woff2",
+      "family": "Shantell Sans"
+    },
+    {
+      "path": "assets/fonts/remote/shantell-sans-f64dcfc89494.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shantellsans/v13/FeVvS0pCoLIo-lcdY7kjvNoQqWVWB0qWpl29ajppTuUTu_kJKmHesPOL-maYi4xZeHCNQ09eBlmv8w88PWdiSbclSA.woff2",
+      "family": "Shantell Sans"
+    }
+  ],
+  "droppedImports": [],
+  "removedImportant": 0,
+  "removedMotionRules": 0,
+  "semantic": {
+    "--rio-bg": "--paper",
+    "--rio-surface": "--surface-2",
+    "--rio-text": "--text",
+    "--rio-text-muted": "--text-dim",
+    "--rio-border": "--line",
+    "--rio-accent": "--accent",
+    "--rio-on-accent": "--on-accent",
+    "--rio-link": "--rio-accent",
+    "--rio-focus": "--focus-ring",
+    "--rio-success": "--success",
+    "--rio-warning": "--warning",
+    "--rio-danger": "--danger",
+    "--rio-info": "--info",
+    "--rio-font-body": "--font-body",
+    "--rio-font-display": "--font-display",
+    "--rio-font-mono": "--font-mono",
+    "--rio-radius": "--r-md"
+  },
+  "legibilityOnColors": {
+    "on-success": "--on-success",
+    "on-warning": "--on-warning",
+    "on-danger": "--on-danger",
+    "on-info": "--on-info"
+  },
+  "assets": [],
+  "unresolvedUrls": [],
+  "source": {
+    "designSystem": "design-systems/kawaii",
+    "originalSchemeSelector": "[data-theme=\"<id>\"]",
+    "tokenFiles": [
+      "tokens/fonts.css",
+      "tokens/typography.css",
+      "tokens/palettes.css",
+      "tokens/themes.css",
+      "tokens/spacing.css",
+      "tokens/radius.css",
+      "tokens/shadows.css",
+      "tokens/motion.css",
+      "tokens/surfaces.css"
+    ],
+    "zipFile": "Kawaii Design System.zip",
+    "zipContentHash": "099f16146ecb4848ad7c33057506ec76908bf6d1c87fbb9473743fa8fc7e3a66"
+  },
+  "legibility": {
+    "peachy": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#4a332e",
+        "--rio-aa-on-accent": "#4a332e",
+        "--rio-aa-accent-text": "#8f6200",
+        "--rio-aa-text-muted": "#71534b",
+        "--rio-aa-link": "#8f6200",
+        "--rio-aa-focus": "#d16766",
+        "--rio-aa-border": "#6b4a44",
+        "--rio-aa-success-text": "#366257",
+        "--rio-aa-on-success": "#2a2929",
+        "--rio-aa-warning-text": "#7a5200",
+        "--rio-aa-on-warning": "#4a332e",
+        "--rio-aa-danger-text": "#a62c33",
+        "--rio-aa-on-danger": "#201f1f",
+        "--rio-aa-info-text": "#375f71",
+        "--rio-aa-on-info": "#4a332e",
+        "--rio-legible-text": "#4a332e",
+        "--rio-legible-text-muted": "#71534b",
+        "--rio-legible-on-accent": "#4a332e",
+        "--rio-aa-choice-text": "#4a332e",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dfdad5",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fdd2ca",
+        "--rio-aa-choice-orange": "#d16c09",
+        "--rio-aa-choice-orange-soft": "#f6d8c3",
+        "--rio-aa-choice-yellow": "#ac8000",
+        "--rio-aa-choice-yellow-soft": "#ebdcc3",
+        "--rio-aa-choice-green": "#2a9a41",
+        "--rio-aa-choice-green-soft": "#d3e2c8",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d2e2d9",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d3def4",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e7d4eb",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f9d1dd",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e8d6c7"
+      }
+    },
+    "bubblegum": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#3e2d4a",
+        "--rio-aa-on-accent": "#4a3a1a",
+        "--rio-aa-accent-text": "#8b6a00",
+        "--rio-aa-text-muted": "#695577",
+        "--rio-aa-link": "#8b6a00",
+        "--rio-aa-focus": "#e65991",
+        "--rio-aa-border": "#5c3f6b",
+        "--rio-aa-success-text": "#006b47",
+        "--rio-aa-on-success": "#3e2d4a",
+        "--rio-aa-warning-text": "#9e3f17",
+        "--rio-aa-on-warning": "#3e2d4a",
+        "--rio-aa-danger-text": "#b8005b",
+        "--rio-aa-on-danger": "#181717",
+        "--rio-aa-info-text": "#006486",
+        "--rio-aa-on-info": "#3e2d4a",
+        "--rio-legible-text": "#3e2d4a",
+        "--rio-legible-text-muted": "#695577",
+        "--rio-legible-on-accent": "#4a3a1a",
+        "--rio-aa-choice-text": "#3e2d4a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d8dee1",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f7d7d7",
+        "--rio-aa-choice-orange": "#d67015",
+        "--rio-aa-choice-orange-soft": "#f1ddd1",
+        "--rio-aa-choice-yellow": "#b18400",
+        "--rio-aa-choice-yellow-soft": "#e6e1d0",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#cce7d6",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#cae6e5",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#cce2ff",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e0d8f6",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f3d5e9",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e1dad3"
+      }
+    },
+    "sherbet": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#33262b",
+        "--rio-aa-on-accent": "#3a2c10",
+        "--rio-aa-accent-text": "#8c6900",
+        "--rio-aa-text-muted": "#6d5656",
+        "--rio-aa-link": "#8c6900",
+        "--rio-aa-focus": "#f94144",
+        "--rio-aa-border": "#43302e",
+        "--rio-aa-success-text": "#356718",
+        "--rio-aa-on-success": "#191818",
+        "--rio-aa-warning-text": "#8b4b00",
+        "--rio-aa-on-warning": "#33262b",
+        "--rio-aa-danger-text": "#ba0018",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#1f6564",
+        "--rio-aa-on-info": "#1d1c1c",
+        "--rio-legible-text": "#33262b",
+        "--rio-legible-text-muted": "#6d5656",
+        "--rio-legible-on-accent": "#3a2c10",
+        "--rio-aa-choice-text": "#33262b",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1ddd7",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ffd6cd",
+        "--rio-aa-choice-orange": "#d57014",
+        "--rio-aa-choice-orange-soft": "#f8dcc6",
+        "--rio-aa-choice-yellow": "#b18400",
+        "--rio-aa-choice-yellow-soft": "#eee0c6",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d5e6cb",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d3e5db",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d4e1f6",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8d7ed",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fbd4e0",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9d9c9"
+      }
+    },
+    "midnight": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#eaf2ff",
+        "--rio-aa-on-accent": "#000814",
+        "--rio-aa-accent-text": "#ffd60a",
+        "--rio-aa-text-muted": "#abc3e1",
+        "--rio-aa-link": "#ffd60a",
+        "--rio-aa-focus": "#ffc300",
+        "--rio-aa-border": "#ffc300",
+        "--rio-aa-success-text": "#5fd6a0",
+        "--rio-aa-on-success": "#000814",
+        "--rio-aa-warning-text": "#ffc300",
+        "--rio-aa-on-warning": "#000814",
+        "--rio-aa-danger-text": "#ffaab1",
+        "--rio-aa-on-danger": "#000814",
+        "--rio-aa-info-text": "#8ac7ff",
+        "--rio-aa-on-info": "#000814",
+        "--rio-legible-text": "#eaf2ff",
+        "--rio-legible-text-muted": "#abc3e1",
+        "--rio-legible-on-accent": "#000814",
+        "--rio-aa-choice-text": "#eaf2ff",
+        "--rio-aa-choice-gray": "#80807f",
+        "--rio-aa-choice-gray-soft": "#131f2a",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#291922",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#261f1f",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#1e221e",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#012522",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#00232c",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#051f3e",
+        "--rio-aa-choice-purple": "#a362d9",
+        "--rio-aa-choice-purple-soft": "#1c1a39",
+        "--rio-aa-choice-pink": "#d943a2",
+        "--rio-aa-choice-pink-soft": "#27182f",
+        "--rio-aa-choice-brown": "#a77549",
+        "--rio-aa-choice-brown-soft": "#1c1e22"
+      }
+    },
+    "arcade": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#ffeaf6",
+        "--rio-aa-on-accent": "#1b0044",
+        "--rio-aa-accent-text": "#ffbd00",
+        "--rio-aa-text-muted": "#c2a3ff",
+        "--rio-aa-link": "#ffbd00",
+        "--rio-aa-focus": "#ff0054",
+        "--rio-aa-border": "#ffbd00",
+        "--rio-aa-success-text": "#00e5a8",
+        "--rio-aa-on-success": "#1b0044",
+        "--rio-aa-warning-text": "#ff9a79",
+        "--rio-aa-on-warning": "#1b0044",
+        "--rio-aa-danger-text": "#ff979e",
+        "--rio-aa-on-danger": "#1b0044",
+        "--rio-aa-info-text": "#b5aaff",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#ffeaf6",
+        "--rio-legible-text-muted": "#c2a3ff",
+        "--rio-legible-on-accent": "#1b0044",
+        "--rio-aa-choice-text": "#ffeaf6",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#2c1f52",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#40194c",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#3c2149",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#352648",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#22294b",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#222656",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#261c68",
+        "--rio-aa-choice-purple": "#a05ed6",
+        "--rio-aa-choice-purple-soft": "#341462",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#3e1258",
+        "--rio-aa-choice-brown": "#a47246",
+        "--rio-aa-choice-brown-soft": "#33204a"
+      }
+    },
+    "poppy": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1d3557",
+        "--rio-aa-on-accent": "#1d3557",
+        "--rio-aa-accent-text": "#48777a",
+        "--rio-aa-text-muted": "#43607e",
+        "--rio-aa-link": "#48777a",
+        "--rio-aa-focus": "#e63946",
+        "--rio-aa-border": "#1d3557",
+        "--rio-aa-success-text": "#136b42",
+        "--rio-aa-on-success": "#161515",
+        "--rio-aa-warning-text": "#8b4f00",
+        "--rio-aa-on-warning": "#182f51",
+        "--rio-aa-danger-text": "#bd0028",
+        "--rio-aa-on-danger": "#0f0f0e",
+        "--rio-aa-info-text": "#2c6283",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#1d3557",
+        "--rio-legible-text-muted": "#43607e",
+        "--rio-legible-on-accent": "#1d3557",
+        "--rio-aa-choice-text": "#1d3557",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d6ddd4",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f5d6ca",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#efddc4",
+        "--rio-aa-choice-yellow": "#b28500",
+        "--rio-aa-choice-yellow-soft": "#e4e0c3",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#cae6c8",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c8e5d8",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c9e1f3",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ded7ea",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f1d4dd",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dfd9c6"
+      }
+    },
+    "harvest": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#233d4d",
+        "--rio-aa-on-accent": "#233d4d",
+        "--rio-aa-accent-text": "#856500",
+        "--rio-aa-text-muted": "#425c6b",
+        "--rio-aa-link": "#856500",
+        "--rio-aa-focus": "#da6300",
+        "--rio-aa-border": "#233d4d",
+        "--rio-aa-success-text": "#39631b",
+        "--rio-aa-on-success": "#262626",
+        "--rio-aa-warning-text": "#765300",
+        "--rio-aa-on-warning": "#233d4d",
+        "--rio-aa-danger-text": "#a8291c",
+        "--rio-aa-on-danger": "#0b0a0a",
+        "--rio-aa-info-text": "#1d6079",
+        "--rio-aa-on-info": "#040303",
+        "--rio-legible-text": "#233d4d",
+        "--rio-legible-text-muted": "#425c6b",
+        "--rio-legible-on-accent": "#233d4d",
+        "--rio-aa-choice-text": "#233d4d",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dfdbd2",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fdd3c8",
+        "--rio-aa-choice-orange": "#d06a06",
+        "--rio-aa-choice-orange-soft": "#f6d8c0",
+        "--rio-aa-choice-yellow": "#aa7f00",
+        "--rio-aa-choice-yellow-soft": "#ebdcc0",
+        "--rio-aa-choice-green": "#299940",
+        "--rio-aa-choice-green-soft": "#d2e3c6",
+        "--rio-aa-choice-teal": "#02968c",
+        "--rio-aa-choice-teal-soft": "#d1e2d6",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d3dff2",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e7d5e8",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f9d1db",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e8d7c5"
+      }
+    },
+    "mint": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#14384f",
+        "--rio-aa-on-accent": "#14384f",
+        "--rio-aa-accent-text": "#008138",
+        "--rio-aa-text-muted": "#33637a",
+        "--rio-aa-link": "#008138",
+        "--rio-aa-focus": "#2d9a9d",
+        "--rio-aa-border": "#22577a",
+        "--rio-aa-success-text": "#006b43",
+        "--rio-aa-on-success": "#242424",
+        "--rio-aa-warning-text": "#795800",
+        "--rio-aa-on-warning": "#14384f",
+        "--rio-aa-danger-text": "#ae2948",
+        "--rio-aa-on-danger": "#181717",
+        "--rio-aa-info-text": "#00686a",
+        "--rio-aa-on-info": "#2d2c2c",
+        "--rio-legible-text": "#14384f",
+        "--rio-legible-text-muted": "#33637a",
+        "--rio-legible-on-accent": "#14384f",
+        "--rio-aa-choice-text": "#14384f",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d6e1d8",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f5dace",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#efe1c9",
+        "--rio-aa-choice-yellow": "#b28500",
+        "--rio-aa-choice-yellow-soft": "#e4e4c7",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#c9eacd",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c8e9dd",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c9e5f8",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dedbee",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f1d8e1",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dfddcb"
+      }
+    },
+    "neonmoss": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#f2fff9",
+        "--rio-aa-on-accent": "#2e5339",
+        "--rio-aa-accent-text": "#ffccc9",
+        "--rio-aa-text-muted": "#e2ffed",
+        "--rio-aa-link": "#ffccc9",
+        "--rio-aa-focus": "#00fddc",
+        "--rio-aa-border": "#00fddc",
+        "--rio-aa-success-text": "#dffff7",
+        "--rio-aa-on-success": "#16241b",
+        "--rio-aa-warning-text": "#fff7ec",
+        "--rio-aa-on-warning": "#16241b",
+        "--rio-aa-danger-text": "#fff6f6",
+        "--rio-aa-on-danger": "#16241b",
+        "--rio-aa-info-text": "#defff9",
+        "--rio-aa-on-info": "#16241b",
+        "--rio-legible-text": "#f2fff9",
+        "--rio-legible-text-muted": "#e2ffed",
+        "--rio-legible-on-accent": "#2e5339",
+        "--rio-aa-choice-text": "#f2fff9",
+        "--rio-aa-choice-gray": "#adadac",
+        "--rio-aa-choice-gray-soft": "#343f37",
+        "--rio-aa-choice-red": "#ff8b86",
+        "--rio-aa-choice-red-soft": "#453a30",
+        "--rio-aa-choice-orange": "#fb9242",
+        "--rio-aa-choice-orange-soft": "#443b26",
+        "--rio-aa-choice-yellow": "#d5a635",
+        "--rio-aa-choice-yellow-soft": "#3c3e25",
+        "--rio-aa-choice-green": "#57c266",
+        "--rio-aa-choice-green-soft": "#24432b",
+        "--rio-aa-choice-teal": "#48beb3",
+        "--rio-aa-choice-teal-soft": "#224238",
+        "--rio-aa-choice-blue": "#7baeff",
+        "--rio-aa-choice-blue-soft": "#294047",
+        "--rio-aa-choice-purple": "#cd95ff",
+        "--rio-aa-choice-purple-soft": "#3a3c47",
+        "--rio-aa-choice-pink": "#ff82ca",
+        "--rio-aa-choice-pink-soft": "#45393d",
+        "--rio-aa-choice-brown": "#d7a275",
+        "--rio-aa-choice-brown-soft": "#3d3d2d"
+      }
+    },
+    "lagoon": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#17506b",
+        "--rio-aa-on-accent": "#17506b",
+        "--rio-aa-accent-text": "#6b7437",
+        "--rio-aa-text-muted": "#33647a",
+        "--rio-aa-link": "#6b7437",
+        "--rio-aa-focus": "#247ba0",
+        "--rio-aa-border": "#17506b",
+        "--rio-aa-success-text": "#006c54",
+        "--rio-aa-on-success": "#242323",
+        "--rio-aa-warning-text": "#7c5800",
+        "--rio-aa-on-warning": "#094660",
+        "--rio-aa-danger-text": "#bf003b",
+        "--rio-aa-on-danger": "#191919",
+        "--rio-aa-info-text": "#00668a",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#17506b",
+        "--rio-legible-text-muted": "#33647a",
+        "--rio-legible-on-accent": "#17506b",
+        "--rio-aa-choice-text": "#17506b",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dbe1cf",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fadac5",
+        "--rio-aa-choice-orange": "#d67015",
+        "--rio-aa-choice-orange-soft": "#f4e0be",
+        "--rio-aa-choice-yellow": "#b18400",
+        "--rio-aa-choice-yellow-soft": "#e9e4bd",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#cfeac4",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#cde9d4",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#cee5ef",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e3dbe6",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f6d8d8",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e4ddc1"
+      }
+    },
+    "sunbake": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#083d77",
+        "--rio-aa-on-accent": "#083d77",
+        "--rio-aa-accent-text": "#7d6600",
+        "--rio-aa-text-muted": "#3c587c",
+        "--rio-aa-link": "#7d6600",
+        "--rio-aa-focus": "#ec4a2c",
+        "--rio-aa-border": "#083d77",
+        "--rio-aa-success-text": "#326223",
+        "--rio-aa-on-success": "#1a1919",
+        "--rio-aa-warning-text": "#854700",
+        "--rio-aa-on-warning": "#083d77",
+        "--rio-aa-danger-text": "#a92000",
+        "--rio-aa-on-danger": "#272626",
+        "--rio-aa-info-text": "#195995",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#083d77",
+        "--rio-legible-text-muted": "#3c587c",
+        "--rio-legible-on-accent": "#083d77",
+        "--rio-aa-choice-text": "#083d77",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dcdcd2",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fbd5c8",
+        "--rio-aa-choice-orange": "#cd6800",
+        "--rio-aa-choice-orange-soft": "#f2dac0",
+        "--rio-aa-choice-yellow": "#a87d00",
+        "--rio-aa-choice-yellow-soft": "#e7ddc0",
+        "--rio-aa-choice-green": "#26973e",
+        "--rio-aa-choice-green-soft": "#cfe4c5",
+        "--rio-aa-choice-teal": "#009489",
+        "--rio-aa-choice-teal-soft": "#cde3d5",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#cfe0f2",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e4d7e8",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f6d3db",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e5d9c5"
+      }
+    },
+    "sage": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#2e3a31",
+        "--rio-aa-on-accent": "#2e3a31",
+        "--rio-aa-accent-text": "#39785e",
+        "--rio-aa-text-muted": "#505e56",
+        "--rio-aa-link": "#39785e",
+        "--rio-aa-focus": "#3c493f",
+        "--rio-aa-border": "#3c493f",
+        "--rio-aa-success-text": "#256647",
+        "--rio-aa-on-success": "#191818",
+        "--rio-aa-warning-text": "#6e5900",
+        "--rio-aa-on-warning": "#2a352d",
+        "--rio-aa-danger-text": "#9c3a3d",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#405f6f",
+        "--rio-aa-on-info": "#0c0b0b",
+        "--rio-legible-text": "#2e3a31",
+        "--rio-legible-text-muted": "#505e56",
+        "--rio-legible-on-accent": "#2e3a31",
+        "--rio-aa-choice-text": "#2e3a31",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d5dbd8",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f4d4ce",
+        "--rio-aa-choice-orange": "#d36d0f",
+        "--rio-aa-choice-orange-soft": "#edd9c8",
+        "--rio-aa-choice-yellow": "#ad8200",
+        "--rio-aa-choice-yellow-soft": "#e2ddc7",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#c9e4cd",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c7e2dd",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c8dff7",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ddd5ee",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f0d2e1",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#ded7cb"
+      }
+    }
+  },
+  "legibilityAdjusted": 152
+}

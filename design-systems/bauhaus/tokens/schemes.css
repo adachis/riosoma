@@ -1,0 +1,88 @@
+/* ============================================================
+   COLOR SCHEMES — 13 interchangeable palettes.
+   Apply with data-scheme on <html>, <body>, or any container:
+     <body data-scheme="midnight">
+   Nesting works; the nearest ancestor wins.
+   `--scheme-mode` is light|dark so components can branch.
+   A few schemes carry no natural hue for a semantic state
+   (e.g. no green in "voltage"); those get one harmonised hex,
+   marked "bridge" below.
+   ============================================================ */
+
+[data-scheme="werkbund"]{--scheme-mode:light;/* @kind other */--scheme-label:"Werkbund";/* @kind other */
+  --ink:#14110D;--canvas:#F2EBDC;--paper:#FBF7EE;--line:#14110D;
+  --accent-1:#E12B20;--accent-2:#F4C60D;--accent-3:#1E4FA1;--accent-4:#2E7D5B;--accent-5:#14110D;
+  --on-accent-1:#FBF7EE;--on-accent-2:#14110D;--on-accent-3:#FBF7EE;--on-accent-4:#FBF7EE;--on-accent-5:#FBF7EE;
+  --state-danger:#E12B20;--state-warning:#F4C60D;--state-success:#2E7D5B;--state-info:#1E4FA1}
+
+[data-scheme="spectrum"]{--scheme-mode:light;/* @kind other */--scheme-label:"Spectrum";/* @kind other */
+  --ink:#2A3A44;--canvas:#FDF4E6;--paper:#FFFBF2;--line:#2A3A44;
+  --accent-1:#F94144;--accent-2:#F8961E;--accent-3:#F9C74F;--accent-4:#43AA8B;--accent-5:#277DA1;
+  --on-accent-1:#FFFBF2;--on-accent-2:#2A3A44;--on-accent-3:#2A3A44;--on-accent-4:#FFFBF2;--on-accent-5:#FFFBF2;
+  --state-danger:#F94144;--state-warning:#F8961E;--state-success:#43AA8B;--state-info:#277DA1}
+
+[data-scheme="midnight"]{--scheme-mode:dark;/* @kind other */--scheme-label:"Midnight";/* @kind other */
+  --ink:#F2F4F8;--canvas:#000814;--paper:#001D3D;--line:#003566;
+  --accent-1:#FFC300;--accent-2:#FFD60A;--accent-3:#003566;--accent-4:#001D3D;--accent-5:#F2F4F8;
+  --on-accent-1:#000814;--on-accent-2:#000814;--on-accent-3:#F2F4F8;--on-accent-4:#F2F4F8;--on-accent-5:#000814;
+  --state-danger:#E5484D;/* bridge */--state-warning:#FFC300;--state-success:#3FB37F;/* bridge */--state-info:#4C86C4/* bridge */}
+
+[data-scheme="voltage"]{--scheme-mode:light;/* @kind other */--scheme-label:"Voltage";/* @kind other */
+  --ink:#390099;--canvas:#FFF6E5;--paper:#FFFFFF;--line:#390099;
+  --accent-1:#FF0054;--accent-2:#FF5400;--accent-3:#FFBD00;--accent-4:#9E0059;--accent-5:#390099;
+  --on-accent-1:#FFFFFF;--on-accent-2:#FFFFFF;--on-accent-3:#390099;--on-accent-4:#FFFFFF;--on-accent-5:#FFFFFF;
+  --state-danger:#FF0054;--state-warning:#FF5400;--state-success:#00A676;/* bridge */--state-info:#390099}
+
+[data-scheme="atelier"]{--scheme-mode:light;/* @kind other */--scheme-label:"Atelier";/* @kind other */
+  --ink:#1D3557;--canvas:#F1FAEE;--paper:#FFFFFF;--line:#1D3557;
+  --accent-1:#E63946;--accent-2:#457B9D;--accent-3:#A8DADC;--accent-4:#1D3557;--accent-5:#F1FAEE;
+  --on-accent-1:#FFFFFF;--on-accent-2:#FFFFFF;--on-accent-3:#1D3557;--on-accent-4:#F1FAEE;--on-accent-5:#1D3557;
+  --state-danger:#E63946;--state-warning:#E8A33D;/* bridge */--state-success:#3F8F6B;/* bridge */--state-info:#457B9D}
+
+[data-scheme="terracotta"]{--scheme-mode:light;/* @kind other */--scheme-label:"Terracotta";/* @kind other */
+  --ink:#3F3A34;--canvas:#F7EDE2;--paper:#FFFCF7;--line:#3F3A34;
+  --accent-1:#F28482;--accent-2:#F6BD60;--accent-3:#84A59D;--accent-4:#F5CAC3;--accent-5:#3F3A34;
+  --on-accent-1:#3F3A34;--on-accent-2:#3F3A34;--on-accent-3:#FFFCF7;--on-accent-4:#3F3A34;--on-accent-5:#FFFCF7;
+  --state-danger:#D4564F;/* bridge */--state-warning:#F6BD60;--state-success:#5F8A7D;/* bridge */--state-info:#84A59D}
+
+[data-scheme="harvest"]{--scheme-mode:light;/* @kind other */--scheme-label:"Harvest";/* @kind other */
+  --ink:#233D4D;--canvas:#FBF6EC;--paper:#FFFFFF;--line:#233D4D;
+  --accent-1:#FE7F2D;--accent-2:#FCCA46;--accent-3:#A1C181;--accent-4:#619B8A;--accent-5:#233D4D;
+  --on-accent-1:#233D4D;--on-accent-2:#233D4D;--on-accent-3:#233D4D;--on-accent-4:#FFFFFF;--on-accent-5:#FFFFFF;
+  --state-danger:#D9452B;/* bridge */--state-warning:#FCCA46;--state-success:#619B8A;--state-info:#233D4D}
+
+[data-scheme="lagoon"]{--scheme-mode:light;/* @kind other */--scheme-label:"Lagoon";/* @kind other */
+  --ink:#22577A;--canvas:#F2FBF5;--paper:#FFFFFF;--line:#22577A;
+  --accent-1:#38A3A5;--accent-2:#57CC99;--accent-3:#80ED99;--accent-4:#C7F9CC;--accent-5:#22577A;
+  --on-accent-1:#FFFFFF;--on-accent-2:#22577A;--on-accent-3:#22577A;--on-accent-4:#22577A;--on-accent-5:#FFFFFF;
+  --state-danger:#D64545;/* bridge */--state-warning:#E0A226;/* bridge */--state-success:#2F9E6E;/* bridge */--state-info:#38A3A5}
+
+[data-scheme="neonmoss"]{--scheme-mode:dark;/* @kind other */--scheme-label:"Neon Moss";/* @kind other */
+  --ink:#EAF6EE;--canvas:#2E5339;--paper:#495F41;--line:#00FDDC;
+  --accent-1:#00FDDC;--accent-2:#FF5666;--accent-3:#FFCCC9;--accent-4:#495F41;--accent-5:#EAF6EE;
+  --on-accent-1:#2E5339;--on-accent-2:#2E5339;--on-accent-3:#2E5339;--on-accent-4:#EAF6EE;--on-accent-5:#2E5339;
+  --state-danger:#FF5666;--state-warning:#F5C451;/* bridge */--state-success:#00FDDC;--state-info:#8FE3D2/* bridge */}
+
+[data-scheme="sorbet"]{--scheme-mode:light;/* @kind other */--scheme-label:"Sorbet";/* @kind other */
+  --ink:#2B2140;--canvas:#FFF7EA;--paper:#FFFFFF;--line:#2B2140;
+  --accent-1:#FF70A6;--accent-2:#70D6FF;--accent-3:#FF9770;--accent-4:#FFD670;--accent-5:#2B2140;
+  --on-accent-1:#2B2140;--on-accent-2:#2B2140;--on-accent-3:#2B2140;--on-accent-4:#2B2140;--on-accent-5:#FFFFFF;
+  --state-danger:#E8436F;/* bridge */--state-warning:#FFD670;--state-success:#3FBF97;/* bridge */--state-info:#70D6FF}
+
+[data-scheme="seafoam"]{--scheme-mode:light;/* @kind other */--scheme-label:"Seafoam";/* @kind other */
+  --ink:#1A3C4A;--canvas:#FAFFEB;--paper:#FFFFFF;--line:#1A3C4A;
+  --accent-1:#FF1654;--accent-2:#247BA0;--accent-3:#70C1B3;--accent-4:#B2DBBF;--accent-5:#F3FFBD;
+  --on-accent-1:#FFFFFF;--on-accent-2:#FFFFFF;--on-accent-3:#1A3C4A;--on-accent-4:#1A3C4A;--on-accent-5:#1A3C4A;
+  --state-danger:#FF1654;--state-warning:#E5A32B;/* bridge */--state-success:#3D9C86;/* bridge */--state-info:#247BA0}
+
+[data-scheme="signal"]{--scheme-mode:light;/* @kind other */--scheme-label:"Signal";/* @kind other */
+  --ink:#083D77;--canvas:#EBEBD3;--paper:#F7F7E8;--line:#083D77;
+  --accent-1:#F95738;--accent-2:#EE964B;--accent-3:#F4D35E;--accent-4:#083D77;--accent-5:#EBEBD3;
+  --on-accent-1:#F7F7E8;--on-accent-2:#083D77;--on-accent-3:#083D77;--on-accent-4:#F7F7E8;--on-accent-5:#083D77;
+  --state-danger:#F95738;--state-warning:#EE964B;--state-success:#2E8B6B;/* bridge */--state-info:#083D77}
+
+[data-scheme="sage"]{--scheme-mode:light;/* @kind other */--scheme-label:"Sage";/* @kind other */
+  --ink:#3C493F;--canvas:#F0F7F4;--paper:#FFFFFF;--line:#3C493F;
+  --accent-1:#A2E3C4;--accent-2:#7E8D85;--accent-3:#B3BFB8;--accent-4:#3C493F;--accent-5:#F0F7F4;
+  --on-accent-1:#3C493F;--on-accent-2:#FFFFFF;--on-accent-3:#3C493F;--on-accent-4:#F0F7F4;--on-accent-5:#3C493F;
+  --state-danger:#B5544D;/* bridge */--state-warning:#C89A4A;/* bridge */--state-success:#4E8A6B;/* bridge */--state-info:#7E8D85}

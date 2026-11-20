@@ -1,0 +1,50 @@
+{
+  "name": "n8n-nodes-riosoma",
+  "version": "0.95.0-rc.1",
+  "description": "Read and write Riosoma records from n8n workflows, and start workflows when records change.",
+  "license": "MIT",
+  "homepage": "https://github.com/adachis/riosoma/tree/main/integrations/n8n",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adachis/riosoma.git",
+    "directory": "integrations/n8n"
+  },
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "riosoma",
+    "database",
+    "webhooks"
+  ],
+  "author": {
+    "name": "Riosoma",
+    "email": "packages@riosoma.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.build.json && node scripts/copy-icons.mjs",
+    "typecheck": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+    "lint": "node ../../node_modules/eslint/bin/eslint.js .",
+    "test": "pnpm run typecheck && pnpm run lint && pnpm run build && node ../../node_modules/vitest/vitest.mjs run"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/RiosomaApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Riosoma/Riosoma.node.js",
+      "dist/nodes/RiosomaTrigger/RiosomaTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/eslint-plugin-community-nodes": "0.40.0",
+    "n8n-workflow": "2.48.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}

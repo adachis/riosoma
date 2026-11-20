@@ -1,0 +1,30 @@
+/* Colorful Minimalist — spacing. 4px base, but the system leans on the LARGE end of the
+   scale: section padding is 96-160px, not 32px. Whitespace is the primary luxury signal. */
+:root{
+  --space-0:0px;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-7:32px;
+  --space-8:40px;
+  --space-9:48px;
+  --space-10:64px;
+  --space-11:80px;
+  --space-12:96px;
+  --space-13:128px;
+  --space-14:160px;
+  --space-15:200px;
+
+  --gutter:24px;
+  --gutter-lg:40px;
+  --page-pad:56px;
+  --page-pad-mobile:20px;
+  --section-y:128px;
+  --section-y-tight:80px;
+  --max-content:1360px;
+  --max-prose:66ch;
+  --grid-cols:12; /* @kind other */
+}

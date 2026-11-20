@@ -1,0 +1,11 @@
+:root{
+--bp-font-display:"Space Grotesk","Space Grotesk Fallback",system-ui,sans-serif;
+--bp-font-sans:"IBM Plex Sans","IBM Plex Sans Fallback",system-ui,sans-serif;
+--bp-font-mono:"JetBrains Mono","SFMono-Regular",Menlo,Consolas,monospace;
+--bp-size-2xs:10px;--bp-size-xs:11px;--bp-size-sm:13px;--bp-size-base:15px;--bp-size-md:17px;--bp-size-lg:20px;--bp-size-xl:24px;--bp-size-2xl:30px;--bp-size-3xl:38px;--bp-size-4xl:48px;--bp-size-5xl:62px;--bp-size-6xl:80px;--bp-size-7xl:104px;
+--bp-lh-tight:1.02; /* @kind other */--bp-lh-snug:1.16; /* @kind other */--bp-lh-normal:1.5; /* @kind other */--bp-lh-relaxed:1.65; /* @kind other */
+--bp-ls-display:-0.03em;--bp-ls-heading:-0.015em;--bp-ls-normal:0em;--bp-ls-label:0.14em;--bp-ls-mono:0.02em;
+--bp-weight-regular:400;--bp-weight-medium:500;--bp-weight-semibold:600;--bp-weight-bold:700;
+--bp-label:var(--bp-weight-medium) var(--bp-size-2xs)/1.2 var(--bp-font-mono);
+--bp-measure-prose:66ch;--bp-measure-narrow:46ch;--bp-measure-print:34em;
+}

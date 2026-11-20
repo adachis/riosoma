@@ -1,0 +1,18 @@
+:root{
+  --dur-instant:0ms; /* @kind other */
+  --dur-fast:90ms; /* @kind other */
+  --dur-base:150ms; /* @kind other */
+  --dur-slow:260ms; /* @kind other */
+  --dur-marquee:18s; /* @kind other */
+
+  /* Nothing in this system decelerates gracefully. Steps and hard snaps only. */
+  --ease-snap:steps(2,end); /* @kind other */
+  --ease-step-4:steps(4,end); /* @kind other */
+  --ease-out:cubic-bezier(.2,.9,.3,1); /* @kind other */
+  --ease-blink:steps(1,end); /* @kind other */
+
+  --nudge:2px; /* @kind spacing */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-fast:0ms; /* @kind other */--dur-base:0ms; /* @kind other */--dur-slow:0ms; /* @kind other */--dur-marquee:0s /* @kind other */}
+}

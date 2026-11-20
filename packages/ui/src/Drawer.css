@@ -1,0 +1,134 @@
+@layer rio.components {
+  /* The sheet is flush with the inline end and the edges of the viewport; `flex-end` on a row
+     follows the writing direction, so this is the left edge in right-to-left layouts. */
+  .rio-modal-overlay[data-variant='drawer'] {
+    --rio-modal-gap: 0px;
+    justify-content: flex-end;
+    padding-block: env(safe-area-inset-top) env(safe-area-inset-bottom);
+    padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
+  }
+
+  .rio-modal[data-variant='drawer'] {
+    /* The distance the sheet travels while it fades in, flipped below for right-to-left. */
+    --rio-drawer-slide: 100%;
+    inline-size: var(--rio-dock-width);
+    block-size: 100%;
+    /* Only the edge facing the page is drawn; the other three are flush with the viewport. */
+    border: none;
+    border-inline-start: 1px solid var(--rio-border);
+    border-radius: 0;
+  }
+
+  /* `translate` has no logical form, so the offset is written out per direction instead. */
+  [dir='rtl'] .rio-modal[data-variant='drawer'] {
+    --rio-drawer-slide: -100%;
+  }
+
+  /* A start-side sheet (navigation) mirrors all of the above. */
+  .rio-modal-overlay[data-variant='drawer'][data-side='start'] {
+    justify-content: flex-start;
+  }
+
+  .rio-modal[data-variant='drawer'][data-side='start'] {
+    --rio-drawer-slide: -100%;
+    border-inline-start: none;
+    border-inline-end: 1px solid var(--rio-border);
+  }
+
+  [dir='rtl'] .rio-modal[data-variant='drawer'][data-side='start'] {
+    --rio-drawer-slide: 100%;
+  }
+
+  /* A bottom sheet spans the inline size and rises from the block end, leaving a strip of scrim
+     above it to tap away. */
+  .rio-modal-overlay[data-variant='drawer'][data-side='bottom'] {
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .rio-modal[data-variant='drawer'][data-side='bottom'] {
+    inline-size: 100%;
+    block-size: auto;
+    max-block-size: calc(100% - var(--rio-space-12));
+    border-inline-start: none;
+    border-block-start: 1px solid var(--rio-border);
+    border-start-start-radius: var(--rio-radius);
+    border-start-end-radius: var(--rio-radius);
+  }
+
+  /* Only the name changes: the durations and curves stay the ones the centered panel uses. */
+  .rio-modal[data-variant='drawer'][data-entering] {
+    animation-name: rio-drawer-in;
+  }
+
+  .rio-modal[data-variant='drawer'][data-exiting] {
+    animation-name: rio-drawer-out;
+  }
+
+  .rio-modal[data-variant='drawer'][data-side='bottom'][data-entering] {
+    animation-name: rio-sheet-in;
+  }
+
+  .rio-modal[data-variant='drawer'][data-side='bottom'][data-exiting] {
+    animation-name: rio-sheet-out;
+  }
+
+  @media (forced-colors: active) {
+    .rio-modal[data-variant='drawer'] {
+      border-inline-start-color: CanvasText;
+    }
+
+    .rio-modal[data-variant='drawer'][data-side='bottom'] {
+      border-block-start-color: CanvasText;
+    }
+  }
+}
+
+@keyframes rio-drawer-in {
+  from {
+    opacity: 0;
+    translate: var(--rio-drawer-slide) 0;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes rio-drawer-out {
+  from {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  to {
+    opacity: 0;
+    translate: var(--rio-drawer-slide) 0;
+  }
+}
+
+/* `translate` has no logical form: its second value runs along the block axis of horizontal text. */
+@keyframes rio-sheet-in {
+  from {
+    opacity: 0;
+    translate: 0 100%;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes rio-sheet-out {
+  from {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  to {
+    opacity: 0;
+    translate: 0 100%;
+  }
+}

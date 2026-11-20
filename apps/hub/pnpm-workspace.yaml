@@ -1,0 +1,21 @@
+# The hub is its own workspace, outside Riosoma's.  Wrangler, which builds, tests, and deploys it, is
+# only listed in this folder's lockfile, so Riosoma's own install and image never fetch it.
+packages:
+  - .
+
+# Install scripts run only for packages allowed here.  Wrangler runs workerd, Cloudflare's runtime,
+# and bundles with esbuild.
+allowBuilds:
+  workerd: true
+  esbuild: true
+
+# Security fixes newer than what these dependencies ask for (checked by osv-scanner):
+# miniflare (through wrangler) asks for undici 7.28.0 and sharp 0.35.2, which have advisories fixed in
+# 7.30.1 and 0.35.4.
+overrides:
+  miniflare>undici: 7.30.1
+  miniflare>sharp: 0.35.5
+
+# Newly published versions wait three days, as in Riosoma's workspace.  See
+# docs/developer/dependencies.md for letting one urgent security fix through early.
+minimumReleaseAge: 4320

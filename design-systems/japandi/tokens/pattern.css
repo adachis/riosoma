@@ -1,0 +1,61 @@
+/* Japandi — surface patterns and textures.
+   Four motifs, all CSS-generated so they re-colour with the theme:
+   kōshi (hairline grid), kasuri (fleck), seigaiha (wave scallop),
+   and washi (paper grain). Use one per view, at low contrast.
+   Emitted twice so scoped themes re-derive; see the note in colors.css. */
+:root {
+  --pattern-grid-size: 40px;
+  --pattern-grid: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px var(--pattern-grid-size)), repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px var(--pattern-grid-size));
+
+  --pattern-rule: repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px 8px);
+
+  --pattern-kasuri: radial-gradient(circle at 50% 50%, var(--line-2) 0 0.6px, transparent 0.8px);
+  --pattern-kasuri-size: 14px 14px;
+
+  --pattern-seigaiha:
+    radial-gradient(circle at 50% 100%, transparent 0 30%, var(--line) 30% 32%, transparent 32%),
+    radial-gradient(circle at 50% 100%, transparent 0 44%, var(--line) 44% 46%, transparent 46%),
+    radial-gradient(circle at 50% 100%, transparent 0 58%, var(--line) 58% 60%, transparent 60%),
+    radial-gradient(circle at 50% 100%, transparent 0 72%, var(--line) 72% 74%, transparent 74%);
+  --pattern-seigaiha-size: 56px 28px;
+
+  --pattern-washi:
+    radial-gradient(circle at 18% 22%, color-mix(in srgb, var(--seed-ink) 3%, transparent) 0 1px, transparent 1px),
+    radial-gradient(circle at 67% 74%, color-mix(in srgb, var(--seed-ink) 2.5%, transparent) 0 1.2px, transparent 1.2px),
+    radial-gradient(circle at 88% 41%, color-mix(in srgb, var(--seed-ink) 2%, transparent) 0 0.8px, transparent 0.8px);
+  --pattern-washi-size: 37px 41px, 53px 59px, 29px 31px;
+
+  /* Tatami: alternating warm bands, for print margins and hero blocks */
+  --pattern-tatami: repeating-linear-gradient(to right, var(--ground-2) 0 3px, transparent 3px 7px);
+}
+
+[data-theme] {
+  --pattern-grid-size: 40px;
+  --pattern-grid: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px var(--pattern-grid-size)), repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px var(--pattern-grid-size));
+
+  --pattern-rule: repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px 8px);
+
+  --pattern-kasuri: radial-gradient(circle at 50% 50%, var(--line-2) 0 0.6px, transparent 0.8px);
+  --pattern-kasuri-size: 14px 14px;
+
+  --pattern-seigaiha:
+    radial-gradient(circle at 50% 100%, transparent 0 30%, var(--line) 30% 32%, transparent 32%),
+    radial-gradient(circle at 50% 100%, transparent 0 44%, var(--line) 44% 46%, transparent 46%),
+    radial-gradient(circle at 50% 100%, transparent 0 58%, var(--line) 58% 60%, transparent 60%),
+    radial-gradient(circle at 50% 100%, transparent 0 72%, var(--line) 72% 74%, transparent 74%);
+  --pattern-seigaiha-size: 56px 28px;
+
+  --pattern-washi:
+    radial-gradient(circle at 18% 22%, color-mix(in srgb, var(--seed-ink) 3%, transparent) 0 1px, transparent 1px),
+    radial-gradient(circle at 67% 74%, color-mix(in srgb, var(--seed-ink) 2.5%, transparent) 0 1.2px, transparent 1.2px),
+    radial-gradient(circle at 88% 41%, color-mix(in srgb, var(--seed-ink) 2%, transparent) 0 0.8px, transparent 0.8px);
+  --pattern-washi-size: 37px 41px, 53px 59px, 29px 31px;
+
+  /* Tatami: alternating warm bands, for print margins and hero blocks */
+  --pattern-tatami: repeating-linear-gradient(to right, var(--ground-2) 0 3px, transparent 3px 7px);
+}
+
+.jp-grid-bg { background-image: var(--pattern-grid); background-size: var(--pattern-grid-size) var(--pattern-grid-size); }
+.jp-washi-bg { background-image: var(--pattern-washi); background-size: var(--pattern-washi-size); }
+.jp-kasuri-bg { background-image: var(--pattern-kasuri); background-size: var(--pattern-kasuri-size); }
+.jp-seigaiha-bg { background-image: var(--pattern-seigaiha); background-size: var(--pattern-seigaiha-size); }

@@ -1,0 +1,24 @@
+:root{
+  /* scale — 1.25 major third, clamped for fluid display sizes */
+  --size-3xs:11px; --size-2xs:12px; --size-xs:13px; --size-sm:15px;
+  --size-md:17px; --size-lg:20px; --size-xl:25px; --size-2xl:31px;
+  --size-3xl:39px; --size-4xl:49px; --size-5xl:61px; --size-6xl:76px;
+
+  --lh-tight:1.02; /* @kind other */ --lh-snug:1.16; /* @kind other */ --lh-normal:1.45; /* @kind other */ --lh-loose:1.62; /* @kind other */
+  --ls-display:-0.035em; --ls-heading:-0.02em; --ls-body:0em;
+  --ls-pixel:0.06em; --ls-caps:0.14em;
+
+  --weight-regular:400; --weight-medium:500; --weight-semi:600;
+  --weight-bold:700; --weight-black:800;
+
+  /* semantic type roles */
+  --type-display:var(--weight-black) var(--size-5xl)/var(--lh-tight) var(--font-display);
+  --type-title:var(--weight-bold) var(--size-2xl)/var(--lh-snug) var(--font-display);
+  --type-heading:var(--weight-bold) var(--size-lg)/var(--lh-snug) var(--font-display);
+  --type-body:var(--weight-regular) var(--size-md)/var(--lh-normal) var(--font-body);
+  --type-body-strong:var(--weight-semi) var(--size-md)/var(--lh-normal) var(--font-body);
+  --type-small:var(--weight-regular) var(--size-sm)/var(--lh-normal) var(--font-body);
+  --type-label:var(--weight-bold) var(--size-2xs)/1.2 var(--font-body);
+  --type-pixel:var(--weight-regular) var(--size-2xs)/1.4 var(--font-pixel);
+  --type-mono:var(--weight-regular) var(--size-sm)/var(--lh-normal) var(--font-mono);
+}

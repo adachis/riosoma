@@ -1,0 +1,33 @@
+{
+  "id": "databases-and-tables",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "database.tables",
+      "say": "demos.databases-and-tables.list"
+    },
+    {
+      "anchor": "grid",
+      "say": "demos.databases-and-tables.grid"
+    },
+    {
+      "anchor": "database.tables.add",
+      "say": "demos.databases-and-tables.add"
+    },
+    {
+      "anchor": "database.table.menu",
+      "say": "demos.databases-and-tables.menu",
+      "do": "open"
+    },
+    {
+      "anchor": "database.table.menu",
+      "item": "rename",
+      "say": "demos.databases-and-tables.rename"
+    },
+    {
+      "anchor": "database.table.menu",
+      "item": "delete",
+      "say": "demos.databases-and-tables.delete"
+    }
+  ]
+}

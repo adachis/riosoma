@@ -1,0 +1,96 @@
+import type { HelpRequest } from './help-request';
+import type { AnchorId } from '../demos/anchors';
+
+export const settingsHelp: Partial<Record<string, HelpRequest & { anchorId: AnchorId }>> = {
+  memories: { id: 'memory', section: 'managing-memories', anchorId: 'settings.memories' },
+  knowledge: {
+    id: 'knowledge-libraries',
+    section: 'managing-knowledge-libraries',
+    anchorId: 'settings.knowledge',
+  },
+  language: { id: 'language', section: 'changing-language', anchorId: 'settings.language' },
+  classification: {
+    id: 'data-classification',
+    section: 'setting-classifications',
+    anchorId: 'settings.classification',
+  },
+  retention: { id: 'retention', section: 'choosing-retention-periods', anchorId: 'settings.retention' },
+  'source-drivers': { id: 'drivers', section: 'installing-drivers', anchorId: 'settings.source.drivers' },
+  'organization-appearance': {
+    id: 'organization-logo',
+    section: 'choosing-the-organization-logo',
+    anchorId: 'settings.organization.appearance',
+  },
+  profile: { id: 'profile', section: 'edit-your-name-and-picture', anchorId: 'settings.profile' },
+  rio: { id: 'asking-rio', section: 'what-to-ask', anchorId: 'settings.rio' },
+  appearance: { id: 'themes', section: 'changing-yours', anchorId: 'settings.appearance' },
+  levels: { id: 'levels', section: 'choosing-your-level', anchorId: 'settings.levels' },
+  celebrations: {
+    id: 'celebrations-and-sounds',
+    section: 'what-gets-celebrated',
+    anchorId: 'settings.celebrations',
+  },
+  notifications: { id: 'notifications', section: 'what-you-hear-about', anchorId: 'settings.notifications' },
+  reports: { id: 'scheduled-reports', section: 'setting-one-up', anchorId: 'settings.reports' },
+  security: { id: 'passkeys-and-two-step-sign-in', section: 'passkeys', anchorId: 'settings.security' },
+  'connected-accounts': {
+    id: 'connected-accounts',
+    section: 'connecting',
+    anchorId: 'settings.connected.accounts',
+  },
+  'connected-apps': {
+    id: 'oauth-apps',
+    section: 'connections-and-installations',
+    anchorId: 'settings.connected.apps',
+  },
+  'oauth-apps': { id: 'oauth-apps', section: 'review-an-app', anchorId: 'settings.oauth.apps' },
+  mcp: { id: 'mcp', section: 'signing-in-with-oauth', anchorId: 'settings.mcp' },
+  tokens: { id: 'rest-api', section: 'creating-a-token', anchorId: 'settings.tokens' },
+  people: {
+    id: 'people-roles-and-lifecycle',
+    section: 'find-a-person-and-change-their-role',
+    anchorId: 'settings.people',
+  },
+  audit: {
+    id: 'admin-roles-and-audit',
+    section: 'read-and-export-the-audit-log',
+    anchorId: 'settings.audit',
+  },
+  'org-units': { id: 'org-units', section: 'make-the-first-unit', anchorId: 'settings.org.units' },
+  sso: { id: 'single-sign-on', section: 'the-callback-address', anchorId: 'settings.sso' },
+  scim: { id: 'scim-provisioning', section: 'prepare-the-connection', anchorId: 'settings.scim' },
+  'sign-in-policy': {
+    id: 'sign-in-policy',
+    section: 'sharing-with-new-people',
+    anchorId: 'settings.sign.in.policy',
+  },
+  'credential-vaults': {
+    id: 'credential-vaults',
+    section: 'choose-storage',
+    anchorId: 'settings.credential.vaults',
+  },
+  files: { id: 'file-uploads', section: 'virus-scanning', anchorId: 'settings.files' },
+  'calendar-feeds': {
+    id: 'calendar',
+    section: 'subscribing-in-a-calendar-app',
+    anchorId: 'settings.calendar.feeds',
+  },
+  'public-sharing': {
+    id: 'public-view-links',
+    section: 'making-a-link',
+    anchorId: 'settings.public.sharing',
+  },
+  sources: { id: 'synced-tables', section: 'connecting-a-data-source', anchorId: 'settings.sources' },
+  snapshots: { id: 'snapshots-and-copies', section: 'taking-a-snapshot', anchorId: 'settings.snapshots' },
+  'export-and-import': { id: 'export-and-import', section: 'export', anchorId: 'settings.export.and.import' },
+  'custom-domains': {
+    id: 'custom-domains',
+    section: 'add-and-verify-a-host',
+    anchorId: 'settings.custom.domains',
+  },
+  ai: { id: 'cloud-providers', section: 'connect-an-ai-gateway', anchorId: 'settings.ai' },
+  updates: { id: 'updates', section: 'where-the-notice-comes-from', anchorId: 'settings.updates' },
+  telemetry: { id: 'telemetry', section: 'what-s-sent', anchorId: 'settings.telemetry' },
+  feedback: { id: 'feedback', section: 'for-admins-the-feedback-inbox', anchorId: 'settings.feedback' },
+  'my-feedback': { id: 'feedback', section: 'replies', anchorId: 'settings.my.feedback' },
+};

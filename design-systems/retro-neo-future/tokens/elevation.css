@@ -1,0 +1,22 @@
+:root{
+/* Chrome is built from bevels and hard offset shadows — never soft glows. */
+--sh-0:none; /* @kind shadow */
+--bevel-out:inset 1px 1px 0 var(--bevel-light),inset -1px -1px 0 var(--bevel-dark); /* @kind shadow */
+--bevel-out-2:inset 2px 2px 0 var(--bevel-light),inset -2px -2px 0 var(--bevel-dark); /* @kind shadow */
+--bevel-in:inset 1px 1px 0 var(--bevel-dark),inset -1px -1px 0 var(--bevel-light); /* @kind shadow */
+--bevel-in-2:inset 2px 2px 0 var(--bevel-darker),inset -2px -2px 0 var(--bevel-light); /* @kind shadow */
+--sh-1:1px 1px 0 var(--bevel-dark); /* @kind shadow */
+--sh-2:2px 2px 0 var(--bevel-dark); /* @kind shadow */
+--sh-3:3px 3px 0 var(--bevel-darker); /* @kind shadow */
+--sh-4:5px 5px 0 var(--bevel-darker); /* @kind shadow */
+--sh-inset:var(--bevel-out); /* @kind shadow */
+--sh-inset-deep:var(--bevel-in); /* @kind shadow */
+--glow-accent:0 0 0 2px var(--accent); /* @kind shadow */
+--glow-accent-lg:0 0 0 3px var(--accent); /* @kind shadow */
+--glow-danger:0 0 0 2px var(--danger); /* @kind shadow */
+--panel-shadow:var(--sh-2),var(--bevel-out); /* @kind shadow */
+--card-shadow:var(--sh-2); /* @kind shadow */
+--card-shadow-hover:var(--sh-3); /* @kind shadow */
+--modal-shadow:var(--sh-4); /* @kind shadow */
+--screen-inset:inset 0 0 0 1px rgba(0,0,0,.8),inset 0 2px 12px rgba(0,0,0,.7); /* @kind shadow */
+}

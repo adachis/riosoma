@@ -1,0 +1,117 @@
+@layer rio.app {
+  .rio-document-import {
+    min-inline-size: 0;
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    padding: var(--rio-space-3);
+  }
+  .rio-document-import > * + * {
+    margin-block-start: var(--rio-space-3);
+  }
+  .rio-document-import summary {
+    cursor: pointer;
+  }
+  .rio-document-import input[type='file'] {
+    display: block;
+    max-inline-size: 100%;
+  }
+  .rio-import__table td.rio-document-import__uncertain {
+    --rio-aa-text-muted: var(--rio-text);
+    background: color-mix(in srgb, var(--rio-warning) 16%, var(--rio-surface));
+    border: 2px solid var(--rio-aa-warning-text);
+  }
+
+  .rio-import {
+    inline-size: min(90vi, 80rem);
+    max-inline-size: 90vi;
+  }
+  .rio-import__body {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+  .rio-import__drop {
+    border: 1px dashed var(--rio-aa-border);
+    padding: var(--rio-space-4);
+    border-radius: var(--rio-radius);
+  }
+  .rio-import__drop label {
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+  .rio-import__scroll {
+    overflow: auto;
+    max-block-size: 55dvb;
+  }
+  .rio-import__scroll:focus-visible {
+    outline: var(--rio-focus-ring);
+  }
+  .rio-import__table {
+    border-collapse: collapse;
+    inline-size: 100%;
+  }
+  .rio-import__table th,
+  .rio-import__table td {
+    border: 1px solid var(--rio-aa-border);
+    padding: var(--rio-space-3);
+    text-align: start;
+    vertical-align: top;
+  }
+  .rio-import__table td {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    max-inline-size: 24rem;
+  }
+  .rio-import__table th {
+    min-inline-size: 14rem;
+    background: var(--rio-surface);
+  }
+  .rio-import__column {
+    display: grid;
+    gap: var(--rio-space-2);
+    font-weight: normal;
+  }
+  .rio-import__column p {
+    color: var(--rio-aa-warning-text);
+    margin-block: 0;
+  }
+  .rio-import__summary {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  .rio-import__groups {
+    display: grid;
+    gap: var(--rio-space-3);
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+  .rio-import__group {
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    padding: var(--rio-space-3);
+  }
+  .rio-import__group h3 {
+    margin-block: 0 var(--rio-space-2);
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-import__group ul,
+  .rio-import__examples {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding-inline-start: var(--rio-space-4);
+    color: var(--rio-aa-text-muted);
+    overflow-wrap: anywhere;
+  }
+  .rio-import__note {
+    margin-block: 0;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-import__report {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin-block: 0;
+  }
+  .rio-import__report p {
+    margin-block: 0;
+  }
+}

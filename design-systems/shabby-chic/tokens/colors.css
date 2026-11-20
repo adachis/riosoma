@@ -1,0 +1,50 @@
+:root{
+/* ── Paper: aged neutral ramp, warm and high-key ── */
+--paper-0:#FDFBF7;--paper-1:#F8F3EA;--paper-2:#F1E8DB;--paper-3:#E7DACA;--paper-4:#D9C8B4;--paper-5:#C7B49E;
+/* ── Ink: warm sepia-black ramp ── */
+--ink-0:#2E2724;--ink-1:#4A3F3A;--ink-2:#6E5F55;--ink-3:#96887C;--ink-4:#BCAFA3;--ink-5:#D6CBC0;
+
+/* ── Heirloom brand hues (the house palette) ── */
+--rose-1:#F9EDED;--rose-2:#EFD3D5;--rose-3:#DEA8AE;--rose-4:#C4818A;--rose-5:#A2626C;
+--sage-1:#ECF0E7;--sage-2:#D2DCC7;--sage-3:#A8B99A;--sage-4:#7F9370;--sage-5:#5F7154;
+--porcelain-1:#E9EFF3;--porcelain-2:#C9D8E1;--porcelain-3:#9AB2C2;--porcelain-4:#6C889D;--porcelain-5:#4C6579;
+--wisteria-1:#F0EAF3;--wisteria-2:#D8CADF;--wisteria-3:#B5A0C0;--wisteria-4:#8F779B;
+--gilt-1:#F6EAD1;--gilt-2:#E4C994;--gilt-3:#C9A25C;--gilt-4:#A07E3F;
+--clay-1:#F7E6DE;--clay-2:#E8C5B4;--clay-3:#CE9179;--clay-4:#A96B52;
+
+/* ── Semantic surface ── */
+--surface-page:var(--paper-1);
+--surface-card:var(--paper-0);
+--surface-raised:#FFFFFF;
+--surface-sunken:var(--paper-2);
+--surface-inset:var(--paper-3);
+--surface-ink:var(--ink-1);
+--surface-veil:rgb(253 251 247 / .82);
+--surface-scrim:rgb(46 39 36 / .46);
+
+/* ── Semantic text ── */
+--text-heading:var(--ink-0);
+--text-body:var(--ink-1);
+--text-muted:var(--ink-2);
+--text-faint:var(--ink-3);
+--text-inverse:var(--paper-0);
+--text-on-accent:#FFFFFF;
+--text-link:var(--accent-strong);
+--text-link-hover:var(--accent-deep);
+
+/* ── Rules & borders ── */
+--rule-hair:#E3D6C6;
+--rule:#D6C6B2;
+--rule-strong:#BCA98F;
+--rule-ink:var(--ink-4);
+--rule-accent:var(--accent);
+
+/* ── Status: shabby, never neon ── */
+--ok-1:#E9F0E5;--ok-3:#8AA678;--ok-5:#5E7A4C;
+--warn-1:#FBEEDA;--warn-3:#D9A94F;--warn-5:#9A7226;
+--alert-1:#F9E4E2;--alert-3:#CE7F79;--alert-5:#9E5148;
+--info-1:#E6EEF3;--info-3:#8AA9BC;--info-5:#576F80;
+
+/* ── Focus ── */
+--focus-ring:0 0 0 2px var(--paper-0),0 0 0 4px var(--accent-soft-2);
+}

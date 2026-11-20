@@ -1,0 +1,35 @@
+/* SUBSTITUTION: the asset pack ships no monospace face. Space Mono
+   (Google Fonts) stands in — a geometric, wide-aperture mono that sits
+   comfortably next to Corbert. Swap it if a licensed mono arrives. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* Webfonts shipped with the system. All files live in /assets/fonts. */
+
+/* CORBERT — geometric humanist sans. The workhorse: UI, body, labels. */
+@font-face{font-family:"Corbert";src:url("../assets/fonts/Corbert-Light.otf") format("opentype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Corbert";src:url("../assets/fonts/Corbert-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Corbert";src:url("../assets/fonts/Corbert-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Corbert";src:url("../assets/fonts/Corbert-DemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Corbert";src:url("../assets/fonts/Corbert-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Corbert";src:url("../assets/fonts/Corbert-Black.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
+
+/* FINIS GROTESK — early-modern grotesk. Headlines, posters, slab-weight statements. */
+@font-face{font-family:"Finis Grotesk";src:url("../assets/fonts/FinisGrotesk-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Finis Grotesk";src:url("../assets/fonts/FinisGrotesk-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Finis Grotesk";src:url("../assets/fonts/FinisGrotesk-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Finis Grotesk";src:url("../assets/fonts/FinisGrotesk-Black.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Finis Grotesk Cd";src:url("../assets/fonts/FinisGrotesk-BlackCondensed.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
+
+/* GEOBAU — compass-and-ruler geometric display. Logotype scale only. */
+@font-face{font-family:"Geobau";src:url("../assets/fonts/Geobau-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Geobau";src:url("../assets/fonts/Geobau-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Geobau Linear";src:url("../assets/fonts/Geobau-Linear.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Geobau Outline";src:url("../assets/fonts/Geobau-OutlineBold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+
+/* DEKART — constructed stencil display. Numerals, game titling, oversized single words. */
+@font-face{font-family:"Dekart";src:url("../assets/fonts/Dekart-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Dekart Outline";src:url("../assets/fonts/Dekart-Outline.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+
+/* RED THINKER — wide editorial display. Print covers, pull quotes. */
+@font-face{font-family:"Red Thinker";src:url("../assets/fonts/RedThinker-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Red Thinker";src:url("../assets/fonts/RedThinker-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}

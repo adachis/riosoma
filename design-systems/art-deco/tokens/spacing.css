@@ -1,0 +1,19 @@
+:root{
+  /* 2px base, widening to a 1.5-ish step. Deco compositions want big air
+     between tiers and hairline-tight gaps inside them. */
+  --s-0:0; /* @kind spacing */
+  --s-05:2px; --s-1:4px; --s-2:6px; --s-3:8px; --s-4:12px;
+  --s-5:16px; --s-6:24px; --s-7:32px; --s-8:48px; --s-9:64px;
+  --s-10:96px; --s-11:128px; --s-12:192px;
+
+  /* composition */
+  --measure:66ch; /* @kind spacing */
+  --measure-tight:48ch; /* @kind spacing */
+  --page-max:1280px; /* @kind spacing */
+  --page-gutter:clamp(20px,5vw,72px); /* @kind spacing */
+  --tier-gap:var(--s-9); /* @kind spacing */
+  --tier-gap-lg:var(--s-10); /* @kind spacing */
+
+  /* the stepped indent used instead of a column grid */
+  --step:14px; /* @kind spacing */
+}

@@ -1,0 +1,24 @@
+:root{
+--font-display:"Kawaii Round","Baloo 2","Nunito",system-ui,sans-serif;
+--font-heavy:"Kawaii Heavy","Baloo 2","Nunito",system-ui,sans-serif;
+--font-label:"Kawaii Label","Baloo 2","Nunito",system-ui,sans-serif;
+--font-hollow:"Kawaii Hollow","Baloo 2",sans-serif;
+--font-serif-display:"Kawaii Serif","Baloo 2",serif;
+--font-body:"Nunito",ui-rounded,system-ui,sans-serif;
+--font-mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+
+--fs-2xs:11px;--fs-xs:12px;--fs-sm:14px;--fs-md:16px;--fs-lg:18px;--fs-xl:22px;
+--fs-2xl:28px;--fs-3xl:36px;--fs-4xl:48px;--fs-5xl:64px;--fs-6xl:88px;
+
+--lh-tight:1.05;/* @kind other */--lh-snug:1.2;/* @kind other */--lh-body:1.55;/* @kind other */--lh-loose:1.75;/* @kind other */
+
+--tracking-display:-0.01em;/* @kind other */--tracking-body:0;/* @kind other */--tracking-label:0.06em;/* @kind other */--tracking-caps:0.12em;/* @kind other */
+
+--fw-body:500;/* @kind other */--fw-strong:700;/* @kind other */--fw-black:800;/* @kind other */
+
+/* semantic type roles */
+--text-hero:var(--font-heavy);/* @kind font */
+--text-title:var(--font-display);/* @kind font */
+--text-eyebrow:var(--font-label);/* @kind font */
+--text-copy:var(--font-body);/* @kind font */
+}

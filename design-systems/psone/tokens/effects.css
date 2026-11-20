@@ -1,0 +1,31 @@
+:root{
+/* Shadow system: text is stamped hard-offset (no blur) the way console fonts were;
+   physical parts get a single tight drop; panels get an inner vignette. */
+--shadow-text:2px 2px 0 var(--ink-void);
+--shadow-text-lg:4px 4px 0 var(--ink-void);
+--shadow-title:4px 4px 0 var(--ink-void);
+--shadow-hardware:0 2px 5px var(--ink-void);
+--shadow-press:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
+--shadow-panel-inset:inset 0 0 2px 2px rgba(0,0,0,.3);
+--shadow-window:0 12px 32px rgba(0,0,0,.6);
+--glow-accent:0 0 0 1px var(--accent-hi),0 0 12px rgba(255,255,255,.18);
+
+/* Fills */
+--fill-sweep:linear-gradient(90deg,transparent,var(--grey-300),transparent);
+--fill-sweep-accent:linear-gradient(90deg,transparent,var(--accent),transparent);
+--fill-bar:linear-gradient(to right,#2C6776,var(--positive));
+--fill-bar-accent:linear-gradient(to right,var(--accent),var(--accent-hi));
+
+/* Dotted underline used for text inputs — a 30px repeating dash, 2px tall. */
+--fill-dash:linear-gradient(to right,var(--white) 0%,var(--white) 50%,transparent 50%,transparent 100%);
+--fill-dash-size:30px 2px; /* @kind spacing */
+
+/* Textures. CSS-generated; no bitmaps needed. */
+--texture-grid:repeating-linear-gradient(0deg,rgba(255,255,255,.09) 0 1px,transparent 1px 32px),repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,transparent 1px 32px); /* @kind other */
+--texture-scanline:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px); /* @kind other */
+--texture-dither:repeating-conic-gradient(rgba(255,255,255,.05) 0% 25%,transparent 0% 50%) 0 0/4px 4px; /* @kind other */
+--texture-horizon:linear-gradient(180deg,var(--surface-panel-top) 0%,var(--surface-panel-bottom) 55%,var(--ink-void) 100%); /* @kind color */
+
+--blur-overlay:blur(2px); /* @kind other */
+--overlay-scrim:rgba(0,0,0,.72);
+--overlay-protect:linear-gradient(180deg,rgba(0,0,0,.85),transparent) /* @kind color */}

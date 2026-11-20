@@ -1,0 +1,49 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Riosoma MCP",
+    "version": "0.95.0-rc.1"
+  },
+  "basePath": "/",
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json", "text/event-stream"],
+  "paths": {
+    "/mcp": {
+      "post": {
+        "operationId": "invokeMcp",
+        "summary": "Use Riosoma tools",
+        "description": "Find, read, and propose changes to Riosoma records through Streamable HTTP.  Each request uses the connected person’s access.",
+        "x-ms-agentic-protocol": "mcp-streamable-1.0",
+        "x-ms-visibility": "important",
+        "responses": {
+          "200": {
+            "description": "The request succeeded."
+          },
+          "202": {
+            "description": "The notification was accepted."
+          }
+        },
+        "security": [
+          {
+            "oauth2": ["schema.bases:read", "schema.bases:write", "data.records:read", "data.records:write"]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "oauth2": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://example.invalid/oauth/authorize",
+      "tokenUrl": "https://example.invalid/oauth/token",
+      "scopes": {
+        "schema.bases:read": "List databases",
+        "schema.bases:write": "Create, rename, reorder, and trash tables, fields, and views",
+        "data.records:read": "Find records",
+        "data.records:write": "Update records"
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "realm": "riosoma-test",
+  "enabled": true,
+  "displayName": "Riosoma test realm",
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": false,
+  "accessTokenLifespan": 3600,
+  "accessTokenLifespanForImplicitFlow": 1800,
+  "ssoSessionIdleTimeout": 43200,
+  "ssoSessionMaxLifespan": 86400,
+  "roles": {
+    "realm": [
+      {
+        "name": "riosoma-reader",
+        "description": "Read-only role used by connector tests"
+      },
+      {
+        "name": "riosoma-writer",
+        "description": "Read and write role used by connector tests"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "riosoma-test-client",
+      "name": "Riosoma test client",
+      "description": "Confidential client used to exercise authorization code and client credential flows",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "Riosoma-Test-2026!",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "authorizationServicesEnabled": false,
+      "fullScopeAllowed": true,
+      "redirectUris": ["http://127.0.0.1:18180/*", "http://localhost:18180/*"],
+      "webOrigins": ["+"],
+      "defaultClientScopes": ["basic", "profile", "email", "roles"],
+      "optionalClientScopes": ["offline_access"]
+    }
+  ],
+  "users": [
+    {
+      "username": "riosoma.reader",
+      "email": "reader@riosoma.test",
+      "firstName": "Rio",
+      "lastName": "Reader",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Riosoma-Test-2026!",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["riosoma-reader"]
+    },
+    {
+      "username": "riosoma.writer",
+      "email": "writer@riosoma.test",
+      "firstName": "Rio",
+      "lastName": "Writer",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Riosoma-Test-2026!",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["riosoma-reader", "riosoma-writer"]
+    }
+  ]
+}

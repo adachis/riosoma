@@ -1,0 +1,10 @@
+# Advisories the dependency scan accepts for now in the n8n node's own lockfile, each with its reason and
+# a date to look again.  osv-scanner reads this file for the lockfile beside it.
+
+# n8n-workflow's development-only schemas and its expression runtime require zod 3; even the
+# current stable, beta, and v3 release candidate still pin 3.25.76.  The published integration has
+# no runtime dependencies, and Riosoma never evaluates n8n expressions or untrusted schemas.
+[[IgnoredVulns]]
+id = "GHSA-mrhx-c7xc-m3w5"
+ignoreUntil = 2027-01-31
+reason = "Development-only n8n-workflow 2.47.0 and @n8n/expression-runtime 0.38.0 require zod 3.25.76; no release supports zod 4. Not shipped in the server or bundled with the published node, and no untrusted validation runs during its build/tests. Recheck upstream by 2027-01-31."

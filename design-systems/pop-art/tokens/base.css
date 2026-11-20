@@ -1,0 +1,31 @@
+/* Base — opinionated only where the brand demands it. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body);font-size:var(--text-base);line-height:var(--leading-normal);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6{margin:0 0 var(--space-4);color:var(--text-strong);font-family:var(--font-headline);font-weight:var(--weight-regular);line-height:var(--leading-snug);letter-spacing:var(--tracking-headline)}
+h1{font-size:var(--text-4xl);line-height:var(--leading-tight)}
+h2{font-size:var(--text-3xl)}
+h3{font-size:var(--text-2xl)}
+h4{font-size:var(--text-xl)}
+h5{font-size:var(--text-lg)}
+h6{font-size:var(--text-md);font-family:var(--font-newsprint);text-transform:uppercase;letter-spacing:var(--tracking-wide)}
+p{margin:0 0 var(--space-4);text-wrap:pretty}
+a{color:var(--text-link);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;transition:color var(--dur-fast) var(--ease-out)}
+a:hover{color:var(--text-link-hover);text-decoration-thickness:3px}
+a:active{color:var(--text-link-hover)}
+strong,b{font-weight:var(--weight-black)}
+small{font-size:var(--text-sm)}
+code,kbd,pre,samp{font-family:var(--font-mono)}
+hr{height:var(--border-ink);margin:var(--space-7) 0;border:0;background:var(--ink)}
+img,svg,video{max-width:100%;height:auto}
+figure{margin:0}
+ul,ol{margin:0 0 var(--space-4);padding-left:var(--space-6)}
+li{margin-bottom:var(--space-2)}
+blockquote{margin:0 0 var(--space-5);padding:var(--space-4) var(--space-5);border-left:var(--border-heavy) solid var(--accent);font-family:var(--font-headline);font-size:var(--text-lg)}
+table{border-collapse:collapse;width:100%}
+th,td{padding:var(--space-3) var(--space-4);border-bottom:var(--border-thin) solid var(--ink);text-align:left}
+th{font-family:var(--font-newsprint);text-transform:uppercase;letter-spacing:var(--tracking-wide);font-size:var(--text-sm);background:var(--surface-sunk)}
+::selection{background:var(--accent-3);color:var(--on-accent-3)}
+:focus-visible{outline:var(--focus-width) solid var(--focus-ring);outline-offset:var(--focus-offset)}
+button,input,select,textarea{font:inherit;color:inherit}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

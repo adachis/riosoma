@@ -1,0 +1,42 @@
+:root{
+  /* Families */
+  --font-display:"Y2K Avaben","Archivo",system-ui,sans-serif;      /* wide cyber caps — heroes, posters, game logos */
+  --font-mega:"Y2K Kabisat","Archivo Black",sans-serif;            /* ultra-fat impact — section starters, print covers */
+  --font-core:"Y2K Cuano","Archivo",system-ui,sans-serif;          /* the system UI face — nav, buttons, titles, labels */
+  --font-text:"Archivo",system-ui,-apple-system,sans-serif;        /* long-form body copy */
+  --font-mono:"Space Mono","Courier New",monospace;                /* readouts, code, timestamps, terminals */
+  --font-pixel:"Silkscreen","Courier New",monospace;               /* bitmap micro-labels, HUD counters, status bars */
+  --font-bubble:"Y2K Bubbly","Archivo",sans-serif;                 /* sticker / kawaii voice */
+  --font-techno:"Y2K Macarthur","Archivo",sans-serif;              /* condensed techno — tickers, tabular headers */
+  --font-nostalgia:"Y2K Nostalgia","Archivo Black",sans-serif;     /* chunky retro-web wordmarks */
+  --font-outline:"Y2K Punk Cyber Outline","Archivo",sans-serif;    /* hollow display, sits over imagery */
+
+  /* Sizes — 1.20 ratio at the text end, wider jumps at display end */
+  --fs-3xs:9px;   --fs-2xs:10px; --fs-xs:11px;  --fs-sm:13px;
+  --fs-md:15px;   --fs-lg:18px;  --fs-xl:22px;  --fs-2xl:28px;
+  --fs-3xl:36px;  --fs-4xl:48px; --fs-5xl:64px; --fs-6xl:88px;
+  --fs-7xl:120px; --fs-8xl:168px;
+
+  /* Line heights */
+  --lh-tight:0.92;/* @kind other */  --lh-snug:1.08;/* @kind other */ --lh-head:1.18;/* @kind other */
+  --lh-body:1.55;/* @kind other */   --lh-loose:1.72;/* @kind other */
+
+  /* Tracking — display type is tracked OUT, body is normal, pixel is tracked out hard */
+  --tr-mega:-0.02em;/* @kind other */ --tr-display:0.06em;/* @kind other */ --tr-core:0.01em;/* @kind other */
+  --tr-body:0em;/* @kind other */     --tr-label:0.14em;/* @kind other */   --tr-pixel:0.08em;/* @kind other */
+
+  /* Weights (Cuano + Archivo both ship 400/700; Archivo covers 500/600/800) */
+  --fw-regular:400;/* @kind other */ --fw-medium:500;/* @kind other */ --fw-semibold:600;/* @kind other */ --fw-bold:700;/* @kind other */ --fw-black:800;/* @kind other */
+
+  /* Ready-made roles */
+  --type-hero:var(--fw-regular) var(--fs-6xl)/var(--lh-tight) var(--font-display);/* @kind font */
+  --type-title:var(--fw-bold) var(--fs-3xl)/var(--lh-snug) var(--font-core);/* @kind font */
+  --type-heading:var(--fw-bold) var(--fs-xl)/var(--lh-head) var(--font-core);/* @kind font */
+  --type-subhead:var(--fw-bold) var(--fs-lg)/var(--lh-head) var(--font-core);/* @kind font */
+  --type-body:var(--fw-regular) var(--fs-md)/var(--lh-body) var(--font-text);/* @kind font */
+  --type-small:var(--fw-regular) var(--fs-sm)/var(--lh-body) var(--font-text);/* @kind font */
+  --type-ui:var(--fw-bold) var(--fs-sm)/1.2 var(--font-core);/* @kind font */
+  --type-label:var(--fw-bold) var(--fs-2xs)/1.1 var(--font-core);/* @kind font */
+  --type-mono:var(--fw-regular) var(--fs-sm)/1.45 var(--font-mono);/* @kind font */
+  --type-pixel:var(--fw-regular) var(--fs-2xs)/1.2 var(--font-pixel);/* @kind font */
+}

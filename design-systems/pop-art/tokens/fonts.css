@@ -1,0 +1,15 @@
+/* Webfonts. Local display faces ship with the system; text faces come from Google Fonts. */
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Chivo:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap");
+
+@font-face{font-family:"Pop Display";src:url("../assets/fonts/Knockwork-Black.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Display Outline";src:url("../assets/fonts/Knockwork-Outline.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Newsprint";src:url("../assets/fonts/HalftoneNewsprint.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Marquee";src:url("../assets/fonts/Popstick.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Marquee";src:url("../assets/fonts/Popstick-Italic.otf") format("opentype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"Pop Bubble";src:url("../assets/fonts/GrovenPop.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Benday";src:url("../assets/fonts/Hunter.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Benday Outline";src:url("../assets/fonts/Molly.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Sign";src:url("../assets/fonts/Reece.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Panel";src:url("../assets/fonts/Popart.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Comic";src:url("../assets/fonts/ComicPop.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Pop Script";src:url("../assets/fonts/Swarasa.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}

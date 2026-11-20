@@ -1,0 +1,22 @@
+:root{
+/* Chunky "sticker" shadow: a hard offset in a darkened tone of the fill, plus a soft ambient. */
+--lift-1:0 2px 0;/* @kind shadow */
+--lift-2:0 4px 0;/* @kind shadow */
+--lift-3:0 6px 0;/* @kind shadow */
+--ambient-sm:0 3px 8px color-mix(in oklab, var(--line) 18%, transparent);
+--ambient:0 8px 18px color-mix(in oklab, var(--line) 20%, transparent);
+--ambient-lg:0 18px 40px color-mix(in oklab, var(--line) 26%, transparent);
+
+--shadow-card:var(--lift-2) var(--line-soft), var(--ambient-sm);
+--shadow-panel:var(--lift-3) var(--line-soft), var(--ambient);
+--shadow-pop:var(--lift-3) color-mix(in oklab, var(--line) 45%, transparent), var(--ambient-lg);
+
+/* inner highlight along the top edge — the "glossy jelly" read */
+--gloss-top:inset 0 3px 0 color-mix(in oklab, #fff 62%, transparent);/* @kind shadow */
+--gloss-top-sm:inset 0 2px 0 color-mix(in oklab, #fff 55%, transparent);/* @kind shadow */
+--gloss-inset:inset 0 -3px 0 color-mix(in oklab, var(--line) 12%, transparent);
+
+--ring-focus:0 0 0 3px var(--surface), 0 0 0 6px color-mix(in oklab, var(--focus-ring) 70%, transparent);
+--sticker-ring:0 0 0 6px var(--surface);
+--text-outline:-1px -1px 0 var(--line),1px -1px 0 var(--line),-1px 1px 0 var(--line),1px 1px 0 var(--line),0 2px 0 var(--line);
+}

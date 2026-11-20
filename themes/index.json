@@ -1,0 +1,500 @@
+{
+  "themes": [
+    {
+      "id": "art-deco",
+      "name": "Art Deco",
+      "css": "art-deco/theme.css",
+      "manifest": "art-deco/theme.json",
+      "defaultScheme": "lacquer",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "art-nouveau",
+      "name": "Art Nouveau",
+      "css": "art-nouveau/theme.css",
+      "manifest": "art-nouveau/theme.json",
+      "defaultScheme": "atelier",
+      "schemeCount": 14,
+      "modes": []
+    },
+    {
+      "id": "bauhaus",
+      "name": "Bauhaus",
+      "css": "bauhaus/theme.css",
+      "manifest": "bauhaus/theme.json",
+      "defaultScheme": "werkbund",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "bitpixel",
+      "name": "BitPixel",
+      "css": "bitpixel/theme.css",
+      "manifest": "bitpixel/theme.json",
+      "defaultScheme": "midnight",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "boho",
+      "name": "Boho",
+      "css": "boho/theme.css",
+      "manifest": "boho/theme.json",
+      "defaultScheme": "clay",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "brutalist",
+      "name": "Brutalist",
+      "css": "brutalist/theme.css",
+      "manifest": "brutalist/theme.json",
+      "defaultScheme": "raw",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "brutalist-neo",
+      "name": "Brutalist Neo",
+      "css": "brutalist-neo/theme.css",
+      "manifest": "brutalist-neo/theme.json",
+      "defaultScheme": "signal-jade",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "bubble",
+      "name": "Bubble",
+      "css": "bubble/theme.css",
+      "manifest": "bubble/theme.json",
+      "defaultScheme": "bubble",
+      "schemeCount": 13,
+      "modes": [
+        "light",
+        "dark"
+      ]
+    },
+    {
+      "id": "chillhop",
+      "name": "Chillhop",
+      "css": "chillhop/theme.css",
+      "manifest": "chillhop/theme.json",
+      "defaultScheme": "loft",
+      "schemeCount": 14,
+      "modes": [
+        "light",
+        "dark"
+      ]
+    },
+    {
+      "id": "colorful-minimalist",
+      "name": "Colorful Minimalist",
+      "css": "colorful-minimalist/theme.css",
+      "manifest": "colorful-minimalist/theme.json",
+      "defaultScheme": "spectrum",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "destiny",
+      "name": "Destiny",
+      "css": "destiny/theme.css",
+      "manifest": "destiny/theme.json",
+      "defaultScheme": "destiny",
+      "schemeCount": 1,
+      "modes": []
+    },
+    {
+      "id": "diagram",
+      "name": "Diagram",
+      "css": "diagram/theme.css",
+      "manifest": "diagram/theme.json",
+      "defaultScheme": "drafting",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "document",
+      "name": "Document",
+      "css": "document/theme.css",
+      "manifest": "document/theme.json",
+      "defaultScheme": "mono",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "fashion",
+      "name": "Fashion",
+      "css": "fashion/theme.css",
+      "manifest": "fashion/theme.json",
+      "defaultScheme": "salt",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "filigree",
+      "name": "Filigree",
+      "css": "filigree/theme.css",
+      "manifest": "filigree/theme.json",
+      "defaultScheme": "gilt",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "funos",
+      "name": "FunOS",
+      "css": "funos/theme.css",
+      "manifest": "funos/theme.json",
+      "defaultScheme": "house",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "gamer",
+      "name": "Gamer",
+      "css": "gamer/theme.css",
+      "manifest": "gamer/theme.json",
+      "defaultScheme": "core",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "glitch",
+      "name": "Glitch",
+      "css": "glitch/theme.css",
+      "manifest": "glitch/theme.json",
+      "defaultScheme": "signal",
+      "schemeCount": 13,
+      "modes": [
+        "dark",
+        "light"
+      ]
+    },
+    {
+      "id": "graffiti",
+      "name": "Graffiti",
+      "css": "graffiti/theme.css",
+      "manifest": "graffiti/theme.json",
+      "defaultScheme": "riot",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "groovy",
+      "name": "Groovy",
+      "css": "groovy/theme.css",
+      "manifest": "groovy/theme.json",
+      "defaultScheme": "sunburst",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "holographic",
+      "name": "Holographic",
+      "css": "holographic/theme.css",
+      "manifest": "holographic/theme.json",
+      "defaultScheme": "spectral",
+      "schemeCount": 12,
+      "modes": [
+        "dark",
+        "light"
+      ]
+    },
+    {
+      "id": "industrial-retrofuturism",
+      "name": "Industrial Retrofuturism",
+      "css": "industrial-retrofuturism/theme.css",
+      "manifest": "industrial-retrofuturism/theme.json",
+      "defaultScheme": "red",
+      "schemeCount": 9,
+      "modes": []
+    },
+    {
+      "id": "japandi",
+      "name": "Japandi",
+      "css": "japandi/theme.css",
+      "manifest": "japandi/theme.json",
+      "defaultScheme": "sumi",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "jmds",
+      "name": "JMDS",
+      "css": "jmds/theme.css",
+      "manifest": "jmds/theme.json",
+      "defaultScheme": "hinomaru",
+      "schemeCount": 8,
+      "modes": []
+    },
+    {
+      "id": "kawaii",
+      "name": "Kawaii",
+      "css": "kawaii/theme.css",
+      "manifest": "kawaii/theme.json",
+      "defaultScheme": "peachy",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "kicks",
+      "name": "Kicks",
+      "css": "kicks/theme.css",
+      "manifest": "kicks/theme.json",
+      "defaultScheme": "riot",
+      "schemeCount": 12,
+      "modes": [
+        "light",
+        "dark"
+      ]
+    },
+    {
+      "id": "london",
+      "name": "London",
+      "css": "london/theme.css",
+      "manifest": "london/theme.json",
+      "defaultScheme": "signal",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "magazine",
+      "name": "Magazine",
+      "css": "magazine/theme.css",
+      "manifest": "magazine/theme.json",
+      "defaultScheme": "press",
+      "schemeCount": 13,
+      "modes": [
+        "light",
+        "dark"
+      ]
+    },
+    {
+      "id": "maximalist",
+      "name": "Maximalist",
+      "css": "maximalist/theme.css",
+      "manifest": "maximalist/theme.json",
+      "defaultScheme": "oi-prime",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "maximalist-lite",
+      "name": "Maximalist Lite",
+      "css": "maximalist-lite/theme.css",
+      "manifest": "maximalist-lite/theme.json",
+      "defaultScheme": "sunbaked",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "midcentury",
+      "name": "Midcentury",
+      "css": "midcentury/theme.css",
+      "manifest": "midcentury/theme.json",
+      "defaultScheme": "atomic",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "mos",
+      "name": "mOS",
+      "css": "mos/theme.css",
+      "manifest": "mos/theme.json",
+      "defaultScheme": "dark",
+      "schemeCount": 2,
+      "modes": []
+    },
+    {
+      "id": "museo",
+      "name": "Museo",
+      "css": "museo/theme.css",
+      "manifest": "museo/theme.json",
+      "defaultScheme": "gallery",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "nature",
+      "name": "Nature",
+      "css": "nature/theme.css",
+      "manifest": "nature/theme.json",
+      "defaultScheme": "grove",
+      "schemeCount": 17,
+      "modes": []
+    },
+    {
+      "id": "neumorph",
+      "name": "Neumorph",
+      "css": "neumorph/theme.css",
+      "manifest": "neumorph/theme.json",
+      "defaultScheme": "slate",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "optical-illusion",
+      "name": "Optical Illusion",
+      "css": "optical-illusion/theme.css",
+      "manifest": "optical-illusion/theme.json",
+      "defaultScheme": "ink-signal",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "palette",
+      "name": "Palette",
+      "css": "palette/theme.css",
+      "manifest": "palette/theme.json",
+      "defaultScheme": "house",
+      "schemeCount": 13,
+      "modes": [
+        "light",
+        "dark"
+      ]
+    },
+    {
+      "id": "panic-play",
+      "name": "Panic Play",
+      "css": "panic-play/theme.css",
+      "manifest": "panic-play/theme.json",
+      "defaultScheme": "signal",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "persona",
+      "name": "Persona",
+      "css": "persona/theme.css",
+      "manifest": "persona/theme.json",
+      "defaultScheme": "ink",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "pixel-art-game",
+      "name": "Pixel Art Game",
+      "css": "pixel-art-game/theme.css",
+      "manifest": "pixel-art-game/theme.json",
+      "defaultScheme": "parchment",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "pop-art",
+      "name": "Pop Art",
+      "css": "pop-art/theme.css",
+      "manifest": "pop-art/theme.json",
+      "defaultScheme": "signature",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "psone",
+      "name": "PSOne",
+      "css": "psone/theme.css",
+      "manifest": "psone/theme.json",
+      "defaultScheme": "core",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "retro-90s",
+      "name": "Retro 90s",
+      "css": "retro-90s/theme.css",
+      "manifest": "retro-90s/theme.json",
+      "defaultScheme": "arcade",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "retro-game-manual",
+      "name": "Retro Game Manual",
+      "css": "retro-game-manual/theme.css",
+      "manifest": "retro-game-manual/theme.json",
+      "defaultScheme": "booklet",
+      "schemeCount": 14,
+      "modes": [
+        "light",
+        "dark"
+      ]
+    },
+    {
+      "id": "retro-neo-future",
+      "name": "Retro Neo Future",
+      "css": "retro-neo-future/theme.css",
+      "manifest": "retro-neo-future/theme.json",
+      "defaultScheme": "platinum-amber",
+      "schemeCount": 12,
+      "modes": [
+        "dark",
+        "crt",
+        "light"
+      ]
+    },
+    {
+      "id": "shabby-chic",
+      "name": "Shabby Chic",
+      "css": "shabby-chic/theme.css",
+      "manifest": "shabby-chic/theme.json",
+      "defaultScheme": "heirloom",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "sketch",
+      "name": "Sketch",
+      "css": "sketch/theme.css",
+      "manifest": "sketch/theme.json",
+      "defaultScheme": "field-notes",
+      "schemeCount": 12,
+      "modes": []
+    },
+    {
+      "id": "steampunk",
+      "name": "Steampunk",
+      "css": "steampunk/theme.css",
+      "manifest": "steampunk/theme.json",
+      "defaultScheme": "brass-and-soot",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "synthwave",
+      "name": "Synthwave",
+      "css": "synthwave/theme.css",
+      "manifest": "synthwave/theme.json",
+      "defaultScheme": "synthwave",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "system-7",
+      "name": "System 7",
+      "css": "system-7/theme.css",
+      "manifest": "system-7/theme.json",
+      "defaultScheme": "one-bit",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "victorian",
+      "name": "Victorian",
+      "css": "victorian/theme.css",
+      "manifest": "victorian/theme.json",
+      "defaultScheme": "parlour",
+      "schemeCount": 13,
+      "modes": []
+    },
+    {
+      "id": "y2k",
+      "name": "Y2K",
+      "css": "y2k/theme.css",
+      "manifest": "y2k/theme.json",
+      "defaultScheme": "rave",
+      "schemeCount": 12,
+      "modes": []
+    }
+  ]
+}

@@ -1,0 +1,1751 @@
+ai_field_jobs.created_at: timestamp with time zone
+ai_field_jobs.database_id: text
+ai_field_jobs.done: integer
+ai_field_jobs.failed: integer
+ai_field_jobs.field_id: text
+ai_field_jobs.finished_at: timestamp with time zone
+ai_field_jobs.id: text
+ai_field_jobs.org_id: text
+ai_field_jobs.requested_by: text
+ai_field_jobs.scope: text
+ai_field_jobs.state: text
+ai_field_jobs.table_id: text
+ai_field_jobs.total: integer
+ai_field_runs.attempts: integer
+ai_field_runs.cost_usd: numeric
+ai_field_runs.created_at: timestamp with time zone
+ai_field_runs.database_id: text
+ai_field_runs.depth: integer
+ai_field_runs.energy_wh_max: double precision
+ai_field_runs.energy_wh_min: double precision
+ai_field_runs.field_id: text
+ai_field_runs.finished_at: timestamp with time zone
+ai_field_runs.footprint_method: text
+ai_field_runs.footprint_zone: text
+ai_field_runs.gwp_g_max: double precision
+ai_field_runs.gwp_g_min: double precision
+ai_field_runs.id: text
+ai_field_runs.input_tokens: integer
+ai_field_runs.job_id: text
+ai_field_runs.lease_at: timestamp with time zone
+ai_field_runs.lease_token: text
+ai_field_runs.message_key: text
+ai_field_runs.message_params: jsonb
+ai_field_runs.model: text
+ai_field_runs.ms: integer
+ai_field_runs.org_id: text
+ai_field_runs.output_tokens: integer
+ai_field_runs.provider_id: text
+ai_field_runs.record_id: text
+ai_field_runs.requested_by: text
+ai_field_runs.retry_at: timestamp with time zone
+ai_field_runs.seq: bigint
+ai_field_runs.state: text
+ai_field_runs.superseded: boolean
+ai_field_runs.table_id: text
+ai_field_turns.last_served: bigint
+ai_field_turns.org_id: text
+ai_keys.org_id: text
+ai_keys.provider_id: text
+ai_keys.sealed: text
+ai_settings.org_id: text
+ai_settings.settings: jsonb
+ai_spend.cost_usd: numeric
+ai_spend.month: date
+ai_spend.org_id: text
+ai_usage.calls: bigint
+ai_usage.cost_usd: numeric
+ai_usage.energy_wh_max: double precision
+ai_usage.energy_wh_min: double precision
+ai_usage.estimated_calls: bigint
+ai_usage.feature: text
+ai_usage.gwp_g_max: double precision
+ai_usage.gwp_g_min: double precision
+ai_usage.input_tokens: bigint
+ai_usage.method: text
+ai_usage.model: text
+ai_usage.month: date
+ai_usage.org_id: text
+ai_usage.output_tokens: bigint
+ai_usage.priced_calls: bigint
+ai_usage.provider_id: text
+ai_usage.token_estimated_calls: bigint
+ai_usage.user_id: text
+ai_usage.zone: text
+airtable_imports.base_id: text
+airtable_imports.cancel_requested: boolean
+airtable_imports.created_at: timestamp with time zone
+airtable_imports.database_id: text
+airtable_imports.error: jsonb
+airtable_imports.finished_at: timestamp with time zone
+airtable_imports.id: text
+airtable_imports.name: text
+airtable_imports.org_id: text
+airtable_imports.progress: jsonb
+airtable_imports.report: jsonb
+airtable_imports.sealed_token: text
+airtable_imports.state: text
+airtable_imports.updated_at: timestamp with time zone
+airtable_imports.user_id: text
+airtable_imports.version: integer
+api_tokens.created_at: timestamp with time zone
+api_tokens.databases: ARRAY
+api_tokens.expires_at: timestamp with time zone
+api_tokens.id: text
+api_tokens.last_used_at: timestamp with time zone
+api_tokens.name: text
+api_tokens.org_id: text
+api_tokens.revoked_at: timestamp with time zone
+api_tokens.scopes: ARRAY
+api_tokens.secret_hash: text
+api_tokens.user_id: text
+auth_attempts.at: timestamp with time zone
+auth_attempts.key: text
+authenticator_secrets.confirmed_at: timestamp with time zone
+authenticator_secrets.created_at: timestamp with time zone
+authenticator_secrets.last_step: bigint
+authenticator_secrets.last_used_at: timestamp with time zone
+authenticator_secrets.replacement_created_at: timestamp with time zone
+authenticator_secrets.replacement_sealed_secret: text
+authenticator_secrets.sealed_secret: text
+authenticator_secrets.user_id: text
+automation_runs.actor_id: text
+automation_runs.ai_reserved_usd: numeric
+automation_runs.automation_id: text
+automation_runs.body: jsonb
+automation_runs.config_snapshot: jsonb
+automation_runs.database_id: text
+automation_runs.depth: integer
+automation_runs.draft: boolean
+automation_runs.finished_at: timestamp with time zone
+automation_runs.id: text
+automation_runs.lease_at: timestamp with time zone
+automation_runs.lease_token: text
+automation_runs.org_id: text
+automation_runs.queued_at: timestamp with time zone
+automation_runs.record_id: text
+automation_runs.resume_step_id: text
+automation_runs.seq: bigint
+automation_runs.source_kind: text
+automation_runs.source_run_id: text
+automation_runs.started_at: timestamp with time zone
+automation_runs.state: text
+automation_runs.steps: jsonb
+automation_runs.test: boolean
+automation_runs.trigger_kind: text
+automation_runs.version: integer
+automation_runs.wait_table_id: text
+automation_runs.wake_at: timestamp with time zone
+automation_versions.automation_id: text
+automation_versions.config: jsonb
+automation_versions.published_at: timestamp with time zone
+automation_versions.published_by: text
+automation_versions.version: integer
+automations.config: jsonb
+automations.created_at: timestamp with time zone
+automations.created_by: text
+automations.database_id: text
+automations.draft_config: jsonb
+automations.draft_updated_at: timestamp with time zone
+automations.draft_updated_by: text
+automations.enabled: boolean
+automations.id: text
+automations.last_run_at: timestamp with time zone
+automations.messaging_secrets: jsonb
+automations.name: text
+automations.next_run_at: timestamp with time zone
+automations.org_id: text
+automations.position: double precision
+automations.published_at: timestamp with time zone
+automations.published_by: text
+automations.run_as_id: text
+automations.stopped_because: text
+automations.trashed_at: timestamp with time zone
+automations.trashed_by: text
+automations.updated_at: timestamp with time zone
+automations.version: integer
+automations.webhook_salt: text
+automations.webhook_secret_hash: text
+booking_attempts.address: text
+booking_attempts.at: timestamp with time zone
+booking_attempts.page_id: text
+booking_pages.created_at: timestamp with time zone
+booking_pages.database_id: text
+booking_pages.embed: jsonb
+booking_pages.enabled: boolean
+booking_pages.id: text
+booking_pages.org_id: text
+booking_pages.owner_id: text
+booking_pages.settings: jsonb
+booking_pages.table_id: text
+booking_pages.updated_at: timestamp with time zone
+bookings.canceled_at: timestamp with time zone
+bookings.created_at: timestamp with time zone
+bookings.email_key: text
+bookings.ends_at: timestamp with time zone
+bookings.id: text
+bookings.page_id: text
+bookings.record_id: text
+bookings.resource_id: text
+bookings.starts_at: timestamp with time zone
+calendar_feeds.created_at: timestamp with time zone
+calendar_feeds.id: text
+calendar_feeds.last_read_at: timestamp with time zone
+calendar_feeds.org_id: text
+calendar_feeds.stopped_at: timestamp with time zone
+calendar_feeds.time_zone: text
+calendar_feeds.token_hash: text
+calendar_feeds.user_id: text
+calendar_feeds.view_id: text
+calendar_removals.account_id: text
+calendar_removals.attempts: integer
+calendar_removals.automation_id: text
+calendar_removals.calendar_id: text
+calendar_removals.command_id: text
+calendar_removals.created_at: timestamp with time zone
+calendar_removals.database_id: text
+calendar_removals.event_id: text
+calendar_removals.failed_at: timestamp with time zone
+calendar_removals.failure_key: text
+calendar_removals.id: text
+calendar_removals.lease_at: timestamp with time zone
+calendar_removals.lease_token: text
+calendar_removals.next_attempt_at: timestamp with time zone
+calendar_removals.org_id: text
+calendar_removals.provider: text
+calendar_removals.user_id: text
+changes.actor_id: text
+changes.at: timestamp with time zone
+changes.body: jsonb
+changes.client_id: text
+changes.command_id: text
+changes.database_id: text
+changes.group_id: text
+changes.kind: text
+changes.org_id: text
+changes.origin: jsonb
+changes.prev: jsonb
+changes.redo_of: text
+changes.seq: bigint
+changes.table_id: text
+changes.undo_of: text
+column_backups.column_name: text
+column_backups.created_at: timestamp with time zone
+column_backups.field_id: text
+column_backups.table_id: text
+commands.actor_id: text
+commands.at: timestamp with time zone
+commands.database_id: text
+commands.id: text
+commands.ingest_result: jsonb
+commands.org_id: text
+commands.result: jsonb
+commands.status: text
+comments.author_id: text
+comments.body: text
+comments.created_at: timestamp with time zone
+comments.database_id: text
+comments.deleted_at: timestamp with time zone
+comments.edited_at: timestamp with time zone
+comments.field_id: text
+comments.id: text
+comments.mentions: ARRAY
+comments.org_id: text
+comments.record_deleted_at: timestamp with time zone
+comments.record_id: text
+comments.table_id: text
+credential_jobs.actor_id: text
+credential_jobs.created_at: timestamp with time zone
+credential_jobs.cursor: text
+credential_jobs.error: text
+credential_jobs.id: text
+credential_jobs.kind: text
+credential_jobs.org_id: text
+credential_jobs.previous: jsonb
+credential_jobs.processed: integer
+credential_jobs.state: text
+credential_jobs.target: jsonb
+credential_jobs.updated_at: timestamp with time zone
+credential_keys.id: text
+credential_keys.org_id: text
+credential_keys.wrapped: text
+credential_policies.failed_profiles: ARRAY
+credential_policies.key_id: text
+credential_policies.org_id: text
+credential_policies.profile: text
+credential_policies.revision: bigint
+custom_domains.challenge: text
+custom_domains.checked_at: timestamp with time zone
+custom_domains.created_at: timestamp with time zone
+custom_domains.failed_checks: integer
+custom_domains.first_verified_at: timestamp with time zone
+custom_domains.host: text
+custom_domains.id: text
+custom_domains.kinds: ARRAY
+custom_domains.org_id: text
+custom_domains.removed_at: timestamp with time zone
+custom_domains.verified_at: timestamp with time zone
+dashboards.config: jsonb
+dashboards.created_at: timestamp with time zone
+dashboards.created_by: text
+dashboards.database_id: text
+dashboards.id: text
+dashboards.name: text
+dashboards.org_id: text
+dashboards.position: double precision
+dashboards.trashed_at: timestamp with time zone
+dashboards.trashed_by: text
+dashboards.updated_at: timestamp with time zone
+data_indexes.created_at: timestamp with time zone
+data_indexes.field_ids: ARRAY
+data_indexes.index_name: text
+data_indexes.last_used_at: timestamp with time zone
+data_indexes.table_id: text
+database_copies.created_at: timestamp with time zone
+database_copies.database_id: text
+database_copies.error: jsonb
+database_copies.finished_at: timestamp with time zone
+database_copies.id: text
+database_copies.kind: text
+database_copies.name: text
+database_copies.org_id: text
+database_copies.progress: jsonb
+database_copies.report: jsonb
+database_copies.snapshot_id: text
+database_copies.source_database_id: text
+database_copies.state: text
+database_copies.updated_at: timestamp with time zone
+database_copies.user_id: text
+database_copies.version: integer
+database_copies.with_records: boolean
+database_snapshots.archive: bytea
+database_snapshots.change_seq: bigint
+database_snapshots.created_at: timestamp with time zone
+database_snapshots.created_by: text
+database_snapshots.database_id: text
+database_snapshots.day: date
+database_snapshots.id: text
+database_snapshots.kind: text
+database_snapshots.name: text
+database_snapshots.org_id: text
+database_snapshots.records: bigint
+database_snapshots.size: bigint
+database_snapshots.tables: integer
+databases.change_seq: bigint
+databases.classification_label: text
+databases.color: text
+databases.created_at: timestamp with time zone
+databases.created_by: text
+databases.description: text
+databases.history_floor: bigint
+databases.icon: text
+databases.id: text
+databases.legal_hold: boolean
+databases.name: text
+databases.org_id: text
+databases.purged_at: timestamp with time zone
+databases.retention_policy: jsonb
+databases.settings: jsonb
+databases.trash_folder_id: text
+databases.trashed_at: timestamp with time zone
+databases.trashed_by: text
+databases.updated_at: timestamp with time zone
+embedding_changes.generation: bigint
+embedding_changes.queued_at: timestamp with time zone
+embedding_changes.record_id: text
+embedding_changes.table_id: text
+embedding_tables.cursor: bigint
+embedding_tables.database_id: text
+embedding_tables.enabled: boolean
+embedding_tables.generation: bigint
+embedding_tables.indexed_generation: bigint
+embedding_tables.lease_until: timestamp with time zone
+embedding_tables.org_id: text
+embedding_tables.table_id: text
+embedding_tables.user_id: text
+embeddings.database_id: text
+embeddings.digest: text
+embeddings.field_id: text
+embeddings.model_key: text
+embeddings.org_id: text
+embeddings.source_id: text
+embeddings.table_id: text
+embeddings.value: ARRAY
+feedback.context: jsonb
+feedback.created_at: timestamp with time zone
+feedback.id: text
+feedback.issue_number: integer
+feedback.issue_url: text
+feedback.kind: text
+feedback.message: text
+feedback.org_id: text
+feedback.screenshot: bytea
+feedback.screenshot_type: text
+feedback.status: text
+feedback.updated_at: timestamp with time zone
+feedback.upstream_issue_url: text
+feedback.upstream_pending_fingerprint: text
+feedback.upstream_sent_at: timestamp with time zone
+feedback.user_id: text
+feedback_replies.author_id: text
+feedback_replies.body: text
+feedback_replies.created_at: timestamp with time zone
+feedback_replies.feedback_id: text
+feedback_replies.id: text
+field_permissions.database_id: text
+field_permissions.field_id: text
+field_permissions.locked: jsonb
+field_permissions.org_id: text
+field_permissions.restricted: jsonb
+field_permissions.table_id: text
+field_permissions.updated_at: timestamp with time zone
+field_permissions.updated_by: text
+fields.ai: jsonb
+fields.classification_label: text
+fields.column_name: text
+fields.created_at: timestamp with time zone
+fields.created_by: text
+fields.description: text
+fields.id: text
+fields.ingest: jsonb
+fields.link_id: text
+fields.managed: text
+fields.name: text
+fields.options: jsonb
+fields.org_id: text
+fields.position: double precision
+fields.source: jsonb
+fields.table_id: text
+fields.trashed_at: timestamp with time zone
+fields.trashed_by: text
+fields.type: text
+fields.updated_at: timestamp with time zone
+file_chunks.bytes: bytea
+file_chunks.position: integer
+file_chunks.storage_key: text
+file_moves.file_id: text
+file_moves.moved_at: timestamp with time zone
+file_moves.storage: text
+file_moves.storage_keys: ARRAY
+file_upload_chunks.bytes: bytea
+file_upload_chunks.offset_bytes: bigint
+file_upload_chunks.upload_id: text
+file_uploads.completed: boolean
+file_uploads.created_by: text
+file_uploads.expires_at: timestamp with time zone
+file_uploads.field_id: text
+file_uploads.id: text
+file_uploads.length: bigint
+file_uploads.metadata: text
+file_uploads.name: text
+file_uploads.offset_bytes: bigint
+file_uploads.org_id: text
+file_uploads.record_id: text
+file_uploads.storage: text
+file_uploads.table_id: text
+files.attached_at: timestamp with time zone
+files.created_at: timestamp with time zone
+files.created_by: text
+files.field_id: text
+files.height: integer
+files.id: text
+files.ingest_file_id: text
+files.name: text
+files.org_id: text
+files.scan_attempts: integer
+files.scan_next_at: timestamp with time zone
+files.scan_signature: text
+files.scan_state: text
+files.sha256: text
+files.size: bigint
+files.storage: text
+files.storage_key: text
+files.table_id: text
+files.thumbnails: jsonb
+files.type: text
+files.width: integer
+folder_databases.database_id: text
+folder_databases.folder_id: text
+folder_databases.org_id: text
+folders.id: text
+folders.name: text
+folders.org_id: text
+folders.organization_folder: boolean
+folders.owner_id: text
+folders.parent_id: text
+folders.path: ARRAY
+folders.trash_folder_id: text
+folders.trashed_at: timestamp with time zone
+grants.created_at: timestamp with time zone
+grants.created_by: text
+grants.org_id: text
+grants.principal_id: text
+grants.principal_kind: text
+grants.resource_id: text
+grants.resource_kind: text
+grants.role: text
+group_members.group_id: text
+group_members.org_id: text
+group_members.user_id: text
+groups.created_at: timestamp with time zone
+groups.id: text
+groups.name: text
+groups.org_id: text
+groups.scim_managed: boolean
+home_shortcuts.id: text
+home_shortcuts.org_id: text
+home_shortcuts.owner_id: text
+home_shortcuts.parent_id: text
+home_shortcuts.target_id: text
+home_shortcuts.target_kind: text
+home_shortcuts.trash_sources: ARRAY
+home_shortcuts.trashed_at: timestamp with time zone
+home_tag_colors.color: text
+home_tag_colors.id: text
+home_tag_colors.name: text
+home_tag_colors.org_id: text
+home_tag_links.org_id: text
+home_tag_links.resource_id: text
+home_tag_links.resource_kind: text
+home_tag_links.tag_id: text
+home_tags.color: text
+home_tags.id: text
+home_tags.name: text
+home_tags.org_id: text
+home_tags.owner_id: text
+home_tags.trashed_at: timestamp with time zone
+home_tags.visibility: text
+ingest_answers.answered_at: timestamp with time zone
+ingest_answers.answered_by: text
+ingest_answers.id: text
+ingest_answers.org_id: text
+ingest_answers.question_document: jsonb
+ingest_answers.question_id: text
+ingest_answers.question_version: text
+ingest_answers.response: jsonb
+ingest_answers.seq: bigint
+ingest_answers.table_id: text
+ingest_builds.created_at: timestamp with time zone
+ingest_builds.draft: jsonb
+ingest_builds.facts: jsonb
+ingest_builds.format_id: text
+ingest_builds.id: text
+ingest_builds.org_id: text
+ingest_builds.state: text
+ingest_builds.status: jsonb
+ingest_builds.table_id: text
+ingest_builds.updated_at: timestamp with time zone
+ingest_builds.user_id: text
+ingest_drafts.document: jsonb
+ingest_drafts.file_id: text
+ingest_drafts.format_id: text
+ingest_drafts.id: text
+ingest_drafts.org_id: text
+ingest_drafts.revision: integer
+ingest_drafts.run_token: text
+ingest_drafts.state: text
+ingest_drafts.table_id: text
+ingest_drafts.updated_at: timestamp with time zone
+ingest_examples.builder_shown: boolean
+ingest_examples.confirmed_at: timestamp with time zone
+ingest_examples.confirmed_by: text
+ingest_examples.confirmed_findings: jsonb
+ingest_examples.expected: jsonb
+ingest_examples.file_id: text
+ingest_examples.format_id: text
+ingest_examples.id: text
+ingest_examples.last_result: jsonb
+ingest_examples.org_id: text
+ingest_examples.own: boolean
+ingest_examples.table_id: text
+ingest_files.attempts: integer
+ingest_files.checks: jsonb
+ingest_files.counts: jsonb
+ingest_files.dropped_by: text
+ingest_files.expires_at: timestamp with time zone
+ingest_files.format_id: text
+ingest_files.hold_reason: text
+ingest_files.id: text
+ingest_files.is_example: boolean
+ingest_files.lease_until: timestamp with time zone
+ingest_files.leased_by: text
+ingest_files.media_type: text
+ingest_files.name: text
+ingest_files.next_attempt_at: timestamp with time zone
+ingest_files.notes: jsonb
+ingest_files.org_id: text
+ingest_files.origin: text
+ingest_files.original_expired_at: timestamp with time zone
+ingest_files.parent_id: text
+ingest_files.received_at: timestamp with time zone
+ingest_files.sender_id: text
+ingest_files.seq: bigint
+ingest_files.sha256: text
+ingest_files.size_bytes: bigint
+ingest_files.state: text
+ingest_files.stored_file: text
+ingest_files.table_id: text
+ingest_formats.blind_failures: integer
+ingest_formats.checks: jsonb
+ingest_formats.created_at: timestamp with time zone
+ingest_formats.created_by: text
+ingest_formats.id: text
+ingest_formats.ignored_headings: jsonb
+ingest_formats.name: text
+ingest_formats.org_id: text
+ingest_formats.probation_passed: integer
+ingest_formats.reading: text
+ingest_formats.revision: integer
+ingest_formats.rules: jsonb
+ingest_formats.signature: jsonb
+ingest_formats.state: text
+ingest_formats.study_file_id: text
+ingest_formats.table_id: text
+ingest_formats.unknown_sender_id: text
+ingest_formats.updated_at: timestamp with time zone
+ingest_formats.value_sources: jsonb
+ingest_live_requests.action: text
+ingest_live_requests.created_at: timestamp with time zone
+ingest_live_requests.file_id: text
+ingest_live_requests.id: text
+ingest_live_requests.lease_until: timestamp with time zone
+ingest_live_requests.message_id: text
+ingest_live_requests.org_id: text
+ingest_live_requests.state: text
+ingest_live_requests.table_id: text
+ingest_live_requests.undo_group_id: text
+ingest_live_requests.user_id: text
+ingest_original_deletions.attempts: integer
+ingest_original_deletions.id: text
+ingest_original_deletions.org_id: text
+ingest_original_deletions.retry_at: timestamp with time zone
+ingest_original_deletions.size_bytes: bigint
+ingest_original_deletions.storage: text
+ingest_original_deletions.storage_key: text
+ingest_pipeline_jobs.attempts: jsonb
+ingest_pipeline_jobs.file_id: text
+ingest_pipeline_jobs.notified: boolean
+ingest_pipeline_jobs.notified_questions: jsonb
+ingest_pipeline_jobs.org_id: text
+ingest_pipeline_jobs.parts_created: boolean
+ingest_pipeline_jobs.prepared: jsonb
+ingest_pipeline_jobs.question_ids: jsonb
+ingest_pipeline_jobs.run_id: text
+ingest_pipeline_jobs.started_at: timestamp with time zone
+ingest_pipeline_jobs.table_id: text
+ingest_questions.active: boolean
+ingest_questions.created_at: timestamp with time zone
+ingest_questions.document: jsonb
+ingest_questions.id: text
+ingest_questions.org_id: text
+ingest_questions.table_id: text
+ingest_questions.updated_at: timestamp with time zone
+ingest_questions.version: text
+ingest_row_state.at: jsonb
+ingest_row_state.created_by_file_id: text
+ingest_row_state.file_id: text
+ingest_row_state.hashes: jsonb
+ingest_row_state.history: jsonb
+ingest_row_state.identity: text
+ingest_row_state.org_id: text
+ingest_row_state.reasons: jsonb
+ingest_row_state.record_id: text
+ingest_row_state.table_id: text
+ingest_row_state.values: jsonb
+ingest_rules.answer_id: text
+ingest_rules.created_at: timestamp with time zone
+ingest_rules.created_by: text
+ingest_rules.document: jsonb
+ingest_rules.enabled: boolean
+ingest_rules.id: text
+ingest_rules.kind: text
+ingest_rules.org_id: text
+ingest_rules.table_id: text
+ingest_rules.updated_at: timestamp with time zone
+ingest_senders.added_at: timestamp with time zone
+ingest_senders.added_by: text
+ingest_senders.approved: boolean
+ingest_senders.id: text
+ingest_senders.kind: text
+ingest_senders.label: text
+ingest_senders.org_id: text
+ingest_senders.table_id: text
+ingest_senders.value: text
+ingest_studies.document: jsonb
+ingest_studies.file_id: text
+ingest_studies.org_id: text
+ingest_studies.table_id: text
+ingest_studies.updated_at: timestamp with time zone
+ingest_write_batches.batch: integer
+ingest_write_batches.file_id: text
+ingest_write_batches.input_hash: text
+ingest_write_batches.operation: text
+ingest_write_batches.org_id: text
+ingest_write_batches.result: jsonb
+ingest_write_batches.run_id: text
+ingest_write_batches.table_id: text
+interfaces.created_at: timestamp with time zone
+interfaces.created_by: text
+interfaces.database_id: text
+interfaces.id: text
+interfaces.name: text
+interfaces.org_id: text
+interfaces.pages: jsonb
+interfaces.position: double precision
+interfaces.trashed_at: timestamp with time zone
+interfaces.trashed_by: text
+interfaces.updated_at: timestamp with time zone
+invitation_grants.created_by: text
+invitation_grants.invitation_id: text
+invitation_grants.org_id: text
+invitation_grants.resource_id: text
+invitation_grants.resource_kind: text
+invitation_grants.role: text
+invitations.accepted_at: timestamp with time zone
+invitations.copied: boolean
+invitations.created_at: timestamp with time zone
+invitations.display_name: text
+invitations.email: text
+invitations.expires_at: timestamp with time zone
+invitations.id: text
+invitations.invited_by: text
+invitations.kind: text
+invitations.org_id: text
+invitations.reserved_user_id: text
+invitations.token_hash: text
+knowledge_actions.after: jsonb
+knowledge_actions.before: jsonb
+knowledge_actions.created_at: timestamp with time zone
+knowledge_actions.database_id: text
+knowledge_actions.id: uuid
+knowledge_actions.library_unit_id: text
+knowledge_actions.library_user_id: text
+knowledge_actions.org_id: text
+knowledge_actions.undone: boolean
+knowledge_actions.user_id: text
+knowledge_chunks.document_id: uuid
+knowledge_chunks.position: integer
+knowledge_chunks.section: text
+knowledge_chunks.text: text
+knowledge_chunks.value: ARRAY
+knowledge_documents.error_key: text
+knowledge_documents.id: uuid
+knowledge_documents.library_id: uuid
+knowledge_documents.model_key: text
+knowledge_documents.name: text
+knowledge_documents.revision: text
+knowledge_documents.size: integer
+knowledge_documents.source_text: text
+knowledge_documents.status: text
+knowledge_documents.updated_at: timestamp with time zone
+knowledge_index_jobs.attempts: integer
+knowledge_index_jobs.document_id: uuid
+knowledge_index_jobs.file_name: text
+knowledge_index_jobs.id: uuid
+knowledge_index_jobs.lease_at: timestamp with time zone
+knowledge_index_jobs.lease_token: text
+knowledge_index_jobs.library_id: uuid
+knowledge_index_jobs.org_id: text
+knowledge_index_jobs.payload: bytea
+knowledge_index_jobs.queued_at: timestamp with time zone
+knowledge_index_jobs.restoring: boolean
+knowledge_index_jobs.user_id: text
+knowledge_libraries.database_id: text
+knowledge_libraries.description: text
+knowledge_libraries.guidance: text
+knowledge_libraries.id: uuid
+knowledge_libraries.label: text
+knowledge_libraries.name: text
+knowledge_libraries.org_id: text
+knowledge_libraries.scope: text
+knowledge_libraries.target: text
+knowledge_libraries.unit_id: text
+knowledge_libraries.user_id: text
+knowledge_settings.org_id: text
+knowledge_settings.settings: jsonb
+links.created_at: timestamp with time zone
+links.id: text
+links.left_field_id: text
+links.left_table_id: text
+links.org_id: text
+links.right_field_id: text
+links.right_table_id: text
+login_tokens.created_at: timestamp with time zone
+login_tokens.email: text
+login_tokens.expires_at: timestamp with time zone
+login_tokens.id: text
+login_tokens.purpose: text
+login_tokens.reset_request: bigint
+login_tokens.reset_source: text
+login_tokens.token_hash: text
+login_tokens.used_at: timestamp with time zone
+login_tokens.user_id: text
+memberships.admin_roles: ARRAY
+memberships.created_at: timestamp with time zone
+memberships.kind: text
+memberships.org_id: text
+memberships.org_unit_id: text
+memberships.user_id: text
+memories.database_id: text
+memories.id: uuid
+memories.org_id: text
+memories.remote_data_blocked: boolean
+memories.text: text
+memories.updated_at: timestamp with time zone
+memories.user_id: text
+mfa_spent.expires_at: timestamp with time zone
+mfa_spent.key: text
+named_functions.body: text
+named_functions.created_at: timestamp with time zone
+named_functions.created_by: text
+named_functions.database_id: text
+named_functions.description: text
+named_functions.id: text
+named_functions.name: text
+named_functions.parameters: jsonb
+named_functions.revision: integer
+named_functions.updated_at: timestamp with time zone
+named_functions.updated_by: text
+notification_actions.after: jsonb
+notification_actions.before: jsonb
+notification_actions.created_at: timestamp with time zone
+notification_actions.id: text
+notification_actions.org_id: text
+notification_actions.undone: boolean
+notification_actions.user_id: text
+notification_alert_events.created_at: timestamp with time zone
+notification_alert_events.event_id: text
+notification_credentials.name: text
+notification_credentials.org_id: text
+notification_credentials.scope_key: text
+notification_credentials.sealed: text
+notification_deliveries.attempted_at: timestamp with time zone
+notification_deliveries.channel: text
+notification_deliveries.created_at: timestamp with time zone
+notification_deliveries.device_id: text
+notification_deliveries.id: text
+notification_deliveries.notification_id: text
+notification_deliveries.org_id: text
+notification_deliveries.payload: jsonb
+notification_deliveries.state: text
+notification_deliveries.user_id: text
+notification_devices.created_at: timestamp with time zone
+notification_devices.id: text
+notification_devices.org_id: text
+notification_devices.sealed: text
+notification_devices.user_id: text
+notification_organizations.enabled: jsonb
+notification_organizations.org_id: text
+notification_phones.org_id: text
+notification_phones.sealed: text
+notification_phones.user_id: text
+notification_preferences.channels: jsonb
+notification_preferences.digest: jsonb
+notification_preferences.digest_slot: text
+notification_preferences.email: jsonb
+notification_preferences.org_id: text
+notification_preferences.updated_at: timestamp with time zone
+notification_preferences.user_id: text
+notifications.actor_id: text
+notifications.channels_queued: boolean
+notifications.created_at: timestamp with time zone
+notifications.digested_at: timestamp with time zone
+notifications.email: text
+notifications.id: text
+notifications.kind: text
+notifications.org_id: text
+notifications.read_at: timestamp with time zone
+notifications.recipient_id: text
+notifications.subject_id: text
+notifications.target: jsonb
+oauth_apps.api_key: text
+oauth_apps.client_id: text
+oauth_apps.enabled: boolean
+oauth_apps.org_id: text
+oauth_apps.provider: text
+oauth_apps.sealed_secret: text
+oauth_apps.tenant_id: text
+oauth_apps.updated_at: timestamp with time zone
+oauth_apps.updated_by: text
+oauth_clients.created_at: timestamp with time zone
+oauth_clients.homepage: text
+oauth_clients.icon: text
+oauth_clients.id: text
+oauth_clients.import_paused: boolean
+oauth_clients.last_used_at: timestamp with time zone
+oauth_clients.name: text
+oauth_clients.org_id: text
+oauth_clients.redirect_uris: ARRAY
+oauth_clients.refresh_allowed: boolean
+oauth_clients.revoked_at: timestamp with time zone
+oauth_clients.scopes: ARRAY
+oauth_clients.secret_hash: text
+oauth_clients.verified: boolean
+oauth_connections.account_email: text
+oauth_connections.account_id: text
+oauth_connections.account_name: text
+oauth_connections.broken_at: timestamp with time zone
+oauth_connections.created_at: timestamp with time zone
+oauth_connections.expires_at: timestamp with time zone
+oauth_connections.id: text
+oauth_connections.org_id: text
+oauth_connections.provider: text
+oauth_connections.scope: text
+oauth_connections.sealed_tokens: text
+oauth_connections.updated_at: timestamp with time zone
+oauth_connections.user_id: text
+oauth_consents.client_id: text
+oauth_consents.created_at: timestamp with time zone
+oauth_consents.databases: ARRAY
+oauth_consents.id: text
+oauth_consents.org_id: text
+oauth_consents.revoked_at: timestamp with time zone
+oauth_consents.scopes: ARRAY
+oauth_consents.updated_at: timestamp with time zone
+oauth_consents.user_id: text
+oauth_credentials.challenge: text
+oauth_credentials.expires_at: timestamp with time zone
+oauth_credentials.grant_id: text
+oauth_credentials.hash: text
+oauth_credentials.kind: text
+oauth_credentials.redirect_uri: text
+oauth_credentials.scopes: ARRAY
+oauth_credentials.used_at: timestamp with time zone
+oauth_flows.created_at: timestamp with time zone
+oauth_flows.expires_at: timestamp with time zone
+oauth_flows.next: text
+oauth_flows.org_id: text
+oauth_flows.provider: text
+oauth_flows.sealed_verifier: text
+oauth_flows.session_id: text
+oauth_flows.state_hash: text
+oauth_flows.user_id: text
+oauth_grants.client_id: text
+oauth_grants.consent_id: text
+oauth_grants.created_at: timestamp with time zone
+oauth_grants.id: text
+oauth_grants.org_id: text
+oauth_grants.resource: text
+oauth_grants.revoked_at: timestamp with time zone
+oauth_grants.scopes: ARRAY
+oauth_grants.user_id: text
+oauth_requests.address: text
+oauth_requests.client_id: text
+oauth_requests.created_at: timestamp with time zone
+oauth_requests.expires_at: timestamp with time zone
+oauth_requests.id: text
+oauth_requests.parameters: jsonb
+oauth_requests.session_id: text
+oauth_requests.used_at: timestamp with time zone
+oauth_settings.dynamic_registration: boolean
+oauth_settings.org_id: text
+oauth_webhooks.grant_id: text
+oauth_webhooks.webhook_id: text
+org_templates.archive: bytea
+org_templates.category: text
+org_templates.color: text
+org_templates.created_at: timestamp with time zone
+org_templates.created_by: text
+org_templates.description: text
+org_templates.icon: text
+org_templates.id: text
+org_templates.name: text
+org_templates.org_id: text
+org_templates.samples: integer
+org_templates.source_database_id: text
+org_templates.table_names: ARRAY
+org_unit_admins.org_id: text
+org_unit_admins.roles: ARRAY
+org_unit_admins.unit_id: text
+org_unit_admins.user_id: text
+org_units.created_at: timestamp with time zone
+org_units.id: text
+org_units.name: text
+org_units.org_id: text
+org_units.parent_id: text
+org_units.policy: jsonb
+org_units.policy_levels: jsonb
+organization_archive_chunks.bytes: bytea
+organization_archive_chunks.job_id: text
+organization_archive_chunks.position: bigint
+organization_archives.authenticated: boolean
+organization_archives.created_at: timestamp with time zone
+organization_archives.error: jsonb
+organization_archives.expires_at: timestamp with time zone
+organization_archives.id: text
+organization_archives.kind: text
+organization_archives.org_id: text
+organization_archives.preview: jsonb
+organization_archives.progress: bigint
+organization_archives.report: jsonb
+organization_archives.state: text
+organization_archives.summary: jsonb
+organization_archives.total: bigint
+organization_archives.updated_at: timestamp with time zone
+organization_archives.user_id: text
+organization_import_authors.author_column: text
+organization_import_authors.catalog: text
+organization_import_authors.key_column: text
+organization_import_authors.org_id: text
+organization_import_authors.row_id: text
+organization_import_authors.user_id: text
+organization_import_review.created_at: timestamp with time zone
+organization_import_review.database_id: text
+organization_import_review.destinations: jsonb
+organization_import_review.detail: jsonb
+organization_import_review.done_at: timestamp with time zone
+organization_import_review.id: text
+organization_import_review.kind: text
+organization_import_review.name: text
+organization_import_review.org_id: text
+organization_import_review.target_id: text
+orgs.automation_sms_enabled: boolean
+orgs.calendar_feeds: boolean
+orgs.classification_labels: jsonb
+orgs.classification_revision: bigint
+orgs.created_at: timestamp with time zone
+orgs.feedback_github_enabled: boolean
+orgs.feedback_github_repository: text
+orgs.feedback_github_token: text
+orgs.feedback_hub_enabled: boolean
+orgs.id: text
+orgs.name: text
+orgs.public_sharing: jsonb
+orgs.report_outside_recipients: boolean
+orgs.retention_policy: jsonb
+orgs.retired_database_retention: jsonb
+orgs.second_step_policy: text
+orgs.settings: jsonb
+outbound_sync_rows.external_id: text
+outbound_sync_rows.record_id: text
+outbound_sync_rows.seen_run: text
+outbound_sync_rows.sent_hash: text
+outbound_sync_rows.sync_id: text
+outbound_sync_rows.updated_at: timestamp with time zone
+outbound_sync_runs.actor_id: text
+outbound_sync_runs.ended_at: timestamp with time zone
+outbound_sync_runs.error_key: text
+outbound_sync_runs.error_params: jsonb
+outbound_sync_runs.id: text
+outbound_sync_runs.notes: jsonb
+outbound_sync_runs.org_id: text
+outbound_sync_runs.outcome: text
+outbound_sync_runs.seq: bigint
+outbound_sync_runs.started_at: timestamp with time zone
+outbound_sync_runs.stats: jsonb
+outbound_sync_runs.sync_id: text
+outbound_sync_runs.trigger: text
+outbound_syncs.created_at: timestamp with time zone
+outbound_syncs.created_by: text
+outbound_syncs.database_id: text
+outbound_syncs.destination: jsonb
+outbound_syncs.enabled: boolean
+outbound_syncs.failures: integer
+outbound_syncs.id: text
+outbound_syncs.key_column_id: text
+outbound_syncs.kind: text
+outbound_syncs.lease_at: timestamp with time zone
+outbound_syncs.lease_token: text
+outbound_syncs.mapping: jsonb
+outbound_syncs.name: text
+outbound_syncs.needs_reconcile: boolean
+outbound_syncs.next_run_at: timestamp with time zone
+outbound_syncs.org_id: text
+outbound_syncs.queued_again: boolean
+outbound_syncs.queued_by: text
+outbound_syncs.queued_trigger: text
+outbound_syncs.sealed_credential: text
+outbound_syncs.settings: jsonb
+outbound_syncs.status: jsonb
+outbound_syncs.stopped_because: text
+outbound_syncs.table_id: text
+outbound_syncs.updated_at: timestamp with time zone
+outbound_syncs.view_id: text
+passkeys.created_at: timestamp with time zone
+passkeys.credential_id: text
+passkeys.id: text
+passkeys.last_used_at: timestamp with time zone
+passkeys.name: text
+passkeys.public_key: bytea
+passkeys.sign_count: bigint
+passkeys.synced: boolean
+passkeys.transports: ARRAY
+passkeys.user_handle: text
+passkeys.user_id: text
+password_reset_latest_requests.address_hash: text
+password_reset_latest_requests.request_number: bigint
+payment_events.connection_id: text
+payment_events.event_id: text
+payment_fields.amount_field: text
+payment_fields.choices: jsonb
+payment_fields.currency: text
+payment_fields.reference_field: text
+payment_fields.status_field: text
+payment_fields.table_id: text
+payment_pages.kind: text
+payment_pages.settings: jsonb
+payment_pages.table_id: text
+payment_pages.target_id: text
+payment_refusals.connection_id: text
+payment_refusals.count: integer
+payment_refusals.hour: timestamp with time zone
+payment_refusals.reasons: jsonb
+payments.address_key: text
+payments.amount: integer
+payments.booking_mail: text
+payments.checkout_url: text
+payments.connection_id: text
+payments.created_at: timestamp with time zone
+payments.currency: text
+payments.database_id: text
+payments.description: text
+payments.expires_at: timestamp with time zone
+payments.intent_id: text
+payments.kind: text
+payments.mail_claimed: boolean
+payments.org_id: text
+payments.owner_id: text
+payments.record_id: text
+payments.session_id: text
+payments.state: text
+payments.table_id: text
+payments.target_id: text
+platform_imports.address: text
+platform_imports.base_id: text
+platform_imports.cancel_requested: boolean
+platform_imports.created_at: timestamp with time zone
+platform_imports.database_id: text
+platform_imports.error: jsonb
+platform_imports.finished_at: timestamp with time zone
+platform_imports.id: text
+platform_imports.name: text
+platform_imports.org_id: text
+platform_imports.platform: text
+platform_imports.progress: jsonb
+platform_imports.report: jsonb
+platform_imports.sealed_token: text
+platform_imports.state: text
+platform_imports.updated_at: timestamp with time zone
+platform_imports.user_id: text
+platform_imports.version: integer
+public_form_attempts.address: text
+public_form_attempts.at: timestamp with time zone
+public_form_attempts.form_id: text
+public_forms.created_at: timestamp with time zone
+public_forms.created_by: text
+public_forms.database_id: text
+public_forms.edit_version: integer
+public_forms.embed: jsonb
+public_forms.files: ARRAY
+public_forms.id: text
+public_forms.org_id: text
+public_forms.stopped_at: timestamp with time zone
+public_forms.submissions: bigint
+public_forms.view_id: text
+published_sites.database_id: text
+published_sites.domain_id: text
+published_sites.interface_id: text
+published_sites.org_id: text
+published_sites.originals_access: boolean
+published_sites.pages: jsonb
+published_sites.published: boolean
+published_sites.publisher_id: text
+published_sites.settings: jsonb
+published_sites.slug: text
+published_sites.updated_at: timestamp with time zone
+record_changes.database_id: text
+record_changes.record_id: text
+record_changes.seq: bigint
+record_changes.table_id: text
+record_locks.database_id: text
+record_locks.locked_at: timestamp with time zone
+record_locks.locked_by: text
+record_locks.org_id: text
+record_locks.reason: text
+record_locks.record_id: text
+record_locks.table_id: text
+record_positions.position: numeric
+record_positions.record_id: text
+record_positions.view_id: text
+record_rules.condition: jsonb
+record_rules.database_id: text
+record_rules.id: text
+record_rules.org_id: text
+record_rules.position: integer
+record_rules.roles: ARRAY
+record_rules.table_id: text
+record_rules.updated_at: timestamp with time zone
+record_rules.updated_by: text
+record_rules.users: ARRAY
+recovery_codes.code_hash: text
+recovery_codes.created_at: timestamp with time zone
+recovery_codes.id: bigint
+recovery_codes.used_at: timestamp with time zone
+recovery_codes.user_id: text
+remote_actions.after: jsonb
+remote_actions.before: jsonb
+remote_actions.created_at: timestamp with time zone
+remote_actions.id: uuid
+remote_actions.org_id: text
+remote_actions.server_id: uuid
+remote_actions.undone: boolean
+remote_actions.user_id: text
+remote_calls.conversation_id: text
+remote_calls.created_at: timestamp with time zone
+remote_calls.expires_at: timestamp with time zone
+remote_calls.id: uuid
+remote_calls.org_id: text
+remote_calls.result: text
+remote_calls.revision: integer
+remote_calls.sealed: text
+remote_calls.server_id: uuid
+remote_calls.status: text
+remote_calls.tool: text
+remote_calls.user_id: text
+remote_servers.config: jsonb
+remote_servers.error_key: text
+remote_servers.id: uuid
+remote_servers.org_id: text
+remote_servers.refreshed_at: timestamp with time zone
+remote_servers.revision: integer
+remote_servers.sealed: text
+remote_servers.skipped_tools: jsonb
+remote_servers.tools: jsonb
+remote_servers.user_id: text
+report_recipients.address: text
+report_recipients.position: integer
+report_recipients.report_id: text
+report_recipients.user_id: text
+report_runs.actor_id: text
+report_runs.attempts: integer
+report_runs.deliveries: jsonb
+report_runs.due_at: timestamp with time zone
+report_runs.error: text
+report_runs.finished_at: timestamp with time zone
+report_runs.id: text
+report_runs.lease_at: timestamp with time zone
+report_runs.lease_token: text
+report_runs.org_id: text
+report_runs.report_id: text
+report_runs.retry_at: timestamp with time zone
+report_runs.seq: bigint
+report_runs.started_at: timestamp with time zone
+report_runs.state: text
+report_runs.trigger: text
+report_schedules.created_at: timestamp with time zone
+report_schedules.database_id: text
+report_schedules.enabled: boolean
+report_schedules.format: text
+report_schedules.frequency: jsonb
+report_schedules.id: text
+report_schedules.last_run_at: timestamp with time zone
+report_schedules.locale: text
+report_schedules.name: text
+report_schedules.next_run_at: timestamp with time zone
+report_schedules.org_id: text
+report_schedules.owner_id: text
+report_schedules.stopped_because: text
+report_schedules.table_id: text
+report_schedules.time_zone: text
+report_schedules.updated_at: timestamp with time zone
+report_schedules.view_id: text
+rio_active_conversations.conversation_id: text
+rio_active_conversations.org_id: text
+rio_active_conversations.session_id: text
+rio_active_conversations.user_id: text
+rio_conversation_summaries.classification_revision: bigint
+rio_conversation_summaries.conversation_id: text
+rio_conversation_summaries.database_id: text
+rio_conversation_summaries.org_id: text
+rio_conversation_summaries.summary: text
+rio_conversation_summaries.through_position: bigint
+rio_conversation_summaries.user_id: text
+rio_conversations.context_usage: jsonb
+rio_conversations.created_at: timestamp with time zone
+rio_conversations.id: text
+rio_conversations.org_id: text
+rio_conversations.remote_data_blocked: boolean
+rio_conversations.title: text
+rio_conversations.updated_at: timestamp with time zone
+rio_conversations.user_id: text
+rio_messages.blocks: jsonb
+rio_messages.classification_revision: bigint
+rio_messages.compaction: boolean
+rio_messages.context_database_id: text
+rio_messages.conversation_id: text
+rio_messages.created_at: timestamp with time zone
+rio_messages.id: text
+rio_messages.org_id: text
+rio_messages.position: bigint
+rio_messages.role: text
+rio_messages.screen_context: jsonb
+rio_messages.usage: jsonb
+rio_messages.user_id: text
+rio_plans.commands: jsonb
+rio_plans.conversation_id: text
+rio_plans.created_at: timestamp with time zone
+rio_plans.database_id: text
+rio_plans.expires_at: timestamp with time zone
+rio_plans.group_id: text
+rio_plans.id: text
+rio_plans.org_id: text
+rio_plans.status: text
+rio_plans.steps: jsonb
+rio_plans.summary: text
+rio_plans.user_id: text
+rio_routine_approvals.created_at: timestamp with time zone
+rio_routine_approvals.database_id: text
+rio_routine_approvals.decided_at: timestamp with time zone
+rio_routine_approvals.detail: jsonb
+rio_routine_approvals.expires_at: timestamp with time zone
+rio_routine_approvals.group_id: text
+rio_routine_approvals.id: text
+rio_routine_approvals.kind: text
+rio_routine_approvals.message_key: text
+rio_routine_approvals.org_id: text
+rio_routine_approvals.owner_id: text
+rio_routine_approvals.routine_id: text
+rio_routine_approvals.run_id: text
+rio_routine_approvals.status: text
+rio_routine_approvals.summary: text
+rio_routine_runs.activity: jsonb
+rio_routine_runs.cost_usd: numeric
+rio_routine_runs.created_at: timestamp with time zone
+rio_routine_runs.database_id: text
+rio_routine_runs.finished_at: timestamp with time zone
+rio_routine_runs.footprint: jsonb
+rio_routine_runs.group_id: text
+rio_routine_runs.id: text
+rio_routine_runs.input_tokens: integer
+rio_routine_runs.lease_at: timestamp with time zone
+rio_routine_runs.lease_token: text
+rio_routine_runs.message_key: text
+rio_routine_runs.model: text
+rio_routine_runs.ms: integer
+rio_routine_runs.org_id: text
+rio_routine_runs.output_tokens: integer
+rio_routine_runs.provider_id: text
+rio_routine_runs.receipt_summary: text
+rio_routine_runs.report: text
+rio_routine_runs.revision: jsonb
+rio_routine_runs.routine_id: text
+rio_routine_runs.seq: bigint
+rio_routine_runs.started_at: timestamp with time zone
+rio_routine_runs.state: text
+rio_routine_runs.steps: integer
+rio_routine_runs.trigger: text
+rio_routines.admin_paused_at: timestamp with time zone
+rio_routines.admin_paused_by: text
+rio_routines.approved_hosts: jsonb
+rio_routines.approved_recipients: jsonb
+rio_routines.cost_cap_usd: numeric
+rio_routines.created_at: timestamp with time zone
+rio_routines.database_id: text
+rio_routines.declined_hosts: jsonb
+rio_routines.failures: integer
+rio_routines.id: text
+rio_routines.instructions: text
+rio_routines.locale: text
+rio_routines.name: text
+rio_routines.next_run_at: timestamp with time zone
+rio_routines.org_id: text
+rio_routines.owner_id: text
+rio_routines.paused_at: timestamp with time zone
+rio_routines.paused_by: text
+rio_routines.paused_reason: text
+rio_routines.plan: jsonb
+rio_routines.schedule: jsonb
+rio_routines.time_zone: text
+rio_routines.updated_at: timestamp with time zone
+saml_assertions.assertion_id: text
+saml_assertions.expires_at: timestamp with time zone
+saml_assertions.provider_id: text
+schema_migrations.applied_at: timestamp with time zone
+schema_migrations.checksum: text
+schema_migrations.id: text
+scim_groups.created_at: timestamp with time zone
+scim_groups.deleted_at: timestamp with time zone
+scim_groups.document: jsonb
+scim_groups.external_id: text
+scim_groups.group_id: text
+scim_groups.org_id: text
+scim_groups.updated_at: timestamp with time zone
+scim_settings.delete_action: text
+scim_settings.dry_run: boolean
+scim_settings.org_id: text
+scim_tokens.created_at: timestamp with time zone
+scim_tokens.created_by: text
+scim_tokens.id: text
+scim_tokens.last_used_at: timestamp with time zone
+scim_tokens.name: text
+scim_tokens.org_id: text
+scim_tokens.rate_count: integer
+scim_tokens.rate_started_at: timestamp with time zone
+scim_tokens.revoked_at: timestamp with time zone
+scim_tokens.secret_hash: text
+scim_unit_mappings.attribute: text
+scim_unit_mappings.org_id: text
+scim_unit_mappings.unit_id: text
+scim_unit_mappings.value: text
+scim_users.created_at: timestamp with time zone
+scim_users.deleted_at: timestamp with time zone
+scim_users.document: jsonb
+scim_users.external_id: text
+scim_users.org_id: text
+scim_users.updated_at: timestamp with time zone
+scim_users.user_id: text
+scripts.created_at: timestamp with time zone
+scripts.created_by: text
+scripts.database_id: text
+scripts.description: text
+scripts.id: text
+scripts.name: text
+scripts.org_id: text
+scripts.position: double precision
+scripts.source: text
+scripts.trashed_at: timestamp with time zone
+scripts.trashed_by: text
+scripts.updated_at: timestamp with time zone
+sessions.created_at: timestamp with time zone
+sessions.csrf_token: text
+sessions.demo: boolean
+sessions.demo_address: text
+sessions.expires_at: timestamp with time zone
+sessions.id: text
+sessions.last_seen_at: timestamp with time zone
+sessions.revoked_at: timestamp with time zone
+sessions.second_step_verified: boolean
+sessions.sign_in_method: text
+sessions.sso_provider_id: text
+sessions.sso_verified: boolean
+sessions.token_hash: text
+sessions.user_agent: text
+sessions.user_id: text
+shared_views.created_at: timestamp with time zone
+shared_views.created_by: text
+shared_views.database_id: text
+shared_views.id: text
+shared_views.org_id: text
+shared_views.originals_access: boolean
+shared_views.password_hash: text
+shared_views.settings: jsonb
+shared_views.stopped_at: timestamp with time zone
+shared_views.updated_at: timestamp with time zone
+shared_views.view_id: text
+signature_attempts.count: integer
+signature_attempts.key: text
+signature_attempts.starts_at: timestamp with time zone
+signature_deliveries.attempts: integer
+signature_deliveries.failed_at: timestamp with time zone
+signature_deliveries.id: bigint
+signature_deliveries.kind: text
+signature_deliveries.next_at: timestamp with time zone
+signature_deliveries.recipient: text
+signature_deliveries.request_id: text
+signature_deliveries.sent_at: timestamp with time zone
+signature_deliveries.signer_id: text
+signature_history.action: text
+signature_history.at: timestamp with time zone
+signature_history.id: bigint
+signature_history.reason: text
+signature_history.request_id: text
+signature_history.signer_id: text
+signature_requests.created_at: timestamp with time zone
+signature_requests.database_id: text
+signature_requests.expires_at: timestamp with time zone
+signature_requests.field_id: text
+signature_requests.final_hash: text
+signature_requests.id: text
+signature_requests.input: jsonb
+signature_requests.name: text
+signature_requests.org_id: text
+signature_requests.original_hash: text
+signature_requests.pages: jsonb
+signature_requests.record_id: text
+signature_requests.requester_id: text
+signature_requests.signed_file_id: text
+signature_requests.signers: jsonb
+signature_requests.source_id: text
+signature_requests.status: text
+signature_requests.table_id: text
+source_hook_deliveries.at: timestamp with time zone
+source_hook_deliveries.body: text
+source_hook_deliveries.bytes: integer
+source_hook_deliveries.error: text
+source_hook_deliveries.id: text
+source_hook_deliveries.records: integer
+source_hook_deliveries.refusal: text
+source_hook_deliveries.seq: bigint
+source_hook_deliveries.source_id: text
+source_hook_deliveries.status: integer
+source_hook_deliveries.written: boolean
+source_hook_posts.attempts: integer
+source_hook_posts.body: text
+source_hook_posts.delivery_id: text
+source_hook_posts.failed_at: timestamp with time zone
+source_hook_posts.first_failed_at: timestamp with time zone
+source_hook_posts.next_attempt_at: timestamp with time zone
+source_hook_posts.received_at: timestamp with time zone
+source_hook_posts.records_path: text
+source_hook_posts.seq: bigint
+source_hook_posts.source_id: text
+source_hook_posts.split: boolean
+source_hook_samples.body: text
+source_hook_samples.id: bigint
+source_hook_samples.received_at: timestamp with time zone
+source_hook_samples.source_id: text
+source_hooks.bodies_until: timestamp with time zone
+source_hooks.last_post_at: timestamp with time zone
+source_hooks.org_id: text
+source_hooks.rate_count: integer
+source_hooks.rate_window: timestamp with time zone
+source_hooks.samples_until: timestamp with time zone
+source_hooks.source_id: text
+source_hooks.token_created_at: timestamp with time zone
+source_hooks.token_hash: text
+source_stage.ordinal: bigint
+source_stage.record_id: text
+source_stage.source_key: text
+source_stage.table_id: text
+source_stage.token: text
+source_stage.values: jsonb
+sources.access: text
+sources.connection: jsonb
+sources.created_at: timestamp with time zone
+sources.created_by: text
+sources.description: text
+sources.id: text
+sources.import_note: text
+sources.import_paused: boolean
+sources.kind: text
+sources.last_test: jsonb
+sources.name: text
+sources.org_id: text
+sources.sealed_secrets: text
+sources.updated_at: timestamp with time zone
+sql_history.backend_pid: integer
+sql_history.canceled: boolean
+sql_history.created_at: timestamp with time zone
+sql_history.database_id: text
+sql_history.duration_ms: integer
+sql_history.error: text
+sql_history.id: uuid
+sql_history.query: text
+sql_history.result: jsonb
+sql_history.row_count: integer
+sql_history.scope_key: text
+sql_history.user_id: text
+sql_logins.database_id: text
+sql_logins.enabled: boolean
+sql_logins.enabled_by: text
+sql_logins.expires_at: timestamp with time zone
+sql_logins.person_id: text
+sql_logins.ready: boolean
+sql_logins.rebuilt_at: timestamp with time zone
+sql_logins.role_name: text
+sql_logins.schema_name: text
+sql_logins.sealed_password: text
+sql_logins.verified: boolean
+sql_logins.verifier: text
+sql_settings.database_id: text
+sql_settings.settings: jsonb
+sso_domain_verifications.challenge: text
+sso_domain_verifications.checked_at: timestamp with time zone
+sso_domain_verifications.domain: text
+sso_domain_verifications.expires_at: timestamp with time zone
+sso_domain_verifications.failed_checks: integer
+sso_domain_verifications.org_id: text
+sso_domain_verifications.provider_id: text
+sso_domain_verifications.verified_at: timestamp with time zone
+sso_identities.created_at: timestamp with time zone
+sso_identities.email: text
+sso_identities.issuer: text
+sso_identities.last_used_at: timestamp with time zone
+sso_identities.provider_id: text
+sso_identities.subject: text
+sso_identities.user_id: text
+sso_providers.allowed_domains: ARRAY
+sso_providers.auto_create: boolean
+sso_providers.certificates: ARRAY
+sso_providers.client_id: text
+sso_providers.created_at: timestamp with time zone
+sso_providers.enabled: boolean
+sso_providers.id: text
+sso_providers.issuer: text
+sso_providers.kind: text
+sso_providers.link_by_email: boolean
+sso_providers.name: text
+sso_providers.org_id: text
+sso_providers.sealed_secret: text
+sso_providers.sso_url: text
+sso_providers.tenant: text
+sso_providers.updated_at: timestamp with time zone
+sso_providers.verifies_emails: boolean
+stripe_connections.enabled: boolean
+stripe_connections.id: text
+stripe_connections.live: boolean
+stripe_connections.org_id: text
+stripe_connections.secret_key: text
+stripe_connections.webhook_secret: text
+sync_record_changes.after_values: jsonb
+sync_record_changes.before_values: jsonb
+sync_record_changes.record_id: text
+sync_record_changes.run_id: text
+sync_runs.ended_at: timestamp with time zone
+sync_runs.error_key: text
+sync_runs.id: text
+sync_runs.outcome: text
+sync_runs.seq: bigint
+sync_runs.started_at: timestamp with time zone
+sync_runs.stats: jsonb
+sync_runs.table_id: text
+table_copies.command_id: text
+table_copies.copied: integer
+table_copies.database_id: text
+table_copies.id: text
+table_copies.org_id: text
+table_copies.result: jsonb
+table_copies.state: text
+table_copies.total: integer
+table_copies.updated_at: timestamp with time zone
+table_copies.user_id: text
+table_sources.confirm_removals: boolean
+table_sources.failures: integer
+table_sources.fetch_state: jsonb
+table_sources.held_token: text
+table_sources.lease_at: timestamp with time zone
+table_sources.lease_token: text
+table_sources.next_sync_at: timestamp with time zone
+table_sources.queued_again: boolean
+table_sources.settings: jsonb
+table_sources.source_id: text
+table_sources.status: jsonb
+table_sources.table_id: text
+tables.allow_computed_overrides: boolean
+tables.classification_label: text
+tables.created_at: timestamp with time zone
+tables.created_by: text
+tables.data_version: bigint
+tables.database_id: text
+tables.description: text
+tables.history_retention_days: integer
+tables.id: text
+tables.ingest: jsonb
+tables.ingest_revision: integer
+tables.joined: jsonb
+tables.line_items: jsonb
+tables.name: text
+tables.org_id: text
+tables.position: double precision
+tables.primary_field_id: text
+tables.purged_at: timestamp with time zone
+tables.record_lock: jsonb
+tables.trashed_at: timestamp with time zone
+tables.trashed_by: text
+tables.updated_at: timestamp with time zone
+telemetry.attempted_at: timestamp with time zone
+telemetry.changed_at: timestamp with time zone
+telemetry.changed_by: text
+telemetry.enabled: boolean
+telemetry.hub_install_id: uuid
+telemetry.id: smallint
+telemetry.install_id: text
+telemetry.last_delivered: boolean
+telemetry.last_payload: text
+telemetry.last_sent_at: timestamp with time zone
+telemetry.last_week: date
+undo_groups.actor_id: text
+undo_groups.database_id: text
+undo_groups.group_id: text
+undo_groups.state: text
+undo_groups.updated_at: timestamp with time zone
+update_checks.attempted_at: timestamp with time zone
+update_checks.checked_at: timestamp with time zone
+update_checks.feed: text
+update_checks.id: smallint
+update_checks.issued_at: timestamp with time zone
+update_checks.key_id: text
+update_checks.status: text
+update_runs.backup: text
+update_runs.contacted_at: timestamp with time zone
+update_runs.finished_at: timestamp with time zone
+update_runs.from_version: text
+update_runs.id: text
+update_runs.org_id: text
+update_runs.problem: text
+update_runs.started_at: timestamp with time zone
+update_runs.started_by: text
+update_runs.state: text
+update_runs.to_version: text
+user_database_state.database_id: text
+user_database_state.favorite: boolean
+user_database_state.favorite_position: double precision
+user_database_state.opened_at: timestamp with time zone
+user_database_state.user_id: text
+users.automation_access_retained: boolean
+users.created_at: timestamp with time zone
+users.credential_version: integer
+users.deactivated_at: timestamp with time zone
+users.email: text
+users.id: text
+users.locale: text
+users.name: text
+users.password_hash: text
+users.preferences: jsonb
+users.profile_picture: jsonb
+users.sso_issuer: text
+users.sso_subject: text
+views.config: jsonb
+views.created_at: timestamp with time zone
+views.created_by: text
+views.id: text
+views.name: text
+views.org_id: text
+views.position: double precision
+views.table_id: text
+views.trashed_at: timestamp with time zone
+views.trashed_by: text
+views.type: text
+views.updated_at: timestamp with time zone
+webhook_attempts.at: timestamp with time zone
+webhook_attempts.delivery_id: text
+webhook_attempts.error: text
+webhook_attempts.id: bigint
+webhook_attempts.manual: boolean
+webhook_attempts.ms: integer
+webhook_attempts.status: integer
+webhook_deliveries.attempts: integer
+webhook_deliveries.created_at: timestamp with time zone
+webhook_deliveries.event_count: integer
+webhook_deliveries.event_types: ARRAY
+webhook_deliveries.id: text
+webhook_deliveries.lease_at: timestamp with time zone
+webhook_deliveries.lease_token: text
+webhook_deliveries.manual: boolean
+webhook_deliveries.next_attempt_at: timestamp with time zone
+webhook_deliveries.payload: text
+webhook_deliveries.seq: bigint
+webhook_deliveries.state: text
+webhook_deliveries.updated_at: timestamp with time zone
+webhook_deliveries.webhook_id: text
+webhook_events.event: text
+webhook_events.event_type: text
+webhook_events.id: bigint
+webhook_events.queued_at: timestamp with time zone
+webhook_events.webhook_id: text
+webhooks.created_at: timestamp with time zone
+webhooks.created_by: text
+webhooks.database_id: text
+webhooks.disabled_reason: text
+webhooks.enabled: boolean
+webhooks.events: ARRAY
+webhooks.failing_since: timestamp with time zone
+webhooks.id: text
+webhooks.last_success_at: timestamp with time zone
+webhooks.org_id: text
+webhooks.previous_secret: text
+webhooks.previous_secret_until: timestamp with time zone
+webhooks.secret: text
+webhooks.table_ids: ARRAY
+webhooks.updated_at: timestamp with time zone
+webhooks.url: text

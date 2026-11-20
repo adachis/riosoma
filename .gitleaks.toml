@@ -1,0 +1,19 @@
+# Secret scanning uses the default rules, plus four exceptions: the local test fleet's documented,
+# deliberately fake password (ops/test-fleet/README.md), which its health checks pass to curl,
+# build output, which is generated and never committed, the theme font fingerprints, which map
+# public font addresses to SHA-256 hashes of the font files, and the demo's contract fingerprints,
+# which map the names of response shapes (some with "auth", "token", or "password" in them) to
+# SHA-256 hashes of those shapes.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Fake test fleet credentials, generated build output, public font file hashes, and response shape hashes"
+regexTarget = "secret"
+regexes = ['''Riosoma-Test-2026!''']
+paths = [
+  '''(^|/)dist/''',
+  '''(^|/)node_modules/''',
+  '''^tools/font-cache/files\.json$''',
+  '''^apps/server/src/demo/privacy-contracts\.json$''',
+]

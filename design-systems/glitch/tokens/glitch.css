@@ -1,0 +1,65 @@
+/* Glitch FX — keyframes and utility classes. This is the brand's signature layer.
+   Every effect is opt-in, decorative, and disabled under reduced-motion. */
+
+/* 1. RGB split on text. Requires data-text="…" mirroring the element's copy. */
+.gl-glitch{position:relative;display:inline-block}
+.gl-glitch::before,.gl-glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;background:inherit;overflow:hidden;pointer-events:none}
+.gl-glitch::after{left:2px;text-shadow:-1px 0 var(--gl-chan-a);clip-path:inset(0 0 100% 0);animation:gl-split-a 2.4s infinite steps(1,end) alternate-reverse}
+.gl-glitch::before{left:-2px;text-shadow:2px 0 var(--gl-chan-b);clip-path:inset(0 0 100% 0);animation:gl-split-b 3.1s infinite steps(1,end) alternate-reverse}
+.gl-glitch--hover::before,.gl-glitch--hover::after{animation-play-state:paused;opacity:0}
+.gl-glitch--hover:hover::before,.gl-glitch--hover:hover::after{animation-play-state:running;opacity:1}
+@keyframes gl-split-a{0%{clip-path:inset(12% 0 74% 0)}10%{clip-path:inset(62% 0 22% 0)}20%{clip-path:inset(38% 0 51% 0)}30%{clip-path:inset(80% 0 4% 0)}40%{clip-path:inset(6% 0 88% 0)}50%{clip-path:inset(48% 0 39% 0)}60%{clip-path:inset(24% 0 66% 0)}70%{clip-path:inset(70% 0 14% 0)}80%{clip-path:inset(34% 0 58% 0)}90%{clip-path:inset(90% 0 2% 0)}100%{clip-path:inset(18% 0 70% 0)}}
+@keyframes gl-split-b{0%{clip-path:inset(56% 0 34% 0)}10%{clip-path:inset(8% 0 84% 0)}20%{clip-path:inset(72% 0 18% 0)}30%{clip-path:inset(30% 0 60% 0)}40%{clip-path:inset(86% 0 6% 0)}50%{clip-path:inset(16% 0 76% 0)}60%{clip-path:inset(44% 0 44% 0)}70%{clip-path:inset(64% 0 28% 0)}80%{clip-path:inset(4% 0 92% 0)}90%{clip-path:inset(50% 0 40% 0)}100%{clip-path:inset(26% 0 62% 0)}}
+
+/* 2. Slice displacement — for images, panels, whole blocks. */
+.gl-slice{position:relative;isolation:isolate}
+.gl-slice::before,.gl-slice::after{content:"";position:absolute;inset:0;background:inherit;background-size:cover;pointer-events:none;mix-blend-mode:screen}
+.gl-slice::before{animation:gl-slice-a 3.6s infinite steps(1,end)}
+.gl-slice::after{animation:gl-slice-b 2.8s infinite steps(1,end)}
+@keyframes gl-slice-a{0%,72%,100%{clip-path:inset(100% 0 0 0);transform:none}74%{clip-path:inset(18% 0 62% 0);transform:translate(-8px)}78%{clip-path:inset(44% 0 38% 0);transform:translate(6px)}82%{clip-path:inset(66% 0 20% 0);transform:translate(-4px)}}
+@keyframes gl-slice-b{0%,60%,100%{clip-path:inset(100% 0 0 0);transform:none}64%{clip-path:inset(8% 0 80% 0);transform:translate(10px)}68%{clip-path:inset(52% 0 30% 0);transform:translate(-12px)}}
+
+/* 3. Jitter — momentary position break. */
+.gl-jitter{animation:gl-jitter 5s infinite steps(1,end)}
+@keyframes gl-jitter{0%,90%,100%{transform:none}91%{transform:translate(-2px,1px)}93%{transform:translate(3px,-1px)}95%{transform:translate(-1px,-2px)}97%{transform:translate(1px,2px)}}
+
+/* 4. Flicker — CRT brightness dropout. */
+.gl-flicker{animation:gl-flicker 4.2s infinite steps(1,end)}
+@keyframes gl-flicker{0%,84%,100%{opacity:1}85%{opacity:.32}86%{opacity:1}88%{opacity:.6}89%{opacity:1}}
+
+/* 5. Scanlines — 3px repeating overlay, always behind content. */
+.gl-scan{position:relative}
+.gl-scan::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,color-mix(in srgb,var(--gl-anchor-deep) 26%,transparent) 0 1px,transparent 1px 3px);opacity:.55}
+.gl-scan--sweep::before{content:"";position:absolute;left:0;right:0;height:14%;pointer-events:none;background:linear-gradient(to bottom,transparent,color-mix(in srgb,var(--gl-accent) 22%,transparent),transparent);animation:gl-sweep 6s linear infinite}
+@keyframes gl-sweep{0%{top:-20%}100%{top:120%}}
+
+/* 6. Grain — dusty print texture from assets/textures. */
+.gl-grain{position:relative}
+.gl-grain::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:url("../assets/textures/dust-black-01.jpg");background-size:520px;mix-blend-mode:overlay;opacity:.22}
+[data-mode="light"] .gl-grain::after{background-image:url("../assets/textures/dust-white-01.jpg");mix-blend-mode:multiply;opacity:.16}
+
+/* 7. Marker highlight on inline type. */
+.gl-mark-text{box-shadow:var(--gl-mark);display:inline}
+
+/* 8. Terminal caret. */
+.gl-caret::after{content:"_";color:var(--gl-accent);animation:gl-blink 1s steps(1,end) infinite}
+@keyframes gl-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+/* 9. Page frame — four fixed accent bars, the system's window signature. */
+.gl-frame-bars{position:fixed;inset:0;pointer-events:none;z-index:var(--gl-z-frame)}
+.gl-frame-bars>i{position:absolute;background:var(--gl-accent);display:block}
+.gl-frame-bars>i:nth-child(1){top:0;left:0;right:0;height:var(--gl-frame)}
+.gl-frame-bars>i:nth-child(2){bottom:0;left:0;right:0;height:var(--gl-frame)}
+.gl-frame-bars>i:nth-child(3){top:0;bottom:0;left:0;width:var(--gl-frame)}
+.gl-frame-bars>i:nth-child(4){top:0;bottom:0;right:0;width:var(--gl-frame)}
+
+/* 10. Vector art — the kit's illustrations are single-color black vectors.
+   They invert to white in dark mode and stay black on light surfaces. */
+.gl-art{display:block;width:100%;height:100%;object-fit:contain}
+[data-mode="dark"] .gl-art,:root:not([data-mode]) .gl-art{filter:invert(1)}
+.gl-art--accent{filter:invert(1) sepia(1) saturate(6) hue-rotate(320deg)}
+
+@media (prefers-reduced-motion:reduce){
+.gl-glitch::before,.gl-glitch::after,.gl-slice::before,.gl-slice::after,.gl-jitter,.gl-flicker,.gl-scan--sweep::before,.gl-caret::after{animation:none!important}
+.gl-glitch::before,.gl-glitch::after,.gl-slice::before,.gl-slice::after{display:none}
+}

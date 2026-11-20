@@ -1,0 +1,9 @@
+:root{
+  /* signage geometry: square by default, pills reserved for chips and status */
+  --r-0:0px;--r-1:2px;--r-2:4px;--r-3:8px;--r-4:14px;--r-pill:999px;--r-round:50%;
+  --bw-hair:1px;--bw-1:2px;--bw-2:3px;--bw-3:6px;--bw-4:12px;
+  --rule-thin:1px;--rule:2px;--rule-heavy:6px;
+  --bar-h:44px; /* @kind spacing */      /* name-plate bar height */
+  --node:14px; /* @kind spacing */       /* route node diameter */
+  --hit-min:44px; /* @kind spacing */    /* minimum touch target */
+}

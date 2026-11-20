@@ -1,0 +1,32 @@
+:root{
+  --unit: 4px;
+  --baseline: 8px;
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+  --space-9: 96px; --space-10: 128px; --space-11: 176px;
+
+  /* Editorial grid */
+  --grid-columns: 12; /* @kind other */
+  --grid-gutter: 24px;
+  --grid-gutter-tight: 16px;
+  --grid-max: 1320px;
+  --grid-max-text: 760px;
+
+  /* Print page geometry (A4 portrait, mirrored margins) */
+  --page-width: 210mm; /* @kind spacing */
+  --page-height: 297mm; /* @kind spacing */
+  --page-margin-top: 18mm;
+  --page-margin-outer: 16mm;
+  --page-margin-inner: 22mm;
+  --page-margin-bottom: 20mm;
+  --page-bleed: 3mm; /* @kind spacing */
+  --page-columns: 4; /* @kind other */
+  --page-gutter: 5mm; /* @kind spacing */
+
+  /* Control sizing */
+  --control-sm: 28px;
+  --control-md: 36px;
+  --control-lg: 44px;
+  --control-touch: 48px;
+  --control-pad-x: 18px;
+}

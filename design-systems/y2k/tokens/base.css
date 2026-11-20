@@ -1,0 +1,47 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:var(--type-body);color:var(--text-body);background:var(--surface);text-wrap:pretty}
+::selection{background:var(--selection-bg);color:var(--selection-fg)}
+
+h1,h2,h3,h4,h5,h6{margin:0;font-family:var(--font-core);font-weight:var(--fw-bold);line-height:var(--lh-head);letter-spacing:var(--tr-core)}
+h1{font-size:var(--fs-3xl)}h2{font-size:var(--fs-2xl)}h3{font-size:var(--fs-xl)}
+h4{font-size:var(--fs-lg)}h5{font-size:var(--fs-md)}h6{font-size:var(--fs-sm);letter-spacing:var(--tr-label);text-transform:uppercase}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+small{font-size:var(--fs-sm)}
+strong,b{font-weight:var(--fw-bold)}
+code,kbd,pre,samp{font-family:var(--font-mono);font-size:.92em}
+hr{height:0;border:0;border-top:var(--bw) solid var(--frame);margin:var(--sp-16) 0}
+img,svg,video{max-width:100%}
+
+a{color:var(--link);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px;transition:color var(--dur-fast) var(--ease-snap)}
+a:hover{color:var(--link-hover);text-decoration-style:double}
+a:active{color:var(--accent)}
+a:focus-visible{outline:var(--focus-outline);outline-offset:var(--focus-offset);text-decoration:none}
+
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:var(--focus-outline);outline-offset:var(--focus-offset)}
+
+/* Chunky beveled scrollbars — part of the OS-chrome look. */
+*{scrollbar-color:var(--chrome-face) var(--surface-2)}
+::-webkit-scrollbar{width:15px;height:15px}
+::-webkit-scrollbar-track{background:var(--tex-checker-sm);border-left:var(--bw) solid var(--frame)}
+::-webkit-scrollbar-thumb{background:var(--chrome-face);border:var(--bw) solid var(--frame);box-shadow:var(--bevel-out-sm)}
+::-webkit-scrollbar-corner{background:var(--chrome-face)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+
+/* ── Utility surfaces used across kits ── */
+.y2k-desktop{background:var(--grad-desktop);color:var(--ink)}
+.y2k-checker{background:var(--tex-checker)}
+.y2k-grid{background-color:var(--surface);background-image:var(--tex-grid)}
+.y2k-scanlines{position:relative}
+.y2k-scanlines::after{content:"";position:absolute;inset:0;background:var(--tex-scanline);pointer-events:none;mix-blend-mode:multiply}
+.y2k-chrome-text{background:var(--grad-chrome);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1.5px var(--frame);paint-order:stroke fill}
+.y2k-holo{background:var(--grad-holo)}
+.y2k-mono{font:var(--type-mono)}
+.y2k-pixel{font:var(--type-pixel);letter-spacing:var(--tr-pixel);text-transform:uppercase}
+.y2k-label{font:var(--type-label);letter-spacing:var(--tr-label);text-transform:uppercase}
+.y2k-hero{font:var(--type-hero);letter-spacing:var(--tr-display);text-transform:uppercase}

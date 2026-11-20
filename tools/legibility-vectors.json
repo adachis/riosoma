@@ -1,0 +1,645 @@
+{
+  "adjust": [
+    {
+      "id": "red-light-3",
+      "color": "#ff0000",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#ff0000"
+    },
+    {
+      "id": "red-light-4.5",
+      "color": "#ff0000",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#dd0000"
+    },
+    {
+      "id": "red-dark-3",
+      "color": "#ff0000",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#ff0000"
+    },
+    {
+      "id": "red-dark-4.5",
+      "color": "#ff0000",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#ff5140"
+    },
+    {
+      "id": "green-light-3",
+      "color": "#00ff00",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#00a000"
+    },
+    {
+      "id": "green-light-4.5",
+      "color": "#00ff00",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#007f00"
+    },
+    {
+      "id": "green-dark-3",
+      "color": "#00ff00",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#00ff00"
+    },
+    {
+      "id": "green-dark-4.5",
+      "color": "#00ff00",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#00ff00"
+    },
+    {
+      "id": "blue-light-3",
+      "color": "#0000ff",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#0000ff"
+    },
+    {
+      "id": "blue-light-4.5",
+      "color": "#0000ff",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#0000ff"
+    },
+    {
+      "id": "blue-dark-3",
+      "color": "#0000ff",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#2965ff"
+    },
+    {
+      "id": "blue-dark-4.5",
+      "color": "#0000ff",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#568aff"
+    },
+    {
+      "id": "cyan-light-3",
+      "color": "#00ffff",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#009999"
+    },
+    {
+      "id": "cyan-light-4.5",
+      "color": "#00ffff",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#007a7a"
+    },
+    {
+      "id": "cyan-dark-3",
+      "color": "#00ffff",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#00ffff"
+    },
+    {
+      "id": "cyan-dark-4.5",
+      "color": "#00ffff",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#00ffff"
+    },
+    {
+      "id": "magenta-light-3",
+      "color": "#ff00ff",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#f200f2"
+    },
+    {
+      "id": "magenta-light-4.5",
+      "color": "#ff00ff",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#c200c2"
+    },
+    {
+      "id": "magenta-dark-3",
+      "color": "#ff00ff",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#ff00ff"
+    },
+    {
+      "id": "magenta-dark-4.5",
+      "color": "#ff00ff",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#ff00ff"
+    },
+    {
+      "id": "yellow-light-3",
+      "color": "#ffff00",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#8f8e00"
+    },
+    {
+      "id": "yellow-light-4.5",
+      "color": "#ffff00",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#727100"
+    },
+    {
+      "id": "yellow-dark-3",
+      "color": "#ffff00",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#ffff00"
+    },
+    {
+      "id": "yellow-dark-4.5",
+      "color": "#ffff00",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#ffff00"
+    },
+    {
+      "id": "gray-light-3",
+      "color": "#777777",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#777777"
+    },
+    {
+      "id": "gray-light-4.5",
+      "color": "#777777",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#6e6d6d"
+    },
+    {
+      "id": "gray-dark-3",
+      "color": "#777777",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#777777"
+    },
+    {
+      "id": "gray-dark-4.5",
+      "color": "#777777",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#8f8f8e"
+    },
+    {
+      "id": "pale-light-3",
+      "color": "#ccddee",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#7c8b9b"
+    },
+    {
+      "id": "pale-light-4.5",
+      "color": "#ccddee",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#606f7e"
+    },
+    {
+      "id": "pale-dark-3",
+      "color": "#ccddee",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#ccddee"
+    },
+    {
+      "id": "pale-dark-4.5",
+      "color": "#ccddee",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#ccddee"
+    },
+    {
+      "id": "navy-light-3",
+      "color": "#123456",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#123456"
+    },
+    {
+      "id": "navy-light-4.5",
+      "color": "#123456",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#123456"
+    },
+    {
+      "id": "navy-dark-3",
+      "color": "#123456",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#51759b"
+    },
+    {
+      "id": "navy-dark-4.5",
+      "color": "#123456",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#6e92ba"
+    },
+    {
+      "id": "orange-light-3",
+      "color": "#ff8800",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#d36f00"
+    },
+    {
+      "id": "orange-light-4.5",
+      "color": "#ff8800",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#a95800"
+    },
+    {
+      "id": "orange-dark-3",
+      "color": "#ff8800",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#ff8800"
+    },
+    {
+      "id": "orange-dark-4.5",
+      "color": "#ff8800",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#ff8800"
+    },
+    {
+      "id": "black-light-3",
+      "color": "#000000",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#000000"
+    },
+    {
+      "id": "black-light-4.5",
+      "color": "#000000",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#000000"
+    },
+    {
+      "id": "black-dark-3",
+      "color": "#000000",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#727272"
+    },
+    {
+      "id": "black-dark-4.5",
+      "color": "#000000",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#8f8f8f"
+    },
+    {
+      "id": "white-light-3",
+      "color": "#ffffff",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 3,
+      "expected": "#8a8989"
+    },
+    {
+      "id": "white-light-4.5",
+      "color": "#ffffff",
+      "backgrounds": [
+        "#ffffff",
+        "#f5f2eb"
+      ],
+      "target": 4.5,
+      "expected": "#6e6d6d"
+    },
+    {
+      "id": "white-dark-3",
+      "color": "#ffffff",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 3,
+      "expected": "#ffffff"
+    },
+    {
+      "id": "white-dark-4.5",
+      "color": "#ffffff",
+      "backgrounds": [
+        "#101820",
+        "#202830"
+      ],
+      "target": 4.5,
+      "expected": "#ffffff"
+    },
+    {
+      "id": "opposed-impossible",
+      "color": "#777777",
+      "backgrounds": [
+        "#000000",
+        "#ffffff"
+      ],
+      "target": 7,
+      "expected": null
+    },
+    {
+      "id": "opposed-margin-impossible",
+      "color": "#ff0000",
+      "backgrounds": [
+        "#000000",
+        "#ffffff"
+      ],
+      "target": 4.5,
+      "expected": null
+    },
+    {
+      "id": "opposed-middle",
+      "color": "#ffffff",
+      "backgrounds": [
+        "#000000",
+        "#ffffff"
+      ],
+      "target": 3,
+      "expected": "#939292"
+    },
+    {
+      "id": "beyond-maximum",
+      "color": "#777777",
+      "backgrounds": [
+        "#ffffff"
+      ],
+      "target": 22,
+      "expected": null
+    },
+    {
+      "id": "empty-backgrounds",
+      "color": "#AbC",
+      "backgrounds": [],
+      "target": 4.5,
+      "expected": "#aabbcc"
+    },
+    {
+      "id": "exact-maximum-preserved",
+      "color": "#000",
+      "backgrounds": [
+        "#fff"
+      ],
+      "target": 21,
+      "expected": "#000000"
+    },
+    {
+      "id": "passes-without-margin",
+      "color": "#767676",
+      "backgrounds": [
+        "#ffffff"
+      ],
+      "target": 4.5,
+      "expected": "#767676"
+    },
+    {
+      "id": "both-directions",
+      "color": "#777777",
+      "backgrounds": [
+        "#888888"
+      ],
+      "target": 3,
+      "expected": "#3d3c3c"
+    }
+  ],
+  "on": [
+    {
+      "id": "own-passes",
+      "fill": "#336699",
+      "candidates": [
+        "#ffffff",
+        "#111111",
+        "#fafafa"
+      ],
+      "target": 4.5,
+      "expected": "#ffffff"
+    },
+    {
+      "id": "text-first",
+      "fill": "#77cc88",
+      "candidates": [
+        "#ffffff",
+        "#123456",
+        "#000000"
+      ],
+      "target": 4.5,
+      "expected": "#123456"
+    },
+    {
+      "id": "page-next",
+      "fill": "#112233",
+      "candidates": [
+        "#223344",
+        "#334455",
+        "#eeeeee"
+      ],
+      "target": 4.5,
+      "expected": "#eeeeee"
+    },
+    {
+      "id": "adjust-original",
+      "fill": "#eeeeee",
+      "candidates": [
+        "#cccccc",
+        "#bbbbbb",
+        "#aaaaaa"
+      ],
+      "target": 4.5,
+      "expected": "#6b6a6a"
+    },
+    {
+      "id": "black-fallback",
+      "fill": "#ffffff",
+      "candidates": [],
+      "target": 4.5,
+      "expected": "#000000"
+    },
+    {
+      "id": "white-fallback",
+      "fill": "#000000",
+      "candidates": [],
+      "target": 4.5,
+      "expected": "#ffffff"
+    },
+    {
+      "id": "margin-fallback",
+      "fill": "#707771",
+      "candidates": [
+        "#888888"
+      ],
+      "target": 4.5,
+      "expected": "#000000"
+    },
+    {
+      "id": "on-impossible",
+      "fill": "#777777",
+      "candidates": [
+        "#777777",
+        "#aaaaaa"
+      ],
+      "target": 7,
+      "expected": null
+    },
+    {
+      "id": "short-hex",
+      "fill": "#abc",
+      "candidates": [
+        "#000"
+      ],
+      "target": 4.5,
+      "expected": "#000000"
+    }
+  ]
+}

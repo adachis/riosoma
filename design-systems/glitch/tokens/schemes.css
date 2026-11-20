@@ -1,0 +1,31 @@
+/* Color schemes — one single-selector scope each. A scheme declares anchors,
+   accents, glitch channels and five raw tones; every semantic surface in
+   colors.css derives from those, so `data-scheme` recolors the entire system
+   in both light and dark mode. Status colors deliberately do not change.
+   Usage: <html data-mode="dark" data-scheme="overdrive"> */
+
+[data-scheme="signal"]{--gl-anchor-deep:#141414;--gl-anchor-mid:#55555f;--gl-anchor-pale:#f0f0f0;--gl-accent:#f26b38;--gl-accent-ink:#141414;--gl-accent-deep:#c74f22;--gl-highlight:#ede574;--gl-highlight-ink:#141414;--gl-chan-a:#ff2e5b;--gl-chan-b:#00e5ff;--gl-tone-1:#f26b38;--gl-tone-2:#ede574;--gl-tone-3:#a2a2a6;--gl-tone-4:#55555f;--gl-tone-5:#141414}
+
+[data-scheme="spectrum"]{--gl-anchor-deep:#3a3f45;--gl-anchor-mid:#577590;--gl-anchor-pale:#f9c74f;--gl-accent:#f94144;--gl-accent-ink:#ffffff;--gl-accent-deep:#c62d31;--gl-highlight:#f9c74f;--gl-highlight-ink:#141414;--gl-chan-a:#f94144;--gl-chan-b:#277da1;--gl-tone-1:#f94144;--gl-tone-2:#f8961e;--gl-tone-3:#f9c74f;--gl-tone-4:#43aa8b;--gl-tone-5:#277da1}
+
+[data-scheme="nightwatch"]{--gl-anchor-deep:#000814;--gl-anchor-mid:#003566;--gl-anchor-pale:#ffd60a;--gl-accent:#ffc300;--gl-accent-ink:#000814;--gl-accent-deep:#c99900;--gl-highlight:#ffd60a;--gl-highlight-ink:#000814;--gl-chan-a:#ffd60a;--gl-chan-b:#003566;--gl-tone-1:#000814;--gl-tone-2:#001d3d;--gl-tone-3:#003566;--gl-tone-4:#ffc300;--gl-tone-5:#ffd60a}
+
+[data-scheme="overdrive"]{--gl-anchor-deep:#390099;--gl-anchor-mid:#9e0059;--gl-anchor-pale:#ffbd00;--gl-accent:#ff0054;--gl-accent-ink:#ffffff;--gl-accent-deep:#c40040;--gl-highlight:#ffbd00;--gl-highlight-ink:#390099;--gl-chan-a:#ff0054;--gl-chan-b:#390099;--gl-tone-1:#390099;--gl-tone-2:#9e0059;--gl-tone-3:#ff0054;--gl-tone-4:#ff5400;--gl-tone-5:#ffbd00}
+
+[data-scheme="bulletin"]{--gl-anchor-deep:#1d3557;--gl-anchor-mid:#457b9d;--gl-anchor-pale:#f1faee;--gl-accent:#e63946;--gl-accent-ink:#f1faee;--gl-accent-deep:#b32832;--gl-highlight:#a8dadc;--gl-highlight-ink:#1d3557;--gl-chan-a:#e63946;--gl-chan-b:#457b9d;--gl-tone-1:#e63946;--gl-tone-2:#f1faee;--gl-tone-3:#a8dadc;--gl-tone-4:#457b9d;--gl-tone-5:#1d3557}
+
+[data-scheme="faded"]{--gl-anchor-deep:#84a59d;--gl-anchor-mid:#f5cac3;--gl-anchor-pale:#f7ede2;--gl-accent:#f28482;--gl-accent-ink:#3a2a28;--gl-accent-deep:#d05f5d;--gl-highlight:#f6bd60;--gl-highlight-ink:#3a2a28;--gl-chan-a:#f28482;--gl-chan-b:#84a59d;--gl-tone-1:#f6bd60;--gl-tone-2:#f7ede2;--gl-tone-3:#f5cac3;--gl-tone-4:#84a59d;--gl-tone-5:#f28482}
+
+[data-scheme="campfire"]{--gl-anchor-deep:#233d4d;--gl-anchor-mid:#619b8a;--gl-anchor-pale:#fcca46;--gl-accent:#fe7f2d;--gl-accent-ink:#233d4d;--gl-accent-deep:#d2610f;--gl-highlight:#fcca46;--gl-highlight-ink:#233d4d;--gl-chan-a:#fe7f2d;--gl-chan-b:#619b8a;--gl-tone-1:#233d4d;--gl-tone-2:#fe7f2d;--gl-tone-3:#fcca46;--gl-tone-4:#a1c181;--gl-tone-5:#619b8a}
+
+[data-scheme="coolant"]{--gl-anchor-deep:#22577a;--gl-anchor-mid:#38a3a5;--gl-anchor-pale:#c7f9cc;--gl-accent:#57cc99;--gl-accent-ink:#0d2b1e;--gl-accent-deep:#33a074;--gl-highlight:#80ed99;--gl-highlight-ink:#0d2b1e;--gl-chan-a:#80ed99;--gl-chan-b:#22577a;--gl-tone-1:#22577a;--gl-tone-2:#38a3a5;--gl-tone-3:#57cc99;--gl-tone-4:#80ed99;--gl-tone-5:#c7f9cc}
+
+[data-scheme="vhs"]{--gl-anchor-deep:#2e5339;--gl-anchor-mid:#495f41;--gl-anchor-pale:#ffccc9;--gl-accent:#00fddc;--gl-accent-ink:#0c2119;--gl-accent-deep:#00c4ab;--gl-highlight:#ffccc9;--gl-highlight-ink:#0c2119;--gl-chan-a:#ff5666;--gl-chan-b:#00fddc;--gl-tone-1:#00fddc;--gl-tone-2:#2e5339;--gl-tone-3:#495f41;--gl-tone-4:#ff5666;--gl-tone-5:#ffccc9}
+
+[data-scheme="candy"]{--gl-anchor-deep:#3d3350;--gl-anchor-mid:#ff9770;--gl-anchor-pale:#ffd670;--gl-accent:#ff70a6;--gl-accent-ink:#2a1c2a;--gl-accent-deep:#e0447e;--gl-highlight:#ffd670;--gl-highlight-ink:#2a1c2a;--gl-chan-a:#ff70a6;--gl-chan-b:#70d6ff;--gl-tone-1:#70d6ff;--gl-tone-2:#ff70a6;--gl-tone-3:#ff9770;--gl-tone-4:#ffd670;--gl-tone-5:#3d3350}
+
+[data-scheme="beacon"]{--gl-anchor-deep:#247ba0;--gl-anchor-mid:#70c1b3;--gl-anchor-pale:#f3ffbd;--gl-accent:#ff1654;--gl-accent-ink:#ffffff;--gl-accent-deep:#cc0f41;--gl-highlight:#f3ffbd;--gl-highlight-ink:#123a4a;--gl-chan-a:#ff1654;--gl-chan-b:#247ba0;--gl-tone-1:#247ba0;--gl-tone-2:#70c1b3;--gl-tone-3:#b2dbbf;--gl-tone-4:#f3ffbd;--gl-tone-5:#ff1654}
+
+[data-scheme="kiosk"]{--gl-anchor-deep:#083d77;--gl-anchor-mid:#ee964b;--gl-anchor-pale:#ebebd3;--gl-accent:#f95738;--gl-accent-ink:#ffffff;--gl-accent-deep:#c73c22;--gl-highlight:#f4d35e;--gl-highlight-ink:#083d77;--gl-chan-a:#f95738;--gl-chan-b:#083d77;--gl-tone-1:#083d77;--gl-tone-2:#ebebd3;--gl-tone-3:#f4d35e;--gl-tone-4:#ee964b;--gl-tone-5:#f95738}
+
+[data-scheme="moss"]{--gl-anchor-deep:#3c493f;--gl-anchor-mid:#7e8d85;--gl-anchor-pale:#f0f7f4;--gl-accent:#a2e3c4;--gl-accent-ink:#1e2a22;--gl-accent-deep:#6fbf9c;--gl-highlight:#b3bfb8;--gl-highlight-ink:#1e2a22;--gl-chan-a:#a2e3c4;--gl-chan-b:#7e8d85;--gl-tone-1:#3c493f;--gl-tone-2:#7e8d85;--gl-tone-3:#b3bfb8;--gl-tone-4:#f0f7f4;--gl-tone-5:#a2e3c4}

@@ -1,0 +1,49 @@
+@layer rio.app {
+  .rio-organization-archives,
+  .rio-organization-archives form,
+  .rio-organization-archives__job,
+  .rio-organization-archives__preview {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-organization-archives__job {
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-organization-archives__file {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-organization-archives__file input {
+    inline-size: 100%;
+    min-inline-size: 0;
+    min-block-size: max(var(--rio-control-height), var(--rio-target-primary));
+  }
+
+  .rio-organization-archives__review {
+    display: grid;
+    gap: var(--rio-space-3);
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-organization-archives__review > li {
+    display: grid;
+    gap: var(--rio-space-2);
+    justify-items: start;
+  }
+
+  .rio-organization-archives__destinations {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-organization-archives__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+}

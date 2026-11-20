@@ -1,0 +1,72 @@
+@layer rio.app {
+  /* The paused notice's text sits above its button. */
+  .rio-share-view .rio-share-view__paused {
+    margin-block: 0 var(--rio-space-2);
+  }
+
+  .rio-share-view,
+  .rio-share-view__section {
+    display: grid;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-share-view__section {
+    padding-block-start: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  .rio-share-view p {
+    margin-block: 0;
+  }
+
+  .rio-share-view__help,
+  .rio-share-view__note {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-share-view__row,
+  .rio-share-view__copy {
+    display: flex;
+    align-items: end;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-share-view__row {
+    align-items: center;
+  }
+
+  .rio-share-view__copy > .rio-field {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .rio-share-view > .rio-button,
+  .rio-share-view__start {
+    justify-self: start;
+  }
+
+  .rio-share-view__error {
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-share-view__note:empty,
+  .rio-share-view__error:empty {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    .rio-share-view__copy {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-share-view__error {
+      color: CanvasText;
+    }
+  }
+}

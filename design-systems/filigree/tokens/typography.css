@@ -1,0 +1,15 @@
+:root{
+/* size scale — 1.25 major third, tightened at the small end */
+--fs-micro:10px;--fs-caption:12px;--fs-label:13px;--fs-body-sm:14px;--fs-body:16px;--fs-body-lg:18px;
+--fs-title-sm:21px;--fs-title:26px;--fs-title-lg:33px;--fs-display-sm:44px;--fs-display:58px;--fs-display-lg:78px;--fs-display-xl:104px;
+--lh-tight:1.04; /* @kind other */--lh-snug:1.18; /* @kind other */--lh-title:1.28; /* @kind other */--lh-body:1.58; /* @kind other */--lh-loose:1.75; /* @kind other */
+--ls-display:0.06em;--ls-title:0.02em;--ls-body:0; /* @kind other */--ls-label:0.18em;--ls-micro:0.26em;
+--fw-thin:200; /* @kind font */--fw-regular:400; /* @kind font */--fw-medium:500; /* @kind font */--fw-bold:700; /* @kind font */
+
+/* composed roles */
+--text-display:var(--fw-regular) var(--fs-display)/var(--lh-tight) var(--font-display);
+--text-title:var(--fw-regular) var(--fs-title)/var(--lh-title) var(--font-serif);
+--text-body:var(--fw-regular) var(--fs-body)/var(--lh-body) var(--font-ui);
+--text-label:var(--fw-medium) var(--fs-label)/1.2 var(--font-ui);
+--text-mono:var(--fw-regular) var(--fs-caption)/1.4 var(--font-mono);
+}

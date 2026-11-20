@@ -1,0 +1,56 @@
+/* Optical Illusion — spacing, sizing, layout rhythm.
+   The scale is a 4px grid with two deliberate off-grid steps (6, 18) that the
+   op-art stripe pitches land on; do not snap those to 4. */
+:root{
+  --space-0:0;
+  --space-1:2px;
+  --space-2:4px;
+  --space-3:6px;
+  --space-4:8px;
+  --space-5:12px;
+  --space-6:16px;
+  --space-7:18px;
+  --space-8:24px;
+  --space-9:32px;
+  --space-10:40px;
+  --space-11:48px;
+  --space-12:64px;
+  --space-13:80px;
+  --space-14:96px;
+  --space-15:128px;
+  --space-16:160px;
+
+  /* stripe / moire pitches — the pattern system's only legal periods */
+  --pitch-hair:3px;
+  --pitch-fine:6px;
+  --pitch-mid:12px;
+  --pitch-wide:24px;
+  --pitch-broad:48px;
+
+  /* control sizing */
+  --control-xs:24px;
+  --control-sm:32px;
+  --control-md:40px;
+  --control-lg:48px;
+  --control-xl:56px;
+  --touch-min:44px;   /* never go under this on mobile or game UI */
+
+  /* layout */
+  --measure-prose:66ch;
+  --measure-narrow:48ch;
+  --gutter-page:24px;
+  --gutter-page-lg:64px;
+  --max-page:1240px;
+  --max-wide:1600px;
+  --grid-columns:12; /* @kind other */
+  --grid-gap:24px;
+
+  /* chrome heights */
+  --titlebar-mac:28px;
+  --titlebar-win:32px;
+  --titlebar-linux:36px;
+  --statusbar-ios:47px;
+  --statusbar-android:28px;
+  --tabbar-ios:83px;
+  --navbar-android:48px;
+}

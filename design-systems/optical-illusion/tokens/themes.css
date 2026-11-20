@@ -1,0 +1,177 @@
+/* Optical Illusion — color scheme variants.
+   Apply with data-theme on any ancestor: <body data-theme="midnight-gold">.
+   Every scope redefines only the base ramps; semantic aliases in colors.css
+   resolve through them, so all components re-tint with no code changes.
+   Values marked DERIVED are neutrals computed to sit with the palette when the
+   source palette supplied no usable ink or paper step. */
+
+/* 1 — Spectrum Wheel */
+[data-theme="spectrum-wheel"]{
+  --ink-900:#14212A;--ink-800:#21323F;--ink-700:#2E404C;--ink-600:#3B4D5A;--ink-500:#475B67;--ink-400:#546874;--ink-300:#A9BAC5;
+  --paper-000:#FDFAF4;--paper-100:#F7F3EA;--paper-200:#EBE5D8;--paper-300:#D9D1C0;--paper-400:#BEB5A2;
+  --signal:#F94144;--signal-dark:#C21F22;--signal-light:#FB7C7E;--signal-ink:#14212A;
+  --op-1:#F94144;--op-2:#F8961E;--op-3:#F9C74F;--op-4:#43AA8B;--op-5:#277DA1;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#C21F22;
+  --status-positive-text:#2D725D;
+  --status-caution-text:#7C6327;
+  --status-critical-text:#BD2F39;
+  --status-info-text:#3B6D6C;
+}
+/* 2 — Midnight Gold (dark ground) */
+[data-theme="midnight-gold"]{
+  --ink-900:#FFFFFF;--ink-800:#EAF2FF;--ink-700:#CDDAEB;--ink-600:#B0C2D8;--ink-500:#93A9C4;--ink-400:#7691B0;--ink-300:#4C658C;
+  --paper-000:#001D3D;--paper-100:#000814;--paper-200:#00142B;--paper-300:#003566;--paper-400:#0B4C87;
+  --signal:#FFC300;--signal-dark:#FFD60A;--signal-light:#FFE256;--signal-ink:#000814;
+  --op-1:#FFD60A;--op-2:#FFC300;--op-3:#003566;--op-4:#001D3D;--op-5:#000814;
+  --scrim-base:#000814;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#FFD60A;
+  --status-positive-text:#43AA8B;
+  --status-caution-text:#F9C74F;
+  --status-critical-text:#E94D59;
+  --status-info-text:#4D908E;
+}
+/* 3 — Electric Violet */
+[data-theme="electric-violet"]{
+  --ink-900:#1B0348;--ink-800:#26055E;--ink-700:#391A71;--ink-600:#4C3085;--ink-500:#5F4598;--ink-400:#725AAB;--ink-300:#BCAEDF;
+  --paper-000:#FFFCF4;--paper-100:#FDF6EC;--paper-200:#F3E9DA;--paper-300:#E3D4BE;--paper-400:#C9B79E;
+  --signal:#FF0054;--signal-dark:#C4003F;--signal-light:#FF4D85;--signal-ink:#1B0348;
+  --op-1:#390099;--op-2:#9E0059;--op-3:#FF0054;--op-4:#FF5400;--op-5:#FFBD00;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#C4003F;
+  --status-positive-text:#2E7560;
+  --status-caution-text:#7F6528;
+  --status-critical-text:#C4303C;
+  --status-info-text:#3D7270;
+}
+/* 4 — Signal Flag */
+[data-theme="signal-flag"]{
+  --ink-900:#122238;--ink-800:#1D3557;--ink-700:#294363;--ink-600:#35516E;--ink-500:#405E7A;--ink-400:#4C6C85;--ink-300:#A8DADC;
+  --paper-000:#FBFEFA;--paper-100:#F1FAEE;--paper-200:#DFEDE4;--paper-300:#C4DCDD;--paper-400:#A8DADC;
+  --signal:#E63946;--signal-dark:#B01C28;--signal-light:#F0737C;--signal-ink:#09101B;
+  --op-1:#E63946;--op-2:#457B9D;--op-3:#A8DADC;--op-4:#1D3557;--op-5:#F1FAEE;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#B01C28;
+  --status-positive-text:#2E745F;
+  --status-caution-text:#7F6528;
+  --status-critical-text:#C1303B;
+  --status-info-text:#3C706F;
+}
+/* 5 — Warm Clay */
+[data-theme="warm-clay"]{
+  --ink-900:#2A211F;--ink-800:#3E3330;--ink-700:#483C38;--ink-600:#524540;--ink-500:#5C4E48;--ink-400:#665750;--ink-300:#C9B7AA;
+  --paper-000:#FDF8F2;--paper-100:#F7EDE2;--paper-200:#F5CAC3;--paper-300:#E4B4AC;--paper-400:#CE9C93;
+  --signal:#F28482;--signal-dark:#C1504E;--signal-light:#F7A9A7;--signal-ink:#2A211F;
+  --op-1:#F6BD60;--op-2:#F5CAC3;--op-3:#F28482;--op-4:#84A59D;--op-5:#3E3330;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#973E3D;
+  --status-positive-text:#286452;
+  --status-caution-text:#6E5823;
+  --status-critical-text:#AA2A34;
+  --status-info-text:#346261;
+}
+/* 6 — Field Slate */
+[data-theme="field-slate"]{
+  --ink-900:#16272F;--ink-800:#233D4D;--ink-700:#2F4856;--ink-600:#3A5260;--ink-500:#465D69;--ink-400:#516772;--ink-300:#B4C6D0;
+  --paper-000:#FCFAF3;--paper-100:#F4F1E8;--paper-200:#E7E2D3;--paper-300:#D2CBB6;--paper-400:#B6AE96;
+  --signal:#FE7F2D;--signal-dark:#C4570F;--signal-light:#FFA265;--signal-ink:#16272F;
+  --op-1:#FE7F2D;--op-2:#FCCA46;--op-3:#A1C181;--op-4:#619B8A;--op-5:#233D4D;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#A5490D;
+  --status-positive-text:#2C6E5A;
+  --status-caution-text:#786026;
+  --status-critical-text:#BA2E39;
+  --status-info-text:#3A6C6B;
+}
+/* 7 — Deep Mint */
+[data-theme="deep-mint"]{
+  --ink-900:#123047;--ink-800:#22577A;--ink-700:#2C5E7D;--ink-600:#366480;--ink-500:#406B83;--ink-400:#4A7186;--ink-300:#B2D3DF;
+  --paper-000:#F9FEFA;--paper-100:#EFFBF2;--paper-200:#DDF6E4;--paper-300:#C7F9CC;--paper-400:#9DDBAB;
+  --signal:#1F6F71;--signal-dark:#125153;--signal-light:#38A3A5;--signal-ink:#F9FEFA;
+  --op-1:#22577A;--op-2:#38A3A5;--op-3:#57CC99;--op-4:#80ED99;--op-5:#C7F9CC;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#125153;
+  --status-positive-text:#2F7761;
+  --status-caution-text:#84692A;
+  --status-critical-text:#CA323E;
+  --status-info-text:#3E7573;
+}
+/* 8 — Cyan Ember (dark ground) */
+[data-theme="cyan-ember"]{
+  --ink-900:#FFFFFF;--ink-800:#EAF7EE;--ink-700:#DCE9DF;--ink-600:#CEDCD1;--ink-500:#BFCEC2;--ink-400:#B1C0B3;--ink-300:#5C7562;
+  --paper-000:#2E5339;--paper-100:#16241A;--paper-200:#101A13;--paper-300:#495F41;--paper-400:#5D7551;
+  --signal:#FF5666;--signal-dark:#FFCCC9;--signal-light:#FF8A95;--signal-ink:#16241A;
+  --op-1:#00FDDC;--op-2:#FF5666;--op-3:#FFCCC9;--op-4:#495F41;--op-5:#2E5339;
+  --scrim-base:#101A13;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#FFCCC9;
+  --status-positive-text:#87C9B5;
+  --status-caution-text:#F9C74F;
+  --status-critical-text:#F4A8AE;
+  --status-info-text:#9FC3C2;
+}
+/* 9 — Candy Pop */
+[data-theme="candy-pop"]{
+  --ink-900:#1C162B;--ink-800:#2B2340;--ink-700:#3C3452;--ink-600:#4E4664;--ink-500:#5F5775;--ink-400:#706887;--ink-300:#BDB6CD;
+  --paper-000:#FFFDF8;--paper-100:#FFF9EC;--paper-200:#FDEFD7;--paper-300:#FFD670;--paper-400:#E8BC58;
+  --signal:#FF70A6;--signal-dark:#C93B74;--signal-light:#FFA3C6;--signal-ink:#1C162B;
+  --op-1:#70D6FF;--op-2:#FF70A6;--op-3:#FF9770;--op-4:#FFD670;--op-5:#2B2340;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#BF386E;
+  --status-positive-text:#307963;
+  --status-caution-text:#84692A;
+  --status-critical-text:#CA323E;
+  --status-info-text:#3F7674;
+}
+/* 10 — Teal Punch */
+[data-theme="teal-punch"]{
+  --ink-900:#0A2A3B;--ink-800:#113A50;--ink-700:#1C495A;--ink-600:#275864;--ink-500:#32666D;--ink-400:#3D7577;--ink-300:#B2DBBF;
+  --paper-000:#FDFFF4;--paper-100:#F7FBEA;--paper-200:#EAF4D8;--paper-300:#F3FFBD;--paper-400:#C9DC9A;
+  --signal:#FF1654;--signal-dark:#C40D3D;--signal-light:#FF5C83;--signal-ink:#071C27;
+  --op-1:#247BA0;--op-2:#70C1B3;--op-3:#B2DBBF;--op-4:#F3FFBD;--op-5:#FF1654;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#C40D3D;
+  --status-positive-text:#307963;
+  --status-caution-text:#84692A;
+  --status-critical-text:#CA323E;
+  --status-info-text:#3E7573;
+}
+/* 11 — Cobalt Cream */
+[data-theme="cobalt-cream"]{
+  --ink-900:#052749;--ink-800:#083D77;--ink-700:#14467C;--ink-600:#214F81;--ink-500:#2D5885;--ink-400:#39618A;--ink-300:#AFC9E4;
+  --paper-000:#F7F7E9;--paper-100:#EBEBD3;--paper-200:#DDDDC0;--paper-300:#C9C9A7;--paper-400:#AFAF8B;
+  --signal:#F95738;--signal-dark:#C43317;--signal-light:#FD8368;--signal-ink:#052749;
+  --op-1:#083D77;--op-2:#F4D35E;--op-3:#EE964B;--op-4:#F95738;--op-5:#EBEBD3;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#B22E15;
+  --status-positive-text:#2A6956;
+  --status-caution-text:#735C24;
+  --status-critical-text:#B32C37;
+  --status-info-text:#376866;
+}
+/* 12 — Sage Fog */
+[data-theme="sage-fog"]{
+  --ink-900:#28322A;--ink-800:#3C493F;--ink-700:#445148;--ink-600:#4D5950;--ink-500:#556159;--ink-400:#5D6961;--ink-300:#B3BFB8;
+  --paper-000:#FAFDFB;--paper-100:#F0F7F4;--paper-200:#DFE9E4;--paper-300:#C6D3CC;--paper-400:#A9B7B0;
+  --signal:#38795C;--signal-dark:#245A42;--signal-light:#5C9C7C;--signal-ink:#FAFDFB;
+  --op-1:#3C493F;--op-2:#7E8D85;--op-3:#B3BFB8;--op-4:#A2E3C4;--op-5:#F0F7F4;
+
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#245A42;
+  --status-positive-text:#2D725D;
+  --status-caution-text:#7C6327;
+  --status-critical-text:#BF2F3A;
+  --status-info-text:#3B6F6D;
+}

@@ -1,0 +1,18 @@
+# Moving an organization to another server
+
+Organization archives move application data between servers without sharing the source server's encryption key or anyone's sign-in credentials.  Use **Settings → Export and import** while signed in as the organization owner.
+
+1. Export the organization, including file contents when the destination needs attachments.  Include the audit log if you need its history.  Enter an export passphrase of at least 12 characters to include encrypted integration credentials, and to let the destination prove the archive is unchanged.
+2. Download the archive within seven days and keep its passphrase separately.  Allow space for the archive and temporary staging files on both servers.  The archive is streamed and has no configured total size limit.  A reverse proxy may need its upload limit and request timeout adjusted.
+3. Install the same or a newer Riosoma schema version on the destination.  Connect its database and create the importing owner account.  During that step, choose **Import an organization archive after creating the owner account**.  You can also import later from settings while the organization is empty.
+4. Upload the archive and review its preview.  Enter the passphrase and check it: the preview says the archive is unchanged only once the passphrase proves it.  An archive without a passphrase can't be checked, so import it only if you trust where it came from.  Then confirm the import.  All organization data commits together.  An interrupted or failed transaction leaves no partial database.
+5. Open the import review.  Nobody has been invited yet: choose people and send their invitations when you're ready.  Everyone joins as a member, or as a guest if they were one, with no admin roles.  Give admin roles again from People once they've joined.
+6. Every source, webhook, incoming webhook, feed, automation, public link, public form, calendar feed setting, cloud drive app, and feedback repository comes in off.  Check where each one goes, then turn it on from the review.  Public links and forms get new addresses, and webhook sources new incoming addresses.  Switch traffic only after checking the restored data.
+
+Source credentials, signing secrets, and integration credentials are excluded by default.  With a passphrase, Argon2id and HKDF derive separate keys for AES-256-GCM encryption and for an HMAC over the archive's manifest, and the archive records the derivation parameters.  The passphrase never reaches persistent storage.  Credentials restored into PostgreSQL are sealed with the destination's key.
+
+An import restores organization settings only.  The destination keeps its own mail and SMTP settings, AI provider addresses and keys, sign-in and security settings, and everything it reads from its environment.  AI settings come in off, with only their model choices kept.
+
+Names, email addresses, and SCIM-managed flags travel for the review list.  Roles in the old organization are shown, never restored.  Password hashes, passkeys, sessions, personal access tokens, and personal connected-account tokens never travel.  Keep normal server backups for operational history outside the organization archive, including old snapshots and change history.
+
+Export start, download, and deletion, and import start and finish, are recorded in the audit log, and so is each invitation sent and each thing turned on from the review.  Audit events from the archive are marked as imported.  Completed export downloads are removed after seven days, including their stored chunks.  This workflow adds no environment settings.  Migration `0047_organization_archives` supplies its storage.

@@ -1,0 +1,11 @@
+@layer rio.components {
+  .rio-avatar--resting {
+    display: inline-flex;
+    flex: none;
+    color: var(--rio-text);
+  }
+  .rio-avatar--resting svg {
+    display: block;
+    overflow: hidden;
+  }
+}

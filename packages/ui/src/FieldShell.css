@@ -1,0 +1,208 @@
+/*
+ * The frame every field draws: a label, the control, help text, error text.  The control's height
+ * comes from the size tokens and never changes at runtime; states swap colors and visibility only,
+ * and the frame rather than the input carries the focus ring so the ring follows the visible box.
+ */
+@layer rio.components {
+  .rio-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    inline-size: 100%;
+    min-inline-size: 0;
+    color: var(--rio-text);
+    font-family: var(--rio-font-body);
+    text-align: start;
+  }
+
+  .rio-field__control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    inline-size: 100%;
+    block-size: var(--rio-control-height);
+    padding-inline: var(--rio-space-2);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    font-size: var(--rio-text-md);
+    transition:
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-field__icon {
+    flex: none;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-field__label {
+    display: flex;
+    align-items: baseline;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+
+  .rio-field__required {
+    flex: none;
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-field__input {
+    flex: 1 1 auto;
+    inline-size: 100%;
+    min-inline-size: 0;
+    block-size: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: inherit;
+    caret-color: var(--rio-accent);
+    font: inherit;
+    appearance: none;
+  }
+
+  .rio-field__input::placeholder {
+    color: var(--rio-aa-text-muted);
+    opacity: 1;
+  }
+
+  /* The frame draws the ring, so the input inside it must not draw a second one. */
+  .rio-field__input:focus,
+  .rio-field__input:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Buttons inside the frame: a search field's clear, a password field's reveal, number steppers. */
+  .rio-field__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    align-self: stretch;
+    inline-size: var(--rio-space-6);
+    padding: 0;
+    border: 0;
+    border-radius: var(--rio-radius);
+    background-color: transparent;
+    color: var(--rio-aa-text-muted);
+    font: inherit;
+    cursor: pointer;
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-field__action[data-hovered] {
+    background-color: var(--rio-hover);
+    color: var(--rio-text);
+  }
+
+  .rio-field__action[data-pressed] {
+    background-color: var(--rio-pressed);
+  }
+
+  .rio-field__action[data-focus-visible] {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+    color: var(--rio-text);
+  }
+
+  .rio-field__action[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Sizes: the same three heights Button offers. */
+  .rio-field[data-size='sm'] .rio-field__control {
+    block-size: var(--rio-control-height-sm);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-field[data-size='lg'] .rio-field__control {
+    block-size: var(--rio-control-height-lg);
+    padding-inline: var(--rio-space-3);
+    font-size: var(--rio-text-lg);
+  }
+
+  /* States. */
+  .rio-field__control[data-hovered] {
+    border-color: var(--rio-aa-text-muted);
+  }
+
+  .rio-field__control[data-focus-visible] {
+    border-color: var(--rio-aa-focus);
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-field[data-invalid] .rio-field__control {
+    border-color: var(--rio-aa-danger-text);
+  }
+
+  /* A read-only field keeps its value but is not for editing, so it sits below the surface. */
+  .rio-field[data-readonly] .rio-field__control {
+    background-color: var(--rio-surface-sunken);
+  }
+
+  .rio-field[data-disabled] .rio-field__control,
+  .rio-field[data-disabled] .rio-field__input {
+    cursor: not-allowed;
+  }
+
+  .rio-field[data-disabled] .rio-field__control {
+    opacity: 0.5;
+  }
+  @media (max-width: 767px) {
+    .rio-field[data-size] .rio-field__control {
+      min-block-size: calc(var(--rio-target-primary) + var(--rio-space-1));
+    }
+    .rio-field__action {
+      min-inline-size: var(--rio-target-primary);
+      min-block-size: var(--rio-target-primary);
+    }
+  }
+
+  @media (forced-colors: active) {
+    /* The frame stands in for the input's own box, so it takes the field colors. */
+    .rio-field__control {
+      border-color: FieldText;
+      background-color: Field;
+      color: FieldText;
+    }
+
+    .rio-field__icon {
+      color: FieldText;
+    }
+
+    .rio-field__action {
+      color: ButtonText;
+    }
+
+    /* Box shadows are dropped in forced colors, so the ring has to become an outline. */
+    .rio-field__control[data-focus-visible],
+    .rio-field__action[data-focus-visible] {
+      outline: 2px solid Highlight;
+      outline-offset: 1px;
+      box-shadow: none;
+    }
+
+    .rio-field[data-readonly] .rio-field__control {
+      background-color: Canvas;
+    }
+
+    /* Dimming with opacity does not survive forced colors; GrayText carries the state instead. */
+    .rio-field[data-disabled] .rio-field__control {
+      border-color: GrayText;
+      color: GrayText;
+      opacity: 1;
+    }
+
+    .rio-field[data-disabled] .rio-field__icon {
+      color: GrayText;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "fields",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "grid.field.add",
+      "say": "demos.fields.add",
+      "do": "open"
+    },
+    {
+      "anchor": "field.name",
+      "say": "demos.fields.name",
+      "do": "type",
+      "text": "demos.fields.sampleName"
+    },
+    {
+      "anchor": "field.type",
+      "say": "demos.fields.type",
+      "do": "open"
+    },
+    {
+      "anchor": "field.type",
+      "item": "date",
+      "say": "demos.fields.date",
+      "do": "choose"
+    },
+    {
+      "anchor": "field.create",
+      "say": "demos.fields.create"
+    }
+  ]
+}

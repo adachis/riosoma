@@ -1,0 +1,20 @@
+/* Sketch — minimal element defaults. Consumers get readable paper for free. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:var(--type-body);
+  background-image:var(--paper-grain);text-wrap:pretty;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0 0 var(--sp-4);color:var(--text-body)}
+h1{font:var(--type-display)}
+h2{font:var(--type-title)}
+h3{font:var(--type-heading)}
+h4{font:var(--type-lead);font-weight:var(--fw-bold)}
+p{margin:0 0 var(--sp-4);max-width:var(--measure)}
+small{font:var(--type-caption)}
+code,kbd,pre{font-family:var(--font-mono);font-size:.94em}
+hr{border:0;border-top:var(--stroke) solid var(--ink-4);margin:var(--sp-5) 0}
+a{color:var(--text-link);text-decoration-thickness:var(--stroke-hair);text-underline-offset:3px;
+  transition:color var(--dur-fast) linear}
+a:hover{color:var(--text-link-hover);text-decoration-style:wavy}
+::selection{background:var(--highlight);color:var(--ink-1)}
+:focus-visible{outline:none;box-shadow:var(--focus-ring)}

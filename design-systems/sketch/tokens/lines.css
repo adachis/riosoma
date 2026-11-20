@@ -1,0 +1,45 @@
+/* Sketch — the drawn line: stroke weights, wobbled corners, shadows.
+   The wobble radii are the core motif. Four corner values plus four
+   vertical values per radius make every corner a different arc, which reads
+   as a hand-drawn box. Reuse these; do not invent new ones per component. */
+:root{
+  --stroke-hair:1px; /* @kind spacing */
+  --stroke:1.5px; /* @kind spacing */
+  --stroke-bold:2.5px; /* @kind spacing */
+  --stroke-heavy:4px; /* @kind spacing */
+
+  /* wobbled corners */
+  --wob-sm:14px 9px 16px 11px / 11px 16px 9px 14px; /* @kind radius */
+  --wob-md:22px 13px 25px 15px / 15px 25px 13px 22px; /* @kind radius */
+  --wob-lg:38px 19px 44px 22px / 22px 44px 19px 38px; /* @kind radius */
+  --wob-xl:255px 15px 225px 15px / 15px 225px 15px 255px; /* @kind radius */
+  --wob-pill:63px 31px 57px 35px / 31px 57px 35px 63px; /* @kind radius */
+  --wob-circle:49% 51% 47% 53% / 52% 48% 53% 47%; /* @kind radius */
+  --wob-inv:11px 16px 9px 14px / 14px 9px 16px 11px; /* @kind radius */
+
+  /* borders */
+  --border:var(--stroke) solid var(--ink-1); /* @kind other */
+  --border-bold:var(--stroke-bold) solid var(--ink-1); /* @kind other */
+  --border-soft:var(--stroke) solid var(--ink-4); /* @kind other */
+  --border-pencil:var(--stroke) dashed var(--graphite-soft); /* @kind other */
+  --border-rule:var(--stroke-hair) solid var(--rule); /* @kind other */
+
+  /* drawn tilts — apply sparingly, one or two per view */
+  --tilt-a:-0.6deg; /* @kind other */
+  --tilt-b:0.7deg; /* @kind other */
+  --tilt-c:-1.4deg; /* @kind other */
+  --tilt-d:1.9deg; /* @kind other */
+
+  /* shadows are flat offsets, like a second pass of the pen */
+  --shadow-none:none; /* @kind shadow */
+  --shadow-1:2px 3px 0 var(--ink-a12); /* @kind shadow */
+  --shadow-2:4px 5px 0 var(--ink-a12); /* @kind shadow */
+  --shadow-3:7px 8px 0 var(--ink-a20); /* @kind shadow */
+  --shadow-ink:3px 4px 0 var(--ink-1); /* @kind shadow */
+  --shadow-accent:3px 4px 0 var(--accent); /* @kind shadow */
+  --shadow-inset:inset 2px 3px 0 var(--ink-a08); /* @kind shadow */
+  --shadow-press:1px 1px 0 var(--ink-a12); /* @kind shadow */
+
+  /* focus is a drawn loop around the element */
+  --focus-ring:0 0 0 var(--stroke) var(--paper-4), 0 0 0 4px var(--accent); /* @kind shadow */
+}

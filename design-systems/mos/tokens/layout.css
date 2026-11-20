@@ -1,0 +1,39 @@
+/* mOS layout constants — desktop-shell geometry. */
+:root {
+  --menubar-h: 36px;
+  --dock-h:    72px;
+  --radius:    10px;      /* window corner */
+  --radius-sm: 4px;       /* inputs, slots, small tiles */
+  --radius-md: 6px;       /* menubar buttons, popover rows, file icons */
+  --radius-lg: 12px;      /* dock tiles */
+  --radius-dock: 18px;    /* dock shell */
+  --radius-app: 14px;     /* app-icon squircle */
+  --radius-bubble: 20px;  /* assistant chat surface */
+
+  --window-header-h: 32px;
+  --window-pad:      28px 32px 32px; /* @kind spacing */
+  --window-min-w:    240px;
+  --window-min-h:    140px;
+
+  --dock-item:      48px;
+  --dock-item-gap:  10px;
+  --desk-icon-w:    56px;
+  --desk-icon-h:    64px;
+  --desk-file-w:    84px;
+  --app-icon:       56px;
+  --light-size:     12px;
+
+  --breakpoint-mobile: 720px; /* @kind other */
+
+  /* spacing steps actually in use */
+  --space-1:  4px;
+  --space-2:  6px;
+  --space-3:  8px;
+  --space-4:  10px;
+  --space-5:  12px;
+  --space-6:  14px;
+  --space-7:  18px;
+  --space-8:  22px;
+  --space-9:  28px;
+  --space-10: 32px;
+}

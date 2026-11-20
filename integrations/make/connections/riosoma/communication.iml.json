@@ -1,0 +1,31 @@
+{
+  "url": "{{riosomaOrigin(parameters.server) + '/api/v1/databases'}}",
+  "method": "GET",
+  "headers": {
+    "Authorization": "Bearer {{parameters.token}}",
+    "Accept": "application/json"
+  },
+  "followRedirects": false,
+  "followAllRedirects": false,
+  "response": {
+    "valid": "{{statusCode == 200}}",
+    "error": {
+      "message": "Riosoma could not complete the request.  Check the connection, permissions, and input."
+    },
+    "data": {
+      "server": "{{riosomaOrigin(parameters.server)}}",
+      "token": "{{parameters.token}}"
+    },
+    "metadata": {
+      "type": "text",
+      "value": "{{riosomaOrigin(parameters.server)}}"
+    }
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization",
+      "request.headers.Authorization",
+      "response.body.token"
+    ]
+  }
+}

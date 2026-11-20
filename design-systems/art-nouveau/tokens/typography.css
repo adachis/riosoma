@@ -1,0 +1,52 @@
+:root{
+/* Families — six roles. Fallbacks stay in the same genre so a missing binary degrades gracefully. */
+--font-display:"AN Display",Georgia,"Times New Roman",serif;      /* poster headlines, hero lockups */
+--font-poster:"AN Poster","AN Display",Georgia,serif;             /* condensed decorative caps, eyebrows */
+--font-title:"AN Title",Georgia,serif;                            /* h1–h4, card + screen titles */
+--font-text:"AN Text",Georgia,"Iowan Old Style",serif;            /* body copy, tables, forms */
+--font-editorial:"AN Editorial",Georgia,serif;                    /* long-form print, pull quotes */
+--font-label:"AN Label","Futura",system-ui,sans-serif;            /* buttons, nav, tabs, metadata */
+--font-accent:"AN Accent",Georgia,serif;                          /* captions, credits, italic asides */
+--font-ornate:"AN Ornate","AN Display",serif;                     /* game titles, drop caps, plaques */
+--font-vine:"AN Vine","AN Title",serif;                           /* signatures, marginalia */
+--font-stencil:"AN Stencil","AN Label",sans-serif;                /* stamped plaques, numerals */
+--font-mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace; /* system stack — the library supplies no monospaced face */
+
+/* Size ramp — a 1.26 ratio, tuned so 16px body and 42px titles both land on whole pixels. */
+--fs-3xs:11px;--fs-2xs:12px;--fs-xs:13px;--fs-sm:14px;--fs-md:16px;--fs-lg:18px;
+--fs-xl:21px;--fs-2xl:26px;--fs-3xl:32px;--fs-4xl:42px;--fs-5xl:56px;--fs-6xl:76px;--fs-7xl:104px;
+
+--lh-tight:0.98; /* @kind other */
+--lh-title:1.12; /* @kind other */
+--lh-snug:1.35; /* @kind other */
+--lh-body:1.6; /* @kind other */
+--lh-loose:1.78; /* @kind other */
+
+--tr-tight:-0.012em; /* @kind other */
+--tr-normal:0; /* @kind other */
+--tr-label:0.14em; /* @kind other */
+--tr-wide:0.22em; /* @kind other */
+--tr-poster:0.06em; /* @kind other */
+
+--fw-light:300; /* @kind other */
+--fw-regular:400; /* @kind other */
+--fw-semibold:600; /* @kind other */
+--fw-bold:700; /* @kind other */
+
+/* Ready-made type roles */
+--type-hero:var(--fw-regular) var(--fs-6xl)/var(--lh-tight) var(--font-display); /* @kind font */
+--type-display:var(--fw-regular) var(--fs-5xl)/var(--lh-tight) var(--font-display); /* @kind font */
+--type-h1:var(--fw-semibold) var(--fs-4xl)/var(--lh-title) var(--font-title); /* @kind font */
+--type-h2:var(--fw-semibold) var(--fs-3xl)/var(--lh-title) var(--font-title); /* @kind font */
+--type-h3:var(--fw-semibold) var(--fs-2xl)/var(--lh-snug) var(--font-title); /* @kind font */
+--type-h4:var(--fw-semibold) var(--fs-xl)/var(--lh-snug) var(--font-title); /* @kind font */
+--type-body:var(--fw-regular) var(--fs-md)/var(--lh-body) var(--font-text); /* @kind font */
+--type-body-sm:var(--fw-regular) var(--fs-sm)/var(--lh-body) var(--font-text); /* @kind font */
+--type-lead:var(--fw-regular) var(--fs-lg)/var(--lh-loose) var(--font-editorial); /* @kind font */
+--type-quote:italic var(--fw-regular) var(--fs-2xl)/var(--lh-snug) var(--font-accent); /* @kind font */
+--type-caption:italic var(--fw-regular) var(--fs-xs)/var(--lh-snug) var(--font-accent); /* @kind font */
+--type-label:var(--fw-regular) var(--fs-2xs)/1 var(--font-label); /* @kind font */
+--type-label-lg:var(--fw-regular) var(--fs-sm)/1 var(--font-label); /* @kind font */
+--type-eyebrow:var(--fw-regular) var(--fs-3xs)/1 var(--font-poster); /* @kind font */
+--type-mono:var(--fw-regular) var(--fs-xs)/var(--lh-snug) var(--font-mono); /* @kind font */
+}

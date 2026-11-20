@@ -1,0 +1,541 @@
+@layer rio.app {
+  /* Over the header's scrolling columns and clipped the same way, above the grid's own layers. */
+  .rio-grid__header-actions {
+    position: absolute;
+    inset-block-start: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .rio-grid__add-column {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 40px;
+    pointer-events: auto;
+    border: 0;
+    border-inline-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    font: inherit;
+    cursor: pointer;
+  }
+  .rio-grid__add-column:hover {
+    background: var(--rio-hover);
+  }
+
+  /* The fill handle sits on the end corner of the selected block, centered on it. */
+  .rio-grid__fill-handle {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 8px;
+    block-size: 8px;
+    margin-block-start: -4px;
+    margin-inline-start: -4px;
+    background: var(--rio-aa-focus);
+    border: 1px solid var(--rio-bg);
+    pointer-events: auto;
+    touch-action: none;
+    cursor: crosshair;
+    z-index: 1;
+  }
+
+  /* A larger target than the square shows, so it can be caught without aiming. */
+  .rio-grid__fill-handle::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+  }
+
+  @media (pointer: coarse) {
+    .rio-grid__fill-handle {
+      inline-size: 12px;
+      block-size: 12px;
+      margin-block-start: -6px;
+      margin-inline-start: -6px;
+    }
+    .rio-grid__fill-handle::before {
+      inset: -14px;
+    }
+  }
+
+  .rio-grid__fill-outline {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    border: 2px dashed var(--rio-aa-focus);
+    pointer-events: none;
+  }
+
+  /* Found cells are tinted under their text, and the one a search is on is ringed as well. */
+  .rio-grid__cell:has(> .rio-grid__decoration--match) {
+    isolation: isolate;
+  }
+
+  .rio-grid__decoration--match {
+    z-index: -1;
+    background: var(--rio-choice-yellow-soft);
+  }
+
+  .rio-grid__decoration--match[data-current] {
+    background: var(--rio-choice-orange-soft);
+    box-shadow: inset 0 0 0 2px var(--rio-warning);
+  }
+
+  /* The footer row sits under the rows and stays put while they scroll, drawn like the header. */
+  .rio-grid__footer {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    overflow: hidden;
+    background: var(--rio-surface);
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  .rio-grid__footer-row {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    contain: layout style;
+  }
+
+  .rio-grid__footer-row .rio-grid__pane--frozen,
+  .rio-grid__footer-row .rio-grid__row-header {
+    background: var(--rio-surface);
+  }
+
+  .rio-grid__footer-row .rio-grid__row-header {
+    border-block-end: 0;
+  }
+
+  .rio-grid__footer-cell {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    border-inline-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .rio-grid__footer-cell:hover {
+    background: var(--rio-hover);
+  }
+
+  .rio-grid__footer-cell[data-active]::before {
+    content: '';
+    position: absolute;
+    inset-block: 4px;
+    inset-inline: 4px;
+    pointer-events: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  @media (forced-colors: active) {
+    .rio-grid__fill-handle,
+    .rio-grid__fill-outline {
+      forced-color-adjust: none;
+      border-color: Highlight;
+    }
+    .rio-grid__fill-handle {
+      background: Highlight;
+    }
+    .rio-grid__decoration--match {
+      forced-color-adjust: none;
+      background: Mark;
+    }
+    .rio-grid__decoration--match[data-current] {
+      box-shadow: inset 0 0 0 2px Highlight;
+    }
+    .rio-grid__footer {
+      border-color: CanvasText;
+    }
+    .rio-grid__footer-cell {
+      border-color: CanvasText;
+    }
+    .rio-grid__footer-cell[data-active]::before {
+      outline: 2px solid Highlight;
+    }
+  }
+}
+
+@layer rio.components {
+  .rio-grid {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--rio-bg);
+    color: var(--rio-text);
+    font: var(--rio-text-md) / var(--rio-leading-normal) var(--rio-font-body);
+  }
+
+  .rio-grid *,
+  .rio-grid *::before,
+  .rio-grid *::after {
+    box-sizing: border-box;
+  }
+
+  .rio-grid__table {
+    position: absolute;
+    inset: 0;
+  }
+
+  .rio-grid__header,
+  .rio-grid__scroller {
+    position: absolute;
+    inset-inline: 0;
+  }
+
+  .rio-grid__header {
+    inset-block-start: 0;
+    block-size: 32px;
+    overflow: hidden;
+    background: var(--rio-surface);
+  }
+
+  .rio-grid__scroller {
+    inset-block: 32px 0;
+    overflow: auto;
+    overflow-anchor: none;
+  }
+
+  .rio-grid__spacer {
+    position: relative;
+    min-inline-size: 100%;
+    min-block-size: 100%;
+  }
+
+  .rio-grid__viewport {
+    position: sticky;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    overflow: hidden;
+    contain: strict;
+    background: var(--rio-bg);
+  }
+
+  .rio-grid__row,
+  .rio-grid__header-row {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    contain: layout style;
+  }
+
+  .rio-grid__pane {
+    position: absolute;
+    inset-block: 0;
+    overflow: hidden;
+  }
+
+  .rio-grid__pane--frozen {
+    background: var(--rio-bg);
+  }
+
+  .rio-grid__header-row .rio-grid__pane--frozen,
+  .rio-grid__header-cell,
+  .rio-grid__row-header {
+    background: var(--rio-surface);
+  }
+
+  .rio-grid__cell,
+  .rio-grid__header-cell,
+  .rio-grid__row-header {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    border-inline-end: 1px solid var(--rio-border);
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-grid__row-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-grid__content {
+    inline-size: 100%;
+    block-size: 100%;
+    overflow: hidden;
+    padding-inline: var(--rio-space-2);
+    align-content: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .rio-grid__header-cell {
+    font-weight: var(--rio-weight-medium);
+    user-select: none;
+    touch-action: none;
+  }
+
+  .rio-grid__resize {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    inline-size: 7px;
+    cursor: col-resize;
+    touch-action: none;
+  }
+
+  .rio-grid__cell[data-loading]::after {
+    content: '';
+    position: absolute;
+    inset-inline: var(--rio-space-3);
+    inset-block: 40%;
+    background: var(--rio-hover);
+    border-radius: var(--rio-radius);
+  }
+
+  .rio-grid__cell[data-selected] {
+    background: var(--rio-selected);
+  }
+
+  .rio-grid__cell[data-active]::before {
+    content: '';
+    position: absolute;
+    inset-block: 4px;
+    inset-inline: 4px;
+    pointer-events: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-grid__editors {
+    position: absolute;
+    inset-inline-start: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .rio-grid__editor-clip {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .rio-grid__input {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    margin: 0;
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: 0;
+    resize: none;
+    font: inherit;
+    color: var(--rio-text);
+    background: var(--rio-surface);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .rio-grid__input[data-editing] {
+    opacity: 1;
+    pointer-events: auto;
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-grid__error {
+    position: absolute;
+    padding: var(--rio-space-2);
+    background: var(--rio-surface);
+    color: var(--rio-aa-danger-text);
+    border: 1px solid var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-grid__live,
+  .rio-grid__drag-focus {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .rio-grid__cell,
+  .rio-grid__row-header {
+    user-select: none;
+  }
+
+  .rio-grid__add-row {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+  }
+
+  .rio-grid__add-cell,
+  .rio-grid__add {
+    position: absolute;
+    inset: 0;
+  }
+
+  .rio-grid__add {
+    inline-size: 100%;
+    padding-inline: var(--rio-space-4);
+    border: 0;
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .rio-grid__add:hover {
+    background: var(--rio-hover);
+  }
+
+  .rio-grid__drop-indicator {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 2px;
+    background: var(--rio-aa-focus);
+    pointer-events: none;
+  }
+
+  .rio-grid__decoration {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    pointer-events: none;
+  }
+
+  .rio-grid__decoration--presence {
+    border: 2px solid var(--rio-grid-decoration-color);
+  }
+
+  .rio-grid__presence-label {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    max-inline-size: 100%;
+    overflow: hidden;
+    padding-inline: var(--rio-space-1);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border-block-end: 2px solid var(--rio-grid-decoration-color);
+    font-size: var(--rio-text-xs);
+    line-height: var(--rio-leading-tight);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .rio-grid__decoration--flash {
+    background: var(--rio-grid-decoration-color);
+    animation: rio-grid-flash var(--rio-duration-slow) var(--rio-ease-exit) both;
+  }
+
+  @keyframes rio-grid-flash {
+    from {
+      opacity: 0.45;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rio-grid__decoration--flash {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-grid__cell,
+    .rio-grid__header-cell,
+    .rio-grid__row-header {
+      border-color: CanvasText;
+    }
+    .rio-grid__cell[data-selected] {
+      background: Highlight;
+      color: HighlightText;
+    }
+    .rio-grid__cell[data-active]::before {
+      outline: 2px solid Highlight;
+    }
+    .rio-grid__decoration--presence,
+    .rio-grid__presence-label {
+      border-color: Highlight;
+    }
+    .rio-grid__drop-indicator {
+      background: Highlight;
+      forced-color-adjust: none;
+    }
+  }
+}
+
+@layer rio.app {
+  .rio-grid__column-groups {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .rio-grid__column-group-segment {
+    position: absolute;
+    inset-block-start: 0;
+    block-size: 24px;
+    pointer-events: auto;
+  }
+  .rio-grid__column-group {
+    z-index: 2;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 24px;
+    border: 0;
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    font: inherit;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-grid__header-cell[data-grouped-column] > .rio-grid__content {
+    margin-block-start: 24px;
+    block-size: calc(100% - 24px);
+  }
+  .rio-grid__row[data-pinned] {
+    background: var(--rio-surface);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  [data-rio-drag-row],
+  [data-rio-column] {
+    touch-action: none;
+  }
+  .rio-grid__drag-hint {
+    position: absolute;
+    inset-block-end: var(--rio-space-6);
+    inset-inline-start: var(--rio-space-3);
+    z-index: 30;
+    padding: var(--rio-space-2);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-border);
+    pointer-events: none;
+  }
+}
+
+@layer rio.app {
+  .rio-grid__pinned {
+    position: absolute;
+    isolation: isolate;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--rio-surface);
+  }
+}

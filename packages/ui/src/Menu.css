@@ -1,0 +1,168 @@
+@layer rio.components {
+  .rio-menu {
+    max-block-size: calc(
+      100dvb - var(--rio-space-12) - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    min-block-size: 0;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    outline: none;
+    list-style: none;
+  }
+
+  /* A menu's rows are its choices, so they are primary actions: a fingertip tall on phones. */
+  .rio-menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    box-sizing: border-box;
+    min-block-size: var(--rio-target-primary);
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+    cursor: default;
+    outline: none;
+    user-select: none;
+    transition:
+      background-color var(--rio-duration-instant) var(--rio-ease-standard),
+      color var(--rio-duration-instant) var(--rio-ease-standard);
+  }
+
+  .rio-menu-item__text {
+    display: grid;
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  .rio-menu-item__label {
+    overflow-wrap: break-word;
+  }
+
+  .rio-menu-item__description {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-normal);
+  }
+
+  .rio-menu-item__icon {
+    flex: 0 0 auto;
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* The shortcut sits at the inline end and is announced with the item, so it never wraps. */
+  .rio-menu-item__shortcut {
+    flex: 0 0 auto;
+    color: var(--rio-aa-text-muted);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+    white-space: nowrap;
+  }
+
+  .rio-menu-item__chevron {
+    flex: 0 0 auto;
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* The chevron points the way the submenu opens, so it mirrors in right-to-left. */
+  [dir='rtl'] .rio-menu-item__chevron {
+    transform: scaleX(-1);
+  }
+
+  .rio-menu-item[data-tone='danger'] {
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-menu-item[data-tone='danger'] .rio-menu-item__icon,
+  .rio-menu-item[data-tone='danger'] .rio-menu-item__description {
+    color: inherit;
+  }
+
+  /* Hover and keyboard focus share one tint; menus move focus without a pointer. */
+  .rio-menu-item[data-hovered],
+  .rio-menu-item[data-focused],
+  .rio-menu-item[data-open] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-menu-item[data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-menu-item[data-selected] {
+    background-color: var(--rio-selected);
+  }
+
+  .rio-menu-item[data-focus-visible] {
+    box-shadow: inset 0 0 0 2px var(--rio-focus);
+  }
+
+  .rio-menu-item[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-menu-section + .rio-menu-section,
+  .rio-menu-section + .rio-menu-separator,
+  .rio-menu-separator + .rio-menu-section {
+    margin-block-start: var(--rio-space-1);
+  }
+
+  .rio-menu-section__header {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-3);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-bold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .rio-menu-separator {
+    box-sizing: content-box;
+    block-size: 0;
+    margin-block: var(--rio-space-1);
+    border: 0;
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  @media (forced-colors: active) {
+    .rio-menu-item[data-focus-visible] {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
+
+    .rio-menu-item[data-hovered],
+    .rio-menu-item[data-focused],
+    .rio-menu-item[data-open],
+    .rio-menu-item[data-selected] {
+      background-color: Highlight;
+      color: HighlightText;
+      forced-color-adjust: none;
+    }
+
+    .rio-menu-item[data-hovered] .rio-menu-item__icon,
+    .rio-menu-item[data-focused] .rio-menu-item__icon,
+    .rio-menu-item[data-hovered] .rio-menu-item__description,
+    .rio-menu-item[data-focused] .rio-menu-item__description,
+    .rio-menu-item[data-hovered] .rio-menu-item__shortcut,
+    .rio-menu-item[data-focused] .rio-menu-item__shortcut {
+      color: HighlightText;
+    }
+
+    .rio-menu-section__header {
+      color: CanvasText;
+    }
+
+    .rio-menu-separator {
+      border-block-start-color: CanvasText;
+    }
+  }
+}

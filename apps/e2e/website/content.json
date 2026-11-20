@@ -1,0 +1,85 @@
+{
+  "site": {
+    "title": "Riosoma",
+    "headline": "A free home for your data, on your own servers.",
+    "lead": "Riosoma brings the data your work is scattered across into one place, joins it, and gives everyone a fast, friendly way to use it.  It is free, and you run it yourself.",
+    "demoLabel": "Explore the live demo",
+    "tourLabel": "Watch the ten-minute tour",
+    "footer": "Riosoma is free to use and runs wherever you do."
+  },
+  "features": [
+    {
+      "name": "Bring data in from where it lives",
+      "area": "Data Source",
+      "summary": "Connect warehouses, databases, spreadsheets, files, and apps.  Riosoma copies what you choose and keeps it fresh on a schedule.  It only reads, so the source is never changed."
+    },
+    {
+      "name": "Join tables that never agreed on names",
+      "area": "Data Source",
+      "summary": "Riosoma looks at the data, not only the column names, finds the columns that match, and tells you why it thinks so.  One click joins them, with no SQL."
+    },
+    {
+      "name": "Correct a value without touching the source",
+      "area": "Data Source",
+      "summary": "Change a synced value right in the grid.  Riosoma keeps the original, remembers who changed it and when, and lets your correction go once the source agrees."
+    },
+    {
+      "name": "Look at the same data eleven ways",
+      "area": "Views",
+      "summary": "Grid, kanban, gallery, calendar, timeline, Gantt, list, map, pivot, chart, and form.  Each view is saved, shareable, and always current."
+    },
+    {
+      "name": "Answer several questions at once",
+      "area": "Views",
+      "summary": "A dashboard puts numbers, charts, pivots, and record lists on one page.  Every number is a door: click it, and the records behind it open."
+    },
+    {
+      "name": "Ask Rio",
+      "area": "Rio",
+      "summary": "Rio is the built-in assistant.  It answers from your real records, builds views and dashboards from a sentence, and shows its plan before anything changes.  AI is optional, and it stays off until you turn it on."
+    },
+    {
+      "name": "Send data back out",
+      "area": "Data Source",
+      "summary": "Keep a copy of any view in Airtable, updated on a schedule, with a history of every run."
+    },
+    {
+      "name": "Hand off the routine work",
+      "area": "Automations",
+      "summary": "Draw automations as a flow and test them one step at a time.  Publish forms that can take a payment, send documents for signature, and schedule reports."
+    },
+    {
+      "name": "Make it yours",
+      "area": "Yours",
+      "summary": "Fifty-two themes, each with its own color schemes.  Sharing and permissions down to a single field or record, with single sign-on, an audit log, and backups for the people who run it."
+    },
+    {
+      "name": "Free, and yours to run",
+      "area": "Yours",
+      "summary": "Riosoma is free to use.  It runs in Docker on your own server or in your own cloud, on a PostgreSQL database you control."
+    }
+  ],
+  "questions": [
+    {
+      "question": "What is Riosoma?",
+      "answer": "A database platform you host yourself.  It gathers data from the systems you already use, lets you join and correct it, and gives your team views, dashboards, forms, and automations on top."
+    },
+    {
+      "question": "Is it really free?",
+      "answer": "Yes.  The software is free to use, for people and for organizations.  People may charge for installing it, supporting it, and teaching it, but never for the software itself."
+    },
+    {
+      "question": "Where does my data live?",
+      "answer": "On your own servers, in a PostgreSQL database you control.  Riosoma does not phone home with your data."
+    },
+    {
+      "question": "Do I have to use AI?",
+      "answer": "No.  Everything works without it.  If you turn Rio on, you choose the provider, you see what each answer costs, and you can turn it off again."
+    },
+    {
+      "question": "What is this website made with?",
+      "answer": "Riosoma.  Every page here is published from a Riosoma database, and the live demo lets you look around that same instance without an account.  The demo is read-only, so nothing you try there is saved."
+    },
+    { "question": "When can I install it?", "answer": "Soon.  The first public build is being finished now." }
+  ]
+}

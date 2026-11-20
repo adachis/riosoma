@@ -1,0 +1,121 @@
+@layer rio.components {
+  /* The column can narrow past the chosen value, which then ends in an ellipsis instead of widening
+     the form. */
+  .rio-select {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--rio-space-1);
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+  }
+
+  /* The trigger is drawn like a text field, so the two can sit side by side in one form. */
+  .rio-select__trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    box-sizing: border-box;
+    inline-size: 100%;
+    block-size: var(--rio-control-height);
+    padding-inline: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-select__value {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rio-select__value[data-placeholder] {
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* The chevron never rotates when the panel opens: it stays put under the pointer. */
+  .rio-select__chevron {
+    flex: 0 0 auto;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-select__trigger[data-hovered] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-select__trigger[data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-select__trigger[data-focus-visible] {
+    border-color: var(--rio-focus);
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-select[data-invalid] .rio-select__trigger {
+    border-color: var(--rio-danger);
+  }
+
+  .rio-select__trigger[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-select[data-size='sm'] .rio-select__trigger {
+    block-size: var(--rio-control-height-sm);
+    padding-inline: var(--rio-space-2);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-select[data-size='lg'] .rio-select__trigger {
+    block-size: var(--rio-control-height-lg);
+    padding-inline: var(--rio-space-4);
+    font-size: var(--rio-text-lg);
+  }
+
+  @media (max-width: 767px) {
+    .rio-select[data-size] .rio-select__trigger {
+      min-block-size: var(--rio-target-primary);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-select__trigger {
+      border-color: ButtonText;
+      background-color: Field;
+      color: FieldText;
+    }
+
+    .rio-select__value[data-placeholder] {
+      color: FieldText;
+    }
+
+    .rio-select__trigger[data-focus-visible] {
+      border-color: Highlight;
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
+
+    .rio-select[data-invalid] .rio-select__trigger {
+      border-color: LinkText;
+    }
+
+    .rio-select__trigger[data-disabled] {
+      border-color: GrayText;
+      color: GrayText;
+      opacity: 1;
+    }
+  }
+}

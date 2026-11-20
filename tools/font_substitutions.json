@@ -1,0 +1,3046 @@
+[
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Brodo",
+    "replacement": "Poiret One",
+    "role": "thin display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Brodo.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Brodo Regular"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Brodo Inline",
+    "replacement": "Monoton",
+    "role": "inline display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BrodoInline.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Brodo Inline"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Cleveland",
+    "replacement": "Poiret One",
+    "role": "thin geometric display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Cleveland.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Cleveland"
+    ],
+    "lookReason": "Fine geometric strokes preserve the light display style."
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Deco",
+    "replacement": "Poiret One",
+    "role": "thin geometric display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/ArtDeco.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Art_Deco"
+    ],
+    "lookReason": "Fine geometric strokes preserve the light display style."
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Decohead",
+    "replacement": "Josefin Slab",
+    "role": "slab",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Decohead.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Decohead"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Decohead Display",
+    "replacement": "Limelight",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/DecoheadDisplay.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "DECOHEAD DISPLAY"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Emoritz",
+    "replacement": "Josefin Sans",
+    "role": "label",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/EmoritzLight.otf",
+      "assets/assets/fonts/EmoritzMedium.otf",
+      "assets/assets/fonts/EmoritzRegular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      300,
+      400,
+      500
+    ],
+    "originalFontFamilies": [
+      "Emoritz",
+      "Emoritz Light",
+      "Emoritz Med"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Haarlem",
+    "replacement": "Josefin Sans",
+    "role": "caps",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/HaarlemSans.otf",
+      "assets/assets/fonts/HaarlemSansItalic.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Haarlem Sans"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Inline Heritage",
+    "replacement": "Monoton",
+    "role": "inline display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/InlineHeritage.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Inline Heritage"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Junia",
+    "replacement": "Bungee Shade",
+    "role": "shaded display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/JuniaRegular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      700
+    ],
+    "originalFontFamilies": [
+      "Junia"
+    ],
+    "lookReason": "Bold shaded capitals preserve the dimensional display style.",
+    "weightNote": "The replacement uses its closest available weight for 700."
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Metrobrew",
+    "replacement": "Cinzel Decorative",
+    "role": "ornate serif display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Metrobrew.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Metrobrew"
+    ],
+    "lookReason": "Engraved decorative capitals preserve the ornamental serif style."
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Modern",
+    "replacement": "Rye",
+    "role": "heading",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/ModernRegular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "lookReason": "Heavy decorative slab capitals retain the original heading character.",
+    "originalFontFamilies": [
+      "Modern"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Monsante",
+    "replacement": "Poiret One",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/MonsanteRegular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Monsante"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Monsante Inline",
+    "replacement": "Monoton",
+    "role": "inline display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/MonsanteInline.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Monsante Inline"
+    ]
+  },
+  {
+    "theme": "art-deco",
+    "originalFamily": "AD Nyxar",
+    "replacement": "Josefin Sans",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/NyxarRegular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      500
+    ],
+    "originalFontFamilies": [
+      "Nyxar"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Accent",
+    "replacement": "EB Garamond",
+    "role": "italic accent",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Capires-Italic.ttf",
+      "assets/assets/fonts/Capires-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Capires",
+      "Capires Italic"
+    ],
+    "lookReason": "A separate Garamond face keeps accent and caption text at its native size while title faces use compact metrics."
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Display",
+    "replacement": "Berkshire Swash",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/VelvetCarousel-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Velvet Carousel"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Editorial",
+    "replacement": "DM Serif Display",
+    "role": "editorial",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Things-Italic.ttf",
+      "assets/assets/fonts/Things-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Things"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Label",
+    "replacement": "Josefin Sans",
+    "role": "label",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Sauvage-Bold.ttf",
+      "assets/assets/fonts/Sauvage-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "Sauvage"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Ornate",
+    "replacement": "Grenze Gotisch",
+    "role": "blackletter display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Melvca.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Melvca"
+    ],
+    "lookReason": "Blackletter forms preserve the original ornate lettering."
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Poster",
+    "replacement": "Righteous",
+    "role": "poster",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/ArtNouveau.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Art_Nouveau"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Stencil",
+    "replacement": "Allerta Stencil",
+    "role": "stencil",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Klear-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Klear"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Stencil Outline",
+    "replacement": "Bungee Outline",
+    "role": "outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Klear-Outline.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Klear Outline"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Text",
+    "replacement": "Bree Serif",
+    "role": "body",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Bankslab-ArtNouveau.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "lookReason": "Rounded, substantial slab forms retain the original body character.",
+    "originalFontFamilies": [
+      "TA Bankslab Black Art Nouveau"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Title",
+    "replacement": "Cormorant Garamond",
+    "role": "heading",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Cajoles-Bold.ttf",
+      "assets/assets/fonts/Cajoles-Light.ttf",
+      "assets/assets/fonts/Cajoles-Regular.ttf",
+      "assets/assets/fonts/Cajoles-Semibold.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "sizeAdjust": "70%",
+    "metricReason": "The replacement heading sample is 53% wider and 42% taller. Size adjustment preserves the original cap height and compact heading width.",
+    "originalWeights": [
+      300,
+      400,
+      600,
+      700
+    ],
+    "metrics": {
+      "sample": "Riosoma Library Workspace",
+      "fontSize": 32,
+      "fontWeight": 400,
+      "original": {
+        "width": 230.559814453125,
+        "ascent": 19.583999633789062,
+        "descent": 3.1360015869140625
+      },
+      "replacementBeforeAdjustment": {
+        "width": 353.5230712890625,
+        "ascent": 23.200000762939453,
+        "descent": 8.992000579833984
+      },
+      "replacementAfterAdjustment": {
+        "width": 247.4661102294922,
+        "ascent": 16.239999771118164,
+        "descent": 6.294401168823242
+      }
+    },
+    "originalFontFamilies": [
+      "Cajoles",
+      "Cajoles Light",
+      "Cajoles SemBd"
+    ]
+  },
+  {
+    "theme": "art-nouveau",
+    "originalFamily": "AN Vine",
+    "replacement": "EB Garamond",
+    "role": "compact serif",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Mosswick.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Mosswick"
+    ],
+    "lookReason": "Compact serif forms match the original upright text face."
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Corbert",
+    "replacement": "Outfit",
+    "role": "body",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Corbert-Black.otf",
+      "assets/assets/fonts/Corbert-Bold.otf",
+      "assets/assets/fonts/Corbert-DemiBold.otf",
+      "assets/assets/fonts/Corbert-Light.otf",
+      "assets/assets/fonts/Corbert-Medium.otf",
+      "assets/assets/fonts/Corbert-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      300,
+      400,
+      500,
+      600,
+      700,
+      900
+    ],
+    "originalFontFamilies": [
+      "Corbert",
+      "Corbert Black",
+      "Corbert Bold",
+      "Corbert DemiBold",
+      "Corbert Light",
+      "Corbert Medium"
+    ]
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Dekart",
+    "replacement": "Allerta Stencil",
+    "role": "stencil",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Dekart-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Dekart"
+    ]
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Dekart Outline",
+    "replacement": "Bungee Outline",
+    "role": "outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Dekart-Outline.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "DekartOutline"
+    ]
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Finis Grotesk",
+    "replacement": "League Spartan",
+    "role": "heading",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/FinisGrotesk-Black.otf",
+      "assets/assets/fonts/FinisGrotesk-Bold.otf",
+      "assets/assets/fonts/FinisGrotesk-Medium.otf",
+      "assets/assets/fonts/FinisGrotesk-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      500,
+      700,
+      900
+    ],
+    "originalFontFamilies": [
+      "Finis Grotesk",
+      "Finis Grotesk Black",
+      "Finis Grotesk Med"
+    ]
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Finis Grotesk Cd",
+    "replacement": "Barlow Condensed",
+    "role": "condensed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/FinisGrotesk-BlackCondensed.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      900
+    ],
+    "originalFontFamilies": [
+      "Finis Grotesk Black Cond"
+    ]
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Geobau",
+    "replacement": "Josefin Sans",
+    "role": "geometric display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Geobau-Bold.otf",
+      "assets/assets/fonts/Geobau-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "Bauhaus"
+    ]
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Geobau Linear",
+    "replacement": "Bungee Hairline",
+    "role": "linear display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Geobau-Linear.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Bauhaus Linear"
+    ]
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Geobau Outline",
+    "replacement": "Bungee Outline",
+    "role": "outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Geobau-OutlineBold.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      700
+    ],
+    "weightNote": "The closest display face lacks weights 700. The browser uses its nearest available weight and synthesizes bold when needed.",
+    "originalFontFamilies": [
+      "Bauhaus Outline Bold"
+    ]
+  },
+  {
+    "theme": "bauhaus",
+    "originalFamily": "Red Thinker",
+    "replacement": "Josefin Sans",
+    "role": "editorial",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/RedThinker-Bold.otf",
+      "assets/assets/fonts/RedThinker-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "Red Thinker"
+    ]
+  },
+  {
+    "theme": "bitpixel",
+    "originalFamily": "IBM Plex Sans Fallback",
+    "replacement": "IBM Plex Sans",
+    "role": "fallback",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "loadReplacement": false,
+    "reason": "Canonical Google Fonts family replaces an unavailable fallback alias."
+  },
+  {
+    "theme": "bitpixel",
+    "originalFamily": "Space Grotesk Fallback",
+    "replacement": "Space Grotesk",
+    "role": "fallback",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "loadReplacement": false,
+    "reason": "Canonical Google Fonts family replaces an unavailable fallback alias."
+  },
+  {
+    "theme": "boho",
+    "originalFamily": "Boho Display",
+    "replacement": "Yeseva One",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/warna.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "sizeAdjust": "85%",
+    "metricReason": "The replacement display sample is 34% wider. A smaller display face keeps headline wraps close to the original.",
+    "originalWeights": [
+      400
+    ],
+    "metrics": {
+      "sample": "Riosoma Library Workspace",
+      "fontSize": 32,
+      "fontWeight": 400,
+      "original": {
+        "width": 338.49578857421875,
+        "ascent": 22.644412994384766,
+        "descent": 6.400457382202148
+      },
+      "replacementBeforeAdjustment": {
+        "width": 452.9598388671875,
+        "ascent": 22.399999618530273,
+        "descent": 6.880002975463867
+      },
+      "replacementAfterAdjustment": {
+        "width": 385.0158386230469,
+        "ascent": 19.040000915527344,
+        "descent": 5.848001480102539
+      }
+    },
+    "originalFontFamilies": [
+      "Warna"
+    ]
+  },
+  {
+    "theme": "boho",
+    "originalFamily": "Boho Editorial",
+    "replacement": "DM Serif Display",
+    "role": "editorial",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/malgods-bohemian.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Malgods Bohemian"
+    ]
+  },
+  {
+    "theme": "boho",
+    "originalFamily": "Boho Label",
+    "replacement": "Josefin Sans",
+    "role": "label",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/bohemy-sans.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Bohemy Sans Serif"
+    ]
+  },
+  {
+    "theme": "boho",
+    "originalFamily": "Boho Poster",
+    "replacement": "Londrina Sketch",
+    "role": "hand-drawn outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/la-sierra.otf",
+      "assets/assets/fonts/la-sierra.woff2"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "La Sierra"
+    ],
+    "lookReason": "Hand-drawn outlined letters preserve the informal poster style."
+  },
+  {
+    "theme": "boho",
+    "originalFamily": "Boho Script",
+    "replacement": "Sacramento",
+    "role": "script",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/bohemy-script.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Bohemy Script"
+    ]
+  },
+  {
+    "theme": "boho",
+    "originalFamily": "Boho Script Alt",
+    "replacement": "Dancing Script",
+    "role": "script",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/bohemian-script.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Bohemian Script"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Base Edge",
+    "replacement": "Russo One",
+    "role": "angular display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BaseEdge.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "BaseEdge"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Beinhart",
+    "replacement": "Black Ops One",
+    "role": "stencil display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Beinhart.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Beinhart"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Brutalist Bold",
+    "replacement": "Archivo Black",
+    "role": "poster",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BrutalistBold.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Brutalist Bold"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Concrete Condensed",
+    "replacement": "Barlow Condensed",
+    "role": "condensed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/ConcreteCondensed-Italic.ttf",
+      "assets/assets/fonts/ConcreteCondensed-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Condesned Sans Collection - Concrete Condensed"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Heavy Brutalist",
+    "replacement": "Anton",
+    "role": "heavy display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/HeavyBrutalist.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Heavy Brutalist"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Railtown Condensed",
+    "replacement": "Fjalla One",
+    "role": "condensed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/RailtownCondensed-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Condesned Sans Collection - Railtown Condensed"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Skyliner Condensed",
+    "replacement": "Teko",
+    "role": "tall display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/SkylinerCondensed-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Condesned Sans Collection - Skyliner Condensed"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Timun",
+    "replacement": "Unbounded",
+    "role": "body",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Timun-Black.ttf",
+      "assets/assets/fonts/Timun-Bold.ttf",
+      "assets/assets/fonts/Timun-Medium.ttf",
+      "assets/assets/fonts/Timun-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      500,
+      700,
+      900
+    ],
+    "lookReason": "Wide geometric forms and a full weight range retain the original core text character.",
+    "originalFontFamilies": [
+      "Timun",
+      "Timun Black",
+      "Timun Med"
+    ]
+  },
+  {
+    "theme": "brutalist",
+    "originalFamily": "Voltage Condensed",
+    "replacement": "Saira Condensed",
+    "role": "technical display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/VoltageCondensed-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Condesned Sans Collection - Voltage Condensed"
+    ]
+  },
+  {
+    "theme": "brutalist-neo",
+    "originalFamily": "Brodish",
+    "replacement": "Outfit",
+    "role": "geometric sans",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Brodish.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "BRODISH"
+    ],
+    "lookReason": "Rounded geometric forms preserve the original neutral sans style."
+  },
+  {
+    "theme": "brutalist-neo",
+    "originalFamily": "Brutelo",
+    "replacement": "Fredoka",
+    "role": "rounded display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Brutelo-Bold.ttf",
+      "assets/assets/fonts/Brutelo-Light.ttf",
+      "assets/assets/fonts/Brutelo-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      300,
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "Brutelo",
+      "Brutelo Bold",
+      "Brutelo Light"
+    ]
+  },
+  {
+    "theme": "brutalist-neo",
+    "originalFamily": "Neonova",
+    "replacement": "Orbitron",
+    "role": "technical display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Neonova.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Neonova"
+    ]
+  },
+  {
+    "theme": "brutalist-neo",
+    "originalFamily": "Nomine",
+    "replacement": "Teko",
+    "role": "condensed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Nomine.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Nomine"
+    ]
+  },
+  {
+    "theme": "brutalist-neo",
+    "originalFamily": "Rayone",
+    "replacement": "Dela Gothic One",
+    "role": "wide display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Rayone.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Rayone"
+    ]
+  },
+  {
+    "theme": "brutalist-neo",
+    "originalFamily": "Song",
+    "replacement": "Anton",
+    "role": "poster",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Song.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Song"
+    ]
+  },
+  {
+    "theme": "brutalist-neo",
+    "originalFamily": "Vectra",
+    "replacement": "Allerta Stencil",
+    "role": "stencil display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Vectra.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Vectra"
+    ],
+    "lookReason": "Stencil cuts preserve the original technical display style."
+  },
+  {
+    "theme": "brutalist-neo",
+    "originalFamily": "Zenitha",
+    "replacement": "Barlow Condensed",
+    "role": "condensed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Zenitha.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "ZENITHA"
+    ]
+  },
+  {
+    "theme": "bubble",
+    "originalFamily": "Bubble Display",
+    "replacement": "Baloo 2",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "reason": "Canonical Google Fonts family replaces a source alias.",
+    "originalWeights": [
+      600,
+      800
+    ],
+    "originalWeightRanges": [
+      "600 800"
+    ]
+  },
+  {
+    "theme": "bubble",
+    "originalFamily": "Bubble Mono",
+    "replacement": "JetBrains Mono",
+    "role": "mono",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "reason": "Canonical Google Fonts family replaces a source alias.",
+    "originalWeights": [
+      400,
+      600
+    ],
+    "originalWeightRanges": [
+      "400 600"
+    ]
+  },
+  {
+    "theme": "bubble",
+    "originalFamily": "Bubble Text",
+    "replacement": "Manrope",
+    "role": "body",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "reason": "Canonical Google Fonts family replaces a source alias.",
+    "originalWeights": [
+      400,
+      800
+    ],
+    "originalWeightRanges": [
+      "400 800"
+    ]
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Broken",
+    "replacement": "Rubik Broken Fax",
+    "role": "distressed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BrokenGraffiti.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Broken Graffiti"
+    ]
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Impact",
+    "replacement": "Rubik Dirt",
+    "role": "distressed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/GraffitiImpact.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Graffiti Impact"
+    ]
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Marker",
+    "replacement": "Bangers",
+    "role": "condensed comic display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/StreetMemories.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Street Memories"
+    ],
+    "lookReason": "Heavy condensed capitals preserve the original comic lettering."
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Sonic",
+    "replacement": "Sedgwick Ave Display",
+    "role": "graffiti tag",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/EnterSonicGraffiti.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Enter Sonic Graffiti"
+    ],
+    "lookReason": "Narrow handwritten forms preserve the original tag lettering."
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Sound",
+    "replacement": "Bangers",
+    "role": "condensed comic display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/StreetSound.ttf",
+      "assets/assets/fonts/StreetSoundOblique.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Street Sound"
+    ],
+    "lookReason": "Heavy condensed capitals preserve the original comic lettering."
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Tag",
+    "replacement": "Sedgwick Ave Display",
+    "role": "tag",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/StreetEagle.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Street Eagle Graffiti"
+    ]
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Throwie",
+    "replacement": "Rubik Wet Paint",
+    "role": "bubble graffiti",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BoyGraffiti.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Boy Graffiti"
+    ]
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Wall",
+    "replacement": "Rubik Spray Paint",
+    "role": "spray display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Sonnz.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Sonnz"
+    ]
+  },
+  {
+    "theme": "graffiti",
+    "originalFamily": "GF Wildstyle",
+    "replacement": "Rock Salt",
+    "role": "handwritten display",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/GoGraffiti.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Go Graffiti"
+    ]
+  },
+  {
+    "theme": "groovy",
+    "originalFamily": "Groovy Caps",
+    "replacement": "Luckiest Guy",
+    "role": "caps",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/SugarGroovy.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Sugar Groovy"
+    ]
+  },
+  {
+    "theme": "groovy",
+    "originalFamily": "Groovy Chunk",
+    "replacement": "Modak",
+    "role": "chunky display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/LuckyChunks.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Lucky Chunks"
+    ]
+  },
+  {
+    "theme": "groovy",
+    "originalFamily": "Groovy Poster",
+    "replacement": "Luckiest Guy",
+    "role": "chunky retro display",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/ChunkySticker.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Chunky Sticker"
+    ],
+    "lookReason": "Chunky upright capitals preserve the original playful poster style."
+  },
+  {
+    "theme": "groovy",
+    "originalFamily": "Groovy Script",
+    "replacement": "Lobster",
+    "role": "script",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BoldGroovy.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      700
+    ],
+    "weightNote": "The closest display face lacks weights 700. The browser uses its nearest available weight and synthesizes bold when needed.",
+    "originalFontFamilies": [
+      "Bold Groovy"
+    ]
+  },
+  {
+    "theme": "groovy",
+    "originalFamily": "Groovy Slab",
+    "replacement": "Ultra",
+    "role": "slab",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/Chinook-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      700
+    ],
+    "weightNote": "The closest display face lacks weights 700. The browser uses its nearest available weight and synthesizes bold when needed.",
+    "originalFontFamilies": [
+      "Chinook ExtraBold"
+    ]
+  },
+  {
+    "theme": "groovy",
+    "originalFamily": "Groovy Text",
+    "replacement": "Fraunces",
+    "role": "body",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/SugarPeachy-Black.woff",
+      "assets/assets/fonts/SugarPeachy-Bold.woff",
+      "assets/assets/fonts/SugarPeachy-Light.woff",
+      "assets/assets/fonts/SugarPeachy-Medium.woff",
+      "assets/assets/fonts/SugarPeachy-Regular.woff"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "sizeAdjust": "95%",
+    "metricReason": "A modest size adjustment preserves compact text spacing with the new serif face.",
+    "originalWeights": [
+      300,
+      400,
+      500,
+      700,
+      900
+    ],
+    "weightNote": "The closest display face lacks weights 900. The browser uses its nearest available weight and synthesizes bold when needed.",
+    "lookReason": "Soft serif forms and a full weight range retain the original retro body character.",
+    "originalFontFamilies": [
+      "Unnamed",
+      "Unnamed Black",
+      "Unnamed Light",
+      "Unnamed Med"
+    ],
+    "metrics": {
+      "sample": "Riosoma Library Workspace",
+      "fontSize": 32,
+      "fontWeight": 400,
+      "original": {
+        "width": 367.77581787109375,
+        "ascent": 18.944000244140625,
+        "descent": 6.400001525878906
+      },
+      "replacementAfterAdjustment": {
+        "width": 405.1909484863281,
+        "ascent": 22.42308807373047,
+        "descent": 7.308113098144531
+      }
+    }
+  },
+  {
+    "theme": "groovy",
+    "originalFamily": "Groovy Vintage",
+    "replacement": "Rye",
+    "role": "ornate vintage display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BackToVintage-Italic.ttf",
+      "assets/assets/fonts/BackToVintage.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Back To Vintage"
+    ],
+    "lookReason": "Decorative upright serifs preserve the original vintage display style."
+  },
+  {
+    "theme": "industrial-retrofuturism",
+    "originalFamily": "Univers Next Pro",
+    "replacement": "Roboto",
+    "role": "body",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/UniversNextPro-Black.ttf",
+      "assets/assets/fonts/UniversNextPro-Bold.ttf",
+      "assets/assets/fonts/UniversNextPro-BoldItalic.ttf",
+      "assets/assets/fonts/UniversNextPro-Heavy.ttf",
+      "assets/assets/fonts/UniversNextPro-Italic.ttf",
+      "assets/assets/fonts/UniversNextPro-Light.ttf",
+      "assets/assets/fonts/UniversNextPro-LightItalic.ttf",
+      "assets/assets/fonts/UniversNextPro-Medium.ttf",
+      "assets/assets/fonts/UniversNextPro-Regular.ttf",
+      "assets/assets/fonts/UniversNextPro-Thin.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      100,
+      300,
+      400,
+      500,
+      700,
+      800,
+      900
+    ],
+    "originalFontFamilies": [
+      "Univers Next Pro",
+      "Univers Next Pro Light",
+      "Univers Next Pro Medium",
+      "Univers Next Pro Thin"
+    ]
+  },
+  {
+    "theme": "industrial-retrofuturism",
+    "originalFamily": "Univers Next Pro Cond",
+    "replacement": "Roboto Condensed",
+    "role": "condensed heading",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/UniversNextProCond-Bold.ttf",
+      "assets/assets/fonts/UniversNextProCond-Heavy.ttf",
+      "assets/assets/fonts/UniversNextProCond-Medium.ttf",
+      "assets/assets/fonts/UniversNextProCond-Regular.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      500,
+      700,
+      800
+    ],
+    "originalFontFamilies": [
+      "Univers Next Pro Condensed",
+      "Univers Next Pro Light Cond",
+      "Univers Next Pro Medium Cond"
+    ]
+  },
+  {
+    "theme": "jmds",
+    "originalFamily": "Archivo Expanded",
+    "replacement": "Archivo",
+    "role": "expanded display",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "reason": "Canonical Google Fonts family replaces a source alias.",
+    "loadReplacement": false
+  },
+  {
+    "theme": "kawaii",
+    "originalFamily": "Kawaii Ears",
+    "replacement": "Henny Penny",
+    "role": "decorative accent",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/KawaiiEars.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Kawaii ears"
+    ]
+  },
+  {
+    "theme": "kawaii",
+    "originalFamily": "Kawaii Heartsy",
+    "replacement": "Bungee Shade",
+    "role": "decorative dimensional display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/KawaiiHeartsy.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Kawaii Heartsy"
+    ],
+    "lookReason": "Decorative dimensional capitals preserve the original patterned lettering."
+  },
+  {
+    "theme": "kawaii",
+    "originalFamily": "Kawaii Heavy",
+    "replacement": "Londrina Solid",
+    "role": "heavy condensed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Dango.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      700
+    ],
+    "originalFontFamilies": [
+      "Dango"
+    ],
+    "lookReason": "Heavy condensed letters preserve the original compact display style.",
+    "weightNote": "The replacement uses its closest available weight for 700."
+  },
+  {
+    "theme": "kawaii",
+    "originalFamily": "Kawaii Hollow",
+    "replacement": "Bungee Outline",
+    "role": "outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/KawaiiCloud.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Kawaii Cloud"
+    ]
+  },
+  {
+    "theme": "kawaii",
+    "originalFamily": "Kawaii Label",
+    "replacement": "Chewy",
+    "role": "playful label",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/ChibiGirls.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Chibi Girls"
+    ],
+    "lookReason": "Chunky irregular letters preserve the original playful label style."
+  },
+  {
+    "theme": "kawaii",
+    "originalFamily": "Kawaii Round",
+    "replacement": "Cherry Bomb One",
+    "role": "rounded display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Kawaii.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "KAWAII"
+    ]
+  },
+  {
+    "theme": "kawaii",
+    "originalFamily": "Kawaii Serif",
+    "replacement": "Shantell Sans",
+    "role": "handwritten display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Cuteloopy.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Cute Loopy"
+    ],
+    "lookReason": "Thin irregular handwriting preserves the original informal lettering."
+  },
+  {
+    "theme": "kawaii",
+    "originalFamily": "Kawaii Smile",
+    "replacement": "Cabin Sketch",
+    "role": "sketched display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/KawaiiSmile.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Kawaii Smile"
+    ],
+    "lookReason": "Sketch texture preserves the original decorative hand-drawn lettering."
+  },
+  {
+    "theme": "london",
+    "originalFamily": "Archivo Expanded",
+    "replacement": "Archivo",
+    "role": "expanded display",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "reason": "Canonical Google Fonts family replaces a source alias.",
+    "loadReplacement": false
+  },
+  {
+    "theme": "maximalist",
+    "originalFamily": "Anegra",
+    "replacement": "Limelight",
+    "role": "high-contrast display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Anegra.woff2"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Anegra"
+    ],
+    "lookReason": "High-contrast geometric lettering preserves the original decorative display style."
+  },
+  {
+    "theme": "maximalist",
+    "originalFamily": "Banky Sans",
+    "replacement": "Bricolage Grotesque",
+    "role": "body",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BankySans.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Banky Sans"
+    ]
+  },
+  {
+    "theme": "mos",
+    "originalFamily": "Source Serif Pro",
+    "replacement": "Source Serif 4",
+    "role": "fallback",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "loadReplacement": false,
+    "reason": "Canonical Google Fonts family replaces an unavailable fallback alias."
+  },
+  {
+    "theme": "museo",
+    "originalFamily": "Martian Mono Placeholder",
+    "replacement": "Martian Mono",
+    "role": "fallback",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "loadReplacement": false,
+    "reason": "Canonical Google Fonts family replaces an unavailable fallback alias."
+  },
+  {
+    "theme": "museo",
+    "originalFamily": "Public Sans Placeholder",
+    "replacement": "Public Sans",
+    "role": "fallback",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "loadReplacement": false,
+    "reason": "Canonical Google Fonts family replaces an unavailable fallback alias."
+  },
+  {
+    "theme": "museo",
+    "originalFamily": "Syne Placeholder",
+    "replacement": "Syne",
+    "role": "fallback",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "loadReplacement": false,
+    "reason": "Canonical Google Fonts family replaces an unavailable fallback alias."
+  },
+  {
+    "theme": "nature",
+    "originalFamily": "Nature Display",
+    "replacement": "Plus Jakarta Sans",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/PlusJakartaSans-Variable.ttf"
+    ],
+    "reason": "Canonical Google Fonts family replaces a source alias.",
+    "originalWeights": [
+      200,
+      800
+    ],
+    "originalWeightRanges": [
+      "200 800"
+    ],
+    "originalFontFamilies": [
+      "Plus Jakarta Sans"
+    ]
+  },
+  {
+    "theme": "nature",
+    "originalFamily": "Nature Text",
+    "replacement": "DM Sans",
+    "role": "body",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/DMSans-Variable.ttf"
+    ],
+    "reason": "Canonical Google Fonts family replaces a source alias.",
+    "originalWeights": [
+      100,
+      1000
+    ],
+    "originalWeightRanges": [
+      "100 1000"
+    ],
+    "originalFontFamilies": [
+      "DM Sans 9pt"
+    ]
+  },
+  {
+    "theme": "optical-illusion",
+    "originalFamily": "Archivo Expanded",
+    "replacement": "Archivo",
+    "role": "fallback",
+    "license": "OFL-1.1",
+    "originalFiles": [],
+    "loadReplacement": false,
+    "reason": "Canonical Google Fonts family replaces an unavailable fallback alias."
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Benday",
+    "replacement": "Londrina Sketch",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Hunter.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "lookReason": "Outlined, textured letterforms retain the original printed display character.",
+    "originalFontFamilies": [
+      "Hunter"
+    ]
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Benday Outline",
+    "replacement": "Londrina Shadow",
+    "role": "outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Molly.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Molly"
+    ]
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Bubble",
+    "replacement": "Chewy",
+    "role": "bubble display",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/GrovenPop.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      700
+    ],
+    "weightNote": "The closest display face lacks weights 700. The browser uses its nearest available weight and synthesizes bold when needed.",
+    "originalFontFamilies": [
+      "Groven Pop"
+    ]
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Comic",
+    "replacement": "Bangers",
+    "role": "comic display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/ComicPop.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Comic Pop"
+    ]
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Display",
+    "replacement": "Bangers",
+    "role": "comic display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Knockwork-Black.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      900
+    ],
+    "originalFontFamilies": [
+      "Knockwork Black"
+    ],
+    "lookReason": "Slanted compact capitals preserve the original comic lettering.",
+    "weightNote": "The replacement uses its closest available weight for 900."
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Display Outline",
+    "replacement": "Bungee Outline",
+    "role": "outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Knockwork-Outline.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      900
+    ],
+    "weightNote": "The closest display face lacks weights 900. The browser uses its nearest available weight and synthesizes bold when needed.",
+    "originalFontFamilies": [
+      "Knockwork Outline"
+    ]
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Marquee",
+    "replacement": "Bungee Shade",
+    "role": "shadow display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Popstick-Italic.otf",
+      "assets/assets/fonts/Popstick.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      700
+    ],
+    "weightNote": "The closest display face lacks weights 700. The browser uses its nearest available weight and synthesizes bold when needed.",
+    "originalFontFamilies": [
+      "Popstick"
+    ]
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Newsprint",
+    "replacement": "Luckiest Guy",
+    "role": "chunky display",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/HalftoneNewsprint.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      700
+    ],
+    "originalFontFamilies": [
+      "Halftone Newsprint By Squeeb Cr"
+    ],
+    "lookReason": "Chunky solid capitals preserve the original heavy display style.",
+    "weightNote": "The replacement uses its closest available weight for 700."
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Panel",
+    "replacement": "Ultra",
+    "role": "slab display",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/Popart.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Pop Art"
+    ],
+    "lookReason": "Heavy slab serifs preserve the original panel lettering."
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Script",
+    "replacement": "Londrina Solid",
+    "role": "condensed hand-drawn display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Swarasa.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Swarasa"
+    ],
+    "lookReason": "Compact upright forms preserve the original handwritten display style."
+  },
+  {
+    "theme": "pop-art",
+    "originalFamily": "Pop Sign",
+    "replacement": "Bungee Inline",
+    "role": "inline signage",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Reece.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Reece"
+    ]
+  },
+  {
+    "theme": "psone",
+    "originalFamily": "PSOne Display Local",
+    "replacement": "Play",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Play-Regular.ttf",
+      "assets/assets/fonts/Play-Regular.woff"
+    ],
+    "reason": "Canonical Google Fonts family replaces a source alias.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Play"
+    ]
+  },
+  {
+    "theme": "retro-game-manual",
+    "originalFamily": "NES Pixel",
+    "replacement": "Silkscreen",
+    "role": "pixel UI",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/pixelmix-bold.ttf",
+      "assets/assets/fonts/pixelmix.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "pixelmix",
+      "pixelmix bold"
+    ]
+  },
+  {
+    "theme": "retro-game-manual",
+    "originalFamily": "NES Pixel Narrow",
+    "replacement": "VT323",
+    "role": "narrow pixel UI",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/pixelnarrow.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "DePixel"
+    ]
+  },
+  {
+    "theme": "retro-game-manual",
+    "originalFamily": "NES Pixel Wide",
+    "replacement": "Press Start 2P",
+    "role": "wide pixel display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/pixelwide-bold.ttf",
+      "assets/assets/fonts/pixelwide.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "weightNote": "The closest display face lacks weights 700. The browser uses its nearest available weight and synthesizes bold when needed.",
+    "originalFontFamilies": [
+      "DePixel"
+    ]
+  },
+  {
+    "theme": "shabby-chic",
+    "originalFamily": "SC Claire",
+    "replacement": "Cormorant Unicase",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Claire-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Claire"
+    ]
+  },
+  {
+    "theme": "shabby-chic",
+    "originalFamily": "SC Enamored",
+    "replacement": "Shantell Sans",
+    "role": "handwritten display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Overenamored-Bold.otf",
+      "assets/assets/fonts/Overenamored.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "PN Overenamored"
+    ],
+    "lookReason": "Irregular handwritten forms preserve the original casual lettering."
+  },
+  {
+    "theme": "shabby-chic",
+    "originalFamily": "SC Enamored Condensed",
+    "replacement": "Londrina Solid",
+    "role": "condensed display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Overenamored-Condensed.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "PN Overenamored Condensed"
+    ]
+  },
+  {
+    "theme": "shabby-chic",
+    "originalFamily": "SC Enamored Serif",
+    "replacement": "Cabin Sketch",
+    "role": "sketched serif display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Overenamored-Serif.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "PN Overenamored Serif"
+    ],
+    "lookReason": "Sketched letterforms preserve the original informal serif lettering."
+  },
+  {
+    "theme": "shabby-chic",
+    "originalFamily": "SC Enamored Serif Condensed",
+    "replacement": "Shantell Sans",
+    "role": "handwritten display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Overenamored-Serif-Condensed.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "PN Overenamored Serif Condensed"
+    ],
+    "lookReason": "Irregular handwritten forms preserve the original casual lettering."
+  },
+  {
+    "theme": "shabby-chic",
+    "originalFamily": "SC Flourishes",
+    "replacement": "Berkshire Swash",
+    "role": "ornament",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/ShabbyFlourishes.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "SHABBY CHIC FLOURISHES MONGRAMS"
+    ]
+  },
+  {
+    "theme": "shabby-chic",
+    "originalFamily": "SC Lace",
+    "replacement": "Londrina Sketch",
+    "role": "hand-drawn outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/PinkRoseLace.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Pink Rose Lace"
+    ],
+    "lookReason": "Light outlined letters preserve the original decorative texture."
+  },
+  {
+    "theme": "shabby-chic",
+    "originalFamily": "SC Penelope",
+    "replacement": "Rye",
+    "role": "ornate slab display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Penelope-Regular.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Penelope"
+    ],
+    "lookReason": "Decorative slab capitals preserve the original ornamental display style."
+  },
+  {
+    "theme": "steampunk",
+    "originalFamily": "Izumi Poster",
+    "replacement": "Ultra",
+    "role": "poster",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/Izumi.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Izumi"
+    ]
+  },
+  {
+    "theme": "steampunk",
+    "originalFamily": "Machine Engraved",
+    "replacement": "Cinzel Decorative",
+    "role": "engraved display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Machine.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Calligraphr"
+    ]
+  },
+  {
+    "theme": "steampunk",
+    "originalFamily": "Trill Plaque",
+    "replacement": "Vast Shadow",
+    "role": "slab signage",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Trill.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Trill"
+    ]
+  },
+  {
+    "theme": "steampunk",
+    "originalFamily": "Underdove Blackletter",
+    "replacement": "Grenze Gotisch",
+    "role": "blackletter",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Underdove.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Underdove"
+    ]
+  },
+  {
+    "theme": "synthwave",
+    "originalFamily": "Binko",
+    "replacement": "Audiowide",
+    "role": "wide display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Binko.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Binko"
+    ]
+  },
+  {
+    "theme": "synthwave",
+    "originalFamily": "Mono Circuit",
+    "replacement": "Share Tech Mono",
+    "role": "mono readout",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/MonoCircuit.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Mono Circuit"
+    ]
+  },
+  {
+    "theme": "synthwave",
+    "originalFamily": "Neon Sugarez",
+    "replacement": "Tilt Neon",
+    "role": "heading",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/NeonSugarez.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Neon Sugarez"
+    ]
+  },
+  {
+    "theme": "synthwave",
+    "originalFamily": "Pixelvolt",
+    "replacement": "VT323",
+    "role": "pixel",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Pixelvolt.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "PIXELVOLT"
+    ]
+  },
+  {
+    "theme": "synthwave",
+    "originalFamily": "Playback",
+    "replacement": "Wallpoet",
+    "role": "terminal",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Playback.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Playback"
+    ]
+  },
+  {
+    "theme": "synthwave",
+    "originalFamily": "Redsun",
+    "replacement": "Righteous",
+    "role": "retro display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Redsun.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "RedSun"
+    ]
+  },
+  {
+    "theme": "synthwave",
+    "originalFamily": "Static Surge",
+    "replacement": "Russo One",
+    "role": "display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/StaticSurge.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Static Surge"
+    ]
+  },
+  {
+    "theme": "synthwave",
+    "originalFamily": "Vapor Synth",
+    "replacement": "Bungee Shade",
+    "role": "slab display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/VaporSynth.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Vapor_synth"
+    ]
+  },
+  {
+    "theme": "system-7",
+    "originalFamily": "Seven Display",
+    "replacement": "Pixelify Sans",
+    "role": "pixel display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/seven-display.woff",
+      "assets/assets/fonts/seven-display.woff2"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "ChicagoFLF"
+    ]
+  },
+  {
+    "theme": "system-7",
+    "originalFamily": "Seven Mono",
+    "replacement": "VT323",
+    "role": "pixel mono",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/seven-mono.woff",
+      "assets/assets/fonts/seven-mono.woff2"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Monaco"
+    ]
+  },
+  {
+    "theme": "system-7",
+    "originalFamily": "Seven Small",
+    "replacement": "Pixelify Sans",
+    "role": "small pixel UI",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/seven-small.woff",
+      "assets/assets/fonts/seven-small.woff2"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "FindersKeepers"
+    ]
+  },
+  {
+    "theme": "system-7",
+    "originalFamily": "Seven UI",
+    "replacement": "Pixelify Sans",
+    "role": "pixel UI",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/seven-ui.woff",
+      "assets/assets/fonts/seven-ui.woff2"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "sizeAdjust": "90%",
+    "metricReason": "The replacement UI sample is 16% wider and 10% taller. Size adjustment preserves compact controls and phone headings.",
+    "originalWeights": [
+      400
+    ],
+    "metrics": {
+      "sample": "Riosoma Library Workspace",
+      "fontSize": 32,
+      "fontWeight": 400,
+      "original": {
+        "width": 374,
+        "ascent": 18,
+        "descent": 6
+      },
+      "replacementBeforeAdjustment": {
+        "width": 432.15985107421875,
+        "ascent": 20.191999435424805,
+        "descent": 6.176002502441406
+      },
+      "replacementAfterAdjustment": {
+        "width": 388.94366455078125,
+        "ascent": 18.17279815673828,
+        "descent": 5.558401107788086
+      }
+    },
+    "originalFontFamilies": [
+      "ChiKareGo2"
+    ]
+  },
+  {
+    "theme": "victorian",
+    "originalFamily": "Condensed Victorian",
+    "replacement": "Bodoni Moda",
+    "role": "condensed serif",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/CondensedVictorian.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Condensed Victorian"
+    ]
+  },
+  {
+    "theme": "victorian",
+    "originalFamily": "Old Vintage Victorian",
+    "replacement": "Cinzel Decorative",
+    "role": "ornate display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/OldVintageVictorianIII.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Old Vintage Victorian III"
+    ]
+  },
+  {
+    "theme": "victorian",
+    "originalFamily": "Victorian Initials",
+    "replacement": "Cinzel Decorative",
+    "role": "initials",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/VictorianAlphabets.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Victorian Alphabets"
+    ]
+  },
+  {
+    "theme": "victorian",
+    "originalFamily": "Victorian Initials Eight",
+    "replacement": "Grenze Gotisch",
+    "role": "initials",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/VictorianAlphabetsEight.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Victorian Alphabets Eight"
+    ]
+  },
+  {
+    "theme": "victorian",
+    "originalFamily": "Victorian Initials Seven",
+    "replacement": "Berkshire Swash",
+    "role": "initials",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/VictorianAlphabetsSeven.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Victorian Alphabets Seven"
+    ]
+  },
+  {
+    "theme": "victorian",
+    "originalFamily": "Victorian Parlor",
+    "replacement": "Playfair Display",
+    "role": "serif display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/VictorianParlor-Bold.otf",
+      "assets/assets/fonts/VictorianParlor-Italic.otf",
+      "assets/assets/fonts/VictorianParlor.otf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "Victorian Parlor Bold",
+      "Victorian Parlor Italic",
+      "Victorian Parlor Regular"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Auror",
+    "replacement": "Bungee Shade",
+    "role": "dimensional display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Auror.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Auror"
+    ],
+    "lookReason": "Bold dimensional capitals preserve the original extruded lettering."
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Avaben",
+    "replacement": "Audiowide",
+    "role": "wide cyber display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Avaben.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Avaben"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Brickbond",
+    "replacement": "Black Ops One",
+    "role": "block display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Brickbond.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Brick Bond"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Bubbly",
+    "replacement": "Cherry Bomb One",
+    "role": "rounded display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/BubblyDoubly.ttf",
+      "assets/assets/fonts/BubblyDoublyBold.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "BubblyDoubly"
+    ],
+    "lookReason": "Heavy rounded letters preserve the original soft display style.",
+    "weightNote": "The replacement uses its closest available weight for 700."
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Cuano",
+    "replacement": "Changa",
+    "role": "body and heading",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Cuano.ttf",
+      "assets/assets/fonts/CuanoBold.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400,
+      700
+    ],
+    "originalFontFamilies": [
+      "Cuano"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Euphemia",
+    "replacement": "Fredericka the Great",
+    "role": "decorative outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Euphemia.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Euphemia"
+    ],
+    "lookReason": "Textured decorative letters preserve the original outlined display style."
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Flukin",
+    "replacement": "Chewy",
+    "role": "rounded display",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/Flukin.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Flukin"
+    ],
+    "lookReason": "Heavy irregular rounded letters preserve the original soft display style."
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Holly",
+    "replacement": "Bungee Shade",
+    "role": "patterned display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Holly.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Holly"
+    ],
+    "lookReason": "Bold decorative capitals preserve the original patterned lettering."
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Jawbyte",
+    "replacement": "Wallpoet",
+    "role": "technical display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Jawbyte.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Jawbyte"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Kabisat",
+    "replacement": "Black Han Sans",
+    "role": "heavy display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Kabisat.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Kabisat"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Kabisat Tall",
+    "replacement": "Anton",
+    "role": "tall display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/KabisatTall.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Kabisat Tall"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Keyute",
+    "replacement": "Alfa Slab One",
+    "role": "chunky slab display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Keyute.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Keyute"
+    ],
+    "lookReason": "Heavy slab serifs preserve the original chunky display style."
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Macarthur",
+    "replacement": "Saira Condensed",
+    "role": "condensed technical display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Macarthur.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "MACARTHUR"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Moneter",
+    "replacement": "Share Tech Mono",
+    "role": "mono readout",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/DigitalMoneter.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "DIGITAL MONETER"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Nineties",
+    "replacement": "Righteous",
+    "role": "retro display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Y2k.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Y2K"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Nostalgia",
+    "replacement": "Righteous",
+    "role": "retro display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Y2kNostalgia.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Y2K Nostalgia"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Nostalgia Outline",
+    "replacement": "Bungee Outline",
+    "role": "outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Y2kNostalgiaOutline.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Y2K Nostalgia Outline"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Oblado",
+    "replacement": "Rubik Broken Fax",
+    "role": "angular display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Oblado.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Oblado"
+    ],
+    "lookReason": "Broken angular forms preserve the original cutout display style."
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Pukor",
+    "replacement": "Russo One",
+    "role": "angular display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/Pukor.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "PUKOR"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Punk Cyber",
+    "replacement": "Orbitron",
+    "role": "technical display",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/PunkCyber.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Punk Cyber"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Punk Cyber Outline",
+    "replacement": "Bungee Outline",
+    "role": "outline",
+    "license": "OFL-1.1",
+    "originalFiles": [
+      "assets/assets/fonts/PunkCyberOutline.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Punk Cyber Outline"
+    ]
+  },
+  {
+    "theme": "y2k",
+    "originalFamily": "Y2K Various",
+    "replacement": "Chewy",
+    "role": "rounded display",
+    "license": "Apache-2.0",
+    "originalFiles": [
+      "assets/assets/fonts/Various.ttf"
+    ],
+    "reason": "No license under the accepted terms was supplied for the bundled family.",
+    "originalWeights": [
+      400
+    ],
+    "originalFontFamilies": [
+      "Various"
+    ],
+    "lookReason": "Heavy irregular rounded letters preserve the original soft display style."
+  }
+]

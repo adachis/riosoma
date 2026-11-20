@@ -1,0 +1,44 @@
+@layer rio.app {
+  .rio-people {
+    display: grid;
+    gap: var(--rio-space-8);
+  }
+
+  .rio-people__list {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin-block: var(--rio-space-4);
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .rio-people__row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-people__person {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .rio-people__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-people__filters > * {
+    min-inline-size: 0;
+  }
+
+  .rio-people__identity {
+    display: grid;
+    flex: 1;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+}

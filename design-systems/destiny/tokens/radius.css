@@ -1,0 +1,10 @@
+:root{
+  --r-xs:6px;     /* glyph chips */
+  --r-sm:9px;     /* list rows */
+  --r-md:11px;    /* buttons, inputs */
+  --r-lg:12px;    /* cards */
+  --r-xl:14px;    /* feature cards, window */
+  --r-2xl:16px;   /* hero cards */
+  --r-phone:42px; /* device screen */
+  --r-pill:999px;
+}

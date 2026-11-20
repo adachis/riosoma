@@ -1,0 +1,24 @@
+:root{
+  --radius-0:0;
+  --radius-pill:999px;
+  --arch:999px 999px 0 0; /* @kind radius */
+
+  /* chamfer / notch sizes for clip-path corners */
+  --chamfer-sm:5px; /* @kind radius */
+  --chamfer-md:10px; /* @kind radius */
+  --chamfer-lg:18px; /* @kind radius */
+  --chamfer-xl:28px; /* @kind radius */
+
+  /* hairline stack — deco borders are two or three thin lines, not one thick one */
+  --hair:1px; /* @kind spacing */
+  --hair-2:2px; /* @kind spacing */
+  --hair-gap:3px; /* @kind spacing */
+  --border-hair:var(--hair) solid var(--line-rule); /* @kind other */
+  --border-strong:var(--hair-2) solid var(--line-strong); /* @kind other */
+  --border-quiet:var(--hair) solid var(--line-hairline); /* @kind other */
+
+  --frame-inset:6px; /* @kind spacing */
+  --icon-1:14px; --icon-2:18px; --icon-3:22px; --icon-4:28px; --icon-5:40px; /* @kind spacing */
+  --control-sm:28px; --control-md:36px; --control-lg:46px; --control-xl:56px; /* @kind spacing */
+  --touch-min:44px; /* @kind spacing */
+}

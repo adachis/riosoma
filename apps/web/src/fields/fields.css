@@ -1,0 +1,190 @@
+@layer rio.app {
+  .rio-date-range-input,
+  .rio-json-input,
+  .rio-location-input,
+  .rio-signature-pad,
+  .rio-signature-input {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-date-range-input__ends,
+  .rio-location-input__coordinates,
+  .rio-field-input__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-date-range-input__ends > *,
+  .rio-location-input__coordinates > .rio-field {
+    flex: 1 1 calc(var(--rio-space-12) * 3);
+    min-inline-size: 0;
+  }
+
+  .rio-field-input__error {
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-field-input__error:empty {
+    display: none;
+  }
+
+  .rio-json-input__text textarea,
+  .rio-json-view {
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+    tab-size: 2;
+  }
+
+  .rio-json-view {
+    margin: 0;
+    max-block-size: calc(var(--rio-space-12) * 8);
+    overflow: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    color: var(--rio-text);
+  }
+
+  .rio-signature-pad__canvas {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: calc(var(--rio-space-12) * 10);
+    block-size: calc(var(--rio-space-12) * 3.75);
+    border: 1px dashed var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    cursor: crosshair;
+    /* A finger or pen draws here instead of scrolling the page. */
+    touch-action: none;
+  }
+
+  .rio-signature {
+    display: inline-flex;
+    align-items: center;
+    max-inline-size: 100%;
+    color: var(--rio-text);
+  }
+
+  .rio-signature svg {
+    inline-size: auto;
+    block-size: calc(var(--rio-space-12) * 2);
+    max-inline-size: 100%;
+  }
+
+  .rio-signature[data-size='sm'] svg {
+    block-size: calc(var(--rio-space-4) * 1.25);
+  }
+
+  .rio-signature path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  /* In a grid cell the drawing takes the row's height, however tall the row is. */
+  .rio-cell-value--signature {
+    display: flex;
+    align-items: center;
+    block-size: 100%;
+  }
+
+  .rio-cell-value--signature svg {
+    block-size: 100%;
+  }
+
+  .rio-cell-value--code {
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-signature__typed {
+    font-size: var(--rio-text-lg);
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rio-signature[data-size='sm'] .rio-signature__typed {
+    font-size: inherit;
+  }
+
+  .rio-signature-input__caption,
+  .rio-field-button-unavailable__reason {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-field-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    block-size: var(--rio-control-height-sm);
+    max-inline-size: 100%;
+    padding-inline: var(--rio-space-2);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    font-weight: var(--rio-weight-medium);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+
+  .rio-field-button--sm {
+    block-size: auto;
+    padding-block: 0;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-field-button:is(a, button):hover {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-field-button:is(a, button):focus-visible {
+    outline: 2px solid var(--rio-focus-ring);
+    outline-offset: 2px;
+  }
+
+  .rio-field-button[aria-disabled='true'] {
+    border-style: dashed;
+    color: var(--rio-aa-text-muted);
+    cursor: not-allowed;
+  }
+
+  .rio-field-button-unavailable {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+    max-inline-size: 100%;
+  }
+
+  @media (forced-colors: active) {
+    .rio-field-button {
+      border-color: currentColor;
+    }
+  }
+}
+
+.rio-more-field {
+  display: grid;
+  gap: var(--rio-space-3);
+  min-inline-size: 0;
+}
+.rio-more-field__camera {
+  inline-size: 100%;
+  max-block-size: calc(var(--rio-space-8) * 9);
+  border-radius: var(--rio-radius);
+}

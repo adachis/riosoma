@@ -1,0 +1,49 @@
+/* Colors — raw ramps, scheme anchors, and semantic aliases.
+   Semantic surfaces are derived from four anchors so every color scheme in
+   schemes.css recolors the whole system by declaring anchors only. */
+:root{
+/* neutral ink ramp */
+--gl-white:#ffffff;--gl-ink-050:#f0f0f0;--gl-ink-100:#e4e4e6;--gl-ink-200:#c9c9cd;--gl-ink-300:#a2a2a6;--gl-ink-400:#6f6f79;--gl-ink-500:#55555f;--gl-ink-600:#3d3d47;--gl-ink-700:#31313a;--gl-ink-800:#26262d;--gl-ink-900:#17171c;--gl-black:#0e0e12;
+/* default identity: signal orange + highlighter */
+--gl-signal:#f26b38;--gl-signal-deep:#c74f22;--gl-highlighter:#ede574;
+/* scheme anchors (overridden per scheme) */
+--gl-anchor-deep:#141414;--gl-anchor-mid:#55555f;--gl-anchor-pale:#f0f0f0;
+/* palette echo — five raw tones any scheme exposes for charts/illustration */
+--gl-tone-1:#f26b38;--gl-tone-2:#ede574;--gl-tone-3:#a2a2a6;--gl-tone-4:#55555f;--gl-tone-5:#141414;
+/* accents */
+--gl-accent:var(--gl-signal);--gl-accent-ink:#141414;--gl-accent-deep:var(--gl-signal-deep);--gl-highlight:var(--gl-highlighter);--gl-highlight-ink:#141414;
+/* glitch channels — the two offset copies in every RGB-split effect */
+--gl-chan-a:#ff2e5b;--gl-chan-b:#00e5ff;
+/* status — intentionally constant across schemes */
+--gl-ok:#43aa8b;--gl-warn:#f9c74f;--gl-err:#f94144;--gl-info:#4d908e;
+--gl-ok-ink:#0e0e12;--gl-warn-ink:#0e0e12;--gl-err-ink:#ffffff;--gl-info-ink:#ffffff;
+}
+/* dark is the default mode */
+:root,[data-mode="dark"]{
+color-scheme:dark;
+--gl-bg:color-mix(in srgb,var(--gl-anchor-deep) 45%,#1b1b21);
+--gl-surface:color-mix(in srgb,var(--gl-anchor-deep) 40%,#31313a);
+--gl-surface-2:color-mix(in srgb,var(--gl-anchor-deep) 55%,#26262d);
+--gl-surface-inset:color-mix(in srgb,var(--gl-anchor-deep) 70%,#17171c);
+--gl-line:color-mix(in srgb,var(--gl-anchor-mid) 34%,#3d3d47);
+--gl-line-strong:color-mix(in srgb,var(--gl-anchor-mid) 60%,#6f6f79);
+--gl-text:color-mix(in srgb,var(--gl-anchor-pale) 30%,#f0f0f0);
+--gl-text-dim:color-mix(in srgb,var(--gl-anchor-pale) 16%,#a2a2a6);
+--gl-text-faint:#6f6f79;
+--gl-overlay:rgba(14,14,18,.86);
+--gl-scrim:color-mix(in srgb,var(--gl-anchor-deep) 60%,transparent);
+}
+[data-mode="light"]{
+color-scheme:light;
+--gl-bg:#ffffff;
+--gl-surface:#ffffff;
+--gl-surface-2:color-mix(in srgb,var(--gl-anchor-pale) 55%,#f4f4f4);
+--gl-surface-inset:color-mix(in srgb,var(--gl-anchor-pale) 75%,#ebebeb);
+--gl-line:color-mix(in srgb,var(--gl-anchor-mid) 16%,#dddddd);
+--gl-line-strong:color-mix(in srgb,var(--gl-anchor-deep) 80%,#141414);
+--gl-text:color-mix(in srgb,var(--gl-anchor-deep) 65%,#141414);
+--gl-text-dim:color-mix(in srgb,var(--gl-anchor-deep) 30%,#4a4a4a);
+--gl-text-faint:#999999;
+--gl-overlay:rgba(255,255,255,.9);
+--gl-scrim:color-mix(in srgb,var(--gl-anchor-pale) 60%,transparent);
+}

@@ -1,0 +1,39 @@
+:root{
+  --font-display:"Bubble Display","Baloo 2",system-ui,sans-serif;
+  --font-text:"Bubble Text","Manrope",system-ui,sans-serif;
+  --font-mono:"Bubble Mono","JetBrains Mono",ui-monospace,monospace;
+
+  /* Display — set tight and heavy, always. */
+  --display-1:clamp(56px,10vw,148px); /* @kind font */
+  --display-2:clamp(44px,7vw,104px); /* @kind font */
+  --display-3:clamp(34px,4.4vw,68px); /* @kind font */
+  --display-weight:800; /* @kind font */
+  --display-tracking:-0.03em; /* @kind font */
+  --display-leading:0.88; /* @kind font */
+
+  /* Headings */
+  --h1:44px;
+  --h2:34px;
+  --h3:26px;
+  --h4:20px;
+  --heading-weight:800; /* @kind font */
+  --heading-leading:1.08; /* @kind font */
+  --heading-tracking:-0.02em; /* @kind font */
+
+  /* Body */
+  --body-lg:19px;
+  --body:16px;
+  --body-sm:14px;
+  --caption:12px;
+  --body-leading:1.55; /* @kind font */
+  --body-weight:500; /* @kind font */
+
+  /* Label / eyebrow — uppercase, wide, always mono or 700 text */
+  --label:13px;
+  --label-weight:700; /* @kind font */
+  --label-tracking:0.08em; /* @kind font */
+  --eyebrow:11px;
+  --eyebrow-tracking:0.16em; /* @kind font */
+
+  --numeric:tabular-nums; /* @kind font */
+}

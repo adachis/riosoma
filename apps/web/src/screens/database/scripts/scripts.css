@@ -1,0 +1,239 @@
+@layer rio.app {
+  /* The sidebar's list, after the automations. */
+  .rio-script-list {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin-block-start: var(--rio-space-2);
+    padding-block-start: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+  }
+  /* Body text, since muted text is legible only on the page and its surfaces, not the sidebar's. */
+  .rio-script-list__heading {
+    margin: 0;
+    padding-inline: var(--rio-space-2);
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    line-height: var(--rio-leading-tight);
+  }
+  .rio-script-list__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-script-list__item {
+    display: flex;
+    align-items: center;
+    block-size: var(--rio-control-height);
+    min-block-size: var(--rio-target-primary);
+    border-radius: var(--rio-radius);
+  }
+  .rio-script-list__item[data-active] {
+    background: var(--rio-selected);
+  }
+  .rio-script-list__open {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    flex: 1;
+    min-inline-size: 0;
+    block-size: 100%;
+    padding-inline: var(--rio-space-2);
+    border: 0;
+    border-radius: var(--rio-radius);
+    background: transparent;
+    color: var(--rio-text);
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+  .rio-script-list__open > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-script-list__open > .rio-icon {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-script-list__open:hover {
+    background: var(--rio-hover);
+  }
+  .rio-script-list__open:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-script-list__item:hover .rio-db-item-menu,
+  .rio-script-list__item:focus-within .rio-db-item-menu {
+    opacity: 1;
+  }
+  .rio-script-list__add {
+    justify-self: start;
+  }
+
+  /* The panel sits at the inline end, beside the grid, so a run's changes show as they happen. */
+  .rio-script-panel {
+    position: fixed;
+    inset-block: var(--rio-header-height) var(--rio-footer-height);
+    inset-inline-end: 0;
+    z-index: var(--rio-z-dock);
+    inline-size: min(calc(var(--rio-dock-width) * 1.25), 100vi);
+    overflow-y: auto;
+    border-inline-start: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    box-shadow: var(--rio-shadow-3);
+  }
+  .rio-script-panel__sheet {
+    inline-size: 100vi;
+  }
+  .rio-script-panel__dialog {
+    padding: 0;
+  }
+  .rio-script-panel__inner {
+    display: grid;
+    gap: var(--rio-space-3);
+    padding: var(--rio-space-4);
+  }
+  .rio-script-panel__header {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+  }
+  .rio-script-panel__header h2 {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-size: var(--rio-text-lg);
+    font-weight: var(--rio-weight-bold);
+    line-height: var(--rio-leading-tight);
+  }
+  .rio-script-panel__description,
+  .rio-script-panel__note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    white-space: pre-wrap;
+  }
+  .rio-script-panel__controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+  .rio-script-panel__status {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  /* What a paused script asks. */
+  .rio-script-prompt {
+    display: grid;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-raised);
+  }
+  .rio-script-prompt__label {
+    margin: 0;
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-medium);
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+  .rio-script-prompt p {
+    margin: 0;
+  }
+  .rio-script-prompt__form {
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+  .rio-script-prompt__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+
+  /* What the script logged and showed, in order. */
+  .rio-script-output {
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+  .rio-script-output__list {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rio-script-output__list pre {
+    margin: 0;
+    padding: var(--rio-space-1) var(--rio-space-2);
+    border-inline-start: 3px solid var(--rio-border);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .rio-script-output__list [data-level='warn'] pre {
+    border-inline-start-color: var(--rio-warning);
+  }
+  .rio-script-output__list [data-level='error'] pre {
+    border-inline-start-color: var(--rio-danger);
+  }
+  .rio-script-output__level {
+    font-weight: var(--rio-weight-bold);
+  }
+  .rio-script-output__text {
+    margin: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .rio-script-output__table {
+    overflow-x: auto;
+  }
+  .rio-script-output__table table {
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-script-output__table th,
+  .rio-script-output__table td {
+    padding: var(--rio-space-1) var(--rio-space-2);
+    border: 1px solid var(--rio-border);
+    text-align: start;
+    vertical-align: top;
+    white-space: pre-wrap;
+  }
+  .rio-script-output__table th {
+    background: var(--rio-surface-sunken);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-script-markdown {
+    overflow-wrap: anywhere;
+  }
+  .rio-script-markdown > :first-child {
+    margin-block-start: 0;
+  }
+  .rio-script-markdown > :last-child {
+    margin-block-end: 0;
+  }
+  .rio-script-markdown pre {
+    overflow-x: auto;
+    padding: var(--rio-space-2);
+    background: var(--rio-surface-sunken);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-script-markdown blockquote {
+    margin-inline: 0;
+    padding-inline-start: var(--rio-space-3);
+    border-inline-start: 3px solid var(--rio-border);
+  }
+
+  @media (forced-colors: active) {
+    .rio-script-list__item[data-active] {
+      outline: 1px solid;
+    }
+  }
+}

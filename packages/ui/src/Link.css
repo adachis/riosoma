@@ -1,0 +1,66 @@
+@layer rio.components {
+  .rio-link {
+    color: var(--rio-aa-link);
+    text-decoration-line: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    outline: none;
+    transition: color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  /* An inline link keeps wrapping, so the icons sit on the text's baseline instead of in a flex
+     box that would hold a long label on one line. */
+  .rio-link__icon,
+  .rio-link__external {
+    vertical-align: -0.125em;
+  }
+
+  .rio-link__icon {
+    margin-inline-end: var(--rio-space-1);
+  }
+
+  .rio-link__external {
+    margin-inline-start: var(--rio-space-1);
+  }
+
+  .rio-link[data-hovered] {
+    text-decoration-line: underline;
+  }
+
+  .rio-link[data-pressed] {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  /* The link for the page the user is on.  Underline only, so a route change never moves text. */
+  .rio-link[data-current] {
+    color: var(--rio-text);
+    text-decoration-line: underline;
+  }
+
+  .rio-link[data-focus-visible] {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-link[data-disabled] {
+    color: var(--rio-aa-text-muted);
+    text-decoration-line: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    .rio-link {
+      color: LinkText;
+    }
+
+    .rio-link[data-current] {
+      text-decoration-thickness: 2px;
+    }
+
+    .rio-link[data-disabled] {
+      color: GrayText;
+    }
+  }
+}

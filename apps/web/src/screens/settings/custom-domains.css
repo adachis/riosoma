@@ -1,0 +1,20 @@
+@layer rio.app {
+  .rio-custom-domains,
+  .rio-custom-domains__domain {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-custom-domains__domain {
+    padding: var(--rio-space-4);
+    border: calc(var(--rio-space-1) / 4) solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+
+  .rio-custom-domains__kinds,
+  .rio-custom-domains__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-3);
+  }
+}

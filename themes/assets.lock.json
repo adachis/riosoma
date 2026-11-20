@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "versions": {
+    "0.95.0": {
+      "sha256": "854e56cf0e3f309e0fade85bd3a2db7d6736551565c96b6175c76c4ffb698c6c",
+      "bytes": 366554117
+    },
+    "0.95.0-rc.1": {
+      "sha256": "854e56cf0e3f309e0fade85bd3a2db7d6736551565c96b6175c76c4ffb698c6c",
+      "bytes": 366554117
+    }
+  }
+}

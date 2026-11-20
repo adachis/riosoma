@@ -1,0 +1,9 @@
+{
+  "iterate": {
+    "container": "{{riosomaEvents(body, parameters, 'record.updated')}}"
+  },
+  "output": "{{item}}",
+  "respond": {
+    "status": 200
+  }
+}

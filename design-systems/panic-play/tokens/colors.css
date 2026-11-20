@@ -1,0 +1,49 @@
+/* Base ramps + default (Signal) theme semantics */
+:root{
+  /* ink / paper ramp */
+  --ink-1:#111014; --ink-2:#1f1d24; --ink-3:#3a3742; --ink-4:#6b6675;
+  --ink-5:#9d97a6; --ink-6:#c8c3cf; --ink-7:#e6e2ea;
+  --paper-1:#fffdf8; --paper-2:#fbf7ef; --paper-3:#f4eee1; --paper-4:#e9e1cf;
+
+  /* brand ramp — Signal */
+  --brand-1:#ffe6e2; --brand-2:#ffb0a5; --brand-3:#ff7566; --brand-4:#ff4d3d;
+  --brand-5:#e0331f; --brand-6:#992014;
+
+  /* secondary ramp — Reef */
+  --alt-1:#d7fbf4; --alt-2:#8ceedd; --alt-3:#3ed7bd; --alt-4:#1fc7a9;
+  --alt-5:#13a189; --alt-6:#0b6d5c;
+
+  /* fixed utility hues (never themed) */
+  --util-lemon:#ffd23f; --util-grape:#7a5cff; --util-sky:#3fa9ff;
+
+  /* semantic aliases */
+  --bg-page:var(--paper-2);
+  --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1);
+  --surface-raised:#ffffff;
+  --surface-inverse:var(--ink-1);
+  --surface-brand:var(--brand-4);
+  --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4);
+  --surface-alt-soft:var(--alt-1);
+
+  --text-strong:var(--ink-1);
+  --text-body:var(--ink-2);
+  --text-muted:var(--ink-4);
+  --text-faint:var(--ink-5);
+  --text-inverse:var(--paper-1);
+  --text-on-brand:#ffffff;
+  --text-on-alt:var(--ink-1);
+  --text-link:var(--brand-5);
+  --text-link-hover:var(--brand-6);
+
+  --line-1:var(--ink-1);      /* the structural 2px outline */
+  --line-2:var(--ink-6);      /* quiet dividers */
+  --line-focus:var(--util-grape);
+
+  /* status */
+  --status-good:#2f9e56; --status-good-soft:#dff3e5;
+  --status-warn:#e08b00; --status-warn-soft:#fdefd2;
+  --status-bad:#d92d20;  --status-bad-soft:#fce4e2;
+  --status-info:#2f6fd0; --status-info-soft:#e2ecfb;
+}

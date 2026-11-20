@@ -1,0 +1,26 @@
+:root{
+/* Nothing in this system bounces. Motion is either an ink-quick state change
+   or the slow reveal of a page being turned. */
+--ease-ink:cubic-bezier(.2,0,.3,1); /* @kind other */
+--ease-page:cubic-bezier(.36,.07,.19,.97); /* @kind other */
+--ease-out-quill:cubic-bezier(0,.55,.45,1); /* @kind other */
+
+--dur-instant:80ms; /* @kind other */
+--dur-quick:140ms; /* @kind other */
+--dur-state:200ms; /* @kind other */
+--dur-reveal:420ms; /* @kind other */
+--dur-page:640ms; /* @kind other */
+
+--transition-state:color var(--dur-quick) var(--ease-ink),background-color var(--dur-quick) var(--ease-ink),border-color var(--dur-quick) var(--ease-ink),box-shadow var(--dur-quick) var(--ease-ink); /* @kind other */
+--transition-press:transform var(--dur-instant) var(--ease-ink),box-shadow var(--dur-instant) var(--ease-ink); /* @kind other */
+
+/* The press impression: a control moves onto its own shadow when struck. */
+--press-offset:2px; /* @kind spacing */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--dur-quick:0ms; /* @kind other */
+--dur-state:0ms; /* @kind other */
+--dur-reveal:0ms; /* @kind other */
+--dur-page:0ms; /* @kind other */
+--press-offset:0px /* @kind spacing */
+}}

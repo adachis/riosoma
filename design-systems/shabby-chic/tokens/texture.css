@@ -1,0 +1,46 @@
+:root{
+/* ── Paper stock: aged scans, used as multiply layers over flat paper ── */
+--tex-lace:url("../assets/textures/paper-lace-pink-01.jpg"); /* @kind other */
+--tex-lace-alt:url("../assets/textures/paper-lace-pink-02.jpg"); /* @kind other */
+--tex-lace-edge:url("../assets/textures/paper-lace-pink-03.jpg"); /* @kind other */
+--tex-porcelain:url("../assets/textures/paper-blue-01.png"); /* @kind other */
+--tex-damask:url("../assets/textures/paper-blue-02.png"); /* @kind other */
+--tex-journal-floral:url("../assets/textures/journal-floral-01.jpg"); /* @kind other */
+--tex-journal-rose:url("../assets/textures/journal-rose-01.jpg"); /* @kind other */
+--tex-journal-rustic:url("../assets/textures/journal-rustic-01.jpg"); /* @kind other */
+--tex-journal-wisteria:url("../assets/textures/journal-wisteria-01.jpg"); /* @kind other */
+
+/* ── Seamless florals: tile at 260–420px ── */
+--pat-blossom:url("../assets/textures/pattern-seamless-01.jpg"); /* @kind other */
+--pat-jar:url("../assets/textures/pattern-seamless-02.jpg"); /* @kind other */
+--pat-garden:url("../assets/textures/pattern-seamless-03.jpg"); /* @kind other */
+--pat-tile:340px; /* @kind spacing */
+
+/* ── Watercolour washes: the brand's fill primitive. Tint by setting
+      background-color and letting the wash multiply over it. ── */
+--wash-1:url("../assets/textures/wash-square-01.png"); /* @kind other */
+--wash-2:url("../assets/textures/wash-square-02.png"); /* @kind other */
+--wash-3:url("../assets/textures/wash-square-03.png"); /* @kind other */
+--wash-4:url("../assets/textures/wash-square-04.png"); /* @kind other */
+
+/* ── Cut-out botanicals & frames (transparent PNG) ── */
+--art-floral-1:url("../assets/florals/floral-01.png"); /* @kind other */
+--art-floral-2:url("../assets/florals/floral-03.png"); /* @kind other */
+--art-frame-1:url("../assets/florals/frame-01.png"); /* @kind other */
+--art-frame-2:url("../assets/florals/frame-02.png"); /* @kind other */
+--art-banner-1:url("../assets/florals/banner-01.png"); /* @kind other */
+--art-wash-1:url("../assets/florals/wash-01.png"); /* @kind other */
+
+/* ── Composed recipes ── */
+--paper-page:var(--surface-page); /* @kind other */
+--paper-aged:var(--tex-lace) center/cover no-repeat; /* @kind other */
+--tex-opacity-faint:.10; /* @kind other */
+--tex-opacity-soft:.20; /* @kind other */
+--tex-opacity-strong:.42; /* @kind other */
+--tex-blend:multiply; /* @kind other */
+
+/* ── Imagery grade: warm, high-key, gently faded ── */
+--img-grade:sepia(.10) saturate(.82) contrast(.94) brightness(1.03); /* @kind other */
+--img-grade-deep:sepia(.20) saturate(.68) contrast(.92) brightness(1.01); /* @kind other */
+--img-vignette:radial-gradient(120% 100% at 50% 45%,transparent 52%,rgb(74 63 58 / .16) 100%); /* @kind other */
+}

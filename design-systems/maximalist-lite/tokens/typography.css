@@ -1,0 +1,49 @@
+/* Type. Four families, hard tonal split:
+   display = poster voice, accent = sticker voice, text = everything readable, mono = labels + data. */
+:root{
+  --font-display:"Bowlby One",Impact,"Haettenschweiler","Arial Black",sans-serif;
+  --font-accent:"Shrikhand","Bowlby One",Georgia,serif;
+  --font-text:"Figtree","Helvetica Neue",Helvetica,sans-serif;
+  --font-mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  /* Poster scale — 1.333 (perfect fourth), rounded to whole px, never snapped to 4px */
+  --fs-mega:118px;
+  --fs-display-1:86px;
+  --fs-display-2:62px;
+  --fs-display-3:45px;
+  --fs-title-1:33px;
+  --fs-title-2:25px;
+  --fs-title-3:21px;
+  --fs-body-lg:18px;
+  --fs-body:15px;
+  --fs-body-sm:13px;
+  --fs-label:11px;
+  --fs-micro:9px;
+
+  --lh-poster:0.86;/* @kind other */
+  --lh-tight:1.04;/* @kind other */
+  --lh-snug:1.24;/* @kind other */
+  --lh-body:1.55;/* @kind other */
+  --lh-loose:1.72;/* @kind other */
+
+  --ls-poster:-0.03em;
+  --ls-display:-0.015em;
+  --ls-body:0em;
+  --ls-label:0.14em;
+  --ls-mono-label:0.2em;
+
+  --fw-text:400;
+  --fw-text-med:600;
+  --fw-text-bold:800;
+  --fw-text-black:900;
+
+  /* composed roles */
+  --type-mega:var(--fw-text-black) var(--fs-mega)/var(--lh-poster) var(--font-display);
+  --type-display:var(--fs-display-2)/var(--lh-poster) var(--font-display);
+  --type-title:800 var(--fs-title-1)/var(--lh-tight) var(--font-text);
+  --type-subtitle:700 var(--fs-title-3)/var(--lh-snug) var(--font-text);
+  --type-body:var(--fw-text) var(--fs-body)/var(--lh-body) var(--font-text);
+  --type-lead:var(--fw-text) var(--fs-body-lg)/var(--lh-loose) var(--font-text);
+  --type-label:700 var(--fs-label)/1.1 var(--font-mono);
+  --type-sticker:var(--fs-title-2)/1 var(--font-accent);
+}

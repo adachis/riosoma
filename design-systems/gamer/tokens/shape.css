@@ -1,0 +1,23 @@
+/* Corner radii + the angular clip shapes that give the system its edge.
+   Radii are the source values verbatim (5/8/10/15/38/50/pill). */
+:root {
+  --r-xs: 2px; /* @kind radius */
+  --r-sm: 5px; /* @kind radius */
+  --r-md: 8px; /* @kind radius */
+  --r-lg: 10px; /* @kind radius */
+  --r-xl: 15px; /* @kind radius */
+  --r-2xl: 38px; /* @kind radius */
+  --r-3xl: 50px; /* @kind radius */
+  --r-pill: 100px; /* @kind radius */
+  --r-circle: 50%; /* @kind radius */
+
+  /* Chamfered / bevelled silhouettes. Apply as clip-path on panels, buttons,
+     HUD frames and media wells. The 14px notch is the house cut. */
+  --cut-sm: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px); /* @kind other */
+  --cut-md: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); /* @kind other */
+  --cut-lg: polygon(26px 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%, 0 26px); /* @kind other */
+  --cut-tr: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%); /* @kind other */
+  --cut-br: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%); /* @kind other */
+  --cut-tab: polygon(0 0, calc(100% - 16px) 0, 100% 100%, 16px 100%); /* @kind other */
+  --cut-blade: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); /* @kind other */
+}

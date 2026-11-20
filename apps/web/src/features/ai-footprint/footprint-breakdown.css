@@ -1,0 +1,31 @@
+@layer rio.app {
+  .rio-footprint-breakdown {
+    inline-size: min(24rem, calc(100vi - var(--rio-space-4) * 2));
+  }
+  .rio-footprint-breakdown__dialog {
+    display: grid;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+    outline: none;
+  }
+  .rio-footprint-breakdown__list {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rio-footprint-breakdown__list li {
+    display: grid;
+    gap: var(--rio-space-1);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-footprint-breakdown__feature {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-footprint-breakdown__note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+}

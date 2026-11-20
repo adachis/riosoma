@@ -1,0 +1,22 @@
+{
+  "baseUrl": "{{riosomaOrigin(connection.server) + '/api/v1'}}",
+  "headers": {
+    "Authorization": "Bearer {{connection.token}}",
+    "Accept": "application/json"
+  },
+  "followRedirects": false,
+  "followAllRedirects": false,
+  "response": {
+    "valid": "{{statusCode >= 200 && statusCode < 300}}",
+    "error": {
+      "message": "Riosoma could not complete the request.  Check the connection, permissions, and input."
+    }
+  },
+  "log": {
+    "sanitize": [
+      "request.headers.authorization",
+      "request.headers.Authorization",
+      "response.body.secret"
+    ]
+  }
+}

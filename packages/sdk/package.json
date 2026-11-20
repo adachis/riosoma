@@ -1,0 +1,36 @@
+{
+  "name": "@riosoma/sdk",
+  "version": "0.95.0-rc.1",
+  "private": true,
+  "type": "module",
+  "description": "A typed client for the Riosoma REST API, for Node.js and browsers, with no runtime dependencies",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@riosoma/contracts": "workspace:*",
+    "@riosoma/server": "workspace:*",
+    "@riosoma/testkit": "workspace:*",
+    "@types/node": "24.19.2"
+  }
+}

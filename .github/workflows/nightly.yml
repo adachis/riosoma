@@ -1,0 +1,356 @@
+name: Nightly
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      all_browsers:
+        description: Run the whole suite in every browser, whatever the day
+        type: boolean
+        default: false
+      browsers:
+        description: Browsers to run, as a JSON list
+        type: string
+        default: '["chromium", "firefox", "webkit"]'
+      burst:
+        description: Run each browser shard on a single-use runner
+        type: boolean
+        default: false
+      burst_shards:
+        description: Number of shards per browser on single-use runners
+        type: number
+        default: 8
+
+permissions:
+  contents: read
+
+env:
+  TURBO_TELEMETRY_DISABLED: '1'
+  DO_NOT_TRACK: '1'
+
+jobs:
+  # Query the advisory database even when no dependencies or pull requests have changed.  Shipped
+  # advisories at moderate severity or above fail the night, the others get dated issues, and an
+  # issue past its due date fails the night until the advisory is fixed or ignored with a reason.
+  # No concurrency group here: GitHub cancels a pending job when a newer one joins its group, so a
+  # push during the push job's issue sync could cancel the night's scan.  If the two ever write at
+  # once, the next sync closes the duplicate issue and keeps the earliest first-seen date.
+  security:
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma]
+    permissions:
+      contents: read
+      issues: write
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Known vulnerabilities in dependencies
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m unittest discover -s tools/ci -p 'test_*.py'
+          python3 tools/ci/check_advisory_ignores.py
+          bash tools/ci/scan_advisories.sh . "$RUNNER_TEMP/advisories.json"
+          python3 tools/ci/advisory_gate.py --scan "$RUNNER_TEMP/advisories.json" --write-issues --enforce-due
+
+  zap:
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma-host]
+    permissions:
+      contents: read
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Theme assets
+        run: rsync -a "$HOME/riosoma-ci/theme-assets/" themes/
+      - name: Build
+        run: pnpm turbo run build --concurrency=2
+      - name: Baseline and OpenAPI scans
+        run: pnpm --filter @riosoma/server exec tsx ../e2e/zap.ts
+      - name: Keep the scan reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: zap-report-nightly
+          include-hidden-files: true
+          path: |
+            .unit-logs/zap/*.html
+            .unit-logs/zap/*.json
+          if-no-files-found: error
+          retention-days: 7
+
+  browser-plan:
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma]
+    permissions:
+      contents: read
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      max_parallel: ${{ steps.plan.outputs.max_parallel }}
+    steps:
+      - name: Plan browser jobs
+        id: plan
+        env:
+          BROWSERS: ${{ inputs.browsers || '["chromium", "firefox", "webkit"]' }}
+          BURST: ${{ inputs.burst }}
+          BURST_SHARDS: ${{ inputs.burst_shards }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+
+          browsers = json.loads(os.environ['BROWSERS'])
+          if not isinstance(browsers, list) or not browsers or any(
+              browser not in ['chromium', 'firefox', 'webkit'] for browser in browsers
+          ):
+              raise ValueError('Expected a nonempty JSON list of browsers')
+          matrix = {'browser': browsers}
+          # Burst has no cap of its own; 256 is the most jobs it can plan.
+          max_parallel = 256
+          if os.environ['BURST'] == 'true':
+              count = float(os.environ['BURST_SHARDS'] or '8')
+              if not count.is_integer() or count < 1 or count * len(browsers) > 256:
+                  raise ValueError('Expected a positive integer burst_shards and at most 256 jobs')
+              matrix['shard'] = list(range(1, int(count) + 1))
+          else:
+              max_parallel = 3
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f'matrix={json.dumps(matrix)}\n')
+              output.write(f'max_parallel={max_parallel}\n')
+          PY
+
+  # Isolated shards run concurrently within one browser job unless burst is selected.
+  # Chromium runs the whole suite
+  # every night.  Firefox runs all of it on Saturday and WebKit
+  # on Sunday.  On the other nights those two run the tests where browsers differ most: startup, the
+  # main journey, working offline, and a page meeting a new version.  Each browser is its own job, so
+  # one that runs long never costs another its result.
+  browsers:
+    needs: browser-plan
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: ${{ fromJSON(inputs.burst && '["self-hosted", "riosoma-burst"]' || '["self-hosted", "riosoma"]') }}
+    permissions:
+      contents: read
+    timeout-minutes: 330
+    # Burst has no parallelism cap; normal runs keep one job per browser and a cap of three.
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(needs.browser-plan.outputs.max_parallel) }}
+      matrix: ${{ fromJSON(needs.browser-plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Decide what this browser runs tonight
+        id: plan
+        env:
+          BROWSER: ${{ matrix.browser }}
+          ALL_BROWSERS: ${{ inputs.all_browsers }}
+        run: |
+          day=$(date -u +%u)
+          whole=no
+          case "$BROWSER" in
+            chromium) whole=yes ;;
+            firefox) [ "$day" = 6 ] && whole=yes ;;
+            webkit) [ "$day" = 7 ] && whole=yes ;;
+          esac
+          [ "$ALL_BROWSERS" = true ] && whole=yes
+          echo "whole=$whole" >> "$GITHUB_OUTPUT"
+      - name: Install dependencies and this browser
+        run: pnpm install --frozen-lockfile && pnpm exec playwright install "$BROWSER"
+        timeout-minutes: 10
+        # The runner is a background service, and the cleanup of unused browsers follows install links onto
+        # an external volume it may not read, which blocks on a permission prompt.  The host keeps one cache.
+        env:
+          BROWSER: ${{ matrix.browser }}
+          PLAYWRIGHT_SKIP_BROWSER_GC: '1'
+      - name: Theme assets
+        run: rsync -a "$HOME/riosoma-ci/theme-assets/" themes/
+      - name: Build
+        # The suite builds its own copy of the web app with every language when it starts.  This is
+        # the release build, which the tests of shipped startup size read.
+        run: pnpm turbo run build --concurrency=2
+      - name: The whole suite in this browser
+        if: inputs.burst || steps.plan.outputs.whole == 'yes'
+        run: |
+          if [ "$BURST" = true ]; then
+            export RIOSOMA_E2E_SHARDS="$BURST_SHARDS"
+            export RIOSOMA_E2E_SHARD_INDEX="$SHARD_INDEX"
+          fi
+          pnpm --filter @riosoma/e2e e2e:nightly "$BROWSER"
+        env:
+          BROWSER: ${{ matrix.browser }}
+          RIOSOMA_E2E_ALL_BROWSERS: '1'
+          BURST: ${{ inputs.burst }}
+          BURST_SHARDS: ${{ inputs.burst_shards || 8 }}
+          SHARD_INDEX: ${{ matrix.shard }}
+      - name: The tests where browsers differ most
+        if: "!inputs.burst && steps.plan.outputs.whole != 'yes'"
+        run: pnpm --filter @riosoma/e2e e2e:engines --project="$BROWSER"
+        env:
+          BROWSER: ${{ matrix.browser }}
+          RIOSOMA_E2E_ALL_BROWSERS: '1'
+      - name: Keep the report on the runner
+        if: always()
+        continue-on-error: true
+        run: python3 tools/ci/keep_report.py "$REPORT" "nightly-${{ matrix.browser }}${{ matrix.shard && format('-shard-{0}', matrix.shard) || '' }}-${{ github.run_id }}-${{ github.run_attempt }}"
+        env:
+          REPORT: ${{ matrix.shard && format('apps/e2e/playwright-report/{0}/{1}', matrix.browser, matrix.shard) || 'apps/e2e/playwright-report' }}
+      - name: Keep the report when tests fail
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: playwright-report-nightly-${{ matrix.browser }}${{ matrix.shard && format('-shard-{0}', matrix.shard) || '' }}
+          path: ${{ matrix.shard && format('apps/e2e/playwright-report/{0}/{1}', matrix.browser, matrix.shard) || 'apps/e2e/playwright-report' }}
+          retention-days: 7
+
+  zapier:
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma]
+    permissions:
+      contents: read
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # The Zapier app keeps its own lockfile outside the workspace, so no other job runs its tests.
+      - name: Zapier app tests
+        run: pnpm install --frozen-lockfile && pnpm zapier:test
+
+  image:
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma-host]
+    permissions:
+      contents: read
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Theme assets
+        run: rsync -a "$HOME/riosoma-ci/theme-assets/" themes/
+      - name: Build the images
+        run: |
+          docker build -t riosoma:nightly .
+          docker build --target connectors -t riosoma-connectors:nightly .
+      - name: No fixable high or critical vulnerabilities
+        run: |
+          for image in riosoma:nightly riosoma-connectors:nightly; do
+            trivy image --quiet --scanners vuln --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 "$image"
+          done
+
+  # Install the previous release's chart into a throwaway kind cluster, upgrade to the working
+  # tree's chart, and check that readiness and data survive.  The script downloads its own pinned
+  # kind, helm, and kubectl into the checkout's ignored .cache directory and deletes the cluster on
+  # exit.  It needs Docker, so it runs on the same runner as the image job.
+  helm-smoke:
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma-host]
+    permissions:
+      contents: read
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Theme assets
+        run: rsync -a "$HOME/riosoma-ci/theme-assets/" themes/
+      - name: Previous release source
+        run: |
+          tag=$(git tag --list 'v*' --sort=-v:refname | head -n 1)
+          if [ -n "$tag" ]; then
+            mkdir -p "$RUNNER_TEMP/previous-release"
+            git archive "$tag" | tar -x -C "$RUNNER_TEMP/previous-release"
+            echo "PREVIOUS_RELEASE_DIR=$RUNNER_TEMP/previous-release" >> "$GITHUB_ENV"
+          else
+            echo 'No v* tag yet, the script installs the current chart only'
+          fi
+      - name: Install and upgrade smoke test
+        run: bash tools/release/helm-smoke.sh ${PREVIOUS_RELEASE_DIR:+"$PREVIOUS_RELEASE_DIR"}
+
+  # Riosoma supports PostgreSQL 14 and newer.  CI tests 16 and 18 on every push, so this covers the oldest.
+  postgres14:
+    needs: zapier
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma]
+    permissions:
+      contents: read
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      # One server test checks the built output for environment reads, so build before testing.
+      - name: Build the server
+        run: pnpm turbo run build --filter=@riosoma/server...
+      - name: Database and server tests on PostgreSQL 14
+        run: pnpm turbo run test --force --filter=@riosoma/db --filter=@riosoma/server -- --maxWorkers=6
+        env:
+          RIOSOMA_PG_BIN: ${{ runner.os == 'macOS' && '/opt/homebrew/opt/postgresql@14/bin' || '/usr/lib/postgresql/14/bin' }}
+
+  # Every Data Source connector against its protocol and driver fixtures, with the shared contract
+  # assertions, failing on any connector or operation the kit doesn't cover.
+  connectors:
+    needs: postgres14
+    if: github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma]
+    permissions:
+      contents: read
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Connector contracts
+        run: node tools/connector_contract.mjs contract
+
+  # Performance budgets, on a quiet host after the other jobs.  Each night compares with the last passing
+  # report kept on the runner.  The shell is still over its size budget, so this job reports without
+  # failing the night until the shell split lands.
+  perf:
+    needs: [browsers, connectors, image]
+    if: always() && github.repository == 'adachis/riosoma-dev'
+    runs-on: [self-hosted, riosoma-host]
+    permissions:
+      contents: read
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install dependencies and Chromium
+        run: pnpm install --frozen-lockfile && pnpm exec playwright install chromium
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_GC: '1'
+      - name: Theme assets
+        run: rsync -a "$HOME/riosoma-ci/theme-assets/" themes/
+      - name: Build
+        run: pnpm turbo run build --concurrency=2
+      # This job starts seconds after hours of browser tests and its own build, and a run measured
+      # on a busy machine skips its comparison with earlier runs.  Wait up to fifteen minutes for
+      # the one-minute load average to fall.
+      - name: Wait for the machine to settle
+        run: |
+          for attempt in $(seq 1 60); do
+            load="$(uptime | sed 's/.*load average[s]*: *//' | awk '{print int($1)}')"
+            if [ "${load:-0}" -lt 5 ]; then break; fi
+            sleep 15
+          done
+          uptime
+      - name: Performance budgets
+        run: |
+          baseline="$HOME/riosoma-ci/perf/last.json"
+          if [ -f "$baseline" ]; then export RIOSOMA_PERF_BASELINE="$baseline"; fi
+          pnpm --filter @riosoma/e2e perf
+      - name: Keep this run as the next baseline
+        run: mkdir -p "$HOME/riosoma-ci/perf" && cp apps/e2e/perf/results/last.json "$HOME/riosoma-ci/perf/last.json"
+      - name: Keep the report on the runner
+        if: always()
+        continue-on-error: true
+        run: python3 tools/ci/keep_report.py apps/e2e/perf/results "nightly-perf-${{ github.run_id }}-${{ github.run_attempt }}"
+      - name: Keep the report
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: perf-report-nightly
+          path: apps/e2e/perf/results/report.json
+          retention-days: 7

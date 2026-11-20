@@ -1,0 +1,15 @@
+/* Groovy webfaces. Local files shipped with the system; Space Mono is a
+   Google Fonts substitution (no monospace face existed in the source library). */
+@font-face{font-family:"Groovy Chunk";src:url("../assets/fonts/LuckyChunks.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Slab";src:url("../assets/fonts/Chinook-Regular.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Script";src:url("../assets/fonts/BoldGroovy.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"Groovy Poster";src:url("../assets/fonts/ChunkySticker.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Caps";src:url("../assets/fonts/SugarGroovy.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Vintage";src:url("../assets/fonts/BackToVintage.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Vintage";src:url("../assets/fonts/BackToVintage-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Groovy Text";src:url("../assets/fonts/SugarPeachy-Light.woff") format("woff");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Text";src:url("../assets/fonts/SugarPeachy-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Text";src:url("../assets/fonts/SugarPeachy-Medium.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Text";src:url("../assets/fonts/SugarPeachy-Bold.woff") format("woff");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Groovy Text";src:url("../assets/fonts/SugarPeachy-Black.woff") format("woff");font-weight:900;font-style:normal;font-display:swap}
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");

@@ -1,0 +1,75 @@
+packages:
+  - apps/*
+  - packages/*
+  - integrations/*
+  # These keep their own lockfiles and installs, so Riosoma's installs and image never fetch them.
+  # The Zapier app depends on zapier-platform-core, which is licensed under the Zapier Platform
+  # Agreement.  The hub builds and deploys with Wrangler, and the n8n node builds and lints against
+  # n8n's own packages.
+  - '!integrations/zapier'
+  - '!integrations/n8n'
+  - '!apps/hub'
+
+# Newly published versions wait three days (in minutes) before pnpm resolves them, and frozen installs
+# refuse a lockfile entry younger than that.  To let one urgent security fix through early, add a
+# minimumReleaseAgeExclude list with its exact version (for example "hono@4.13.12") in the same pull
+# request, and remove the list once the version is three days old.  See docs/developer/dependencies.md.
+minimumReleaseAge: 4320
+
+# Install scripts run only for packages allowed here.  ssh2 works without its optional native
+# speedups, so those stay off and nothing compiles during install.
+allowBuilds:
+  esbuild: true
+  '@parcel/watcher': true
+  cpu-features: false
+  ssh2: false
+  # oracledb's install script only checks for its optional native client.  Riosoma uses the
+  # driver's thin mode, which is plain JavaScript, so the script stays off.
+  oracledb: false
+
+# Security fixes newer than what these dependencies ask for (checked by osv-scanner):
+# toml 3.0.0 (through the Snowflake driver) has recursion and prototype-pollution advisories fixed
+# in 4.2 and further prototype-pollution and CPU advisories fixed in 5.0.1.  Snowflake uses the
+# compatible parse API; 5.x rejects unsafe integers instead of rounding them.
+# uuid 8.3.2 (through ExcelJS) has a buffer-bounds advisory fixed in 11.1.1, and image-size 1.2.1
+# (listed by pptxgenjs, which never loads it) has two advisories fixed in 2.0.3.
+# basic-ftp 5.3.1 (through the Databricks driver's proxy agent) has a directory-listing CPU advisory fixed
+# in 6.2.1, whose only break refuses separate transfer hosts, and further advisories fixed in 6.2.4.
+# source-map-js 1.2.1 (through postcss, a build-time tool for the web app's styles) has an advisory
+# fixed in 1.2.2.
+# seroval (through TanStack Router) has serialization advisories fixed through 1.6.11.
+# Remaining compatible fixes for HTTP parsing and redirects, URI/IP validation, MCP's Hono adapter,
+# and Vitest's mock server.  Keep fast-uri's two supported major lines.
+# Azure Identity uses MSAL's noninteractive credential APIs, unchanged in 7.x; the v7 browser-loopback
+# change does not affect Riosoma's OpenID Connect sign-in or Microsoft client-credentials connectors.
+# tedious 20.3.8 drops sprintf-js and satisfies mssql's ^19.2.2 || ^20.0.0 range.
+# glob and minimatch have no fix backports. unzipper 0.12 drops fstream/rimraf's callback glob API.
+# Archive utilities use glob's retained sync API, and Fastify uses its Promise API.
+# Keep Archiver 5: newer archive utilities break ExcelJS's custom streaming writer.
+# Replacing glob 7 removes its incompatible private minimatch API.  readdir-glob uses Minimatch,
+# and lint tooling uses named exports, both retained in minimatch 11.
+# See the advisory review for archive, streaming spreadsheet, and glob compatibility checks.
+overrides:
+  tedious: 20.3.8
+  seroval: 1.6.11
+  toml: 5.0.1
+  exceljs>uuid: 11.1.1
+  pptxgenjs>image-size: 2.0.3
+  # GHSA-5pm8-86m8-9m6r and GHSA-r4jh-29pc-gfqr: remove once @databricks/sql resolves basic-ftp 6.2.4 or later.
+  get-uri>basic-ftp: 6.2.4
+  postcss>source-map-js: 1.2.2
+  follow-redirects: 1.16.2
+  exceljs>unzipper: 0.12.5
+  glob: 14.0.2
+  minimatch: 11.0.1
+  body-parser: 2.4.0
+  ip-address: 10.7.4
+  qs: 6.16.1
+  fast-uri@3: 3.1.9
+  fast-uri@4: 4.2.3
+  '@vitest/mocker': 5.0.3
+  # GHSA-jpvv-r467-5p4w and GHSA-qv5m-9pm6-hqp3: remove once @modelcontextprotocol/sdk requires 2.1.6 or later.
+  '@hono/node-server': 2.1.6
+  # GHSA-3gg2-335m-rxc6, GHSA-46wx-v44x-9hh2, GHSA-4h7h-rv7c-7m2v, GHSA-4m76-xfj5-7975, and GHSA-h7mg-cq63-vhpq: remove once @modelcontextprotocol/sdk requires hono 4.13.16 or later.
+  hono: 4.13.16
+  '@azure/msal-node': 7.1.0

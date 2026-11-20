@@ -1,0 +1,24 @@
+{
+  "id": "merging-duplicates",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "database.table.menu",
+      "say": "demos.merging-duplicates.menu",
+      "do": "open"
+    },
+    {
+      "anchor": "database.table.dedupe",
+      "say": "demos.merging-duplicates.open",
+      "do": "open"
+    },
+    {
+      "anchor": "dedupe.field",
+      "say": "demos.merging-duplicates.field"
+    },
+    {
+      "anchor": "dedupe.search",
+      "say": "demos.merging-duplicates.find"
+    }
+  ]
+}

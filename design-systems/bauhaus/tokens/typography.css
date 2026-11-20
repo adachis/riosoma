@@ -1,0 +1,56 @@
+/* ============================================================
+   TYPOGRAPHY
+   Six faces, each with one job. Never mix display faces in a
+   single composition; pair exactly one display with Corbert.
+   ============================================================ */
+
+:root{
+  /* --- families ------------------------------------------- */
+  --font-display:"Finis Grotesk Cd","Finis Grotesk","Helvetica Neue",Arial,sans-serif;   /* poster headlines */
+  --font-headline:"Finis Grotesk","Helvetica Neue",Arial,sans-serif;                      /* section heads, UI titles */
+  --font-core:"Corbert",Futura,"Century Gothic",system-ui,sans-serif;                     /* body + all UI text */
+  --font-geometric:"Geobau","Corbert",sans-serif;                                         /* logotype scale only */
+  --font-geometric-linear:"Geobau Linear","Geobau",sans-serif;
+  --font-geometric-outline:"Geobau Outline","Geobau",sans-serif;
+  --font-stencil:"Dekart","Finis Grotesk Cd",sans-serif;                                  /* numerals, game titling */
+  --font-stencil-outline:"Dekart Outline","Dekart",sans-serif;
+  --font-editorial:"Red Thinker","Finis Grotesk",sans-serif;                              /* print covers, pull quotes */
+  --font-mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;                 /* data, code, technical labels */
+
+  /* --- weights -------------------------------------------- */
+  --weight-light:300;/* @kind other */--weight-regular:400;/* @kind other */--weight-medium:500;/* @kind other */
+  --weight-demi:600;/* @kind other */--weight-bold:700;/* @kind other */--weight-black:900;/* @kind other */
+
+  /* --- size ramp (px, 15px body) -------------------------- */
+  --text-3xs:10px;--text-2xs:11px;--text-xs:12px;--text-sm:13px;
+  --text-base:15px;--text-md:17px;--text-lg:20px;--text-xl:24px;
+  --text-2xl:30px;--text-3xl:38px;--text-4xl:48px;--text-5xl:64px;
+  --text-6xl:84px;--text-7xl:112px;--text-8xl:152px;
+
+  /* --- leading -------------------------------------------- */
+  --leading-solid:0.92;/* @kind other */--leading-tight:1.05;/* @kind other */--leading-snug:1.2;/* @kind other */
+  --leading-normal:1.5;/* @kind other */--leading-loose:1.7;/* @kind other */
+
+  /* --- tracking ------------------------------------------- */
+  --track-tighter:-0.035em;/* @kind other */--track-tight:-0.02em;/* @kind other */--track-normal:0em;/* @kind other */
+  --track-wide:0.06em;/* @kind other */--track-wider:0.14em;/* @kind other */--track-widest:0.24em;/* @kind other */
+
+  /* --- composed roles ------------------------------------- */
+  --type-poster:var(--weight-black) var(--text-8xl)/var(--leading-solid) var(--font-display);/* @kind other */
+  --type-display-1:var(--weight-black) var(--text-6xl)/var(--leading-solid) var(--font-display);/* @kind other */
+  --type-display-2:var(--weight-black) var(--text-5xl)/var(--leading-tight) var(--font-display);/* @kind other */
+  --type-headline-1:var(--weight-black) var(--text-3xl)/var(--leading-tight) var(--font-headline);/* @kind other */
+  --type-headline-2:var(--weight-bold) var(--text-2xl)/var(--leading-snug) var(--font-headline);/* @kind other */
+  --type-headline-3:var(--weight-bold) var(--text-xl)/var(--leading-snug) var(--font-headline);/* @kind other */
+  --type-title:var(--weight-demi) var(--text-md)/var(--leading-snug) var(--font-core);/* @kind other */
+  --type-body:var(--weight-regular) var(--text-base)/var(--leading-normal) var(--font-core);/* @kind other */
+  --type-body-sm:var(--weight-regular) var(--text-sm)/var(--leading-normal) var(--font-core);/* @kind other */
+  --type-label:var(--weight-bold) var(--text-xs)/var(--leading-snug) var(--font-core);/* @kind other */
+  --type-eyebrow:var(--weight-bold) var(--text-2xs)/var(--leading-snug) var(--font-core);/* @kind other */
+  --type-mono:var(--weight-regular) var(--text-xs)/var(--leading-normal) var(--font-mono);/* @kind other */
+  --type-numeral:var(--weight-regular) var(--text-4xl)/var(--leading-solid) var(--font-stencil);/* @kind other */
+
+  /* eyebrow/label text is ALWAYS uppercase + wide-tracked */
+  --track-eyebrow:var(--track-widest);/* @kind other */
+  --track-label:var(--track-wider);/* @kind other */
+}

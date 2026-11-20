@@ -1,0 +1,193 @@
+@layer rio.app {
+  .rio-mfa-step {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-mfa-step p {
+    margin-block: 0;
+  }
+
+  .rio-mfa-step__who {
+    color: var(--rio-aa-text-muted);
+    overflow-wrap: anywhere;
+  }
+
+  /* Other ways to finish, one under another, each a quiet button. */
+  .rio-mfa-step__others {
+    display: grid;
+    justify-items: start;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Beside the single sign-on buttons, at the same width. */
+  .rio-passkey-sign-in {
+    inline-size: 100%;
+  }
+
+  .rio-mfa__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+
+  /* Setting up an authenticator app: the code to scan, then the key to type, then the code back. */
+  .rio-mfa-app {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-mfa-app p {
+    margin-block: 0;
+  }
+
+  .rio-mfa-app__secret {
+    display: block;
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-sunken);
+    font-family: var(--rio-font-mono);
+    letter-spacing: 0.08em;
+    overflow-wrap: anywhere;
+    user-select: all;
+  }
+
+  /*
+   * Scanners want dark modules on a light ground.  Where the scheme is dark its text is the light
+   * color, so the two swap there and the modules stay the darker one.
+   */
+  .rio-qr {
+    display: block;
+    inline-size: min(100%, 220px);
+    block-size: auto;
+    border-radius: var(--rio-radius);
+    /* A QR code's colors are its content, so high-contrast modes leave them as they are. */
+    forced-color-adjust: none;
+  }
+
+  .rio-qr__light {
+    fill: light-dark(var(--rio-bg), var(--rio-text));
+  }
+
+  .rio-qr__dark {
+    fill: light-dark(var(--rio-text), var(--rio-bg));
+  }
+
+  .rio-mfa-codes {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+
+  /* Fading a security dialog also dims its text and reduces its contrast as codes appear. */
+  .rio-mfa-codes-overlay:is([data-entering], [data-exiting]),
+  .rio-mfa-codes-modal:is([data-entering], [data-exiting]) {
+    animation: none;
+  }
+
+  .rio-mfa-codes__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-sunken);
+    list-style: none;
+  }
+
+  .rio-mfa-codes__list code {
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-md);
+  }
+
+  /* Settings: one section each for passkeys, the authenticator app, and recovery codes. */
+  .rio-mfa {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-6);
+    max-inline-size: 760px;
+  }
+
+  .rio-mfa p {
+    margin-block: 0;
+  }
+
+  .rio-mfa__intro,
+  .rio-mfa__note {
+    max-inline-size: 62ch;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-mfa__section {
+    display: grid;
+    gap: var(--rio-space-3);
+    padding-block-end: var(--rio-space-5);
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-mfa__section:last-of-type {
+    border-block-end: 0;
+  }
+
+  .rio-mfa__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-mfa__list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-mfa__item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-3);
+    padding-block: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  .rio-mfa__item-text {
+    display: grid;
+    flex: 1 1 16rem;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+
+  .rio-mfa__item-name {
+    overflow-wrap: anywhere;
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-mfa__item-meta {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-mfa__status {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-mfa-policy {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-5);
+    max-inline-size: 760px;
+  }
+
+  .rio-mfa-policy p {
+    margin-block: 0;
+  }
+}

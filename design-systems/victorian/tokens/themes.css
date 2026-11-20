@@ -1,0 +1,154 @@
+/* ── Colour schemes ───────────────────────────────────────────────────────────
+   Put a theme class on <html> or on any subtree. Each scope re-declares only
+   surfaces, text, accents and states; rules, textures and shadows are written
+   in terms of those, so the whole system follows.
+
+   Where a palette has no plausible amber or green, the status colour falls back
+   to a pressroom ink (gold-600 / rubric-600 / bottle-500). Noted per theme.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.theme-parlour{
+--surface-page:#f4ecd8;--surface-panel:#ece0c6;--surface-card:#fbf6ea;--surface-inset:#e0d0b0;--surface-invert:#12160f;--surface-accent:#14452f;--surface-accent-soft:#a9c9b6;
+--text-body:#1b2118;--text-muted:#5d675a;--text-faint:#7f8a7c;--text-display:#0c2a1d;--text-on-accent:#fbf6ea;--text-on-invert:#f4ecd8;--text-link:#6e1a17;--text-link-hover:#932a24;
+--accent:#14452f;--accent-hover:#1f6041;--accent-press:#0c2a1d;--accent-2:#6e1a17;--accent-3:#b58a2b;--accent-4:#1f3a5f;
+--state-ok:#1f6041;--state-warn:#8f6a1c;--state-danger:#6e1a17;--state-info:#1f3a5f;
+--focus-ring:#b58a2b;
+--grain-strength:.055; /* @kind other */
+--foxing-strength:.05 /* @kind other */
+}
+
+/* Playbill spectrum. Ten colours, used as a rotating series on tags and charts. */
+.theme-pantomime{
+--surface-page:#fdf4dd;--surface-panel:#f9e6bb;--surface-card:#fffbf0;--surface-inset:#f6dda8;--surface-invert:#2f4553;--surface-accent:#277da1;--surface-accent-soft:#bfe0ec;
+--text-body:#283d49;--text-muted:#577590;--text-faint:#7f95a6;--text-display:#1d5c78;--text-on-accent:#fffbf0;--text-on-invert:#fdf4dd;--text-link:#277da1;--text-link-hover:#f3722c;
+--accent:#1f6c8c;--accent-hover:#175c78;--accent-press:#0f4459;--accent-2:#c9282c;--accent-3:#f9c74f;--accent-4:#2f7f68;
+--state-ok:#2f7f68;--state-warn:#a35c05;--state-danger:#c9282c;--state-info:#3d7476;
+--focus-ring:#f9c74f;
+--grain-strength:.05; /* @kind other */
+--foxing-strength:.04 /* @kind other */
+}
+
+/* Gaslight. Night edition — navy stock, brass ink. */.theme-gaslight{
+color-scheme:dark;
+--surface-page:#000814;--surface-panel:#001d3d;--surface-card:#002247;--surface-inset:#00101f;--surface-invert:#000c1c;--surface-accent:#ffc300;--surface-accent-soft:#1b3a63;
+--text-body:#e9eff7;--text-muted:#9db3cc;--text-faint:#6e87a3;--text-display:#ffd60a;--text-on-accent:#000814;--text-on-invert:#e9eff7;--text-link:#ffd60a;--text-link-hover:#ffc300;
+--accent:#ffc300;--accent-hover:#ffd60a;--accent-press:#d9a500;--accent-2:#5aa3e6;--accent-3:#ffd60a;--accent-4:#4d7fb5;
+--state-ok:#5fc39a;--state-warn:#ffc300;--state-danger:#e8574f;--state-info:#4d90d8;
+--focus-ring:#ffd60a;
+--grain-strength:.08; /* @kind other */
+--foxing-strength:.03 /* @kind other */
+}
+
+/* Aniline. The new coal-tar dyes, printed shockingly bright on cheap cream. */
+.theme-aniline{
+--surface-page:#f7f0e4;--surface-panel:#ece0cd;--surface-card:#fffdf7;--surface-inset:#e3d3ba;--surface-invert:#2a0a4e;--surface-accent:#390099;--surface-accent-soft:#d5c4f0;
+--text-body:#2a0a4e;--text-muted:#5f4a7d;--text-faint:#8878a3;--text-display:#390099;--text-on-accent:#fffdf7;--text-on-invert:#f7f0e4;--text-link:#9e0059;--text-link-hover:#ff0054;
+--accent:#390099;--accent-hover:#4f14b8;--accent-press:#26006b;--accent-2:#9e0059;--accent-3:#ffbd00;--accent-4:#ff5400;
+--state-ok:#1f6041;--state-warn:#bf3f00;--state-danger:#e30049;--state-info:#390099;
+--focus-ring:#ffbd00;
+--grain-strength:.06; /* @kind other */
+--foxing-strength:.06 /* @kind other */
+}
+
+/* Almanack. Reference-book plainness: one warm red against cold blues. */
+.theme-almanack{
+--surface-page:#f1faee;--surface-panel:#dfeeee;--surface-card:#fbfffa;--surface-inset:#cbe3e6;--surface-invert:#1d3557;--surface-accent:#457b9d;--surface-accent-soft:#a8dadc;
+--text-body:#1d3557;--text-muted:#4a627f;--text-faint:#7a8fa8;--text-display:#1d3557;--text-on-accent:#f1faee;--text-on-invert:#f1faee;--text-link:#457b9d;--text-link-hover:#e63946;
+--accent:#356584;--accent-hover:#2b5470;--accent-press:#1d3557;--accent-2:#c32531;--accent-3:#a8dadc;--accent-4:#1d3557;
+--state-ok:#2f7d63;--state-warn:#8f6a1c;--state-danger:#c32531;--state-info:#356584;
+--focus-ring:#e63946;
+--grain-strength:.04; /* @kind other */
+--foxing-strength:.03 /* @kind other */
+}
+
+/* Tearoom. Faded chintz; the softest scheme in the set. */
+.theme-tearoom{
+--surface-page:#f7ede2;--surface-panel:#f4ded2;--surface-card:#fffaf4;--surface-inset:#f5cac3;--surface-invert:#42544f;--surface-accent:#84a59d;--surface-accent-soft:#cfdedb;
+--text-body:#453a34;--text-muted:#7d6f68;--text-faint:#a3948b;--text-display:#42544f;--text-on-accent:#1f2b28;--text-on-invert:#f7ede2;--text-link:#b3564f;--text-link-hover:#93433d;
+--accent:#84a59d;--accent-hover:#6d9089;--accent-press:#42544f;--accent-2:#b3564f;--accent-3:#f6bd60;--accent-4:#c98a6a;
+--state-ok:#41695e;--state-warn:#8f6a1c;--state-danger:#a8433f;--state-info:#4c6774;
+--focus-ring:#f6bd60;
+--grain-strength:.05; /* @kind other */
+--foxing-strength:.07 /* @kind other */
+}
+
+/* Menagerie. Circus-poster warmth over slate. */
+.theme-menagerie{
+--surface-page:#fdf5e2;--surface-panel:#f6e7c2;--surface-card:#fffdf3;--surface-inset:#f0d9a4;--surface-invert:#233d4d;--surface-accent:#fe7f2d;--surface-accent-soft:#cfe0d5;
+--text-body:#233d4d;--text-muted:#4d6a7c;--text-faint:#7b93a1;--text-display:#233d4d;--text-on-accent:#20180f;--text-on-invert:#fdf5e2;--text-link:#c9531a;--text-link-hover:#fe7f2d;
+--accent:#fe7f2d;--accent-hover:#e56c1d;--accent-press:#c9531a;--accent-2:#3f7466;--accent-3:#fcca46;--accent-4:#233d4d;
+--state-ok:#3f7466;--state-warn:#8f6a1c;--state-danger:#c94222;--state-info:#3f7466;
+--focus-ring:#fcca46;
+--grain-strength:.06; /* @kind other */
+--foxing-strength:.05 /* @kind other */
+}
+
+/* Conservatory. Ferns under glass; blue-green throughout. Amber and red are
+   pressroom fallbacks — the palette has none. Fernery, Almanack, Menagerie,
+   Seabathing, Broadside and Tearoom borrow the same amber for the same reason:
+   their own yellows are too light to carry caption-size text on a card. */
+.theme-conservatory{
+--surface-page:#eefbf1;--surface-panel:#d9f6e2;--surface-card:#f8fffa;--surface-inset:#c7f9cc;--surface-invert:#123a4d;--surface-accent:#22577a;--surface-accent-soft:#b7ecd2;
+--text-body:#123a4d;--text-muted:#3d6b7d;--text-faint:#6d95a3;--text-display:#22577a;--text-on-accent:#f8fffa;--text-on-invert:#eefbf1;--text-link:#22577a;--text-link-hover:#38a3a5;
+--accent:#22577a;--accent-hover:#38a3a5;--accent-press:#173d57;--accent-2:#1c7476;--accent-3:#57cc99;--accent-4:#80ed99;
+--state-ok:#1f8f5f;--state-warn:#8f6a1c;--state-danger:#a52b1e;--state-info:#1c7476;
+--focus-ring:#57cc99;
+--grain-strength:.04; /* @kind other */
+--foxing-strength:.03 /* @kind other */
+}
+
+/* Absinthe. Green hour: bottle-green stock, one cold spirit-green light. */
+.theme-absinthe{
+color-scheme:dark;
+--surface-page:#1b2d20;--surface-panel:#2e5339;--surface-card:#345c40;--surface-inset:#142117;--surface-invert:#101b13;--surface-accent:#00fddc;--surface-accent-soft:#3c6b4c;
+--text-body:#e8f6ec;--text-muted:#a9c6b3;--text-faint:#7d9a87;--text-display:#00fddc;--text-on-accent:#142117;--text-on-invert:#e8f6ec;--text-link:#00fddc;--text-link-hover:#ffccc9;
+--accent:#00fddc;--accent-hover:#66ffea;--accent-press:#00c7ad;--accent-2:#ffc4ca;--accent-3:#ffccc9;--accent-4:#495f41;
+--state-ok:#00fddc;--state-warn:#f2d68e;--state-danger:#ff5666;--state-info:#7fd8c9;
+--focus-ring:#00fddc;
+--grain-strength:.09; /* @kind other */
+--foxing-strength:.04 /* @kind other */
+}
+
+/* Confectionery. Sweet-shop chromolithograph; the loudest light scheme. */
+.theme-confectionery{
+--surface-page:#fff7e6;--surface-panel:#ffeccd;--surface-card:#fffdf6;--surface-inset:#ffe1a8;--surface-invert:#3a2b33;--surface-accent:#ff70a6;--surface-accent-soft:#ffd3e4;
+--text-body:#3a2b33;--text-muted:#6f5c66;--text-faint:#9a8791;--text-display:#c93f74;--text-on-accent:#3a2b33;--text-on-invert:#fff7e6;--text-link:#c93f74;--text-link-hover:#a12e5b;
+--accent:#ff70a6;--accent-hover:#ff8fb9;--accent-press:#e0538a;--accent-2:#176d94;--accent-3:#ffd670;--accent-4:#ff9770;
+--state-ok:#2f7f68;--state-warn:#b45526;--state-danger:#c72e56;--state-info:#176d94;
+--focus-ring:#ffd670;
+--grain-strength:.05; /* @kind other */
+--foxing-strength:.04 /* @kind other */
+}
+
+/* Seabathing. Pier and bathing-machine: pale citron paper, one alarm pink. */
+.theme-seabathing{
+--surface-page:#f9ffe6;--surface-panel:#eef8d3;--surface-card:#fdfff4;--surface-inset:#dff0c8;--surface-invert:#123a4f;--surface-accent:#247ba0;--surface-accent-soft:#b2dbbf;
+--text-body:#13323f;--text-muted:#416a78;--text-faint:#75949e;--text-display:#247ba0;--text-on-accent:#fdfff4;--text-on-invert:#f9ffe6;--text-link:#247ba0;--text-link-hover:#ff1654;
+--accent:#247ba0;--accent-hover:#70c1b3;--accent-press:#1a5c78;--accent-2:#c10039;--accent-3:#70c1b3;--accent-4:#b2dbbf;
+--state-ok:#2f8f6f;--state-warn:#8f6a1c;--state-danger:#d80042;--state-info:#247ba0;
+--focus-ring:#ff1654;
+--grain-strength:.04; /* @kind other */
+--foxing-strength:.04 /* @kind other */
+}
+
+/* Broadside. Newsprint and three-colour job work. The reference scheme for print. */
+.theme-broadside{
+--surface-page:#ebebd3;--surface-panel:#dedec0;--surface-card:#f7f7e6;--surface-inset:#d1d1b1;--surface-invert:#083d77;--surface-accent:#083d77;--surface-accent-soft:#b9c9dd;
+--text-body:#10233a;--text-muted:#3f5876;--text-faint:#6f849c;--text-display:#083d77;--text-on-accent:#f7f7e6;--text-on-invert:#ebebd3;--text-link:#083d77;--text-link-hover:#f95738;
+--accent:#083d77;--accent-hover:#0d5099;--accent-press:#05294f;--accent-2:#c53716;--accent-3:#f4d35e;--accent-4:#ee964b;
+--state-ok:#2f7d5e;--state-warn:#8f6a1c;--state-danger:#cc3418;--state-info:#083d77;
+--focus-ring:#f4d35e;
+--grain-strength:.07; /* @kind other */
+--foxing-strength:.08 /* @kind other */
+}
+
+/* Fernery. Almost monochrome grey-green; for dense reading and data. */
+.theme-fernery{
+--surface-page:#f0f7f4;--surface-panel:#dfe8e4;--surface-card:#fbfefd;--surface-inset:#cbd6d1;--surface-invert:#3c493f;--surface-accent:#3c493f;--surface-accent-soft:#c8ded4;
+--text-body:#2b352d;--text-muted:#62716a;--text-faint:#8d9a93;--text-display:#3c493f;--text-on-accent:#f0f7f4;--text-on-invert:#f0f7f4;--text-link:#3c493f;--text-link-hover:#4f8a6a;
+--accent:#3c493f;--accent-hover:#54655a;--accent-press:#2b352d;--accent-2:#3c6b51;--accent-3:#a2e3c4;--accent-4:#4d7f8e;
+--state-ok:#3c6b51;--state-warn:#8f6a1c;--state-danger:#a52b1e;--state-info:#42707e;
+--focus-ring:#a2e3c4;
+--grain-strength:.035; /* @kind other */
+--foxing-strength:.02 /* @kind other */
+}

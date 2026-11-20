@@ -1,0 +1,59 @@
+/* Fashion — element defaults. Kept minimal: components carry their own styling. */
+*,
+*::before,
+*::after { box-sizing: border-box }
+
+html { -webkit-text-size-adjust: 100% }
+
+body {
+  margin: 0;
+  font: var(--type-body);
+  color: var(--text-body);
+  background-color: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: var(--text-strong);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+h4 { font-size: var(--fs-h4) }
+h5 { font-size: var(--fs-h5) }
+h6 { font-size: var(--fs-h6) }
+
+p { margin: 0 0 var(--sp-6); line-height: var(--lh-body); text-wrap: pretty }
+p:last-child { margin-bottom: 0 }
+
+a { color: var(--brand); text-decoration: none; transition: var(--t-color) }
+a:hover { color: var(--brand-strong) }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px }
+
+ul, ol { padding: 0; margin: 0; list-style: none }
+
+img, svg, video { max-width: 100%; display: block }
+
+button { background: none; border: none; font: inherit; color: inherit; cursor: pointer }
+
+input, select, textarea { font: inherit; color: inherit; background-color: transparent }
+input::placeholder, textarea::placeholder { color: var(--text-muted) }
+
+hr { border: none; border-top: 1px solid var(--line-2); margin: var(--sp-8) 0 }
+
+::selection { background: var(--brand); color: var(--on-brand) }
+
+table { border-collapse: collapse; width: 100% }

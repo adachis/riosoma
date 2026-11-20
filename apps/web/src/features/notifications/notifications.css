@@ -1,0 +1,324 @@
+@layer rio.app {
+  /* The badge sits on the bell's corner, out of the flow, so the button never changes size. */
+  .rio-notification-bell__badge {
+    position: absolute;
+    inset-block-start: calc(-1 * var(--rio-space-1));
+    inset-inline-end: calc(-1 * var(--rio-space-1));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-inline-size: 18px;
+    block-size: 18px;
+    padding-inline: var(--rio-space-1);
+    border-radius: 9px;
+    background: var(--rio-accent);
+    color: var(--rio-aa-on-accent);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-bold);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .rio-notifications {
+    inline-size: min(380px, calc(100vi - var(--rio-space-6)));
+    max-inline-size: none;
+    padding: 0;
+  }
+
+  .rio-notifications__dialog {
+    display: grid;
+    outline: none;
+  }
+
+  .rio-notifications__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-4) var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-notifications__title {
+    margin: 0;
+    font-size: var(--rio-text-md);
+  }
+
+  .rio-notifications__scroller {
+    max-block-size: min(480px, 70dvb);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .rio-notifications__section-title {
+    margin: 0;
+    padding-block: var(--rio-space-3) var(--rio-space-1);
+    padding-inline: var(--rio-space-4);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-notifications__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-notifications__item {
+    display: grid;
+    grid-template-columns: var(--rio-space-2) minmax(0, 1fr);
+    gap: var(--rio-space-3);
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-4);
+    color: var(--rio-text);
+    text-decoration: none;
+  }
+
+  .rio-notifications__item:hover {
+    background: var(--rio-hover);
+  }
+
+  /* Inside the scrolling list an outer ring would be cut off, so the ring is drawn inside. */
+  .rio-notifications__item:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--rio-aa-focus);
+  }
+
+  /* Drawn with a border rather than a fill, so it still shows when the system forces its colors. */
+  .rio-notifications__dot {
+    box-sizing: border-box;
+    inline-size: var(--rio-space-2);
+    block-size: var(--rio-space-2);
+    margin-block-start: var(--rio-space-1);
+    border-radius: 50%;
+  }
+
+  .rio-notifications__item[data-unread] .rio-notifications__dot {
+    border: calc(var(--rio-space-2) / 2) solid var(--rio-accent);
+  }
+
+  .rio-notifications__text {
+    display: grid;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+
+  .rio-notifications__line {
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-tight);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-notifications__line strong {
+    font-weight: var(--rio-weight-bold);
+  }
+
+  .rio-notifications__detail {
+    display: -webkit-box;
+    overflow: hidden;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  /* What a routine's owner can do in place, under its item and lined up with its text. */
+  .rio-notifications__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+    padding-block-end: var(--rio-space-2);
+    padding-inline: calc(var(--rio-space-4) + var(--rio-space-2) + var(--rio-space-3)) var(--rio-space-4);
+  }
+
+  .rio-notifications__actions p {
+    margin: 0;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-notifications__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+
+  .rio-notifications__hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .rio-notifications__status {
+    display: grid;
+    justify-items: center;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-4);
+    text-align: center;
+  }
+
+  .rio-notifications__status p {
+    margin: 0;
+  }
+
+  .rio-notifications__empty {
+    display: grid;
+    gap: var(--rio-space-1);
+    padding-block: var(--rio-space-8);
+    padding-inline: var(--rio-space-6);
+    text-align: center;
+  }
+
+  .rio-notifications__empty-title {
+    margin: 0;
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-notifications__empty-body {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-notification-settings {
+    min-inline-size: 0;
+    display: grid;
+    gap: var(--rio-space-5);
+    max-inline-size: 48rem;
+  }
+
+  .rio-notification-settings__intro {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-notification-settings__group {
+    display: grid;
+    gap: var(--rio-space-4);
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .rio-notification-settings__legend {
+    margin-block-end: var(--rio-space-2);
+    padding: 0;
+    font-weight: var(--rio-weight-medium);
+  }
+}
+
+@layer components {
+  .rio-notification-channels__links,
+  .rio-notification-channels__policy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-notification-channels__scroll {
+    min-inline-size: 0;
+    overflow-x: auto;
+    max-inline-size: 100%;
+    border: calc(var(--rio-space-1) / 4) solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+
+  .rio-notification-channels__scroll:focus-visible {
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-notification-channels__grid {
+    border-collapse: collapse;
+    inline-size: 100%;
+    color: var(--rio-aa-text);
+    background: var(--rio-surface);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-notification-channels__grid th,
+  .rio-notification-channels__grid td {
+    padding: var(--rio-space-3);
+    text-align: start;
+    vertical-align: top;
+    border-block-end: calc(var(--rio-space-1) / 4) solid var(--rio-border);
+  }
+
+  .rio-notification-channels__grid th[scope='row'] {
+    min-inline-size: calc(var(--rio-space-8) * 5);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-notification-channels__grid caption {
+    padding: var(--rio-space-3);
+    text-align: start;
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-notification-channels__status {
+    display: block;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-regular);
+    margin-block-start: var(--rio-space-1);
+  }
+
+  .rio-notification-channels__section {
+    display: grid;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+    margin: 0;
+    padding: var(--rio-space-4);
+    border: calc(var(--rio-space-1) / 4) solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    scroll-margin-block-start: var(--rio-space-8);
+  }
+
+  .rio-notification-channels__section h2,
+  .rio-notification-channels__section p {
+    margin: 0;
+  }
+
+  .rio-notification-channels__section label {
+    display: grid;
+    gap: var(--rio-space-1);
+  }
+
+  .rio-notification-channels__section input,
+  .rio-notification-channels__section select {
+    min-block-size: var(--rio-target-primary);
+    inline-size: 100%;
+    box-sizing: border-box;
+    border: calc(var(--rio-space-1) / 4) solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    padding: var(--rio-space-2);
+    background: var(--rio-surface);
+    color: var(--rio-aa-text);
+    font: inherit;
+  }
+
+  .rio-notification-channels__section li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+  }
+  button.rio-notifications__item {
+    width: 100%;
+    border: 0;
+    color: var(--rio-aa-text);
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+}

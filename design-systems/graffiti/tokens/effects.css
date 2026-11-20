@@ -1,0 +1,68 @@
+/* Graffiti — borders, radii, shadows, texture, motion. */
+:root{
+  /* Keylines. Graffiti outlines are thick and opaque; 1px hairlines only for print rules. */
+  --gf-stroke-hair:1px;
+  --gf-stroke-1:2px;
+  --gf-stroke-2:3px;
+  --gf-stroke-3:5px;
+  --gf-stroke-4:8px;
+  --gf-border:var(--gf-stroke-2) solid var(--gf-ink); /* @kind other */
+  --gf-border-thin:var(--gf-stroke-1) solid var(--gf-ink); /* @kind other */
+  --gf-border-fat:var(--gf-stroke-4) solid var(--gf-ink); /* @kind other */
+
+  /* Radii. Default is 0 — sticker cut. Bubble radius is for throw-up shapes only. */
+  --gf-radius-0:0px;
+  --gf-radius-1:3px;
+  --gf-radius-2:8px;
+  --gf-radius-bubble:18px;
+  --gf-radius-blob:28px 34px 26px 32px;
+  --gf-radius-pill:999px;
+
+  /* Hard offset shadows — no blur. This is the single most identifying move in the system. */
+  --gf-shadow-press:2px 2px 0 var(--gf-ink);
+  --gf-shadow-sticker:4px 4px 0 var(--gf-ink);
+  --gf-shadow-tag:7px 7px 0 var(--gf-ink);
+  --gf-shadow-slab:12px 12px 0 var(--gf-ink);
+  --gf-shadow-accent:5px 5px 0 var(--gf-accent);
+  /* Soft shadows exist only for paper/print mockups and floating sheets. */
+  --gf-shadow-lift:0 18px 40px -18px rgba(0,0,0,.55);
+  --gf-shadow-paper:0 2px 0 var(--gf-paper-3),0 14px 28px -16px rgba(0,0,0,.35);
+  /* Inner shadow = wet paint / recessed HUD channel. */
+  --gf-shadow-inset:inset 0 3px 0 rgba(0,0,0,.35);
+  --gf-glow:0 0 0 3px color-mix(in srgb,var(--gf-accent) 45%,transparent),0 0 26px -4px var(--gf-accent);
+
+  /* Focus ring: never a browser default. Two-tone so it reads on wall and paper. */
+  --gf-focus:0 0 0 3px var(--gf-paper-1),0 0 0 6px var(--gf-accent);
+  --gf-focus-wall:0 0 0 3px var(--gf-ink),0 0 0 6px var(--gf-accent);
+
+  /* Rotation + skew: the "put up fast" tilt. Keep under 4deg or it reads as a mistake. */
+  --gf-tilt-a:-2deg; /* @kind other */
+  --gf-tilt-b:1.5deg; /* @kind other */
+  --gf-tilt-c:-3.5deg; /* @kind other */
+  --gf-skew:-8deg; /* @kind other */
+  --gf-clip-slash:polygon(4% 0,100% 0,96% 100%,0 100%); /* @kind other */
+  --gf-clip-notch:polygon(0 0,100% 0,100% 68%,88% 100%,0 100%); /* @kind other */
+  --gf-clip-torn:polygon(0 3%,6% 0,42% 4%,73% 0,100% 3%,98% 97%,64% 100%,28% 96%,3% 100%); /* @kind other */
+
+  /* Texture. Halftone + spray grain built from gradients so they tint with the theme. */
+  --gf-halftone:radial-gradient(currentColor 1.2px,transparent 1.3px) 0 0/8px 8px; /* @kind other */
+  --gf-halftone-loose:radial-gradient(currentColor 1.6px,transparent 1.7px) 0 0/14px 14px; /* @kind other */
+  --gf-hatch:repeating-linear-gradient(-45deg,var(--gf-ink) 0 6px,transparent 6px 13px); /* @kind other */
+  --gf-caution:repeating-linear-gradient(-45deg,var(--gf-ink) 0 14px,var(--gf-accent-2) 14px 28px); /* @kind other */
+  --gf-grain-opacity:.14; /* @kind other */
+
+  /* Blur / glass. Used sparingly: pause overlays, iOS sheets, sticky nav on photography. */
+  --gf-blur-sm:blur(6px); /* @kind other */
+  --gf-blur-md:blur(14px); /* @kind other */
+  --gf-blur-lg:blur(28px); /* @kind other */
+
+  /* Motion. Snap in, no easing out of nothing. Bounce only on stickers + game feedback. */
+  --gf-dur-instant:80ms; /* @kind other */
+  --gf-dur-fast:130ms; /* @kind other */
+  --gf-dur-base:210ms; /* @kind other */
+  --gf-dur-slow:380ms; /* @kind other */
+  --gf-ease-snap:cubic-bezier(.2,.9,.1,1); /* @kind other */
+  --gf-ease-out:cubic-bezier(.16,1,.3,1); /* @kind other */
+  --gf-ease-bounce:cubic-bezier(.34,1.56,.64,1); /* @kind other */
+  --gf-ease-linear:linear; /* @kind other */
+}

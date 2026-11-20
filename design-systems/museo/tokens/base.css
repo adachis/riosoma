@@ -1,0 +1,23 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-primary);font:var(--text-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,h5,h6,p,figure,blockquote{margin:0}
+img,svg,video{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--text-link);text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:color var(--dur-1) var(--ease-standard),border-color var(--dur-1) var(--ease-standard)}
+a:hover{color:var(--text-link-hover);border-bottom-color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:none;box-shadow:var(--shadow-focus)}
+::selection{background:var(--accent);color:var(--text-on-accent)}
+hr{border:0;border-top:var(--rule-weight) solid var(--border-subtle);margin:0}
+/* utility text roles — reused across cards, kits and print */
+.museo-display-1{font:var(--text-display-1);letter-spacing:var(--ls-display-1)}
+.museo-display-2{font:var(--text-display-2);letter-spacing:var(--ls-display-2)}
+.museo-title-1{font:var(--text-title-1);letter-spacing:var(--ls-title-1)}
+.museo-title-2{font:var(--text-title-2);letter-spacing:var(--ls-title-2)}
+.museo-title-3{font:var(--text-title-3);letter-spacing:var(--ls-title-3)}
+.museo-body{font:var(--text-body)}
+.museo-body-sm{font:var(--text-body-sm)}
+.museo-caption{font:var(--text-caption);color:var(--text-muted)}
+.museo-label{font:var(--text-label);letter-spacing:var(--ls-label);text-transform:uppercase}
+.museo-label-sm{font:var(--text-label-sm);letter-spacing:var(--ls-label-sm);text-transform:uppercase}
+.museo-measure{max-width:var(--measure-prose);text-wrap:pretty}

@@ -1,0 +1,169 @@
+@layer rio.app {
+  .rio-home-databases {
+    container-type: inline-size;
+    container-name: home-files;
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-4);
+    padding: var(--rio-space-6);
+  }
+  .rio-database-list {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+  .rio-database-list__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+  }
+  .rio-database-list__header h1 {
+    margin: 0;
+  }
+  .rio-database-list__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rio-database-list__grid > li {
+    min-inline-size: 0;
+  }
+  .rio-database-card {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-3);
+    block-size: 6rem;
+    box-sizing: border-box;
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    text-decoration: none;
+  }
+  .rio-database-card:hover {
+    border-color: var(--rio-aa-border);
+    box-shadow: inset 0 0 0 1px var(--rio-aa-border);
+  }
+  .rio-database-card:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-database-icon {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    border-radius: var(--rio-radius);
+    color: var(--rio-choice-on);
+    background: var(--rio-border);
+  }
+  .rio-database-card__text {
+    display: grid;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+  .rio-database-card__name,
+  .rio-database-card__text .rio-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-database-card__name {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-database-card--placeholder {
+    pointer-events: none;
+  }
+  .rio-database-card__placeholder-line {
+    inline-size: 60%;
+    block-size: 1em;
+    border-radius: var(--rio-radius);
+    background: var(--rio-border);
+  }
+  .rio-database-list__empty {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    min-block-size: 16rem;
+    gap: var(--rio-space-3);
+  }
+  .rio-new-database__fields {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+  .rio-new-database__error {
+    block-size: 5rem;
+    overflow: auto;
+  }
+  @media (forced-colors: active) {
+    .rio-database-icon {
+      border: 1px solid;
+    }
+  }
+
+  .rio-database-list__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+  /* Under the centered heading of an empty home, wrapped rows of start buttons stay centered. */
+  .rio-database-list__empty .rio-database-list__actions {
+    justify-content: center;
+  }
+}
+
+@layer rio.app {
+  .rio-database-card-wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-2);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+  /* Navigation and arrangement controls own separate targets even on a phone. */
+  .rio-database-card-wrap > .rio-home-arrange-controls {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .rio-database-card-wrap > .rio-database-card {
+    grid-column: 2;
+    grid-row: 1;
+    min-inline-size: 0;
+    border: 0;
+    padding: var(--rio-space-2);
+  }
+  .rio-database-card__actions {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+  }
+  .rio-database-list__header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+    align-items: center;
+  }
+
+  /* An organization's own template, with the way to remove it under its card. */
+  .rio-template-picker__own {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-1);
+  }
+  .rio-template-picker__remove {
+    justify-self: start;
+  }
+}

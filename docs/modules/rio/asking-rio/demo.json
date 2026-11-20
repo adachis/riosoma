@@ -1,0 +1,25 @@
+{
+  "id": "asking-rio",
+  "where": "anywhere",
+  "steps": [
+    {
+      "anchor": "rio.open",
+      "say": "demos.asking-rio.open",
+      "do": "open"
+    },
+    {
+      "anchor": "rio.input",
+      "say": "demos.asking-rio.ask",
+      "do": "type",
+      "text": "demos.asking-rio.sample"
+    },
+    {
+      "anchor": "rio.send",
+      "say": "demos.asking-rio.send"
+    },
+    {
+      "anchor": "rio.input",
+      "say": "demos.asking-rio.changes"
+    }
+  ]
+}

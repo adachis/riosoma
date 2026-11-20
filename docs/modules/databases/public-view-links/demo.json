@@ -1,0 +1,28 @@
+{
+  "id": "public-view-links",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "view.menu",
+      "say": "demos.public-view-links.menu",
+      "do": "open"
+    },
+    {
+      "anchor": "view.share",
+      "say": "demos.public-view-links.open",
+      "do": "open"
+    },
+    {
+      "anchor": "shareView.help",
+      "say": "demos.public-view-links.help"
+    },
+    {
+      "anchor": "shareView.publish",
+      "say": "demos.public-view-links.publish"
+    },
+    {
+      "anchor": "grid",
+      "say": "demos.public-view-links.records"
+    }
+  ]
+}

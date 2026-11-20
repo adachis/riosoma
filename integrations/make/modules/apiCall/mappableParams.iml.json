@@ -1,0 +1,71 @@
+[
+  {
+    "name": "path",
+    "type": "text",
+    "label": "API path",
+    "help": "Enter a path beginning with /api/v1, such as /api/v1/databases.  Set query parameters separately.",
+    "required": true
+  },
+  {
+    "name": "method",
+    "type": "select",
+    "label": "Method",
+    "required": true,
+    "default": "GET",
+    "options": [
+      {
+        "label": "GET",
+        "value": "GET"
+      },
+      {
+        "label": "POST",
+        "value": "POST"
+      },
+      {
+        "label": "PATCH",
+        "value": "PATCH"
+      },
+      {
+        "label": "PUT",
+        "value": "PUT"
+      },
+      {
+        "label": "DELETE",
+        "value": "DELETE"
+      },
+      {
+        "label": "HEAD",
+        "value": "HEAD"
+      },
+      {
+        "label": "OPTIONS",
+        "value": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "name": "query",
+    "type": "array",
+    "label": "Query parameters",
+    "spec": [
+      {
+        "name": "key",
+        "type": "text",
+        "label": "Key",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "text",
+        "label": "Value"
+      }
+    ]
+  },
+  {
+    "name": "body",
+    "type": "text",
+    "label": "JSON body",
+    "help": "Enter a JSON request body when the endpoint accepts one.",
+    "multiline": true
+  }
+]

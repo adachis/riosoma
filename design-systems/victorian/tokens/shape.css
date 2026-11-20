@@ -1,0 +1,43 @@
+:root{
+/* Corners. Metal type and rule furniture do not round, so the system is
+   square by default; the two soft values exist for cameos and pill tickets. */
+--radius-0:0;
+--radius-1:1px;
+--radius-2:2px;
+--radius-3:4px;
+--radius-cameo:50% / 42%; /* @kind radius */
+--radius-pill:999px;
+
+/* Rules — the vocabulary of a letterpress page */
+--rule-hair:1px;
+--rule-thin:2px;
+--rule-thick:4px;
+--rule-heavy:7px;
+
+--border-hair:var(--rule-hair) solid var(--rule); /* @kind other */
+--border-thin:var(--rule-thin) solid var(--rule-strong); /* @kind other */
+--border-thick:var(--rule-thick) solid var(--rule-strong); /* @kind other */
+--border-accent:var(--rule-thin) solid var(--rule-accent); /* @kind other */
+--border-gilt:var(--rule-hair) solid var(--rule-gilt); /* @kind other */
+
+/* Compound rules: thick–thin–thick, the Victorian frame. Apply as box-shadow. */
+--frame-double:0 0 0 1px var(--surface-page),0 0 0 4px var(--rule-strong);
+--frame-triple:0 0 0 2px var(--surface-page),0 0 0 3px var(--rule-strong),0 0 0 6px var(--surface-page),0 0 0 7px var(--rule-strong);
+--frame-gilt:0 0 0 1px var(--rule-gilt),0 0 0 4px var(--rule-strong),0 0 0 5px var(--rule-gilt);
+--frame-hair-inset:inset 0 0 0 1px var(--rule);
+
+/* Shadows. Ink does not blur — the press gives you a hard offset and a bite
+   into the sheet. The only soft shadow in the system is under lifted paper. */
+--shadow-press:2px 2px 0 0 var(--rule-strong);
+--shadow-press-sm:1px 1px 0 0 var(--rule-strong);
+--shadow-press-lg:4px 4px 0 0 var(--rule-strong);
+--shadow-bite:inset 0 1px 2px color-mix(in srgb,var(--ink-900) 22%,transparent);
+--shadow-emboss:inset 0 1px 0 color-mix(in srgb,#fff 45%,transparent),inset 0 -1px 0 color-mix(in srgb,var(--ink-900) 14%,transparent);
+--shadow-paper:0 1px 1px color-mix(in srgb,var(--ink-900) 10%,transparent),0 6px 14px -6px color-mix(in srgb,var(--ink-900) 30%,transparent);
+--shadow-paper-lifted:0 2px 2px color-mix(in srgb,var(--ink-900) 12%,transparent),0 18px 34px -14px color-mix(in srgb,var(--ink-900) 38%,transparent);
+--shadow-gaslight:0 0 0 1px color-mix(in srgb,var(--accent-3) 40%,transparent),0 0 22px -4px color-mix(in srgb,var(--accent-3) 55%,transparent);
+
+/* Focus */
+--focus-outline:2px solid var(--focus-ring); /* @kind other */
+--focus-offset:2px; /* @kind spacing */
+}

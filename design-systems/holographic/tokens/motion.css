@@ -1,0 +1,33 @@
+/* Holographic — motion. Glass has mass: it glides, it never bounces hard.
+   Hover raises and brightens; press sinks and desaturates slightly. */
+:root {
+  --dur-1: 90ms; /* @kind other */
+  --dur-2: 140ms; /* @kind other */
+  --dur-3: 220ms; /* @kind other */
+  --dur-4: 340ms; /* @kind other */
+  --dur-5: 520ms; /* @kind other */
+  --dur-6: 800ms; /* @kind other */
+  --dur-shift: 1400ms; /* @kind other */   /* iridescent gradient drift */
+
+  --ease-glide: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1); /* @kind other */
+
+  --t-hover: var(--dur-2) var(--ease-out); /* @kind other */
+  --t-press: var(--dur-1) var(--ease-in-out); /* @kind other */
+  --t-panel: var(--dur-4) var(--ease-glide); /* @kind other */
+  --t-sheet: var(--dur-5) var(--ease-glide); /* @kind other */
+
+  --lift-hover: translateY(-2px); /* @kind other */
+  --lift-press: translateY(0) scale(0.985); /* @kind other */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0ms; /* @kind other */ --dur-2: 0ms; /* @kind other */ --dur-3: 0ms; /* @kind other */
+    --dur-4: 0ms; /* @kind other */ --dur-5: 0ms; /* @kind other */ --dur-6: 0ms; /* @kind other */ --dur-shift: 0ms; /* @kind other */
+    --lift-hover: none; /* @kind other */
+    --lift-press: none; /* @kind other */
+  }
+}

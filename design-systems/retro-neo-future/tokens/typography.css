@@ -1,0 +1,36 @@
+:root{
+--font-display:"Archivo",ui-sans-serif,system-ui,sans-serif; /* @kind font */
+--font-core:"Archivo",ui-sans-serif,system-ui,sans-serif; /* @kind font */
+--font-pixel:"Silkscreen",ui-monospace,monospace; /* @kind font */
+--font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; /* @kind font */
+--font-crt:"VT323",ui-monospace,monospace; /* @kind font */
+--font-serif:"Bitter",Georgia,serif; /* @kind font */
+/* fluid display steps — Archivo is a normal-width grotesk, so headlines breathe */
+--fs-hero:clamp(44px,7vw,112px); /* @kind font */
+--fs-display:clamp(32px,4.6vw,68px); /* @kind font */
+--fs-title:clamp(24px,2.6vw,40px); /* @kind font */
+--fs-section:26px; /* @kind font */
+--fs-h1:34px; /* @kind font */--fs-h2:26px; /* @kind font */--fs-h3:20px; /* @kind font */--fs-h4:17px; /* @kind font */
+--fs-lead:19px; /* @kind font */--fs-body:16px; /* @kind font */--fs-sm:14px; /* @kind font */--fs-xs:12.5px; /* @kind font */--fs-2xs:11px; /* @kind font */
+--fs-pixel:12px; /* @kind font */--fs-pixel-lg:22px; /* @kind font */
+--fs-data-lg:28px; /* @kind font */--fs-data:15px; /* @kind font */--fs-data-sm:12px; /* @kind font */
+--lh-tight:1.02; /* @kind font */--lh-display:1.06; /* @kind font */--lh-heading:1.22; /* @kind font */--lh-body:1.6; /* @kind font */--lh-dense:1.4; /* @kind font */
+--tr-hero:-0.03em; /* @kind font */--tr-display:-0.02em; /* @kind font */--tr-tight:-0.01em; /* @kind font */--tr-normal:0; /* @kind font */
+--tr-label:0.1em; /* @kind font */--tr-kicker:0.22em; /* @kind font */
+--fw-light:300; /* @kind font */--fw-regular:400; /* @kind font */--fw-medium:500; /* @kind font */--fw-semibold:600; /* @kind font */--fw-bold:700; /* @kind font */
+/* semantic roles */
+--text-hero:var(--fw-bold) var(--fs-hero)/var(--lh-tight) var(--font-display); /* @kind font */
+--text-display:var(--fw-semibold) var(--fs-display)/var(--lh-display) var(--font-display); /* @kind font */
+--text-title:var(--fw-semibold) var(--fs-title)/var(--lh-heading) var(--font-display); /* @kind font */
+--text-h2:var(--fw-semibold) var(--fs-h2)/var(--lh-heading) var(--font-core); /* @kind font */
+--text-h3:var(--fw-semibold) var(--fs-h3)/var(--lh-heading) var(--font-core); /* @kind font */
+--text-lead:var(--fw-regular) var(--fs-lead)/var(--lh-body) var(--font-core); /* @kind font */
+--text-body:var(--fw-regular) var(--fs-body)/var(--lh-body) var(--font-core); /* @kind font */
+--text-sm:var(--fw-regular) var(--fs-sm)/var(--lh-dense) var(--font-core); /* @kind font */
+--text-label:var(--fw-medium) var(--fs-2xs)/1.2 var(--font-mono); /* @kind font */
+--text-pixel:var(--fw-regular) var(--fs-pixel)/1.4 var(--font-pixel); /* @kind font */
+--text-crt:var(--fw-regular) 20px/1.35 var(--font-crt); /* @kind font */
+--text-serif:var(--fw-regular) var(--fs-lead)/var(--lh-body) var(--font-serif); /* @kind font */
+--text-data:var(--fw-medium) var(--fs-data)/1.3 var(--font-mono); /* @kind font */
+--text-button:var(--fw-medium) var(--fs-sm)/1 var(--font-core); /* @kind font */
+}

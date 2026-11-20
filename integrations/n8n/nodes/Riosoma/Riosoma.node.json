@@ -1,0 +1,14 @@
+{
+  "node": "n8n-nodes-riosoma.riosoma",
+  "nodeVersion": "1.0",
+  "codexVersion": "1.0",
+  "categories": ["Data & Storage", "Productivity"],
+  "resources": {
+    "credentialDocumentation": [
+      { "url": "https://github.com/adachis/riosoma/tree/main/integrations/n8n#credentials" }
+    ],
+    "primaryDocumentation": [
+      { "url": "https://github.com/adachis/riosoma/tree/main/integrations/n8n#readme" }
+    ]
+  }
+}

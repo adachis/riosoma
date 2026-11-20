@@ -1,0 +1,12 @@
+{
+  "name": "@riosoma/clipper",
+  "version": "0.95.0-rc.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node ../shared/build.mjs clipper",
+    "test": "vitest run",
+    "lint": "eslint src",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

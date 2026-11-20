@@ -1,0 +1,59 @@
+/* Optical Illusion — radii, borders, shadows, motion, blur.
+   The system is FLAT: elevation reads as a hard offset block, never a soft
+   diffuse cloud. One soft shadow exists, for scrimmed overlays only. */
+:root{
+  --radius-0:0;
+  --radius-1:2px;
+  --radius-2:6px;      /* the default: reads as a subtly cut corner */
+  --radius-3:10px;
+  --radius-4:16px;
+  --radius-pill:999px;
+  --radius-circle:50%;
+
+  --border-hair:1px;
+  --border-strong:2px;
+  --border-heavy:3px;
+  --border-slab:6px;
+
+  /* motion — snap in, settle out. Nothing bounces except game UI. */
+  --dur-instant:80ms; /* @kind other */
+  --dur-fast:140ms; /* @kind other */
+  --dur-base:220ms; /* @kind other */
+  --dur-slow:380ms; /* @kind other */
+  --dur-drift:900ms; /* @kind other */
+  --ease-snap:cubic-bezier(0.2,0.9,0.24,1); /* @kind other */
+  --ease-out:cubic-bezier(0.16,1,0.3,1); /* @kind other */
+  --ease-inout:cubic-bezier(0.65,0,0.35,1); /* @kind other */
+  --ease-overshoot:cubic-bezier(0.34,1.56,0.64,1); /* @kind other */
+  --drift-loop:24s; /* @kind other */   /* pattern drift on hero surfaces */
+
+  /* interaction deltas — see readme "Hover and press" */
+  --press-translate:2px;   /* element moves INTO its own shadow */
+  --hover-lift:-1px;
+  --hover-tint:6%; /* @kind other */
+  --press-tint:14%; /* @kind other */
+  --disabled-opacity:0.42; /* @kind other */
+
+  --blur-glass:14px;
+  --blur-scrim:3px;
+}
+
+/* Declared on every element, not :root — a custom property containing var() is
+   substituted at computed-value time on the element carrying the declaration,
+   so a :root-only declaration resolves once against html's tokens and cannot
+   follow a [data-theme] scope further down the tree. */
+*,*::before,*::after{
+  /* hard offset shadows — zero blur, ink colored, always down-right */
+  --shadow-block-xs:2px 2px 0 0 var(--line-strong);
+  --shadow-block-sm:3px 3px 0 0 var(--line-strong);
+  --shadow-block-md:5px 5px 0 0 var(--line-strong);
+  --shadow-block-lg:8px 8px 0 0 var(--line-strong);
+  --shadow-block-accent:5px 5px 0 0 var(--signal);
+  --shadow-inset-hair:inset 0 0 0 1px var(--line-strong);
+  --shadow-inset-strong:inset 0 0 0 2px var(--line-strong);
+  /* the one soft shadow: modal + menu lift off a scrim */
+  --shadow-float:0 18px 48px -12px color-mix(in oklab, var(--scrim-base) 55%, transparent);
+
+  --ring-focus:0 0 0 3px color-mix(in oklab, var(--focus-ring) 45%, transparent);
+  --ring-focus-tight:0 0 0 2px var(--focus-ring);
+}

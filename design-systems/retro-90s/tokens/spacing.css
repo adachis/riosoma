@@ -1,0 +1,21 @@
+:root{
+  /* 4px base, but the system leans on odd chrome values (3px borders, 5px shadows) on purpose */
+  --sp-0:0px;
+  --sp-1:4px;
+  --sp-2:8px;
+  --sp-3:12px;
+  --sp-4:16px;
+  --sp-5:20px;
+  --sp-6:24px;
+  --sp-7:32px;
+  --sp-8:40px;
+  --sp-9:56px;
+  --sp-10:72px;
+  --sp-11:96px;
+  --sp-12:128px;
+
+  --gutter:24px;
+  --page-max:1180px;
+  --measure:66ch; /* @kind other */
+  --tap-min:44px;
+}

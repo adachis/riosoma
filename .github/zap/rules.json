@@ -1,0 +1,3 @@
+{
+  "100001": "The API scanner probes root, bare /api, and random non-API paths that intentionally return the SPA HTML shell."
+}

@@ -1,0 +1,44 @@
+/* Three voices: Anton shouts, Manrope explains, Space Mono labels.
+   Display is always uppercase and tightly tracked; mono micro-labels are
+   uppercase with open tracking. Body text is never uppercase. */
+:root{
+  /* display — Anton, single weight, set tight */
+  --k-display-hero:clamp(56px,9vw,148px); /* @kind font */
+  --k-display-1:clamp(44px,6vw,96px); /* @kind font */
+  --k-display-2:clamp(34px,4.4vw,64px); /* @kind font */
+  --k-display-3:clamp(26px,3vw,44px); /* @kind font */
+  --k-display-4:30px; /* @kind font */
+  --k-display-5:22px; /* @kind font */
+  --k-display-tracking:-0.015em; /* @kind other */
+  --k-display-tracking-wide:0.01em; /* @kind other */
+  --k-display-leading:0.88; /* @kind other */
+
+  /* body — Manrope */
+  --k-text-xl:22px; /* @kind font */
+  --k-text-lg:18px; /* @kind font */
+  --k-text-md:16px; /* @kind font */
+  --k-text-sm:14px; /* @kind font */
+  --k-text-xs:13px; /* @kind font */
+  --k-body-leading:1.55; /* @kind other */
+  --k-body-leading-tight:1.3; /* @kind other */
+
+  /* mono micro-labels */
+  --k-label-lg:13px; /* @kind font */
+  --k-label-md:11px; /* @kind font */
+  --k-label-sm:10px; /* @kind font */
+  --k-label-tracking:0.14em; /* @kind other */
+  --k-label-tracking-tight:0.06em; /* @kind other */
+
+  /* weights */
+  --k-weight-regular:400; /* @kind other */
+  --k-weight-medium:500; /* @kind other */
+  --k-weight-semibold:600; /* @kind other */
+  --k-weight-bold:700; /* @kind other */
+  --k-weight-black:800; /* @kind other */
+
+  /* composed shorthands */
+  --k-type-display-1:var(--k-weight-regular) var(--k-display-1)/var(--k-display-leading) var(--k-font-display); /* @kind font */
+  --k-type-display-3:var(--k-weight-regular) var(--k-display-3)/0.94 var(--k-font-display); /* @kind font */
+  --k-type-body:var(--k-weight-medium) var(--k-text-md)/var(--k-body-leading) var(--k-font-body); /* @kind font */
+  --k-type-label:var(--k-weight-bold) var(--k-label-md)/1.1 var(--k-font-mono); /* @kind font */
+}

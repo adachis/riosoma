@@ -1,0 +1,86 @@
+:root {
+  /* Neutral ramp — the chrome every surface is built from */
+  --n-0: #ffffff;
+  --n-25: #fbfbfc;
+  --n-50: #f6f7f9;
+  --n-100: #eef0f4;
+  --n-200: #e2e5eb;
+  --n-300: #cbd0da;
+  --n-400: #a3aab8;
+  --n-500: #767e8f;
+  --n-600: #545b6a;
+  --n-700: #3a404c;
+  --n-800: #23272f;
+  --n-900: #14171c;
+  --n-950: #0b0d10;
+
+  /* House brand — Spectrum teal; used when no palette variant is applied */
+  --brand-50: #f0f9f6;
+  --brand-100: #dcf1ea;
+  --brand-200: #b4e2d4;
+  --brand-300: #7fcdb7;
+  --brand-400: #5cbc9f;
+  --brand-500: #43aa8b;
+  --brand-600: #35876e;
+  --brand-700: #266352;
+
+  /* Semantic status — fixed across all palette variants so meaning never shifts */
+  --ok-500: #14a06a;
+  --ok-soft: #e4f6ee;
+  --warn-500: #e08700;
+  --warn-soft: #fdf1dd;
+  --danger-500: #d93a3f;
+  --danger-soft: #fbe9ea;
+  --info-500: #277da1;
+  --info-soft: #e7f1f6;
+
+  /* Semantic aliases — components only ever reference these */
+  --bg-page: var(--n-0);
+  --bg-sunken: var(--n-50);
+  --surface-card: var(--n-0);
+  --surface-raised: var(--n-0);
+  --surface-inset: var(--n-50);
+  --border-subtle: var(--n-200); /* @kind color */
+  --border-strong: var(--n-300); /* @kind color */
+  --text-strong: var(--n-900);
+  --text-body: var(--n-700);
+  --text-muted: var(--n-500);
+  --text-inverse: var(--n-0);
+  --accent: var(--brand-500);
+  --accent-hover: var(--brand-600); /* @kind color */
+  --accent-press: var(--brand-700); /* @kind color */
+  --accent-ink: #ffffff;
+  --accent-soft: var(--brand-50); /* @kind color */
+  --accent-soft-ink: var(--brand-700); /* @kind color */
+  --focus-ring: var(--brand-300); /* @kind color */
+  --overlay: rgba(11, 13, 16, .55); /* @kind color */
+  --palette-name: "House"; /* @kind other */
+  --palette-count: 5; /* @kind other */
+  --p-1: var(--brand-500); --p-1-ink: #ffffff;
+  --p-2: var(--n-900); --p-2-ink: #ffffff;
+  --p-3: var(--n-300); --p-3-ink: #14171c;
+  --p-4: var(--n-100); --p-4-ink: #14171c;
+  --p-5: var(--n-0); --p-5-ink: #14171c;
+}
+
+/* Neutral dark mode — composes with any palette variant */
+[data-mode="dark"] {
+  --bg-page: var(--n-950);
+  --bg-sunken: #06080a;
+  --surface-card: #171b21;
+  --surface-raised: #1f242c;
+  --surface-inset: #101418;
+  --border-subtle: #262c35; /* @kind color */
+  --border-strong: #38414d; /* @kind color */
+  --text-strong: var(--n-0);
+  --text-body: #d3d8e0;
+  --text-muted: #8b93a1;
+  --text-inverse: var(--n-950);
+  --accent-soft: #12241e; /* @kind color */
+  --accent-soft-ink: #7fcdb7; /* @kind color */
+  --focus-ring: #266352; /* @kind color */
+  --overlay: rgba(0, 0, 0, .68); /* @kind color */
+  --shadow-1: 0 1px 2px rgba(0,0,0,.6); /* @kind shadow */
+  --shadow-2: 0 6px 18px -6px rgba(0,0,0,.75); /* @kind shadow */
+  --shadow-3: 0 24px 48px -16px rgba(0,0,0,.85); /* @kind shadow */
+}

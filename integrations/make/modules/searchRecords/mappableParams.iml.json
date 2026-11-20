@@ -1,0 +1,39 @@
+[
+  {
+    "name": "database",
+    "type": "select",
+    "label": "Database",
+    "required": true,
+    "options": {
+      "store": "rpc://databases",
+      "nested": [
+        {
+          "name": "table",
+          "type": "select",
+          "label": "Table",
+          "required": true,
+          "options": {
+            "store": "rpc://tables",
+            "nested": [
+              {
+                "name": "searchField",
+                "type": "select",
+                "label": "Search field",
+                "required": true,
+                "options": "rpc://searchFields"
+              },
+              {
+                "name": "searchValue",
+                "type": "any",
+                "label": "Search value",
+                "required": true
+              }
+            ]
+          },
+          "mappable": false
+        }
+      ]
+    },
+    "mappable": false
+  }
+]

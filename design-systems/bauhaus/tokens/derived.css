@@ -1,0 +1,101 @@
+/* ============================================================
+   DERIVED TOKENS
+   Custom properties resolve where they are DECLARED, not where
+   they are used — so every token that reads --ink / --canvas /
+   --paper / --accent-N has to be re-declared inside each scheme
+   scope, or a nested [data-scheme] would keep the root palette's
+   greys and shadows. The identical block is emitted twice: once
+   on :root for the no-scheme default, once on [data-scheme] so
+   any scoped container re-derives from its own palette.
+   EDIT BOTH COPIES TOGETHER.
+   ============================================================ */
+
+:root{
+  --ink-90:color-mix(in oklab,var(--ink) 90%,var(--canvas));
+  --ink-70:color-mix(in oklab,var(--ink) 70%,var(--canvas));
+  --ink-55:color-mix(in oklab,var(--ink) 55%,var(--canvas));
+  --ink-40:color-mix(in oklab,var(--ink) 40%,var(--canvas));
+  --ink-24:color-mix(in oklab,var(--ink) 24%,var(--canvas));
+  --ink-12:color-mix(in oklab,var(--ink) 12%,var(--canvas));
+  --ink-06:color-mix(in oklab,var(--ink) 6%,var(--canvas));
+  --text-primary:var(--ink);
+  --text-secondary:color-mix(in oklab,var(--ink) 70%,var(--canvas));
+  --text-muted:color-mix(in oklab,var(--ink) 55%,var(--canvas));
+  --text-disabled:color-mix(in oklab,var(--ink) 40%,var(--canvas));
+  --text-inverse:var(--paper);
+  --text-accent:var(--accent-1);
+  --text-link:var(--accent-3);
+  --text-link-hover:var(--accent-1);
+  --surface-page:var(--canvas);
+  --surface-card:var(--paper);
+  --surface-sunken:color-mix(in oklab,var(--ink) 6%,var(--canvas));
+  --surface-raised:var(--paper);
+  --surface-ink:var(--ink);
+  --surface-accent:var(--accent-1);
+  --surface-hover:color-mix(in oklab,var(--ink) 6%,var(--canvas));
+  --surface-active:color-mix(in oklab,var(--ink) 12%,var(--canvas));
+  --surface-selected:var(--accent-2);
+  --surface-overlay:color-mix(in oklab,var(--ink) 72%,transparent);
+  --border-strong:var(--line);
+  --border-default:color-mix(in oklab,var(--ink) 40%,var(--canvas));
+  --border-hairline:color-mix(in oklab,var(--ink) 24%,var(--canvas));
+  --border-focus:var(--accent-3);
+  --chart-1:var(--accent-1);--chart-2:var(--accent-2);--chart-3:var(--accent-3);
+  --chart-4:var(--accent-4);--chart-5:var(--accent-5);
+  --shadow-none:none;
+  --shadow-block-xs:2px 2px 0 var(--ink);
+  --shadow-block-sm:4px 4px 0 var(--ink);
+  --shadow-block-md:6px 6px 0 var(--ink);
+  --shadow-block-lg:10px 10px 0 var(--ink);
+  --shadow-block-accent:6px 6px 0 var(--accent-1);
+  --shadow-inset-hair:inset 0 0 0 2px var(--line);
+  --shadow-overlay:0 24px 64px color-mix(in oklab,var(--ink) 34%,transparent);
+  --focus-ring:0 0 0 3px var(--canvas),0 0 0 6px var(--accent-3);
+  --scrim:color-mix(in oklab,var(--ink) 72%,transparent);
+  --scrim-light:color-mix(in oklab,var(--ink) 32%,transparent);
+}
+
+[data-scheme]{
+  --ink-90:color-mix(in oklab,var(--ink) 90%,var(--canvas));
+  --ink-70:color-mix(in oklab,var(--ink) 70%,var(--canvas));
+  --ink-55:color-mix(in oklab,var(--ink) 55%,var(--canvas));
+  --ink-40:color-mix(in oklab,var(--ink) 40%,var(--canvas));
+  --ink-24:color-mix(in oklab,var(--ink) 24%,var(--canvas));
+  --ink-12:color-mix(in oklab,var(--ink) 12%,var(--canvas));
+  --ink-06:color-mix(in oklab,var(--ink) 6%,var(--canvas));
+  --text-primary:var(--ink);
+  --text-secondary:color-mix(in oklab,var(--ink) 70%,var(--canvas));
+  --text-muted:color-mix(in oklab,var(--ink) 55%,var(--canvas));
+  --text-disabled:color-mix(in oklab,var(--ink) 40%,var(--canvas));
+  --text-inverse:var(--paper);
+  --text-accent:var(--accent-1);
+  --text-link:var(--accent-3);
+  --text-link-hover:var(--accent-1);
+  --surface-page:var(--canvas);
+  --surface-card:var(--paper);
+  --surface-sunken:color-mix(in oklab,var(--ink) 6%,var(--canvas));
+  --surface-raised:var(--paper);
+  --surface-ink:var(--ink);
+  --surface-accent:var(--accent-1);
+  --surface-hover:color-mix(in oklab,var(--ink) 6%,var(--canvas));
+  --surface-active:color-mix(in oklab,var(--ink) 12%,var(--canvas));
+  --surface-selected:var(--accent-2);
+  --surface-overlay:color-mix(in oklab,var(--ink) 72%,transparent);
+  --border-strong:var(--line);
+  --border-default:color-mix(in oklab,var(--ink) 40%,var(--canvas));
+  --border-hairline:color-mix(in oklab,var(--ink) 24%,var(--canvas));
+  --border-focus:var(--accent-3);
+  --chart-1:var(--accent-1);--chart-2:var(--accent-2);--chart-3:var(--accent-3);
+  --chart-4:var(--accent-4);--chart-5:var(--accent-5);
+  --shadow-none:none;
+  --shadow-block-xs:2px 2px 0 var(--ink);
+  --shadow-block-sm:4px 4px 0 var(--ink);
+  --shadow-block-md:6px 6px 0 var(--ink);
+  --shadow-block-lg:10px 10px 0 var(--ink);
+  --shadow-block-accent:6px 6px 0 var(--accent-1);
+  --shadow-inset-hair:inset 0 0 0 2px var(--line);
+  --shadow-overlay:0 24px 64px color-mix(in oklab,var(--ink) 34%,transparent);
+  --focus-ring:0 0 0 3px var(--canvas),0 0 0 6px var(--accent-3);
+  --scrim:color-mix(in oklab,var(--ink) 72%,transparent);
+  --scrim-light:color-mix(in oklab,var(--ink) 32%,transparent);
+}

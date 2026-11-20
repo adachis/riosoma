@@ -1,0 +1,35 @@
+@layer rio.app {
+  .rio-libraries {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  .rio-libraries__file {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-libraries__dropzone {
+    min-inline-size: 0;
+    padding: var(--rio-space-3);
+    border: 2px dashed var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-libraries__dropzone[data-drag-over] {
+    border-color: var(--rio-focus);
+    background: var(--rio-surface);
+  }
+  .rio-libraries__dropzone p {
+    margin-block: 0 var(--rio-space-2);
+  }
+  .rio-libraries__dropzone [role='status']:empty {
+    margin: 0;
+  }
+  .rio-libraries input[type='file'] {
+    max-inline-size: 100%;
+    color: var(--rio-text);
+  }
+  .rio-libraries article[aria-current='true'] {
+    outline: 2px solid var(--rio-focus);
+    outline-offset: var(--rio-space-1);
+  }
+}

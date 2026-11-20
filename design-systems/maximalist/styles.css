@@ -1,0 +1,21 @@
+/* Maximalist — global entry. Imports only. */
+@import url("tokens/fonts.css");
+@import url("tokens/colors.css");
+@import url("tokens/typography.css");
+@import url("tokens/spacing.css");
+@import url("tokens/shape.css");
+@import url("tokens/motion.css");
+@import url("tokens/masks.css");
+@import url("tokens/texture.css");
+@import url("tokens/base.css");
+@import url("patterns/layout.css");
+@import url("patterns/collage.css");
+@import url("patterns/controls.css");
+@import url("patterns/forms.css");
+@import url("patterns/surfaces.css");
+@import url("patterns/nav.css");
+@import url("patterns/feedback.css");
+@import url("patterns/media.css");
+@import url("patterns/window.css");
+@import url("patterns/game.css");
+@import url("patterns/print.css");

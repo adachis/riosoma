@@ -1,0 +1,34 @@
+/* 4px base grid with two intentional off-grid steps (2px hairline gap, 6px
+   chip padding) that the source packs' tight label spacing needs. */
+:root{
+  --k-space-0:0px;
+  --k-space-1:2px;
+  --k-space-2:4px;
+  --k-space-3:6px;
+  --k-space-4:8px;
+  --k-space-5:12px;
+  --k-space-6:16px;
+  --k-space-7:20px;
+  --k-space-8:24px;
+  --k-space-9:32px;
+  --k-space-10:40px;
+  --k-space-11:48px;
+  --k-space-12:64px;
+  --k-space-13:80px;
+  --k-space-14:96px;
+  --k-space-15:128px;
+
+  --k-gutter:24px; /* @kind other */
+  --k-gutter-tight:12px; /* @kind other */
+  --k-page-pad:clamp(16px,4vw,64px); /* @kind other */
+  --k-section-pad:clamp(48px,7vw,120px); /* @kind other */
+  --k-max-width:1440px; /* @kind other */
+  --k-measure:66ch; /* @kind other */
+  --k-measure-narrow:44ch; /* @kind other */
+
+  /* control heights — 44px minimum touch target on every interactive element */
+  --k-control-sm:34px; /* @kind other */
+  --k-control-md:44px; /* @kind other */
+  --k-control-lg:56px; /* @kind other */
+  --k-control-xl:64px; /* @kind other */
+}

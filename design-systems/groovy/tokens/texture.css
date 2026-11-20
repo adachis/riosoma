@@ -1,0 +1,31 @@
+/* Groovy — texture + illustration tokens. Backgrounds in this system are
+   real artwork, never CSS gradients pretending to be artwork. */
+:root{
+  --tex-wave-1:url("../assets/backgrounds/wave-01.png"); /* @kind other */
+  --tex-wave-2:url("../assets/backgrounds/wave-02.png"); /* @kind other */
+  --tex-wave-3:url("../assets/backgrounds/wave-03.png"); /* @kind other */
+  --tex-wave-4:url("../assets/backgrounds/wave-04.png"); /* @kind other */
+  --tex-wave-5:url("../assets/backgrounds/wave-05.png"); /* @kind other */
+  --tex-wave-6:url("../assets/backgrounds/wave-06.png"); /* @kind other */
+  --tex-hippie:url("../assets/backgrounds/hippie-waves.jpg"); /* @kind other */
+  --tex-starburst:url("../assets/backgrounds/starburst.svg"); /* @kind other */
+  --pat-floral-1:url("../assets/patterns/floral-01.jpg"); /* @kind other */
+  --pat-floral-2:url("../assets/patterns/floral-02.jpg"); /* @kind other */
+  --pat-floral-3:url("../assets/patterns/floral-03.jpg"); /* @kind other */
+  --pat-autumn-1:url("../assets/patterns/autumn-01.png"); /* @kind other */
+  --pat-autumn-2:url("../assets/patterns/autumn-02.png"); /* @kind other */
+  --pat-boho-1:url("../assets/patterns/boho-01.png"); /* @kind other */
+  --pat-boho-2:url("../assets/patterns/boho-02.png"); /* @kind other */
+  --pat-neutral-boho:url("../assets/patterns/neutral-boho-01.png"); /* @kind other */
+  --pat-spring-1:url("../assets/patterns/spring-01.png"); /* @kind other */
+  --pat-spring-2:url("../assets/patterns/spring-02.png"); /* @kind other */
+  --pat-paisley-1:url("../assets/patterns/paisley-01.jpg"); /* @kind other */
+  --pat-paisley-2:url("../assets/patterns/paisley-02.jpg"); /* @kind other */
+  --pat-peaceful:url("../assets/patterns/peaceful-01.png"); /* @kind other */
+
+  --pattern-tile:340px; /* @kind other */
+  --pattern-tile-lg:560px; /* @kind other */
+  --pattern-wash:0.18; /* @kind other */
+
+  /* --rainbow-arc, --rainbow-rule and --sun-rays are declared per theme scope. */
+}

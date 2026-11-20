@@ -1,0 +1,290 @@
+/*
+ * Conditional colors.  Fills are tints from the legibility tier, so text on them is always
+ * `--rio-aa-choice-text`, which reads at 4.5:1 or more on every tint in every theme.  Edges, marks,
+ * and bar ends use the tier's line colors, which stand out at 3:1 or more against pages and cards.
+ */
+@layer rio.app {
+  .rio-color-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    padding-inline: var(--rio-space-1);
+    white-space: nowrap;
+    font-size: var(--rio-text-md);
+  }
+  .rio-grid__cell > .rio-color-icon {
+    position: absolute;
+    inset-inline-start: var(--rio-space-1);
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .rio-grid__cell.rio-color-icon-cell .rio-grid__content {
+    padding-inline-start: var(--rio-space-12);
+  }
+  .rio-grid__cell[data-loading] > .rio-color-icon {
+    display: none;
+  }
+  .rio-color-icon-setting {
+    border-block-end: 1px solid var(--rio-border);
+    padding-block: var(--rio-space-2);
+  }
+  .rio-color-icon-setting__label {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    flex: 1 1 12rem;
+    min-inline-size: 0;
+  }
+  .rio-color-icon-setting__label > .rio-text-field {
+    inline-size: 100%;
+  }
+  @media (forced-colors: active) {
+    .rio-color-icon {
+      color: CanvasText !important;
+    }
+  }
+  /* A record rule tints its whole row lightly: half its cell tint, over the page. */
+  .rio-color-row--gray {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-gray-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-gray);
+  }
+  .rio-color-row--red {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-red-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-red);
+  }
+  .rio-color-row--orange {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-orange-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-orange);
+  }
+  .rio-color-row--yellow {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-yellow-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-yellow);
+  }
+  .rio-color-row--green {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-green-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-green);
+  }
+  .rio-color-row--teal {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-teal-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-teal);
+  }
+  .rio-color-row--blue {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-blue-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-blue);
+  }
+  .rio-color-row--purple {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-purple-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-purple);
+  }
+  .rio-color-row--pink {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-pink-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-pink);
+  }
+  .rio-color-row--brown {
+    --rio-color-row: color-mix(in oklab, var(--rio-aa-choice-brown-soft) 50%, var(--rio-bg));
+    --rio-color-edge: var(--rio-aa-choice-brown);
+  }
+
+  .rio-color-row .rio-grid__cell:not([data-loading]) {
+    background-color: var(--rio-color-row);
+  }
+
+  /* An edge on the row header marks the record even where its cells have colors of their own. */
+  .rio-color-row > .rio-grid__row-header::before {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: var(--rio-space-1);
+    background: var(--rio-color-edge);
+    pointer-events: none;
+  }
+
+  /* A cell rule or a color scale fills the cell, over its record's tint. */
+  .rio-grid__cell.rio-color-fill:not([data-loading]) {
+    background-color: var(--rio-color-fill);
+  }
+
+  /* Selection stays visible on a colored cell, layered over the color. */
+  .rio-color-row .rio-grid__cell[data-selected],
+  .rio-grid__cell.rio-color-fill[data-selected] {
+    background-image: linear-gradient(var(--rio-selected), var(--rio-selected));
+  }
+
+  .rio-color-row .rio-grid__cell .rio-cell-value,
+  .rio-color-fill .rio-cell-value,
+  .rio-color-bar .rio-cell-value {
+    color: var(--rio-aa-choice-text);
+  }
+
+  /* Links on a fill read as body text, so an underline tells them apart. */
+  .rio-color-row .rio-grid__cell .rio-cell-value--link,
+  .rio-color-fill .rio-cell-value--link,
+  .rio-color-bar .rio-cell-value--link {
+    text-decoration: underline;
+  }
+
+  /* A data bar sits behind the value, reaching from the start of the cell.  Its baseline, in the
+     full color, shows how far it reaches without crossing the value. */
+  .rio-color-bar:not([data-loading])::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset-block: var(--rio-space-1);
+    inset-inline-start: 0;
+    inline-size: var(--rio-color-bar-size);
+    border-block-end: 2px solid var(--rio-color-bar-line);
+    background: var(--rio-color-bar-fill);
+    pointer-events: none;
+  }
+
+  /* Without its value the bar stands alone, and screen readers still read the value. */
+  .rio-color-bar--bare .rio-cell-value,
+  .rio-color-bar--bare > .rio-color-value__content {
+    opacity: 0;
+  }
+
+  /* A colored value on a card or in the record card. */
+  .rio-color-value {
+    display: inline-flex;
+    align-items: center;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    padding-inline: var(--rio-space-1);
+    border-radius: var(--rio-radius);
+    color: var(--rio-aa-choice-text);
+  }
+
+  .rio-color-value.rio-color-fill {
+    background-color: var(--rio-color-fill);
+  }
+
+  .rio-color-value.rio-color-bar {
+    position: relative;
+    isolation: isolate;
+    min-inline-size: 4rem;
+  }
+
+  .rio-color-value__content {
+    overflow: hidden;
+    min-inline-size: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* A record rule's edge on a kanban or gallery card. */
+  .rio-color-edge {
+    position: relative;
+  }
+
+  .rio-color-edge::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: var(--rio-space-1);
+    background: var(--rio-color-edge);
+    pointer-events: none;
+  }
+
+  /* The record card's mark beside a field's name, and beside its title for a record rule. */
+  .rio-color-mark {
+    display: inline-block;
+    flex: none;
+    inline-size: var(--rio-space-3);
+    block-size: var(--rio-space-3);
+    border: 1px solid var(--rio-color-mark-line, var(--rio-aa-border));
+    border-radius: 50%;
+    background: var(--rio-color-mark);
+  }
+
+  /* The Color panel in the view toolbar. */
+  .rio-color-editor {
+    gap: var(--rio-space-4);
+    max-inline-size: 48rem;
+  }
+
+  .rio-color-editor__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-color-editor__heading {
+    margin: 0;
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-bold);
+  }
+
+  .rio-color-editor__hint {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-color-editor__color,
+  .rio-color-editor__option {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-color-editor__color > .rio-select {
+    inline-size: 8rem;
+  }
+
+  .rio-color-rule,
+  .rio-color-scale,
+  .rio-color-bar-setting {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    padding-block: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-color-editor .rio-view-row {
+    flex-wrap: wrap;
+  }
+
+  .rio-color-rule__name {
+    flex: 1 1 10rem;
+    min-inline-size: 0;
+  }
+
+  .rio-color-rule__condition,
+  .rio-color-scale__stop {
+    padding-inline-start: var(--rio-space-8);
+  }
+
+  .rio-color-scale__value {
+    inline-size: 12rem;
+  }
+
+  @media print {
+    .rio-color-row .rio-grid__cell,
+    .rio-color-row > .rio-grid__row-header,
+    .rio-color-fill,
+    .rio-color-bar,
+    .rio-color-edge,
+    .rio-color-mark {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+
+  @media (forced-colors: active) {
+    /* Tints give way to the system's colors, while edges, marks, and bars keep their shape. */
+    .rio-color-row > .rio-grid__row-header::before,
+    .rio-color-edge::before,
+    .rio-color-mark {
+      forced-color-adjust: none;
+    }
+
+    .rio-color-bar:not([data-loading])::after {
+      border: 1px solid CanvasText;
+      background: Canvas;
+    }
+  }
+}

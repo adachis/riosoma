@@ -1,0 +1,149 @@
+{{- if .Values.connectors.enabled }}
+{{- if ne (toString .Values.connectors.replicaCount) "1" }}
+{{- fail "connectors.replicaCount must be exactly 1 because live sessions are stored in one process" }}
+{{- end }}
+{{- $fullname := include "riosoma.connectors.fullname" . }}
+{{- if not .Values.connectors.existingSecret }}
+{{- /* The token the server and the connector service share, made once and kept across upgrades. */}}
+{{- $existing := lookup "v1" "Secret" .Release.Namespace $fullname }}
+{{- $token := "" }}
+{{- if and $existing $existing.data (hasKey $existing.data "RIOSOMA_CONNECTOR_SERVICE_TOKEN") }}
+{{- $token = index $existing.data "RIOSOMA_CONNECTOR_SERVICE_TOKEN" }}
+{{- else }}
+{{- $token = randAlphaNum 48 | b64enc }}
+{{- end }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ $fullname }}
+  labels:
+    {{- include "riosoma.labels" . | nindent 4 }}
+type: Opaque
+data:
+  RIOSOMA_CONNECTOR_SERVICE_TOKEN: {{ $token }}
+---
+{{- end }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fullname }}
+  labels:
+    {{- include "riosoma.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8091
+      targetPort: http
+      protocol: TCP
+  selector:
+    {{- include "riosoma.connectors.selectorLabels" . | nindent 4 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fullname }}
+  labels:
+    {{- include "riosoma.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.connectors.replicaCount }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "riosoma.connectors.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.connectors.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "riosoma.connectors.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+    spec:
+      automountServiceAccountToken: false
+      enableServiceLinks: false
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: connectors
+          image: {{ include "riosoma.connectors.image" . | quote }}
+          imagePullPolicy: {{ .Values.connectors.image.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          ports:
+            - name: http
+              containerPort: 8091
+              protocol: TCP
+          env:
+            - name: RIOSOMA_LOG_LEVEL
+              value: {{ default "info" .Values.settings.RIOSOMA_LOG_LEVEL | quote }}
+            - name: RIOSOMA_CONNECTOR_SERVICE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "riosoma.connectors.secretName" . }}
+                  key: RIOSOMA_CONNECTOR_SERVICE_TOKEN
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 20
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 3
+          resources:
+            {{- toYaml .Values.connectors.resources | nindent 12 }}
+          volumeMounts:
+            # Some drivers write temporary files, and the root filesystem is read-only.
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir:
+            sizeLimit: 512Mi
+      {{- with .Values.connectors.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.connectors.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.connectors.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- if .Values.connectors.networkPolicy.enabled }}
+---
+# Only Riosoma's own pods reach the connector service.  Its way out to the databases stays open.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ $fullname }}
+  labels:
+    {{- include "riosoma.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "riosoma.connectors.selectorLabels" . | nindent 6 }}
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              {{- include "riosoma.selectorLabels" . | nindent 14 }}
+      ports:
+        - port: http
+          protocol: TCP
+{{- end }}
+{{- end }}

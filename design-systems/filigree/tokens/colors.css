@@ -1,0 +1,33 @@
+:root{
+/* base ramp — ink */
+--ink-900:#08080a;--ink-800:#0d0e11;--ink-700:#14161a;--ink-600:#1c1f24;--ink-500:#262a31;--ink-400:#343943;
+/* base ramp — parchment */
+--parch-50:#fbf8f1;--parch-100:#f4efe3;--parch-200:#e9e1cf;--parch-300:#d8cdb4;--parch-400:#bdae8e;
+/* base ramp — metal (champagne gilt) */
+--metal-100:#f0e2c0;--metal-200:#ddc894;--metal-300:#c0a062;--metal-400:#a4854b;--metal-500:#7c6335;
+/* semantic hues */
+--hue-success:#6f8f5e;--hue-warning:#c9962f;--hue-danger:#a63d40;--hue-info:#5b7f96;
+
+/* ===== semantic aliases (themeable) ===== */
+--bg:var(--ink-900);
+--surface-1:var(--ink-800);
+--surface-2:var(--ink-700);
+--surface-3:var(--ink-600);
+--surface-inset:#05050700;
+--line-1:color-mix(in oklab,var(--metal-300) 24%,transparent);
+--line-2:color-mix(in oklab,var(--metal-300) 52%,transparent);
+--line-3:var(--metal-300);
+--text-1:var(--parch-50);
+--text-2:var(--parch-200);
+--text-3:color-mix(in oklab,var(--parch-200) 58%,var(--bg));
+--accent-1:var(--metal-300);
+--accent-2:var(--metal-200);
+--accent-3:var(--metal-500);
+--on-accent:#0a0a0c;
+--metal:var(--metal-300);
+--metal-sheen:linear-gradient(100deg,var(--metal-400) 0%,var(--metal-100) 22%,var(--metal-300) 44%,var(--metal-500) 62%,var(--metal-200) 84%,var(--metal-400) 100%); /* @kind color */
+--success:var(--hue-success);--warning:var(--hue-warning);--danger:var(--hue-danger);--info:var(--hue-info);
+--focus:var(--metal-200);
+--scrim:color-mix(in oklab,var(--ink-900) 72%,transparent);
+--selection:color-mix(in oklab,var(--metal-300) 30%,transparent);
+}

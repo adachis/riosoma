@@ -1,0 +1,52 @@
+/* Base palette = theme "signal" (default). themes.css overrides only the 18 raw values
+   in the first block; every semantic alias is re-declared for each theme scope so a
+   data-theme on ANY element resolves correctly (custom properties substitute at the
+   declaring element, so aliases must live in the themed scope too). */
+:root{
+  --paper:#f1faee;
+  --paper-2:#ffffff;
+  --paper-3:#e2efe4;
+  --ink:#1d3557;
+  --ink-2:#2c4a72;
+  --ink-3:#5b7595;
+  --brand:#e63946;
+  --brand-2:#c22633;
+  --on-brand:#fffdfa;
+  --accent-a:#457b9d;
+  --accent-b:#a8dadc;
+  --accent-c:#1d3557;
+  --accent-d:#e63946;
+  --accent-e:#f1faee;
+  --success:#2f7d4f;
+  --warning:#c98a00;
+  --danger:#b3261e;
+  --info:#457b9d;
+}
+
+/* ---- semantic aliases: consume these, not the raw values ---- */
+:root,[data-theme]{
+  --surface-page:var(--paper);
+  --surface-card:var(--paper-2);
+  --surface-sunken:var(--paper-3);
+  --surface-inverse:var(--ink);
+  --surface-brand:var(--brand);
+  --surface-hover:color-mix(in oklab,var(--ink) 6%,transparent);
+  --surface-active:color-mix(in oklab,var(--ink) 12%,transparent);
+  --surface-veil:color-mix(in oklab,var(--ink) 62%,transparent);
+
+  --text-primary:var(--ink);
+  --text-secondary:var(--ink-3);
+  --text-inverse:var(--paper);
+  --text-brand:var(--brand-2);
+  --text-on-brand:var(--on-brand);
+  --text-link:var(--brand-2);
+  --text-link-hover:var(--ink);
+
+  --border-hair:color-mix(in oklab,var(--ink) 16%,transparent);
+  --border-default:color-mix(in oklab,var(--ink) 30%,transparent);
+  --border-strong:var(--ink);
+  --border-brand:var(--brand);
+
+  --focus-ring:var(--brand);
+  --focus-halo:color-mix(in oklab,var(--brand) 28%,transparent);
+}

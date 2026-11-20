@@ -1,0 +1,228 @@
+# Why each direct dependency is here, one table per package directory.  CI checks this file with
+# tools/ci/check_dependencies.py: every direct dependency needs a reason, every entry must still be
+# declared, and every declared dependency must be used.  Workspace packages (workspace:*) need no
+# entry.  For a dependency used in a way the scan cannot see, write an inline table with the reason
+# and an "unseen" note saying how it is used.  See docs/developer/dependencies.md.
+
+["."]
+"@eslint/js" = "Recommended JavaScript rules in the shared ESLint config."
+"@lingui/conf" = "Reads lingui.config.ts for message extraction and the web shell catalog build."
+"@lingui/format-po" = "Writes and reads the PO message catalogs named in lingui.config.ts."
+"@messageformat/parser" = "Parses ICU messages when tools/i18n_check.mjs validates the catalogs."
+"@playwright/test" = "Test runner and assertions for the browser suites and their helper scripts."
+"@types/node" = "Node types for the root tools, configs, and scripts."
+eslint = "Lints every package through the shared eslint.config.js."
+eslint-plugin-react-hooks = "Enforces the rules of hooks in React code."
+globals = "Browser and Node global names for the ESLint config."
+playwright = "Drives browsers directly in the e2e shard planner and the screenshot scripts."
+prettier = "Formats the repository and the generated app catalog."
+turbo = "Runs build, lint, typecheck, and test tasks across the workspace with caching."
+typescript = "Compiles and typechecks every package, and parses source in the web build scripts."
+typescript-eslint = "TypeScript parser and rules for ESLint."
+vitest = "Unit test runner for every package."
+
+["apps/cli"]
+"@types/node" = "Node types for the command-line tool."
+
+["apps/connector-service"]
+"@riosoma/testkit" = { reason = "Test setup and the temporary-folder cleanup every package's tests share.", unseen = "Loaded by path as setupFiles and globalSetup in vitest.config.ts." }
+"@types/node" = "Node types."
+fastify = "Serves the connector service's HTTP API."
+mongodb = "Types for the MongoDB driver mock in the service's contract tests."
+pino = "Logs the connector service's requests and errors."
+tsx = { reason = "Runs the service's TypeScript when a server started from source starts it.", unseen = "Loaded with node --import tsx from this folder by apps/server/src/sources/connector-service.ts." }
+
+["apps/e2e"]
+"@axe-core/playwright" = "Accessibility scans in the browser suites."
+"@playwright/test" = "Test runner and assertions for the browser suites."
+"@types/node" = "Node types for the suite's setup and helpers."
+
+["apps/hub"]
+"@cloudflare/workers-types" = "Types for the Workers runtime the hub runs on."
+wrangler = "Builds and deploys the hub to Cloudflare Workers."
+
+["apps/server"]
+"@fastify/cookie" = "Parses and signs session and sign-in cookies."
+"@fastify/helmet" = "Sets security headers on every response."
+"@fastify/static" = "Serves the built web app and theme assets."
+"@fastify/websocket" = "WebSocket routes for realtime updates and script runs."
+"@kenjiuno/msgreader" = "Extracts text and attachments from Outlook .msg files during ingest."
+"@modelcontextprotocol/sdk" = "Serves Riosoma's MCP endpoint and talks to MCP tool servers."
+"@node-rs/argon2" = "Hashes passwords and derives keys for encrypted organization archives."
+"@node-saml/node-saml" = "SAML single sign-on, and its XML parser for metadata and branding checks."
+"@simplewebauthn/server" = "Verifies passkey registrations and sign-ins."
+"@types/nodemailer" = "Types for nodemailer."
+"@types/pg" = "Types for pg."
+docx = "Builds and fills Word documents for exports and automation actions."
+exceljs = "Writes Excel workbooks for exports and reads them in Office templates."
+fastify = "The HTTP server and router for the API."
+libpg-query = "Parses SQL with PostgreSQL's own parser to guard read-only queries."
+mongodb = "Drives a real MongoDB in the server's MongoDB source tests.  The shipped driver comes through @riosoma/connectors."
+nodemailer = "Sends mail and builds MIME messages."
+openid-client = "OpenID Connect single sign-on."
+otplib = "Time-based one-time codes for two-step sign-in."
+pdf-lib = "Fills and assembles PDFs for exports, and reads text from uploaded PDFs."
+pg = "PostgreSQL client for the application database."
+pino = "Structured server logging."
+pino-pretty = "Readable single-line logs in development, loaded by name as pino's transport."
+postal-mime = "Parses email messages during ingest."
+pptxgenjs = "Builds PowerPoint decks for exports."
+quickjs-emscripten = "Runs automation scripts in a sandboxed QuickJS engine."
+sharp = "Resizes and sanitizes uploaded images, logos, and export images."
+tsx = "Runs the server's TypeScript directly in development and in tools started from source."
+xlsx = "Reads legacy Excel and compound Office files during ingest."
+zod = "Validates request bodies, settings, and AI output."
+
+["apps/web"]
+"@babel/core" = "Required peer of @rolldown/plugin-babel, which runs the Lingui macro and React Compiler."
+"@fortawesome/free-regular-svg-icons" = "Outline icons for empty and off states."
+"@fortawesome/free-solid-svg-icons" = "The app's standard icon set."
+"@lingui/babel-plugin-lingui-macro" = "Compiles Lingui message macros during the build."
+"@lingui/cli" = "Message extraction, and the catalog API the shell catalog build uses."
+"@lingui/conf" = "Reads the Lingui config in the shell catalog build."
+"@lingui/core" = "Message catalogs and formatting at runtime."
+"@lingui/react" = "React bindings and macros for translated text."
+"@lingui/vite-plugin" = "Compiles PO catalogs when Vite builds the app."
+"@rolldown/plugin-babel" = "Runs Babel plugins, Lingui and React Compiler, inside the Vite build."
+"@simplewebauthn/browser" = "Passkey registration and sign-in in the browser."
+"@tanstack/react-query" = "Server state, caching, and mutations."
+"@tanstack/react-router" = "Client-side routing."
+"@testing-library/react" = "Renders components in unit tests."
+"@testing-library/user-event" = "Simulates user input in unit tests."
+"@tiptap/pm" = "Required peer of the Tiptap editor packages, providing ProseMirror."
+"@tiptap/react" = "The rich text field editor."
+"@tiptap/starter-kit" = "Standard rich text nodes and marks for the editor."
+"@types/jsdom" = "Types for the standards-based DOM used by sanitizer unit tests."
+"@types/node" = "Node types for the build scripts and tests."
+"@types/pdfmake" = "Types for pdfmake."
+"@types/react" = "Types for React."
+"@types/react-dom" = "Types for React DOM."
+"@vitejs/plugin-react" = "React support and the React Compiler preset for Vite."
+babel-plugin-react-compiler = { reason = "Compiles components with the React Compiler.", unseen = "Loaded by name through reactCompilerPreset() from @vitejs/plugin-react in vite.config.ts." }
+jsdom = "Runs the real HTML sanitizer against a DOM with the invariants it requires in unit tests."
+parse5 = "Tokenizes inert HTML to remove executable attributes before browser parsing can report CSP violations."
+dompurify = "Sanitizes HTML before the centralized Trusted Types policy grants a DOM capability."
+echarts = "Charts on dashboards."
+fast-check = "Property-based tests for commands and filters."
+happy-dom = "DOM environment for unit tests."
+maplibre-gl = "The map view."
+marked = "Parses Markdown for help documents and their PDF export."
+pdfmake = "Builds PDFs of help documents in the browser."
+react = "The UI library."
+react-aria-components = "Accessible base components."
+react-dom = "Renders React in the browser."
+uqr = "Draws QR codes for authenticator setup."
+vite = "Builds and serves the web app."
+
+["packages/ai"]
+"@types/node" = "Node types."
+
+["packages/connectors"]
+"@duckdb/node-api" = "DuckDB connector and the engine that queries uploaded and remote files."
+"@types/node" = "Node types."
+"@types/pg" = "Types for pg."
+fast-xml-parser = "Parses XML for OData, feeds, and remote XML files."
+pg = "PostgreSQL and Redshift connectors."
+
+["packages/connector-drivers"]
+"@clickhouse/client" = "ClickHouse connector."
+"@databricks/sql" = "Databricks connector."
+"@google-cloud/bigquery" = "BigQuery connector."
+"@types/mssql" = "Types for mssql."
+"@types/node" = "Node types."
+"@types/pg" = "Types for pg."
+mongodb = "MongoDB connector."
+mssql = "SQL Server and Microsoft Fabric connector."
+mysql2 = "MySQL and MariaDB connector."
+node-firebird = "Firebird connector."
+oracledb = "Oracle connector, in thin mode."
+pg = "Seeds and reads the PostgreSQL databases the driver tests compare against."
+snowflake-sdk = "Snowflake connector."
+
+["packages/contracts"]
+zod = "Schemas shared by the server, the web app, and the SDK."
+
+["packages/db"]
+"@aws-sdk/rds-signer" = "IAM sign-in tokens for Amazon RDS databases."
+"@azure/identity" = "Microsoft Entra tokens for Azure Database for PostgreSQL."
+"@types/pg" = "Types for pg."
+"@types/ssh2" = "Types for ssh2."
+google-auth-library = "IAM sign-in tokens for Cloud SQL."
+pg = "PostgreSQL connections and pools."
+ssh2 = "SSH tunnels to databases and SFTP file access."
+
+["packages/ecologits"]
+"@types/node" = "Node types."
+
+["packages/grid-core"]
+happy-dom = "DOM environment for unit tests."
+vite = "Serves the grid demo, and is the required peer of Vitest."
+
+["packages/i18n"]
+vite = "Required peer of Vitest, which runs this package's tests."
+
+["packages/icons"]
+"@fortawesome/fontawesome-common-types" = "Icon definition types."
+"@fortawesome/free-brands-svg-icons" = "Brand icons for connected apps."
+"@fortawesome/free-solid-svg-icons" = "App icons."
+"@types/react" = "Types for React."
+react = "Renders the Icon component."
+vite = "Required peer of Vitest, which runs this package's tests."
+
+["packages/ingest"]
+"@types/node" = "Node types."
+
+["packages/rio"]
+"@babel/core" = "Required peer of @rolldown/plugin-babel in the test config."
+"@lingui/babel-plugin-lingui-macro" = "Compiles Lingui macros in tests."
+"@lingui/core" = "Translated text for the avatar."
+"@lingui/react" = "Lingui macros for the avatar's labels."
+"@rolldown/plugin-babel" = "Runs the Lingui macro plugin in tests."
+"@testing-library/react" = "Renders the avatar in unit tests."
+"@testing-library/user-event" = "Simulates user input in unit tests."
+"@types/react" = "Types for React."
+"@vitejs/plugin-react" = "React support in the test config."
+happy-dom = "DOM environment for unit tests."
+react = "Renders the avatar."
+react-dom = "Required peer of Testing Library's React renderer."
+vite = "Required peer of Vitest and the React plugin."
+
+["packages/sdk"]
+"@types/node" = "Node types."
+
+["packages/testkit"]
+"@types/pg" = "Types for pg."
+pg = "Creates and drops the temporary test databases."
+
+["packages/tokens"]
+vite = "Required peer of Vitest, which runs this package's tests."
+
+["packages/ui"]
+"@babel/core" = "Required peer of @rolldown/plugin-babel in the test config."
+"@dnd-kit/core" = "Drag and drop for sortable lists."
+"@dnd-kit/sortable" = "Sortable list presets."
+"@dnd-kit/utilities" = "Pointer coordinates and transforms for sorting."
+"@fortawesome/free-solid-svg-icons" = "Icons in shared components."
+"@internationalized/date" = "Dates for the calendar and date fields."
+"@lingui/babel-plugin-lingui-macro" = "Compiles Lingui macros in tests."
+"@lingui/core" = "Translated text in shared components."
+"@lingui/react" = "Lingui macros for component labels."
+"@rolldown/plugin-babel" = "Runs the Lingui macro plugin in tests."
+"@testing-library/react" = "Renders components in unit tests."
+"@testing-library/user-event" = "Simulates user input in unit tests."
+"@types/react" = "Types for React."
+"@types/react-dom" = "Types for React DOM."
+"@vitejs/plugin-react" = "React support in the test config."
+fast-check = "Property-based tests for sortable moves."
+happy-dom = "DOM environment for unit tests."
+react = "The UI library."
+react-aria-components = "Accessible base components."
+react-dom = "Portals for drag overlays."
+vite = "Required peer of Vitest and the React plugin."
+
+["integrations/n8n"]
+"@n8n/eslint-plugin-community-nodes" = "n8n's lint rules for community nodes."
+n8n-workflow = "n8n node and credential types.  n8n provides it at runtime, so it is also a peer."
+
+["integrations/zapier"]
+zapier-platform-core = "The Zapier app runtime and test harness."

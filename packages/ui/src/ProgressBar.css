@@ -1,0 +1,86 @@
+@layer rio.components {
+  .rio-progress-bar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    color: var(--rio-text);
+  }
+
+  .rio-progress-bar__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-progress-bar__label {
+    min-inline-size: 0;
+  }
+
+  .rio-progress-bar__value {
+    flex: none;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    /* Digits of equal width, so a changing value does not jiggle the row. */
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* A fixed height for both kinds of bar: the space around a progress bar never changes. */
+  .rio-progress-bar__track {
+    position: relative;
+    overflow: hidden;
+    block-size: 6px;
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-border);
+  }
+
+  .rio-progress-bar__fill {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    border-radius: inherit;
+    background-color: var(--rio-accent);
+    transition: inline-size var(--rio-duration-normal) var(--rio-ease-standard);
+  }
+
+  .rio-progress-bar__segment {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 35%;
+    border-radius: inherit;
+    background-color: var(--rio-accent);
+    /* A loop has no natural end, so it keeps a fixed period.  Inset is animated rather than a
+       transform, which keeps the slide in the reading direction in right-to-left layouts. */
+    animation: rio-progress-slide 1600ms var(--rio-ease-standard) infinite;
+  }
+
+  /* Nobody asked for motion, so the segment simply sits at the start of the track. */
+  @media (prefers-reduced-motion: reduce) {
+    .rio-progress-bar__segment {
+      animation: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-progress-bar__track {
+      border: 1px solid CanvasText;
+      background-color: Canvas;
+    }
+
+    .rio-progress-bar__fill,
+    .rio-progress-bar__segment {
+      background-color: Highlight;
+    }
+  }
+}
+
+@keyframes rio-progress-slide {
+  from {
+    inset-inline-start: -35%;
+  }
+
+  to {
+    inset-inline-start: 100%;
+  }
+}

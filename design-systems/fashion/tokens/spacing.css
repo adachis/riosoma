@@ -1,0 +1,37 @@
+/* Fashion — spacing. A 5px-rooted scale (not 4/8): the source templates step
+   15 / 20 / 25 / 30 / 40 / 50 / 60 / 80, so the scale keeps those exact numbers.
+   Fluid variants shrink to the min on small viewports. */
+:root {
+  --sp-0: 0; /* @kind spacing */
+  --sp-1: 5px; /* @kind spacing */
+  --sp-2: 8px; /* @kind spacing */
+  --sp-3: 10px; /* @kind spacing */
+  --sp-4: 12px; /* @kind spacing */
+  --sp-5: 15px; /* @kind spacing */
+  --sp-6: 20px; /* @kind spacing */
+  --sp-7: 25px; /* @kind spacing */
+  --sp-8: 30px; /* @kind spacing */
+  --sp-9: 40px; /* @kind spacing */
+  --sp-10: 50px; /* @kind spacing */
+  --sp-11: 60px; /* @kind spacing */
+  --sp-12: 80px; /* @kind spacing */
+  --sp-13: 120px; /* @kind spacing */
+
+  /* fluid pairs, lifted from the source clamp rhythm */
+  --sp-fluid-xs: clamp(7px, 0.53vw, 10px); /* @kind spacing */
+  --sp-fluid-sm: clamp(12px, 1.05vw, 20px); /* @kind spacing */
+  --sp-fluid-md: clamp(15px, 1.58vw, 30px); /* @kind spacing */
+  --sp-fluid-lg: clamp(20px, 2.1vw, 40px); /* @kind spacing */
+  --sp-fluid-xl: clamp(25px, 2.63vw, 50px); /* @kind spacing */
+  --sp-fluid-2xl: clamp(40px, 4.2vw, 80px); /* @kind spacing */
+  --sp-fluid-3xl: clamp(60px, 6.3vw, 120px); /* @kind spacing */
+
+  /* semantic */
+  --gutter: var(--sp-fluid-md); /* @kind spacing */
+  --section-y: var(--sp-fluid-2xl); /* @kind spacing */
+  --card-pad: var(--sp-fluid-md); /* @kind spacing */
+  --card-pad-lg: var(--sp-fluid-lg); /* @kind spacing */
+  --stack-gap: var(--sp-fluid-sm); /* @kind spacing */
+  --field-gap: var(--sp-5); /* @kind spacing */
+  --grid-gap: var(--sp-fluid-md); /* @kind spacing */
+}

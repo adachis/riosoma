@@ -1,0 +1,71 @@
+/* Utilities — the printed-surface effects. Compose these onto any element. */
+
+/* --- ink & shadow --- */
+.pop-ink{border:var(--outline-ink)}
+.pop-ink-bold{border:var(--outline-bold)}
+.pop-ink-heavy{border:var(--outline-heavy)}
+.pop-shadow{box-shadow:var(--shadow-md)}
+.pop-shadow-lg{box-shadow:var(--shadow-lg)}
+.pop-shadow-misprint{box-shadow:var(--shadow-misprint)}
+
+/* --- the panel: the base container of the whole system --- */
+.pop-panel{background:var(--surface-card);border:var(--outline-ink);box-shadow:var(--shadow-md);border-radius:var(--radius-none)}
+.pop-panel-soft{background:var(--surface-card);border:var(--outline-ink);box-shadow:var(--shadow-md);border-radius:var(--radius-lg)}
+
+/* --- comic-page grid: panels separated by a white gutter on a black plate --- */
+.pop-page{display:grid;gap:var(--gutter);padding:var(--gutter);background:var(--ink)}
+
+/* --- print patterns ---
+   RULE: these set background-image only. On an element carrying one of these classes,
+   set backgroundColor (never the `background` shorthand) — the shorthand resets
+   background-image to none and an inline style beats the class. */
+.pop-benday{background-image:var(--pattern-benday);background-size:var(--pattern-benday-size);background-position:var(--pattern-benday-pos)}
+.pop-benday-fine{background-image:var(--pattern-benday-fine);background-size:var(--pattern-benday-fine-size)}
+.pop-benday-coarse{background-image:var(--pattern-benday-coarse);background-size:var(--pattern-benday-coarse-size)}
+.pop-rays{background-image:var(--pattern-rays)}
+.pop-rays-tight{background-image:var(--pattern-rays-tight)}
+.pop-stripes{background-image:var(--pattern-stripes)}
+.pop-stripes-wide{background-image:var(--pattern-stripes-wide)}
+.pop-speedlines{background-image:var(--pattern-speedlines)}
+
+/* dot screen laid over imagery, multiplied like a real press */
+.pop-screened{position:relative;isolation:isolate}
+.pop-screened::after{content:"";position:absolute;inset:0;background-image:var(--pattern-benday-fine);background-size:var(--pattern-benday-fine-size);mix-blend-mode:multiply;opacity:.55;pointer-events:none}
+
+/* --- photo plates: one-colour separations of any image --- */
+.pop-plate{filter:grayscale(1) contrast(1.4) sepia(1) saturate(5)}
+.pop-plate-red{filter:grayscale(1) contrast(1.45) sepia(1) saturate(7) hue-rotate(-35deg)}
+.pop-plate-yellow{filter:grayscale(1) contrast(1.4) sepia(1) saturate(6) hue-rotate(18deg)}
+.pop-plate-cyan{filter:grayscale(1) contrast(1.4) sepia(1) saturate(5) hue-rotate(155deg)}
+.pop-plate-magenta{filter:grayscale(1) contrast(1.45) sepia(1) saturate(7) hue-rotate(285deg)}
+.pop-plate-violet{filter:grayscale(1) contrast(1.45) sepia(1) saturate(6) hue-rotate(240deg)}
+.pop-plate-green{filter:grayscale(1) contrast(1.4) sepia(1) saturate(5) hue-rotate(90deg)}
+.pop-plate-ink{filter:grayscale(1) contrast(2.2) brightness(1.05)}
+
+/* 2×2 repeat-portrait grid */
+.pop-quad{display:grid;grid-template-columns:1fr 1fr;gap:var(--border-bold);background:var(--ink);padding:var(--border-bold)}
+
+/* --- display type treatments --- */
+.pop-display{font-family:var(--font-display);text-transform:uppercase;letter-spacing:var(--tracking-display);line-height:var(--leading-tight)}
+.pop-kicker{font-family:var(--font-newsprint);text-transform:uppercase;letter-spacing:var(--tracking-caps);font-size:var(--text-sm)}
+.pop-caption{font-family:var(--font-mono);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-wide)}
+.pop-text-hard{text-shadow:var(--text-shadow-hard)}
+.pop-text-misprint{text-shadow:var(--text-shadow-misprint)}
+.pop-text-outline{-webkit-text-stroke:var(--text-stroke-ink);paint-order:stroke fill}
+.pop-text-knockout{color:var(--paper);-webkit-text-stroke:var(--text-stroke-ink);paint-order:stroke fill}
+
+/* --- mechanical interaction --- */
+.pop-press{transition:transform var(--dur-fast) var(--ease-pop),box-shadow var(--dur-fast) var(--ease-pop)}
+.pop-press:hover{transform:translate(var(--lift),var(--lift));box-shadow:var(--shadow-lg)}
+.pop-press:active{transform:translate(var(--slam),var(--slam));box-shadow:var(--shadow-pressed)}
+
+/* --- burst / bubble shapes --- */
+.pop-burst{clip-path:polygon(50% 0,60% 14%,75% 5%,78% 22%,94% 18%,88% 33%,100% 40%,86% 50%,100% 62%,88% 70%,95% 84%,78% 80%,74% 96%,60% 87%,50% 100%,40% 87%,26% 96%,22% 80%,5% 84%,12% 70%,0 62%,14% 50%,0 40%,12% 33%,6% 18%,22% 22%,25% 5%,40% 14%)}
+.pop-bubble{position:relative;background:var(--panel);border:var(--outline-ink);border-radius:var(--radius-bubble);padding:var(--space-4) var(--space-5);box-shadow:var(--shadow-sm);font-family:var(--font-comic)}
+.pop-bubble::after{content:"";position:absolute;left:22px;bottom:calc(-1 * var(--space-5));width:0;height:0;border-left:14px solid var(--ink);border-bottom:20px solid transparent}
+
+@keyframes pop-in{0%{transform:scale(.7) rotate(-6deg);opacity:0}70%{transform:scale(1.06) rotate(1deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+@keyframes pop-shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-2px)}}
+@keyframes pop-blink{0%,49%{opacity:1}50%,100%{opacity:.15}}
+.pop-anim-in{animation:pop-in var(--dur-slow) var(--ease-pop) both}
+.pop-anim-shake{animation:pop-shake 260ms var(--ease-slam) 2}

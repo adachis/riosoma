@@ -1,0 +1,98 @@
+:root{
+  /* ---- Panel greys. The system's actual substrate: injection-moulded ABS,
+     anodised aluminium, screen-printed black. Never pure white as a page. ---- */
+  --grey-000:#ffffff;
+  --grey-025:#f7f7f5;
+  --grey-050:#f0efec;
+  --grey-100:#e5e5e5;
+  --grey-150:#dad9d5;
+  --grey-200:#c9c9c6;
+  --grey-300:#a8a8a5;
+  --grey-400:#8a8a87;
+  --grey-500:#6b6b68;
+  --grey-600:#4d4d4d;
+  --grey-700:#333333;
+  --grey-800:#1f1f1f;
+  --grey-900:#121212;
+  --grey-950:#0a0a0a;
+  --grey-1000:#000000;
+
+  /* ---- Accent library. Any ONE of these becomes --accent per project.
+     Tonally matched: high-chroma, slightly dirty, silkscreen-printable.
+     Orange exists but is never the default. ---- */
+  --hue-red:#e8352a;
+  --hue-cyan:#00a9c0;
+  --hue-cobalt:#1e3fd8;
+  --hue-lime:#b9ce00;
+  --hue-magenta:#d6006f;
+  --hue-green:#00875a;
+  --hue-yellow:#f2c300;
+  --hue-violet:#6a4fd8;
+  --hue-orange:#f25c05;
+
+  /* ---- Active accent. Default: signal red. ---- */
+  --accent:var(--hue-red);
+  --accent-ink:#ffffff;
+  --accent-quiet:color-mix(in srgb,var(--accent) 14%,var(--grey-100));
+  --accent-hover:color-mix(in srgb,var(--accent) 88%,var(--grey-1000));
+  --accent-press:color-mix(in srgb,var(--accent) 72%,var(--grey-1000));
+
+  /* ---- Semantic signals. Lamp colours, not UI decoration. ---- */
+  --signal-ok:#00875a;
+  --signal-warn:#f2c300;
+  --signal-alert:#e8352a;
+  --signal-info:#00a9c0;
+  --signal-off:var(--grey-300);
+
+  /* ---- Surfaces ---- */
+  --surface-page:var(--grey-100);
+  --surface-panel:var(--grey-050);
+  --surface-card:var(--grey-025);
+  --surface-recessed:var(--grey-150);
+  --surface-key:var(--grey-025);
+  --surface-key-dark:var(--grey-800);
+  --surface-display:var(--grey-950);
+  --surface-invert:var(--grey-1000);
+  --surface-overlay:rgba(10,10,10,.72);
+
+  /* ---- Ink ---- */
+  --text-body:var(--grey-1000);
+  --text-quiet:var(--grey-500);
+  --text-faint:var(--grey-400);
+  --text-invert:var(--grey-025);
+  --text-accent:var(--accent);
+  --text-display-on:#f2f2f0;
+
+  /* ---- Lines. Hairlines carry the whole layout; they are not decoration. ---- */
+  --line-hair:var(--grey-300);
+  --line-strong:var(--grey-1000);
+  --line-quiet:var(--grey-200);
+  --line-invert:var(--grey-600);
+}
+
+/* Accent scopes — set data-accent on any container or <html>. */
+[data-accent="red"]{--accent:var(--hue-red);--accent-ink:#ffffff}
+[data-accent="cyan"]{--accent:var(--hue-cyan);--accent-ink:#000000}
+[data-accent="cobalt"]{--accent:var(--hue-cobalt);--accent-ink:#ffffff}
+[data-accent="lime"]{--accent:var(--hue-lime);--accent-ink:#000000}
+[data-accent="magenta"]{--accent:var(--hue-magenta);--accent-ink:#ffffff}
+[data-accent="green"]{--accent:var(--hue-green);--accent-ink:#ffffff}
+[data-accent="yellow"]{--accent:var(--hue-yellow);--accent-ink:#000000}
+[data-accent="violet"]{--accent:var(--hue-violet);--accent-ink:#ffffff}
+[data-accent="orange"]{--accent:var(--hue-orange);--accent-ink:#000000}
+
+/* Dark panel scope — black anodised chassis instead of light ABS. */
+[data-panel="dark"]{
+  --surface-page:var(--grey-900);
+  --surface-panel:var(--grey-800);
+  --surface-card:var(--grey-800);
+  --surface-recessed:var(--grey-950);
+  --surface-key:var(--grey-700);
+  --text-body:var(--grey-025);
+  --text-quiet:var(--grey-300);
+  --text-faint:var(--grey-500);
+  --text-invert:var(--grey-1000);
+  --line-hair:var(--grey-600);
+  --line-strong:var(--grey-025);
+  --line-quiet:var(--grey-700);
+}

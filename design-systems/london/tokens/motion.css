@@ -1,0 +1,18 @@
+:root{
+  --dur-1:100ms; /* @kind other */
+  --dur-2:160ms; /* @kind other */
+  --dur-3:240ms; /* @kind other */
+  --dur-4:400ms; /* @kind other */
+  --ease-signal:cubic-bezier(.2,0,0,1); /* @kind other */
+  --ease-out:cubic-bezier(0,0,.2,1); /* @kind other */
+  --ease-inout:cubic-bezier(.4,0,.2,1); /* @kind other */
+  --t-control:background-color var(--dur-1) var(--ease-signal),color var(--dur-1) var(--ease-signal),border-color var(--dur-1) var(--ease-signal),box-shadow var(--dur-1) var(--ease-signal),transform var(--dur-1) var(--ease-signal); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{
+    --dur-1:0ms; /* @kind other */
+    --dur-2:0ms; /* @kind other */
+    --dur-3:0ms; /* @kind other */
+    --dur-4:0ms; /* @kind other */
+  }
+}

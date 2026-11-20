@@ -1,0 +1,10 @@
+/* FunOS typefaces.
+   SUBSTITUTION NOTE: the source page's display face is a heavy friendly grotesk that
+   was not supplied as a binary. Figtree (800/900) is the nearest Google Fonts match.
+   Hanken Grotesk covers text, DM Mono covers letterspaced micro-labels. */
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap");
+:root{
+  --font-display:"Figtree","Hanken Grotesk",-apple-system,"Segoe UI",sans-serif;
+  --font-text:"Hanken Grotesk","Figtree",-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}

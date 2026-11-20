@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Rio Signature';
+  src: url('/themes/midcentury/assets/fonts/remote/grand-hotel-7bb42ea5730b.woff2') format('woff2');
+  font-display: swap;
+}
+
+.rio-signatures {
+  --rio-signature-font: 'Rio Signature', cursive;
+  display: grid;
+  gap: var(--rio-space-4);
+  color: var(--rio-text);
+}
+/* The placer shows a whole page under the form, so the panel takes more room than a form.  The
+   panel sets the width and the dialog fills it, so nothing inside runs past its edge. */
+.rio-signatures__modal {
+  --rio-modal-inline-size: 70rem;
+}
+.rio-signatures__public {
+  max-width: 64rem;
+  margin: auto;
+  padding: var(--rio-space-6);
+}
+/* Only the feature's own plain labels and controls.  The design system's checkbox and text field
+   render labels and inputs of their own, each with a class, and style them themselves. */
+.rio-signatures label:not([class]) {
+  display: grid;
+  gap: var(--rio-space-2);
+}
+.rio-signatures input:not([class]),
+.rio-signatures select:not([class]),
+.rio-signatures textarea:not([class]) {
+  font: inherit;
+  color: var(--rio-text);
+  background: var(--rio-bg);
+  border: 1px solid var(--rio-border);
+  border-radius: var(--rio-radius);
+  padding: var(--rio-space-2);
+}
+.rio-signatures fieldset {
+  display: grid;
+  gap: var(--rio-space-3);
+  border: 1px solid var(--rio-border);
+}
+.rio-signatures__page {
+  position: relative;
+  width: 100%;
+}
+.rio-signatures__page iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.rio-signatures__placement {
+  position: absolute;
+  inset: 0;
+}
+.rio-signatures__placed {
+  position: absolute;
+  background: var(--rio-bg);
+  color: var(--rio-text);
+  border: 2px solid var(--rio-border);
+  font: inherit;
+  overflow: hidden;
+  opacity: 0.85;
+}
+.rio-signatures__placed[aria-pressed='true'] {
+  outline: 3px solid var(--rio-focus);
+}
+.rio-signatures__reader {
+  width: 100%;
+  height: 65dvh;
+  border: 1px solid var(--rio-border);
+}
+.rio-signatures__signature {
+  max-width: 100%;
+  max-height: 10rem;
+}
+.rio-signatures__actions {
+  display: flex;
+  gap: var(--rio-space-3);
+  flex-wrap: wrap;
+}
+.rio-signatures__history {
+  border-block-end: 1px solid var(--rio-border);
+  padding-block: var(--rio-space-4);
+}
+.rio-signatures__hash {
+  overflow-wrap: anywhere;
+  font-family: var(--rio-font-mono);
+}

@@ -1,0 +1,47 @@
+/* Holographic — typography.
+   Unbounded for display (tight, wide-set caps; never below 500 weight).
+   Plus Jakarta Sans for everything read in sentences.
+   JetBrains Mono for data, coordinates, timers, code. */
+
+:root {
+  --step--2: 0.6875rem; /* @kind font */  /* 11px  micro labels */
+  --step--1: 0.8125rem; /* @kind font */  /* 13px  captions, meta */
+  --step-0: 0.9375rem; /* @kind font */   /* 15px  UI default */
+  --step-1: 1.0625rem; /* @kind font */   /* 17px  body long-form */
+  --step-2: 1.3125rem; /* @kind font */   /* 21px  card titles */
+  --step-3: 1.75rem; /* @kind font */     /* 28px  section heads */
+  --step-4: 2.375rem; /* @kind font */    /* 38px  page titles */
+  --step-5: 3.25rem; /* @kind font */     /* 52px  hero small */
+  --step-6: 4.5rem; /* @kind font */      /* 72px  hero */
+  --step-7: 6.5rem; /* @kind font */      /* 104px display */
+
+  --lh-tight: 0.98; /* @kind font */
+  --lh-snug: 1.14; /* @kind font */
+  --lh-normal: 1.45; /* @kind font */
+  --lh-loose: 1.62; /* @kind font */
+
+  --tr-display: -0.03em; /* @kind font */
+  --tr-tight: -0.015em; /* @kind font */
+  --tr-normal: 0em; /* @kind font */
+  --tr-wide: 0.06em; /* @kind font */
+  --tr-caps: 0.18em; /* @kind font */
+
+  --fw-light: 300; /* @kind font */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700; /* @kind font */
+  --fw-black: 800; /* @kind font */
+
+  /* composed roles */
+  --type-display: var(--fw-semibold) var(--step-7) / var(--lh-tight) var(--font-display); /* @kind font */
+  --type-hero: var(--fw-semibold) var(--step-6) / var(--lh-tight) var(--font-display); /* @kind font */
+  --type-title: var(--fw-medium) var(--step-4) / var(--lh-snug) var(--font-display); /* @kind font */
+  --type-section: var(--fw-medium) var(--step-3) / var(--lh-snug) var(--font-display); /* @kind font */
+  --type-card: var(--fw-semibold) var(--step-2) / var(--lh-snug) var(--font-ui); /* @kind font */
+  --type-body: var(--fw-regular) var(--step-1) / var(--lh-normal) var(--font-body); /* @kind font */
+  --type-ui: var(--fw-medium) var(--step-0) / var(--lh-normal) var(--font-ui); /* @kind font */
+  --type-caption: var(--fw-regular) var(--step--1) / var(--lh-normal) var(--font-ui); /* @kind font */
+  --type-eyebrow: var(--fw-semibold) var(--step--2) / 1 var(--font-ui); /* @kind font */
+  --type-mono: var(--fw-medium) var(--step--1) / var(--lh-normal) var(--font-mono); /* @kind font */
+}

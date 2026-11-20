@@ -1,0 +1,206 @@
+/* Y2K colour system.
+   Every theme scope declares the same token contract, so any component
+   styled with these tokens survives a theme swap untouched.
+   Default theme = "rave". Swap with <html data-theme="millennium"> etc.
+
+   CONTRAST CONTRACT — the supplied palettes are preserved verbatim in
+   --t1…--t5 for swatches, fills and decoration. The *functional* fill
+   tokens (--accent, --ok, --bad, --title-*) are shaded from those palette
+   colours only as far as is needed for their paired foreground to clear
+   4.5:1, and every fill ships an explicit --on-* foreground. Status text
+   set directly on --surface uses the --*-text variants, which are shaded
+   separately for that lighter ground. */
+
+:root,
+[data-theme="rave"]{
+  --t1:#390099;--t2:#9e0059;--t3:#ff0054;--t4:#ff5400;--t5:#ffbd00;
+  --desktop:#390099;--desktop-2:#1e0052;
+  --surface:#fff7fb;--surface-2:#f4e6f0;--surface-3:#e7d3e4;
+  --chrome-face:#eadcf2;--edge-light:#ffffff;--edge-dark:#8e6fa6;--frame:#14002b;
+  --ink:#1a0033;--ink-2:#5c3a70;--ink-3:#8a6d9c;
+  --title-from:#9e0059;--title-to:#e5004c;--on-title:#ffffff;
+  --accent:#ff0054;--on-accent:#1a0033;--accent-2:#ffbd00;--on-accent-2:#1a0033;
+  --hot:#ff5400;--on-hot:#1a0033;
+  --ok:#00875a;--on-ok:#ffffff;--bad:#ff0054;--on-bad:#1a0033;--warn:#ffbd00;--on-warn:#1a0033;
+  --ok-text:#00704a;--bad-text:#c30041;--warn-text:#7d5d00;
+  --link:#9e0059;--link-hover:#c30041;--glow:#ff0054;
+}
+
+[data-theme="millennium"]{
+  --t1:#000814;--t2:#001d3d;--t3:#003566;--t4:#ffc300;--t5:#ffd60a;
+  --desktop:#000814;--desktop-2:#001129;
+  --surface:#001d3d;--surface-2:#001129;--surface-3:#003566;
+  --chrome-face:#003566;--edge-light:#21649f;--edge-dark:#000814;--frame:#000814;
+  --ink:#eaf2ff;--ink-2:#9ec1e8;--ink-3:#6d93bd;
+  --title-from:#003566;--title-to:#001d3d;--on-title:#ffd60a;
+  --accent:#ffc300;--on-accent:#000814;--accent-2:#003566;--on-accent-2:#ffd60a;
+  --hot:#ffd60a;--on-hot:#000814;
+  --ok:#4fd18b;--on-ok:#000814;--bad:#ff5470;--on-bad:#000814;--warn:#ffc300;--on-warn:#000814;
+  --ok-text:#4fd18b;--bad-text:#ff6f87;--warn-text:#ffc300;
+  --link:#ffd60a;--link-hover:#ffc300;--glow:#ffc300;
+}
+
+[data-theme="spectrum"]{
+  --t1:#f94144;--t2:#f8961e;--t3:#f9c74f;--t4:#43aa8b;--t5:#277da1;
+  /* spectrum ships 10 palette colours; --t6..--t8 exist ONLY here.
+     Only --t1..--t5 are guaranteed across themes — always give --t6+ a
+     fallback: var(--t6, var(--t4)). */
+  --t6:#90be6d;--t7:#577590;--t8:#f3722c;
+  --desktop:#277da1;--desktop-2:#1b5a76;
+  --surface:#fffdf7;--surface-2:#fdf1dc;--surface-3:#f6e3c4;
+  --chrome-face:#f3e7d2;--edge-light:#ffffff;--edge-dark:#a98f63;--frame:#23303a;
+  --ink:#23303a;--ink-2:#436c6a;--ink-3:#6f7f88;
+  --title-from:#577590;--title-to:#277da1;--on-title:#ffffff;
+  --accent:#d6383a;--on-accent:#ffffff;--accent-2:#f9c74f;--on-accent-2:#23303a;
+  --hot:#bd5419;--on-hot:#ffffff;
+  --ok:#43aa8b;--on-ok:#23303a;--bad:#d6383a;--on-bad:#ffffff;--warn:#f8961e;--on-warn:#23303a;
+  --ok-text:#2d725d;--bad-text:#bc3133;--warn-text:#945a12;
+  --link:#216e8d;--link-hover:#bc3133;--glow:#f8961e;
+}
+
+[data-theme="siren"]{
+  --t1:#e63946;--t2:#f1faee;--t3:#a8dadc;--t4:#457b9d;--t5:#1d3557;
+  --desktop:#1d3557;--desktop-2:#142842;
+  --surface:#f1faee;--surface-2:#e2f1f1;--surface-3:#c9e4e5;
+  --chrome-face:#dceeef;--edge-light:#ffffff;--edge-dark:#6e9db5;--frame:#1d3557;
+  --ink:#1d3557;--ink-2:#396683;--ink-3:#5f8399;
+  --title-from:#457b9d;--title-to:#1d3557;--on-title:#ffffff;
+  --accent:#d83642;--on-accent:#ffffff;--accent-2:#457b9d;--on-accent-2:#ffffff;
+  --hot:#c22f3a;--on-hot:#ffffff;
+  --ok:#228175;--on-ok:#ffffff;--bad:#d83642;--on-bad:#ffffff;--warn:#966716;--on-warn:#ffffff;
+  --ok-text:#1f7369;--bad-text:#c3303b;--warn-text:#8b5f14;
+  --link:#3a6785;--link-hover:#c3303b;--glow:#a8dadc;
+}
+
+[data-theme="sherbet"]{
+  --t1:#f6bd60;--t2:#f7ede2;--t3:#f5cac3;--t4:#84a59d;--t5:#f28482;
+  --desktop:#84a59d;--desktop-2:#62837c;
+  --surface:#f7ede2;--surface-2:#f5e1d4;--surface-3:#f5cac3;
+  --chrome-face:#f3ddcb;--edge-light:#ffffff;--edge-dark:#c09a7e;--frame:#4a3b33;
+  --ink:#4a3b33;--ink-2:#6a5649;--ink-3:#93806f;
+  --title-from:#a95c5b;--title-to:#8f6e38;--on-title:#ffffff;
+  --accent:#a95c5b;--on-accent:#ffffff;--accent-2:#f6bd60;--on-accent-2:#4a3b33;
+  --hot:#c0403e;--on-hot:#ffffff;
+  --ok:#4f7a6d;--on-ok:#ffffff;--bad:#c0403e;--on-bad:#ffffff;--warn:#8c6218;--on-warn:#ffffff;
+  --ok-text:#456a5f;--bad-text:#ac3938;--warn-text:#825b16;
+  --link:#974c4b;--link-hover:#ac3938;--glow:#f5cac3;
+}
+
+[data-theme="arcade"]{
+  --t1:#233d4d;--t2:#fe7f2d;--t3:#fcca46;--t4:#a1c181;--t5:#619b8a;
+  --desktop:#233d4d;--desktop-2:#16272f;
+  --surface:#fffbf0;--surface-2:#fbefd6;--surface-3:#f2e1be;
+  --chrome-face:#f6e7c8;--edge-light:#ffffff;--edge-dark:#a48f5f;--frame:#233d4d;
+  --ink:#233d4d;--ink-2:#48626f;--ink-3:#6d8391;
+  --title-from:#233d4d;--title-to:#4e7c6e;--on-title:#ffffff;
+  --accent:#b75b20;--on-accent:#ffffff;--accent-2:#fcca46;--on-accent-2:#233d4d;
+  --hot:#cc4620;--on-hot:#ffffff;
+  --ok:#4f7f5f;--on-ok:#ffffff;--bad:#cc4620;--on-bad:#ffffff;--warn:#906b0e;--on-warn:#ffffff;
+  --ok-text:#467054;--bad-text:#b53e1d;--warn-text:#83610d;
+  --link:#3b7163;--link-hover:#b53e1d;--glow:#fcca46;
+}
+
+[data-theme="aqua"]{
+  --t1:#22577a;--t2:#38a3a5;--t3:#57cc99;--t4:#80ed99;--t5:#c7f9cc;
+  --desktop:#22577a;--desktop-2:#16405c;
+  --surface:#f2fdf5;--surface-2:#dff8e6;--surface-3:#c7f9cc;
+  --chrome-face:#d6f7de;--edge-light:#ffffff;--edge-dark:#5fa97c;--frame:#12384f;
+  --ink:#0f3140;--ink-2:#1f5170;--ink-3:#487689;
+  --title-from:#22577a;--title-to:#2c7f81;--on-title:#ffffff;
+  --accent:#22577a;--on-accent:#ffffff;--accent-2:#80ed99;--on-accent-2:#0f3140;
+  --hot:#0e7f80;--on-hot:#ffffff;
+  --ok:#1d8459;--on-ok:#ffffff;--bad:#c0392f;--on-bad:#ffffff;--warn:#8e6d16;--on-warn:#ffffff;
+  --ok-text:#1a7952;--bad-text:#c0392f;--warn-text:#856615;
+  --link:#22577a;--link-hover:#0d7778;--glow:#80ed99;
+}
+
+[data-theme="mint"]{
+  --t1:#00fddc;--t2:#2e5339;--t3:#495f41;--t4:#ff5666;--t5:#ffccc9;
+  --desktop:#1b2f20;--desktop-2:#101c13;
+  --surface:#223a28;--surface-2:#18291d;--surface-3:#2e5339;
+  --chrome-face:#2e5339;--edge-light:#6c8a70;--edge-dark:#131f16;--frame:#0c150f;
+  --ink:#eafff6;--ink-2:#a8d8c4;--ink-3:#7faf9a;
+  --title-from:#2e5339;--title-to:#495f41;--on-title:#00fddc;
+  --accent:#00fddc;--on-accent:#0c150f;--accent-2:#ff5666;--on-accent-2:#1b0508;
+  --hot:#ff5666;--on-hot:#1b0508;
+  --ok:#00fddc;--on-ok:#0c150f;--bad:#ff5666;--on-bad:#1b0508;--warn:#ffccc9;--on-warn:#1b0508;
+  --ok-text:#00fddc;--bad-text:#ffa4ac;--warn-text:#ffccc9;
+  --link:#00fddc;--link-hover:#ffccc9;--glow:#00fddc;
+}
+
+[data-theme="bubblegum"]{
+  --t1:#70d6ff;--t2:#ff70a6;--t3:#ff9770;--t4:#ffd670;--t5:#ff70a6;
+  --desktop:#ff70a6;--desktop-2:#e04f87;
+  --surface:#ffffff;--surface-2:#f0faff;--surface-3:#dcf3ff;
+  --chrome-face:#e8f7ff;--edge-light:#ffffff;--edge-dark:#7fb6ce;--frame:#2b1b33;
+  --ink:#2b1b33;--ink-2:#5f4a68;--ink-3:#8a7791;
+  --title-from:#70d6ff;--title-to:#ff70a6;--on-title:#2b1b33;
+  --accent:#ff70a6;--on-accent:#2b1b33;--accent-2:#70d6ff;--on-accent-2:#2b1b33;
+  --hot:#ff9770;--on-hot:#2b1b33;
+  --ok:#0d8456;--on-ok:#ffffff;--bad:#d81e4a;--on-bad:#ffffff;--warn:#ffd670;--on-warn:#2b1b33;
+  --ok-text:#0c7e52;--bad-text:#d51e49;--warn-text:#8c680d;
+  --link:#b83a70;--link-hover:#d51e49;--glow:#70d6ff;
+}
+
+[data-theme="lagoon"]{
+  --t1:#247ba0;--t2:#70c1b3;--t3:#b2dbbf;--t4:#f3ffbd;--t5:#ff1654;
+  --desktop:#247ba0;--desktop-2:#185973;
+  --surface:#f9ffe8;--surface-2:#f3ffbd;--surface-3:#dcefc8;
+  --chrome-face:#ebf7d2;--edge-light:#ffffff;--edge-dark:#93a96f;--frame:#123a4b;
+  --ink:#123a4b;--ink-2:#2b6070;--ink-3:#547f8c;
+  --title-from:#247ba0;--title-to:#487c73;--on-title:#ffffff;
+  --accent:#e5144c;--on-accent:#ffffff;--accent-2:#70c1b3;--on-accent-2:#123a4b;
+  --hot:#c81243;--on-hot:#ffffff;
+  --ok:#278170;--on-ok:#ffffff;--bad:#e5144c;--on-bad:#ffffff;--warn:#8b7000;--on-warn:#ffffff;
+  --ok-text:#24796a;--bad-text:#d41347;--warn-text:#836900;
+  --link:#20708f;--link-hover:#d41347;--glow:#f3ffbd;
+}
+
+[data-theme="varsity"]{
+  --t1:#083d77;--t2:#ebebd3;--t3:#f4d35e;--t4:#ee964b;--t5:#f95738;
+  --desktop:#083d77;--desktop-2:#052a53;
+  --surface:#ebebd3;--surface-2:#dedec1;--surface-3:#cecead;
+  --chrome-face:#e2e2c7;--edge-light:#ffffff;--edge-dark:#9c9c7e;--frame:#083d77;
+  --ink:#12253c;--ink-2:#3a5370;--ink-3:#5f7286;
+  --title-from:#083d77;--title-to:#0b5296;--on-title:#f4d35e;
+  --accent:#f95738;--on-accent:#12253c;--accent-2:#f4d35e;--on-accent-2:#12253c;
+  --hot:#ee964b;--on-hot:#12253c;
+  --ok:#3f7a4e;--on-ok:#ffffff;--bad:#d63a1c;--on-bad:#ffffff;--warn:#81620a;--on-warn:#ffffff;
+  --ok-text:#376a44;--bad-text:#b02f17;--warn-text:#775b09;
+  --link:#083d77;--link-hover:#b02f17;--glow:#f4d35e;
+}
+
+[data-theme="sage"]{
+  --t1:#3c493f;--t2:#7e8d85;--t3:#b3bfb8;--t4:#f0f7f4;--t5:#a2e3c4;
+  --desktop:#3c493f;--desktop-2:#2a332c;
+  --surface:#f0f7f4;--surface-2:#e2ebe6;--surface-3:#b3bfb8;
+  --chrome-face:#dde7e1;--edge-light:#ffffff;--edge-dark:#8b9a91;--frame:#3c493f;
+  --ink:#242c26;--ink-2:#424d46;--ink-3:#697870;
+  --title-from:#3c493f;--title-to:#5b6b60;--on-title:#ffffff;
+  --accent:#3c493f;--on-accent:#f0f7f4;--accent-2:#a2e3c4;--on-accent-2:#242c26;
+  --hot:#2f7d5c;--on-hot:#ffffff;
+  --ok:#3f7a52;--on-ok:#ffffff;--bad:#a83c33;--on-bad:#ffffff;--warn:#896a22;--on-warn:#ffffff;
+  --ok-text:#396f4b;--bad-text:#a83c33;--warn-text:#7d601f;
+  --link:#316b4d;--link-hover:#2a7052;--glow:#a2e3c4;
+}
+
+/* Semantic aliases — the names components should reach for. */
+:root{
+  --text-body:var(--ink);
+  --text-muted:var(--ink-2);
+  --text-faint:var(--ink-3);
+  --text-label:var(--ink-2);
+  --text-on-accent:var(--on-accent);
+  --text-ok:var(--ok-text);
+  --text-bad:var(--bad-text);
+  --text-warn:var(--warn-text);
+  --surface-page:var(--desktop);
+  --surface-card:var(--surface);
+  --surface-sunken:var(--surface-2);
+  --surface-raised:var(--chrome-face);
+  --border-hard:var(--frame);
+  --border-soft:var(--surface-3);
+  --focus-ring:var(--accent);
+  --selection-bg:var(--accent);
+  --selection-fg:var(--on-accent);
+}

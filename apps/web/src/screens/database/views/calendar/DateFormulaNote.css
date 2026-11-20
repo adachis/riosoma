@@ -1,0 +1,8 @@
+@layer rio.app {
+  .rio-date-formula-note {
+    margin: 0;
+    max-inline-size: 20rem;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+}

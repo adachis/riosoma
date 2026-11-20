@@ -1,0 +1,207 @@
+/* Brutalist Neo — colour system.
+   Twelve palettes. Every palette exposes the SAME contract, so a component
+   written against the semantic names works in all of them:
+
+     --nb-ink            near-black outline + primary text colour
+     --nb-ink-soft       secondary text
+     --nb-paper          page background (often saturated — this is the point)
+     --nb-surface        card / sheet background (usually pure white)
+     --nb-surface-alt    sunken or banded surface
+     --nb-primary        loudest action colour        + --nb-on-primary
+     --nb-secondary      supporting action colour     + --nb-on-secondary
+     --nb-accent         third voice / highlights     + --nb-on-accent
+     --nb-highlight      marker-pen / underline fill  + --nb-on-highlight
+     --nb-c1..--nb-c10   raw palette ramp for charts, stickers, confetti
+
+   Switch by setting data-nb-theme on <html> or any container:
+     <html data-nb-theme="voltage">
+   Palette 8 ("signal-jade") is the house default and lives on :root. */
+
+:root,
+[data-nb-theme="signal-jade"]{
+  --nb-theme-name:"Signal Jade" /* @kind other */;
+  --nb-c1:#00FDDC; --nb-c2:#2E5339; --nb-c3:#495F41; --nb-c4:#FF5666; --nb-c5:#FFCCC9;
+  --nb-c6:#00FDDC; --nb-c7:#2E5339; --nb-c8:#495F41; --nb-c9:#FF5666; --nb-c10:#FFCCC9;
+  --nb-ink:#16261B; --nb-ink-soft:#495F41;
+  --nb-paper:#E4FFF7; --nb-surface:#FFFFFF; --nb-surface-alt:#FFCCC9;
+  --nb-primary:#00FDDC; --nb-on-primary:#16261B;
+  --nb-secondary:#2E5339; --nb-on-secondary:#00FDDC;
+  --nb-accent:#FF5666; --nb-on-accent:#16261B;
+  --nb-highlight:#00FDDC; --nb-on-highlight:#16261B;
+}
+
+[data-nb-theme="spectrum"]{
+  --nb-theme-name:"Spectrum" /* @kind other */;
+  --nb-c1:#F94144; --nb-c2:#F3722C; --nb-c3:#F8961E; --nb-c4:#F9844A; --nb-c5:#F9C74F;
+  --nb-c6:#90BE6D; --nb-c7:#43AA8B; --nb-c8:#4D908E; --nb-c9:#577590; --nb-c10:#277DA1;
+  --nb-ink:#1C2B33; --nb-ink-soft:#577590;
+  --nb-paper:#FFF6E8; --nb-surface:#FFFFFF; --nb-surface-alt:#F9C74F;
+  --nb-primary:#D9393B; --nb-on-primary:#FFFFFF;
+  --nb-secondary:#277DA1; --nb-on-secondary:#FFFFFF;
+  --nb-accent:#90BE6D; --nb-on-accent:#1C2B33;
+  --nb-highlight:#F9C74F; --nb-on-highlight:#1C2B33;
+  --nb-success:#43AA8B; --nb-on-success:#1C2B33;
+  --nb-warning:#F8961E; --nb-on-warning:#1C2B33;
+  --nb-danger:#D9393B; --nb-on-danger:#FFFFFF;
+  --nb-info:#277DA1; --nb-on-info:#FFFFFF;
+}
+
+[data-nb-theme="midnight-gold"]{
+  --nb-theme-name:"Midnight Gold" /* @kind other */;
+  --nb-c1:#000814; --nb-c2:#001D3D; --nb-c3:#003566; --nb-c4:#FFC300; --nb-c5:#FFD60A;
+  --nb-c6:#001D3D; --nb-c7:#003566; --nb-c8:#FFC300; --nb-c9:#FFD60A; --nb-c10:#000814;
+  --nb-ink:#000814; --nb-ink-soft:#003566;
+  --nb-paper:#FFD60A; --nb-surface:#FFFFFF; --nb-surface-alt:#FFF3C4;
+  --nb-primary:#003566; --nb-on-primary:#FFD60A;
+  --nb-secondary:#FFC300; --nb-on-secondary:#000814;
+  --nb-accent:#001D3D; --nb-on-accent:#FFD60A;
+  --nb-highlight:#FFC300; --nb-on-highlight:#000814;
+  --nb-info:#003566; --nb-on-info:#FFD60A;
+  --nb-warning:#FFC300; --nb-on-warning:#000814;
+}
+
+[data-nb-theme="voltage"]{
+  --nb-theme-name:"Voltage" /* @kind other */;
+  --nb-c1:#390099; --nb-c2:#9E0059; --nb-c3:#FF0054; --nb-c4:#FF5400; --nb-c5:#FFBD00;
+  --nb-c6:#390099; --nb-c7:#9E0059; --nb-c8:#FF0054; --nb-c9:#FF5400; --nb-c10:#FFBD00;
+  --nb-ink:#16003D; --nb-ink-soft:#390099;
+  --nb-paper:#FFBD00; --nb-surface:#FFFFFF; --nb-surface-alt:#FFE9A8;
+  --nb-primary:#FF0054; --nb-on-primary:#16003D;
+  --nb-secondary:#390099; --nb-on-secondary:#FFBD00;
+  --nb-accent:#FF5400; --nb-on-accent:#16003D;
+  --nb-highlight:#FFBD00; --nb-on-highlight:#16003D;
+  --nb-danger:#FF0054; --nb-on-danger:#16003D;
+  --nb-warning:#FF5400; --nb-on-warning:#16003D;
+  --nb-info:#390099; --nb-on-info:#FFBD00;
+}
+
+[data-nb-theme="coral-slate"]{
+  --nb-theme-name:"Coral Slate" /* @kind other */;
+  --nb-c1:#E63946; --nb-c2:#F1FAEE; --nb-c3:#A8DADC; --nb-c4:#457B9D; --nb-c5:#1D3557;
+  --nb-c6:#E63946; --nb-c7:#A8DADC; --nb-c8:#457B9D; --nb-c9:#1D3557; --nb-c10:#F1FAEE;
+  --nb-ink:#1D3557; --nb-ink-soft:#427697;
+  --nb-paper:#F1FAEE; --nb-surface:#FFFFFF; --nb-surface-alt:#A8DADC;
+  --nb-primary:#D93642; --nb-on-primary:#FFFFFF;
+  --nb-secondary:#1D3557; --nb-on-secondary:#F1FAEE;
+  --nb-accent:#457B9D; --nb-on-accent:#FFFFFF;
+  --nb-highlight:#A8DADC; --nb-on-highlight:#1D3557;
+  --nb-danger:#D93642; --nb-on-danger:#FFFFFF;
+  --nb-info:#457B9D; --nb-on-info:#FFFFFF;
+}
+
+[data-nb-theme="sherbet"]{
+  --nb-theme-name:"Sherbet" /* @kind other */;
+  --nb-c1:#F6BD60; --nb-c2:#F7EDE2; --nb-c3:#F5CAC3; --nb-c4:#84A59D; --nb-c5:#F28482;
+  --nb-c6:#F6BD60; --nb-c7:#F5CAC3; --nb-c8:#84A59D; --nb-c9:#F28482; --nb-c10:#F7EDE2;
+  --nb-ink:#3D2E2A; --nb-ink-soft:#7A6660;
+  --nb-paper:#F7EDE2; --nb-surface:#FFFFFF; --nb-surface-alt:#F5CAC3;
+  --nb-primary:#F28482; --nb-on-primary:#3D2E2A;
+  --nb-secondary:#84A59D; --nb-on-secondary:#3D2E2A;
+  --nb-accent:#F6BD60; --nb-on-accent:#3D2E2A;
+  --nb-highlight:#F6BD60; --nb-on-highlight:#3D2E2A;
+  --nb-success:#84A59D; --nb-on-success:#3D2E2A;
+  --nb-danger:#F28482; --nb-on-danger:#3D2E2A;
+}
+
+[data-nb-theme="clay-ember"]{
+  --nb-theme-name:"Clay Ember" /* @kind other */;
+  --nb-c1:#233D4D; --nb-c2:#FE7F2D; --nb-c3:#FCCA46; --nb-c4:#A1C181; --nb-c5:#619B8A;
+  --nb-c6:#233D4D; --nb-c7:#FE7F2D; --nb-c8:#FCCA46; --nb-c9:#A1C181; --nb-c10:#619B8A;
+  --nb-ink:#233D4D; --nb-ink-soft:#4C6B7C;
+  --nb-paper:#FFF4DE; --nb-surface:#FFFFFF; --nb-surface-alt:#FCCA46;
+  --nb-primary:#FE8231; --nb-on-primary:#233D4D;
+  --nb-secondary:#507F71; --nb-on-secondary:#FFFFFF;
+  --nb-accent:#A1C181; --nb-on-accent:#233D4D;
+  --nb-highlight:#FCCA46; --nb-on-highlight:#233D4D;
+  --nb-success:#507F71; --nb-on-success:#FFFFFF;
+  --nb-warning:#FCCA46; --nb-on-warning:#233D4D;
+  --nb-danger:#FE8231; --nb-on-danger:#233D4D;
+}
+
+[data-nb-theme="mint-stack"]{
+  --nb-theme-name:"Mint Stack" /* @kind other */;
+  --nb-c1:#22577A; --nb-c2:#38A3A5; --nb-c3:#57CC99; --nb-c4:#80ED99; --nb-c5:#C7F9CC;
+  --nb-c6:#22577A; --nb-c7:#38A3A5; --nb-c8:#57CC99; --nb-c9:#80ED99; --nb-c10:#C7F9CC;
+  --nb-ink:#0B2B3F; --nb-ink-soft:#22577A;
+  --nb-paper:#C7F9CC; --nb-surface:#FFFFFF; --nb-surface-alt:#80ED99;
+  --nb-primary:#22577A; --nb-on-primary:#C7F9CC;
+  --nb-secondary:#38A3A5; --nb-on-secondary:#0B2B3F;
+  --nb-accent:#57CC99; --nb-on-accent:#0B2B3F;
+  --nb-highlight:#80ED99; --nb-on-highlight:#0B2B3F;
+  --nb-success:#57CC99; --nb-on-success:#0B2B3F;
+  --nb-info:#22577A; --nb-on-info:#C7F9CC;
+}
+
+[data-nb-theme="bubble-pop"]{
+  --nb-theme-name:"Bubble Pop" /* @kind other */;
+  --nb-c1:#70D6FF; --nb-c2:#FF70A6; --nb-c3:#FF9770; --nb-c4:#FFD670; --nb-c5:#70D6FF;
+  --nb-c6:#FF70A6; --nb-c7:#FF9770; --nb-c8:#FFD670; --nb-c9:#70D6FF; --nb-c10:#FF70A6;
+  --nb-ink:#1B1B22; --nb-ink-soft:#53535D;
+  --nb-paper:#70D6FF; --nb-surface:#FFFFFF; --nb-surface-alt:#FFD670;
+  --nb-primary:#FF70A6; --nb-on-primary:#1B1B22;
+  --nb-secondary:#FF9770; --nb-on-secondary:#1B1B22;
+  --nb-accent:#FFD670; --nb-on-accent:#1B1B22;
+  --nb-highlight:#FFD670; --nb-on-highlight:#1B1B22;
+  --nb-info:#70D6FF; --nb-on-info:#1B1B22;
+  --nb-danger:#FF70A6; --nb-on-danger:#1B1B22;
+}
+
+[data-nb-theme="reef-flare"]{
+  --nb-theme-name:"Reef Flare" /* @kind other */;
+  --nb-c1:#247BA0; --nb-c2:#70C1B3; --nb-c3:#B2DBBF; --nb-c4:#F3FFBD; --nb-c5:#FF1654;
+  --nb-c6:#247BA0; --nb-c7:#70C1B3; --nb-c8:#B2DBBF; --nb-c9:#F3FFBD; --nb-c10:#FF1654;
+  --nb-ink:#0E2B3A; --nb-ink-soft:#247A9F;
+  --nb-paper:#F3FFBD; --nb-surface:#FFFFFF; --nb-surface-alt:#B2DBBF;
+  --nb-primary:#E7144C; --nb-on-primary:#FFFFFF;
+  --nb-secondary:#247BA0; --nb-on-secondary:#FFFFFF;
+  --nb-accent:#70C1B3; --nb-on-accent:#0E2B3A;
+  --nb-highlight:#F3FFBD; --nb-on-highlight:#0E2B3A;
+  --nb-danger:#E7144C; --nb-on-danger:#FFFFFF;
+  --nb-info:#247BA0; --nb-on-info:#FFFFFF;
+}
+
+[data-nb-theme="harbor-flame"]{
+  --nb-theme-name:"Harbor Flame" /* @kind other */;
+  --nb-c1:#083D77; --nb-c2:#EBEBD3; --nb-c3:#F4D35E; --nb-c4:#EE964B; --nb-c5:#F95738;
+  --nb-c6:#083D77; --nb-c7:#F4D35E; --nb-c8:#EE964B; --nb-c9:#F95738; --nb-c10:#EBEBD3;
+  --nb-ink:#083D77; --nb-ink-soft:#3B6699;
+  --nb-paper:#EBEBD3; --nb-surface:#FFFFFF; --nb-surface-alt:#F4D35E;
+  --nb-primary:#CD482E; --nb-on-primary:#FFFFFF;
+  --nb-secondary:#083D77; --nb-on-secondary:#F4D35E;
+  --nb-accent:#EE964B; --nb-on-accent:#083D77;
+  --nb-highlight:#F4D35E; --nb-on-highlight:#083D77;
+  --nb-warning:#EE964B; --nb-on-warning:#083D77;
+  --nb-danger:#CD482E; --nb-on-danger:#FFFFFF;
+  --nb-info:#083D77; --nb-on-info:#F4D35E;
+}
+
+[data-nb-theme="sage-fog"]{
+  --nb-theme-name:"Sage Fog" /* @kind other */;
+  --nb-c1:#3C493F; --nb-c2:#7E8D85; --nb-c3:#B3BFB8; --nb-c4:#F0F7F4; --nb-c5:#A2E3C4;
+  --nb-c6:#3C493F; --nb-c7:#7E8D85; --nb-c8:#B3BFB8; --nb-c9:#A2E3C4; --nb-c10:#F0F7F4;
+  --nb-ink:#28312A; --nb-ink-soft:#5A6A5F;
+  --nb-paper:#F0F7F4; --nb-surface:#FFFFFF; --nb-surface-alt:#B3BFB8;
+  --nb-primary:#3C493F; --nb-on-primary:#A2E3C4;
+  --nb-secondary:#A2E3C4; --nb-on-secondary:#28312A;
+  --nb-accent:#8C9A92; --nb-on-accent:#28312A;
+  --nb-highlight:#A2E3C4; --nb-on-highlight:#28312A;
+  --nb-success:#A2E3C4; --nb-on-success:#28312A;
+}
+
+/* Status colours: loud defaults that survive every paper above. A palette
+   overrides them when it owns a better hue (see the theme blocks). */
+:root{
+  --nb-success:#2FD98A; --nb-on-success:#0B2B18;
+  --nb-warning:#FFC93C; --nb-on-warning:#2B1F00;
+  --nb-danger:#DB3343;  --nb-on-danger:#FFFFFF;
+  --nb-info:#3374D5;    --nb-on-info:#FFFFFF;
+
+  /* fixed neutrals — never themed, used for outlines on photography */
+  --nb-black:#000000;
+  --nb-white:#FFFFFF;
+  --nb-shadow-ink:var(--nb-ink);
+
+  /* transparency — used sparingly, see readme VISUAL FOUNDATIONS */
+  --nb-scrim:color-mix(in srgb,var(--nb-ink) 62%,transparent);
+  --nb-veil:color-mix(in srgb,var(--nb-ink) 12%,transparent);
+}

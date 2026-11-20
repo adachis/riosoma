@@ -1,0 +1,92 @@
+@layer rio.app {
+  .rio-update-notice {
+    color: var(--rio-aa-text-muted);
+    white-space: nowrap;
+  }
+  .rio-update-notice--security {
+    color: var(--rio-aa-on-warning);
+    background: var(--rio-warning);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-update-notice__popover {
+    inline-size: min(28rem, calc(100vi - var(--rio-space-4) * 2));
+  }
+  .rio-update-notice__dialog {
+    display: grid;
+    gap: var(--rio-space-2);
+    max-block-size: min(32rem, 70dvh);
+    overflow-y: auto;
+    padding: var(--rio-space-3);
+    outline: none;
+  }
+  .rio-update-notice__warning {
+    color: var(--rio-aa-warning-text);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-update-notice__notes {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  .rio-update-notice__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+  }
+  .rio-update-notice__open {
+    color: var(--rio-aa-link);
+  }
+
+  .rio-updates,
+  .rio-telemetry {
+    display: grid;
+    gap: var(--rio-space-4);
+    max-inline-size: 48rem;
+  }
+  .rio-updates__check {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-3);
+  }
+  .rio-updates__release {
+    display: grid;
+    gap: var(--rio-space-1);
+  }
+  .rio-updates__date {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-updates__security {
+    padding-inline: var(--rio-space-2);
+    border-radius: var(--rio-radius);
+    color: var(--rio-aa-on-warning);
+    background: var(--rio-warning);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-updates__action,
+  .rio-updates__progress,
+  .rio-updates__steps {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  .rio-updates__commands,
+  .rio-telemetry__payload {
+    margin: 0;
+    padding: var(--rio-space-3);
+    overflow-x: auto;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-telemetry__payload {
+    max-block-size: 24rem;
+    overflow-y: auto;
+  }
+}

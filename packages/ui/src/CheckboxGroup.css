@@ -1,0 +1,24 @@
+@layer rio.components {
+  .rio-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-checkbox-group__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+  }
+
+  .rio-checkbox-group__items[data-orientation='horizontal'] {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--rio-space-1) var(--rio-space-4);
+  }
+
+  /* Individual controls show the disabled state.  Group labels and help stay readable. */
+  .rio-checkbox-group[data-disabled] {
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,36 @@
+/* JMDS base palette — flat print inks. Every value is a solid, unmixed
+   screenprint/riso ink laid over an uncoated paper neutral. No gradients live
+   in this file, and none should be built from these values. */
+:root{
+  /* Paper & ink neutrals (warm, uncoated) */
+  --kinari-0:#FCF8F0;   /* raw unbleached paper */
+  --kinari-1:#F4EDDF;
+  --kinari-2:#E7DCC6;
+  --kinari-3:#D2C4A8;
+  --kinari-4:#A9997C;
+  --sumi-1:#6B655C;     /* dilute ink */
+  --sumi-2:#443F38;
+  --sumi-3:#26221C;
+  --sumi-4:#141109;     /* full sumi black */
+  --white-pure:#FFFFFF;
+
+  /* Chromatic inks */
+  --vermilion:#E13C1E;  /* hinomaru red */
+  --crimson:#CC1B2C;
+  --coral:#F4715A;
+  --beni:#FF2E7E;       /* hot magenta */
+  --fluoro-pink:#FF4D8D;/* riso fluorescent pink */
+  --sakura:#F2C9CE;
+  --mustard:#E8B22A;
+  --amber:#F29018;
+  --kihada:#F7DE7A;
+  --jade:#0E8A5F;
+  --matcha:#7FBF6A;
+  --turquoise:#22B0A6;
+  --mizu:#7FD4DC;
+  --cyan:#1795C4;
+  --gunjo:#1F3A93;      /* ultramarine */
+  --ai:#16305C;         /* indigo */
+  --murasaki:#8C5FC7;   /* violet */
+  --fuji:#B9A7DE;
+}

@@ -1,0 +1,14 @@
+:root{
+  /* Deco casts hard shadows, not soft ones. Blur is reserved for scrims. */
+  --shadow-cast-sm:3px 3px 0 rgba(0,0,0,.30);
+  --shadow-cast:6px 6px 0 rgba(0,0,0,.34);
+  --shadow-cast-lg:12px 12px 0 rgba(0,0,0,.38);
+  --shadow-panel:0 20px 44px -22px rgba(0,0,0,.62);
+  --shadow-float:0 34px 70px -28px rgba(0,0,0,.7);
+  --bevel:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -1px 0 rgba(0,0,0,.34); /* @kind shadow */
+  --bevel-inset:inset 0 2px 5px rgba(0,0,0,.35),inset 0 -1px 0 rgba(255,255,255,.07); /* @kind shadow */
+  --gild:0 0 0 1px var(--line-strong); /* @kind shadow */
+  --gild-glow:0 0 0 1px var(--line-strong),0 0 22px -6px var(--accent); /* @kind shadow */
+  --blur-scrim:blur(8px) saturate(1.1); /* @kind other */
+  --blur-veil:blur(2px); /* @kind other */
+}

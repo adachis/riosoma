@@ -1,0 +1,84 @@
+/* JMDS PLATFORM TOKENS
+   The core scale is shared; these add what each medium needs on top. Colour,
+   type family and effect tokens never fork per platform — a scheme looks the
+   same on a phone, a window, a HUD and a printed sheet. */
+:root{
+  /* ---- MOBILE ---- */
+  --mobile-touch:44px;          /* absolute minimum hit target */
+  --mobile-touch-lg:56px;
+  --mobile-appbar:52px;
+  --mobile-tabbar:58px;
+  --mobile-gutter:16px;         /* screen edge margin */
+  --mobile-gutter-tight:12px;
+  --mobile-row:56px;            /* list row height */
+  --mobile-row-lg:72px;
+  --mobile-sheet-grab:36px;
+  --safe-top:env(safe-area-inset-top,0px); /* @kind spacing */
+  --safe-bottom:env(safe-area-inset-bottom,0px); /* @kind spacing */
+  --mobile-text-body:16px;      /* never below 16 on mobile body copy */
+  --mobile-text-title:22px;
+  --mobile-text-display:34px;
+
+  /* ---- DESKTOP ---- */
+  --desk-titlebar:34px;
+  --desk-menubar:28px;
+  --desk-toolbar:40px;
+  --desk-statusbar:24px;
+  --desk-sidebar:228px;
+  --desk-sidebar-narrow:180px;
+  --desk-inspector:288px;
+  --desk-row:26px;              /* dense table / tree row */
+  --desk-row-lg:32px;
+  --desk-control:24px;          /* compact control height */
+  --desk-text-ui:13px;
+  --desk-text-dense:12px;
+  --desk-gutter:12px;
+
+  /* ---- GAME UI ---- */
+  --hud-gutter:28px;            /* HUD inset from screen edge */
+  --hud-bracket:14px;           /* corner bracket arm length */
+  --hud-bracket-weight:3px;
+  --hud-panel-bg:color-mix(in srgb,var(--bg-inverse) 88%,transparent); /* @kind color */
+  --hud-panel-bg-solid:var(--bg-inverse); /* @kind color */
+  --hud-meter-height:12px;
+  --hud-meter-height-sm:7px;
+  --hud-slot:52px;              /* ability / hotbar slot */
+  --hud-slot-sm:40px;
+  --hud-scanline:repeating-linear-gradient(0deg,rgba(0,0,0,0.18) 0 1px,transparent 1px 3px); /* @kind other */
+  --hud-text-label:12px;
+  --hud-text-value:20px;
+  --hud-text-callout:44px;
+  --dur-hud:90ms; /* @kind other */
+
+  /* ---- PRINT ---- */
+  --page-letter-w:8.5in; /* @kind spacing */
+  --page-letter-h:11in; /* @kind spacing */
+  --page-a4-w:210mm; /* @kind spacing */
+  --page-a4-h:297mm; /* @kind spacing */
+  --page-tabloid-w:11in; /* @kind spacing */
+  --page-tabloid-h:17in; /* @kind spacing */
+  --page-b2-w:515mm; /* @kind spacing */
+  --page-b2-h:728mm; /* @kind spacing */
+  --print-margin:16mm; /* @kind spacing */
+  --print-margin-wide:24mm; /* @kind spacing */
+  --print-bleed:3mm; /* @kind spacing */
+  --print-crop:6mm; /* @kind spacing */
+  --print-gutter:6mm; /* @kind spacing */
+  --print-baseline:13pt; /* @kind spacing */        /* baseline grid step */
+  --print-text-body:10.5pt;
+  --print-text-caption:7.5pt;
+  --print-text-folio:7pt;
+  --print-text-deck:15pt;
+  --print-text-head:30pt;
+  --print-text-display:64pt;
+  --print-measure:62ch; /* @kind spacing */
+  --print-rule-hair:0.5pt; /* @kind spacing */
+  --print-rule:1.5pt; /* @kind spacing */
+}
+
+/* Screen-preview chrome for print components. Real printing strips this. */
+@media print{
+  .jmds-desk{background:none!important;padding:0!important}
+  .jmds-sheet{box-shadow:none!important;margin:0!important}
+  .jmds-crop{display:none!important}
+}

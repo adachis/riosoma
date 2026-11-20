@@ -1,0 +1,79 @@
+/* Japandi — typography.
+   Three voices. Display serif for editorial weight, UI sans for function,
+   mono for data and the tiny wide-tracked labels that organise a page. */
+:root {
+  /* Scale — 1.25 minor third, tuned by hand at the small end */
+  --text-3xs: 0.625rem;  /* 10px — mono eyebrow only */
+  --text-2xs: 0.6875rem; /* 11px */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.8125rem;  /* 13px */
+  --text-base: 0.9375rem;/* 15px — UI default */
+  --text-md: 1.0625rem;  /* 17px — body copy default */
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.375rem;
+  --text-4xl: 3rem;
+  --text-5xl: 3.875rem;
+  --text-6xl: 5rem;
+  --text-7xl: 6.75rem;
+
+  --weight-thin: 200;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --leading-tight: 1.06;
+  --leading-snug: 1.18;
+  --leading-normal: 1.35;
+  --leading-relaxed: 1.62;
+  --leading-loose: 1.8;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.14em;
+  --tracking-widest: 0.26em;
+
+  /* ── Semantic type roles ───────────────────────────────────────────── */
+  --type-hero-family: var(--font-display);
+  --type-hero-size: var(--text-6xl);
+  --type-hero-weight: var(--weight-regular);
+  --type-hero-leading: var(--leading-tight);
+  --type-hero-tracking: var(--tracking-tight);
+
+  --type-display-family: var(--font-display);
+  --type-display-size: var(--text-4xl);
+
+  --type-title-family: var(--font-display);
+  --type-title-size: var(--text-2xl);
+
+  --type-heading-family: var(--font-ui);
+  --type-heading-size: var(--text-lg);
+  --type-heading-weight: var(--weight-medium);
+
+  --type-body-family: var(--font-display);
+  --type-body-size: var(--text-md);
+  --type-body-leading: var(--leading-relaxed);
+
+  --type-ui-family: var(--font-ui);
+  --type-ui-size: var(--text-base);
+  --type-ui-weight: var(--weight-regular);
+
+  --type-label-family: var(--font-ui);
+  --type-label-size: var(--text-2xs);
+  --type-label-weight: var(--weight-medium);
+  --type-label-tracking: var(--tracking-wider);
+  --type-label-transform: uppercase;
+
+  --type-eyebrow-family: var(--font-mono);
+  --type-eyebrow-size: var(--text-3xs);
+  --type-eyebrow-tracking: var(--tracking-wide);
+
+  --type-caption-family: var(--font-ui);
+  --type-caption-size: var(--text-xs);
+
+  --type-data-family: var(--font-mono);
+  --type-data-size: var(--text-xs);
+}

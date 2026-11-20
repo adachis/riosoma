@@ -1,0 +1,9 @@
+/* Licensed display faces supplied with the brand asset library. */
+@font-face{font-family:"Static Surge";src:url("../assets/fonts/StaticSurge.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Neon Sugarez";src:url("../assets/fonts/NeonSugarez.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Mono Circuit";src:url("../assets/fonts/MonoCircuit.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Pixelvolt";src:url("../assets/fonts/Pixelvolt.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Playback";src:url("../assets/fonts/Playback.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Binko";src:url("../assets/fonts/Binko.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Redsun";src:url("../assets/fonts/Redsun.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Vapor Synth";src:url("../assets/fonts/VaporSynth.ttf") format("truetype");font-weight:400;font-display:swap}

@@ -1,0 +1,58 @@
+@layer rio.app {
+  .rio-permissions,
+  .rio-permissions__section,
+  .rio-permissions__audience,
+  .rio-permissions__rule {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-permissions__section + .rio-permissions__section {
+    padding-block-start: var(--rio-space-4);
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  .rio-permissions__people,
+  .rio-permissions__rules {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin-block: 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .rio-permissions__person {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-permissions__rule {
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+
+  .rio-permissions__rule-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+  }
+
+  /* Marks on restricted and locked fields' column headers, for people who can see them */
+  .rio-permission-mark {
+    display: inline-flex;
+    flex: none;
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* Linked records a rule hides, in place of their names */
+  .rio-hidden-link {
+    font-style: italic;
+    color: var(--rio-aa-text-muted);
+  }
+}

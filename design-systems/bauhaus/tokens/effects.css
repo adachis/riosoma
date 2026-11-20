@@ -1,0 +1,61 @@
+/* ============================================================
+   EFFECTS — borders, radii, elevation, motion.
+
+   Two rules define the whole look:
+   1. RIGHT ANGLES. Radius is 0 everywhere except deliberate
+      capsules and true circles. There is no 4px/8px "soft"
+      radius in this system.
+   2. HARD SHADOW. Elevation is a solid offset block in ink,
+      never a blur. Cards sit on the page like printed stock.
+      The shadow, focus and scrim tokens themselves live in
+      derived.css, because they depend on the active palette.
+   ============================================================ */
+
+:root{
+  /* --- radii ---------------------------------------------- */
+  --radius-none:0px;
+  --radius-pill:999px;      /* capsule buttons, tags, chips */
+  --radius-circle:50%;      /* dots, avatars, quadrant fills */
+  --radius-quadrant:100% 0 0 0;   /* the quarter-circle motif */
+  --radius-arch:100% 100% 0 0;    /* the arch / semicircle motif */
+
+  /* --- border widths -------------------------------------- */
+  --border-hair:1px;
+  --border-thin:1.5px;
+  --border-base:2px;        /* default component keyline */
+  --border-thick:3px;
+  --border-heavy:6px;       /* poster rules, section dividers */
+  --border-slab:12px;       /* full-bleed colour bands */
+
+  /* --- elevation: solid offset blocks --------------------- */
+  /* --- elevation and focus live in derived.css ------------- */
+  --focus-offset:2px;/* @kind other */
+
+  /* --- motion: mechanical, no bounce, no spring ----------- */
+  --dur-instant:80ms;/* @kind other */
+  --dur-fast:140ms;/* @kind other */
+  --dur-base:220ms;/* @kind other */
+  --dur-slow:380ms;/* @kind other */
+  --dur-curtain:600ms;/* @kind other */
+  --ease-mech:cubic-bezier(0.3,0,0.2,1);/* @kind other */      /* default */
+  --ease-out:cubic-bezier(0.16,1,0.3,1);/* @kind other */      /* entrances */
+  --ease-in:cubic-bezier(0.7,0,0.84,0);/* @kind other */       /* exits */
+  --ease-linear:linear;/* @kind other */                        /* rotation, marquee, loaders */
+  --transition-control:background-color var(--dur-fast) var(--ease-mech),color var(--dur-fast) var(--ease-mech),box-shadow var(--dur-fast) var(--ease-mech),transform var(--dur-fast) var(--ease-mech);/* @kind other */
+
+  /* --- press physics: the block pushes into the page ------ */
+  --lift-hover:translate(-2px,-2px);/* @kind other */
+  --lift-press:translate(2px,2px);/* @kind other */
+
+  /* --- blur (rare, overlays only; scrims live in derived.css) */
+  --blur-overlay:blur(3px);/* @kind other */
+
+  /* --- z layers ------------------------------------------- */
+  --z-base:0;/* @kind other */--z-raised:10;/* @kind other */--z-sticky:100;/* @kind other */--z-overlay:800;/* @kind other */
+  --z-modal:900;/* @kind other */--z-toast:1000;/* @kind other */--z-tooltip:1100;/* @kind other */
+}
+
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-instant:0ms;/* @kind other */--dur-fast:0ms;/* @kind other */--dur-base:0ms;/* @kind other */--dur-slow:0ms;/* @kind other */--dur-curtain:0ms;/* @kind other */
+    --lift-hover:none;/* @kind other */--lift-press:none;/* @kind other */}
+}

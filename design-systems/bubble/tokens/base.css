@@ -1,0 +1,13 @@
+/* Minimal element defaults. Bubble ships tokens + components, not a reset framework. */
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text-body);font-family:var(--font-text);font-size:var(--body);font-weight:var(--body-weight);line-height:var(--body-leading);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4,h5{font-family:var(--font-display);font-weight:var(--heading-weight);line-height:var(--heading-leading);letter-spacing:var(--heading-tracking);margin:0}
+h1{font-size:var(--h1)}h2{font-size:var(--h2)}h3{font-size:var(--h3)}h4{font-size:var(--h4)}
+p{margin:0}
+a{color:var(--text-body);text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:var(--accent)}
+a:hover{color:var(--accent)}
+code,kbd,pre{font-family:var(--font-mono)}
+::selection{background:var(--accent);color:var(--text-on-accent)}
+:focus-visible{outline:3px solid var(--focus-ring);outline-offset:2px}
+.bubble-eyebrow{font-family:var(--font-text);font-size:var(--eyebrow);font-weight:800;letter-spacing:var(--eyebrow-tracking);text-transform:uppercase}
+.bubble-display{font-family:var(--font-display);font-weight:var(--display-weight);letter-spacing:var(--display-tracking);line-height:var(--display-leading);text-transform:uppercase}

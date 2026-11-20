@@ -1,0 +1,42 @@
+/* Spacing ladder. Mirrors the source templates' 5px-step utility scale
+   rather than a 4/8 grid — do not snap these to powers of two. */
+:root {
+  --sp-1: 5px; /* @kind spacing */
+  --sp-2: 10px; /* @kind spacing */
+  --sp-3: 12px; /* @kind spacing */
+  --sp-4: 15px; /* @kind spacing */
+  --sp-5: 20px; /* @kind spacing */
+  --sp-6: 25px; /* @kind spacing */
+  --sp-7: 30px; /* @kind spacing */
+  --sp-8: 35px; /* @kind spacing */
+  --sp-9: 40px; /* @kind spacing */
+  --sp-10: 45px; /* @kind spacing */
+  --sp-11: 50px; /* @kind spacing */
+  --sp-12: 60px; /* @kind spacing */
+  --sp-13: 70px; /* @kind spacing */
+  --sp-14: 80px; /* @kind spacing */
+  --sp-15: 90px; /* @kind spacing */
+  --sp-16: 100px; /* @kind spacing */
+  --sp-17: 110px; /* @kind spacing */
+  --sp-18: 130px; /* @kind spacing */
+  --sp-19: 150px; /* @kind spacing */
+
+  /* Layout */
+  --container-max: 1200px; /* @kind spacing */
+  --container-narrow: 970px; /* @kind spacing */
+  --container-wide: 1440px; /* @kind spacing */
+  --gutter: 15px; /* @kind spacing */
+  --section-pad-y: 130px; /* @kind spacing */
+  --section-pad-y-hero: 150px; /* @kind spacing */
+  --page-pad-x: 92px;   /* wide-screen edge inset used by full-bleed layouts */
+
+  /* Component internals */
+  --pad-panel: 45px; /* @kind spacing */
+  --pad-panel-tight: 30px; /* @kind spacing */
+  --pad-card: 24px; /* @kind spacing */
+  --pad-control-x: 34px; /* @kind spacing */
+  --pad-control-y: 16px; /* @kind spacing */
+  --control-h-lg: 60px; /* @kind spacing */
+  --control-h: 50px; /* @kind spacing */
+  --control-h-sm: 42px; /* @kind spacing */
+}

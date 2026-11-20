@@ -1,0 +1,75 @@
+@layer rio.app {
+  .rio-setup {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--rio-space-4);
+    inline-size: min(100%, 560px);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-setup__brand {
+    color: var(--rio-text);
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-xl);
+    font-weight: var(--rio-weight-bold);
+  }
+
+  .rio-setup__step {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-form-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 120px;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-diagnostics {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-sunken);
+    list-style: none;
+  }
+
+  .rio-diagnostics__step {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--rio-space-2);
+    align-items: start;
+  }
+
+  .rio-diagnostics__icon {
+    margin-block-start: 3px;
+  }
+
+  .rio-diagnostics__step[data-status='ok'] .rio-diagnostics__icon {
+    color: var(--rio-aa-success-text, var(--rio-success));
+  }
+
+  .rio-diagnostics__step[data-status='warn'] .rio-diagnostics__icon {
+    color: var(--rio-aa-warning-text, var(--rio-warning));
+  }
+
+  .rio-diagnostics__step[data-status='fail'] .rio-diagnostics__icon {
+    color: var(--rio-aa-danger-text, var(--rio-danger));
+  }
+
+  .rio-diagnostics__step[data-status='skipped'] .rio-diagnostics__icon {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-diagnostics__fix {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  @media (max-width: 480px) {
+    .rio-form-row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}

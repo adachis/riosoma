@@ -1,0 +1,326 @@
+name: CI
+
+on:
+  push:
+    branches: [dev, uat, main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  # Pull request runs are keyed by number.  A run for a pull request that is already merged gets the base
+  # branch as its ref, and would otherwise cancel that branch's post-merge run.
+  group: ci-${{ github.event.pull_request.number && format('pr-{0}', github.event.pull_request.number) || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  TURBO_TELEMETRY_DISABLED: '1'
+  DO_NOT_TRACK: '1'
+  RIOSOMA_LOCALES: ${{ vars.RIOSOMA_LOCALES || 'en-US' }}
+
+jobs:
+  hygiene:
+    runs-on: ${{ vars.RIOSOMA_RUNNER || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: runner.environment == 'github-hosted'
+        with:
+          node-version: '24'
+      - name: Install pnpm on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: npm install --global pnpm@11.22.0 --no-audit --no-fund
+      - name: Private hygiene scan
+        if: runner.environment == 'self-hosted'
+        run: python3 "$HOME/riosoma-ci/scan.py" --tree .
+
+      - name: Check every workflow
+        run: |
+          GOBIN="$RUNNER_TEMP/workflow-bin" go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.7
+          "$RUNNER_TEMP/workflow-bin/actionlint" -shellcheck= -pyflakes= .github/workflows/*.yml
+
+  check:
+    runs-on: ${{ vars.RIOSOMA_RUNNER || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: runner.environment == 'github-hosted'
+        with:
+          node-version: '24'
+      - name: Install pnpm on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: npm install --global pnpm@11.22.0 --no-audit --no-fund
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Install PostgreSQL 18 on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: bash tools/ci/install-hosted.sh postgres18
+      - name: Build, lint, and typecheck
+        run: pnpm turbo run build lint typecheck --concurrency=2
+      # One package at a time with three workers each: every package's
+      # tests at once start about 70 workers, and the million-row timing test then misses its budget.
+      - name: Test
+        run: pnpm turbo run test --concurrency=1 -- --maxWorkers=3
+        env:
+          RIOSOMA_TEST_RETRY: '1'
+      # The hub and the n8n node keep their own lockfiles outside the workspace, so Turborepo doesn't
+      # reach them.  Each script installs its folder and typechecks, lints, builds, and tests it.
+      - name: Hub and n8n node
+        run: pnpm hub:test && pnpm n8n:test
+      - name: Formatting
+        run: pnpm format:check
+      # The settings reference is generated from the server's settings schema.
+      - name: Settings reference is current
+        run: pnpm settings:check
+      # The app catalog that clients read is generated from the connector presets.
+      - name: App catalog is current
+        run: pnpm apps:check
+      # Production builds show only what the catalogs hold, so every string must be extracted.
+      - name: Message catalogs are current
+        run: |
+          pnpm --filter @riosoma/web run i18n:extract
+          git diff --exit-code -I 'POT-Creation-Date' -- apps/web/src/locales
+      # The first releases ship in English.  Validate catalogs while translations use source fallbacks.
+      - name: Validate message catalogs
+        run: node tools/i18n_check.mjs --allow-missing
+      # Release completeness follows the same locale list as the production web build.
+      - name: Every language is complete
+        if: github.ref == 'refs/heads/main'
+        run: node tools/i18n_check.mjs --enabled
+
+  # The check job runs the database tests on the newest PostgreSQL on the runner (18); this one
+  # repeats them on 16, so both ends of the supported range are covered on every push.
+  # Both runners share one host, and two server test suites at once starve the timing tests and let one
+  # job's test servers answer the other's connections, so the database tests wait for the check job.
+  postgres16:
+    needs: check
+    runs-on: ${{ vars.RIOSOMA_RUNNER || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: runner.environment == 'github-hosted'
+        with:
+          node-version: '24'
+      - name: Install pnpm on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: npm install --global pnpm@11.22.0 --no-audit --no-fund
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      # One server test checks the built output for environment reads, so build before testing.
+      - name: Build the server
+        run: pnpm turbo run build --filter=@riosoma/server...
+      - name: Select PostgreSQL 16
+        run: |
+          if [ "$RUNNER_ENVIRONMENT" = github-hosted ]; then
+            bash tools/ci/install-hosted.sh postgres16
+          else
+            if [ "$RUNNER_OS" = macOS ]; then
+              echo 'RIOSOMA_PG_BIN=/opt/homebrew/opt/postgresql@16/bin' >> "$GITHUB_ENV"
+            else
+              echo 'RIOSOMA_PG_BIN=/usr/lib/postgresql/16/bin' >> "$GITHUB_ENV"
+            fi
+          fi
+      - name: Database and server tests on PostgreSQL 16
+        run: pnpm turbo run test --force --filter=@riosoma/db --filter=@riosoma/server -- --maxWorkers=3
+
+  security:
+    runs-on: ${{ vars.RIOSOMA_RUNNER || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: runner.environment == 'github-hosted'
+        with:
+          node-version: '24'
+      - name: Install pnpm on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: npm install --global pnpm@11.22.0 --no-audit --no-fund
+      - name: Install security tools on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: bash tools/ci/install-hosted.sh security
+      - name: Static analysis
+        run: semgrep scan --config p/typescript --config p/nodejs --config p/secrets --metrics=off --error --quiet apps packages
+      # An advisory blocks when it ships in the server image or the web bundle at moderate severity or
+      # above, or when a pull request adds it.  Every other advisory gets a dated issue from the
+      # advisory-issues job.  See docs/developer/dependencies.md.
+      - name: Known vulnerabilities in dependencies
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          python3 -m unittest discover -s tools/ci -p 'test_*.py'
+          python3 tools/ci/check_advisory_ignores.py
+          bash tools/ci/scan_advisories.sh . "$RUNNER_TEMP/advisories.json"
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+            bash tools/ci/base_lockfiles.sh "$BASE_REF" "$RUNNER_TEMP/base"
+            bash tools/ci/scan_advisories.sh "$RUNNER_TEMP/base" "$RUNNER_TEMP/base-advisories.json"
+            python3 tools/ci/advisory_gate.py --scan "$RUNNER_TEMP/advisories.json" \
+              --base-scan "$RUNNER_TEMP/base-advisories.json" --base-root "$RUNNER_TEMP/base"
+          else
+            python3 tools/ci/advisory_gate.py --scan "$RUNNER_TEMP/advisories.json"
+          fi
+      - name: Every direct dependency is used and has a reason
+        run: python3 tools/ci/check_dependencies.py
+      - name: Secrets in the tree
+        run: gitleaks dir --redact --no-banner .
+
+  # Opens, updates, and closes one issue per advisory that does not block, with its due date.
+  advisory-issues:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
+    concurrency:
+      group: dependency-advisory-issues
+      cancel-in-progress: false
+    runs-on: ${{ vars.RIOSOMA_RUNNER || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+      issues: write
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install the scanner on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: bash tools/ci/install-hosted.sh osv-scanner
+      # The security job decides whether the push passes, so this job only keeps the issues current.
+      - name: Advisory issues
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          bash tools/ci/scan_advisories.sh . "$RUNNER_TEMP/advisories.json"
+          python3 tools/ci/advisory_gate.py --scan "$RUNNER_TEMP/advisories.json" --write-issues --exit-zero
+
+  # Keeps one comment on the pull request with the packages its lockfile changes add and remove.
+  dependency-changes:
+    if: github.event_name == 'pull_request'
+    runs-on: ${{ vars.RIOSOMA_RUNNER || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+      pull-requests: write
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Dependency changes
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          bash tools/ci/base_lockfiles.sh "$BASE_REF" "$RUNNER_TEMP/base"
+          python3 tools/ci/dependency_changes.py --base-root "$RUNNER_TEMP/base" --post \
+            --lockfile pnpm-lock.yaml --lockfile integrations/zapier/pnpm-lock.yaml \
+            --lockfile apps/hub/pnpm-lock.yaml --lockfile integrations/n8n/pnpm-lock.yaml
+
+  e2e:
+    needs: postgres16
+    runs-on: ${{ vars.RIOSOMA_RUNNER || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: runner.environment == 'github-hosted'
+        with:
+          node-version: '24'
+      - name: Install pnpm on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: npm install --global pnpm@11.22.0 --no-audit --no-fund
+      - name: Install dependencies and the browser
+        run: |
+          pnpm install --frozen-lockfile
+          if [ "$RUNNER_ENVIRONMENT" = github-hosted ]; then
+            bash tools/ci/install-hosted.sh browser
+          else
+            pnpm exec playwright install --only-shell chromium
+          fi
+        timeout-minutes: 10
+        # Jobs of one run can land on different self-hosted machines, and each machine keeps its own browser
+        # cache, so every browser job installs on the machine it runs on.  The runner is a background service,
+        # and the cleanup of unused browsers follows install links onto an external volume it may not read,
+        # which blocks on a permission prompt.
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_GC: '1'
+      - name: Install PostgreSQL 18 on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: bash tools/ci/install-hosted.sh postgres18
+      - name: Theme assets
+        run: |
+          if [ "$RUNNER_ENVIRONMENT" = self-hosted ]; then
+            rsync -a "$HOME/riosoma-ci/theme-assets/" themes/
+          else
+            version=$(node --input-type=module -e "import {readFileSync} from 'node:fs'; console.log(JSON.parse(readFileSync('package.json', 'utf8')).version)")
+            node tools/release/fetch-theme-assets.mjs "$version"
+          fi
+      - name: Build
+        # Browser coverage includes every language and both layout test locales.
+        run: pnpm turbo run build --filter=!@riosoma/web && pnpm --filter @riosoma/web exec vite build --mode test
+      # Every push gets the journeys a person meets first, in one browser: starting up, the grid,
+      # views, records and files, home and sharing, joined and synced tables, a dashboard, an
+      # automation, a public form, a published site, and the public demo.  The whole suite in three
+      # browsers takes hours, so it runs in the nightly workflow.
+      - name: Browser smoke tests
+        run: pnpm --filter @riosoma/e2e e2e:smoke
+      - name: Keep the report on the runner
+        if: always()
+        continue-on-error: true
+        run: python3 tools/ci/keep_report.py apps/e2e/playwright-report "ci-${{ github.run_id }}-${{ github.run_attempt }}"
+      - name: Keep the report when tests fail
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: playwright-report
+          path: apps/e2e/playwright-report
+          retention-days: 7
+
+  themes:
+    runs-on: ${{ vars.RIOSOMA_RUNNER || 'ubuntu-latest' }}
+    permissions:
+      contents: read
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: runner.environment == 'github-hosted'
+        with:
+          node-version: '24'
+      - name: Install pnpm on hosted runners
+        if: runner.environment == 'github-hosted'
+        run: npm install --global pnpm@11.22.0 --no-audit --no-fund
+      - name: Install dependencies and the browser
+        run: |
+          pnpm install --frozen-lockfile
+          if [ "$RUNNER_ENVIRONMENT" = github-hosted ]; then
+            bash tools/ci/install-hosted.sh browser
+          else
+            pnpm exec playwright install --only-shell chromium
+          fi
+        timeout-minutes: 10
+        # Jobs of one run can land on different self-hosted machines, and each machine keeps its own browser
+        # cache, so every browser job installs on the machine it runs on.  The runner is a background service,
+        # and the cleanup of unused browsers follows install links onto an external volume it may not read,
+        # which blocks on a permission prompt.
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_GC: '1'
+      - name: Theme assets
+        run: |
+          if [ "$RUNNER_ENVIRONMENT" = self-hosted ]; then
+            rsync -a "$HOME/riosoma-ci/theme-assets/" themes/
+          else
+            version=$(node --input-type=module -e "import {readFileSync} from 'node:fs'; console.log(JSON.parse(readFileSync('package.json', 'utf8')).version)")
+            node tools/release/fetch-theme-assets.mjs "$version"
+          fi
+      - name: Build and verify every theme and color scheme
+        run: python3 tools/build_themes.py
+      - name: Generated theme files match the committed ones
+        run: git diff --exit-code -- themes/

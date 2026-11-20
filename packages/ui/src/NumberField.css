@@ -1,0 +1,38 @@
+@layer rio.components {
+  /* The stepper column is flush with the frame's inline end, so the frame hands its trailing
+     padding over to it and the two share one corner. */
+  .rio-number-field .rio-field__control {
+    padding-inline-end: 0;
+  }
+
+  .rio-number-field__steps {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    flex: none;
+    align-self: stretch;
+    inline-size: var(--rio-space-6);
+    border-inline-start: 1px solid var(--rio-border);
+    border-start-end-radius: max(0px, calc(var(--rio-radius) - 1px));
+    border-end-end-radius: max(0px, calc(var(--rio-radius) - 1px));
+    overflow: hidden;
+  }
+
+  /* Both steppers are always there, only unavailable: the column keeps its width at every bound. */
+  .rio-number-field .rio-field__action {
+    inline-size: 100%;
+    border-radius: 0;
+  }
+  @media (max-width: 767px) {
+    .rio-number-field__steps {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+      inline-size: calc(2 * var(--rio-target-primary));
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-number-field__steps {
+      border-inline-start-color: FieldText;
+    }
+  }
+}

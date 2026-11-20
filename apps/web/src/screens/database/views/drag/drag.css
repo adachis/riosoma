@@ -1,0 +1,40 @@
+[data-rio-drop] {
+  outline: var(--rio-focus-ring);
+  outline-offset: -2px;
+}
+[data-rio-drop='refused'] {
+  outline-color: var(--rio-danger);
+  cursor: not-allowed;
+}
+.rio-view-drag-status {
+  flex: none;
+  padding: var(--rio-space-2) var(--rio-space-3);
+  color: var(--rio-text);
+  background: var(--rio-surface);
+  font-size: var(--rio-text-sm);
+}
+.rio-view-drag-status:empty {
+  display: none;
+}
+
+.rio-view-drag-feedback {
+  position: fixed;
+  z-index: 1000;
+  max-inline-size: 224px;
+  pointer-events: none;
+  padding: var(--rio-space-2);
+  border: 1px solid var(--rio-aa-border);
+  border-radius: var(--rio-radius);
+  background: var(--rio-surface);
+  color: var(--rio-text);
+  font-size: var(--rio-text-sm);
+}
+
+.rio-view-drag-announcement {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

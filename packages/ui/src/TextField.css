@@ -1,0 +1,18 @@
+@layer rio.components {
+  /* One line only: the frame's height comes from a size token, so a long value clips with an
+     ellipsis instead of wrapping and pushing everything below it down. */
+  .rio-text-field .rio-field__input {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /* Callers choose the input type, so drop the chrome a browser adds for the ones with their own
+     controls: the frame is the only decoration a Riosoma field has. */
+  .rio-text-field .rio-field__input::-webkit-inner-spin-button,
+  .rio-text-field .rio-field__input::-webkit-outer-spin-button,
+  .rio-text-field .rio-field__input::-webkit-contacts-auto-fill-button,
+  .rio-text-field .rio-field__input::-webkit-credentials-auto-fill-button {
+    margin: 0;
+    appearance: none;
+  }
+}

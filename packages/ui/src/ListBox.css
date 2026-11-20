@@ -1,0 +1,182 @@
+@layer rio.components {
+  .rio-listbox {
+    max-block-size: calc(
+      100dvb - var(--rio-space-12) - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    min-block-size: 0;
+    margin: 0;
+    padding-block: var(--rio-space-1);
+    overflow-y: auto;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+    outline: none;
+  }
+
+  /* Inside an overlay panel the list is flush: the panel already draws the frame and the padding. */
+  .rio-list-popover .rio-listbox {
+    padding-block: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  .rio-listbox-section + .rio-listbox-section {
+    margin-block-start: var(--rio-space-2);
+    padding-block-start: var(--rio-space-2);
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  .rio-listbox-section__header {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-3);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-bold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* As in a menu, each option is a fingertip tall on phones. */
+  .rio-listbox-item {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    box-sizing: border-box;
+    min-block-size: var(--rio-target-primary);
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+    color: var(--rio-text);
+    cursor: default;
+    outline: none;
+    user-select: none;
+    transition:
+      background-color var(--rio-duration-instant) var(--rio-ease-standard),
+      color var(--rio-duration-instant) var(--rio-ease-standard);
+  }
+
+  .rio-listbox-item__text {
+    display: grid;
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  .rio-listbox-item__label {
+    overflow-wrap: break-word;
+  }
+
+  .rio-listbox-item__description {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-normal);
+  }
+
+  .rio-listbox-item__icon {
+    flex: 0 0 auto;
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* The column keeps its width whether or not the option is selected. */
+  .rio-listbox-item__indicator {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    inline-size: var(--rio-icon-size);
+    block-size: var(--rio-icon-size);
+    border: 1px solid transparent;
+    border-radius: calc(var(--rio-radius) / 2);
+    color: var(--rio-accent);
+  }
+
+  .rio-listbox-item__check {
+    visibility: hidden;
+  }
+
+  .rio-listbox-item[data-selected] .rio-listbox-item__check {
+    visibility: visible;
+  }
+
+  /* Multiple selection reads as a set of boxes rather than a single check mark. */
+  .rio-listbox-item[data-selection-mode='multiple'] .rio-listbox-item__indicator {
+    border-color: var(--rio-border);
+  }
+
+  .rio-listbox-item[data-selection-mode='multiple'][data-selected] .rio-listbox-item__indicator {
+    border-color: var(--rio-accent);
+    background-color: var(--rio-accent);
+    color: var(--rio-on-accent);
+  }
+
+  .rio-listbox-item[data-selected] {
+    background-color: var(--rio-selected);
+  }
+
+  /* Hover and keyboard focus tint the option on top of the selection, so both stay visible. */
+  .rio-listbox-item[data-hovered],
+  .rio-listbox-item[data-focused] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-listbox-item[data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-listbox-item[data-focus-visible] {
+    box-shadow: inset 0 0 0 2px var(--rio-focus);
+  }
+
+  .rio-listbox-item[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-listbox[data-size='sm'] .rio-listbox-item {
+    padding-block: var(--rio-space-1);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-listbox[data-size='lg'] .rio-listbox-item {
+    padding-block: var(--rio-space-3);
+    font-size: var(--rio-text-lg);
+  }
+
+  @media (forced-colors: active) {
+    .rio-listbox {
+      border-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+    }
+
+    /* Forced colors drops box shadows, so the focus ring becomes an outline here. */
+    .rio-listbox-item[data-focus-visible] {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
+
+    .rio-listbox-item[data-selected] {
+      background-color: Highlight;
+      color: HighlightText;
+      forced-color-adjust: none;
+    }
+
+    .rio-listbox-item__indicator {
+      border-color: CanvasText;
+      color: CanvasText;
+    }
+
+    .rio-listbox-item[data-selection-mode='multiple'][data-selected] .rio-listbox-item__indicator {
+      background-color: Highlight;
+      color: HighlightText;
+    }
+  }
+}

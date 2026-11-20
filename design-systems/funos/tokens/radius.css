@@ -1,0 +1,11 @@
+:root{
+  --radius-xs:8px;
+  --radius-sm:12px;
+  --radius-md:18px;      /* inputs, small cards */
+  --radius-lg:24px;      /* standard card */
+  --radius-xl:32px;      /* hero panel, dark panel */
+  --radius-2xl:40px;     /* full-bleed section block */
+  --radius-pill:999px;   /* every button and badge */
+  --border-1:2px;        /* default ink outline */
+  --border-2:3px;        /* emphasis outline on large panels */
+}

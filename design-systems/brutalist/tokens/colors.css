@@ -1,0 +1,126 @@
+/* BASE PALETTE + SEMANTIC ALIASES
+   The system is built on three roles: PAPER (ground), INK (everything you
+   read), ACCENT (the one loud voice). Everything else is derived.
+
+   IMPORTANT: a custom property that calls color-mix(var(--ink), var(--paper))
+   resolves against the element it is DECLARED on, not the element it is used
+   on. Declaring the derived layer only on :root would freeze every grey to the
+   root theme, so the whole derived + semantic block is repeated on
+   [data-theme] — that is what makes a theme swap re-derive the palette.
+   Theme files (tokens/themes.css) override ONLY the four role primitives. */
+
+:root{
+  /* --- role primitives: RAW theme (default) --- */
+  --paper:#efece4;
+  --ink:#111111;
+  --accent:#ff2d16;
+  --on-accent:#111111;
+
+  /* --- derived grounds --- */
+  --paper-shade:color-mix(in srgb,var(--ink) 7%,var(--paper));
+  --paper-deep:color-mix(in srgb,var(--ink) 14%,var(--paper));
+  --ink-mute:color-mix(in srgb,var(--ink) 88%,var(--paper));
+  --ink-faint:color-mix(in srgb,var(--ink) 76%,var(--paper));
+  --ink-hair:color-mix(in srgb,var(--ink) 16%,var(--paper));
+  /* duotone separation roles: BASE takes the shadows (must be the darker
+     of the two), FLOOD tints the highlights via multiply. Themes whose accent
+     is the near-black swap the pair — see tokens/themes.css. */
+  --duotone-base:var(--ink);
+  --duotone-flood:var(--accent);
+  --accent-shade:color-mix(in srgb,#000 18%,var(--accent));
+  --accent-tint:color-mix(in srgb,var(--paper) 78%,var(--accent));
+
+  /* --- extended accents: 3-colour themes alias these back to the trio --- */
+  --accent-2:var(--ink);
+  --accent-3:var(--accent);
+  --accent-4:var(--ink);
+  --accent-5:var(--accent);
+  --accent-6:var(--ink);
+
+  /* --- semantic surfaces --- */
+  --surface-page:var(--paper);
+  --surface-card:var(--paper);
+  --surface-inset:var(--paper-shade);
+  --surface-block:var(--ink);
+  --surface-loud:var(--accent);
+  --surface-chrome:var(--paper-deep);
+
+  /* --- semantic text --- */
+  --text-body:var(--ink);
+  --text-heading:var(--ink);
+  --text-muted:var(--ink-mute);
+  --text-inverse:var(--paper);
+  --text-loud:var(--accent);
+  --text-on-loud:var(--on-accent);
+  --text-link:var(--ink);
+  --text-link-hover:var(--accent);
+
+  /* --- semantic lines --- */
+  --border-ink:var(--ink);
+  --border-hair:var(--ink-hair);
+  --border-loud:var(--accent);
+  --focus-ring:var(--accent);
+
+  /* --- status: brutalism has no pastel status palette. Status is carried by
+         the accent, the ink, and TYPE. Aliases exist so components compile. --- */
+  --status-ok:var(--ink);
+  --status-warn:var(--accent);
+  --status-bad:var(--accent);
+  --status-info:var(--ink-mute);
+}
+
+/* Re-derive everything inside any themed container. Same specificity as :root
+   and declared after it, so themed scopes win. Nested themes re-derive again. */
+[data-theme]{
+  /* --- derived grounds --- */
+  --paper-shade:color-mix(in srgb,var(--ink) 7%,var(--paper));
+  --paper-deep:color-mix(in srgb,var(--ink) 14%,var(--paper));
+  --ink-mute:color-mix(in srgb,var(--ink) 88%,var(--paper));
+  --ink-faint:color-mix(in srgb,var(--ink) 76%,var(--paper));
+  --ink-hair:color-mix(in srgb,var(--ink) 16%,var(--paper));
+  /* duotone separation roles: BASE takes the shadows (must be the darker
+     of the two), FLOOD tints the highlights via multiply. Themes whose accent
+     is the near-black swap the pair — see tokens/themes.css. */
+  --duotone-base:var(--ink);
+  --duotone-flood:var(--accent);
+  --accent-shade:color-mix(in srgb,#000 18%,var(--accent));
+  --accent-tint:color-mix(in srgb,var(--paper) 78%,var(--accent));
+
+  /* --- extended accents: 3-colour themes alias these back to the trio --- */
+  --accent-2:var(--ink);
+  --accent-3:var(--accent);
+  --accent-4:var(--ink);
+  --accent-5:var(--accent);
+  --accent-6:var(--ink);
+
+  /* --- semantic surfaces --- */
+  --surface-page:var(--paper);
+  --surface-card:var(--paper);
+  --surface-inset:var(--paper-shade);
+  --surface-block:var(--ink);
+  --surface-loud:var(--accent);
+  --surface-chrome:var(--paper-deep);
+
+  /* --- semantic text --- */
+  --text-body:var(--ink);
+  --text-heading:var(--ink);
+  --text-muted:var(--ink-mute);
+  --text-inverse:var(--paper);
+  --text-loud:var(--accent);
+  --text-on-loud:var(--on-accent);
+  --text-link:var(--ink);
+  --text-link-hover:var(--accent);
+
+  /* --- semantic lines --- */
+  --border-ink:var(--ink);
+  --border-hair:var(--ink-hair);
+  --border-loud:var(--accent);
+  --focus-ring:var(--accent);
+
+  /* --- status: brutalism has no pastel status palette. Status is carried by
+         the accent, the ink, and TYPE. Aliases exist so components compile. --- */
+  --status-ok:var(--ink);
+  --status-warn:var(--accent);
+  --status-bad:var(--accent);
+  --status-info:var(--ink-mute);
+}

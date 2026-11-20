@@ -1,0 +1,15 @@
+{
+  "url": "/tables/{{riosomaSegment(parameters.table, false)}}/records/{{riosomaSegment(parameters.record, true)}}",
+  "method": "GET",
+  "qs": {
+    "shape": "airtable",
+    "fieldKey": "id"
+  },
+  "response": {
+    "valid": {
+      "condition": "{{statusCode == 200 && length(body.records) == 1}}",
+      "message": "The record is missing, is inaccessible, or does not match the selected view."
+    },
+    "output": "{{riosomaRecord(body)}}"
+  }
+}

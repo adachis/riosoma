@@ -1,0 +1,8 @@
+/* Static depth geometry. The colour-bearing shadow tokens live in palettes.css,
+   one set per scheme (see the note there). Light source is ALWAYS top-left. */
+:root{
+--neu-dist-1:3px;--neu-blur-1:7px;
+--neu-dist-2:6px;--neu-blur-2:14px;
+--neu-dist-3:10px;--neu-blur-3:24px;
+--neu-dist-4:16px;--neu-blur-4:38px;
+}

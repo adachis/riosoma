@@ -1,0 +1,170 @@
+@layer rio.components {
+  .rio-combobox {
+    display: grid;
+    gap: var(--rio-space-1);
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+  }
+
+  /* One frame around the input and its chevron, drawn like a text field. */
+  .rio-combobox__group {
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    block-size: var(--rio-control-height);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    transition:
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-combobox__input {
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    min-inline-size: 0;
+    inline-size: 100%;
+    padding-inline: var(--rio-space-3);
+    border: 0;
+    background-color: transparent;
+    color: var(--rio-text);
+    font: inherit;
+    outline: none;
+  }
+
+  .rio-combobox__input::placeholder {
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* The frame carries the focus ring, so the input itself must not draw a second one. */
+  .rio-combobox__input:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .rio-combobox__trigger {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    inline-size: var(--rio-control-height);
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--rio-aa-text-muted);
+    cursor: pointer;
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-combobox__trigger[data-hovered] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+    color: var(--rio-text);
+  }
+
+  .rio-combobox__trigger[data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+    color: var(--rio-text);
+  }
+
+  .rio-combobox__trigger[data-disabled] {
+    cursor: not-allowed;
+  }
+  @media (max-width: 767px) {
+    .rio-combobox[data-size] .rio-combobox__group,
+    .rio-combobox[data-size] .rio-combobox__trigger {
+      min-block-size: var(--rio-target-primary);
+    }
+    .rio-combobox[data-size] .rio-combobox__trigger {
+      min-inline-size: var(--rio-target-primary);
+    }
+  }
+
+  .rio-combobox__group[data-focus-within],
+  .rio-combobox__group[data-focus-visible] {
+    border-color: var(--rio-focus);
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-combobox[data-invalid] .rio-combobox__group {
+    border-color: var(--rio-danger);
+  }
+
+  .rio-combobox__group[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-combobox__empty {
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-normal);
+  }
+
+  .rio-combobox[data-size='sm'] .rio-combobox__group {
+    block-size: var(--rio-control-height-sm);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-combobox[data-size='sm'] .rio-combobox__input {
+    padding-inline: var(--rio-space-2);
+  }
+
+  .rio-combobox[data-size='sm'] .rio-combobox__trigger {
+    inline-size: var(--rio-control-height-sm);
+  }
+
+  .rio-combobox[data-size='lg'] .rio-combobox__group {
+    block-size: var(--rio-control-height-lg);
+    font-size: var(--rio-text-lg);
+  }
+
+  .rio-combobox[data-size='lg'] .rio-combobox__input {
+    padding-inline: var(--rio-space-4);
+  }
+
+  .rio-combobox[data-size='lg'] .rio-combobox__trigger {
+    inline-size: var(--rio-control-height-lg);
+  }
+
+  @media (forced-colors: active) {
+    .rio-combobox__group {
+      border-color: ButtonText;
+      background-color: Field;
+    }
+
+    .rio-combobox__input {
+      color: FieldText;
+    }
+
+    .rio-combobox__trigger {
+      color: ButtonText;
+    }
+
+    .rio-combobox__group[data-focus-within],
+    .rio-combobox__group[data-focus-visible] {
+      border-color: Highlight;
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
+
+    .rio-combobox[data-invalid] .rio-combobox__group {
+      border-color: LinkText;
+    }
+
+    .rio-combobox__group[data-disabled] {
+      border-color: GrayText;
+      color: GrayText;
+      opacity: 1;
+    }
+
+    .rio-combobox__empty {
+      color: CanvasText;
+    }
+  }
+}

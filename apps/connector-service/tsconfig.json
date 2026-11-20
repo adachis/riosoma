@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    // The contract test runs the driver fixtures the connectors' own tests use.
+    "rootDir": "../..",
+    "types": ["node"]
+  },
+  "include": ["src"]
+}

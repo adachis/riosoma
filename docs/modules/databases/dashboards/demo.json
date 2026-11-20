@@ -1,0 +1,23 @@
+{
+  "id": "dashboards",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "dashboards.section",
+      "say": "demos.dashboards.section",
+      "do": "scroll"
+    },
+    {
+      "anchor": "dashboards.add",
+      "say": "demos.dashboards.add"
+    },
+    {
+      "anchor": "grid",
+      "say": "demos.dashboards.records"
+    },
+    {
+      "anchor": "database.share",
+      "say": "demos.dashboards.roles"
+    }
+  ]
+}

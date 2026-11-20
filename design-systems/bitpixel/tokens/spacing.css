@@ -1,0 +1,5 @@
+:root{
+--bp-space-0:0px;--bp-space-1:2px;--bp-space-2:4px;--bp-space-3:6px;--bp-space-4:8px;--bp-space-5:12px;--bp-space-6:16px;--bp-space-7:20px;--bp-space-8:24px;--bp-space-9:32px;--bp-space-10:40px;--bp-space-11:56px;--bp-space-12:72px;--bp-space-13:96px;--bp-space-14:128px;
+--bp-gutter:24px;--bp-gutter-lg:40px;--bp-page-max:1240px;--bp-rail:264px;--bp-grid-cell:32px;
+--bp-control-sm:26px;--bp-control-md:34px;--bp-control-lg:44px;--bp-touch-min:44px;
+}

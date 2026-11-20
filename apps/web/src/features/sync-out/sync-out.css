@@ -1,0 +1,305 @@
+@layer rio.app {
+  /* The form sits between the dialog and its body, so it has to shrink for the body to scroll. */
+  .rio-sync-out__form {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-block-size: 0;
+  }
+
+  .rio-sync-out {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-4);
+    container-type: inline-size;
+  }
+
+  .rio-sync-out p {
+    margin-block: 0;
+  }
+
+  .rio-sync-out__intro {
+    max-inline-size: 62ch;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__note,
+  .rio-sync-out__step {
+    max-inline-size: 62ch;
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-sync-out__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .rio-sync-out__list {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-sync-out__item,
+  .rio-sync-out__run {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+
+  .rio-sync-out__head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-sync-out__title {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-sync-out__kind {
+    flex: none;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__name {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-sync-out__head-actions {
+    display: flex;
+    align-items: center;
+    flex: none;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-sync-out__facts {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: var(--rio-space-1) var(--rio-space-3);
+    margin: 0;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sync-out__facts > div {
+    display: contents;
+  }
+
+  .rio-sync-out__facts dt {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__facts dd {
+    margin: 0;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-sync-out__open {
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sync-out__status {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__status[data-tone='warning'] {
+    color: var(--rio-aa-warning-text);
+  }
+
+  .rio-sync-out__status[data-tone='danger'],
+  .rio-sync-out__error {
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  /* Setup and settings */
+  .rio-sync-out__connect,
+  .rio-sync-out__schedule,
+  .rio-sync-out__columns-step,
+  .rio-sync-out__fixed {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-sync-out__fixed {
+    gap: var(--rio-space-2);
+  }
+
+  .rio-sync-out__field-label {
+    font-weight: 600;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sync-out__token-help {
+    display: grid;
+    gap: var(--rio-space-2);
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__scopes {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding-inline-start: var(--rio-space-4);
+  }
+
+  .rio-sync-out__scopes code {
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sync-out__field-error {
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-sync-out__problems {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding-inline-start: var(--rio-space-4);
+  }
+
+  /* Column preview */
+  .rio-sync-out__preview {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sync-out__columns {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-sync-out__column {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--rio-space-2) var(--rio-space-3);
+    padding-block: var(--rio-space-1);
+  }
+
+  .rio-sync-out__field {
+    font-weight: 600;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-sync-out__arrow {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__target {
+    display: grid;
+    gap: 2px;
+    min-inline-size: 0;
+  }
+
+  .rio-sync-out__col-name {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-sync-out__col-type {
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__col-action {
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-text-muted);
+    text-align: end;
+  }
+
+  .rio-sync-out__column[data-skipped] .rio-sync-out__field,
+  .rio-sync-out__column[data-skipped] .rio-sync-out__col-name {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sync-out__column--key {
+    display: block;
+    padding-block-start: var(--rio-space-2);
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  .rio-sync-out__key-note {
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* History */
+  .rio-sync-out__outcome {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-sync-out__run-when {
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-text-muted);
+    text-align: end;
+  }
+
+  .rio-sync-out__run[data-outcome='succeeded'] .rio-sync-out__outcome-icon {
+    color: var(--rio-aa-success-text);
+  }
+
+  .rio-sync-out__run[data-outcome='partial'] .rio-sync-out__outcome-icon {
+    color: var(--rio-aa-warning-text);
+  }
+
+  .rio-sync-out__run[data-outcome='failed'] .rio-sync-out__outcome-icon {
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-sync-out__run-trigger,
+  .rio-sync-out__run-counts {
+    font-size: var(--rio-text-sm);
+  }
+
+  /* The preview rows stack when their container is narrow, with the arrow turned down. */
+  @container (max-width: 40rem) {
+    .rio-sync-out__column {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: start;
+    }
+
+    .rio-sync-out__arrow {
+      rotate: 90deg;
+    }
+
+    .rio-sync-out__col-action {
+      text-align: start;
+    }
+  }
+}

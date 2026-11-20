@@ -1,0 +1,91 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"],
+      "passThroughEnv": [
+        "RIOSOMA_PERF",
+        "RIOSOMA_TEST_RETRY",
+        "RIOSOMA_TEST_S3_URL",
+        "RIOSOMA_TEST_AZURITE_URL",
+        "RIOSOMA_TEST_ANTHROPIC_API_KEY",
+        "RIOSOMA_PG_BIN",
+        "RIOSOMA_TEST_DATABASE_URL"
+      ]
+    },
+    "@riosoma/web#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/packages/grid-core/src/**",
+        "$TURBO_ROOT$/packages/i18n/src/**",
+        "$TURBO_ROOT$/packages/icons/src/**",
+        "$TURBO_ROOT$/packages/rio/src/**",
+        "$TURBO_ROOT$/packages/tokens/src/**",
+        "$TURBO_ROOT$/packages/ui/src/**",
+        "$TURBO_ROOT$/docs/modules/**"
+      ],
+      "outputs": ["dist/**"]
+    },
+    "@riosoma/web#test": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/apps/server/src/**",
+        "$TURBO_ROOT$/packages/db/src/**",
+        "$TURBO_ROOT$/packages/contracts/src/**",
+        "$TURBO_ROOT$/docs/modules/**"
+      ],
+      "outputs": ["coverage/**"],
+      "passThroughEnv": ["RIOSOMA_PERF", "RIOSOMA_TEST_RETRY"]
+    },
+    "@riosoma/clipper#build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/integrations/shared/**",
+        "$TURBO_ROOT$/packages/ui/src/integrations/**",
+        "$TURBO_ROOT$/packages/i18n/src/**",
+        "$TURBO_ROOT$/packages/tokens/src/**",
+        "$TURBO_ROOT$/themes/*/theme.css",
+        "$TURBO_ROOT$/themes/*/theme.json",
+        "$TURBO_ROOT$/apps/web/src/locales/*/messages.po"
+      ],
+      "outputs": ["dist/**"]
+    },
+    "@riosoma/clipper#typecheck": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/integrations/shared/**",
+        "$TURBO_ROOT$/packages/ui/src/integrations/**",
+        "$TURBO_ROOT$/packages/i18n/src/**"
+      ]
+    },
+    "@riosoma/clipper#test": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/integrations/shared/**",
+        "$TURBO_ROOT$/packages/ui/src/integrations/**",
+        "$TURBO_ROOT$/packages/i18n/src/**"
+      ],
+      "outputs": ["coverage/**"]
+    }
+  }
+}

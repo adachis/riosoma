@@ -1,0 +1,93 @@
+/* PERSONA — 12 palette variants + the signature default.
+   Apply with data-theme="<name>" on <html>, <body>, or any subtree.
+   Each theme declares the same 10-variable ramp; every semantic alias re-resolves. */
+
+[data-theme="ink"] {
+  --ink: #0B0A0A; --paper: #F4F1EA;
+  --brand: #E4002B; --brand-2: #FF3355; --brand-3: #8A0018; --on-brand: #FFFFFF;
+  --success: #47B36B; --warning: #F2B705; --danger: #E4002B; --info: #3D7BD9;
+}
+
+/* f94144 f3722c f8961e f9844a f9c74f 90be6d 43aa8b 4d908e 577590 277da1 */
+[data-theme="spectrum"] {
+  --ink: #16232B; --paper: #FDF6E7;
+  --brand: #F94144; --brand-2: #F8961E; --brand-3: #277DA1; --on-brand: #FFFFFF;
+  --success: #90BE6D; --warning: #F9C74F; --danger: #F94144; --info: #577590;
+}
+
+/* 000814 001d3d 003566 ffc300 ffd60a */
+[data-theme="midnight"] {
+  --ink: #000814; --paper: #FFD60A;
+  --brand: #FFC300; --brand-2: #FFD60A; --brand-3: #003566; --on-brand: #000814;
+  --success: #57CC99; --warning: #FFC300; --danger: #FF4D4D; --info: #003566;
+}
+
+/* 390099 9e0059 ff0054 ff5400 ffbd00 */
+[data-theme="riot"] {
+  --ink: #1A0033; --paper: #FFF3D6;
+  --brand: #FF0054; --brand-2: #FF5400; --brand-3: #390099; --on-brand: #FFFFFF;
+  --success: #7ED957; --warning: #FFBD00; --danger: #FF0054; --info: #9E0059;
+}
+
+/* e63946 f1faee a8dadc 457b9d 1d3557 */
+[data-theme="signal"] {
+  --ink: #1D3557; --paper: #F1FAEE;
+  --brand: #E63946; --brand-2: #457B9D; --brand-3: #1D3557; --on-brand: #F1FAEE;
+  --success: #4FA07C; --warning: #E9A23B; --danger: #E63946; --info: #A8DADC;
+}
+
+/* f6bd60 f7ede2 f5cac3 84a59d f28482 */
+[data-theme="sherbet"] {
+  --ink: #3D3330; --paper: #F7EDE2;
+  --brand: #F28482; --brand-2: #F6BD60; --brand-3: #84A59D; --on-brand: #3D3330;
+  --success: #84A59D; --warning: #F6BD60; --danger: #E05252; --info: #7C9BB5;
+}
+
+/* 233d4d fe7f2d fcca46 a1c181 619b8a */
+[data-theme="campfire"] {
+  --ink: #233D4D; --paper: #FFF6E5;
+  --brand: #FE7F2D; --brand-2: #FCCA46; --brand-3: #233D4D; --on-brand: #233D4D;
+  --success: #A1C181; --warning: #FCCA46; --danger: #E0562A; --info: #619B8A;
+}
+
+/* 22577a 38a3a5 57cc99 80ed99 c7f9cc */
+[data-theme="verdant"] {
+  --ink: #0E2C3D; --paper: #C7F9CC;
+  --brand: #22577A; --brand-2: #38A3A5; --brand-3: #0E2C3D; --on-brand: #C7F9CC;
+  --success: #57CC99; --warning: #E8C547; --danger: #D64550; --info: #38A3A5;
+}
+
+/* 00fddc 2e5339 495f41 ff5666 ffccc9 */
+[data-theme="mintshock"] {
+  --ink: #1B2E20; --paper: #FFCCC9;
+  --brand: #FF5666; --brand-2: #00FDDC; --brand-3: #2E5339; --on-brand: #1B2E20;
+  --success: #00FDDC; --warning: #F0C808; --danger: #FF5666; --info: #495F41;
+}
+
+/* 70d6ff ff70a6 ff9770 ffd670 */
+[data-theme="bubblegum"] {
+  --ink: #24203A; --paper: #FFF7E3;
+  --brand: #FF70A6; --brand-2: #70D6FF; --brand-3: #24203A; --on-brand: #24203A;
+  --success: #6FD08C; --warning: #FFD670; --danger: #FF5A5A; --info: #70D6FF;
+}
+
+/* 247ba0 70c1b3 b2dbbf f3ffbd ff1654 */
+[data-theme="lagoon"] {
+  --ink: #10323F; --paper: #F3FFBD;
+  --brand: #FF1654; --brand-2: #247BA0; --brand-3: #10323F; --on-brand: #F3FFBD;
+  --success: #70C1B3; --warning: #E3C567; --danger: #FF1654; --info: #247BA0;
+}
+
+/* 083d77 ebebd3 f4d35e ee964b f95738 */
+[data-theme="ember"] {
+  --ink: #083D77; --paper: #EBEBD3;
+  --brand: #F95738; --brand-2: #F4D35E; --brand-3: #083D77; --on-brand: #EBEBD3;
+  --success: #6FA96A; --warning: #F4D35E; --danger: #F95738; --info: #EE964B;
+}
+
+/* 3c493f 7e8d85 b3bfb8 f0f7f4 a2e3c4 */
+[data-theme="sage"] {
+  --ink: #3C493F; --paper: #F0F7F4;
+  --brand: #A2E3C4; --brand-2: #7E8D85; --brand-3: #3C493F; --on-brand: #24302A;
+  --success: #A2E3C4; --warning: #D9C27E; --danger: #C4696B; --info: #7E8D85;
+}

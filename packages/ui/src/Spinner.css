@@ -1,0 +1,49 @@
+@layer rio.components {
+  .rio-spinner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--rio-space-4);
+    block-size: var(--rio-space-4);
+  }
+
+  .rio-spinner[data-size='sm'] {
+    inline-size: var(--rio-space-3);
+    block-size: var(--rio-space-3);
+  }
+
+  .rio-spinner[data-size='lg'] {
+    inline-size: var(--rio-space-6);
+    block-size: var(--rio-space-6);
+  }
+
+  /* One open side of the ring is what reads as motion; the ring itself never changes size. */
+  .rio-spinner__ring {
+    inline-size: 100%;
+    block-size: 100%;
+    border: 2px solid currentColor;
+    border-inline-end-color: transparent;
+    border-radius: 50%;
+    animation: rio-spinner-turn 700ms linear infinite;
+  }
+
+  /* A loop has no natural end, so it keeps a fixed period and only slows down for reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    .rio-spinner__ring {
+      animation-duration: 1600ms;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-spinner__ring {
+      border-color: CanvasText;
+      border-inline-end-color: Canvas;
+    }
+  }
+}
+
+@keyframes rio-spinner-turn {
+  to {
+    transform: rotate(1turn);
+  }
+}

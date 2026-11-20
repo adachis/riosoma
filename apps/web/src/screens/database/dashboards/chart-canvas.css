@@ -1,0 +1,8 @@
+/* Every chart draws through the canvas, on a dashboard and in a chart view, so its tooltip is styled here. */
+@layer rio.app {
+  /* A tooltip row is a marker, a label, and a value.  The value stands apart from its label. */
+  .rio-chart-tooltip span:last-of-type:not(:first-of-type) {
+    margin-inline-start: var(--rio-space-4);
+    font-weight: var(--rio-weight-bold);
+  }
+}

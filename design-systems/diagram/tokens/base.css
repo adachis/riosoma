@@ -1,0 +1,16 @@
+/* Diagram — minimal element defaults. Consumers may drop this import. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--surface-paper);color:var(--text-body);font:var(--type-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,h5,h6{margin:0;color:var(--text-strong);letter-spacing:var(--tr-tight);font-family:var(--font-core)}
+h1{font:var(--type-title)}h2{font:var(--type-heading)}h3{font:var(--type-subhead)}
+h4,h5,h6{font:var(--type-ui)}
+p{margin:0 0 var(--sp-5);max-width:var(--measure);text-wrap:pretty}
+a{color:var(--text-link);text-decoration:none;border-bottom:1px solid color-mix(in oklab,var(--text-link) 40%,transparent);transition:var(--t-control)}
+a:hover{color:var(--text-link-hover);border-bottom-color:var(--text-link-hover)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:var(--focus-outline);outline-offset:var(--focus-offset)}
+code,kbd,samp,pre{font-family:var(--font-annotate);font-size:.92em}
+hr{border:0;border-top:var(--border-hair);margin:var(--sp-8) 0}
+small{font-size:var(--fs-sm)}
+table{border-collapse:collapse}
+img,svg,video{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}

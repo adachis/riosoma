@@ -1,0 +1,43 @@
+.rio-governance,
+.rio-governance form,
+.rio-governance__assignments {
+  display: grid;
+  gap: var(--rio-space-4);
+  min-width: 0;
+}
+.rio-governance__label {
+  display: grid;
+  gap: var(--rio-space-3);
+  min-width: 0;
+  margin: 0;
+  padding: var(--rio-space-4);
+  border: 1px solid var(--rio-border);
+  border-radius: var(--rio-radius-md);
+}
+.rio-governance__control {
+  display: grid;
+  gap: var(--rio-space-2);
+  min-width: 0;
+}
+.rio-governance__control select,
+.rio-governance__control input {
+  width: 100%;
+  min-width: 0;
+  padding: var(--rio-space-2);
+  color: var(--rio-text);
+  background: var(--rio-surface);
+  border: 1px solid var(--rio-border);
+  border-radius: var(--rio-radius-sm);
+  font: inherit;
+}
+.rio-governance__check,
+.rio-governance__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--rio-space-2);
+}
+.rio-governance :focus-visible {
+  box-shadow: var(--rio-focus-ring);
+  outline-offset: var(--rio-space-1);
+}

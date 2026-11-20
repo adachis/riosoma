@@ -1,0 +1,23 @@
+@layer rio.app {
+  .rio-interface-sidebar {
+    display: grid;
+    gap: var(--rio-space-1);
+    padding-block-start: var(--rio-space-2);
+    border-block-start: 1px solid var(--rio-border);
+  }
+  .rio-interface-sidebar__heading {
+    margin: 0;
+    padding-inline: var(--rio-space-2);
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-bold);
+  }
+  .rio-interface-sidebar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-interface-sidebar > .rio-button {
+    justify-self: start;
+  }
+}

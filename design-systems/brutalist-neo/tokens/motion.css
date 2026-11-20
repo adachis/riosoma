@@ -1,0 +1,30 @@
+/* Brutalist Neo — motion.
+   Movement is mechanical and short. Things snap, jump one notch, or clack.
+   Nothing eases gently, nothing fades in over half a second. */
+:root{
+  --nb-dur-instant:60ms; /* @kind other */
+  --nb-dur-fast:90ms; /* @kind other */
+  --nb-dur:140ms; /* @kind other */
+  --nb-dur-slow:220ms; /* @kind other */
+  --nb-dur-marquee:22s; /* @kind other */
+
+  --nb-ease-snap:cubic-bezier(.2,.9,.3,1); /* @kind other */        /* default for state changes */
+  --nb-ease-overshoot:cubic-bezier(.34,1.56,.64,1); /* @kind other */ /* stickers, toasts, badges */
+  --nb-ease-step:steps(3,end); /* @kind other */                    /* loaders, counters */
+  --nb-ease-linear:linear; /* @kind other */                        /* marquees, progress */
+
+  --nb-transition:transform var(--nb-dur) var(--nb-ease-snap),box-shadow var(--nb-dur) var(--nb-ease-snap),background-color var(--nb-dur-fast) var(--nb-ease-snap),color var(--nb-dur-fast) var(--nb-ease-snap); /* @kind other */
+}
+
+@keyframes nb-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes nb-pop{0%{transform:scale(.86) rotate(-4deg)}70%{transform:scale(1.06) rotate(1deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes nb-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes nb-clack{0%{transform:translate(0,0)}40%{transform:translate(4px,4px)}100%{transform:translate(0,0)}}
+@keyframes nb-slide-in{from{transform:translateY(-14px)}to{transform:translateY(0)}}
+@keyframes nb-spin-step{to{transform:rotate(360deg)}}
+@keyframes nb-stripe{to{background-position:28px 0}}
+
+@media (prefers-reduced-motion:reduce){
+  :root{--nb-dur-instant:0ms /* @kind other */;--nb-dur-fast:0ms /* @kind other */;--nb-dur:0ms /* @kind other */;--nb-dur-slow:0ms /* @kind other */;--nb-lift:0px;--nb-sink:0px}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+}

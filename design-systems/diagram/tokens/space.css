@@ -1,0 +1,21 @@
+/* Diagram — spacing. A drafting increment: 2px unit, doubling at the top. */
+:root{
+--sp-0:0px;--sp-px:1px;--sp-1:2px;--sp-2:4px;--sp-3:6px;--sp-4:8px;--sp-5:12px;
+--sp-6:16px;--sp-7:20px;--sp-8:24px;--sp-9:32px;--sp-10:40px;--sp-11:48px;
+--sp-12:64px;--sp-13:80px;--sp-14:96px;--sp-15:128px;--sp-16:160px;
+
+--gutter-tight:var(--sp-4);--gutter:var(--sp-6);--gutter-wide:var(--sp-9);
+--pad-control:var(--sp-3) var(--sp-5);
+--pad-card:var(--sp-6);
+--pad-panel:var(--sp-8);
+--pad-page:var(--sp-9);
+
+--measure-narrow:44ch;/* @kind spacing */
+--measure:68ch;/* @kind spacing */
+--measure-wide:88ch;/* @kind spacing */
+--col-sidebar:248px;--col-rail:56px;--col-inspector:296px;
+--page-max:1240px;--page-max-wide:1560px;
+
+--grid-fine:8px;--grid-major:64px;
+--hit-min:44px;
+}

@@ -1,0 +1,23 @@
+@layer rio.components {
+  .rio-text {
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+  }
+
+  .rio-text[data-variant='muted'] {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-text[data-variant='small'] {
+    font-size: var(--rio-text-sm);
+  }
+
+  /* One step down the scale, because a monospace face reads larger than the body face at the same
+     size, and identifiers are long enough that they have to be able to break. */
+  .rio-text[data-variant='mono'] {
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+    overflow-wrap: break-word;
+  }
+}

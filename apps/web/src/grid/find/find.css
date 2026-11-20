@@ -1,0 +1,54 @@
+@layer rio.app {
+  /* Floats over the top of the grid at its end, as a spreadsheet's find does. */
+  .rio-grid-find {
+    position: absolute;
+    inset-block-start: var(--rio-space-2);
+    inset-inline-end: var(--rio-space-4);
+    z-index: var(--rio-z-sticky);
+    display: grid;
+    gap: var(--rio-space-2);
+    inline-size: min(30rem, calc(100% - 2 * var(--rio-space-4)));
+    padding: var(--rio-space-2);
+    /* A popover's surface, where the count's muted text stays legible. */
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    box-shadow: var(--rio-shadow-2);
+  }
+
+  .rio-grid-find__row {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+  }
+
+  .rio-grid-find__field {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .rio-grid-find__count {
+    min-inline-size: 5rem;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+    white-space: nowrap;
+  }
+
+  .rio-grid-find__notices {
+    display: grid;
+    gap: var(--rio-space-1);
+  }
+
+  .rio-grid-find__notice {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-grid-find__notice[data-tone='danger'] {
+    color: var(--rio-aa-danger-text);
+  }
+}

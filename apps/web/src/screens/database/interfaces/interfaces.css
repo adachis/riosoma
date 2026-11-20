@@ -1,0 +1,672 @@
+@layer rio.app {
+  .rio-interface {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-block-size: 0;
+    overflow-block: auto;
+    background: var(--rio-bg);
+  }
+  .rio-interface__header {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-3);
+    flex: none;
+    min-block-size: 48px;
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-4);
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+  }
+  .rio-interface__title {
+    flex: 1 1 0;
+    /* A small floor so the actions shorten before the title disappears. */
+    min-inline-size: min(calc(var(--rio-space-12) * 2), 25%);
+    margin: 0;
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-lg);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-interface__actions > .rio-toolbar {
+    justify-content: flex-end;
+  }
+  .rio-interface__actions {
+    --rio-toolbar-flex: 0 1 var(--rio-toolbar-full);
+    min-inline-size: var(--rio-toolbar-icons);
+    display: flex;
+  }
+  @media (max-width: 767px) {
+    /* Designer actions get a row of their own while the title keeps room beside its help button. */
+    .rio-interface__header {
+      flex-wrap: wrap;
+    }
+    .rio-interface__actions {
+      flex-basis: 100%;
+    }
+  }
+  .rio-interface-pages {
+    flex: none;
+    padding-inline: var(--rio-space-4);
+    border-block-end: 1px solid var(--rio-border);
+    background: var(--rio-surface);
+  }
+  .rio-interface__empty {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: var(--rio-space-4);
+    flex: 1;
+    padding: var(--rio-space-6);
+    text-align: center;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-interface__empty p {
+    max-inline-size: 32rem;
+    margin: 0;
+  }
+
+  /* Twelve columns of rows 80 pixels tall, like a dashboard.  Each block names its cells in custom
+     properties, so the phone layout below can set them aside and stack the blocks in reading order. */
+  .rio-interface-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: 80px;
+    gap: var(--rio-space-3);
+    align-content: start;
+    padding: var(--rio-space-4);
+  }
+  .rio-interface-grid[data-editing] {
+    background: var(--rio-surface-sunken);
+  }
+  .rio-interface-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    grid-column: var(--rio-interface-x) / span var(--rio-interface-w);
+    grid-row: var(--rio-interface-y) / span var(--rio-interface-h);
+    min-inline-size: 0;
+    min-block-size: 0;
+    overflow: hidden;
+    background: var(--rio-surface);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  /* Text, filters, and buttons sit on the page itself rather than in a card. */
+  .rio-interface-block:is([data-kind='text'], [data-kind='filter'], [data-kind='button']):not(
+      [data-editing]
+    ) {
+    background: transparent;
+    border-color: transparent;
+  }
+  .rio-interface-block[data-editing] {
+    border-style: dashed;
+    border-color: var(--rio-aa-border);
+  }
+  .rio-interface-block[data-dragging] {
+    z-index: var(--rio-z-sticky);
+    border-style: solid;
+    border-color: var(--rio-accent);
+    box-shadow: var(--rio-shadow-3);
+  }
+  .rio-interface-block__header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    flex: none;
+    min-block-size: 36px;
+    padding-block-start: var(--rio-space-2);
+    padding-inline: var(--rio-space-3) var(--rio-space-2);
+  }
+  .rio-interface-block__title {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-bold);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-interface-block__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-block-size: 0;
+    padding: var(--rio-space-3);
+    overflow: auto;
+    container-type: size;
+  }
+  /* While editing, a block's contents stop taking the pointer and the whole block drags. */
+  .rio-interface-block__shield {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: move;
+    touch-action: manipulation;
+  }
+  .rio-interface-block__resize {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    z-index: 3;
+    inline-size: var(--rio-space-4);
+    block-size: var(--rio-space-4);
+    background: linear-gradient(135deg, transparent 50%, var(--rio-aa-border) 50%);
+    cursor: nwse-resize;
+    touch-action: none;
+  }
+  .rio-interface-block__resize:dir(rtl) {
+    background: linear-gradient(225deg, transparent 50%, var(--rio-aa-border) 50%);
+    cursor: nesw-resize;
+  }
+
+  .rio-interface-status {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: var(--rio-space-2);
+    flex: 1;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    text-align: center;
+  }
+  .rio-interface-status p,
+  .rio-interface-hint {
+    margin: 0;
+  }
+  .rio-interface-hint {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-interface-records {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    flex: 1;
+    min-block-size: 0;
+  }
+  .rio-interface-records__list,
+  .rio-interface-records__scroll {
+    flex: 1;
+    min-block-size: 0;
+    overflow: auto;
+  }
+  .rio-interface-records__empty {
+    flex: 1;
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-interface-records__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+    flex: none;
+  }
+  .rio-interface-records__count {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-interface-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-interface-table__column,
+  .rio-interface-table__cell {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-inline-size: 16rem;
+  }
+  .rio-interface-table__column {
+    position: sticky;
+    inset-block-start: 0;
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-interface-table__row {
+    cursor: pointer;
+  }
+  .rio-interface-table__row[data-hovered] {
+    background: var(--rio-hover);
+  }
+  .rio-interface-table__row[data-selected] {
+    background: var(--rio-selected);
+  }
+  .rio-interface-table__row[data-focus-visible] {
+    outline: none;
+    box-shadow: inset var(--rio-focus-ring);
+  }
+  .rio-interface-table__row > .rio-interface-table__cell:first-child {
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-interface-record {
+    display: grid;
+    align-content: start;
+  }
+
+  .rio-interface-text {
+    overflow-wrap: anywhere;
+  }
+  .rio-interface-text__heading {
+    margin: 0;
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-xl);
+    line-height: var(--rio-leading-tight);
+    overflow-wrap: anywhere;
+  }
+  .rio-interface-filter,
+  .rio-interface-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: var(--rio-space-1);
+    flex: 1;
+  }
+  .rio-interface-filter > * {
+    inline-size: 100%;
+  }
+  .rio-interface-button > a.rio-button {
+    text-decoration: none;
+  }
+
+  .rio-interface-chart {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-block-size: 0;
+  }
+  .rio-interface-chart__toggle {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    z-index: 1;
+  }
+
+  .rio-interface-editor__fields {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    margin: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-interface-editor__fields legend {
+    padding-inline: var(--rio-space-1);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-interface-editor__fields > .rio-button {
+    justify-self: start;
+  }
+  .rio-interface-editor__order {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rio-interface-editor__order li {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+  }
+  .rio-interface-editor__order li > span {
+    flex: 1;
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rio-interface-visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* Phones get one column: blocks keep their heights and stack in reading order. */
+  @media (max-width: 767px) {
+    .rio-interface-grid {
+      grid-template-columns: minmax(0, 1fr);
+      padding: var(--rio-space-3);
+    }
+    .rio-interface-block {
+      grid-column: 1 / -1;
+      grid-row: auto / span var(--rio-interface-h);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-interface-block[data-dragging] {
+      outline: 2px solid;
+    }
+    .rio-interface-block__resize {
+      background: CanvasText;
+    }
+    .rio-interface-table__row[data-selected] {
+      outline: 2px solid Highlight;
+    }
+  }
+}
+
+@layer components {
+  .rio-interface-code {
+    border: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 12rem;
+    background: var(--rio-surface);
+  }
+  .rio-interface-code-editor {
+    display: grid;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+  }
+  .rio-interface-code-preview {
+    block-size: 20rem;
+    border: 1px solid var(--rio-border);
+  }
+  .rio-interface-code-value {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: var(--rio-font-mono);
+  }
+}
+
+@layer rio.app {
+  .rio-interface-lead {
+    font-size: var(--rio-text-xl);
+    line-height: var(--rio-leading-normal);
+  }
+  .rio-interface-hero {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    padding: 1rem;
+  }
+  .rio-interface-hero h3 {
+    font-size: var(--rio-text-3xl);
+    line-height: var(--rio-leading-tight);
+    overflow-wrap: anywhere;
+  }
+  .rio-interface-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .rio-interface-media {
+    margin: 0;
+    padding: 1rem;
+  }
+  .rio-interface-media figcaption {
+    margin-top: 0.75rem;
+  }
+  .rio-interface-media img,
+  .rio-interface-media video,
+  .rio-interface-hero img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--rio-radius);
+  }
+  .rio-interface-picture {
+    display: block;
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+  }
+  /* An overlaid edge preserves the picture's intrinsic size and aspect ratio. */
+  .rio-interface-picture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    pointer-events: none;
+  }
+  .rio-interface-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .rio-interface-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: start;
+    padding: 1rem;
+    background: var(--rio-bg);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    overflow-wrap: anywhere;
+  }
+  .rio-interface-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  .rio-interface-record-items {
+    padding: 1rem;
+  }
+  .rio-interface-record-item + .rio-interface-record-item {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rio-border);
+  }
+  .rio-interface-record-title {
+    margin: 0;
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-xl);
+    line-height: var(--rio-leading-tight);
+  }
+  .rio-interface-record-title button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+  }
+  .rio-interface-record-title button:focus-visible {
+    outline: 3px solid var(--rio-focus);
+    outline-offset: 3px;
+  }
+  .rio-interface-card p,
+  .rio-interface-record-item p {
+    margin: 0;
+  }
+  .rio-interface-card:focus-visible {
+    outline: 3px solid var(--rio-focus);
+    outline-offset: 3px;
+  }
+}
+
+@layer rio.app {
+  [data-band='quiet'] {
+    --rio-band-bg: var(--rio-surface);
+    --rio-band-text: var(--rio-aa-text-muted);
+  }
+  [data-band='accent'] {
+    --rio-band-bg: var(--rio-accent);
+    --rio-band-text: var(--rio-aa-on-accent);
+  }
+  [data-band='inverse'] {
+    --rio-band-bg: var(--rio-aa-text-muted);
+    --rio-band-text: var(--rio-bg);
+  }
+  .rio-interface-band {
+    grid-column: 1 / -1;
+    grid-row: var(--rio-interface-y) / span var(--rio-interface-h);
+    background: var(--rio-band-bg);
+    margin-inline: calc(-1 * var(--rio-space-4));
+    pointer-events: none;
+  }
+  .rio-interface-grid .rio-interface-block[data-band] {
+    background: var(--rio-band-bg);
+    color: var(--rio-band-text);
+    border-color: var(--rio-band-text);
+  }
+  .rio-interface-block[data-band] :is(h3, p, strong, summary, span) {
+    color: var(--rio-band-text);
+  }
+  .rio-interface-block[data-band] code {
+    background-color: var(--rio-band-bg);
+    color: var(--rio-band-text);
+  }
+  .rio-interface-block[data-band] .rio-interface-card {
+    background: transparent;
+    color: var(--rio-band-text);
+    border-color: var(--rio-band-text);
+  }
+  .rio-interface-block[data-band] .rio-button span {
+    color: inherit;
+  }
+  .rio-interface-block[data-band] .rio-button[data-variant='quiet'] {
+    background-color: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-interface-block[data-band] :focus-visible:not(dialog, dialog *) {
+    outline: 2px solid var(--rio-band-text);
+    outline-offset: 2px;
+  }
+  .rio-interface-block[data-band] .rio-listbox-item :is(span, strong) {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-interface-block[data-band] .rio-interface-table__row:is([data-hovered], [data-selected]) {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-interface-block[data-band] .rio-interface-table__row:is([data-hovered], [data-selected]) span {
+    color: inherit;
+  }
+  .rio-interface-block[data-band] a:not(.rio-interface-section-link, .rio-button) {
+    color: var(--rio-band-text);
+  }
+  .rio-interface-block[data-band] .rio-dashboard-chart__canvas {
+    /* A plot's own surface keeps accent series visible on an accent band. */
+    --rio-text: var(--rio-aa-text-muted);
+    background: var(--rio-surface);
+    color: var(--rio-aa-text-muted);
+    border-radius: var(--rio-radius);
+  }
+  .rio-interface-block[data-band] .rio-dashboard-chart__canvas :is(span, strong) {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-interface-accordion {
+    border-bottom: 1px solid var(--rio-aa-border);
+  }
+  .rio-interface-accordion summary {
+    cursor: pointer;
+    padding-block: var(--rio-space-3);
+    min-height: 44px;
+  }
+  .rio-interface-accordion p,
+  .rio-interface-section-words :is(h3, p) {
+    white-space: pre-line;
+  }
+  .rio-interface-sections {
+    display: grid;
+    gap: var(--rio-space-6);
+  }
+  .rio-interface-record-section {
+    display: grid;
+    align-items: center;
+    gap: var(--rio-space-4);
+    min-width: 0;
+  }
+  .rio-interface-section-words,
+  .rio-interface-section-media {
+    min-width: 0;
+  }
+  .rio-interface-section-media :is(img, video) {
+    max-width: 100%;
+    height: auto;
+  }
+  .rio-interface-section-link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding: var(--rio-space-2) var(--rio-space-4);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    color: var(--rio-aa-on-accent);
+    background: var(--rio-accent);
+    text-decoration: none;
+  }
+  .rio-interface-enlarge {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    cursor: zoom-in;
+  }
+  .rio-interface-image-dialog {
+    max-width: calc(100% - 2rem);
+    max-height: calc(100% - 2rem);
+    padding: var(--rio-space-4);
+    color: var(--rio-aa-text-muted);
+    background: var(--rio-bg);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-interface-image-dialog::backdrop {
+    background: var(--rio-bg);
+    opacity: 0.9;
+  }
+  .rio-interface-image-dialog img {
+    max-width: 100%;
+    max-height: calc(100vh - 8rem);
+    object-fit: contain;
+  }
+  @media (min-width: 48rem) {
+    .rio-interface-record-section[data-media] {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    .rio-interface-record-section[data-media]:nth-child(even) .rio-interface-section-words {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .rio-interface-record-section[data-media]:nth-child(even) .rio-interface-section-media {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+  @media (max-width: 47.999rem) {
+    .rio-interface-band {
+      display: none;
+    }
+  }
+  @media print {
+    .rio-interface-accordion::details-content {
+      display: block;
+      content-visibility: visible;
+    }
+    .rio-interface-accordion > div {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+/* Spacing. 6px groups related controls, 8px separates elements — both lifted from the source kit. */
+:root{
+--s7-space-1:2px;
+--s7-space-2:4px;
+--s7-space-3:6px;
+--s7-space-4:8px;
+--s7-space-5:12px;
+--s7-space-6:16px;
+--s7-space-7:24px;
+--s7-space-8:32px;
+--s7-space-9:48px;
+--s7-space-10:64px;
+
+--s7-element-spacing:8px;
+--s7-grouped-element-spacing:6px;
+
+/* Control metrics */
+--s7-btn-min-width:59px;
+--s7-btn-min-height:20px;
+--s7-radio-width:12px;
+--s7-radio-dot-width:6px;
+--s7-checkbox-width:13px;
+--s7-radio-label-spacing:6px;
+--s7-checkmark-width:12px;
+--s7-titlebar-height:1.5rem;
+--s7-scrollbar-width:22px;
+--s7-menubar-height:22px;
+--s7-hit-target:44px;
+}

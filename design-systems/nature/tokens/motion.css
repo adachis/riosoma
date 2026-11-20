@@ -1,0 +1,17 @@
+/* Motion — everything eases; nothing bounces except the underline sweep. */
+:root{
+  --nt-dur-fast:0.2s; /* @kind other */
+  --nt-dur-base:0.3s; /* @kind other */
+  --nt-dur-slow:0.4s; /* @kind other */
+  --nt-dur-slower:0.6s; /* @kind other */
+  --nt-dur-image:0.8s; /* @kind other */
+  --nt-dur-zoom:1.2s; /* @kind other */
+
+  --nt-ease:ease; /* @kind other */
+  --nt-ease-out:cubic-bezier(0.49,0.49,0.08,1); /* @kind other */
+  --nt-ease-back:cubic-bezier(0.7,-0.56,0.27,1.6); /* @kind other */
+
+  --nt-lift:translateY(-2px); /* @kind other */
+  --nt-scale-up:scale(1.08); /* @kind other */
+  --nt-scale-image:scale(1.05); /* @kind other */
+}

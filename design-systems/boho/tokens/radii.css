@@ -1,0 +1,15 @@
+:root{
+--r-xs:3px;--r-sm:6px;--r-md:10px;--r-lg:18px;--r-xl:28px;--r-2xl:44px;--r-pill:999px;--r-circle:50%;
+/* Signature silhouettes */
+--r-arch:999px 999px var(--r-md) var(--r-md); /* @kind radius */
+--r-arch-soft:180px 180px var(--r-lg) var(--r-lg); /* @kind radius */
+--r-arch-plate:22px 22px var(--r-sm) var(--r-sm); /* @kind radius */
+--r-dome:50% 50% 0 0; /* @kind radius */
+--r-leaf:999px 6px 999px 6px; /* @kind radius */
+--r-blob:62% 38% 47% 53%/44% 56% 44% 56%; /* @kind radius */
+--r-lozenge:999px/44%; /* @kind radius */
+--border-hair:1px; /* @kind spacing */
+--border-med:1.5px; /* @kind spacing */
+--border-thick:2px; /* @kind spacing */
+--border-frame:3px; /* @kind spacing */
+}

@@ -1,0 +1,39 @@
+{
+  "id": "scheduled-reports",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "view.menu",
+      "say": "demos.scheduled-reports.menu",
+      "do": "open"
+    },
+    {
+      "anchor": "view.reports",
+      "say": "demos.scheduled-reports.open",
+      "do": "open"
+    },
+    {
+      "anchor": "reports.add",
+      "say": "demos.scheduled-reports.add",
+      "do": "open"
+    },
+    {
+      "anchor": "reports.form.name",
+      "say": "demos.scheduled-reports.name",
+      "do": "type",
+      "text": "demos.scheduled-reports.sampleName"
+    },
+    {
+      "anchor": "reports.form.format",
+      "say": "demos.scheduled-reports.format"
+    },
+    {
+      "anchor": "reports.form.frequency",
+      "say": "demos.scheduled-reports.when"
+    },
+    {
+      "anchor": "reports.form.save",
+      "say": "demos.scheduled-reports.save"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+:root{
+  /* Radii: the system is sharp-cornered with one exception — the full capsule.
+     There is no intermediate rounding. Cards, inputs, panels: 0. Pills: 999px. */
+  --radius-none:0;
+  --radius-pill:999px;
+
+  /* Border widths */
+  --border-hair:1px;
+  --border-medium:1.5px;
+  --border-heavy:3px;
+
+  /* Shadows. Print has none; only lifted paper and overlays cast light. */
+  --shadow-none:none;
+  --shadow-paper:0 18px 44px -18px rgba(14,14,13,.16);
+  --shadow-pop:0 40px 90px -28px rgba(14,14,13,.34);
+  --shadow-inset-rule:inset 0 -1px 0 var(--rule-hairline);
+
+  /* Transparency + blur — used only for overlays and pinned bars. */
+  --scrim:rgba(14,14,13,.44);
+  --veil:rgba(248,248,246,.82);
+  --blur-bar:saturate(120%) blur(14px); /* @kind other */
+
+  /* Textures */
+  --pattern-rule:repeating-linear-gradient(to bottom,var(--rule-hairline) 0 1px,transparent 1px 8px); /* @kind other */
+  --pattern-hatch:repeating-linear-gradient(135deg,var(--rule-hairline) 0 1px,transparent 1px 6px); /* @kind other */
+}

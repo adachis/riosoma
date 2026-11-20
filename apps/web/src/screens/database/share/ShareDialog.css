@@ -1,0 +1,47 @@
+@layer rio.app {
+  .rio-share,
+  .rio-share__list {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-share__list {
+    margin-block: 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .rio-share__row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-share__identity {
+    display: grid;
+    flex: 1;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  .rio-share__fallback {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  .rio-share__row .rio-textfield {
+    flex: 1;
+    min-inline-size: 0;
+  }
+  @media (max-width: 480px) {
+    .rio-share__row > .rio-share__identity {
+      flex-basis: 100%;
+    }
+    .rio-share__row > .rio-person-avatar + .rio-share__identity {
+      flex-basis: calc(100% - var(--rio-space-8) - var(--rio-space-3));
+    }
+    .rio-share__row > .rio-select {
+      flex: 1;
+      min-inline-size: 0;
+    }
+  }
+}

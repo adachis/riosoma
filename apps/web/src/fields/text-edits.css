@@ -1,0 +1,26 @@
+.rio-text-conflict {
+  inline-size: 100%;
+}
+.rio-text-conflict__versions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--rio-space-4);
+}
+.rio-text-conflict textarea {
+  font-family: var(--rio-font-mono);
+}
+.rio-text-edit__status {
+  color: var(--rio-aa-text-muted);
+  font-size: var(--rio-text-sm);
+}
+.rio-text-edit > fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+}
+@media (max-width: 40rem) {
+  .rio-text-conflict__versions {
+    grid-template-columns: 1fr;
+  }
+}

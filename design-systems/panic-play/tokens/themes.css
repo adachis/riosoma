@@ -1,0 +1,265 @@
+/* Panic Play theme variants. Apply with data-theme="<name>" on <html> or any container. */
+
+/* Spectrum */
+[data-theme="spectrum"]{
+  --ink-1:#2b2119;
+  --paper-1:#fffaf2;
+  --paper-2:#fdf1e3;
+  --paper-3:#f7e3cd;
+  --brand-1:#fde7e7; --brand-2:#f9a8a5; --brand-3:#f94144; --brand-4:#f94144; --brand-5:#d92a2d; --brand-6:#8f1a1c;
+  --alt-1:#e7f5ec; --alt-2:#9ad6b5; --alt-3:#43aa8b; --alt-4:#43aa8b; --alt-5:#2f8a6e; --alt-6:#1c5b48;
+  --util-lemon:#f9c74f; --util-grape:#577590; --util-sky:#277da1;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Midnight */
+[data-theme="midnight"]{
+  --ink-1:#000814;
+  --paper-1:#0b1a2e;
+  --paper-2:#001d3d;
+  --paper-3:#00274f;
+  --brand-1:#fff3c4; --brand-2:#ffe066; --brand-3:#ffc300; --brand-4:#ffc300; --brand-5:#e0a800; --brand-6:#a37a00;
+  --alt-1:#cfe4ff; --alt-2:#7fb2ea; --alt-3:#003566; --alt-4:#003566; --alt-5:#002a52; --alt-6:#001d3d;
+  --util-lemon:#ffd60a; --util-grape:#4d6fa8; --util-sky:#3fa9ff;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:#8fa6bf;
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Arcade */
+[data-theme="arcade"]{
+  --ink-1:#1a0033;
+  --paper-1:#fff7f0;
+  --paper-2:#ffeadf;
+  --paper-3:#ffd9c7;
+  --brand-1:#ffe0ea; --brand-2:#ff86ac; --brand-3:#ff0054; --brand-4:#ff0054; --brand-5:#d40045; --brand-6:#8c002d;
+  --alt-1:#ece0ff; --alt-2:#b48cff; --alt-3:#390099; --alt-4:#390099; --alt-5:#2c0075; --alt-6:#1d004d;
+  --util-lemon:#ffbd00; --util-grape:#390099; --util-sky:#ff5400;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Ledger */
+[data-theme="ledger"]{
+  --ink-1:#1d3557;
+  --paper-1:#f1faee;
+  --paper-2:#e6f2e3;
+  --paper-3:#d3e6dd;
+  --brand-1:#fbe0e2; --brand-2:#f4a3a8; --brand-3:#e63946; --brand-4:#e63946; --brand-5:#c2222f; --brand-6:#7d1520;
+  --alt-1:#e5f4f6; --alt-2:#a8dadc; --alt-3:#457b9d; --alt-4:#457b9d; --alt-5:#356184; --alt-6:#1d3557;
+  --util-lemon:#f4d35e; --util-grape:#457b9d; --util-sky:#a8dadc;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Peach Fuzz */
+[data-theme="peachfuzz"]{
+  --ink-1:#4a3730;
+  --paper-1:#fffaf4;
+  --paper-2:#f7ede2;
+  --paper-3:#f5cac3;
+  --brand-1:#fde8e6; --brand-2:#f7b3aa; --brand-3:#f28482; --brand-4:#f28482; --brand-5:#d96461; --brand-6:#a13f3d;
+  --alt-1:#e6efec; --alt-2:#b3cdc6; --alt-3:#84a59d; --alt-4:#84a59d; --alt-5:#65867f; --alt-6:#3f5852;
+  --util-lemon:#f6bd60; --util-grape:#84a59d; --util-sky:#f5cac3;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Campfire */
+[data-theme="campfire"]{
+  --ink-1:#233d4d;
+  --paper-1:#fffaf0;
+  --paper-2:#fdf0da;
+  --paper-3:#f7e0bb;
+  --brand-1:#ffe8d6; --brand-2:#ffb583; --brand-3:#fe7f2d; --brand-4:#fe7f2d; --brand-5:#e0651a; --brand-6:#95400c;
+  --alt-1:#eaf3e6; --alt-2:#c3ddb5; --alt-3:#a1c181; --alt-4:#a1c181; --alt-5:#7fa663; --alt-6:#4f7038;
+  --util-lemon:#fcca46; --util-grape:#619b8a; --util-sky:#619b8a;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Lagoon */
+[data-theme="lagoon"]{
+  --ink-1:#0f3049;
+  --paper-1:#f6fffb;
+  --paper-2:#e8fbf0;
+  --paper-3:#c7f9cc;
+  --brand-1:#dffaee; --brand-2:#80ed99; --brand-3:#38a3a5; --brand-4:#38a3a5; --brand-5:#2a8385; --brand-6:#22577a;
+  --alt-1:#e3f6ff; --alt-2:#9ed7ea; --alt-3:#22577a; --alt-4:#22577a; --alt-5:#194563; --alt-6:#0f3049;
+  --util-lemon:#80ed99; --util-grape:#22577a; --util-sky:#57cc99;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Moss */
+[data-theme="moss"]{
+  --ink-1:#22301f;
+  --paper-1:#f7fbf6;
+  --paper-2:#e9f2e6;
+  --paper-3:#d3e0cd;
+  --brand-1:#ffe6e5; --brand-2:#ffccc9; --brand-3:#ff5666; --brand-4:#ff5666; --brand-5:#dc3746; --brand-6:#8f1f2a;
+  --alt-1:#d6fff8; --alt-2:#8bfced; --alt-3:#00fddc; --alt-4:#00fddc; --alt-5:#00c9ae; --alt-6:#00806f;
+  --util-lemon:#00fddc; --util-grape:#495f41; --util-sky:#2e5339;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Bubblegum */
+[data-theme="bubblegum"]{
+  --ink-1:#2d2440;
+  --paper-1:#fffdf6;
+  --paper-2:#fff5e3;
+  --paper-3:#ffe7c9;
+  --brand-1:#ffe4ef; --brand-2:#ffb0cd; --brand-3:#ff70a6; --brand-4:#ff70a6; --brand-5:#e64d85; --brand-6:#992f55;
+  --alt-1:#e2f6ff; --alt-2:#a8e4ff; --alt-3:#70d6ff; --alt-4:#70d6ff; --alt-5:#42b6e6; --alt-6:#1d7ea6;
+  --util-lemon:#ffd670; --util-grape:#ff70a6; --util-sky:#ff9770;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Seaglass */
+[data-theme="seaglass"]{
+  --ink-1:#12333f;
+  --paper-1:#fbffef;
+  --paper-2:#f3ffbd;
+  --paper-3:#e0efa8;
+  --brand-1:#ffe0e7; --brand-2:#ff87a4; --brand-3:#ff1654; --brand-4:#ff1654; --brand-5:#d80f43; --brand-6:#8c0a2b;
+  --alt-1:#e6f7f3; --alt-2:#b2dbbf; --alt-3:#70c1b3; --alt-4:#70c1b3; --alt-5:#4c9c90; --alt-6:#247ba0;
+  --util-lemon:#f3ffbd; --util-grape:#247ba0; --util-sky:#70c1b3;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Ember */
+[data-theme="ember"]{
+  --ink-1:#083d77;
+  --paper-1:#fdfdf3;
+  --paper-2:#ebebd3;
+  --paper-3:#dcdcbe;
+  --brand-1:#fee3d9; --brand-2:#f9a98d; --brand-3:#f95738; --brand-4:#f95738; --brand-5:#d63c1f; --brand-6:#8c2412;
+  --alt-1:#fdf1d2; --alt-2:#f7e39c; --alt-3:#f4d35e; --alt-4:#f4d35e; --alt-5:#dcb63c; --alt-6:#96771c;
+  --util-lemon:#f4d35e; --util-grape:#083d77; --util-sky:#ee964b;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}
+
+/* Fern */
+[data-theme="fern"]{
+  --ink-1:#3c493f;
+  --paper-1:#f8fdfa;
+  --paper-2:#f0f7f4;
+  --paper-3:#dde8e2;
+  --brand-1:#dcf6ea; --brand-2:#a2e3c4; --brand-3:#5cc79b; --brand-4:#5cc79b; --brand-5:#3fa87d; --brand-6:#256b4e;
+  --alt-1:#e7ebe8; --alt-2:#b3bfb8; --alt-3:#7e8d85; --alt-4:#7e8d85; --alt-5:#5f6d66; --alt-6:#3c493f;
+  --util-lemon:#a2e3c4; --util-grape:#7e8d85; --util-sky:#b3bfb8;
+  --bg-page:var(--paper-2); --bg-sunk:var(--paper-3);
+  --surface-card:var(--paper-1); --surface-raised:var(--paper-1);
+  --text-strong:var(--ink-1); --text-body:var(--ink-1); --text-muted:color-mix(in oklab, var(--ink-1) 62%, var(--paper-1));
+  --text-faint:color-mix(in oklab, var(--ink-1) 42%, var(--paper-1));
+  --text-inverse:var(--paper-1); --text-on-brand:#ffffff; --text-on-alt:var(--paper-1);
+  --surface-brand:var(--brand-4); --surface-brand-soft:var(--brand-1);
+  --surface-alt:var(--alt-4); --surface-alt-soft:var(--alt-1);
+  --surface-inverse:var(--ink-1);
+  --line-1:var(--ink-1); --line-2:color-mix(in oklab, var(--ink-1) 22%, var(--paper-1));
+  --line-focus:var(--util-grape);
+  --text-link:var(--brand-5); --text-link-hover:var(--brand-6);
+}

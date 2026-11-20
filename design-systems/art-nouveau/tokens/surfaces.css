@@ -1,0 +1,34 @@
+:root{
+/* Ground textures and ornament sources. Paths resolve from tokens/ up to assets/. */
+--texture-paper:url("../assets/patterns/paper-1.jpg"); /* @kind other */
+--texture-paper-alt:url("../assets/patterns/paper-2.jpg"); /* @kind other */
+--pattern-floral-forest:url("../assets/patterns/floral-forest.svg"); /* @kind other */
+--pattern-floral-marine:url("../assets/patterns/floral-marine.svg"); /* @kind other */
+--pattern-damask-sage:url("../assets/patterns/damask-sage.svg"); /* @kind other */
+--ornament-leaf:url("../assets/ornaments/leaf-1.svg"); /* @kind other */
+--ornament-butterfly:url("../assets/ornaments/butterfly-2.svg"); /* @kind other */
+--ornament-panel:url("../assets/ornaments/panel-f29.svg"); /* @kind other */
+
+--tile-pattern:220px;      /* default seamless tile size @kind spacing */
+--tile-paper:640px; /* @kind spacing */
+
+/* Ready-made grounds */
+--ground-page:var(--surface-page); /* @kind other */
+--ground-paper:var(--texture-paper) center/var(--tile-paper) repeat,var(--surface-page); /* @kind other */
+--ground-damask:var(--pattern-damask-sage) center/var(--tile-pattern) repeat,var(--surface-page); /* @kind other */
+--ground-plate:linear-gradient(178deg,var(--surface-card),var(--surface-sunken)); /* @kind other */
+
+/* Protection scrims for type over imagery. Capsules are preferred for short labels,
+   gradients for headlines that sit on a full-bleed plate. */
+--scrim-bottom:linear-gradient(to top,rgba(23,20,15,.82) 0%,rgba(23,20,15,.55) 38%,transparent 78%); /* @kind other */
+--scrim-top:linear-gradient(to bottom,rgba(23,20,15,.72) 0%,transparent 62%); /* @kind other */
+--scrim-flat:rgba(23,20,15,.55); /* @kind other */
+--capsule-scrim:var(--surface-card); /* @kind other */
+
+/* Imagery treatment: sources run warm and desaturated with visible grain. */
+--filter-plate:saturate(.88) contrast(1.04) sepia(.06); /* @kind other */
+--filter-duotone:grayscale(1) sepia(.28) saturate(1.5) hue-rotate(-8deg); /* @kind other */
+--opacity-texture:.22; /* @kind other */
+--opacity-ornament:.16; /* @kind other */
+--blur-veil:14px; /* only for sheets/overlays over live content @kind spacing */
+}

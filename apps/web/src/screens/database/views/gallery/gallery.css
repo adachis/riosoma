@@ -1,0 +1,161 @@
+@layer rio.app {
+  .rio-gallery-view-card-wrap:is(:hover, :focus-within) .rio-sortable-actions {
+    opacity: 1;
+  }
+  .rio-gallery-view {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-block-size: 0;
+    min-inline-size: 0;
+    block-size: 100%;
+    color: var(--rio-text);
+    background: var(--rio-bg);
+  }
+  .rio-gallery-view__actions {
+    flex: none;
+    padding-block: 8px;
+    padding-inline: 16px;
+  }
+  .rio-gallery-view__viewport {
+    flex: 1;
+    min-block-size: 0;
+    overflow: auto;
+    scrollbar-gutter: stable;
+    overflow-anchor: none;
+  }
+  .rio-gallery-view__canvas {
+    position: relative;
+  }
+  .rio-gallery-view__line {
+    position: absolute;
+    inset-inline: 16px;
+    display: grid;
+    gap: 16px;
+  }
+  .rio-gallery-view-card {
+    min-inline-size: 0;
+    overflow: hidden;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    cursor: pointer;
+  }
+  .rio-gallery-view-card:hover {
+    border-color: var(--rio-aa-border);
+  }
+  .rio-gallery-view-card:focus-visible,
+  .rio-gallery-view__viewport:focus-visible {
+    outline: var(--rio-focus-ring);
+    outline-offset: -2px;
+  }
+  .rio-gallery-view-card__cover {
+    block-size: var(--rio-gallery-view-cover-height);
+    background: var(--rio-hover);
+    overflow: hidden;
+  }
+  .rio-gallery-view-card__cover img {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+  .rio-gallery-view-card__cover[data-fit='fit'] img {
+    object-fit: contain;
+  }
+  .rio-gallery-view-card__body {
+    padding-block: 16px;
+    padding-inline: 16px;
+  }
+  .rio-gallery-view-card__title {
+    block-size: 32px;
+    font-weight: 600;
+    font-size: var(--rio-text-md);
+  }
+  .rio-gallery-view-card__title,
+  .rio-gallery-view-card__fields dt,
+  .rio-gallery-view-card__fields dd {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-gallery-view-card__fields {
+    margin-block: 0;
+    margin-inline: 0;
+  }
+  .rio-gallery-view-card__fields > div {
+    block-size: 44px;
+  }
+  .rio-gallery-view-card__fields dt {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    line-height: 20px;
+  }
+  .rio-gallery-view-card__fields dd {
+    margin-inline: 0;
+    margin-block: 0;
+    font-size: var(--rio-text-sm);
+    line-height: 20px;
+  }
+  .rio-gallery-view__empty {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline: 16px;
+    text-align: center;
+    pointer-events: none;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-gallery-view-settings {
+    display: grid;
+    gap: var(--rio-space-4);
+    padding-block: var(--rio-space-4);
+    padding-inline: var(--rio-space-4);
+    inline-size: 260px;
+    max-inline-size: 100%;
+  }
+  @media (forced-colors: active) {
+    .rio-gallery-view-card {
+      border-color: CanvasText;
+    }
+    .rio-gallery-view-card:focus-visible {
+      outline: 2px solid Highlight;
+    }
+  }
+}
+
+.rio-gallery-view-card[data-gallery-draggable] {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+.rio-gallery-view-card-wrap {
+  position: relative;
+  min-inline-size: 0;
+  block-size: 100%;
+}
+.rio-gallery-view-card-wrap.rio-sortable-surface {
+  padding-inline-end: 0;
+}
+.rio-gallery-view-card-wrap .rio-gallery-view-card__body {
+  padding-inline-end: max(var(--rio-control-height), var(--rio-target-primary));
+}
+.rio-gallery-view-card[data-rio-drop-side] {
+  position: relative;
+}
+.rio-gallery-view-card[data-rio-drop-side]::after {
+  z-index: 2;
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inline-size: 4px;
+  background: var(--rio-accent);
+  pointer-events: none;
+}
+.rio-gallery-view-card[data-rio-drop-side='before']::after {
+  inset-inline-start: 0;
+}
+.rio-gallery-view-card[data-rio-drop-side='after']::after {
+  inset-inline-end: 0;
+}

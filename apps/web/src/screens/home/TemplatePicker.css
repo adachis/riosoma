@@ -1,0 +1,86 @@
+@layer rio.app {
+  /* Columns that can shrink, so long text never makes the dialog scroll sideways. */
+  .rio-template-picker,
+  .rio-template-picker__templates,
+  .rio-template-picker__section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--rio-space-2);
+  }
+  .rio-template-card__text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--rio-space-1);
+  }
+  /* The heading and the category filter share a row, and the filter drops below on narrow screens. */
+  .rio-template-picker__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+    margin-block-start: var(--rio-space-2);
+  }
+  .rio-template-picker__heading {
+    margin: 0;
+  }
+  .rio-template-picker__filter {
+    inline-size: 12rem;
+    max-inline-size: 100%;
+  }
+  /* The filter stays put while the cards scroll under it. */
+  .rio-template-picker__cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--rio-space-4);
+    max-block-size: min(28rem, 50dvh);
+    overflow: auto;
+    padding: var(--rio-space-1);
+  }
+  .rio-template-picker__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+    gap: var(--rio-space-2);
+  }
+  .rio-template-picker__category {
+    margin: 0;
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-bold);
+  }
+  .rio-template-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--rio-space-3);
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+  .rio-template-card:hover {
+    background: var(--rio-hover);
+  }
+  .rio-template-card[aria-pressed='true'] {
+    background: var(--rio-selected);
+  }
+  .rio-template-card:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-template-card:disabled {
+    cursor: default;
+  }
+  .rio-template-card__text > span {
+    color: var(--rio-aa-text-muted);
+  }
+  @media (forced-colors: active) {
+    .rio-template-card[aria-pressed='true'] {
+      outline: 2px solid;
+      outline-offset: -4px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+/* ── Colour-scheme variants ────────────────────────────────────────────────
+   Every theme states five raw palette slots plus one accent. Everything else
+   (soft washes, strong text tints, tinted paper) is derived, so surfaces stay
+   aged-paper and the palette only ever arrives as a wash — that is what keeps
+   a hot palette shabby. Apply with data-theme on <html>, <body>, or any
+   subtree: <body data-theme="provence">. No attribute = "heirloom".
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root{
+--pal-1:#DEA8AE;--pal-2:#A8B99A;--pal-3:#9AB2C2;--pal-4:#B5A0C0;--pal-5:#C9A25C;
+--accent:#A2626C;--accent-ink:#FFFFFF;
+
+--accent-soft:color-mix(in oklab,var(--accent) 16%,var(--paper-0));
+--accent-soft-2:color-mix(in oklab,var(--accent) 34%,var(--paper-0));
+--accent-mid:color-mix(in oklab,var(--accent) 62%,var(--paper-0));
+--accent-strong:color-mix(in oklab,var(--accent) 80%,var(--ink-0));
+--accent-deep:color-mix(in oklab,var(--accent) 52%,var(--ink-0));
+--accent-hair:color-mix(in oklab,var(--accent) 30%,var(--rule));
+}
+
+[data-theme]{
+--accent-soft:color-mix(in oklab,var(--accent) 16%,var(--paper-0));
+--accent-soft-2:color-mix(in oklab,var(--accent) 34%,var(--paper-0));
+--accent-mid:color-mix(in oklab,var(--accent) 62%,var(--paper-0));
+--accent-strong:color-mix(in oklab,var(--accent) 80%,var(--ink-0));
+--accent-deep:color-mix(in oklab,var(--accent) 52%,var(--ink-0));
+--accent-hair:color-mix(in oklab,var(--accent) 30%,var(--rule));
+--surface-page:color-mix(in oklab,var(--accent) 5%,#F8F3EA);
+--surface-card:color-mix(in oklab,var(--accent) 2%,#FDFBF7);
+--surface-sunken:color-mix(in oklab,var(--accent) 8%,#F1E8DB);
+--rule-hair:color-mix(in oklab,var(--accent) 12%,#E3D6C6);
+--rule:color-mix(in oklab,var(--accent) 16%,#D6C6B2);
+}
+
+[data-theme="heirloom"]{--pal-1:#DEA8AE;--pal-2:#A8B99A;--pal-3:#9AB2C2;--pal-4:#B5A0C0;--pal-5:#C9A25C;--accent:#A2626C;--accent-ink:#FFFFFF}
+[data-theme="spectrum"]{--pal-1:#F94144;--pal-2:#F8961E;--pal-3:#F9C74F;--pal-4:#90BE6D;--pal-5:#277DA1;--accent:#43AA8B;--accent-ink:var(--ink-0)}
+[data-theme="midnight-gilt"]{--pal-1:#000814;--pal-2:#001D3D;--pal-3:#003566;--pal-4:#FFC300;--pal-5:#FFD60A;--accent:#003566;--accent-ink:#FFFFFF}
+[data-theme="carnival"]{--pal-1:#390099;--pal-2:#9E0059;--pal-3:#FF0054;--pal-4:#FF5400;--pal-5:#FFBD00;--accent:#9E0059;--accent-ink:#FFFFFF}
+[data-theme="harbour"]{--pal-1:#E63946;--pal-2:#F1FAEE;--pal-3:#A8DADC;--pal-4:#457B9D;--pal-5:#1D3557;--accent:#1D3557;--accent-ink:#FFFFFF}
+[data-theme="peony"]{--pal-1:#F6BD60;--pal-2:#F7EDE2;--pal-3:#F5CAC3;--pal-4:#84A59D;--pal-5:#F28482;--accent:#84A59D;--accent-ink:var(--ink-0)}
+[data-theme="orchard"]{--pal-1:#233D4D;--pal-2:#FE7F2D;--pal-3:#FCCA46;--pal-4:#A1C181;--pal-5:#619B8A;--accent:#619B8A;--accent-ink:var(--ink-0)}
+[data-theme="seaglass"]{--pal-1:#22577A;--pal-2:#38A3A5;--pal-3:#57CC99;--pal-4:#80ED99;--pal-5:#C7F9CC;--accent:#38A3A5;--accent-ink:var(--ink-0)}
+[data-theme="fernlight"]{--pal-1:#00FDDC;--pal-2:#2E5339;--pal-3:#495F41;--pal-4:#FF5666;--pal-5:#FFCCC9;--accent:#2E5339;--accent-ink:#FFFFFF}
+[data-theme="sorbet"]{--pal-1:#70D6FF;--pal-2:#FF70A6;--pal-3:#FF9770;--pal-4:#FFD670;--pal-5:color-mix(in oklab,#70D6FF 62%,var(--ink-0));--accent:#FF70A6;--accent-ink:var(--ink-0)}
+[data-theme="meadow"]{--pal-1:#247BA0;--pal-2:#70C1B3;--pal-3:#B2DBBF;--pal-4:#F3FFBD;--pal-5:#FF1654;--accent:#247BA0;--accent-ink:#FFFFFF}
+[data-theme="provence"]{--pal-1:#083D77;--pal-2:#EBEBD3;--pal-3:#F4D35E;--pal-4:#EE964B;--pal-5:#F95738;--accent:#083D77;--accent-ink:#FFFFFF}
+[data-theme="eucalyptus"]{--pal-1:#3C493F;--pal-2:#7E8D85;--pal-3:#B3BFB8;--pal-4:#F0F7F4;--pal-5:#A2E3C4;--accent:#3C493F;--accent-ink:#FFFFFF}

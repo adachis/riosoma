@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["message", "recipient", "recordUrl"],
+  "properties": {
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string"
+    },
+    "recipient": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recordUrl": {
+      "type": "string"
+    }
+  }
+}

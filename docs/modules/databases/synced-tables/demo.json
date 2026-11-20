@@ -1,0 +1,22 @@
+{
+  "id": "synced-tables",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "shell.home",
+      "say": "demos.synced-tables.settings"
+    },
+    {
+      "anchor": "database.tables.add",
+      "say": "demos.synced-tables.add"
+    },
+    {
+      "anchor": "database.tables",
+      "say": "demos.synced-tables.list"
+    },
+    {
+      "anchor": "grid",
+      "say": "demos.synced-tables.read"
+    }
+  ]
+}

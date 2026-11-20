@@ -1,0 +1,77 @@
+@layer rio.components {
+  /* The dialog fills the panel and splits into fixed header and footer with a scrolling middle, so
+     a long body never pushes the actions off screen. */
+  .rio-dialog {
+    box-sizing: border-box;
+    max-block-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    overflow: clip;
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    min-block-size: 0;
+    padding: var(--rio-space-6);
+  }
+
+  .rio-dialog:not(:has(.rio-dialog__body)) {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .rio-dialog > form,
+  .rio-modal > form {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    min-block-size: 0;
+    overflow: clip;
+  }
+
+  /* Pinned to the corner rather than laid out beside the title, so it stays put no matter which
+     slots a caller fills in. */
+  .rio-dialog__close {
+    position: absolute;
+    inset-block-start: var(--rio-space-3);
+    inset-inline-end: var(--rio-space-3);
+  }
+
+  .rio-dialog__title {
+    /* Keeps a long title clear of the close button without changing the button's own box, which
+       grows to a fingertip on phones. */
+    padding-inline-end: max(var(--rio-space-8), calc(var(--rio-target-primary) + var(--rio-space-2)));
+    flex: none;
+    margin: 0;
+    color: var(--rio-text);
+    font-family: var(--rio-font-display);
+    font-size: var(--rio-text-lg);
+    font-weight: var(--rio-weight-bold);
+    line-height: var(--rio-leading-tight);
+  }
+
+  .rio-dialog__body {
+    flex: 1 1 auto;
+    min-block-size: 0;
+    min-inline-size: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+  }
+
+  .rio-dialog__footer {
+    display: flex;
+    flex: none;
+    gap: var(--rio-space-2);
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  .rio-dialog__body:focus-visible {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: calc(-1 * var(--rio-space-1));
+  }
+}

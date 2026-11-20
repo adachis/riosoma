@@ -1,0 +1,93 @@
+:root{
+/* ---- base palette: ink & paper (default "Gallery" theme) ---- */
+--ink-900:#12100E;--ink-800:#1D1A17;--ink-700:#2A2521;--ink-500:#5B534C;--ink-400:#7E756C;--ink-300:#A79E94;
+--paper-000:#FFFFFF;--paper-050:#FAF8F4;--paper-100:#F6F3EE;--paper-200:#EFEBE3;--paper-300:#E4DED4;--paper-400:#DCD5CA;
+--vermilion-700:#A32B0C;--vermilion-600:#C0330F;--vermilion-500:#D93A14;--vermilion-200:#F6CFC3;--vermilion-050:#FDF1EC;
+--teal-600:#1F4B4F;--ochre-500:#C99A2E;
+--green-600:#3F7D4B;--amber-600:#C98A17;--red-700:#B32619;--blue-600:#2A5D8F;
+
+/* ---- theme channel: the 15 values every colour scheme overrides ---- */
+--t-paper:var(--paper-100);--t-paper-raised:var(--paper-000);--t-paper-sunken:var(--paper-200);
+--t-ink:var(--ink-900);--t-ink-2:var(--ink-700);--t-ink-muted:var(--ink-500);
+--t-line:var(--paper-400);--t-line-strong:var(--ink-900);
+--t-accent:var(--vermilion-500);--t-accent-hover:var(--vermilion-600);--t-accent-press:var(--vermilion-700);
+--t-on-accent:#FFFFFF;--t-accent-2:var(--teal-600);--t-accent-3:var(--ochre-500);
+--t-inverse-surface:var(--ink-900);--t-inverse-ink:var(--paper-050);
+}
+
+/* ---- semantic aliases: what components actually consume.
+   Declared once on :root and again on every [data-theme] scope, so a scheme
+   can be applied to the document OR to any single subtree and the aliases
+   recompute from that element's own theme channel. ---- */
+:root{
+--surface-page:var(--t-paper);
+--surface-raised:var(--t-paper-raised);
+--surface-sunken:var(--t-paper-sunken);
+--surface-inverse:var(--t-inverse-surface);
+--surface-accent:var(--t-accent);
+--surface-accent-quiet:color-mix(in oklab,var(--t-accent) 10%,var(--t-paper));
+--surface-hover:color-mix(in oklab,var(--t-ink) 5%,var(--t-paper));
+--surface-press:color-mix(in oklab,var(--t-ink) 10%,var(--t-paper));
+--surface-scrim:color-mix(in oklab,var(--t-inverse-surface) 62%,transparent);
+--surface-veil:color-mix(in oklab,var(--t-paper) 78%,transparent);
+--text-primary:var(--t-ink);
+--text-secondary:var(--t-ink-2);
+--text-muted:var(--t-ink-muted);
+--text-inverse:var(--t-inverse-ink);
+--text-accent:var(--t-accent);
+--text-on-accent:var(--t-on-accent);
+--text-link:var(--t-ink);
+--text-link-hover:var(--t-accent);
+--border-hairline:color-mix(in oklab,var(--t-line) 60%,transparent);
+--border-subtle:var(--t-line);
+--border-strong:var(--t-line-strong);
+--border-accent:var(--t-accent);
+--border-inverse:color-mix(in oklab,var(--t-inverse-ink) 32%,transparent);
+--accent:var(--t-accent);
+--accent-hover:var(--t-accent-hover);
+--accent-press:var(--t-accent-press);
+--accent-2:var(--t-accent-2);
+--accent-3:var(--t-accent-3);
+--feedback-success:var(--green-600);
+--feedback-warning:var(--amber-600);
+--feedback-danger:var(--red-700);
+--feedback-info:var(--blue-600);
+--focus-ring:var(--t-accent);
+--focus-ring-offset:var(--t-paper);
+}
+[data-theme]{
+--surface-page:var(--t-paper);
+--surface-raised:var(--t-paper-raised);
+--surface-sunken:var(--t-paper-sunken);
+--surface-inverse:var(--t-inverse-surface);
+--surface-accent:var(--t-accent);
+--surface-accent-quiet:color-mix(in oklab,var(--t-accent) 10%,var(--t-paper));
+--surface-hover:color-mix(in oklab,var(--t-ink) 5%,var(--t-paper));
+--surface-press:color-mix(in oklab,var(--t-ink) 10%,var(--t-paper));
+--surface-scrim:color-mix(in oklab,var(--t-inverse-surface) 62%,transparent);
+--surface-veil:color-mix(in oklab,var(--t-paper) 78%,transparent);
+--text-primary:var(--t-ink);
+--text-secondary:var(--t-ink-2);
+--text-muted:var(--t-ink-muted);
+--text-inverse:var(--t-inverse-ink);
+--text-accent:var(--t-accent);
+--text-on-accent:var(--t-on-accent);
+--text-link:var(--t-ink);
+--text-link-hover:var(--t-accent);
+--border-hairline:color-mix(in oklab,var(--t-line) 60%,transparent);
+--border-subtle:var(--t-line);
+--border-strong:var(--t-line-strong);
+--border-accent:var(--t-accent);
+--border-inverse:color-mix(in oklab,var(--t-inverse-ink) 32%,transparent);
+--accent:var(--t-accent);
+--accent-hover:var(--t-accent-hover);
+--accent-press:var(--t-accent-press);
+--accent-2:var(--t-accent-2);
+--accent-3:var(--t-accent-3);
+--feedback-success:var(--green-600);
+--feedback-warning:var(--amber-600);
+--feedback-danger:var(--red-700);
+--feedback-info:var(--blue-600);
+--focus-ring:var(--t-accent);
+--focus-ring-offset:var(--t-paper);
+}

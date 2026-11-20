@@ -1,0 +1,11 @@
+:root{
+--space-0:0;--space-px:1px;--space-1:2px;--space-2:4px;--space-3:8px;--space-4:12px;--space-5:16px;--space-6:20px;
+--space-7:24px;--space-8:32px;--space-9:40px;--space-10:56px;--space-11:72px;--space-12:96px;--space-13:128px;
+--gutter:var(--space-7);--page-pad:var(--space-9);
+--measure:66ch;--measure-narrow:46ch;
+--container-sm:640px;--container:960px;--container-lg:1200px;--container-xl:1440px;
+/* radii — filigree is drawn with rules, not pills; corners stay near-square */
+--radius-0:0;--radius-1:1px;--radius-2:2px;--radius-3:3px;--radius-4:5px;--radius-pill:999px;
+--hair:1px;--rule:2px;--frame-gap:3px;
+--control-h-sm:28px;--control-h:36px;--control-h-lg:46px;
+}

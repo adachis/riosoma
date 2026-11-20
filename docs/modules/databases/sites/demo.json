@@ -1,0 +1,23 @@
+{
+  "id": "sites",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "interfaces.section",
+      "say": "demos.sites.interface",
+      "do": "scroll"
+    },
+    {
+      "anchor": "interfaces.add",
+      "say": "demos.sites.pages"
+    },
+    {
+      "anchor": "database.share",
+      "say": "demos.sites.permission"
+    },
+    {
+      "anchor": "grid",
+      "say": "demos.sites.records"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+/* Spacing — the rhythm the source templates actually use (not a 4px grid). */
+:root{
+  --nt-space-1:4px;
+  --nt-space-2:8px;
+  --nt-space-3:10px;
+  --nt-space-4:12px;
+  --nt-space-5:16px;
+  --nt-space-6:20px;
+  --nt-space-7:24px;
+  --nt-space-8:32px;
+  --nt-space-9:40px;
+  --nt-space-10:50px;
+  --nt-space-11:64px;
+  --nt-space-12:80px;
+  --nt-space-13:100px;
+  --nt-space-14:120px;
+  --nt-space-15:150px;
+
+  --nt-section-y:100px;
+  --nt-section-y-sm:70px;
+  --nt-stack-gap:24px;
+}

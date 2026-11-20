@@ -1,0 +1,23 @@
+:root{
+  /* machine-age motion: precise, linear-ish, never springy */
+  --dur-1:120ms; /* @kind other */
+  --dur-2:200ms; /* @kind other */
+  --dur-3:320ms; /* @kind other */
+  --dur-4:600ms; /* @kind other */
+  --dur-5:1200ms; /* @kind other */
+  --ease-out:cubic-bezier(.2,.7,.2,1); /* @kind other */
+  --ease-in:cubic-bezier(.7,0,.9,.4); /* @kind other */
+  --ease-inout:cubic-bezier(.5,0,.5,1); /* @kind other */
+  --ease-mech:cubic-bezier(.36,0,.16,1); /* @kind other */
+  --t-hover:var(--dur-2) var(--ease-out); /* @kind other */
+  --t-press:var(--dur-1) var(--ease-mech); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{
+    --dur-1:1ms; /* @kind other */
+    --dur-2:1ms; /* @kind other */
+    --dur-3:1ms; /* @kind other */
+    --dur-4:1ms; /* @kind other */
+    --dur-5:1ms; /* @kind other */
+  }
+}

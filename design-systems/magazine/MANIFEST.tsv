@@ -1,0 +1,280 @@
+path	bytes
+.thumbnail	5314
+SKILL.md	3592
+_adherence.oxlintrc.json	29647
+_ds_bundle.js	174504
+_ds_manifest.json	66879
+assets/README.md	1693
+components/chrome/AndroidFrame.d.ts	680
+components/chrome/AndroidFrame.jsx	1466
+components/chrome/AndroidFrame.prompt.md	200
+components/chrome/IOSFrame.d.ts	744
+components/chrome/IOSFrame.jsx	1278
+components/chrome/IOSFrame.prompt.md	314
+components/chrome/LinuxWindow.d.ts	585
+components/chrome/LinuxWindow.jsx	1109
+components/chrome/LinuxWindow.prompt.md	305
+components/chrome/MacWindow.d.ts	575
+components/chrome/MacWindow.jsx	886
+components/chrome/MacWindow.prompt.md	286
+components/chrome/WindowsWindow.d.ts	508
+components/chrome/WindowsWindow.jsx	1006
+components/chrome/WindowsWindow.prompt.md	109
+components/chrome/chrome.card.html	3729
+components/components.css	31525
+components/core/Badge.d.ts	373
+components/core/Badge.jsx	306
+components/core/Badge.prompt.md	81
+components/core/Button.d.ts	696
+components/core/Button.jsx	695
+components/core/Button.prompt.md	565
+components/core/Callout.d.ts	396
+components/core/Callout.jsx	565
+components/core/Callout.prompt.md	258
+components/core/Card.d.ts	458
+components/core/Card.jsx	342
+components/core/Card.prompt.md	199
+components/core/IconButton.d.ts	539
+components/core/IconButton.jsx	437
+components/core/IconButton.prompt.md	285
+components/core/Kicker.d.ts	460
+components/core/Kicker.jsx	321
+components/core/Kicker.prompt.md	145
+components/core/Rule.d.ts	399
+components/core/Rule.jsx	310
+components/core/Rule.prompt.md	173
+components/core/Tag.d.ts	455
+components/core/Tag.jsx	492
+components/core/Tag.prompt.md	214
+components/core/core.card.html	4070
+components/editorial/ArticleCard.d.ts	637
+components/editorial/ArticleCard.jsx	765
+components/editorial/ArticleCard.prompt.md	446
+components/editorial/Byline.d.ts	466
+components/editorial/Byline.jsx	521
+components/editorial/Byline.prompt.md	95
+components/editorial/ContentsList.d.ts	377
+components/editorial/ContentsList.jsx	647
+components/editorial/ContentsList.prompt.md	211
+components/editorial/DropCap.d.ts	412
+components/editorial/DropCap.jsx	273
+components/editorial/DropCap.prompt.md	182
+components/editorial/Figure.d.ts	649
+components/editorial/Figure.jsx	576
+components/editorial/Figure.prompt.md	122
+components/editorial/Folio.d.ts	381
+components/editorial/Folio.jsx	352
+components/editorial/Folio.prompt.md	127
+components/editorial/PullQuote.d.ts	440
+components/editorial/PullQuote.jsx	341
+components/editorial/PullQuote.prompt.md	175
+components/editorial/StatBlock.d.ts	328
+components/editorial/StatBlock.jsx	360
+components/editorial/StatBlock.prompt.md	149
+components/editorial/editorial.card.html	4298
+components/feedback/Dialog.d.ts	391
+components/feedback/Dialog.jsx	854
+components/feedback/Dialog.prompt.md	282
+components/feedback/EmptyState.d.ts	382
+components/feedback/EmptyState.jsx	468
+components/feedback/EmptyState.prompt.md	215
+components/feedback/ProgressBar.d.ts	399
+components/feedback/ProgressBar.jsx	594
+components/feedback/ProgressBar.prompt.md	119
+components/feedback/Spinner.d.ts	274
+components/feedback/Spinner.jsx	238
+components/feedback/Spinner.prompt.md	71
+components/feedback/Toast.d.ts	391
+components/feedback/Toast.jsx	612
+components/feedback/Toast.prompt.md	161
+components/feedback/Tooltip.d.ts	304
+components/feedback/Tooltip.jsx	286
+components/feedback/Tooltip.prompt.md	163
+components/feedback/feedback.card.html	3259
+components/forms/Checkbox.d.ts	278
+components/forms/Checkbox.jsx	459
+components/forms/Checkbox.prompt.md	85
+components/forms/Field.d.ts	426
+components/forms/Field.jsx	437
+components/forms/Field.prompt.md	205
+components/forms/Input.d.ts	384
+components/forms/Input.jsx	297
+components/forms/Input.prompt.md	110
+components/forms/Radio.d.ts	261
+components/forms/Radio.jsx	407
+components/forms/Radio.prompt.md	162
+components/forms/SearchField.d.ts	308
+components/forms/SearchField.jsx	394
+components/forms/SearchField.prompt.md	76
+components/forms/Select.d.ts	446
+components/forms/Select.jsx	591
+components/forms/Select.prompt.md	86
+components/forms/Slider.d.ts	368
+components/forms/Slider.jsx	444
+components/forms/Slider.prompt.md	124
+components/forms/Switch.d.ts	274
+components/forms/Switch.jsx	415
+components/forms/Switch.prompt.md	148
+components/forms/Textarea.d.ts	266
+components/forms/Textarea.jsx	292
+components/forms/Textarea.prompt.md	86
+components/forms/forms.card.html	3280
+components/game/GameButton.d.ts	455
+components/game/GameButton.jsx	525
+components/game/GameButton.prompt.md	231
+components/game/HudPanel.d.ts	465
+components/game/HudPanel.jsx	331
+components/game/HudPanel.prompt.md	287
+components/game/InventorySlot.d.ts	545
+components/game/InventorySlot.jsx	597
+components/game/InventorySlot.prompt.md	219
+components/game/MeterBar.d.ts	584
+components/game/MeterBar.jsx	742
+components/game/MeterBar.prompt.md	157
+components/game/ObjectiveCard.d.ts	362
+components/game/ObjectiveCard.jsx	605
+components/game/ObjectiveCard.prompt.md	224
+components/game/game.card.html	3187
+components/navigation/Breadcrumb.d.ts	321
+components/navigation/Breadcrumb.jsx	543
+components/navigation/Breadcrumb.prompt.md	107
+components/navigation/Masthead.d.ts	591
+components/navigation/Masthead.jsx	644
+components/navigation/Masthead.prompt.md	230
+components/navigation/NavLink.d.ts	324
+components/navigation/NavLink.jsx	306
+components/navigation/NavLink.prompt.md	93
+components/navigation/Pagination.d.ts	322
+components/navigation/Pagination.jsx	884
+components/navigation/Pagination.prompt.md	76
+components/navigation/SidebarNav.d.ts	461
+components/navigation/SidebarNav.jsx	870
+components/navigation/SidebarNav.prompt.md	279
+components/navigation/Tabs.d.ts	412
+components/navigation/Tabs.jsx	503
+components/navigation/Tabs.prompt.md	157
+components/navigation/navigation.card.html	3356
+components/system/ThemeSwitcher.d.ts	734
+components/system/ThemeSwitcher.jsx	1573
+components/system/ThemeSwitcher.prompt.md	840
+components/system/system.card.html	2705
+guidelines/brand-icons.html	1406
+guidelines/brand-motion.html	1098
+guidelines/brand-radius.html	1156
+guidelines/brand-rules.html	1098
+guidelines/brand-shadow.html	1232
+guidelines/brand-states.html	1450
+guidelines/brand-texture.html	1303
+guidelines/color-accent.html	1418
+guidelines/color-core.html	1273
+guidelines/color-dark-surface.html	3456
+guidelines/color-semantic.html	1191
+guidelines/color-text.html	1024
+guidelines/color-themes.html	7387
+guidelines/space-grid.html	1000
+guidelines/space-print.html	1399
+guidelines/space-scale.html	2077
+guidelines/themes.html	21673
+guidelines/type-body.html	883
+guidelines/type-cover.html	690
+guidelines/type-display.html	1179
+guidelines/type-kicker.html	1319
+guidelines/type-mono.html	814
+guidelines/type-pairing.html	1105
+guidelines/type-ui.html	1292
+readme.md	21381
+styles.css	317
+templates/app-shell/.thumbnail	14040
+templates/app-shell/AppShell.dc.html	6635
+templates/app-shell/ds-base.js	1072
+templates/app-shell/support.js	69150
+templates/editorial-article/.thumbnail	9630
+templates/editorial-article/EditorialArticle.dc.html	6460
+templates/editorial-article/ds-base.js	1072
+templates/editorial-article/support.js	69150
+templates/print-spread/.thumbnail	6916
+templates/print-spread/PrintSpread.dc.html	6786
+templates/print-spread/ds-base.js	1072
+templates/print-spread/support.js	69150
+thumbnail.html	761
+tokens/base.css	1027
+tokens/color.css	6916
+tokens/fonts.css	322
+tokens/motion.css	775
+tokens/palette.css	2762
+tokens/spacing.css	929
+tokens/surface.css	1856
+tokens/typography.css	1611
+ui_kits/_shared/preview.jsx	2521
+ui_kits/desktop/DeskApp.jsx	8890
+ui_kits/desktop/README.md	1066
+ui_kits/desktop/index.html	1258
+ui_kits/desktop/kit.jsx	1560
+ui_kits/game/GameUI.jsx	10921
+ui_kits/game/README.md	1463
+ui_kits/game/index.html	1264
+ui_kits/game/kit.jsx	1227
+ui_kits/mobile/README.md	1068
+ui_kits/mobile/ReaderApp.jsx	8953
+ui_kits/mobile/index.html	1325
+ui_kits/mobile/kit.jsx	2098
+ui_kits/print/PrintPages.jsx	11407
+ui_kits/print/README.md	1147
+ui_kits/print/index.html	1298
+ui_kits/print/kit.jsx	913
+ui_kits/web/ArchiveScreen.jsx	2514
+ui_kits/web/ArticleScreen.jsx	6286
+ui_kits/web/HomeScreen.jsx	5151
+ui_kits/web/README.md	1128
+ui_kits/web/data.js	1530
+ui_kits/web/index.html	1501
+ui_kits/web/kit.jsx	2878
+ui_kits/web/shared.jsx	2871
+uploads/1.4.jpg	68507
+uploads/1000_F_681000909_ZCNw2B09yq09fUjxWVVNVEXOQLTPqX0h.jpg	420762
+uploads/17a7c5fade8b48e864df784483cd65bc.jpg	32263
+uploads/68313f13a5a4422cad4bd956dcdf6d00_1585603755-1920x1080.jpg	174554
+uploads/Fashion-Magazine-Template-1-1.jpg	184138
+uploads/Screenshot 2026-09-01 at 09.53.25.png	111934
+uploads/Screenshot 2026-09-01 at 09.54.34.png	70308
+uploads/art-magazine-template-9.jpg	152669
+uploads/e0d6385793c91cae55a995ac3ba228ac.jpg	71721
+uploads/images-1.jpg	33468
+uploads/images.jpg	32887
+uploads/magazine-design-layout.webp	12472
+uploads/magazine-layout-09-o.avif	60841
+uploads/magazine-layout-2024-07-05-22-10-38-utc/Design/Magazine.idml	140736
+uploads/magazine-layout-2024-07-05-22-10-38-utc/Design/Magazine.indd	1613824
+uploads/magazine-layout-2024-07-05-22-10-38-utc/Information.txt	649
+uploads/magazine-layout-2024-07-05-22-10-38-utc/Read Me.txt	571
+uploads/magazine-layout-2025-08-11-21-49-23-utc/01_Help/01_Help File.pdf	288754
+uploads/magazine-layout-2025-08-11-21-49-23-utc/02_Source Files/01_Adobe Indesign/Magazine Layout.indd	1658880
+uploads/magazine-layout-2026-08-31-20-37-05-utc/01 - Adobe indesign/1 - Magazine Template (indd).indd	7454720
+uploads/magazine-layout-2026-08-31-20-37-05-utc/01 - Adobe indesign/2 - Magazine Template (idml).idml	479260
+uploads/magazine-layout-2026-08-31-20-37-05-utc/01 - Adobe indesign/3 - Magazine Template (indt).indt	7438336
+uploads/magazine-layout-2026-08-31-20-37-05-utc/02 - Canva/Template Link - Magazine Template.pdf	46485
+uploads/magazine-layout-2026-08-31-20-37-05-utc/File guide.pdf	522990
+uploads/magazine-layout-2026-08-31-20-37-05-utc/Fonts download link.txt	348
+uploads/magazine-layout-2026-08-31-20-37-05-utc/Link/Image placeholder.jpg	12463
+uploads/portfolio-layout-2025-09-30-20-05-32-utc/Documentation.pdf	471580
+uploads/portfolio-layout-2025-09-30-20-05-32-utc/Portfolio Layout.idml	3297280
+uploads/portfolio-layout-2025-09-30-20-05-32-utc/Portfolio Layout.indd	3297280
+uploads/portfolio-layout-2026-03-11-22-28-15-utc/InDesign Files/Portfolio_01.idml	149350
+uploads/portfolio-layout-2026-03-11-22-28-15-utc/InDesign Files/Portfolio_01.indd	5853184
+uploads/portfolio-layout-2026-03-11-22-28-15-utc/Information.txt	541
+uploads/portfolio-layout-2026-03-11-22-28-15-utc/Read Me.txt	573
+uploads/portfolio-layout-2026-03-28-00-06-59-utc/InDesign Files/Portfolio_03.idml	161667
+uploads/portfolio-layout-2026-03-28-00-06-59-utc/InDesign Files/Portfolio_03.indd	4980736
+uploads/portfolio-layout-2026-03-28-00-06-59-utc/Information.txt	610
+uploads/portfolio-layout-2026-03-28-00-06-59-utc/Read Me.txt	573
+uploads/portfolio-layout-2026-06-23-15-25-07-utc/Canva Files/Design Portfolio Template.pdf	17579
+uploads/portfolio-layout-2026-06-23-15-25-07-utc/Indesign Files/Design Portfolio Template.idml	177998
+uploads/portfolio-layout-2026-06-23-15-25-07-utc/Indesign Files/Design Portfolio Template.indd	3006464
+uploads/portfolio-layout-2026-06-23-15-25-07-utc/Information.txt	640
+uploads/portfolio-layout-2026-06-23-15-25-07-utc/Read Me.txt	571
+uploads/proposal-layout-2023-11-27-05-14-46-utc/01_Help/001_Help File.pdf	252545
+uploads/proposal-layout-2023-11-27-05-14-46-utc/02_Source File/01_Proposal Template Layout.indd	2424832
+uploads/travel-magazine-layout-critique-is-greatly-appreciated-v0-1msh6qxtd2871.webp	35004
+uploads/vintage-magazine-template-2026-08-30-02-16-24-utc/MG21 Folder/MG21.indd	6885376
+uploads/vintage-magazine-template-2026-08-30-02-16-24-utc/MG21_Instructions.txt	1857
+uploads/vintage-magazine-template-2026-08-30-02-16-24-utc/MG21_Preview_.png	1772039

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns="http://purl.org/rss/1.0/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel rdf:about="https://journal.example.test/">
+    <title>The Journal</title>
+    <link>https://journal.example.test/</link>
+    <description>An RSS 1.0 feed.</description>
+    <items>
+      <rdf:Seq>
+        <rdf:li rdf:resource="https://journal.example.test/entries/a"/>
+        <rdf:li rdf:resource="https://journal.example.test/entries/b"/>
+      </rdf:Seq>
+    </items>
+  </channel>
+  <item rdf:about="https://journal.example.test/entries/a">
+    <title>First entry</title>
+    <link>https://journal.example.test/entries/a</link>
+    <description>The first entry, summed up.</description>
+    <content:encoded>&lt;p&gt;The whole &lt;em&gt;first&lt;/em&gt; entry.&lt;/p&gt;</content:encoded>
+    <dc:date>2026-09-20T09:15:00+02:00</dc:date>
+    <dc:creator>Ana Ruiz</dc:creator>
+    <dc:subject>Journal</dc:subject>
+  </item>
+  <item rdf:about="https://journal.example.test/entries/b">
+    <title>Second entry</title>
+    <link>https://journal.example.test/entries/b</link>
+    <description>The second entry.</description>
+    <dc:date>2026-09-21T09:15:00Z</dc:date>
+    <dc:subject>Journal</dc:subject>
+    <dc:subject>Travel</dc:subject>
+  </item>
+</rdf:RDF>

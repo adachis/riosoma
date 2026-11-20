@@ -1,0 +1,19 @@
+:root{
+--dur-1:110ms; /* @kind other */
+--dur-2:180ms; /* @kind other */
+--dur-3:260ms; /* @kind other */
+--dur-4:420ms; /* @kind other */
+--ease-snap:cubic-bezier(.2,.9,.2,1); /* @kind other */
+--ease-boomerang:cubic-bezier(.34,1.56,.64,1); /* @kind other */
+--ease-flat:cubic-bezier(.4,0,.6,1); /* @kind other */
+--t-hover:box-shadow var(--dur-1) var(--ease-snap),transform var(--dur-1) var(--ease-snap),border-color var(--dur-1) var(--ease-flat); /* @kind other */
+/* Fills are deliberately NOT transitioned. Animating background-color/color means a
+   data-theme flip on an ancestor animates every themed fill and strands the previous
+   scheme's value — and the hover language is a shadow + 1px shift, not a fade. */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--dur-1:0ms; /* @kind other */
+--dur-2:0ms; /* @kind other */
+--dur-3:0ms; /* @kind other */
+--dur-4:0ms; /* @kind other */
+}}

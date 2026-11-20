@@ -1,0 +1,101 @@
+/* STRUCTURE — rules, radii, shadows, textures
+   Non-negotiables of this system:
+   • Every radius is 0. There is no --radius-sm.
+   • There are NO drop shadows and NO offset "sticker" shadows. Depth is made
+     with rule weight, inversion, and overlap. (Offset shadows belong to
+     neubrutalism, which this system deliberately excludes.)
+   • Lines come in five weights and are always solid ink or solid accent.
+
+   Split into two blocks for the same reason as tokens/colors.css: any token
+   whose value calls var(--ink) / var(--accent) resolves against the element it
+   is DECLARED on, so the themed block is repeated on [data-theme]. Static
+   primitives that reference nothing themed stay on :root alone. */
+
+:root{
+  --radius:0; /* @kind radius */
+  --radius-pill:0; /* @kind radius */
+
+  --rule-hair:1px; /* @kind spacing */
+  --rule-thin:2px; /* @kind spacing */
+  --rule:3px; /* @kind spacing */
+  --rule-thick:5px; /* @kind spacing */
+  --rule-slab:8px; /* @kind spacing */
+  --rule-monument:14px; /* @kind spacing */
+
+  --shadow-none:none; /* @kind shadow */
+  --focus-offset:2px; /* @kind spacing */
+
+  /* texture + pattern assets — flat files, nothing to re-derive */
+  --tex-grain-1:url("../assets/textures/grain-01.png"); /* @kind other */
+  --tex-grain-2:url("../assets/textures/grain-02.png"); /* @kind other */
+  --tex-grain-3:url("../assets/textures/grain-03.png"); /* @kind other */
+  --tex-grain-4:url("../assets/textures/grain-04.png"); /* @kind other */
+  --tex-grain-5:url("../assets/textures/grain-05.png"); /* @kind other */
+  --tex-grain-6:url("../assets/textures/grain-06.png"); /* @kind other */
+  --pat-geo-1:url("../assets/patterns/pattern-01.jpg"); /* @kind other */
+  --pat-geo-2:url("../assets/patterns/pattern-02.jpg"); /* @kind other */
+  --pat-geo-3:url("../assets/patterns/pattern-03.jpg"); /* @kind other */
+
+  /* tile sizes for the generated grounds */
+  --halftone-dot:7px; /* @kind spacing */
+  --halftone-fine-tile:6px 6px; /* @kind spacing */
+  --halftone-coarse-tile:14px 14px; /* @kind spacing */
+  --pat-rule-grid-tile:24px 24px; /* @kind spacing */
+  --pat-checker-tile:16px 16px; /* @kind spacing */
+}
+
+/* ---- themed: everything below references --ink / --accent / --ink-hair ---- */
+
+:root{
+  --border-thin:var(--rule-thin) solid var(--border-ink); /* @kind other */
+  --border-std:var(--rule) solid var(--border-ink); /* @kind other */
+  --border-thick:var(--rule-thick) solid var(--border-ink); /* @kind other */
+  --border-slab:var(--rule-slab) solid var(--border-ink); /* @kind other */
+  --border-loud-std:var(--rule) solid var(--border-loud); /* @kind other */
+  --border-hair-std:var(--rule-hair) solid var(--border-hair); /* @kind other */
+  --focus-outline:var(--rule) solid var(--focus-ring); /* @kind other */
+
+  /* generated grounds */
+  --pat-hatch:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 7px); /* @kind other */
+  --pat-hatch-loud:repeating-linear-gradient(45deg,var(--accent) 0 3px,transparent 3px 9px); /* @kind other */
+  --pat-scanline:repeating-linear-gradient(to bottom,var(--ink) 0 1px,transparent 1px 4px); /* @kind other */
+  --pat-rule-grid:linear-gradient(var(--ink-hair) 1px,transparent 1px),linear-gradient(90deg,var(--ink-hair) 1px,transparent 1px); /* @kind other */
+  --pat-checker:repeating-conic-gradient(var(--ink) 0% 25%,transparent 0% 50%); /* @kind other */
+  --pat-bars:repeating-linear-gradient(90deg,var(--ink) 0 8px,transparent 8px 16px); /* @kind other */
+
+  /* halftone dot fields — used for posterised image stand-ins and fills.
+     The bare tokens are valid in `background:` only; the *-img variants are
+     for `background-image` and need their matching *-tile size. */
+  --halftone-fine:radial-gradient(var(--ink) 28%,transparent 29%) 0 0/6px 6px,radial-gradient(var(--ink) 28%,transparent 29%) 3px 3px/6px 6px; /* @kind other */
+  --halftone-coarse:radial-gradient(var(--ink) 34%,transparent 35%) 0 0/14px 14px,radial-gradient(var(--ink) 34%,transparent 35%) 7px 7px/14px 14px; /* @kind other */
+  --halftone-fine-img:radial-gradient(circle at 25% 25%,var(--ink) 20%,transparent 21%),radial-gradient(circle at 75% 75%,var(--ink) 20%,transparent 21%); /* @kind other */
+  --halftone-coarse-img:radial-gradient(circle at 25% 25%,var(--ink) 26%,transparent 27%),radial-gradient(circle at 75% 75%,var(--ink) 26%,transparent 27%); /* @kind other */
+}
+
+/* Re-derive inside any themed container: same specificity as :root, declared
+   after it, so themed scopes win. Nested themes re-derive again. */
+[data-theme]{
+  --border-thin:var(--rule-thin) solid var(--border-ink); /* @kind other */
+  --border-std:var(--rule) solid var(--border-ink); /* @kind other */
+  --border-thick:var(--rule-thick) solid var(--border-ink); /* @kind other */
+  --border-slab:var(--rule-slab) solid var(--border-ink); /* @kind other */
+  --border-loud-std:var(--rule) solid var(--border-loud); /* @kind other */
+  --border-hair-std:var(--rule-hair) solid var(--border-hair); /* @kind other */
+  --focus-outline:var(--rule) solid var(--focus-ring); /* @kind other */
+
+  /* generated grounds */
+  --pat-hatch:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 7px); /* @kind other */
+  --pat-hatch-loud:repeating-linear-gradient(45deg,var(--accent) 0 3px,transparent 3px 9px); /* @kind other */
+  --pat-scanline:repeating-linear-gradient(to bottom,var(--ink) 0 1px,transparent 1px 4px); /* @kind other */
+  --pat-rule-grid:linear-gradient(var(--ink-hair) 1px,transparent 1px),linear-gradient(90deg,var(--ink-hair) 1px,transparent 1px); /* @kind other */
+  --pat-checker:repeating-conic-gradient(var(--ink) 0% 25%,transparent 0% 50%); /* @kind other */
+  --pat-bars:repeating-linear-gradient(90deg,var(--ink) 0 8px,transparent 8px 16px); /* @kind other */
+
+  /* halftone dot fields — used for posterised image stand-ins and fills.
+     The bare tokens are valid in `background:` only; the *-img variants are
+     for `background-image` and need their matching *-tile size. */
+  --halftone-fine:radial-gradient(var(--ink) 28%,transparent 29%) 0 0/6px 6px,radial-gradient(var(--ink) 28%,transparent 29%) 3px 3px/6px 6px; /* @kind other */
+  --halftone-coarse:radial-gradient(var(--ink) 34%,transparent 35%) 0 0/14px 14px,radial-gradient(var(--ink) 34%,transparent 35%) 7px 7px/14px 14px; /* @kind other */
+  --halftone-fine-img:radial-gradient(circle at 25% 25%,var(--ink) 20%,transparent 21%),radial-gradient(circle at 75% 75%,var(--ink) 20%,transparent 21%); /* @kind other */
+  --halftone-coarse-img:radial-gradient(circle at 25% 25%,var(--ink) 26%,transparent 27%),radial-gradient(circle at 75% 75%,var(--ink) 26%,transparent 27%); /* @kind other */
+}

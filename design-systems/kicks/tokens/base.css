@@ -1,0 +1,36 @@
+/* Element defaults + the handful of text utilities the brand leans on.
+   Components carry their own styling inline; this file only sets the page
+   floor so an unstyled card or screen already looks like Kicks. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--k-bg);color:var(--k-text);font:var(--k-type-body);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4,h5{margin:0;font-family:var(--k-font-display);font-weight:var(--k-weight-regular);text-transform:uppercase;letter-spacing:var(--k-display-tracking);line-height:var(--k-display-leading)}
+h1{font-size:var(--k-display-1)}h2{font-size:var(--k-display-2)}h3{font-size:var(--k-display-3)}h4{font-size:var(--k-display-4)}h5{font-size:var(--k-display-5)}
+p{margin:0 0 var(--k-space-5)}
+a{color:var(--k-link);text-decoration:none;border-bottom:2px solid var(--k-accent);transition:color var(--k-dur-fast) var(--k-ease-out),border-color var(--k-dur-fast) var(--k-ease-out)}
+a:hover{color:var(--k-link-hover);border-bottom-color:var(--k-border-strong)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--k-focus);outline-offset:2px}
+small{font-size:var(--k-text-sm)}
+hr{height:var(--k-border-line);margin:var(--k-space-8) 0;border:0;background:var(--k-border-strong)}
+img,svg{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+code,kbd,pre{font-family:var(--k-font-mono);font-size:.92em}
+::selection{background:var(--k-accent);color:var(--k-accent-ink)}
+
+/* text utilities */
+.k-display{font-family:var(--k-font-display);font-weight:400;text-transform:uppercase;letter-spacing:var(--k-display-tracking);line-height:var(--k-display-leading)}
+.k-label{font-family:var(--k-font-mono);font-weight:700;font-size:var(--k-label-md);letter-spacing:var(--k-label-tracking);text-transform:uppercase}
+.k-eyebrow{font-family:var(--k-font-mono);font-weight:700;font-size:var(--k-label-sm);letter-spacing:var(--k-label-tracking);text-transform:uppercase;color:var(--k-text-muted)}
+.k-lede{font-size:var(--k-text-lg);line-height:1.45;max-width:var(--k-measure)}
+.k-mono{font-family:var(--k-font-mono)}
+.k-slant{font-style:italic;transform:skewX(-8deg)}
+
+/* structural utilities */
+.k-frame{border:var(--k-border-line) solid var(--k-border-strong);background:var(--k-surface)}
+.k-frame-press{border:var(--k-border-line) solid var(--k-border-strong);background:var(--k-surface);box-shadow:var(--k-shadow-press)}
+.k-rule{height:var(--k-border-line);background:var(--k-border-strong)}
+.k-rule-dashed{height:2px;background:var(--k-hairline-rule)}
+.k-stripe{background:var(--k-stripe-diagonal-accent)}
+.k-invert{background:var(--k-surface-invert);color:var(--k-text-invert)}
+.k-invert a{color:var(--k-text-invert)}
+.k-halftone{background-image:var(--k-texture-halftone);background-size:cover;background-position:center}

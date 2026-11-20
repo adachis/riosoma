@@ -1,0 +1,86 @@
+:root{
+  /* ===== Void backgrounds (OLED-first, near-black) ===== */
+  --void-900:#050508;   /* deepest, window backdrop */
+  --void-850:#08080e;
+  --void-800:#0a0a0f;   /* app body */
+  --void-750:#0A0A12;   /* raised surface / card base */
+  --void-700:#0c0c15;   /* card top of gradient */
+  --void-650:#0f0f15;
+
+  /* ===== Hairline borders (cool, low-contrast) ===== */
+  --line-100:#16161f;
+  --line-200:#191922;
+  --line-250:#191926;
+  --line-300:#1a1a26;
+  --line-350:#1a1a24;
+  --line-400:#24243040;  /* dashed / faint */
+
+  /* ===== Neutral text ramp (cool grays, blue-tinted) ===== */
+  --ink-000:#ffffff;
+  --ink-050:#e9e9ef;
+  --ink-100:#cfcfe0;
+  --ink-200:#c8cede;
+  --ink-300:#b9b9cc;
+  --ink-400:#9a9ab0;
+  --ink-500:#8A8AA0;
+  --ink-600:#61617a;   /* eyebrow labels, meta */
+  --ink-700:#4a4a5c;
+  --ink-800:#3a3a4a;
+  --ink-900:#2a2a38;
+
+  /* ===== Primary — Destiny cyan ===== */
+  --cyan-100:#8bffff;
+  --cyan-200:#7ff5da;
+  --cyan-300:#47FFD1;
+  --cyan-400:#4defc9;
+  --cyan-500:#38F7FF;   /* primary accent */
+  --cyan-700:#2ea9ff;
+  --cyan-900:#1aa6d6;
+
+  /* ===== Violet — the second half of the signature gradient ===== */
+  --violet-200:#C4B2FF;  /* lavender, AI/creative voice */
+  --violet-500:#6C5CFF;
+  --violet-800:#3B4DB5;
+  --violet-900:#1b1566;
+
+  /* ===== Spectrum semantics (chat modes, categories, health) ===== */
+  --spectrum-green:#7DFF6B;    /* feature / positive */
+  --spectrum-green-hi:#8CFF6B;
+  --spectrum-green-deep:#5FD83C;
+  --spectrum-blue:#59A8FF;     /* macOS / info */
+  --spectrum-blue-hi:#6BB6FF;
+  --spectrum-blue-soft:#9cc8ff;
+  --spectrum-amber:#F0B33D;    /* design / warning / spend */
+  --spectrum-pink:#E0578F;     /* bug / alert */
+  --spectrum-pink-hi:#FF6B9A;
+  --spectrum-magenta:#EC2E92;
+  --spectrum-red:#FF2E6E;      /* health / critical */
+  --spectrum-red-hi:#FF2E4D;
+  --spectrum-yellow:#F4D62A;
+
+  /* ===== macOS traffic lights ===== */
+  --mac-close:#ff5f57;
+  --mac-min:#febc2e;
+  --mac-max:#28c840;
+
+  /* ===== Signature gradients ===== */
+  --grad-primary:linear-gradient(90deg,#38F7FF,#6C5CFF); /* @kind color */
+  --grad-action:linear-gradient(160deg,#4defc9,#2ea9ff); /* @kind color */
+  --grad-card:linear-gradient(180deg,#0c0c15,#08080e); /* @kind color */
+  --grad-desk:radial-gradient(120% 90% at 16% 10%,#1b2a4a 0%,rgba(27,42,74,0) 52%),radial-gradient(90% 80% at 88% 20%,#3a1c46 0%,rgba(58,28,70,0) 48%),radial-gradient(120% 120% at 60% 100%,#10233a 0%,rgba(16,35,58,0) 52%),linear-gradient(160deg,#090a14,#050508 62%,#04040a); /* @kind color */
+
+  /* ===== Semantic aliases ===== */
+  --bg-app:var(--void-800);
+  --bg-window:var(--void-900);
+  --surface-card:var(--void-750);
+  --surface-raised:var(--grad-card);
+  --border-hairline:var(--line-300);
+  --text-primary:var(--ink-000);
+  --text-secondary:var(--ink-500);
+  --text-muted:var(--ink-600);
+  --text-faint:var(--ink-700);
+  --accent:var(--cyan-500);
+  --accent-2:var(--violet-500);
+  --accent-voice:var(--violet-200);
+  --focus-ring:rgba(56,247,255,.45);
+}

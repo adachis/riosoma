@@ -1,0 +1,30 @@
+:root{
+/* Paper grain and foxing. Generated noise, tinted by the theme's ink, so the
+   texture follows the palette instead of fighting it. */
+--texture-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E"); /* @kind other */
+--texture-foxing:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' seed='7'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='1.6' intercept='-0.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23f)'/%3E%3C/svg%3E"); /* @kind other */
+--texture-fibre:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.6' numOctaves='2' seed='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23p)'/%3E%3C/svg%3E"); /* @kind other */
+
+/* Engraved hatching — the shading the illustrators used, as a fill */
+--pattern-hatch:repeating-linear-gradient(45deg,var(--rule-strong) 0 .5px,transparent .5px 4px); /* @kind other */
+--pattern-hatch-fine:repeating-linear-gradient(45deg,var(--rule-strong) 0 .5px,transparent .5px 2.5px); /* @kind other */
+--pattern-hatch-cross:repeating-linear-gradient(45deg,var(--rule-strong) 0 .5px,transparent .5px 5px),repeating-linear-gradient(-45deg,var(--rule-strong) 0 .5px,transparent .5px 5px); /* @kind other */
+--pattern-rule-dot:repeating-linear-gradient(90deg,var(--rule-strong) 0 2px,transparent 2px 5px); /* @kind other */
+--pattern-rule-dash:repeating-linear-gradient(90deg,var(--rule-strong) 0 7px,transparent 7px 12px); /* @kind other */
+--pattern-guilloche:repeating-linear-gradient(90deg,color-mix(in srgb,var(--accent) 55%,transparent) 0 1px,transparent 1px 6px),repeating-linear-gradient(0deg,color-mix(in srgb,var(--accent) 40%,transparent) 0 1px,transparent 1px 6px); /* @kind other */
+--pattern-checker:repeating-conic-gradient(var(--rule-strong) 0 25%,transparent 0 50%) 0 0/10px 10px; /* @kind other */
+
+/* Shipped raster ornament (paths are relative to the project root) */
+--image-damask:url("../assets/textures/damask-1.jpg"); /* @kind other */
+--image-damask-dark:url("../assets/ornaments/gold-pattern.svg"); /* @kind other */
+--image-oval-frame:url("../assets/ornaments/oval-frame.svg"); /* @kind other */
+--image-floral-line:url("../assets/ornaments/floral-line.svg"); /* @kind other */
+
+/* Printers' flowers, as text. Set in the body serif. */
+--flower-fleuron:"\2766"; /* @kind other */
+--flower-aldus:"\2767"; /* @kind other */
+--flower-asterism:"\2042"; /* @kind other */
+--flower-pilcrow:"\00B6"; /* @kind other */
+--flower-manual:"\261E"; /* @kind other */
+--flower-star:"\2731"; /* @kind other */
+}

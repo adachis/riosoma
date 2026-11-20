@@ -1,0 +1,3405 @@
+{
+  "answers": [
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ListBoards",
+      "variables": {
+        "page": 1
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "id": "100",
+              "name": "Riosoma tests",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "101",
+              "name": "Board 1",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "102",
+              "name": "Board 2",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "103",
+              "name": "Board 3",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "104",
+              "name": "Board 4",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "105",
+              "name": "Board 5",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "106",
+              "name": "Board 6",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "107",
+              "name": "Board 7",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "108",
+              "name": "Board 8",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "109",
+              "name": "Board 9",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "110",
+              "name": "Board 10",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "111",
+              "name": "Board 11",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "112",
+              "name": "Board 12",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "113",
+              "name": "Board 13",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "114",
+              "name": "Board 14",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "115",
+              "name": "Board 15",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "116",
+              "name": "Board 16",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "117",
+              "name": "Board 17",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "118",
+              "name": "Board 18",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "119",
+              "name": "Board 19",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "120",
+              "name": "Board 20",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "121",
+              "name": "Board 21",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "122",
+              "name": "Board 22",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "123",
+              "name": "Board 23",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "124",
+              "name": "Board 24",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "125",
+              "name": "Board 25",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "126",
+              "name": "Board 26",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "127",
+              "name": "Board 27",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "128",
+              "name": "Board 28",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "129",
+              "name": "Board 29",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "130",
+              "name": "Board 30",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "131",
+              "name": "Board 31",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "132",
+              "name": "Board 32",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "133",
+              "name": "Board 33",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "134",
+              "name": "Board 34",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "135",
+              "name": "Board 35",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "136",
+              "name": "Board 36",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "137",
+              "name": "Board 37",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "138",
+              "name": "Board 38",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "139",
+              "name": "Board 39",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "140",
+              "name": "Board 40",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "141",
+              "name": "Board 41",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "142",
+              "name": "Board 42",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "143",
+              "name": "Board 43",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "144",
+              "name": "Board 44",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "145",
+              "name": "Board 45",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "146",
+              "name": "Board 46",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "147",
+              "name": "Board 47",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "148",
+              "name": "Board 48",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "149",
+              "name": "Board 49",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "150",
+              "name": "Board 50",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "151",
+              "name": "Board 51",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "152",
+              "name": "Board 52",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "153",
+              "name": "Board 53",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "154",
+              "name": "Board 54",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "155",
+              "name": "Board 55",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "156",
+              "name": "Board 56",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "157",
+              "name": "Board 57",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "158",
+              "name": "Board 58",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "159",
+              "name": "Board 59",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "160",
+              "name": "Board 60",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "161",
+              "name": "Board 61",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "162",
+              "name": "Board 62",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "163",
+              "name": "Board 63",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "164",
+              "name": "Board 64",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "165",
+              "name": "Board 65",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "166",
+              "name": "Board 66",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "167",
+              "name": "Board 67",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "168",
+              "name": "Board 68",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "169",
+              "name": "Board 69",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "170",
+              "name": "Board 70",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "171",
+              "name": "Board 71",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "172",
+              "name": "Board 72",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "173",
+              "name": "Board 73",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "174",
+              "name": "Board 74",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "175",
+              "name": "Board 75",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "176",
+              "name": "Board 76",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "177",
+              "name": "Board 77",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "178",
+              "name": "Board 78",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "179",
+              "name": "Board 79",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "180",
+              "name": "Board 80",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "181",
+              "name": "Board 81",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "182",
+              "name": "Board 82",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "183",
+              "name": "Board 83",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "184",
+              "name": "Board 84",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "185",
+              "name": "Board 85",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "186",
+              "name": "Board 86",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "187",
+              "name": "Board 87",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "188",
+              "name": "Board 88",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "189",
+              "name": "Board 89",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "190",
+              "name": "Board 90",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "191",
+              "name": "Board 91",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "192",
+              "name": "Board 92",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "193",
+              "name": "Board 93",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "194",
+              "name": "Board 94",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "195",
+              "name": "Board 95",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "196",
+              "name": "Board 96",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "197",
+              "name": "Board 97",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "198",
+              "name": "Board 98",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            },
+            {
+              "id": "199",
+              "name": "Board 99",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ListBoards",
+      "variables": {
+        "page": 2
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "id": "200",
+              "name": "Related board",
+              "workspace": {
+                "id": "20",
+                "name": "Other workspace"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadBoard",
+      "variables": {
+        "ids": ["100"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "id": "100",
+              "name": "Riosoma tests",
+              "description": "All column types",
+              "state": "active",
+              "hierarchy_type": "classic",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              },
+              "columns": [
+                {
+                  "id": "name",
+                  "title": "Name",
+                  "type": "name",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "text",
+                  "title": "Text",
+                  "type": "text",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "long",
+                  "title": "Long text",
+                  "type": "long_text",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "num",
+                  "title": "Quantity",
+                  "type": "numbers",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "check",
+                  "title": "Done",
+                  "type": "checkbox",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "email",
+                  "title": "Email",
+                  "type": "email",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "phone",
+                  "title": "Phone",
+                  "type": "phone",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "url",
+                  "title": "Website",
+                  "type": "link",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "date",
+                  "title": "Due",
+                  "type": "date",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "created",
+                  "title": "Created",
+                  "type": "creation_log",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "updated",
+                  "title": "Updated",
+                  "type": "last_updated",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "status",
+                  "title": "Status",
+                  "type": "status",
+                  "description": null,
+                  "settings": {
+                    "type": "status",
+                    "labels": [
+                      {
+                        "id": 0,
+                        "label": "Working",
+                        "color": "working_orange",
+                        "hex": "#0086c0",
+                        "index": 1,
+                        "is_done": false
+                      },
+                      {
+                        "id": 1,
+                        "label": "Done",
+                        "color": "done_green",
+                        "index": 0,
+                        "is_done": true
+                      },
+                      {
+                        "id": 2,
+                        "label": "Retired",
+                        "color": "stuck_red",
+                        "index": 2,
+                        "is_deactivated": true
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "dropdown",
+                  "title": "Choices",
+                  "type": "dropdown",
+                  "description": null,
+                  "settings": {
+                    "labels": [
+                      {
+                        "id": 1,
+                        "label": "One",
+                        "is_deactivated": false
+                      },
+                      {
+                        "id": 2,
+                        "label": "Two",
+                        "is_deactivated": true
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "people",
+                  "title": "People",
+                  "type": "people",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "person",
+                  "title": "Person",
+                  "type": "person",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "team",
+                  "title": "Team",
+                  "type": "team",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "file",
+                  "title": "Files",
+                  "type": "file",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "link",
+                  "title": "Related",
+                  "type": "board_relation",
+                  "description": null,
+                  "settings": {
+                    "boardIds": [200],
+                    "allowMultipleItems": true
+                  }
+                },
+                {
+                  "id": "missing",
+                  "title": "Missing",
+                  "type": "board_relation",
+                  "description": null,
+                  "settings": {
+                    "boardIds": [999]
+                  }
+                },
+                {
+                  "id": "dep",
+                  "title": "Dependencies",
+                  "type": "dependency",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "subitems",
+                  "title": "Subitems",
+                  "type": "subtasks",
+                  "description": null,
+                  "settings": {
+                    "boardIds": [300]
+                  }
+                },
+                {
+                  "id": "mirror",
+                  "title": "Mirror",
+                  "type": "mirror",
+                  "description": null,
+                  "settings": {
+                    "relation_column": {
+                      "link": true
+                    },
+                    "displayed_linked_columns": [
+                      {
+                        "board_id": "200",
+                        "column_ids": ["text"]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "formula",
+                  "title": "Double",
+                  "type": "formula",
+                  "description": null,
+                  "settings": {
+                    "formula": "{Quantity} * 2"
+                  }
+                },
+                {
+                  "id": "formula0",
+                  "title": "Formula 0",
+                  "type": "formula",
+                  "description": null,
+                  "settings": {
+                    "formula": "{Quantity} + 0"
+                  }
+                },
+                {
+                  "id": "formula1",
+                  "title": "Formula 1",
+                  "type": "formula",
+                  "description": null,
+                  "settings": {
+                    "formula": "{Quantity} + 1"
+                  }
+                },
+                {
+                  "id": "formula2",
+                  "title": "Formula 2",
+                  "type": "formula",
+                  "description": null,
+                  "settings": {
+                    "formula": "{Quantity} + 2"
+                  }
+                },
+                {
+                  "id": "formula3",
+                  "title": "Formula 3",
+                  "type": "formula",
+                  "description": null,
+                  "settings": {
+                    "formula": "{Quantity} + 3"
+                  }
+                },
+                {
+                  "id": "formula4",
+                  "title": "Formula 4",
+                  "type": "formula",
+                  "description": null,
+                  "settings": {
+                    "formula": "{Quantity} + 4"
+                  }
+                },
+                {
+                  "id": "rating",
+                  "title": "Rating",
+                  "type": "rating",
+                  "description": null,
+                  "settings": {
+                    "limit": 10,
+                    "symbol": "hearts",
+                    "color": "#e2445c"
+                  }
+                },
+                {
+                  "id": "tracking",
+                  "title": "Tracked time",
+                  "type": "time_tracking",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "vote",
+                  "title": "Votes",
+                  "type": "vote",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "id",
+                  "title": "Item ID",
+                  "type": "item_id",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "auto",
+                  "title": "Auto number",
+                  "type": "auto_number",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "button",
+                  "title": "Button",
+                  "type": "button",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "timeline",
+                  "title": "Timeline",
+                  "type": "timeline",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "week",
+                  "title": "Week",
+                  "type": "week",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "location",
+                  "title": "Location",
+                  "type": "location",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "country",
+                  "title": "Country",
+                  "type": "country",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "hour",
+                  "title": "Hour",
+                  "type": "hour",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "world",
+                  "title": "World clock",
+                  "type": "world_clock",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "color",
+                  "title": "Color",
+                  "type": "color_picker",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "doc",
+                  "title": "Document",
+                  "type": "doc",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "tags",
+                  "title": "Tags",
+                  "type": "tags",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "progress",
+                  "title": "Progress",
+                  "type": "progress",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "integration",
+                  "title": "Integration",
+                  "type": "integration",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "future",
+                  "title": "Future",
+                  "type": "future_type",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "multi_link",
+                  "title": "Connections",
+                  "type": "board_relation",
+                  "description": null,
+                  "settings": {
+                    "boardIds": [200, 100],
+                    "allowMultipleItems": true
+                  }
+                }
+              ],
+              "groups": [
+                {
+                  "id": "planning",
+                  "title": "Planning",
+                  "color": "#0086c0"
+                },
+                {
+                  "id": "done",
+                  "title": "Done",
+                  "color": "#00c875"
+                }
+              ],
+              "views": [
+                {
+                  "id": "v1",
+                  "name": "Planning view",
+                  "type": "table",
+                  "settings": {
+                    "columns": {
+                      "column_properties": [
+                        {
+                          "column_id": "name",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "text",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "long",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "num",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "check",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "email",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "phone",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "url",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "date",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "created",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "updated",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "status",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "dropdown",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "people",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "person",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "team",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "file",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "link",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "missing",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "dep",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "subitems",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "mirror",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "formula",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "formula0",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "formula1",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "formula2",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "formula3",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "formula4",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "rating",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "tracking",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "vote",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "id",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "auto",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "button",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "timeline",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "week",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "location",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "country",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "hour",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "world",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "color",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "doc",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "tags",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "progress",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "integration",
+                          "visible": true
+                        },
+                        {
+                          "column_id": "future",
+                          "visible": true
+                        }
+                      ]
+                    },
+                    "group_by": {
+                      "column_id": "__riosoma_group"
+                    }
+                  },
+                  "filter": {
+                    "operator": "and",
+                    "rules": [
+                      {
+                        "column_id": "text",
+                        "operator": "contains_text",
+                        "compare_value": ["Launch"]
+                      }
+                    ]
+                  },
+                  "sort": [
+                    {
+                      "column_id": "num",
+                      "direction": "DESC"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadBoard",
+      "variables": {
+        "ids": ["200"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "id": "200",
+              "name": "Related board",
+              "description": "All column types",
+              "state": "active",
+              "hierarchy_type": "classic",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              },
+              "columns": [
+                {
+                  "id": "name",
+                  "title": "Name",
+                  "type": "name",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "text",
+                  "title": "Text",
+                  "type": "text",
+                  "description": null,
+                  "settings": {}
+                }
+              ],
+              "groups": [
+                {
+                  "id": "planning",
+                  "title": "Planning",
+                  "color": "#0086c0"
+                },
+                {
+                  "id": "done",
+                  "title": "Done",
+                  "color": "#00c875"
+                }
+              ],
+              "views": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadBoard",
+      "variables": {
+        "ids": ["300"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "id": "300",
+              "name": "Subitems of Riosoma tests",
+              "description": "All column types",
+              "state": "active",
+              "hierarchy_type": "sub_items_board",
+              "workspace": {
+                "id": "10",
+                "name": "Riosoma tests"
+              },
+              "columns": [
+                {
+                  "id": "name",
+                  "title": "Name",
+                  "type": "name",
+                  "description": null,
+                  "settings": {}
+                },
+                {
+                  "id": "text",
+                  "title": "Text",
+                  "type": "text",
+                  "description": null,
+                  "settings": {}
+                }
+              ],
+              "groups": [
+                {
+                  "id": "planning",
+                  "title": "Planning",
+                  "color": "#0086c0"
+                },
+                {
+                  "id": "done",
+                  "title": "Done",
+                  "color": "#00c875"
+                }
+              ],
+              "views": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadBoard",
+      "variables": {
+        "ids": ["999"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": []
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "DiscoverBoardItems",
+      "variables": {
+        "ids": ["100"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "items_page": {
+                "cursor": "next-100-Discover",
+                "items": [
+                  {
+                    "id": "1001",
+                    "state": "active",
+                    "subitems": [
+                      {
+                        "id": "3001",
+                        "board": {
+                          "id": "300"
+                        },
+                        "parent_item": {
+                          "id": "1001"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "DiscoverNextItems",
+      "variables": {
+        "cursor": "next-100-Discover"
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "next_items_page": {
+            "cursor": null,
+            "items": [
+              {
+                "id": "1002",
+                "state": "active",
+                "subitems": []
+              },
+              {
+                "id": "archived",
+                "state": "archived",
+                "subitems": [
+                  {
+                    "id": "3001",
+                    "board": {
+                      "id": "300"
+                    },
+                    "parent_item": {
+                      "id": "archived"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "deleted",
+                "state": "deleted",
+                "subitems": [
+                  {
+                    "id": "3001",
+                    "board": {
+                      "id": "300"
+                    },
+                    "parent_item": {
+                      "id": "deleted"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "DiscoverBoardItems",
+      "variables": {
+        "ids": ["200"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "items_page": {
+                "cursor": null,
+                "items": [
+                  {
+                    "id": "2001",
+                    "state": "active",
+                    "subitems": []
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadBoardItems",
+      "variables": {
+        "ids": ["100"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "items_page": {
+                "cursor": "next-100-Read",
+                "items": [
+                  {
+                    "id": "1001",
+                    "name": "Launch",
+                    "state": "active",
+                    "board": {
+                      "id": "100"
+                    },
+                    "group": {
+                      "id": "planning",
+                      "title": "Planning"
+                    },
+                    "parent_item": null,
+                    "subitems": [
+                      {
+                        "id": "3001",
+                        "board": {
+                          "id": "300"
+                        },
+                        "parent_item": {
+                          "id": "1001"
+                        }
+                      }
+                    ],
+                    "column_values": [
+                      {
+                        "id": "text",
+                        "type": "text",
+                        "text": "Launch text",
+                        "value": "\"Launch text\""
+                      },
+                      {
+                        "id": "long",
+                        "type": "long_text",
+                        "text": "Long content",
+                        "value": "{\"text\": \"Long content\"}"
+                      },
+                      {
+                        "id": "num",
+                        "type": "numbers",
+                        "text": "8",
+                        "value": "8"
+                      },
+                      {
+                        "id": "check",
+                        "type": "checkbox",
+                        "text": "v",
+                        "value": "{\"checked\": \"true\"}"
+                      },
+                      {
+                        "id": "email",
+                        "type": "email",
+                        "text": "owner@example.com",
+                        "value": "{\"email\": \"owner@example.com\", \"text\": \"Owner\"}"
+                      },
+                      {
+                        "id": "phone",
+                        "type": "phone",
+                        "text": "+15555550101",
+                        "value": "{\"phone\": \"+15555550101\", \"countryShortName\": \"US\"}"
+                      },
+                      {
+                        "id": "url",
+                        "type": "link",
+                        "text": "Example",
+                        "value": "{\"url\": \"https://example.com\", \"text\": \"Example\"}"
+                      },
+                      {
+                        "id": "date",
+                        "type": "date",
+                        "text": "2026-09-15 12:00",
+                        "value": "{\"date\": \"2026-09-15\", \"time\": \"12:00:00\"}"
+                      },
+                      {
+                        "id": "created",
+                        "type": "creation_log",
+                        "text": "Sep 1",
+                        "value": "{\"created_at\": \"2026-09-01T12:00:00Z\", \"creator_id\": \"u1\"}"
+                      },
+                      {
+                        "id": "updated",
+                        "type": "last_updated",
+                        "text": "Sep 2",
+                        "value": "{\"updated_at\": \"2026-09-02T12:00:00Z\", \"updater_id\": \"u1\"}"
+                      },
+                      {
+                        "id": "status",
+                        "type": "status",
+                        "text": "Working",
+                        "value": "{\"index\": 0}"
+                      },
+                      {
+                        "id": "dropdown",
+                        "type": "dropdown",
+                        "text": "One, Two",
+                        "value": "{\"ids\": [1, 2]}"
+                      },
+                      {
+                        "id": "people",
+                        "type": "people",
+                        "text": "Owner",
+                        "value": "{\"personsAndTeams\": [{\"id\": 1, \"kind\": \"person\"}]}",
+                        "persons_and_teams": [
+                          {
+                            "id": "1",
+                            "kind": "person"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "person",
+                        "type": "person",
+                        "text": "Owner",
+                        "value": "{\"personsAndTeams\": [{\"id\": 1, \"kind\": \"person\"}]}"
+                      },
+                      {
+                        "id": "team",
+                        "type": "team",
+                        "text": "Design team",
+                        "value": "{\"personsAndTeams\": [{\"id\": 2, \"kind\": \"team\"}]}"
+                      },
+                      {
+                        "id": "file",
+                        "type": "file",
+                        "text": "brief.txt",
+                        "value": "{\"files\": [{\"assetId\": 1, \"name\": \"brief.txt\", \"fileType\": \"ASSET\"}]}",
+                        "files": [
+                          {
+                            "asset_id": "1",
+                            "name": "brief.txt",
+                            "asset": {
+                              "id": "1",
+                              "name": "brief.txt",
+                              "public_url": "{{origin}}/files/brief.txt",
+                              "file_size": 25
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "link",
+                        "type": "board_relation",
+                        "text": null,
+                        "value": null,
+                        "linked_item_ids": ["2001"],
+                        "display_value": "Related item"
+                      },
+                      {
+                        "id": "missing",
+                        "type": "board_relation",
+                        "text": null,
+                        "value": null,
+                        "linked_item_ids": ["9991"],
+                        "display_value": "Missing item"
+                      },
+                      {
+                        "id": "dep",
+                        "type": "dependency",
+                        "text": null,
+                        "value": null,
+                        "linked_item_ids": ["1002"],
+                        "display_value": "Empty"
+                      },
+                      {
+                        "id": "subitems",
+                        "type": "subtasks",
+                        "text": null,
+                        "value": null,
+                        "subitems_ids": ["3001"]
+                      },
+                      {
+                        "id": "mirror",
+                        "type": "mirror",
+                        "text": null,
+                        "value": null,
+                        "display_value": "External value"
+                      },
+                      {
+                        "id": "formula",
+                        "type": "formula",
+                        "text": "",
+                        "value": null
+                      },
+                      {
+                        "id": "formula0",
+                        "type": "formula",
+                        "text": "",
+                        "value": null
+                      },
+                      {
+                        "id": "formula1",
+                        "type": "formula",
+                        "text": "",
+                        "value": null
+                      },
+                      {
+                        "id": "formula2",
+                        "type": "formula",
+                        "text": "",
+                        "value": null
+                      },
+                      {
+                        "id": "formula3",
+                        "type": "formula",
+                        "text": "",
+                        "value": null
+                      },
+                      {
+                        "id": "formula4",
+                        "type": "formula",
+                        "text": "",
+                        "value": null
+                      },
+                      {
+                        "id": "rating",
+                        "type": "rating",
+                        "text": "8",
+                        "value": "{\"rating\": 8}"
+                      },
+                      {
+                        "id": "tracking",
+                        "type": "time_tracking",
+                        "text": "01:01:01",
+                        "value": "{\"duration\": 3661}"
+                      },
+                      {
+                        "id": "vote",
+                        "type": "vote",
+                        "text": "2",
+                        "value": "{\"voters\": [1, 2]}"
+                      },
+                      {
+                        "id": "id",
+                        "type": "item_id",
+                        "text": "1001",
+                        "value": "{\"item_id\": \"1001\"}"
+                      },
+                      {
+                        "id": "auto",
+                        "type": "auto_number",
+                        "text": "",
+                        "value": null
+                      },
+                      {
+                        "id": "button",
+                        "type": "button",
+                        "text": "",
+                        "value": null
+                      },
+                      {
+                        "id": "timeline",
+                        "type": "timeline",
+                        "text": "Sep 1 - 15",
+                        "value": "{\"from\": \"2026-09-01\", \"to\": \"2026-09-15\"}"
+                      },
+                      {
+                        "id": "week",
+                        "type": "week",
+                        "text": "Sep 1 - 7",
+                        "value": "{\"week\": {\"startDate\": \"2026-09-01\", \"endDate\": \"2026-09-07\"}}"
+                      },
+                      {
+                        "id": "location",
+                        "type": "location",
+                        "text": "Los Angeles",
+                        "value": "{\"lat\": \"34.05\", \"lng\": \"-118.25\", \"address\": \"Los Angeles\"}"
+                      },
+                      {
+                        "id": "country",
+                        "type": "country",
+                        "text": "United States",
+                        "value": "{\"countryCode\": \"US\", \"countryName\": \"United States\"}"
+                      },
+                      {
+                        "id": "hour",
+                        "type": "hour",
+                        "text": "12:30",
+                        "value": "{\"hour\": 12, \"minute\": 30}"
+                      },
+                      {
+                        "id": "world",
+                        "type": "world_clock",
+                        "text": "Los Angeles",
+                        "value": "{\"timezone\": \"America/Los_Angeles\"}"
+                      },
+                      {
+                        "id": "color",
+                        "type": "color_picker",
+                        "text": "#ff0000",
+                        "value": "{\"color\": \"#ff0000\"}"
+                      },
+                      {
+                        "id": "doc",
+                        "type": "doc",
+                        "text": "Document",
+                        "value": "{\"url\": \"https://example.com/doc\"}"
+                      },
+                      {
+                        "id": "tags",
+                        "type": "tags",
+                        "text": "Launch, Work",
+                        "value": "{\"tag_ids\": [1, 2]}"
+                      },
+                      {
+                        "id": "progress",
+                        "type": "progress",
+                        "text": "50%",
+                        "value": "{\"percent\": 50}"
+                      },
+                      {
+                        "id": "integration",
+                        "type": "integration",
+                        "text": "Integration value",
+                        "value": "{\"value\": \"kept\"}"
+                      },
+                      {
+                        "id": "future",
+                        "type": "future_type",
+                        "text": "Future value",
+                        "value": "{\"value\": \"kept\"}"
+                      },
+                      {
+                        "id": "multi_link",
+                        "type": "board_relation",
+                        "text": null,
+                        "value": null,
+                        "display_value": "Related item, Empty",
+                        "linked_item_ids": ["2001", "1002"],
+                        "linked_items": [
+                          {
+                            "id": "2001",
+                            "board": {
+                              "id": "200"
+                            }
+                          },
+                          {
+                            "id": "1002",
+                            "board": {
+                              "id": "100"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadNextItems",
+      "variables": {
+        "cursor": "next-100-Read"
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "next_items_page": {
+            "cursor": null,
+            "items": [
+              {
+                "id": "1002",
+                "name": "Empty",
+                "state": "active",
+                "board": {
+                  "id": "100"
+                },
+                "group": {
+                  "id": "done",
+                  "title": "Done"
+                },
+                "parent_item": null,
+                "subitems": [],
+                "column_values": [
+                  {
+                    "id": "text",
+                    "type": "text",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "long",
+                    "type": "long_text",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "num",
+                    "type": "numbers",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "check",
+                    "type": "checkbox",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "email",
+                    "type": "email",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "phone",
+                    "type": "phone",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "url",
+                    "type": "link",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "date",
+                    "type": "date",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "created",
+                    "type": "creation_log",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "updated",
+                    "type": "last_updated",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "status",
+                    "type": "status",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "dropdown",
+                    "type": "dropdown",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "people",
+                    "type": "people",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "person",
+                    "type": "person",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "team",
+                    "type": "team",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "file",
+                    "type": "file",
+                    "text": "",
+                    "value": null,
+                    "files": []
+                  },
+                  {
+                    "id": "link",
+                    "type": "board_relation",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "missing",
+                    "type": "board_relation",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "dep",
+                    "type": "dependency",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "subitems",
+                    "type": "subtasks",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "mirror",
+                    "type": "mirror",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula0",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula1",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula2",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula3",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula4",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "rating",
+                    "type": "rating",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "tracking",
+                    "type": "time_tracking",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "vote",
+                    "type": "vote",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "id",
+                    "type": "item_id",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "auto",
+                    "type": "auto_number",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "button",
+                    "type": "button",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "timeline",
+                    "type": "timeline",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "week",
+                    "type": "week",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "location",
+                    "type": "location",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "country",
+                    "type": "country",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "hour",
+                    "type": "hour",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "world",
+                    "type": "world_clock",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "color",
+                    "type": "color_picker",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "doc",
+                    "type": "doc",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "tags",
+                    "type": "tags",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "progress",
+                    "type": "progress",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "integration",
+                    "type": "integration",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "future",
+                    "type": "future_type",
+                    "text": "",
+                    "value": null
+                  }
+                ]
+              },
+              {
+                "id": "archived",
+                "name": "Launch",
+                "state": "archived",
+                "board": {
+                  "id": "100"
+                },
+                "group": {
+                  "id": "planning",
+                  "title": "Planning"
+                },
+                "parent_item": null,
+                "subitems": [
+                  {
+                    "id": "3001",
+                    "board": {
+                      "id": "300"
+                    },
+                    "parent_item": {
+                      "id": "archived"
+                    }
+                  }
+                ],
+                "column_values": [
+                  {
+                    "id": "text",
+                    "type": "text",
+                    "text": "Launch text",
+                    "value": "\"Launch text\""
+                  },
+                  {
+                    "id": "long",
+                    "type": "long_text",
+                    "text": "Long content",
+                    "value": "{\"text\": \"Long content\"}"
+                  },
+                  {
+                    "id": "num",
+                    "type": "numbers",
+                    "text": "8",
+                    "value": "8"
+                  },
+                  {
+                    "id": "check",
+                    "type": "checkbox",
+                    "text": "v",
+                    "value": "{\"checked\": \"true\"}"
+                  },
+                  {
+                    "id": "email",
+                    "type": "email",
+                    "text": "owner@example.com",
+                    "value": "{\"email\": \"owner@example.com\", \"text\": \"Owner\"}"
+                  },
+                  {
+                    "id": "phone",
+                    "type": "phone",
+                    "text": "+15555550101",
+                    "value": "{\"phone\": \"+15555550101\", \"countryShortName\": \"US\"}"
+                  },
+                  {
+                    "id": "url",
+                    "type": "link",
+                    "text": "Example",
+                    "value": "{\"url\": \"https://example.com\", \"text\": \"Example\"}"
+                  },
+                  {
+                    "id": "date",
+                    "type": "date",
+                    "text": "2026-09-15 12:00",
+                    "value": "{\"date\": \"2026-09-15\", \"time\": \"12:00:00\"}"
+                  },
+                  {
+                    "id": "created",
+                    "type": "creation_log",
+                    "text": "Sep 1",
+                    "value": "{\"created_at\": \"2026-09-01T12:00:00Z\", \"creator_id\": \"u1\"}"
+                  },
+                  {
+                    "id": "updated",
+                    "type": "last_updated",
+                    "text": "Sep 2",
+                    "value": "{\"updated_at\": \"2026-09-02T12:00:00Z\", \"updater_id\": \"u1\"}"
+                  },
+                  {
+                    "id": "status",
+                    "type": "status",
+                    "text": "Working",
+                    "value": "{\"index\": 0}"
+                  },
+                  {
+                    "id": "dropdown",
+                    "type": "dropdown",
+                    "text": "One, Two",
+                    "value": "{\"ids\": [1, 2]}"
+                  },
+                  {
+                    "id": "people",
+                    "type": "people",
+                    "text": "Owner",
+                    "value": "{\"personsAndTeams\": [{\"id\": 1, \"kind\": \"person\"}]}",
+                    "persons_and_teams": [
+                      {
+                        "id": "1",
+                        "kind": "person"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "person",
+                    "type": "person",
+                    "text": "Owner",
+                    "value": "{\"personsAndTeams\": [{\"id\": 1, \"kind\": \"person\"}]}"
+                  },
+                  {
+                    "id": "team",
+                    "type": "team",
+                    "text": "Design team",
+                    "value": "{\"personsAndTeams\": [{\"id\": 2, \"kind\": \"team\"}]}"
+                  },
+                  {
+                    "id": "file",
+                    "type": "file",
+                    "text": "brief.txt",
+                    "value": "{\"files\": [{\"assetId\": 1, \"name\": \"brief.txt\", \"fileType\": \"ASSET\"}]}",
+                    "files": [
+                      {
+                        "asset_id": "1",
+                        "name": "brief.txt",
+                        "asset": {
+                          "id": "1",
+                          "name": "brief.txt",
+                          "public_url": "{{origin}}/files/brief.txt",
+                          "file_size": 25
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "link",
+                    "type": "board_relation",
+                    "text": null,
+                    "value": null,
+                    "linked_item_ids": ["2001"],
+                    "display_value": "Related item"
+                  },
+                  {
+                    "id": "missing",
+                    "type": "board_relation",
+                    "text": null,
+                    "value": null,
+                    "linked_item_ids": ["9991"],
+                    "display_value": "Missing item"
+                  },
+                  {
+                    "id": "dep",
+                    "type": "dependency",
+                    "text": null,
+                    "value": null,
+                    "linked_item_ids": ["1002"],
+                    "display_value": "Empty"
+                  },
+                  {
+                    "id": "subitems",
+                    "type": "subtasks",
+                    "text": null,
+                    "value": null,
+                    "subitems_ids": ["3001"]
+                  },
+                  {
+                    "id": "mirror",
+                    "type": "mirror",
+                    "text": null,
+                    "value": null,
+                    "display_value": "External value"
+                  },
+                  {
+                    "id": "formula",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula0",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula1",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula2",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula3",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula4",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "rating",
+                    "type": "rating",
+                    "text": "8",
+                    "value": "{\"rating\": 8}"
+                  },
+                  {
+                    "id": "tracking",
+                    "type": "time_tracking",
+                    "text": "01:01:01",
+                    "value": "{\"duration\": 3661}"
+                  },
+                  {
+                    "id": "vote",
+                    "type": "vote",
+                    "text": "2",
+                    "value": "{\"voters\": [1, 2]}"
+                  },
+                  {
+                    "id": "id",
+                    "type": "item_id",
+                    "text": "1001",
+                    "value": "{\"item_id\": \"1001\"}"
+                  },
+                  {
+                    "id": "auto",
+                    "type": "auto_number",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "button",
+                    "type": "button",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "timeline",
+                    "type": "timeline",
+                    "text": "Sep 1 - 15",
+                    "value": "{\"from\": \"2026-09-01\", \"to\": \"2026-09-15\"}"
+                  },
+                  {
+                    "id": "week",
+                    "type": "week",
+                    "text": "Sep 1 - 7",
+                    "value": "{\"week\": {\"startDate\": \"2026-09-01\", \"endDate\": \"2026-09-07\"}}"
+                  },
+                  {
+                    "id": "location",
+                    "type": "location",
+                    "text": "Los Angeles",
+                    "value": "{\"lat\": \"34.05\", \"lng\": \"-118.25\", \"address\": \"Los Angeles\"}"
+                  },
+                  {
+                    "id": "country",
+                    "type": "country",
+                    "text": "United States",
+                    "value": "{\"countryCode\": \"US\", \"countryName\": \"United States\"}"
+                  },
+                  {
+                    "id": "hour",
+                    "type": "hour",
+                    "text": "12:30",
+                    "value": "{\"hour\": 12, \"minute\": 30}"
+                  },
+                  {
+                    "id": "world",
+                    "type": "world_clock",
+                    "text": "Los Angeles",
+                    "value": "{\"timezone\": \"America/Los_Angeles\"}"
+                  },
+                  {
+                    "id": "color",
+                    "type": "color_picker",
+                    "text": "#ff0000",
+                    "value": "{\"color\": \"#ff0000\"}"
+                  },
+                  {
+                    "id": "doc",
+                    "type": "doc",
+                    "text": "Document",
+                    "value": "{\"url\": \"https://example.com/doc\"}"
+                  },
+                  {
+                    "id": "tags",
+                    "type": "tags",
+                    "text": "Launch, Work",
+                    "value": "{\"tag_ids\": [1, 2]}"
+                  },
+                  {
+                    "id": "progress",
+                    "type": "progress",
+                    "text": "50%",
+                    "value": "{\"percent\": 50}"
+                  },
+                  {
+                    "id": "integration",
+                    "type": "integration",
+                    "text": "Integration value",
+                    "value": "{\"value\": \"kept\"}"
+                  },
+                  {
+                    "id": "future",
+                    "type": "future_type",
+                    "text": "Future value",
+                    "value": "{\"value\": \"kept\"}"
+                  }
+                ]
+              },
+              {
+                "id": "deleted",
+                "name": "Launch",
+                "state": "deleted",
+                "board": {
+                  "id": "100"
+                },
+                "group": {
+                  "id": "planning",
+                  "title": "Planning"
+                },
+                "parent_item": null,
+                "subitems": [
+                  {
+                    "id": "3001",
+                    "board": {
+                      "id": "300"
+                    },
+                    "parent_item": {
+                      "id": "deleted"
+                    }
+                  }
+                ],
+                "column_values": [
+                  {
+                    "id": "text",
+                    "type": "text",
+                    "text": "Launch text",
+                    "value": "\"Launch text\""
+                  },
+                  {
+                    "id": "long",
+                    "type": "long_text",
+                    "text": "Long content",
+                    "value": "{\"text\": \"Long content\"}"
+                  },
+                  {
+                    "id": "num",
+                    "type": "numbers",
+                    "text": "8",
+                    "value": "8"
+                  },
+                  {
+                    "id": "check",
+                    "type": "checkbox",
+                    "text": "v",
+                    "value": "{\"checked\": \"true\"}"
+                  },
+                  {
+                    "id": "email",
+                    "type": "email",
+                    "text": "owner@example.com",
+                    "value": "{\"email\": \"owner@example.com\", \"text\": \"Owner\"}"
+                  },
+                  {
+                    "id": "phone",
+                    "type": "phone",
+                    "text": "+15555550101",
+                    "value": "{\"phone\": \"+15555550101\", \"countryShortName\": \"US\"}"
+                  },
+                  {
+                    "id": "url",
+                    "type": "link",
+                    "text": "Example",
+                    "value": "{\"url\": \"https://example.com\", \"text\": \"Example\"}"
+                  },
+                  {
+                    "id": "date",
+                    "type": "date",
+                    "text": "2026-09-15 12:00",
+                    "value": "{\"date\": \"2026-09-15\", \"time\": \"12:00:00\"}"
+                  },
+                  {
+                    "id": "created",
+                    "type": "creation_log",
+                    "text": "Sep 1",
+                    "value": "{\"created_at\": \"2026-09-01T12:00:00Z\", \"creator_id\": \"u1\"}"
+                  },
+                  {
+                    "id": "updated",
+                    "type": "last_updated",
+                    "text": "Sep 2",
+                    "value": "{\"updated_at\": \"2026-09-02T12:00:00Z\", \"updater_id\": \"u1\"}"
+                  },
+                  {
+                    "id": "status",
+                    "type": "status",
+                    "text": "Working",
+                    "value": "{\"index\": 0}"
+                  },
+                  {
+                    "id": "dropdown",
+                    "type": "dropdown",
+                    "text": "One, Two",
+                    "value": "{\"ids\": [1, 2]}"
+                  },
+                  {
+                    "id": "people",
+                    "type": "people",
+                    "text": "Owner",
+                    "value": "{\"personsAndTeams\": [{\"id\": 1, \"kind\": \"person\"}]}",
+                    "persons_and_teams": [
+                      {
+                        "id": "1",
+                        "kind": "person"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "person",
+                    "type": "person",
+                    "text": "Owner",
+                    "value": "{\"personsAndTeams\": [{\"id\": 1, \"kind\": \"person\"}]}"
+                  },
+                  {
+                    "id": "team",
+                    "type": "team",
+                    "text": "Design team",
+                    "value": "{\"personsAndTeams\": [{\"id\": 2, \"kind\": \"team\"}]}"
+                  },
+                  {
+                    "id": "file",
+                    "type": "file",
+                    "text": "brief.txt",
+                    "value": "{\"files\": [{\"assetId\": 1, \"name\": \"brief.txt\", \"fileType\": \"ASSET\"}]}",
+                    "files": [
+                      {
+                        "asset_id": "1",
+                        "name": "brief.txt",
+                        "asset": {
+                          "id": "1",
+                          "name": "brief.txt",
+                          "public_url": "{{origin}}/files/brief.txt",
+                          "file_size": 25
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "link",
+                    "type": "board_relation",
+                    "text": null,
+                    "value": null,
+                    "linked_item_ids": ["2001"],
+                    "display_value": "Related item"
+                  },
+                  {
+                    "id": "missing",
+                    "type": "board_relation",
+                    "text": null,
+                    "value": null,
+                    "linked_item_ids": ["9991"],
+                    "display_value": "Missing item"
+                  },
+                  {
+                    "id": "dep",
+                    "type": "dependency",
+                    "text": null,
+                    "value": null,
+                    "linked_item_ids": ["1002"],
+                    "display_value": "Empty"
+                  },
+                  {
+                    "id": "subitems",
+                    "type": "subtasks",
+                    "text": null,
+                    "value": null,
+                    "subitems_ids": ["3001"]
+                  },
+                  {
+                    "id": "mirror",
+                    "type": "mirror",
+                    "text": null,
+                    "value": null,
+                    "display_value": "External value"
+                  },
+                  {
+                    "id": "formula",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula0",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula1",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula2",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula3",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "formula4",
+                    "type": "formula",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "rating",
+                    "type": "rating",
+                    "text": "8",
+                    "value": "{\"rating\": 8}"
+                  },
+                  {
+                    "id": "tracking",
+                    "type": "time_tracking",
+                    "text": "01:01:01",
+                    "value": "{\"duration\": 3661}"
+                  },
+                  {
+                    "id": "vote",
+                    "type": "vote",
+                    "text": "2",
+                    "value": "{\"voters\": [1, 2]}"
+                  },
+                  {
+                    "id": "id",
+                    "type": "item_id",
+                    "text": "1001",
+                    "value": "{\"item_id\": \"1001\"}"
+                  },
+                  {
+                    "id": "auto",
+                    "type": "auto_number",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "button",
+                    "type": "button",
+                    "text": "",
+                    "value": null
+                  },
+                  {
+                    "id": "timeline",
+                    "type": "timeline",
+                    "text": "Sep 1 - 15",
+                    "value": "{\"from\": \"2026-09-01\", \"to\": \"2026-09-15\"}"
+                  },
+                  {
+                    "id": "week",
+                    "type": "week",
+                    "text": "Sep 1 - 7",
+                    "value": "{\"week\": {\"startDate\": \"2026-09-01\", \"endDate\": \"2026-09-07\"}}"
+                  },
+                  {
+                    "id": "location",
+                    "type": "location",
+                    "text": "Los Angeles",
+                    "value": "{\"lat\": \"34.05\", \"lng\": \"-118.25\", \"address\": \"Los Angeles\"}"
+                  },
+                  {
+                    "id": "country",
+                    "type": "country",
+                    "text": "United States",
+                    "value": "{\"countryCode\": \"US\", \"countryName\": \"United States\"}"
+                  },
+                  {
+                    "id": "hour",
+                    "type": "hour",
+                    "text": "12:30",
+                    "value": "{\"hour\": 12, \"minute\": 30}"
+                  },
+                  {
+                    "id": "world",
+                    "type": "world_clock",
+                    "text": "Los Angeles",
+                    "value": "{\"timezone\": \"America/Los_Angeles\"}"
+                  },
+                  {
+                    "id": "color",
+                    "type": "color_picker",
+                    "text": "#ff0000",
+                    "value": "{\"color\": \"#ff0000\"}"
+                  },
+                  {
+                    "id": "doc",
+                    "type": "doc",
+                    "text": "Document",
+                    "value": "{\"url\": \"https://example.com/doc\"}"
+                  },
+                  {
+                    "id": "tags",
+                    "type": "tags",
+                    "text": "Launch, Work",
+                    "value": "{\"tag_ids\": [1, 2]}"
+                  },
+                  {
+                    "id": "progress",
+                    "type": "progress",
+                    "text": "50%",
+                    "value": "{\"percent\": 50}"
+                  },
+                  {
+                    "id": "integration",
+                    "type": "integration",
+                    "text": "Integration value",
+                    "value": "{\"value\": \"kept\"}"
+                  },
+                  {
+                    "id": "future",
+                    "type": "future_type",
+                    "text": "Future value",
+                    "value": "{\"value\": \"kept\"}"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadBoardItems",
+      "variables": {
+        "ids": ["200"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "boards": [
+            {
+              "items_page": {
+                "cursor": null,
+                "items": [
+                  {
+                    "id": "2001",
+                    "name": "Related item",
+                    "state": "active",
+                    "board": {
+                      "id": "200"
+                    },
+                    "group": {
+                      "id": "planning",
+                      "title": "Planning"
+                    },
+                    "parent_item": null,
+                    "subitems": [],
+                    "column_values": [
+                      {
+                        "id": "text",
+                        "type": "text",
+                        "text": "External value",
+                        "value": "\"External value\""
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadChildren",
+      "variables": {
+        "ids": ["3001"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "items": [
+            {
+              "id": "3001",
+              "name": "Child task",
+              "state": "active",
+              "board": {
+                "id": "300"
+              },
+              "group": {
+                "id": "planning",
+                "title": "Planning"
+              },
+              "parent_item": {
+                "id": "1001",
+                "parent_item": null
+              },
+              "subitems": [],
+              "column_values": [
+                {
+                  "id": "text",
+                  "type": "text",
+                  "text": "Child text",
+                  "value": "\"Child text\""
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "FormulaValues",
+      "variables": {
+        "ids": ["1001"],
+        "columns": ["formula", "formula0", "formula1", "formula2", "formula3"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "items": [
+            {
+              "id": "1001",
+              "column_values": [
+                {
+                  "id": "formula",
+                  "display_value": "16"
+                },
+                {
+                  "id": "formula0",
+                  "display_value": "8"
+                },
+                {
+                  "id": "formula1",
+                  "display_value": "9"
+                },
+                {
+                  "id": "formula2",
+                  "display_value": "10"
+                },
+                {
+                  "id": "formula3",
+                  "display_value": "11"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "FormulaValues",
+      "variables": {
+        "ids": ["1001"],
+        "columns": ["formula4"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "items": [
+            {
+              "id": "1001",
+              "column_values": [
+                {
+                  "id": "formula4",
+                  "display_value": "12"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "FormulaValues",
+      "variables": {
+        "ids": ["1002"],
+        "columns": ["formula", "formula0", "formula1", "formula2", "formula3"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "items": [
+            {
+              "id": "1002",
+              "column_values": [
+                {
+                  "id": "formula",
+                  "display_value": null
+                },
+                {
+                  "id": "formula0",
+                  "display_value": null
+                },
+                {
+                  "id": "formula1",
+                  "display_value": null
+                },
+                {
+                  "id": "formula2",
+                  "display_value": null
+                },
+                {
+                  "id": "formula3",
+                  "display_value": null
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "FormulaValues",
+      "variables": {
+        "ids": ["1002"],
+        "columns": ["formula4"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "items": [
+            {
+              "id": "1002",
+              "column_values": [
+                {
+                  "id": "formula4",
+                  "display_value": null
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v2",
+      "operation": "ReadPeople",
+      "variables": {
+        "ids": ["1"]
+      },
+      "response": {
+        "data": {
+          "complexity": {
+            "query": 1200,
+            "after": 4998800,
+            "reset_in_x_seconds": 60
+          },
+          "users": [
+            {
+              "id": "1",
+              "name": "Owner",
+              "email": "owner@example.com"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/files/brief.txt",
+      "response": "A documented attachment.\n"
+    }
+  ],
+  "error": {
+    "errors": [
+      {
+        "message": "Invalid token",
+        "extensions": {
+          "code": "NOT_AUTHENTICATED"
+        }
+      }
+    ]
+  },
+  "complexityError": {
+    "errors": [
+      {
+        "message": "Complexity budget exhausted",
+        "extensions": {
+          "code": "COMPLEXITY_BUDGET_EXHAUSTED",
+          "retry_in_seconds": 17
+        }
+      }
+    ]
+  },
+  "partialError": {
+    "data": {
+      "boards": []
+    },
+    "errors": [
+      {
+        "message": "Unavailable board",
+        "extensions": {
+          "code": "InternalServerError"
+        }
+      }
+    ]
+  }
+}

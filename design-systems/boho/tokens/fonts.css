@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* Licensed retail faces shipped with the system. */
+@font-face{font-family:"Boho Display";src:url("../assets/fonts/warna.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Boho Editorial";src:url("../assets/fonts/malgods-bohemian.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Boho Script";src:url("../assets/fonts/bohemy-script.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Boho Script Alt";src:url("../assets/fonts/bohemian-script.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Boho Label";src:url("../assets/fonts/bohemy-sans.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Boho Poster";src:url("../assets/fonts/la-sierra.woff2") format("woff2"),url("../assets/fonts/la-sierra.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+
+:root{
+--font-display:"Boho Display","Boho Editorial",Georgia,serif;
+--font-editorial:"Boho Editorial","Boho Display",Georgia,serif;
+--font-script:"Boho Script","Boho Script Alt",cursive;
+--font-label:"Boho Label",Figtree,system-ui,sans-serif;
+--font-poster:"Boho Poster","Boho Display",serif;
+--font-sans:Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;
+--font-serif:Spectral,Georgia,"Times New Roman",serif;
+--font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}

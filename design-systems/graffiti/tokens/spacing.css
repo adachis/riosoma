@@ -1,0 +1,28 @@
+/* Graffiti — space + layout. 4px base, but posters break the grid on purpose. */
+:root{
+  --gf-space-0:0px;
+  --gf-space-1:2px;
+  --gf-space-2:4px;
+  --gf-space-3:6px;
+  --gf-space-4:8px;
+  --gf-space-5:12px;
+  --gf-space-6:16px;
+  --gf-space-7:20px;
+  --gf-space-8:24px;
+  --gf-space-9:32px;
+  --gf-space-10:40px;
+  --gf-space-11:48px;
+  --gf-space-12:64px;
+  --gf-space-13:80px;
+  --gf-space-14:120px;
+
+  /* Component sizing */
+  --gf-control-sm:32px;
+  --gf-control-md:44px;   /* touch minimum */
+  --gf-control-lg:56px;
+  --gf-gutter:24px;
+  --gf-gutter-wide:48px;
+  --gf-measure:66ch;      /* body copy max line length */
+  --gf-page-max:1280px;
+  --gf-page-narrow:760px;
+}

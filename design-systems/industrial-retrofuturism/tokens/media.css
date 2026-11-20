@@ -1,0 +1,83 @@
+/* Medium-specific tokens. The foundations above are shared; these adapt the
+   same language to a phone, a desktop window, a game screen and a printed page.
+   Nothing here introduces a new colour or a new typeface. */
+:root{
+  /* ---------- MOBILE ---------- */
+  --mobile-w:390px;
+  --mobile-h:844px;
+  --safe-top:44px;
+  --safe-bottom:34px;
+  --mobile-appbar-h:56px;
+  --mobile-tabbar-h:56px;
+  --mobile-row-h:56px;
+  --mobile-gutter:16px;
+  /* Phone text is set larger than desktop; legends stay small but never below 11. */
+  --fs-m-display:34px;
+  --fs-m-title:22px;
+  --fs-m-body:17px;
+  --fs-m-sub:15px;
+  --fs-m-label:11px;
+  --type-m-body:var(--w-regular) var(--fs-m-body)/1.4 var(--font-core); /* @kind font */
+  --type-m-title:var(--w-bold) var(--fs-m-title)/1.2 var(--font-core); /* @kind font */
+
+  /* ---------- DESKTOP ---------- */
+  --win-titlebar-h:28px;
+  --win-titlebar-h-mac:38px;
+  --win-menubar-h:24px;
+  --win-toolbar-h:38px;
+  --win-status-h:22px;
+  --win-sidebar-w:220px;
+  --win-inspector-w:260px;
+  --win-radius:6px;
+  --win-radius-mac:10px;
+  /* Desktop is the dense end of the system: 13px body, 22-26px rows. */
+  --fs-d-body:13px;
+  --fs-d-label:11px;
+  --row-h:26px;
+  --row-h-dense:22px;
+  --type-d-body:var(--w-regular) var(--fs-d-body)/1.35 var(--font-core); /* @kind font */
+
+  /* ---------- GAME ---------- */
+  /* HUD elements float over rendered scene, so they carry their own scrim
+     instead of relying on the page substrate. */
+  --hud-edge:28px;
+  --hud-scrim:rgba(10,10,10,.55);
+  --hud-panel:rgba(10,10,10,.74);
+  --hud-hair:rgba(242,242,240,.34);
+  --hud-ink:#f2f2f0;
+  --hud-ink-quiet:rgba(242,242,240,.62);
+  --hud-glow:0 0 8px currentColor; /* @kind shadow */
+  --fs-g-hud:14px;
+  --fs-g-label:11px;
+  --fs-g-menu:32px;
+  --fs-g-title:76px;
+  --hud-corner:10px;
+
+  /* ---------- PRINT ---------- */
+  --page-letter-w:8.5in;
+  --page-letter-h:11in;
+  --page-a4-w:210mm; /* @kind spacing */
+  --page-a4-h:297mm; /* @kind spacing */
+  --print-margin:15mm;
+  --print-gutter:5mm; /* @kind spacing */
+  --print-columns:12; /* @kind other */
+  --print-hair:0.5pt; /* @kind spacing */
+  --print-rule:1pt; /* @kind spacing */
+  --crop-len:6mm; /* @kind spacing */
+  /* Print type is specified in points, minimum 7pt for compliance micro-type. */
+  --pt-display:48pt; /* @kind font */
+  --pt-head:18pt; /* @kind font */
+  --pt-spec:11pt; /* @kind font */
+  --pt-body:10pt; /* @kind font */
+  --pt-caption:7.5pt; /* @kind font */
+  --pt-micro:7pt; /* @kind font */
+  --ink-black:#000000;
+  --ink-paper:#ffffff;
+  --ink-tint:#e5e5e5;
+}
+
+@media print{
+  :root{--surface-page:var(--ink-paper);--surface-card:var(--ink-paper);--text-body:var(--ink-black)}
+  body{background:#fff}
+  .no-print{display:none !important}
+}

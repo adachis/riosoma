@@ -1,0 +1,28 @@
+#rio-startup-error[hidden] {
+  display: none;
+}
+#rio-startup-error {
+  box-sizing: border-box;
+  margin: var(--rio-space-6) auto;
+  max-inline-size: var(--rio-reading-width, 36rem);
+  padding: var(--rio-space-6);
+  color: var(--rio-text);
+  background: var(--rio-surface);
+  border: 1px solid var(--rio-border);
+  border-radius: var(--rio-radius);
+  font-family: var(--rio-font-body);
+  overflow-wrap: anywhere;
+}
+#rio-startup-error button {
+  padding: var(--rio-space-3) var(--rio-space-4);
+  color: var(--rio-text);
+  background: var(--rio-surface);
+  border: 1px solid var(--rio-border);
+  border-radius: var(--rio-radius);
+  font: inherit;
+  cursor: pointer;
+}
+#rio-startup-error button:focus-visible {
+  outline: var(--rio-focus-ring-width, 2px) solid var(--rio-aa-focus);
+  outline-offset: var(--rio-focus-ring-offset, 2px);
+}

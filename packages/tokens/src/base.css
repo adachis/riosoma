@@ -1,0 +1,267 @@
+/*
+ * Riosoma's own tokens and the cascade order.  Themes supply colors, fonts, and radius through the
+ * --rio-* semantic variables; everything here is theme-independent (spacing, type scale, motion,
+ * fixed layout sizes) or a fallback for a variable a theme doesn't define.
+ *
+ * Layer order, lowest priority first.  The names nest under one `rio` layer on purpose: a top-level
+ * `theme` layer declared between `rio.*` names would sort after all of them and win.
+ *   rio.defaults    fallbacks for --rio-* variables
+ *   rio.theme       the active theme's stylesheet
+ *   rio.base        element resets for the app
+ *   rio.components  shared components
+ *   rio.app         screens
+ * public/layers.css declares the same order first thing in the page, before any theme loads.
+ */
+@layer rio.defaults, rio.theme, rio.base, rio.components, rio.app;
+
+@layer rio.defaults {
+  :root,
+  [data-scheme],
+  [data-mode],
+  [data-surface] {
+    --rio-bg: #fbfbf9;
+    --rio-surface: #ffffff;
+    --rio-text: #1d1d1b;
+    --rio-text-muted: #5c5c57;
+    --rio-border: #d9d9d3;
+    --rio-accent: #2f6b4f;
+    --rio-on-accent: #ffffff;
+    --rio-link: var(--rio-accent);
+    --rio-focus: var(--rio-accent);
+    --rio-success: #2e7d32;
+    --rio-warning: #a15c00;
+    --rio-danger: #b3261e;
+    --rio-info: #1f5fa8;
+    --rio-aa-on-accent: var(--rio-on-accent);
+    --rio-aa-accent-text: var(--rio-accent);
+    --rio-aa-text-muted: var(--rio-text-muted);
+    --rio-aa-link: var(--rio-link);
+    --rio-aa-focus: var(--rio-focus);
+    --rio-aa-border: var(--rio-border);
+    --rio-aa-success-text: var(--rio-success);
+    --rio-aa-on-success: var(--rio-on-accent);
+    --rio-aa-warning-text: var(--rio-warning);
+    --rio-aa-on-warning: var(--rio-on-accent);
+    --rio-aa-danger-text: var(--rio-danger);
+    --rio-aa-on-danger: var(--rio-on-accent);
+    --rio-aa-info-text: var(--rio-info);
+    --rio-aa-on-info: var(--rio-on-accent);
+    --rio-aa-choice-text: var(--rio-text);
+    --rio-aa-choice-gray: var(--rio-choice-gray);
+    --rio-aa-choice-gray-soft: var(--rio-choice-gray-soft);
+    --rio-aa-choice-red: var(--rio-choice-red);
+    --rio-aa-choice-red-soft: var(--rio-choice-red-soft);
+    --rio-aa-choice-orange: var(--rio-choice-orange);
+    --rio-aa-choice-orange-soft: var(--rio-choice-orange-soft);
+    --rio-aa-choice-yellow: var(--rio-choice-yellow);
+    --rio-aa-choice-yellow-soft: var(--rio-choice-yellow-soft);
+    --rio-aa-choice-green: var(--rio-choice-green);
+    --rio-aa-choice-green-soft: var(--rio-choice-green-soft);
+    --rio-aa-choice-teal: var(--rio-choice-teal);
+    --rio-aa-choice-teal-soft: var(--rio-choice-teal-soft);
+    --rio-aa-choice-blue: var(--rio-choice-blue);
+    --rio-aa-choice-blue-soft: var(--rio-choice-blue-soft);
+    --rio-aa-choice-purple: var(--rio-choice-purple);
+    --rio-aa-choice-purple-soft: var(--rio-choice-purple-soft);
+    --rio-aa-choice-pink: var(--rio-choice-pink);
+    --rio-aa-choice-pink-soft: var(--rio-choice-pink-soft);
+    --rio-aa-choice-brown: var(--rio-choice-brown);
+    --rio-aa-choice-brown-soft: var(--rio-choice-brown-soft);
+    --rio-font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --rio-font-display: var(--rio-font-body);
+    --rio-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    --rio-radius: 6px;
+  }
+}
+
+:root {
+  /* Spacing on a 4px grid. */
+  --rio-space-0: 0;
+  --rio-space-1: 4px;
+  --rio-space-2: 8px;
+  --rio-space-3: 12px;
+  --rio-space-4: 16px;
+  --rio-space-5: 20px;
+  --rio-space-6: 24px;
+  --rio-space-8: 32px;
+  --rio-space-10: 40px;
+  --rio-space-12: 48px;
+
+  /* Type scale.  Sizes are fixed so nothing reflows when data changes. */
+  --rio-text-xs: 11px;
+  --rio-text-sm: 12px;
+  --rio-text-md: 14px;
+  --rio-text-lg: 16px;
+  --rio-text-xl: 20px;
+  --rio-text-2xl: 24px;
+  --rio-text-3xl: 32px;
+  --rio-leading-tight: 1.25;
+  --rio-leading-normal: 1.5;
+  --rio-weight-regular: 400;
+  --rio-weight-medium: 500;
+  --rio-weight-bold: 650;
+
+  /* Fixed shell heights and widths: the frame never changes size at runtime. */
+  --rio-header-height: 48px;
+  --rio-toolbar-height: 40px;
+  --rio-footer-height: 56px;
+  --rio-sidebar-min: 265px;
+  --rio-sidebar-max: 300px;
+  --rio-dock-width: 380px;
+  --rio-control-height: 32px;
+  --rio-control-height-sm: 24px;
+  --rio-control-height-lg: 40px;
+  --rio-icon-size: 16px;
+
+  /* Touch targets.  Every control is at least --rio-target-min on each side, WCAG 2.2's minimum
+     target size.  A screen's primary actions, such as its navigation, its view controls, and a
+     dialog's answers, are at least --rio-target-primary, which is a comfortable fingertip on
+     phones and the minimum elsewhere, so wider screens keep their compact controls. */
+  --rio-target-min: 24px;
+  --rio-target-touch: 44px;
+  --rio-target-primary: var(--rio-target-min);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --rio-target-primary: var(--rio-target-touch);
+  }
+}
+
+/* Derived colors are declared wherever a scheme can change, so a nested scheme recomputes them
+   instead of inheriting the page's values. */
+:root,
+[data-scheme],
+[data-mode],
+[data-surface] {
+  /* Derived surfaces, mixed from the theme's colors so they follow every scheme. */
+  --rio-surface-raised: color-mix(
+    in oklab,
+    var(--rio-ink, var(--rio-text)) var(--rio-legible-surface-tint, 6%),
+    var(--rio-surface)
+  );
+  --rio-surface-sunken: color-mix(
+    in oklab,
+    var(--rio-ink, var(--rio-text)) var(--rio-legible-surface-tint, 6%),
+    var(--rio-bg)
+  );
+  --rio-hover: color-mix(
+    in oklab,
+    var(--rio-ink, var(--rio-text)) var(--rio-legible-hover-tint, 8%),
+    transparent
+  );
+  --rio-pressed: color-mix(
+    in oklab,
+    var(--rio-ink, var(--rio-text)) var(--rio-legible-pressed-tint, 14%),
+    transparent
+  );
+  --rio-selected: color-mix(in oklab, var(--rio-accent) var(--rio-legible-selected-tint, 16%), transparent);
+  --rio-scrim: color-mix(in oklab, #000 45%, transparent);
+  --rio-shadow-1: 0 1px 2px color-mix(in oklab, #000 12%, transparent);
+  --rio-shadow-2: 0 4px 12px color-mix(in oklab, #000 16%, transparent);
+  --rio-shadow-3: 0 12px 32px color-mix(in oklab, #000 22%, transparent);
+  --rio-focus-ring: 0 0 0 2px var(--rio-bg), 0 0 0 4px var(--rio-aa-focus);
+
+  /* Choice pills: a tint of the page, with body text on top. */
+  --rio-choice-gray-soft: color-mix(in oklab, var(--rio-choice-gray) 22%, var(--rio-bg));
+  --rio-choice-red-soft: color-mix(in oklab, var(--rio-choice-red) 22%, var(--rio-bg));
+  --rio-choice-orange-soft: color-mix(in oklab, var(--rio-choice-orange) 22%, var(--rio-bg));
+  --rio-choice-yellow-soft: color-mix(in oklab, var(--rio-choice-yellow) 22%, var(--rio-bg));
+  --rio-choice-green-soft: color-mix(in oklab, var(--rio-choice-green) 22%, var(--rio-bg));
+  --rio-choice-teal-soft: color-mix(in oklab, var(--rio-choice-teal) 22%, var(--rio-bg));
+  --rio-choice-blue-soft: color-mix(in oklab, var(--rio-choice-blue) 22%, var(--rio-bg));
+  --rio-choice-purple-soft: color-mix(in oklab, var(--rio-choice-purple) 22%, var(--rio-bg));
+  --rio-choice-pink-soft: color-mix(in oklab, var(--rio-choice-pink) 22%, var(--rio-bg));
+  --rio-choice-brown-soft: color-mix(in oklab, var(--rio-choice-brown) 22%, var(--rio-bg));
+}
+
+:root {
+  /* Choice colors for options, checkboxes, databases, and people.  Each is mid-tone, so as a line,
+     dot, or fill it stands out at 3:1 or more on light and dark pages alike. */
+  --rio-choice-gray: #7c7c7c;
+  --rio-choice-red: #e5484d;
+  --rio-choice-orange: #d9731a;
+  --rio-choice-yellow: #b88a00;
+  --rio-choice-green: #2f9e44;
+  --rio-choice-teal: #0f9a8f;
+  --rio-choice-blue: #3b82f6;
+  --rio-choice-purple: #9b59d0;
+  --rio-choice-pink: #d6409f;
+  --rio-choice-brown: #9c6b3f;
+  --rio-choice-on: #ffffff;
+}
+
+:root {
+  /* Stacking order. */
+  --rio-z-sticky: 10;
+  --rio-z-dock: 20;
+  --rio-z-popover: 40;
+  --rio-z-modal: 50;
+  --rio-z-toast: 60;
+  --rio-z-tooltip: 70;
+
+  /* Motion.  Durations drop to zero for people who ask for reduced motion. */
+  --rio-duration-instant: 80ms;
+  --rio-duration-fast: 140ms;
+  --rio-duration-normal: 220ms;
+  --rio-duration-slow: 360ms;
+  --rio-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --rio-ease-enter: cubic-bezier(0, 0, 0, 1);
+  --rio-ease-exit: cubic-bezier(0.3, 0, 1, 1);
+  --rio-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --rio-duration-instant: 0ms;
+    --rio-duration-fast: 0ms;
+    --rio-duration-normal: 0ms;
+    --rio-duration-slow: 0ms;
+  }
+}
+
+@layer rio.base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    block-size: 100%;
+    margin: 0;
+  }
+
+  body {
+    background: var(--rio-bg);
+    color: var(--rio-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  /* Visible only to screen readers. */
+  .rio-visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (forced-colors: active) {
+    :focus-visible {
+      outline: 2px solid CanvasText;
+    }
+  }
+}

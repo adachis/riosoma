@@ -1,0 +1,24 @@
+@layer rio.components {
+  /* The calendar is the card here, so the surface around it only holds a place: it positions the
+     card, animates it in, and keeps out of the way. */
+  .rio-popover.rio-date-picker__popover {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .rio-date-picker__popover .rio-popover__content {
+    overflow: visible;
+  }
+
+  .rio-date-picker__dialog {
+    outline: none;
+  }
+
+  @media (forced-colors: active) {
+    /* Two lines around one card is one too many; the calendar draws its own edge. */
+    .rio-popover.rio-date-picker__popover {
+      border-width: 0;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@layer rio.app {
+  /*
+   * One layer over the whole page, under the toasts so Rio's line stays readable.  It is fixed and
+   * ignores the pointer, so it never moves anything or takes a click meant for the page.
+   */
+  .rio-celebrations {
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--rio-z-toast) - 1);
+    pointer-events: none;
+    contain: strict;
+  }
+
+  .rio-celebrations__canvas {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    pointer-events: none;
+  }
+
+  /* Reads the theme's colors for the canvas, and is never seen. */
+  .rio-celebrations__probe {
+    position: absolute;
+    inline-size: 0;
+    block-size: 0;
+    overflow: hidden;
+  }
+}

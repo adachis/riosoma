@@ -1,0 +1,114 @@
+@layer rio.app {
+  .rio-history {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-history__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-history__entry {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-history__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+
+  .rio-history__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-history__summary {
+    min-inline-size: 0;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-history__time {
+    flex: none;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+
+  .rio-history__changes,
+  .rio-history__overrides {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding: 0;
+    border-inline-start: 2px solid var(--rio-border);
+    padding-inline-start: var(--rio-space-2);
+  }
+
+  .rio-history__change,
+  .rio-history__override {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-history__field {
+    color: var(--rio-aa-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* The two values a change holds: what was there struck through, what replaced it underlined. */
+  .rio-history__before,
+  .rio-history__after {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+
+  .rio-history__before {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-history__note {
+    color: var(--rio-aa-text-muted);
+    font-style: italic;
+  }
+
+  .rio-history__empty {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-history__loading {
+    justify-self: start;
+  }
+
+  .rio-history__more {
+    justify-self: start;
+  }
+
+  @media (forced-colors: active) {
+    .rio-history__changes,
+    .rio-history__overrides {
+      border-inline-start-color: CanvasText;
+    }
+  }
+}

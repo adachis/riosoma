@@ -1,0 +1,13 @@
+:root{
+/* Analogue grain. Layer at 4-9% over flat colour fields and artwork, never over body copy. */
+--texture-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");/* @kind other */
+--grain-opacity:.07;/* @kind other */
+--grain-opacity-strong:.12;/* @kind other */
+--halftone:radial-gradient(circle at 50% 50%,color-mix(in oklab,var(--ink) 22%,transparent) 0 22%,transparent 23%);/* @kind other */
+--halftone-size:7px 7px;/* @kind other */
+--dusk-wash:linear-gradient(180deg,color-mix(in oklab,var(--accent-3) 22%,var(--paper)),var(--paper) 62%);/* @kind other */
+--tape-tint:color-mix(in oklab,var(--accent-3) 30%,transparent);
+}
+.sdc-grain{position:relative;isolation:isolate}
+.sdc-grain::after{content:"";position:absolute;inset:0;background-image:var(--texture-grain);background-size:140px;opacity:var(--grain-opacity);pointer-events:none;mix-blend-mode:multiply;border-radius:inherit;z-index:2}
+.sdc-halftone{background-image:var(--halftone);background-size:var(--halftone-size)}

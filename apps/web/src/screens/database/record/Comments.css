@@ -1,0 +1,164 @@
+@layer rio.app {
+  .rio-comments {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-comments__thread {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-comments__item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: var(--rio-space-2);
+  }
+
+  /* A comment this tab is still sending reads as unfinished until the server answers. */
+  .rio-comments__item[data-pending] {
+    outline: 1px dashed var(--rio-aa-border);
+    outline-offset: var(--rio-space-1);
+  }
+
+  .rio-comments__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+
+  .rio-comments__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-comments__author {
+    overflow: hidden;
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rio-comments__time,
+  .rio-comments__edited {
+    flex: none;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+
+  .rio-comments__text {
+    margin: 0;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+
+  /* Body text on the tint, since the link color is legible only on the page and its surfaces. */
+  .rio-comments__mention {
+    border-radius: var(--rio-radius);
+    padding-inline: var(--rio-space-1);
+    background-color: var(--rio-selected);
+    color: var(--rio-text);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-comments__actions,
+  .rio-comments__edit-actions {
+    display: flex;
+    gap: var(--rio-space-1);
+  }
+
+  .rio-comments__edit {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-comments__edit-actions {
+    justify-content: flex-end;
+  }
+
+  .rio-comments__empty {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-comments__loading {
+    justify-self: start;
+    /* The empty-thread message has one text line, so resolving it keeps the composer in place. */
+    block-size: calc(var(--rio-text-sm) * var(--rio-leading-normal));
+  }
+
+  .rio-comments__composer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    border-block-start: 1px solid var(--rio-border);
+    padding-block-start: var(--rio-space-3);
+  }
+
+  .rio-comments__field {
+    position: relative;
+    min-inline-size: 0;
+  }
+
+  /* The offer hangs over the thread rather than pushing it, so nothing moves while typing. */
+  .rio-comments__offers {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 100%;
+    z-index: var(--rio-z-popover);
+    margin-block-end: var(--rio-space-1);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    box-shadow: var(--rio-shadow-2);
+    overflow: hidden;
+  }
+
+  .rio-comments__person {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-comments__person-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* The arrow keys choose from the text area, so the offer marks the one they reached. */
+  .rio-comments__offers .rio-listbox-item[data-active] {
+    background-color: var(--rio-hover);
+  }
+
+  .rio-comments__send {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media (forced-colors: active) {
+    .rio-comments__mention {
+      border: 1px solid CanvasText;
+    }
+    .rio-comments__item[data-pending] {
+      opacity: 1;
+    }
+  }
+}

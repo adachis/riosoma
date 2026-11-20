@@ -1,0 +1,59 @@
+/* Base palette + semantic aliases. The default theme is 1-bit: paper, ink, two greys. */
+:root{
+--s7-white:#FFFFFF;
+--s7-black:#000000;
+--s7-grey:#A5A5A5;
+--s7-darkgrey:#B6B7B8;
+
+/* Greyscale chrome, for the later bevelled surfaces */
+--s7-chrome-0:#FFFFFF;
+--s7-chrome-1:#EEEEEE;
+--s7-chrome-2:#DDDDDD;
+--s7-chrome-3:#BBBBBB;
+--s7-chrome-4:#888888;
+--s7-chrome-5:#555555;
+
+/* Theme surface + ink */
+--s7-paper:var(--s7-white);
+--s7-paper-alt:var(--s7-white);
+--s7-ink:var(--s7-black);
+--s7-dim:#767676;
+--s7-disabled:var(--s7-darkgrey);
+--s7-border:var(--s7-black);
+
+/* Accents. Mono by default; colour themes override. */
+--s7-accent:var(--s7-black);
+--s7-accent-2:var(--s7-grey);
+--s7-accent-3:var(--s7-darkgrey);
+--s7-accent-ink:var(--s7-white);
+--s7-desktop:var(--s7-darkgrey);
+/* the dither's dark cell — derived so every theme's desktop reads as texture, not noise */
+--s7-desktop-ink:color-mix(in srgb,var(--s7-desktop) 58%,#000);
+
+/* Selection / highlight */
+--s7-select:var(--s7-black);
+--s7-select-ink:var(--s7-white);
+
+/* Semantic status */
+--s7-ok:#43AA8B;
+--s7-warn:#F8961E;
+--s7-danger:#F94144;
+--s7-info:#4D908E;
+--s7-status-ink:#000000;
+
+/* Text roles */
+--s7-text-body:var(--s7-ink);
+--s7-text-dim:var(--s7-dim);
+--s7-text-inverse:var(--s7-paper);
+--s7-surface-window:var(--s7-paper);
+--s7-surface-card:var(--s7-paper);
+--s7-surface-sunken:var(--s7-paper-alt);
+--s7-link:var(--s7-ink);
+--s7-link-hover:var(--s7-paper);
+
+/* Compatibility aliases (short names used inside components) */
+--primary:var(--s7-paper);
+--secondary:var(--s7-ink);
+--tertiary:var(--s7-dim);
+--disabled:var(--s7-disabled);
+}

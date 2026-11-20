@@ -1,0 +1,23 @@
+{
+  "id": "notifications",
+  "where": "anywhere",
+  "steps": [
+    {
+      "anchor": "notifications.open",
+      "say": "demos.notifications.open",
+      "do": "open"
+    },
+    {
+      "anchor": "notifications.list",
+      "say": "demos.notifications.list"
+    },
+    {
+      "anchor": "notifications.read",
+      "say": "demos.notifications.read"
+    },
+    {
+      "anchor": "notifications.open",
+      "say": "demos.notifications.settings"
+    }
+  ]
+}

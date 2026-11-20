@@ -1,0 +1,205 @@
+@layer rio.components {
+  .rio-docs-panel {
+    box-sizing: border-box;
+    inline-size: 380px;
+    max-inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 0;
+    overflow-y: auto;
+    padding: var(--rio-space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    font-family: var(--rio-font-body);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-docs-panel__header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--rio-space-2);
+  }
+
+  /* A module's "Show me" button sits at its own width under the summary. */
+  .rio-docs-panel__show-me {
+    align-self: flex-start;
+  }
+
+  .rio-docs-panel__title {
+    flex: 1;
+    min-inline-size: 0;
+  }
+  .rio-docs-panel__title:focus-visible {
+    outline: var(--rio-focus-ring);
+  }
+  .rio-docs-panel__area {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  .rio-docs-panel__modules {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  .rio-docs-panel__modules p {
+    margin-block: var(--rio-space-1) 0;
+  }
+  .rio-doc-view {
+    line-height: var(--rio-leading-normal);
+    background: var(--rio-surface);
+  }
+  .rio-doc-view .rio-heading {
+    margin-block: var(--rio-space-5) var(--rio-space-2);
+  }
+  .rio-doc-control {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-doc-view code {
+    font-family: var(--rio-font-mono);
+  }
+  .rio-doc-view pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    padding: var(--rio-space-3);
+    background: var(--rio-bg);
+  }
+  .rio-doc-view blockquote {
+    margin-inline: 0;
+    padding-inline-start: var(--rio-space-3);
+    border-inline-start: 2px solid var(--rio-aa-border);
+  }
+  .rio-doc-table {
+    overflow-x: auto;
+    margin-block: var(--rio-space-2);
+  }
+  .rio-doc-table table {
+    border-collapse: collapse;
+    inline-size: 100%;
+  }
+  .rio-doc-table th,
+  .rio-doc-table td {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-aa-border);
+    text-align: start;
+    vertical-align: top;
+  }
+  .rio-doc-table th {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-doc-view hr {
+    border: 0;
+    border-block-start: 1px solid var(--rio-aa-border);
+  }
+
+  @media (max-width: 600px) {
+    .rio-docs-panel {
+      inline-size: 100%;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-doc-view blockquote,
+    .rio-doc-view hr {
+      border-color: CanvasText;
+    }
+  }
+}
+
+@layer rio.components {
+  .rio-docs-panel__tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-1);
+    flex: none;
+  }
+  .rio-docs-panel__chrome {
+    position: sticky;
+    inset-block-start: calc(-1 * var(--rio-space-4));
+    padding-block: var(--rio-space-2);
+    background: var(--rio-surface);
+    z-index: var(--rio-z-popover);
+  }
+  .rio-docs-panel > * {
+    flex-shrink: 0;
+  }
+  .rio-doc-view .rio-heading {
+    scroll-margin-block-start: 150px;
+  }
+  .rio-docs-window {
+    position: fixed;
+    z-index: var(--rio-z-popover);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    box-shadow: var(--rio-shadow-3);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    overflow: hidden;
+  }
+  .rio-docs-window .rio-docs-panel {
+    inline-size: 100%;
+    flex: 1;
+    flex-shrink: 1;
+  }
+  .rio-docs-window__bar {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    padding: var(--rio-space-2);
+    cursor: move;
+    touch-action: none;
+    flex: none;
+  }
+  .rio-docs-window__bar > :first-child {
+    flex: 1;
+    min-inline-size: 0;
+  }
+  .rio-docs-window__resize {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-end: 0;
+    inline-size: var(--rio-space-5);
+    block-size: var(--rio-space-5);
+    cursor: nwse-resize;
+    touch-action: none;
+    border-inline-end: 3px solid var(--rio-aa-border);
+    border-block-end: 3px solid var(--rio-aa-border);
+  }
+  @media (max-width: 767px) {
+    .rio-docs-window {
+      border: 0;
+      border-radius: 0;
+    }
+    .rio-docs-window__bar,
+    .rio-docs-window__resize {
+      display: none;
+    }
+  }
+}
+
+@layer rio.components {
+  /* Keeping help inside the open dialog preserves its draft and its focus scope. */
+  .rio-docs-modal-panel {
+    position: fixed;
+    inset-block: var(--rio-space-4);
+    inset-inline-end: var(--rio-space-4);
+    inline-size: min(380px, 100vw);
+    z-index: var(--rio-z-modal);
+    border: 1px solid var(--rio-aa-border);
+    box-shadow: var(--rio-shadow-3);
+    background: var(--rio-surface);
+  }
+  @media (max-width: 767px) {
+    .rio-docs-modal-panel {
+      inset: 0;
+      inline-size: 100%;
+    }
+  }
+}

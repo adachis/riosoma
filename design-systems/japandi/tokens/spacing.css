@@ -1,0 +1,48 @@
+/* Japandi — spacing.
+   A √2-ish progression rather than a 4/8 grid. The jumps are deliberately
+   uneven so small gaps stay tight and large ones become real silence. */
+:root {
+  --space-0: 0;
+  --space-px: 1px;
+  --space-1: 0.125rem; /* 2 */
+  --space-2: 0.25rem;  /* 4 */
+  --space-3: 0.375rem; /* 6 */
+  --space-4: 0.625rem; /* 10 */
+  --space-5: 0.875rem; /* 14 */
+  --space-6: 1.25rem;  /* 20 */
+  --space-7: 1.75rem;  /* 28 */
+  --space-8: 2.5rem;   /* 40 */
+  --space-9: 3.5rem;   /* 56 */
+  --space-10: 5rem;    /* 80 */
+  --space-11: 7rem;    /* 112 */
+  --space-12: 10rem;   /* 160 */
+
+  /* Component insets */
+  --pad-control-y: 0.625rem;
+  --pad-control-x: 1.25rem;
+  --pad-control-y-sm: 0.375rem;
+  --pad-control-x-sm: 0.875rem;
+  --pad-control-y-lg: 0.875rem;
+  --pad-control-x-lg: 1.75rem;
+  --pad-card: 1.75rem;
+  --pad-card-sm: 1.25rem;
+  --pad-sheet: 2.5rem;
+
+  /* Page rhythm */
+  --gutter: 1.75rem;
+  --gutter-wide: 3.5rem;
+  --section-y: 7rem;
+  --section-y-tight: 3.5rem;
+  --measure: 62ch;        /* body copy line length */
+  --measure-tight: 44ch;  /* pull quotes, intros */
+  --container: 1200px;
+  --container-narrow: 720px;
+
+  /* Minimum touch target on mobile surfaces */
+  --touch-min: 44px;
+
+  /* Hairline weights */
+  --hairline: 1px;
+  --hairline-2: 2px;
+  --rule-heavy: 3px;
+}

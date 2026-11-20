@@ -1,0 +1,1135 @@
+@layer rio.app {
+  /* The sidebar's list, after the tables. */
+  .rio-automation-list {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin-block-start: var(--rio-space-2);
+    padding-block-start: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+  }
+  /* Body text, since muted text is legible only on the page and its surfaces, not the sidebar's. */
+  .rio-automation-list__heading {
+    margin: 0;
+    padding-inline: var(--rio-space-2);
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    line-height: var(--rio-leading-tight);
+  }
+  .rio-automation-list__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* The dot keeps an icon's room, so names line up with the tables above.  Only the link's own icon
+     is the dot, so the menu button's icon keeps its size and color. */
+  .rio-automation-list__item a > .rio-icon {
+    color: var(--rio-aa-text-muted);
+    transform: scale(0.55);
+  }
+  .rio-automation-list__item[data-enabled] a > .rio-icon {
+    color: var(--rio-success);
+  }
+  .rio-automation-list__add {
+    justify-self: start;
+  }
+
+  /* One automation's screen. */
+  .rio-automation-screen {
+    flex: 1;
+    min-block-size: 0;
+    overflow: auto;
+    container: automation / inline-size;
+    background: var(--rio-bg);
+  }
+  .rio-automation-screen__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    max-inline-size: 52rem;
+    margin-inline: auto;
+    padding-block: var(--rio-space-4) var(--rio-space-8);
+    padding-inline: var(--rio-space-4);
+  }
+  .rio-automation-screen__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--rio-space-3) var(--rio-space-4);
+  }
+  .rio-automation-screen__title {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: var(--rio-text-xl);
+    overflow-wrap: anywhere;
+  }
+  .rio-automation-screen__title[data-hidden],
+  .rio-automation-screen__live {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .rio-automation-screen__name {
+    flex: 1 1 16rem;
+    min-inline-size: 0;
+  }
+  .rio-automation-screen__switch {
+    flex: 0 1 18rem;
+    min-inline-size: 0;
+  }
+  .rio-automation-screen__test {
+    inline-size: 100%;
+    min-inline-size: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--rio-space-2);
+  }
+  .rio-automation-screen__record {
+    inline-size: 16rem;
+    max-inline-size: 100%;
+  }
+  .rio-automation-screen__restart {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2) var(--rio-space-3);
+  }
+  .rio-automation-screen__restart p {
+    flex: 1 1 16rem;
+    margin: 0;
+  }
+
+  /* The badge a draft wears until it's published, with its buttons. */
+  .rio-automation-draft {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2) var(--rio-space-3);
+    padding: var(--rio-space-3) var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-inline-start: 4px solid var(--rio-warning);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+  .rio-automation-draft__badge {
+    color: var(--rio-aa-warning-text);
+    font-weight: var(--rio-weight-bold);
+  }
+  .rio-automation-draft__note {
+    flex: 1 1 16rem;
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-draft__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+
+  /* The published version and the kept ones. */
+  .rio-automation-versions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-3);
+  }
+  .rio-automation-versions__note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-versions__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-automation-versions__item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-1) var(--rio-space-3);
+    padding: var(--rio-space-2) var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+  .rio-automation-versions__name {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-automation-versions__detail {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-versions__restore {
+    margin-inline-start: auto;
+  }
+
+  /* The flow of cards, joined by a line down the middle. */
+  .rio-automation-flow {
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 0;
+  }
+  .rio-automation-flow__steps {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-automation-flow__step {
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 0;
+  }
+  .rio-automation-flow__insert,
+  .rio-automation-flow__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .rio-automation-flow__joint {
+    align-self: center;
+  }
+  .rio-automation-flow__joint,
+  .rio-automation-flow__insert::before,
+  .rio-automation-flow__insert::after,
+  .rio-automation-flow__link::before {
+    content: '';
+    block-size: var(--rio-space-3);
+    border-inline-start: 2px solid var(--rio-border);
+  }
+
+  .rio-automation-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    box-shadow: var(--rio-shadow-1);
+  }
+  .rio-automation-card:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-automation-card[data-problem] {
+    border-color: var(--rio-warning);
+  }
+  .rio-automation-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-automation-card__number {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    border-radius: 50%;
+    background: var(--rio-selected);
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-bold);
+  }
+  .rio-automation-card__title {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-bold);
+    overflow-wrap: anywhere;
+  }
+  .rio-automation-card__actions {
+    display: flex;
+    flex: none;
+    flex-wrap: wrap;
+    gap: var(--rio-space-1);
+  }
+  .rio-automation-card__problem {
+    display: flex;
+    align-items: baseline;
+    gap: var(--rio-space-2);
+    margin: 0;
+    color: var(--rio-aa-warning-text);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+  /* The filter editor wraps to fit the card. */
+  .rio-automation-card .rio-view-row {
+    flex-wrap: wrap;
+  }
+  .rio-automation-card .rio-view-condition-value {
+    inline-size: min(15rem, 100%);
+    flex-shrink: 1;
+  }
+
+  /* Text that can hold values. */
+  .rio-automation-template {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+  .rio-automation-template__label {
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    line-height: var(--rio-leading-tight);
+  }
+  .rio-automation-template__row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+  /* Like the other fields, a template field keeps its size while the person types. */
+  .rio-automation-template__input {
+    flex: 1;
+    min-inline-size: 0;
+    block-size: var(--rio-control-height);
+    padding-inline: var(--rio-space-2);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    caret-color: var(--rio-accent);
+    font: inherit;
+    font-size: var(--rio-text-md);
+    line-height: calc(var(--rio-control-height) - 2px);
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    transition:
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+  .rio-automation-template:not([data-multiline]) .rio-automation-template__input::-webkit-scrollbar {
+    display: none;
+  }
+  .rio-automation-template[data-multiline] .rio-automation-template__input {
+    block-size: calc(var(--rio-control-height) * 2.5);
+    padding-block: var(--rio-space-1);
+    line-height: var(--rio-leading-normal);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: auto;
+    resize: vertical;
+  }
+  .rio-automation-template__input[data-monospace] {
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-template__input:focus {
+    outline: none;
+    border-color: var(--rio-aa-focus);
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-automation-template__input[aria-readonly='true'] {
+    background: var(--rio-surface-sunken);
+  }
+  .rio-automation-template__chip {
+    display: inline-block;
+    margin-inline: 0.1em;
+    padding-inline: var(--rio-space-2);
+    border-radius: 999px;
+    background: var(--rio-selected);
+    color: var(--rio-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-normal);
+    white-space: nowrap;
+    cursor: default;
+    user-select: all;
+  }
+  .rio-automation-template__chip[data-missing] {
+    background: transparent;
+    outline: 1px dashed var(--rio-aa-warning-text);
+    color: var(--rio-aa-warning-text);
+  }
+  .rio-automation-template__insert {
+    flex: none;
+    margin-block-start: calc((var(--rio-control-height) - var(--rio-control-height-sm)) / 2);
+  }
+
+  .rio-automation-values {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-3);
+  }
+  .rio-automation-values__row {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+  .rio-automation-values__remove {
+    flex: none;
+    margin-block-end: calc((var(--rio-control-height) - var(--rio-control-height-sm)) / 2);
+  }
+  .rio-automation-values__add {
+    align-self: flex-start;
+  }
+
+  .rio-automation-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+  }
+  .rio-automation-schedule__label {
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    line-height: var(--rio-leading-tight);
+  }
+  .rio-automation-schedule__every {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+  .rio-automation-schedule__every > .rio-number-field {
+    flex: none;
+    inline-size: 7rem;
+  }
+  .rio-automation-schedule__every > .rio-select {
+    flex: 1 1 10rem;
+  }
+
+  .rio-automation-webhook {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+  }
+  .rio-automation-webhook__address {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--rio-space-2);
+  }
+  .rio-automation-webhook__address > .rio-field {
+    flex: 1 1 18rem;
+  }
+  .rio-automation-webhook__note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  /* A test run's result, under the header. */
+  .rio-automation-test {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+  .rio-automation-test pre,
+  .rio-automation-run__step pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-test__title {
+    margin: 0;
+    font-size: var(--rio-text-md);
+  }
+
+  /* Runs, in the history and after a test. */
+  .rio-automation-runs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--rio-space-3);
+  }
+  .rio-automation-runs__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    inline-size: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-automation-runs__empty {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-automation-run {
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+  .rio-automation-run .rio-automation-run__details {
+    padding-block-end: var(--rio-space-3);
+    padding-inline: var(--rio-space-3);
+  }
+  .rio-automation-run__summary,
+  .rio-automation-run__line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-1) var(--rio-space-2);
+    min-inline-size: 0;
+    text-align: start;
+  }
+  .rio-automation-run__icon {
+    flex: none;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-automation-run__summary[data-state='succeeded'] .rio-automation-run__icon,
+  .rio-automation-run__step[data-state='succeeded'] .rio-automation-run__icon {
+    color: var(--rio-aa-success-text);
+  }
+  .rio-automation-run__summary[data-state='failed'] .rio-automation-run__icon,
+  .rio-automation-run__step[data-state='failed'] .rio-automation-run__icon {
+    color: var(--rio-aa-danger-text);
+  }
+  .rio-automation-run__summary[data-state='running'] .rio-automation-run__icon,
+  .rio-automation-run__step[data-state='running'] .rio-automation-run__icon {
+    color: var(--rio-aa-info-text);
+  }
+  .rio-automation-run__state,
+  .rio-automation-run__name {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-automation-run__tag {
+    padding-inline: var(--rio-space-2);
+    border-radius: 999px;
+    background: var(--rio-selected);
+    font-size: var(--rio-text-xs);
+  }
+  .rio-automation-run__trigger,
+  .rio-automation-run__when,
+  .rio-automation-run__took,
+  .rio-automation-run__version {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-run__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+  }
+  .rio-automation-run__origin,
+  .rio-automation-run__queued {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-run__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+  .rio-automation-run__resume {
+    margin-inline-start: auto;
+  }
+  .rio-automation-run__steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-automation-run__step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+  .rio-automation-run__number {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    border-radius: 50%;
+    background: var(--rio-selected);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-bold);
+  }
+  .rio-automation-run__error {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    margin: 0;
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-run__error code,
+  .rio-automation-run__output dt {
+    font-family: var(--rio-font-mono);
+    overflow-wrap: anywhere;
+  }
+  .rio-automation-run__error code {
+    color: var(--rio-text);
+  }
+  .rio-automation-run__output {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: var(--rio-space-1) var(--rio-space-3);
+    margin: 0;
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-run__output > div {
+    display: contents;
+  }
+  .rio-automation-run__output dt {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-automation-run__output dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* A simulation: the cards it reached, the line lighting between them, and the values each passes on. */
+  .rio-automation-flow__node {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-automation-flow__joint,
+  .rio-automation-flow__insert::before,
+  .rio-automation-flow__insert::after,
+  .rio-automation-flow__link::before {
+    transition: border-color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+  .rio-automation-flow__joint[data-lit],
+  .rio-automation-flow__insert[data-lit]::before,
+  .rio-automation-flow__insert[data-lit]::after,
+  .rio-automation-flow__link[data-lit]::before {
+    border-inline-start-color: var(--rio-accent);
+  }
+  .rio-automation-flow__node > .rio-automation-card {
+    transition:
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+  .rio-automation-flow__node[data-sim='done'] > .rio-automation-card {
+    border-color: var(--rio-success);
+  }
+  .rio-automation-flow__node[data-sim='stopped'] > .rio-automation-card {
+    border-color: var(--rio-warning);
+  }
+  .rio-automation-flow__node[data-sim='failed'] > .rio-automation-card {
+    border-color: var(--rio-danger);
+  }
+  .rio-automation-flow__node[data-sim='skipped'] > .rio-automation-card {
+    border-style: dashed;
+  }
+  .rio-automation-flow__node[data-current] > .rio-automation-card {
+    box-shadow: 0 0 0 2px var(--rio-accent);
+  }
+  .rio-automation-port {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    margin-inline: var(--rio-space-4);
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-inline-start: 3px solid var(--rio-accent);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-sunken);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-port[data-sim='failed'] {
+    border-inline-start-color: var(--rio-danger);
+  }
+  .rio-automation-port[data-sim='stopped'] {
+    border-inline-start-color: var(--rio-warning);
+  }
+  .rio-automation-port h4,
+  .rio-automation-port h5,
+  .rio-automation-port p {
+    margin: 0;
+  }
+  .rio-automation-port h4 {
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-bold);
+  }
+  .rio-automation-port h5 {
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-automation-port section,
+  .rio-automation-port__write,
+  .rio-automation-port__send {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+  .rio-automation-port pre {
+    margin: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-port__empty {
+    color: var(--rio-aa-text-muted);
+    font-style: italic;
+  }
+  .rio-automation-port__branch {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-automation-port__parts {
+    margin: 0;
+    padding-inline-start: var(--rio-space-4);
+  }
+  .rio-automation-port__parts li {
+    color: var(--rio-aa-warning-text);
+  }
+  .rio-automation-port__parts li[data-met] {
+    color: var(--rio-aa-success-text);
+  }
+  .rio-automation-port__parts li[data-hidden] {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-automation-port__diff {
+    inline-size: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  .rio-automation-port__diff th,
+  .rio-automation-port__diff td {
+    padding: var(--rio-space-1);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+  }
+  .rio-automation-port__diff td[data-before] {
+    color: var(--rio-aa-danger-text);
+  }
+  .rio-automation-port__diff td[data-after] {
+    color: var(--rio-aa-success-text);
+  }
+  .rio-automation-simulator__header,
+  .rio-automation-simulator__actions,
+  .rio-automation-simulator__input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--rio-space-2);
+  }
+  .rio-automation-simulator__header {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .rio-automation-simulator__input > * {
+    flex: 1 1 16rem;
+    min-inline-size: 0;
+  }
+  .rio-automation-simulator__note,
+  .rio-automation-simulator__status {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-simulator__status:empty {
+    display: none;
+  }
+  .rio-automation-simulator__status {
+    color: var(--rio-text);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  /* Diagnose, under a run's steps. */
+  .rio-automation-diagnose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    margin-inline: var(--rio-space-3);
+    margin-block-end: var(--rio-space-3);
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface-sunken);
+  }
+  .rio-automation-diagnose__title,
+  .rio-automation-diagnose__fix h5,
+  .rio-automation-diagnose p {
+    margin: 0;
+  }
+  .rio-automation-diagnose__title {
+    font-size: var(--rio-text-md);
+  }
+  .rio-automation-diagnose__cause {
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-automation-diagnose__note {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-diagnose__start,
+  .rio-automation-diagnose__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+  .rio-automation-diagnose__start p {
+    flex: 1 1 16rem;
+  }
+  .rio-automation-diagnose__fix {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+  .rio-automation-diagnose__diff {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-diagnose__diff li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    overflow-wrap: anywhere;
+  }
+  .rio-automation-diagnose__where {
+    color: var(--rio-aa-text-muted);
+    font-family: var(--rio-font-body);
+  }
+  .rio-automation-diagnose__diff del {
+    color: var(--rio-aa-danger-text);
+  }
+  .rio-automation-diagnose__diff ins {
+    color: var(--rio-aa-success-text);
+    text-decoration: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rio-automation-flow__joint,
+    .rio-automation-flow__insert::before,
+    .rio-automation-flow__insert::after,
+    .rio-automation-flow__link::before,
+    .rio-automation-flow__node > .rio-automation-card {
+      transition: none;
+    }
+  }
+
+  /* Phones and narrow panes: one column, and nothing wider than the screen. */
+  @container automation (inline-size < 36rem) {
+    .rio-automation-screen__inner {
+      padding-inline: var(--rio-space-3);
+    }
+    .rio-automation-screen__name,
+    .rio-automation-screen__switch,
+    .rio-automation-screen__test,
+    .rio-automation-screen__record {
+      flex-basis: 100%;
+      inline-size: 100%;
+    }
+    .rio-automation-card {
+      padding: var(--rio-space-3);
+    }
+    .rio-automation-card .rio-view-filter-entry {
+      flex-wrap: wrap;
+    }
+    .rio-automation-card .rio-view-row > .rio-select,
+    .rio-automation-card .rio-view-condition-value {
+      flex: 1 1 100%;
+      inline-size: 100%;
+    }
+    .rio-automation-run__output {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .rio-automation-draft__actions,
+    .rio-automation-versions__restore,
+    .rio-automation-run__resume {
+      flex-basis: 100%;
+      margin-inline-start: 0;
+    }
+    .rio-automation-port,
+    .rio-automation-diagnose {
+      margin-inline: 0;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-automation-template__chip,
+    .rio-automation-card__number {
+      border: 1px solid;
+    }
+    .rio-automation-flow__joint[data-lit],
+    .rio-automation-flow__insert[data-lit]::before,
+    .rio-automation-flow__insert[data-lit]::after,
+    .rio-automation-flow__link[data-lit]::before {
+      border-inline-start-style: double;
+      border-inline-start-width: 3px;
+    }
+  }
+}
+
+@layer rio.app {
+  .rio-automation-canvas__toolbar,
+  .rio-automation-canvas__minimap,
+  .rio-automation-flow__case {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+    align-items: center;
+  }
+  .rio-automation-canvas__hint {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-automation-canvas__viewport {
+    overflow: auto;
+    max-block-size: 70vh;
+    min-block-size: 20rem;
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    background: var(--rio-bg);
+    touch-action: pan-x pan-y;
+  }
+  .rio-automation-canvas__content {
+    position: relative;
+    min-inline-size: 28rem;
+    inline-size: max-content;
+  }
+  .rio-automation-flow__branches {
+    display: flex;
+    align-items: stretch;
+    gap: var(--rio-space-4);
+  }
+  .rio-automation-flow__branch {
+    flex: 1;
+    min-inline-size: 24rem;
+    padding: var(--rio-space-3);
+    border-block-start: 3px solid var(--rio-success);
+    border-inline-start: 2px solid var(--rio-success);
+  }
+  .rio-automation-flow__branch[data-port='1'] {
+    border-color: var(--rio-warning);
+  }
+  .rio-automation-flow__branch[data-port='2'] {
+    border-color: var(--rio-accent);
+  }
+  .rio-automation-flow__port {
+    font-size: var(--rio-text-sm);
+    color: var(--rio-text);
+  }
+  .rio-automation-canvas__note {
+    position: absolute;
+    z-index: 1;
+    inline-size: 16rem;
+    padding: var(--rio-space-3);
+    background: var(--rio-surface);
+    border: 2px solid var(--rio-warning);
+    border-radius: var(--rio-radius);
+  }
+  .rio-automation-canvas__minimap {
+    max-block-size: 8rem;
+    overflow: auto;
+    padding: var(--rio-space-2);
+  }
+  @media (max-width: 600px) {
+    .rio-automation-canvas__content {
+      min-inline-size: 16rem;
+      inline-size: 100%;
+    }
+    .rio-automation-flow__branches {
+      flex-direction: column;
+    }
+    .rio-automation-flow__branch {
+      min-inline-size: 0;
+    }
+    .rio-automation-canvas__note {
+      position: relative;
+      inset: auto !important;
+      max-inline-size: 100%;
+    }
+  }
+}
+
+@layer rio.app {
+  .rio-automation-canvas__map {
+    inline-size: 8rem;
+    max-block-size: 8rem;
+  }
+  .rio-automation-canvas__map path {
+    fill: none;
+    stroke: var(--rio-border);
+  }
+  .rio-automation-canvas__map rect {
+    fill: var(--rio-success);
+  }
+  .rio-automation-canvas__map rect[data-port='1'] {
+    fill: var(--rio-warning);
+  }
+  .rio-automation-canvas__map rect[data-port='2'] {
+    fill: var(--rio-accent);
+  }
+}
+
+@layer rio.app {
+  .rio-automation-diff {
+    flex-basis: 100%;
+    min-inline-size: 0;
+  }
+  .rio-automation-diff pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    padding: var(--rio-space-2);
+    background: var(--rio-bg);
+    color: var(--rio-text);
+  }
+}
+
+@layer components {
+  .rio-automation-wires {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .rio-automation-wires path {
+    fill: none;
+    stroke: var(--rio-accent);
+    stroke-width: 3;
+    pointer-events: stroke;
+    cursor: pointer;
+  }
+  .rio-automation-wires path[data-selected] {
+    stroke-width: 6;
+  }
+  .rio-automation-wires path[data-wire-color='alternate'] {
+    stroke: var(--rio-text-muted);
+  }
+  .rio-automation-wires path[data-wire-color='error'] {
+    stroke: var(--rio-danger);
+  }
+  .rio-automation-wires path.rio-automation-wires__live {
+    stroke-dasharray: 6 4;
+    pointer-events: none;
+  }
+  .rio-automation-ports,
+  .rio-automation-wires__list,
+  .rio-automation-wires__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+    position: relative;
+    z-index: 3;
+  }
+  .rio-automation-ports {
+    padding-block: var(--rio-space-2);
+  }
+  .rio-automation-ports__item {
+    display: flex;
+    flex-direction: column;
+    max-width: 12rem;
+  }
+  .rio-automation-ports button {
+    min-height: 44px;
+    padding: var(--rio-space-2);
+    border: 2px solid var(--rio-accent);
+    border-radius: var(--rio-radius-sm);
+    color: var(--rio-text);
+    background: var(--rio-surface);
+    touch-action: none;
+    cursor: crosshair;
+  }
+  .rio-automation-ports button[data-wire-color='alternate'] {
+    border-color: var(--rio-text-muted);
+  }
+  .rio-automation-ports button[data-wire-color='error'] {
+    border-color: var(--rio-danger);
+  }
+  .rio-automation-ports button:focus-visible {
+    outline: 2px solid var(--rio-accent);
+    outline-offset: 3px;
+  }
+  .rio-automation-ports__reason,
+  .rio-automation-wires__problems {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-automation-wires__status {
+    min-height: 1.5em;
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-automation-wires__problems {
+    border-inline-start: 3px solid var(--rio-danger);
+    padding-inline-start: var(--rio-space-5);
+  }
+}
+
+@layer components {
+  .rio-automation-ports__item {
+    position: relative;
+  }
+  .rio-automation-ports__reason {
+    display: none;
+    position: absolute;
+    inset-block-start: 100%;
+    width: 16rem;
+    max-width: 70vw;
+    padding: var(--rio-space-2);
+    background: var(--rio-surface);
+    border: 1px solid var(--rio-border);
+    z-index: 4;
+  }
+  .rio-automation-ports button:hover + .rio-automation-ports__reason,
+  .rio-automation-ports button:focus + .rio-automation-ports__reason {
+    display: block;
+  }
+  .rio-automation-ports button[aria-disabled='true'] {
+    border-style: dashed;
+  }
+  .rio-automation-canvas[data-wired] .rio-automation-flow__joint,
+  .rio-automation-canvas[data-wired] .rio-automation-flow__insert::before,
+  .rio-automation-canvas[data-wired] .rio-automation-flow__link::before {
+    border-color: var(--rio-surface);
+  }
+}
+
+@layer components {
+  .rio-automation-wires__list,
+  .rio-automation-wires__actions,
+  .rio-automation-wires__status,
+  .rio-automation-canvas__content > .rio-automation-canvas__hint {
+    max-inline-size: 28rem;
+  }
+}

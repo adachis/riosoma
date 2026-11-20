@@ -1,0 +1,42 @@
+@layer rio.app {
+  .rio-file-scanner {
+    display: grid;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+    scroll-margin-block-start: var(--rio-space-4);
+    overflow-wrap: anywhere;
+  }
+  .rio-file-scanner__status {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--rio-space-2) var(--rio-space-4);
+    margin: 0;
+  }
+  .rio-file-scanner__status dd {
+    margin: 0;
+    min-block-size: calc(var(--rio-text-md) * var(--rio-leading-normal) * 2);
+  }
+  /* Successful probes and saved errors must not move the controls below them. */
+  .rio-file-scanner__diagnostics {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-3);
+    block-size: calc(var(--rio-space-8) * 5);
+    overflow: auto;
+    scrollbar-gutter: stable;
+  }
+  .rio-file-scanner__saved {
+    min-block-size: calc(var(--rio-text-md) * var(--rio-leading-normal) * 2);
+  }
+  .rio-file-scanner .rio-form__actions > .rio-button {
+    min-block-size: var(--rio-target-primary);
+  }
+  @media (max-width: 480px) {
+    .rio-file-scanner__status {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .rio-file-scanner__status dd {
+      margin-block-end: var(--rio-space-2);
+    }
+  }
+}

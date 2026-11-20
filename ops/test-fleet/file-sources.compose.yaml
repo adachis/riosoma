@@ -1,0 +1,44 @@
+name: riosoma-file-sources
+services:
+  file-sources-sftp:
+    image: atmoz/sftp:debian@sha256:75dcc29683ad479bdb99010666f2f55e99014350a1e862fe32b565845feb0fcd
+    platform: linux/amd64
+    profiles: [file-sources]
+    command: ['reader:${FILE_SOURCES_PASSWORD:?}:1001:1001:upload']
+    ports: ['127.0.0.1::22']
+    volumes: ['file-sources-sftp:/home/reader/upload']
+    mem_limit: 256m
+  file-sources-webdav:
+    image: rclone/rclone:1.75.1
+    profiles: [file-sources]
+    command: [serve, webdav, /data, --addr, ':8090', --user, reader, --pass, '${FILE_SOURCES_PASSWORD:?}']
+    ports: ['127.0.0.1::8090']
+    volumes: ['file-sources-webdav:/data']
+    mem_limit: 128m
+  file-sources-ftp:
+    image: stilliard/pure-ftpd:trixie-1.0.50
+    platform: linux/amd64
+    profiles: [file-sources]
+    environment:
+      FTP_USER_NAME: reader
+      FTP_USER_PASS: '${FILE_SOURCES_PASSWORD:?}'
+      FTP_USER_HOME: /home/reader
+      FTP_PASSIVE_PORTS: '31100:31109'
+    ports:
+      - '127.0.0.1::21'
+      - '127.0.0.1:31100-31109:31100-31109'
+    volumes: ['file-sources-ftp:/home/reader']
+    mem_limit: 256m
+  file-sources-samba:
+    image: crazymax/samba:4.23.8
+    profiles: [file-sources]
+    volumes:
+      - '${FILE_SOURCES_STATE_DIR:?}/samba.json:/data/config.yml:ro'
+      - 'file-sources-samba:/samba/files'
+    ports: ['127.0.0.1::445']
+    mem_limit: 256m
+volumes:
+  file-sources-sftp:
+  file-sources-webdav:
+  file-sources-ftp:
+  file-sources-samba:

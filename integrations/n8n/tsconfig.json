@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "verbatimModuleSyntax": false,
+    "types": ["node"]
+  },
+  "include": ["credentials", "nodes", "shared", "test"]
+}

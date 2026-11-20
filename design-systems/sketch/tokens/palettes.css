@@ -1,0 +1,702 @@
+/* Sketch — colour schemes.
+   Twelve schemes. Ink and paper never change; only the accent ramp does.
+   Apply with data-palette on any element: <body data-palette="neon-marker">.
+   :root carries "field-notes" so an untagged page still has colour.
+   Every scheme exposes the SAME role tokens (--accent, --success, --c-1..10),
+   so a component never names a scheme. Semantic roles fall back to ink-mixed
+   defaults when a scheme has no colour in the right hue band.
+
+   Preview only: scheme-switcher.js (project root) is a plain, non-Sketch dev
+   control for stepping through all twelve. It is not product UI — a shipped
+   design sets data-palette once, on <body>, and drops the script. */
+
+:root{
+  --palette-name:"Field Notes";
+  --c-1:#233d4d;
+  --c-2:#fe7f2d;
+  --c-3:#fcca46;
+  --c-4:#a1c181;
+  --c-5:#619b8a;
+  --c-6:#233d4d;
+  --c-7:#fe7f2d;
+  --c-8:#fcca46;
+  --c-9:#a1c181;
+  --c-10:#619b8a;
+  --c-count:5; /* @kind other */
+  --accent:#fe7f2d;
+  --accent-on:var(--ink-1);
+  --accent-soft:color-mix(in oklab, #fe7f2d 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #fe7f2d 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #fe7f2d 76%, var(--ink-1));
+  --accent-contrast:var(--ink-1);
+  --deep:#233d4d;
+  --deep-on:var(--paper-4);
+  --wash:#fcca46;
+  --mid:#fe7f2d;
+  --highlight:color-mix(in oklab, #fcca46 62%, var(--paper-5));
+  --success:#619b8a;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #619b8a 16%, var(--paper-4));
+  --warning:#d99400;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #d99400 16%, var(--paper-4));
+  --danger:#b8352c;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #b8352c 16%, var(--paper-4));
+  --info:#233d4d;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #233d4d 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#fe7f2d;
+  --surface-accent-soft:color-mix(in oklab, #fe7f2d 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #fe7f2d 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #fe7f2d 76%, var(--ink-1));
+  --stroke-accent:#fe7f2d;
+  --control-face-active:color-mix(in oklab, #fe7f2d 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #fe7f2d; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #fe7f2d; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #fe7f2d 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #fcca46 62%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* ---- scheme list (order = picker order) ----
+   field-notes     Field Notes     Default. Warm survey-notebook palette.
+   crayon-box      Crayon Box      Ten-step spectral ramp; good for data and category coding.
+   midnight-gold   Midnight Gold   Deep navy with a gold highlighter.
+   neon-marker     Neon Marker     Loud highlighter set; use one colour per view.
+   blueprint       Blueprint       Drafting blues with a red correction pen.
+   pastel-chalk    Pastel Chalk    Soft chalk pastels; leans on ink for contrast.
+   sea-glass       Sea Glass       Cool monochromatic teal ramp.
+   moss-neon       Moss & Neon     Field-green base, siren accents. Strong for game HUDs.
+   bubblegum       Bubblegum       Four-way playful ramp; sticker energy.
+   poster-paint    Poster Paint    Silkscreen poster set with a single hot red.
+   cardstock       Cardstock       Print-first: ink navy, cream stock, warm spot colours.
+   slate-mint      Slate Mint      Quietest scheme; near-neutral with a mint lift.
+*/
+
+/* Field Notes — Default. Warm survey-notebook palette. */
+[data-palette="field-notes"]{
+  --palette-name:"Field Notes";
+  --c-1:#233d4d;
+  --c-2:#fe7f2d;
+  --c-3:#fcca46;
+  --c-4:#a1c181;
+  --c-5:#619b8a;
+  --c-6:#233d4d;
+  --c-7:#fe7f2d;
+  --c-8:#fcca46;
+  --c-9:#a1c181;
+  --c-10:#619b8a;
+  --c-count:5; /* @kind other */
+  --accent:#fe7f2d;
+  --accent-on:var(--ink-1);
+  --accent-soft:color-mix(in oklab, #fe7f2d 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #fe7f2d 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #fe7f2d 76%, var(--ink-1));
+  --accent-contrast:var(--ink-1);
+  --deep:#233d4d;
+  --deep-on:var(--paper-4);
+  --wash:#fcca46;
+  --mid:#fe7f2d;
+  --highlight:color-mix(in oklab, #fcca46 62%, var(--paper-5));
+  --success:#619b8a;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #619b8a 16%, var(--paper-4));
+  --warning:#d99400;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #d99400 16%, var(--paper-4));
+  --danger:#b8352c;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #b8352c 16%, var(--paper-4));
+  --info:#233d4d;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #233d4d 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#fe7f2d;
+  --surface-accent-soft:color-mix(in oklab, #fe7f2d 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #fe7f2d 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #fe7f2d 76%, var(--ink-1));
+  --stroke-accent:#fe7f2d;
+  --control-face-active:color-mix(in oklab, #fe7f2d 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #fe7f2d; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #fe7f2d; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #fe7f2d 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #fcca46 62%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Crayon Box — Ten-step spectral ramp; good for data and category coding. */
+[data-palette="crayon-box"]{
+  --palette-name:"Crayon Box";
+  --c-1:#f94144;
+  --c-2:#f3722c;
+  --c-3:#f8961e;
+  --c-4:#f9844a;
+  --c-5:#f9c74f;
+  --c-6:#90be6d;
+  --c-7:#43aa8b;
+  --c-8:#4d908e;
+  --c-9:#577590;
+  --c-10:#277da1;
+  --c-count:10; /* @kind other */
+  --accent:#f94144;
+  --accent-on:var(--paper-4);
+  --accent-soft:color-mix(in oklab, #f94144 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #f94144 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #f94144 76%, var(--ink-1));
+  --accent-contrast:var(--paper-4);
+  --deep:#577590;
+  --deep-on:var(--paper-4);
+  --wash:#f9c74f;
+  --mid:#43aa8b;
+  --highlight:color-mix(in oklab, #f9c74f 62%, var(--paper-5));
+  --success:#43aa8b;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #43aa8b 16%, var(--paper-4));
+  --warning:#f8961e;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #f8961e 16%, var(--paper-4));
+  --danger:#f94144;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #f94144 16%, var(--paper-4));
+  --info:#4d908e;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #4d908e 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#f94144;
+  --surface-accent-soft:color-mix(in oklab, #f94144 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #f94144 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #f94144 76%, var(--ink-1));
+  --stroke-accent:#f94144;
+  --control-face-active:color-mix(in oklab, #f94144 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #f94144; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #f94144; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #f94144 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #f9c74f 62%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Midnight Gold — Deep navy with a gold highlighter. */
+[data-palette="midnight-gold"]{
+  --palette-name:"Midnight Gold";
+  --c-1:#000814;
+  --c-2:#001d3d;
+  --c-3:#003566;
+  --c-4:#ffc300;
+  --c-5:#ffd60a;
+  --c-6:#000814;
+  --c-7:#001d3d;
+  --c-8:#003566;
+  --c-9:#ffc300;
+  --c-10:#ffd60a;
+  --c-count:5; /* @kind other */
+  --accent:#ffc300;
+  --accent-on:var(--ink-1);
+  --accent-soft:color-mix(in oklab, #ffc300 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #ffc300 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #ffc300 76%, var(--ink-1));
+  --accent-contrast:var(--ink-1);
+  --deep:#000814;
+  --deep-on:var(--paper-4);
+  --wash:#ffd60a;
+  --mid:#003566;
+  --highlight:color-mix(in oklab, #ffc300 62%, var(--paper-5));
+  --success:#4c8b52;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #4c8b52 16%, var(--paper-4));
+  --warning:#ffc300;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #ffc300 16%, var(--paper-4));
+  --danger:#b8352c;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #b8352c 16%, var(--paper-4));
+  --info:#003566;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #003566 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#ffc300;
+  --surface-accent-soft:color-mix(in oklab, #ffc300 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #ffc300 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #ffc300 76%, var(--ink-1));
+  --stroke-accent:#ffc300;
+  --control-face-active:color-mix(in oklab, #ffc300 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #ffc300; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #ffc300; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #ffc300 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #ffc300 62%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Neon Marker — Loud highlighter set; use one colour per view. */
+[data-palette="neon-marker"]{
+  --palette-name:"Neon Marker";
+  --c-1:#390099;
+  --c-2:#9e0059;
+  --c-3:#ff0054;
+  --c-4:#ff5400;
+  --c-5:#ffbd00;
+  --c-6:#390099;
+  --c-7:#9e0059;
+  --c-8:#ff0054;
+  --c-9:#ff5400;
+  --c-10:#ffbd00;
+  --c-count:5; /* @kind other */
+  --accent:#ff0054;
+  --accent-on:var(--paper-4);
+  --accent-soft:color-mix(in oklab, #ff0054 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #ff0054 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #ff0054 76%, var(--ink-1));
+  --accent-contrast:var(--paper-4);
+  --deep:#390099;
+  --deep-on:var(--paper-4);
+  --wash:#ffbd00;
+  --mid:#ff0054;
+  --highlight:color-mix(in oklab, #ffbd00 62%, var(--paper-5));
+  --success:#4c8b52;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #4c8b52 16%, var(--paper-4));
+  --warning:#ffbd00;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #ffbd00 16%, var(--paper-4));
+  --danger:#ff0054;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #ff0054 16%, var(--paper-4));
+  --info:#3a6f97;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #3a6f97 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#ff0054;
+  --surface-accent-soft:color-mix(in oklab, #ff0054 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #ff0054 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #ff0054 76%, var(--ink-1));
+  --stroke-accent:#ff0054;
+  --control-face-active:color-mix(in oklab, #ff0054 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #ff0054; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #ff0054; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #ff0054 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #ffbd00 62%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Blueprint — Drafting blues with a red correction pen. */
+[data-palette="blueprint"]{
+  --palette-name:"Blueprint";
+  --c-1:#e63946;
+  --c-2:#f1faee;
+  --c-3:#a8dadc;
+  --c-4:#457b9d;
+  --c-5:#1d3557;
+  --c-6:#e63946;
+  --c-7:#f1faee;
+  --c-8:#a8dadc;
+  --c-9:#457b9d;
+  --c-10:#1d3557;
+  --c-count:5; /* @kind other */
+  --accent:#457b9d;
+  --accent-on:var(--paper-4);
+  --accent-soft:color-mix(in oklab, #457b9d 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #457b9d 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #457b9d 76%, var(--ink-1));
+  --accent-contrast:var(--paper-4);
+  --deep:#1d3557;
+  --deep-on:var(--paper-4);
+  --wash:#f1faee;
+  --mid:#e63946;
+  --highlight:color-mix(in oklab, #457b9d 40%, var(--paper-5));
+  --success:#4c8b52;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #4c8b52 16%, var(--paper-4));
+  --warning:#d99400;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #d99400 16%, var(--paper-4));
+  --danger:#e63946;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #e63946 16%, var(--paper-4));
+  --info:#457b9d;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #457b9d 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#457b9d;
+  --surface-accent-soft:color-mix(in oklab, #457b9d 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #457b9d 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #457b9d 76%, var(--ink-1));
+  --stroke-accent:#457b9d;
+  --control-face-active:color-mix(in oklab, #457b9d 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #457b9d; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #457b9d; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #457b9d 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #457b9d 40%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Pastel Chalk — Soft chalk pastels; leans on ink for contrast. */
+[data-palette="pastel-chalk"]{
+  --palette-name:"Pastel Chalk";
+  --c-1:#f6bd60;
+  --c-2:#f7ede2;
+  --c-3:#f5cac3;
+  --c-4:#84a59d;
+  --c-5:#f28482;
+  --c-6:#f6bd60;
+  --c-7:#f7ede2;
+  --c-8:#f5cac3;
+  --c-9:#84a59d;
+  --c-10:#f28482;
+  --c-count:5; /* @kind other */
+  --accent:#f28482;
+  --accent-on:var(--ink-1);
+  --accent-soft:color-mix(in oklab, #f28482 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #f28482 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #f28482 76%, var(--ink-1));
+  --accent-contrast:var(--ink-1);
+  --deep:#84a59d;
+  --deep-on:var(--ink-1);
+  --wash:#f7ede2;
+  --mid:#f6bd60;
+  --highlight:color-mix(in oklab, #f6bd60 62%, var(--paper-5));
+  --success:#4c8b52;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #4c8b52 16%, var(--paper-4));
+  --warning:#f6bd60;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #f6bd60 16%, var(--paper-4));
+  --danger:#f28482;
+  --danger-on:var(--ink-1);
+  --danger-soft:color-mix(in oklab, #f28482 16%, var(--paper-4));
+  --info:#3a6f97;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #3a6f97 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#f28482;
+  --surface-accent-soft:color-mix(in oklab, #f28482 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #f28482 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #f28482 76%, var(--ink-1));
+  --stroke-accent:#f28482;
+  --control-face-active:color-mix(in oklab, #f28482 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #f28482; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #f28482; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #f28482 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #f6bd60 62%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Sea Glass — Cool monochromatic teal ramp. */
+[data-palette="sea-glass"]{
+  --palette-name:"Sea Glass";
+  --c-1:#22577a;
+  --c-2:#38a3a5;
+  --c-3:#57cc99;
+  --c-4:#80ed99;
+  --c-5:#c7f9cc;
+  --c-6:#22577a;
+  --c-7:#38a3a5;
+  --c-8:#57cc99;
+  --c-9:#80ed99;
+  --c-10:#c7f9cc;
+  --c-count:5; /* @kind other */
+  --accent:#38a3a5;
+  --accent-on:var(--paper-4);
+  --accent-soft:color-mix(in oklab, #38a3a5 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #38a3a5 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #38a3a5 76%, var(--ink-1));
+  --accent-contrast:var(--paper-4);
+  --deep:#22577a;
+  --deep-on:var(--paper-4);
+  --wash:#c7f9cc;
+  --mid:#57cc99;
+  --highlight:color-mix(in oklab, #38a3a5 40%, var(--paper-5));
+  --success:#57cc99;
+  --success-on:var(--ink-1);
+  --success-soft:color-mix(in oklab, #57cc99 16%, var(--paper-4));
+  --warning:#d99400;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #d99400 16%, var(--paper-4));
+  --danger:#b8352c;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #b8352c 16%, var(--paper-4));
+  --info:#38a3a5;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #38a3a5 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#38a3a5;
+  --surface-accent-soft:color-mix(in oklab, #38a3a5 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #38a3a5 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #38a3a5 76%, var(--ink-1));
+  --stroke-accent:#38a3a5;
+  --control-face-active:color-mix(in oklab, #38a3a5 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #38a3a5; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #38a3a5; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #38a3a5 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #38a3a5 40%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Moss & Neon — Field-green base, siren accents. Strong for game HUDs. */
+[data-palette="moss-neon"]{
+  --palette-name:"Moss & Neon";
+  --c-1:#00fddc;
+  --c-2:#2e5339;
+  --c-3:#495f41;
+  --c-4:#ff5666;
+  --c-5:#ffccc9;
+  --c-6:#00fddc;
+  --c-7:#2e5339;
+  --c-8:#495f41;
+  --c-9:#ff5666;
+  --c-10:#ffccc9;
+  --c-count:5; /* @kind other */
+  --accent:#ff5666;
+  --accent-on:var(--paper-4);
+  --accent-soft:color-mix(in oklab, #ff5666 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #ff5666 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #ff5666 76%, var(--ink-1));
+  --accent-contrast:var(--paper-4);
+  --deep:#2e5339;
+  --deep-on:var(--paper-4);
+  --wash:#00fddc;
+  --mid:#ff5666;
+  --highlight:color-mix(in oklab, #ff5666 40%, var(--paper-5));
+  --success:#495f41;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #495f41 16%, var(--paper-4));
+  --warning:#d99400;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #d99400 16%, var(--paper-4));
+  --danger:#ff5666;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #ff5666 16%, var(--paper-4));
+  --info:#3a6f97;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #3a6f97 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#ff5666;
+  --surface-accent-soft:color-mix(in oklab, #ff5666 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #ff5666 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #ff5666 76%, var(--ink-1));
+  --stroke-accent:#ff5666;
+  --control-face-active:color-mix(in oklab, #ff5666 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #ff5666; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #ff5666; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #ff5666 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #ff5666 40%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Bubblegum — Four-way playful ramp; sticker energy. */
+[data-palette="bubblegum"]{
+  --palette-name:"Bubblegum";
+  --c-1:#70d6ff;
+  --c-2:#ff70a6;
+  --c-3:#ff9770;
+  --c-4:#ffd670;
+  --c-5:#70d6ff;
+  --c-6:#ff70a6;
+  --c-7:#ff9770;
+  --c-8:#ffd670;
+  --c-9:#70d6ff;
+  --c-10:#ff70a6;
+  --c-count:4; /* @kind other */
+  --accent:#ff70a6;
+  --accent-on:var(--ink-1);
+  --accent-soft:color-mix(in oklab, #ff70a6 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #ff70a6 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #ff70a6 76%, var(--ink-1));
+  --accent-contrast:var(--ink-1);
+  --deep:#ff70a6;
+  --deep-on:var(--ink-1);
+  --wash:#ffd670;
+  --mid:#70d6ff;
+  --highlight:color-mix(in oklab, #ffd670 62%, var(--paper-5));
+  --success:#4c8b52;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #4c8b52 16%, var(--paper-4));
+  --warning:#d99400;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #d99400 16%, var(--paper-4));
+  --danger:#ff70a6;
+  --danger-on:var(--ink-1);
+  --danger-soft:color-mix(in oklab, #ff70a6 16%, var(--paper-4));
+  --info:#70d6ff;
+  --info-on:var(--ink-1);
+  --info-soft:color-mix(in oklab, #70d6ff 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#ff70a6;
+  --surface-accent-soft:color-mix(in oklab, #ff70a6 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #ff70a6 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #ff70a6 76%, var(--ink-1));
+  --stroke-accent:#ff70a6;
+  --control-face-active:color-mix(in oklab, #ff70a6 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #ff70a6; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #ff70a6; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #ff70a6 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #ffd670 62%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Poster Paint — Silkscreen poster set with a single hot red. */
+[data-palette="poster-paint"]{
+  --palette-name:"Poster Paint";
+  --c-1:#247ba0;
+  --c-2:#70c1b3;
+  --c-3:#b2dbbf;
+  --c-4:#f3ffbd;
+  --c-5:#ff1654;
+  --c-6:#247ba0;
+  --c-7:#70c1b3;
+  --c-8:#b2dbbf;
+  --c-9:#f3ffbd;
+  --c-10:#ff1654;
+  --c-count:5; /* @kind other */
+  --accent:#ff1654;
+  --accent-on:var(--paper-4);
+  --accent-soft:color-mix(in oklab, #ff1654 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #ff1654 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #ff1654 76%, var(--ink-1));
+  --accent-contrast:var(--paper-4);
+  --deep:#247ba0;
+  --deep-on:var(--paper-4);
+  --wash:#f3ffbd;
+  --mid:#70c1b3;
+  --highlight:color-mix(in oklab, #ff1654 40%, var(--paper-5));
+  --success:#4c8b52;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #4c8b52 16%, var(--paper-4));
+  --warning:#d99400;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #d99400 16%, var(--paper-4));
+  --danger:#ff1654;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #ff1654 16%, var(--paper-4));
+  --info:#247ba0;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #247ba0 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#ff1654;
+  --surface-accent-soft:color-mix(in oklab, #ff1654 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #ff1654 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #ff1654 76%, var(--ink-1));
+  --stroke-accent:#ff1654;
+  --control-face-active:color-mix(in oklab, #ff1654 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #ff1654; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #ff1654; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #ff1654 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #ff1654 40%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Cardstock — Print-first: ink navy, cream stock, warm spot colours. */
+[data-palette="cardstock"]{
+  --palette-name:"Cardstock";
+  --c-1:#083d77;
+  --c-2:#ebebd3;
+  --c-3:#f4d35e;
+  --c-4:#ee964b;
+  --c-5:#f95738;
+  --c-6:#083d77;
+  --c-7:#ebebd3;
+  --c-8:#f4d35e;
+  --c-9:#ee964b;
+  --c-10:#f95738;
+  --c-count:5; /* @kind other */
+  --accent:#ee964b;
+  --accent-on:var(--ink-1);
+  --accent-soft:color-mix(in oklab, #ee964b 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #ee964b 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #ee964b 76%, var(--ink-1));
+  --accent-contrast:var(--ink-1);
+  --deep:#083d77;
+  --deep-on:var(--paper-4);
+  --wash:#ebebd3;
+  --mid:#ee964b;
+  --highlight:color-mix(in oklab, #f4d35e 62%, var(--paper-5));
+  --success:#4c8b52;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #4c8b52 16%, var(--paper-4));
+  --warning:#ee964b;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #ee964b 16%, var(--paper-4));
+  --danger:#f95738;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #f95738 16%, var(--paper-4));
+  --info:#083d77;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #083d77 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#ee964b;
+  --surface-accent-soft:color-mix(in oklab, #ee964b 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #ee964b 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #ee964b 76%, var(--ink-1));
+  --stroke-accent:#ee964b;
+  --control-face-active:color-mix(in oklab, #ee964b 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #ee964b; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #ee964b; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #ee964b 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #f4d35e 62%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+
+/* Slate Mint — Quietest scheme; near-neutral with a mint lift. */
+[data-palette="slate-mint"]{
+  --palette-name:"Slate Mint";
+  --c-1:#3c493f;
+  --c-2:#7e8d85;
+  --c-3:#b3bfb8;
+  --c-4:#f0f7f4;
+  --c-5:#a2e3c4;
+  --c-6:#3c493f;
+  --c-7:#7e8d85;
+  --c-8:#b3bfb8;
+  --c-9:#f0f7f4;
+  --c-10:#a2e3c4;
+  --c-count:5; /* @kind other */
+  --accent:#a2e3c4;
+  --accent-on:var(--ink-1);
+  --accent-soft:color-mix(in oklab, #a2e3c4 18%, var(--paper-4));
+  --accent-wash:color-mix(in oklab, #a2e3c4 8%, var(--paper-4));
+  --accent-deep:color-mix(in oklab, #a2e3c4 76%, var(--ink-1));
+  --accent-contrast:var(--ink-1);
+  --deep:#3c493f;
+  --deep-on:var(--paper-4);
+  --wash:#f0f7f4;
+  --mid:#b3bfb8;
+  --highlight:color-mix(in oklab, #a2e3c4 40%, var(--paper-5));
+  --success:#4c8b52;
+  --success-on:var(--paper-4);
+  --success-soft:color-mix(in oklab, #4c8b52 16%, var(--paper-4));
+  --warning:#d99400;
+  --warning-on:var(--ink-1);
+  --warning-soft:color-mix(in oklab, #d99400 16%, var(--paper-4));
+  --danger:#b8352c;
+  --danger-on:var(--paper-4);
+  --danger-soft:color-mix(in oklab, #b8352c 16%, var(--paper-4));
+  --info:#3a6f97;
+  --info-on:var(--paper-4);
+  --info-soft:color-mix(in oklab, #3a6f97 16%, var(--paper-4));
+  /* accent-derived aliases. These MUST be re-declared in every scheme block:
+     var() inside a custom property resolves on the element where it is DECLARED,
+     so a copy living only on :root would stay frozen to the default scheme. */
+  --surface-accent:#a2e3c4;
+  --surface-accent-soft:color-mix(in oklab, #a2e3c4 18%, var(--paper-4));
+  --text-accent:color-mix(in oklab, #a2e3c4 76%, var(--ink-1));
+  --text-link:color-mix(in oklab, #a2e3c4 76%, var(--ink-1));
+  --stroke-accent:#a2e3c4;
+  --control-face-active:color-mix(in oklab, #a2e3c4 8%, var(--paper-4));
+  --focus-ring:0 0 0 var(--stroke-hair) var(--paper-4), 0 0 0 4px #a2e3c4; /* @kind shadow */
+  --shadow-accent:3px 4px 0 #a2e3c4; /* @kind shadow */
+  --hatch-accent:repeating-linear-gradient(45deg, #a2e3c4 0 2px, transparent 2px 7px); /* @kind other */
+  --marker:linear-gradient(100deg, transparent 0 2%, color-mix(in oklab, #a2e3c4 40%, var(--paper-5)) 3% 97%, transparent 98%); /* @kind other */
+}
+

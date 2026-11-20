@@ -1,0 +1,14 @@
+/* Dither patterns stand in for tone. Every one is a hard-edged gradient — no smooth ramps. */
+:root{
+--s7-pattern-desktop:linear-gradient(45deg,var(--s7-desktop-ink) 25%,transparent 25%,transparent 75%,var(--s7-desktop-ink) 75%),linear-gradient(45deg,var(--s7-desktop-ink) 25%,transparent 25%,transparent 75%,var(--s7-desktop-ink) 75%);
+--s7-pattern-desktop-size:4px 4px;
+--s7-pattern-desktop-position:0 0,2px 2px; /* @kind other */
+
+--s7-pattern-stripes:repeating-linear-gradient(to bottom,var(--s7-ink) 0 1px,transparent 1px 3px);
+--s7-pattern-stripes-heavy:repeating-linear-gradient(to bottom,var(--s7-ink) 0 2px,transparent 2px 4px);
+--s7-pattern-hatch:repeating-linear-gradient(45deg,var(--s7-ink) 0 1px,transparent 1px 3px);
+--s7-pattern-grid:linear-gradient(90deg,var(--s7-paper) 21px,transparent 1%) center,linear-gradient(var(--s7-paper) 21px,transparent 1%) center;
+--s7-pattern-grid-size:22px 22px;
+--s7-pattern-checker:conic-gradient(var(--s7-ink) 0 25%,transparent 0 50%,var(--s7-ink) 0 75%,transparent 0);
+--s7-pattern-checker-size:2px 2px;
+}

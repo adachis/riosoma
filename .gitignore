@@ -1,0 +1,33 @@
+# Fonts and textures copied out of the design system zips by tools/fetch_theme_assets.py (hundreds of MB)
+themes/*/assets/
+
+# Python bytecode
+__pycache__/
+
+# macOS Finder metadata
+.DS_Store
+
+# Workspace build output
+node_modules/
+dist/
+.turbo/
+coverage/
+*.tsbuildinfo
+.vite/
+test-results/
+playwright-report/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Leftovers from applying patches by hand.
+*.rej
+*.orig
+
+# Per-unit logs and scratch files written inside a worktree
+.unit-logs/
+
+# Downloaded tool binaries and scratch space for tools/release/helm-smoke.sh
+.cache/

@@ -1,0 +1,52 @@
+/* Graffiti — type. Five display faces from the wall, three text faces for anything you must read. */
+:root{
+  /* Families */
+  --gf-font-wall:"GF Wall","Anton",system-ui,sans-serif;          /* blocky hard-edge piece lettering */
+  --gf-font-marker:"GF Marker","Anton",system-ui,sans-serif;      /* condensed marker — headline workhorse */
+  --gf-font-tag:"GF Tag",cursive;                                 /* handstyle signature / one-liners */
+  --gf-font-throwie:"GF Throwie",system-ui,sans-serif;            /* soft bubble throw-up */
+  --gf-font-wildstyle:"GF Wildstyle",system-ui,sans-serif;        /* decorative only, never a sentence */
+  --gf-font-broken:"GF Broken",system-ui,sans-serif;              /* fractured tag caps */
+  --gf-font-sound:"GF Sound",system-ui,sans-serif;                /* wide slab caps, sound-system flavour */
+  --gf-font-sonic:"GF Sonic",system-ui,sans-serif;
+  --gf-font-impact:"GF Impact","Anton",system-ui,sans-serif;
+
+  --gf-font-poster:"Anton",Impact,system-ui,sans-serif;           /* condensed poster grotesque */
+  --gf-font-heavy:"Archivo Black","Archivo",system-ui,sans-serif; /* wide heavy UI display */
+  --gf-font-ui:"Archivo",system-ui,-apple-system,sans-serif;      /* body + interface */
+  --gf-font-mono:"Space Mono",ui-monospace,SFMono-Regular,monospace; /* specs, credits, barcodes, HUD numerals */
+
+  /* Scale — poster-first, so it climbs fast at the top end. */
+  --gf-text-2xs:10px;
+  --gf-text-xs:11px;
+  --gf-text-sm:13px;
+  --gf-text-base:15px;
+  --gf-text-md:17px;
+  --gf-text-lg:20px;
+  --gf-text-xl:24px;
+  --gf-text-2xl:32px;
+  --gf-text-3xl:42px;
+  --gf-text-4xl:56px;
+  --gf-text-5xl:76px;
+  --gf-text-6xl:104px;
+  --gf-text-7xl:148px;
+
+  /* Leading */
+  --gf-leading-solid:0.82;   /* stacked poster headlines, letters touching */
+  --gf-leading-tight:0.95;
+  --gf-leading-snug:1.15;
+  --gf-leading-body:1.55;
+  --gf-leading-loose:1.7;
+
+  /* Tracking */
+  --gf-track-tight:-0.03em;
+  --gf-track-none:0em;
+  --gf-track-wide:0.06em;
+  --gf-track-caps:0.14em;    /* mono labels, kicker text */
+  --gf-track-mega:0.3em;     /* barcode-adjacent micro type */
+
+  /* Weights */
+  --gf-weight-body:400;
+  --gf-weight-medium:500;
+  --gf-weight-bold:700;
+}

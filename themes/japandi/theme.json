@@ -1,0 +1,2063 @@
+{
+  "id": "japandi",
+  "name": "Japandi",
+  "css": "theme.css",
+  "defaultScheme": "sumi",
+  "schemes": [
+    {
+      "id": "sumi",
+      "name": "Sumi",
+      "appearance": "light"
+    },
+    {
+      "id": "kiln",
+      "name": "Kiln",
+      "appearance": "light"
+    },
+    {
+      "id": "yozora",
+      "name": "Yozora",
+      "appearance": "dark"
+    },
+    {
+      "id": "kabuki",
+      "name": "Kabuki",
+      "appearance": "light"
+    },
+    {
+      "id": "setouchi",
+      "name": "Setouchi",
+      "appearance": "light"
+    },
+    {
+      "id": "sakura",
+      "name": "Sakura",
+      "appearance": "light"
+    },
+    {
+      "id": "momiji",
+      "name": "Momiji",
+      "appearance": "light"
+    },
+    {
+      "id": "shinrin",
+      "name": "Shinrin",
+      "appearance": "light"
+    },
+    {
+      "id": "kokedama",
+      "name": "Kokedama",
+      "appearance": "dark"
+    },
+    {
+      "id": "amezaiku",
+      "name": "Amezaiku",
+      "appearance": "light"
+    },
+    {
+      "id": "nagisa",
+      "name": "Nagisa",
+      "appearance": "light"
+    },
+    {
+      "id": "kitsune",
+      "name": "Kitsune",
+      "appearance": "light"
+    },
+    {
+      "id": "sugi",
+      "name": "Sugi",
+      "appearance": "light"
+    }
+  ],
+  "modes": [],
+  "defaultMode": null,
+  "surfaces": [],
+  "otherAttributes": [],
+  "externalImports": [],
+  "remoteFonts": [
+    {
+      "path": "assets/fonts/remote/eb-garamond-1ec93848f8ce.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDQ1ZyHKpWiGIg.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-59e19c31b594.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweD81ZyHKpWiGIg.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-75faa677c427.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR5SDk_YAPIlWk.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-91aba817984c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GRxSDk_YAPIlWk.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-95ccbd6843ba.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR1SDk_YAPI.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-b724bdd58390.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDg1ZyHKpWiGIg.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-b8fdf354efc1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDc1ZyHKpWiGIg.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-c209f2dce804.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDs1ZyHKpWg.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-c5e64e77ba83.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR6SDk_YAPIlWk.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-cabeb3675215.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR2SDk_YAPIlWk.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-d22b093a876a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDY1ZyHKpWiGIg.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-d26cc78fa054.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR4SDk_YAPIlWk.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-d52143162dac.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGWmQSNjdsmc35JDF1K5GRweDU1ZyHKpWiGIg.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/eb-garamond-faab223bb3d6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ebgaramond/v33/SlGUmQSNjdsmc35JDF1K5GR7SDk_YAPIlWk.woff2",
+      "family": "EB Garamond"
+    },
+    {
+      "path": "assets/fonts/remote/martian-mono-1c81e96cb835.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/martianmono/v6/2V0PKIcADoYhV6w87xrTKjs4CYElh_VS9YA4TlTnaT69wXulPFlwYA.woff2",
+      "family": "Martian Mono"
+    },
+    {
+      "path": "assets/fonts/remote/martian-mono-8ad11b735821.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/martianmono/v6/2V0PKIcADoYhV6w87xrTKjs4CYElh_VS9YA4TlTnaTS9wXulPFlwYA.woff2",
+      "family": "Martian Mono"
+    },
+    {
+      "path": "assets/fonts/remote/martian-mono-c60bf70d15a4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/martianmono/v6/2V0PKIcADoYhV6w87xrTKjs4CYElh_VS9YA4TlTnaTq9wXulPFk.woff2",
+      "family": "Martian Mono"
+    },
+    {
+      "path": "assets/fonts/remote/martian-mono-d3145e1e6ad8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/martianmono/v6/2V0PKIcADoYhV6w87xrTKjs4CYElh_VS9YA4TlTnaTe9wXulPFlwYA.woff2",
+      "family": "Martian Mono"
+    },
+    {
+      "path": "assets/fonts/remote/outfit-562aff8e6b66.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2",
+      "family": "Outfit"
+    },
+    {
+      "path": "assets/fonts/remote/outfit-af882907be53.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2",
+      "family": "Outfit"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-00bed3b02c8d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.114.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-015b311c2f90.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.116.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-02fa7cc2806b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.8.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-044eed674918.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.84.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-04d5a5b876a7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.54.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0631d7dd5d15.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.108.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-072a723ecd87.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.81.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-07a688d01125.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.17.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-07ce737f74e1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.107.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-07d1d4b586d4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.78.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-088a9bdbacf1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.92.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0920eaffd27c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.49.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0a06333dd002.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.87.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0a17e4d58931.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.11.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0a9d0d9e67be.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.90.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0bdc4863ba3e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.27.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0d3c4e6b4304.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.110.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0dd24defe246.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.88.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-0e82343119b3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.80.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-100ffee02751.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.70.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-127e3e63e908.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.33.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-1399b7515220.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.71.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-13e31c916a70.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.60.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-16bd5c5382de.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.42.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-18510fbdf37b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.97.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-199f47db5a31.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.115.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-1e4e081334b2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.58.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-1ff03e7dcff9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.64.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-20c676455c3c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.2.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-24d9d085464d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.103.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-26e92dca1b28.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.33.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2801e215b6e9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.15.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-292f17e9f62b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.56.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-296b6d6f5e0f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.65.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-297b119d2a5d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.115.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2a399b303ec4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.118.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2b09707df7e0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.6.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2d08e4584aeb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.37.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2d3f9549edf5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.89.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2de2440cc107.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.53.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2e55aa144f2b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.53.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2e6f4ba51805.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9aW7ZsPxeymzyRK.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-2e8066d7b3a0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.77.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-323f7409315c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.41.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-32e13822de01.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.14.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-35e79f71c71f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.67.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-368287e3e5c9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.23.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-3694c7bd7f44.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.74.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-373fe5db810d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.5.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-375469b3fdef.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.30.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-383cf7ccb4aa.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.22.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-38cbf689d5c0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.48.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-3a1600339876.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.37.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-3bf28c25f04a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.5.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-3cd709a1fded.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.17.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-3dffabd77e05.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.52.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-3ecae0da094e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.51.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-40ec5e229dc5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.101.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-41f3c3ad1562.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.117.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-449e3f588523.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.77.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-457882027123.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.101.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-4722ac80341b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.31.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-484c50450ea2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.82.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-48fe22eac244.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.90.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-4a4a31f1380b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.25.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-4a8b9f0bc202.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.118.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-4b198d5e8bdc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.31.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-4b4776e5d27a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.44.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-4e93432f396a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.64.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-4f6c9b70d150.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.9.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-50ce69fcd853.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.75.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-514b093ec32d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.66.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-56d336e41643.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.13.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-57022c7fc6d6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.1.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-5757d4a43174.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.23.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-57659ae57175.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.40.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-5a584c65acef.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.11.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-5a7349714e64.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.108.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-5a8409c327d0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.74.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-5afaa59bdd7a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.111.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-5b9bca6c6795.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.46.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-5bd152782344.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.46.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-5f45ef1aebf2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.91.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-6035145e3f65.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.59.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-606bc747a660.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.91.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-61a6ded737fe.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.71.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-6311424f0257.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.79.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-637ef8fd229d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.107.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-64528dfd6c26.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.51.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-66f31e109b89.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.59.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-699b3a4fe8a3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.83.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-69dce2f67afc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.34.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-6b3b9b773f26.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.100.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-6bcce5432d20.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.96.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-6c3029775d32.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.12.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-6d4d26b628ba.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.41.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-6dfe5f8b47d7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.82.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-6fca85cc87a8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.106.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7324bc7f5a30.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.63.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-749d8a597b5a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.3.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-750141fbf55c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.87.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-756da2811825.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.18.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-758afe8b80b5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.93.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-75efd64d9ad7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.112.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-78d143d3cc87.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.73.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-790b8885edfc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.98.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7a9f18da142e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.85.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7ab1122329d2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.20.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7ac690972737.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.28.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7b6bbf39581c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.26.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7d212907b0a4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.32.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7df3c2f6bfc3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.75.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7e8d84d30d48.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.57.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7f5aebec8606.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.99.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7f5c14a87c82.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.43.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-7fce31ffc2da.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.45.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-801901c07985.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.32.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-80405a425751.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.30.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8044e089a9ee.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.50.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-80906a4106d0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.95.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8090e76d6f27.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.100.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-81671429b38f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.27.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-81861f1fd153.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.116.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-81ca94972ece.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.57.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8275020f50af.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.78.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-843261be1677.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.45.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-872f2f419ffe.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.10.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-89736106a947.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.105.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8a818058679e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.111.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8b0107a293b8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.0.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8ba877d8204f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.38.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8ead2e438e3f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.96.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8ebcdcd90e98.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.42.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8ecb3b4d25ad.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.6.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-8f34e82bde8c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.16.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-903cdcdf3ff1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.114.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-91467699d11b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.14.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-91ae93c0a623.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.44.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-937a95b6a83b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.28.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-937de3a4dc0b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.39.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-938f72196e02.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.61.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-93a9b002e2f5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.48.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-93d2bc2c8c82.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.104.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-93ebeaf7b47e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.12.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9498e27270c2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.61.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-95602b338261.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.119.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9592308e5a92.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.80.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9711cdd73e77.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.109.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-977eeb69d87a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.94.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9aebd3254eb6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.68.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9b8f02523fb6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.38.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9ca53d0290ab.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.76.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9d2dabe02eeb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.63.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9dd3c957999a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.109.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9e17d8bb2ab3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.67.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9fdc790d225c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.19.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-9fde442a2c2d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.4.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a10f55cef1f7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.113.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a44d8ea1ba1d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.62.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a457fc82a6bc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.69.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a5d74198c83d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.60.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a6ff8ed29744.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.24.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a7b66ad03b26.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.105.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a7eb03a9ccab.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.94.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a7fb7112c291.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.35.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a859eb0f007d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.49.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a86a082cd958.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.102.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-a9505e146d48.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.25.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ab55dcc417e5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.72.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ad6221ba5a4f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.70.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ae3cf2964411.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.95.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ae63a58b83cd.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0Bw3PWDzrkC7w.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-afc851f9b0ed.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.72.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b069dd628d95.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.18.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b30d1251fa44.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.58.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b3654d982c69.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.55.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b3788b2982a1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.3.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b3f259510377.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0Bw0vWDzrkC79av.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b4f3e68c3088.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.99.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b5ce2fc4ffdd.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.54.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b600777b571b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.106.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b92f4118aeac.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.83.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-b95152ef943b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.40.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-bb723a899132.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.88.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-bb8b0453804e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.21.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-bbe848855952.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.47.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-bc7da129c86b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.36.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-bce2fbf31453.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.7.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-be2e00e12371.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.69.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-befd98beca87.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.13.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-bfb2e85eb580.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.66.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c0e2755d6182.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.112.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c1de7bcc5465.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.36.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c274923be7b1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.35.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c49ce320ddb2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.50.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c5609f7c7d78.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.93.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c57bdbe50e9f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.26.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c8364cbde330.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.92.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c8e151acaa05.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.79.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-c94e8a353c2d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.4.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ca95f3946711.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.86.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-cdf29db137bd.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.104.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-d00c66d09cd5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.119.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-d1c536ce6306.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.56.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-d21bc9c2c0b8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.47.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-d2bec402dea5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.7.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-d6300b8e916f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.102.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-d6a49b576da5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.97.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-da5b7df91921.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.73.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-da778a5b1c30.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.84.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-dcdab0a2e918.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.85.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-dcff6677b919.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.117.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-de8695e847b0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.89.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-df31cecd9945.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.76.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-df73722dab58.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.16.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-e0ec4f229694.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.2.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-e0fb65df57ea.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.43.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-e29c29d40e83.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.39.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-e2ea792fdb36.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.86.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-e39ce53230b7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.29.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-e5600efaf3a9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.8.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-e93aa397ad25.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.21.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-eb438d38862b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.52.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ebf0ca58250e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.10.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ece4003dd5ef.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.20.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-edfaf5dfd50f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.103.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ef8a2ba2ea0d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.1.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f01521e97a92.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.62.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f2345c374fba.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.24.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f309a28a659e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.113.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f31a53dca1c7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.29.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f4765e41b5f6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.22.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f5186eb9ca8e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.81.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f5d29783631a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.0.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f82d5acb58a7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.55.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-f83dba699a19.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.68.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-fa7c91f2a9d2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.110.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-fb23945a0174.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9am4ZEI5-7s2xZbIDLfwlghWkaUqSYfzWdYeCMQ.9.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-fbf9062d6207.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.19.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-fd1a2721d624.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.15.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-fdf59db7119d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.65.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-fe6a96215f17.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.34.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-fe71e4949b20.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGGAZweH5EbgHY6YExcZfDoj0BA3v-E7LtI--S-pX07Kz3K0FMbTUatrDYV2AI0.98.woff2",
+      "family": "Shippori Mincho"
+    },
+    {
+      "path": "assets/fonts/remote/shippori-mincho-ff71c8a32d30.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/shipporimincho/v17/VdGDAZweH5EbgHY6YExcZfDoj0B4L9aW45sPxeymzw.woff2",
+      "family": "Shippori Mincho"
+    }
+  ],
+  "droppedImports": [],
+  "removedImportant": 0,
+  "removedMotionRules": 0,
+  "semantic": {
+    "--rio-bg": "--ground",
+    "--rio-surface": "--surface-2",
+    "--rio-text": "--ink",
+    "--rio-text-muted": "--ink-2",
+    "--rio-border": "--line",
+    "--rio-accent": "--accent",
+    "--rio-on-accent": "--accent-ink",
+    "--rio-link": "--accent",
+    "--rio-focus": "--focus-ring",
+    "--rio-success": "--ok",
+    "--rio-warning": "--warn",
+    "--rio-danger": "--danger",
+    "--rio-info": "--info",
+    "--rio-font-body": "--type-ui-family",
+    "--rio-font-display": "--font-display",
+    "--rio-font-mono": "--font-mono",
+    "--rio-radius": "--radius-md"
+  },
+  "legibilityOnColors": {
+    "on-success": "--rio-on-accent",
+    "on-warning": "--rio-on-accent",
+    "on-danger": "--rio-on-accent",
+    "on-info": "--rio-on-accent"
+  },
+  "assets": [],
+  "unresolvedUrls": [],
+  "source": {
+    "designSystem": "design-systems/japandi",
+    "originalSchemeSelector": "[data-theme=\"<id>\"]",
+    "tokenFiles": [
+      "tokens/fonts.css",
+      "tokens/palette.css",
+      "tokens/themes.css",
+      "tokens/colors.css",
+      "tokens/typography.css",
+      "tokens/spacing.css",
+      "tokens/radius.css",
+      "tokens/elevation.css",
+      "tokens/motion.css",
+      "tokens/pattern.css",
+      "tokens/base.css"
+    ],
+    "zipFile": "Japandi Design System.zip",
+    "zipContentHash": "d80f2ba32fedc0b7f3c8050a1553e6b4d92451aa7f188a88f3cd067a682b337f"
+  },
+  "legibility": {
+    "sumi": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1f1d1a",
+        "--rio-aa-on-accent": "#f7f4ee",
+        "--rio-aa-accent-text": "#22406b",
+        "--rio-aa-text-muted": "#403e3a",
+        "--rio-aa-link": "#22406b",
+        "--rio-aa-focus": "#6e819b",
+        "--rio-aa-border": "#827f7a",
+        "--rio-aa-success-text": "#3e5832",
+        "--rio-aa-on-success": "#fdfaf4",
+        "--rio-aa-warning-text": "#6c4b00",
+        "--rio-aa-on-warning": "#1f1d1a",
+        "--rio-aa-danger-text": "#97290d",
+        "--rio-aa-on-danger": "#f7f4ee",
+        "--rio-aa-info-text": "#2e5570",
+        "--rio-aa-on-info": "#f7f4ee",
+        "--rio-legible-text": "#1f1d1a",
+        "--rio-legible-text-muted": "#403e3a",
+        "--rio-legible-on-accent": "#f7f4ee",
+        "--rio-aa-choice-text": "#1f1d1a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dbd8d4",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f9d1ca",
+        "--rio-aa-choice-orange": "#c66500",
+        "--rio-aa-choice-orange-soft": "#efd5c1",
+        "--rio-aa-choice-yellow": "#a27900",
+        "--rio-aa-choice-yellow-soft": "#e4d9c1",
+        "--rio-aa-choice-green": "#1f9239",
+        "--rio-aa-choice-green-soft": "#ccdfc6",
+        "--rio-aa-choice-teal": "#008f85",
+        "--rio-aa-choice-teal-soft": "#cbded6",
+        "--rio-aa-choice-blue": "#357cef",
+        "--rio-aa-choice-blue-soft": "#cddbf1",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e2d3ea",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f5cfdd",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e3d5c6"
+      }
+    },
+    "kiln": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1f4c63",
+        "--rio-aa-on-accent": "#fffffd",
+        "--rio-aa-accent-text": "#157094",
+        "--rio-aa-text-muted": "#3c5d6e",
+        "--rio-aa-link": "#157094",
+        "--rio-aa-focus": "#618a9b",
+        "--rio-aa-border": "#85857e",
+        "--rio-aa-success-text": "#00654e",
+        "--rio-aa-on-success": "#353024",
+        "--rio-aa-warning-text": "#844b00",
+        "--rio-aa-on-warning": "#454034",
+        "--rio-aa-danger-text": "#b5001c",
+        "--rio-aa-on-danger": "#231e14",
+        "--rio-aa-info-text": "#3e5c76",
+        "--rio-aa-on-info": "#fef8e9",
+        "--rio-legible-text": "#1f4c63",
+        "--rio-legible-text-muted": "#3c5d6e",
+        "--rio-legible-on-accent": "#fffffd",
+        "--rio-aa-choice-text": "#1f4c63",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e0dbd0",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fed4c6",
+        "--rio-aa-choice-orange": "#ce6903",
+        "--rio-aa-choice-orange-soft": "#f6d9be",
+        "--rio-aa-choice-yellow": "#a87e00",
+        "--rio-aa-choice-yellow-soft": "#ebddbe",
+        "--rio-aa-choice-green": "#28983f",
+        "--rio-aa-choice-green-soft": "#d3e3c3",
+        "--rio-aa-choice-teal": "#00948a",
+        "--rio-aa-choice-teal-soft": "#d1e2d3",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d3e0f0",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e7d6e6",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fad2d9",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9d8c2"
+      }
+    },
+    "yozora": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#e8e3d6",
+        "--rio-aa-on-accent": "#000814",
+        "--rio-aa-accent-text": "#ffc300",
+        "--rio-aa-text-muted": "#b6b6af",
+        "--rio-aa-link": "#ffc300",
+        "--rio-aa-focus": "#8a722e",
+        "--rio-aa-border": "#576571",
+        "--rio-aa-success-text": "#7fd1a6",
+        "--rio-aa-on-success": "#000814",
+        "--rio-aa-warning-text": "#ffd60a",
+        "--rio-aa-on-warning": "#000814",
+        "--rio-aa-danger-text": "#ff6b6b",
+        "--rio-aa-on-danger": "#000814",
+        "--rio-aa-info-text": "#5aa0d6",
+        "--rio-aa-on-info": "#000814",
+        "--rio-legible-text": "#e8e3d6",
+        "--rio-legible-text-muted": "#b6b6af",
+        "--rio-legible-on-accent": "#000814",
+        "--rio-aa-choice-text": "#e8e3d6",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#131e29",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#291922",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#261f1f",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#1e221e",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#012522",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#00232c",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#051f3e",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#1a1937",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#27172f",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#1a1c20"
+      }
+    },
+    "kabuki": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#390099",
+        "--rio-aa-on-accent": "#1c1606",
+        "--rio-aa-accent-text": "#ce0042",
+        "--rio-aa-text-muted": "#5342aa",
+        "--rio-aa-link": "#ce0042",
+        "--rio-aa-focus": "#d05f63",
+        "--rio-aa-border": "#878185",
+        "--rio-aa-success-text": "#005f45",
+        "--rio-aa-on-success": "#2b2414",
+        "--rio-aa-warning-text": "#6d4e00",
+        "--rio-aa-on-warning": "#390099",
+        "--rio-aa-danger-text": "#a90035",
+        "--rio-aa-on-danger": "#1c1606",
+        "--rio-aa-info-text": "#9e0059",
+        "--rio-aa-on-info": "#fff6e0",
+        "--rio-legible-text": "#390099",
+        "--rio-legible-text-muted": "#5342aa",
+        "--rio-legible-on-accent": "#1c1606",
+        "--rio-aa-choice-text": "#390099",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1dac9",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ffd2bf",
+        "--rio-aa-choice-orange": "#cc6700",
+        "--rio-aa-choice-orange-soft": "#f6d7b6",
+        "--rio-aa-choice-yellow": "#a67c00",
+        "--rio-aa-choice-yellow-soft": "#ebdbb6",
+        "--rio-aa-choice-green": "#25963d",
+        "--rio-aa-choice-green-soft": "#d4e1bc",
+        "--rio-aa-choice-teal": "#009288",
+        "--rio-aa-choice-teal-soft": "#d2e0cc",
+        "--rio-aa-choice-blue": "#397ff3",
+        "--rio-aa-choice-blue-soft": "#d4dee8",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8d4e0",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fad1d2",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9d6bb"
+      }
+    },
+    "setouchi": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1d3557",
+        "--rio-aa-on-accent": "#000000",
+        "--rio-aa-accent-text": "#366c8e",
+        "--rio-aa-text-muted": "#3f5571",
+        "--rio-aa-link": "#366c8e",
+        "--rio-aa-focus": "#658899",
+        "--rio-aa-border": "#7a8583",
+        "--rio-aa-success-text": "#1f6143",
+        "--rio-aa-on-success": "#0f140c",
+        "--rio-aa-warning-text": "#784d00",
+        "--rio-aa-on-warning": "#293027",
+        "--rio-aa-danger-text": "#af0025",
+        "--rio-aa-on-danger": "#0b1009",
+        "--rio-aa-info-text": "#255b7c",
+        "--rio-aa-on-info": "#000000",
+        "--rio-legible-text": "#1d3557",
+        "--rio-legible-text-muted": "#3f5571",
+        "--rio-legible-on-accent": "#000000",
+        "--rio-aa-choice-text": "#1d3557",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d6ddd4",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f5d6ca",
+        "--rio-aa-choice-orange": "#cc6700",
+        "--rio-aa-choice-orange-soft": "#ecdac1",
+        "--rio-aa-choice-yellow": "#a67c00",
+        "--rio-aa-choice-yellow-soft": "#e1dec1",
+        "--rio-aa-choice-green": "#25963d",
+        "--rio-aa-choice-green-soft": "#c8e4c7",
+        "--rio-aa-choice-teal": "#009389",
+        "--rio-aa-choice-teal-soft": "#c7e3d7",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c9e1f3",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ded7ea",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f1d4dd",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dfd9c6"
+      }
+    },
+    "sakura": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#43332e",
+        "--rio-aa-on-accent": "#12201c",
+        "--rio-aa-accent-text": "#496861",
+        "--rio-aa-text-muted": "#5d4f49",
+        "--rio-aa-link": "#496861",
+        "--rio-aa-focus": "#738179",
+        "--rio-aa-border": "#867c72",
+        "--rio-aa-success-text": "#395851",
+        "--rio-aa-on-success": "#12201c",
+        "--rio-aa-warning-text": "#6f4b00",
+        "--rio-aa-on-warning": "#12201c",
+        "--rio-aa-danger-text": "#9a252b",
+        "--rio-aa-on-danger": "#12201c",
+        "--rio-aa-info-text": "#425367",
+        "--rio-aa-on-info": "#12201c",
+        "--rio-legible-text": "#43332e",
+        "--rio-legible-text-muted": "#5d4f49",
+        "--rio-legible-on-accent": "#12201c",
+        "--rio-aa-choice-text": "#43332e",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dbd3cb",
+        "--rio-aa-choice-red": "#e1454a",
+        "--rio-aa-choice-red-soft": "#f7cbc0",
+        "--rio-aa-choice-orange": "#c46300",
+        "--rio-aa-choice-orange-soft": "#eecfb8",
+        "--rio-aa-choice-yellow": "#a07700",
+        "--rio-aa-choice-yellow-soft": "#e4d3b8",
+        "--rio-aa-choice-green": "#1b9037",
+        "--rio-aa-choice-green-soft": "#ccd9bc",
+        "--rio-aa-choice-teal": "#008d83",
+        "--rio-aa-choice-teal-soft": "#cbd8cc",
+        "--rio-aa-choice-blue": "#337aed",
+        "--rio-aa-choice-blue-soft": "#ccd6e8",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e2cde1",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f4cad4",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e3cfbd"
+      }
+    },
+    "momiji": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#233d4d",
+        "--rio-aa-on-accent": "#223b4b",
+        "--rio-aa-accent-text": "#aa4b00",
+        "--rio-aa-text-muted": "#455965",
+        "--rio-aa-link": "#aa4b00",
+        "--rio-aa-focus": "#b97144",
+        "--rio-aa-border": "#83837d",
+        "--rio-aa-success-text": "#256051",
+        "--rio-aa-on-success": "#112a3a",
+        "--rio-aa-warning-text": "#6d5200",
+        "--rio-aa-on-warning": "#233d4d",
+        "--rio-aa-danger-text": "#a02c00",
+        "--rio-aa-on-danger": "#000c15",
+        "--rio-aa-info-text": "#233d4d",
+        "--rio-aa-on-info": "#fbf6ea",
+        "--rio-legible-text": "#233d4d",
+        "--rio-legible-text-muted": "#455965",
+        "--rio-legible-on-accent": "#223b4b",
+        "--rio-aa-choice-text": "#233d4d",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dedad1",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fcd2c6",
+        "--rio-aa-choice-orange": "#cc6700",
+        "--rio-aa-choice-orange-soft": "#f3d7be",
+        "--rio-aa-choice-yellow": "#a67c00",
+        "--rio-aa-choice-yellow-soft": "#e8dbbe",
+        "--rio-aa-choice-green": "#25963d",
+        "--rio-aa-choice-green-soft": "#d0e1c4",
+        "--rio-aa-choice-teal": "#009288",
+        "--rio-aa-choice-teal-soft": "#cfe0d4",
+        "--rio-aa-choice-blue": "#397ff3",
+        "--rio-aa-choice-blue-soft": "#d0ddf0",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e5d4e7",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f7d1da",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e6d6c3"
+      }
+    },
+    "shinrin": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#22577a",
+        "--rio-aa-on-accent": "#252e28",
+        "--rio-aa-accent-text": "#007578",
+        "--rio-aa-text-muted": "#345f7a",
+        "--rio-aa-link": "#007578",
+        "--rio-aa-focus": "#548f8d",
+        "--rio-aa-border": "#778888",
+        "--rio-aa-success-text": "#006844",
+        "--rio-aa-on-success": "#1d2620",
+        "--rio-aa-warning-text": "#705700",
+        "--rio-aa-on-warning": "#333e37",
+        "--rio-aa-danger-text": "#a82b31",
+        "--rio-aa-on-danger": "#050d08",
+        "--rio-aa-info-text": "#22577a",
+        "--rio-aa-on-info": "#eefbf2",
+        "--rio-legible-text": "#22577a",
+        "--rio-legible-text-muted": "#345f7a",
+        "--rio-legible-on-accent": "#252e28",
+        "--rio-aa-choice-text": "#22577a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d4ded7",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f3d7cd",
+        "--rio-aa-choice-orange": "#cf6903",
+        "--rio-aa-choice-orange-soft": "#ebdcc5",
+        "--rio-aa-choice-yellow": "#a97e00",
+        "--rio-aa-choice-yellow-soft": "#dfdfc5",
+        "--rio-aa-choice-green": "#28983f",
+        "--rio-aa-choice-green-soft": "#c6e5ca",
+        "--rio-aa-choice-teal": "#00958b",
+        "--rio-aa-choice-teal-soft": "#c4e4db",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c6e2f6",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dcd8ed",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#efd5e0",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dddac9"
+      }
+    },
+    "kokedama": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#ffe2e0",
+        "--rio-aa-on-accent": "#16301f",
+        "--rio-aa-accent-text": "#00fddc",
+        "--rio-aa-text-muted": "#ffe2db",
+        "--rio-aa-link": "#00fddc",
+        "--rio-aa-focus": "#37ba9b",
+        "--rio-aa-border": "#93ad93",
+        "--rio-aa-success-text": "#73ffe4",
+        "--rio-aa-on-success": "#16301f",
+        "--rio-aa-warning-text": "#ffe5c0",
+        "--rio-aa-on-warning": "#16301f",
+        "--rio-aa-danger-text": "#ffe2e1",
+        "--rio-aa-on-danger": "#16301f",
+        "--rio-aa-info-text": "#b7f2ff",
+        "--rio-aa-on-info": "#16301f",
+        "--rio-legible-text": "#ffe2e0",
+        "--rio-legible-text-muted": "#ffe2db",
+        "--rio-legible-on-accent": "#16301f",
+        "--rio-aa-choice-text": "#ffccc9",
+        "--rio-aa-choice-gray": "#a6a6a5",
+        "--rio-aa-choice-gray-soft": "#48654f",
+        "--rio-aa-choice-red": "#ff807c",
+        "--rio-aa-choice-red-soft": "#605f47",
+        "--rio-aa-choice-orange": "#f48b3b",
+        "--rio-aa-choice-orange-soft": "#5d613c",
+        "--rio-aa-choice-yellow": "#ce9f2c",
+        "--rio-aa-choice-yellow-soft": "#52643b",
+        "--rio-aa-choice-green": "#50bb5f",
+        "--rio-aa-choice-green-soft": "#366942",
+        "--rio-aa-choice-teal": "#40b8ac",
+        "--rio-aa-choice-teal-soft": "#336851",
+        "--rio-aa-choice-blue": "#70a7ff",
+        "--rio-aa-choice-blue-soft": "#3a6663",
+        "--rio-aa-choice-purple": "#c98bff",
+        "--rio-aa-choice-purple-soft": "#506163",
+        "--rio-aa-choice-pink": "#ff75c7",
+        "--rio-aa-choice-pink-soft": "#605e57",
+        "--rio-aa-choice-brown": "#d09b6f",
+        "--rio-aa-choice-brown-soft": "#536345"
+      }
+    },
+    "amezaiku": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#3b2e3b",
+        "--rio-aa-on-accent": "#3b2e3b",
+        "--rio-aa-accent-text": "#bc326e",
+        "--rio-aa-text-muted": "#5b4e58",
+        "--rio-aa-link": "#bc326e",
+        "--rio-aa-focus": "#bb6e85",
+        "--rio-aa-border": "#8a847e",
+        "--rio-aa-success-text": "#006449",
+        "--rio-aa-on-success": "#3b2e3b",
+        "--rio-aa-warning-text": "#6f5400",
+        "--rio-aa-on-warning": "#3b2e3b",
+        "--rio-aa-danger-text": "#aa1d3b",
+        "--rio-aa-on-danger": "#3b2e3b",
+        "--rio-aa-info-text": "#005f7c",
+        "--rio-aa-on-info": "#3b2e3b",
+        "--rio-legible-text": "#3b2e3b",
+        "--rio-legible-text-muted": "#5b4e58",
+        "--rio-legible-on-accent": "#3b2e3b",
+        "--rio-aa-choice-text": "#3b2e3b",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1ded5",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ffd6ca",
+        "--rio-aa-choice-orange": "#cf6903",
+        "--rio-aa-choice-orange-soft": "#f7dbc3",
+        "--rio-aa-choice-yellow": "#a97e00",
+        "--rio-aa-choice-yellow-soft": "#ecdfc2",
+        "--rio-aa-choice-green": "#28983f",
+        "--rio-aa-choice-green-soft": "#d4e6c8",
+        "--rio-aa-choice-teal": "#00958b",
+        "--rio-aa-choice-teal-soft": "#d2e4d8",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d4e2f4",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8d8eb",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fbd5de",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9dac7"
+      }
+    },
+    "nagisa": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1a4f68",
+        "--rio-aa-on-accent": "#f8ffde",
+        "--rio-aa-accent-text": "#177297",
+        "--rio-aa-text-muted": "#376070",
+        "--rio-aa-link": "#177297",
+        "--rio-aa-focus": "#5f8e9a",
+        "--rio-aa-border": "#7e8b75",
+        "--rio-aa-success-text": "#00665b",
+        "--rio-aa-on-success": "#42462b",
+        "--rio-aa-warning-text": "#705700",
+        "--rio-aa-on-warning": "#393d23",
+        "--rio-aa-danger-text": "#b70038",
+        "--rio-aa-on-danger": "#171b02",
+        "--rio-aa-info-text": "#006284",
+        "--rio-aa-on-info": "#f8ffde",
+        "--rio-legible-text": "#1a4f68",
+        "--rio-legible-text-muted": "#376070",
+        "--rio-legible-on-accent": "#f8ffde",
+        "--rio-aa-choice-text": "#1a4f68",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dbe1c8",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fad9bd",
+        "--rio-aa-choice-orange": "#d16b09",
+        "--rio-aa-choice-orange-soft": "#f3dfb5",
+        "--rio-aa-choice-yellow": "#ab8000",
+        "--rio-aa-choice-yellow-soft": "#e7e2b5",
+        "--rio-aa-choice-green": "#2a9a41",
+        "--rio-aa-choice-green-soft": "#cee9bb",
+        "--rio-aa-choice-teal": "#06978d",
+        "--rio-aa-choice-teal-soft": "#cde8cc",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#cee5e8",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e3dbde",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f6d8d1",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e4ddba"
+      }
+    },
+    "kitsune": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#083d77",
+        "--rio-aa-on-accent": "#2b1608",
+        "--rio-aa-accent-text": "#924e00",
+        "--rio-aa-text-muted": "#2a517d",
+        "--rio-aa-link": "#924e00",
+        "--rio-aa-focus": "#a2703e",
+        "--rio-aa-border": "#757c74",
+        "--rio-aa-success-text": "#2c582f",
+        "--rio-aa-on-success": "#230f03",
+        "--rio-aa-warning-text": "#5f4d00",
+        "--rio-aa-on-warning": "#2b1608",
+        "--rio-aa-danger-text": "#9b1c00",
+        "--rio-aa-on-danger": "#2b1608",
+        "--rio-aa-info-text": "#083d77",
+        "--rio-aa-on-info": "#ebebd3",
+        "--rio-legible-text": "#083d77",
+        "--rio-legible-text-muted": "#2a517d",
+        "--rio-legible-on-accent": "#2b1608",
+        "--rio-aa-choice-text": "#083d77",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d1d2bf",
+        "--rio-aa-choice-red": "#dd4147",
+        "--rio-aa-choice-red-soft": "#eec9b3",
+        "--rio-aa-choice-orange": "#bf6100",
+        "--rio-aa-choice-orange-soft": "#e4cdac",
+        "--rio-aa-choice-yellow": "#9c7400",
+        "--rio-aa-choice-yellow-soft": "#dad0ab",
+        "--rio-aa-choice-green": "#168d34",
+        "--rio-aa-choice-green-soft": "#c2d7b0",
+        "--rio-aa-choice-teal": "#00897f",
+        "--rio-aa-choice-teal-soft": "#c1d5c0",
+        "--rio-aa-choice-blue": "#3076e9",
+        "--rio-aa-choice-blue-soft": "#c2d3dc",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#d9ccd6",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#ebc9c8",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#daceb1"
+      }
+    },
+    "sugi": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#3c493f",
+        "--rio-aa-on-accent": "#f0f7f4",
+        "--rio-aa-accent-text": "#3c493f",
+        "--rio-aa-text-muted": "#4f5a52",
+        "--rio-aa-link": "#3c493f",
+        "--rio-aa-focus": "#7b857e",
+        "--rio-aa-border": "#7d8480",
+        "--rio-aa-success-text": "#336048",
+        "--rio-aa-on-success": "#121615",
+        "--rio-aa-warning-text": "#6c5417",
+        "--rio-aa-on-warning": "#202523",
+        "--rio-aa-danger-text": "#8b413b",
+        "--rio-aa-on-danger": "#f0f7f4",
+        "--rio-aa-info-text": "#4d5a53",
+        "--rio-aa-on-info": "#1d2220",
+        "--rio-legible-text": "#3c493f",
+        "--rio-legible-text-muted": "#4f5a52",
+        "--rio-legible-on-accent": "#f0f7f4",
+        "--rio-aa-choice-text": "#3c493f",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d5dbd8",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f4d4ce",
+        "--rio-aa-choice-orange": "#cc6700",
+        "--rio-aa-choice-orange-soft": "#ebd8c6",
+        "--rio-aa-choice-yellow": "#a67c00",
+        "--rio-aa-choice-yellow-soft": "#e0dcc6",
+        "--rio-aa-choice-green": "#25963d",
+        "--rio-aa-choice-green-soft": "#c7e2cb",
+        "--rio-aa-choice-teal": "#009388",
+        "--rio-aa-choice-teal-soft": "#c6e1db",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c8dff7",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ddd5ee",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f0d2e1",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#ded7cb"
+      }
+    }
+  },
+  "legibilityAdjusted": 188
+}

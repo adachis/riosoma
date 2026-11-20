@@ -1,0 +1,40 @@
+{
+  "id": "linked-records",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "grid.field.add",
+      "say": "demos.linked-records.add",
+      "do": "open"
+    },
+    {
+      "anchor": "field.name",
+      "say": "demos.linked-records.name",
+      "do": "type",
+      "text": "demos.linked-records.sampleName"
+    },
+    {
+      "anchor": "field.type",
+      "say": "demos.linked-records.type",
+      "do": "open"
+    },
+    {
+      "anchor": "field.type",
+      "item": "link",
+      "say": "demos.linked-records.link",
+      "do": "choose"
+    },
+    {
+      "anchor": "field.link.table",
+      "say": "demos.linked-records.table"
+    },
+    {
+      "anchor": "field.link.multiple",
+      "say": "demos.linked-records.multiple"
+    },
+    {
+      "anchor": "field.create",
+      "say": "demos.linked-records.create"
+    }
+  ]
+}

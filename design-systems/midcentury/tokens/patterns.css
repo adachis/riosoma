@@ -1,0 +1,20 @@
+/* Seamless tiles + grain plates from the asset library. Sizes are the tile's
+   natural repeat; scale with background-size, never stretch. */
+:root{
+--tile-atomic:url("../assets/patterns/pattern-atomic.png"); /* @kind other */
+--tile-atomic-svg:url("../assets/patterns/pattern-atomic.svg"); /* @kind other */
+--tile-moonlight:url("../assets/patterns/pattern-moonlight.png"); /* @kind other */
+--tile-shimmer:url("../assets/patterns/pattern-shimmer.png"); /* @kind other */
+--tile-ribbon:url("../assets/patterns/pattern-ribbon.png"); /* @kind other */
+--tile-cream-green:url("../assets/patterns/pattern-cream-green.png"); /* @kind other */
+--tile-mcm-01:url("../assets/patterns/pattern-mcm-01.png"); /* @kind other */
+--tile-sticks:url("../assets/patterns/pattern-sticks.svg"); /* @kind other */
+--tile-objects:url("../assets/patterns/pattern-grid.svg"); /* @kind other */
+--plate-sunburst:url("../assets/textures/texture-05.jpg"); /* @kind other */
+--plate-flames:url("../assets/textures/texture-11.jpg"); /* @kind other */
+--plate-swirl:url("../assets/textures/texture-01.jpg"); /* @kind other */
+--field-rings:url("../assets/backgrounds/bg-09.jpg"); /* @kind other */
+--field-bands:url("../assets/backgrounds/bg-01.jpg"); /* @kind other */
+--field-rays:url("../assets/backgrounds/bg-17.jpg"); /* @kind other */
+--field-curtain:url("../assets/backgrounds/bg-24.jpg"); /* @kind other */
+}

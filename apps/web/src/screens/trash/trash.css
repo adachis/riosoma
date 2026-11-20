@@ -1,0 +1,31 @@
+@layer rio.app {
+  .rio-trash-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-trash-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-4);
+    padding-block: var(--rio-space-3);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-trash-entry__text {
+    display: grid;
+    gap: var(--rio-space-1);
+    overflow-wrap: anywhere;
+  }
+  .rio-trash-entry__text > span,
+  .rio-trash-entry__text > time {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-trash-records {
+    margin-block-start: var(--rio-space-4);
+  }
+  .rio-db-trash {
+    margin-block-start: auto;
+  }
+}

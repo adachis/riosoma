@@ -1,0 +1,83 @@
+/* ── Base ramps ─────────────────────────────────────────────────────────────
+   Bubble is an ink-and-paper system: near-black, near-white, one loud accent.
+   Everything else is a theme palette (tokens/themes.css). */
+:root{
+  --ink-1000:#000000;
+  --ink-900:#0a0a0b;
+  --ink-800:#121214;
+  --ink-700:#1a1a1e;
+  --ink-600:#26262c;
+  --ink-500:#3a3a43;
+  --ink-400:#5c5c68;
+  --ink-300:#8b8b96;
+  --paper-300:#c9c9cf;
+  --paper-200:#e4e4e7;
+  --paper-100:#efeff1;
+  --paper-50:#f7f7f8;
+  --paper-0:#ffffff;
+
+  /* Bubble house accents — the default theme */
+  --violet:#8b2cf5;
+  --violet-deep:#5b17ad;
+  --lime:#3dfd8b;
+  --lemon:#f5d24c;
+  --coral:#f2555f;
+
+  /* Palette slots. Every theme redefines these five. */
+  --p1:var(--violet);
+  --p2:var(--lime);
+  --p3:var(--lemon);
+  --p4:var(--coral);
+  --p5:var(--ink-400);
+
+  /* Semantic — light mode is the default surface */
+  --bg:var(--paper-0);
+  --bg-sunken:var(--paper-100);
+  --surface-card:var(--paper-0);
+  --surface-raised:var(--paper-0);
+  --surface-inset:var(--paper-50);
+  --surface-inverse:var(--ink-900);
+  --border:var(--paper-200);
+  --border-strong:var(--ink-1000);
+  --text-body:var(--ink-900);
+  --text-muted:var(--ink-300);
+  --text-inverse:var(--paper-0);
+  --text-on-accent:var(--paper-0);
+
+  --accent:var(--p1);
+  --accent-hover:color-mix(in oklch,var(--p1) 86%,#000);
+  --accent-press:color-mix(in oklch,var(--p1) 74%,#000);
+  --accent-soft:color-mix(in oklch,var(--p1) 14%,var(--bg));
+  --accent-2:var(--p2);
+  --accent-3:var(--p3);
+
+  --success:#43aa8b;
+  --warning:#f8961e;
+  --danger:#f94144;
+  --info:#4d908e;
+  --success-soft:color-mix(in oklch,var(--success) 16%,var(--bg));
+  --warning-soft:color-mix(in oklch,var(--warning) 18%,var(--bg));
+  --danger-soft:color-mix(in oklch,var(--danger) 15%,var(--bg));
+  --info-soft:color-mix(in oklch,var(--info) 16%,var(--bg));
+
+  --focus-ring:var(--ink-1000);
+  --scrim:color-mix(in srgb,var(--ink-1000) 62%,transparent);
+}
+
+/* Dark mode. Bubble dark is true black with lifted charcoal cards —
+   the same shapes, inverted ink. */
+[data-mode="dark"]{
+  --bg:var(--ink-1000);
+  --bg-sunken:#000;
+  --surface-card:var(--ink-800);
+  --surface-raised:var(--ink-700);
+  --surface-inset:var(--ink-900);
+  --surface-inverse:var(--paper-0);
+  --border:var(--ink-600);
+  --border-strong:var(--paper-0);
+  --text-body:var(--paper-0);
+  --text-muted:#7c7c88;
+  --text-inverse:var(--ink-1000);
+  --focus-ring:var(--paper-0);
+  --scrim:color-mix(in srgb,#000 74%,transparent);
+}

@@ -1,0 +1,24 @@
+# Kong declarative configuration for the test fleet.
+#
+# Kong runs database-less, so this file is the whole configuration.  The
+# service below points at Kong's own status listener, which keeps the sample
+# route working without starting any other profile.
+_format_version: '3.0'
+_transform: true
+
+services:
+  - name: riosoma-status
+    url: http://127.0.0.1:8100
+    protocol: http
+    retries: 2
+    connect_timeout: 5000
+    read_timeout: 5000
+    write_timeout: 5000
+    routes:
+      - name: riosoma-status-route
+        paths:
+          - /status
+        strip_path: false
+        preserve_host: false
+        protocols:
+          - http

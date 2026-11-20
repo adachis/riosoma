@@ -1,0 +1,31 @@
+/* Hard edges. Radius is near-zero everywhere except pills (tags, chips,
+   avatars) — the graphic language comes from blocking, not from rounding.
+   Elevation is a solid offset "print" shadow, never a blur, except on
+   floating overlays where a soft shadow reads as physical depth. */
+:root{
+  --k-radius-0:0px;
+  --k-radius-1:2px;
+  --k-radius-2:4px;
+  --k-radius-3:8px;
+  --k-radius-pill:999px;
+  --k-radius-control:2px;
+  --k-radius-card:0px;
+
+  --k-border-hair:1px; /* @kind other */
+  --k-border-line:2px; /* @kind other */
+  --k-border-block:3px; /* @kind other */
+  --k-border-slab:6px; /* @kind other */
+
+  /* offset print shadows */
+  --k-shadow-press-sm:2px 2px 0 var(--k-border-strong);
+  --k-shadow-press:4px 4px 0 var(--k-border-strong);
+  --k-shadow-press-lg:8px 8px 0 var(--k-border-strong);
+  --k-shadow-press-accent:4px 4px 0 var(--k-accent);
+  /* soft depth, overlays only */
+  --k-shadow-float:0 12px 32px -8px rgba(11,11,12,.34);
+  --k-shadow-modal:0 32px 64px -16px rgba(11,11,12,.46);
+  --k-shadow-inset:inset 0 0 0 2px var(--k-border-strong);
+  --k-ring-focus:0 0 0 3px var(--k-focus);
+
+  --k-blur-veil:blur(14px); /* @kind other */
+}

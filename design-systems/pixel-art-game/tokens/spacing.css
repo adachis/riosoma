@@ -1,0 +1,28 @@
+/* Spacing. One art pixel (`--px`) is the atom; every gap is a whole number of them.
+   Change --px to 1px for print/1x work or 3px for a chunky console HUD and the whole
+   system rescales without touching a component. */
+:root{
+  --px:2px;                       /* 1 art pixel = 2 CSS px (2x scale) */
+  --sp-1:calc(var(--px) * 1);     /* 2  — hairline separation */
+  --sp-2:calc(var(--px) * 2);     /* 4  — inside a control */
+  --sp-3:calc(var(--px) * 3);     /* 6  — icon to label */
+  --sp-4:calc(var(--px) * 4);     /* 8  — control padding */
+  --sp-5:calc(var(--px) * 6);     /* 12 — stacked controls */
+  --sp-6:calc(var(--px) * 8);     /* 16 — panel padding */
+  --sp-7:calc(var(--px) * 12);    /* 24 — panel to panel */
+  --sp-8:calc(var(--px) * 16);    /* 32 — section */
+  --sp-9:calc(var(--px) * 24);    /* 48 — major section */
+  --sp-10:calc(var(--px) * 32);   /* 64 — page gutter */
+  --sp-12:calc(var(--px) * 48);   /* 96 — hero breathing room */
+
+  --edge:calc(var(--px) * 2);     /* frame outline thickness: always 2 art pixels */
+  --notch:calc(var(--px) * 2);    /* corner bite: 2 art pixels, never rounded */
+  --radius:0;                     /* there is no radius in this system. ever. */
+
+  --hit-min:44px;                 /* minimum touch target on mobile surfaces */
+  --tile:calc(var(--px) * 16);    /* 32px — the sprite tile the whole grid derives from */
+  --grid-col:calc(var(--px) * 40);/* 80px — column module for page layouts */
+
+  --measure:64ch;                 /* max line length for body copy */
+  --measure-tight:48ch;
+}

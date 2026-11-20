@@ -1,0 +1,23 @@
+:root{
+  --dur-instant:80ms; /* @kind other */
+  --dur-fast:120ms; /* @kind other */
+  --dur-base:180ms; /* @kind other */
+  --dur-slow:280ms; /* @kind other */
+  --dur-page:420ms; /* @kind other */
+
+  /* No bounce, no overshoot. Documents settle, they do not spring. */
+  --ease-out:cubic-bezier(.2,.7,.25,1); /* @kind other */
+  --ease-in:cubic-bezier(.6,0,1,1); /* @kind other */
+  --ease-in-out:cubic-bezier(.6,0,.2,1); /* @kind other */
+
+  --transition-control:background-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),opacity var(--dur-fast) var(--ease-out); /* @kind other */
+  --transition-surface:box-shadow var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-instant:0ms; /* @kind other */
+    --dur-fast:0ms; /* @kind other */
+    --dur-base:0ms; /* @kind other */
+    --dur-slow:0ms; /* @kind other */
+    --dur-page:0ms; /* @kind other */
+  }
+}

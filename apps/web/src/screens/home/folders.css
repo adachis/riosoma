@@ -1,0 +1,133 @@
+.rio-home-files {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: var(--rio-space-6);
+}
+.rio-home-files__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rio-space-2);
+  min-inline-size: 0;
+}
+.rio-home-files__sidebar > * {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+.rio-home-files__sidebar a {
+  display: block;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--rio-text);
+  padding: var(--rio-space-3);
+  border-radius: var(--rio-radius);
+  text-decoration: none;
+}
+.rio-home-files__sidebar a[aria-current] {
+  background: var(--rio-hover);
+  font-weight: var(--rio-weight-bold);
+}
+.rio-home-files__sidebar a:focus-visible,
+.rio-home-files__breadcrumbs a:focus-visible {
+  outline: none;
+  box-shadow: var(--rio-focus-ring);
+}
+.rio-home-files__content {
+  min-width: 0;
+}
+.rio-home-files__breadcrumbs,
+.rio-home-files__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--rio-space-3);
+  margin-bottom: var(--rio-space-4);
+}
+.rio-home-files__breadcrumbs a {
+  color: var(--rio-text);
+}
+.rio-home-files__breadcrumbs > * {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rio-home-files__heading {
+  justify-content: space-between;
+}
+@container home-files (max-width: 40rem) {
+  .rio-home-files {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rio-home-files__sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .rio-home-files__folders {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.rio-home-files__folders {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--rio-space-3);
+  list-style: none;
+  padding: 0;
+}
+/* Empty folder and shortcut lists must not add margins when the initial listing resolves. */
+.rio-home-files__folders:empty {
+  display: none;
+}
+.rio-home-files__folders li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rio-space-2);
+  padding: var(--rio-space-2);
+  border: 1px solid var(--rio-border);
+  border-radius: var(--rio-radius);
+  background: var(--rio-surface);
+}
+.rio-home-files__folders .rio-sortable-target {
+  flex: 1;
+  min-inline-size: 0;
+}
+.rio-home-files__folders .rio-folder-row {
+  inline-size: 100%;
+}
+.rio-home-files__folders .rio-folder-row__name .rio-button__content {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .rio-home-files__sidebar a {
+    min-block-size: var(--rio-target-primary);
+    box-sizing: border-box;
+  }
+  .rio-home-files {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rio-home-files__sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .rio-home-files__folders {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@layer rio.components {
+  .rio-home-arrange-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+  }
+  .rio-home-files__sidebar .rio-sortable-target > a {
+    display: block;
+    padding: var(--rio-space-2);
+  }
+}

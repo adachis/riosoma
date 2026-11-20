@@ -1,0 +1,89 @@
+/* PERSONA — colour ramp + semantic aliases.
+   The ramp is 10 variables. Every one of the 13 themes redeclares exactly these.
+   Semantic aliases are declared twice: once on :root, once on [data-theme], so a
+   themed subtree re-resolves them against its own ramp. */
+:root {
+  /* --- base ramp: signature "Ink" theme (crimson / ink / newsprint) --- */
+  --ink: #0B0A0A;
+  --paper: #F4F1EA;
+  --brand: #E4002B;
+  --brand-2: #FF3355;
+  --brand-3: #8A0018;
+  --on-brand: #FFFFFF;
+  --success: #47B36B;
+  --warning: #F2B705;
+  --danger: #E4002B;
+  --info: #3D7BD9;
+
+  /* --- neutral steps derived off ink/paper, theme independent in feel --- */
+  --ink-90: color-mix(in srgb, var(--ink) 90%, var(--paper));
+  --ink-70: color-mix(in srgb, var(--ink) 70%, var(--paper));
+  --ink-50: color-mix(in srgb, var(--ink) 50%, var(--paper));
+  --ink-25: color-mix(in srgb, var(--ink) 25%, var(--paper));
+  --ink-10: color-mix(in srgb, var(--ink) 10%, var(--paper));
+
+  /* --- semantic aliases --- */
+  --surface-page: var(--paper);
+  --surface-panel: var(--ink);
+  --surface-raised: var(--paper);
+  --surface-brand: var(--brand);
+  --surface-invert: var(--ink);
+  --surface-sunken: var(--ink-90);
+
+  --text-body: var(--ink);
+  --text-muted: var(--ink-70);
+  --text-invert: var(--paper);
+  --text-on-brand: var(--on-brand);
+  --text-brand: var(--brand);
+  --text-link: var(--brand);
+  --text-link-hover: var(--brand-3);
+
+  --line-hard: var(--ink);
+  --line-soft: var(--ink-25);
+  --line-brand: var(--brand);
+
+  --focus-ring: var(--brand-2);
+  --selection-fill: var(--brand);
+  --selection-text: var(--on-brand);
+
+  --state-hover-fill: var(--brand);
+  --state-hover-text: var(--on-brand);
+  --state-press-fill: var(--brand-3);
+  --state-disabled-text: var(--ink-50);
+}
+
+[data-theme] {
+  --ink-90: color-mix(in srgb, var(--ink) 90%, var(--paper));
+  --ink-70: color-mix(in srgb, var(--ink) 70%, var(--paper));
+  --ink-50: color-mix(in srgb, var(--ink) 50%, var(--paper));
+  --ink-25: color-mix(in srgb, var(--ink) 25%, var(--paper));
+  --ink-10: color-mix(in srgb, var(--ink) 10%, var(--paper));
+
+  --surface-page: var(--paper);
+  --surface-panel: var(--ink);
+  --surface-raised: var(--paper);
+  --surface-brand: var(--brand);
+  --surface-invert: var(--ink);
+  --surface-sunken: var(--ink-90);
+
+  --text-body: var(--ink);
+  --text-muted: var(--ink-70);
+  --text-invert: var(--paper);
+  --text-on-brand: var(--on-brand);
+  --text-brand: var(--brand);
+  --text-link: var(--brand);
+  --text-link-hover: var(--brand-3);
+
+  --line-hard: var(--ink);
+  --line-soft: var(--ink-25);
+  --line-brand: var(--brand);
+
+  --focus-ring: var(--brand-2);
+  --selection-fill: var(--brand);
+  --selection-text: var(--on-brand);
+
+  --state-hover-fill: var(--brand);
+  --state-hover-text: var(--on-brand);
+  --state-press-fill: var(--brand-3);
+  --state-disabled-text: var(--ink-50);
+}

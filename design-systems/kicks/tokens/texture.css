@@ -1,0 +1,17 @@
+/* Surface textures lifted from the licensed pattern packs in assets/.
+   Use one texture per composition, at low contrast, behind type — never two. */
+:root{
+  --k-texture-halftone:url("../assets/backgrounds/halftone-01.jpg"); /* @kind other */
+  --k-texture-halftone-2:url("../assets/backgrounds/halftone-02.jpg"); /* @kind other */
+  --k-texture-black-geo:url("../assets/backgrounds/black-geo-01.jpg"); /* @kind other */
+  --k-pattern-grid:url("../assets/patterns/grid-03.svg"); /* @kind other */
+  --k-pattern-grid-dots:url("../assets/patterns/grid-07.svg"); /* @kind other */
+  --k-pattern-kinetic:url("../assets/patterns/kinetic-geometry.svg"); /* @kind other */
+  --k-pattern-tribal:url("../assets/patterns/minimal-tribal.svg"); /* @kind other */
+
+  /* CSS-only motifs used for banners, tickers and empty states */
+  --k-stripe-diagonal:repeating-linear-gradient(45deg,var(--k-border-strong) 0 8px,transparent 8px 16px); /* @kind other */
+  --k-stripe-diagonal-accent:repeating-linear-gradient(45deg,var(--k-accent) 0 10px,transparent 10px 20px); /* @kind other */
+  --k-stripe-caution:repeating-linear-gradient(135deg,var(--k-accent) 0 14px,var(--k-border-strong) 14px 28px); /* @kind other */
+  --k-hairline-rule:repeating-linear-gradient(to right,var(--k-border-strong) 0 4px,transparent 4px 8px); /* @kind other */
+}

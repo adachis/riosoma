@@ -1,0 +1,40 @@
+/* Graffiti — base neutrals. Chroma lives in themes.css. */
+:root{
+  /* Ink: the black keyline. Never a soft grey — graffiti outlines are opaque. */
+  --gf-ink:#0A0A0A;
+  --gf-ink-2:#1C1C1C;
+  --gf-ink-3:#2E2E2E;
+
+  /* Wall: the dark ground. Warm-black concrete, not blue-black. */
+  --gf-wall-0:#050505;
+  --gf-wall-1:#0E0D0C;
+  --gf-wall-2:#171614;
+  --gf-wall-3:#232120;
+  --gf-wall-4:#332F2C;
+
+  /* Paper: the light ground. Off-white newsprint, never pure #fff. */
+  --gf-paper-0:#FFFFFF;
+  --gf-paper-1:#F4F2ED;
+  --gf-paper-2:#E8E5DD;
+  --gf-paper-3:#D8D4C9;
+  --gf-paper-4:#B8B3A6;
+
+  /* Chalk: type on wall. */
+  --gf-chalk-1:#F7F5F0;
+  --gf-chalk-2:#CFCBC2;
+  --gf-chalk-3:#8E8A81;
+
+  /* Fixed semantics — these do NOT change per theme, so a stop sign stays a stop sign. */
+  --gf-danger:#FF1F3D;
+  --gf-danger-deep:#B3001B;
+  --gf-warn:#FFB400;
+  --gf-go:#2BD46A;
+  --gf-info:#2FA8FF;
+
+  /* Transparency ramps used for protection scrims and glass. */
+  --gf-scrim-ink-90:rgba(10,10,10,.90);
+  --gf-scrim-ink-70:rgba(10,10,10,.70);
+  --gf-scrim-ink-40:rgba(10,10,10,.40);
+  --gf-scrim-paper-85:rgba(244,242,237,.85);
+  --gf-scrim-paper-60:rgba(244,242,237,.60);
+}

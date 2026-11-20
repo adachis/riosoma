@@ -1,0 +1,29 @@
+/* Museo colour schemes.
+   Apply with data-theme on <html>, <body>, or any subtree: <div data-theme="midnight">.
+   Every scheme rewrites the same 15-value theme channel from tokens/colors.css. */
+
+[data-theme="gallery"]{--t-paper:#F6F3EE;--t-paper-raised:#FFFFFF;--t-paper-sunken:#EFEBE3;--t-ink:#12100E;--t-ink-2:#2A2521;--t-ink-muted:#5B534C;--t-line:#DCD5CA;--t-line-strong:#12100E;--t-accent:#D93A14;--t-accent-hover:#C0330F;--t-accent-press:#A32B0C;--t-on-accent:#FFFFFF;--t-accent-2:#1F4B4F;--t-accent-3:#C99A2E;--t-inverse-surface:#12100E;--t-inverse-ink:#FAF8F4}
+
+[data-theme="spectrum"]{--t-paper:#FBF7F2;--t-paper-raised:#FFFFFF;--t-paper-sunken:#F2ECE4;--t-ink:#1B2A33;--t-ink-2:#2C4552;--t-ink-muted:#577590;--t-line:#DCD6CC;--t-line-strong:#277DA1;--t-accent:#F94144;--t-accent-hover:#E03539;--t-accent-press:#BE2B2E;--t-on-accent:#FFFFFF;--t-accent-2:#43AA8B;--t-accent-3:#F9C74F;--t-inverse-surface:#277DA1;--t-inverse-ink:#F9F5EF}
+
+[data-theme="midnight"]{--t-paper:#000814;--t-paper-raised:#001D3D;--t-paper-sunken:#000509;--t-ink:#F2F6FC;--t-ink-2:#C9D8EC;--t-ink-muted:#8FA6C4;--t-line:#003566;--t-line-strong:#FFC300;--t-accent:#FFC300;--t-accent-hover:#FFD60A;--t-accent-press:#E0A800;--t-on-accent:#000814;--t-accent-2:#003566;--t-accent-3:#FFD60A;--t-inverse-surface:#FFC300;--t-inverse-ink:#000814}
+
+[data-theme="voltage"]{--t-paper:#FFF7EE;--t-paper-raised:#FFFFFF;--t-paper-sunken:#FBE9DA;--t-ink:#1A0640;--t-ink-2:#390099;--t-ink-muted:#6B4BA8;--t-line:#E4D6EA;--t-line-strong:#390099;--t-accent:#FF0054;--t-accent-hover:#E30049;--t-accent-press:#B8003B;--t-on-accent:#FFFFFF;--t-accent-2:#9E0059;--t-accent-3:#FFBD00;--t-inverse-surface:#390099;--t-inverse-ink:#FFF7EE}
+
+[data-theme="archive"]{--t-paper:#F1FAEE;--t-paper-raised:#FFFFFF;--t-paper-sunken:#E3F0E4;--t-ink:#1D3557;--t-ink-2:#2B4A72;--t-ink-muted:#457B9D;--t-line:#C6DCDD;--t-line-strong:#1D3557;--t-accent:#E63946;--t-accent-hover:#CC2E3B;--t-accent-press:#A82631;--t-on-accent:#FFFFFF;--t-accent-2:#457B9D;--t-accent-3:#A8DADC;--t-inverse-surface:#1D3557;--t-inverse-ink:#F1FAEE}
+
+[data-theme="terracotta"]{--t-paper:#F7EDE2;--t-paper-raised:#FFFDFB;--t-paper-sunken:#F0DFCF;--t-ink:#3C2A24;--t-ink-2:#5A4038;--t-ink-muted:#8B6F63;--t-line:#E4CDBC;--t-line-strong:#3C2A24;--t-accent:#F28482;--t-accent-hover:#DF6F6E;--t-accent-press:#BE5857;--t-on-accent:#2A1A16;--t-accent-2:#84A59D;--t-accent-3:#F6BD60;--t-inverse-surface:#3C2A24;--t-inverse-ink:#F7EDE2}
+
+[data-theme="depot"]{--t-paper:#F5F3EC;--t-paper-raised:#FFFFFF;--t-paper-sunken:#E9E7DD;--t-ink:#233D4D;--t-ink-2:#33566B;--t-ink-muted:#5F7C8A;--t-line:#D3D5C8;--t-line-strong:#233D4D;--t-accent:#FE7F2D;--t-accent-hover:#E96D1D;--t-accent-press:#C25A18;--t-on-accent:#1B2E39;--t-accent-2:#619B8A;--t-accent-3:#FCCA46;--t-inverse-surface:#233D4D;--t-inverse-ink:#F5F3EC}
+
+[data-theme="verdigris"]{--t-paper:#F4FCF6;--t-paper-raised:#FFFFFF;--t-paper-sunken:#E4F7EA;--t-ink:#0F3247;--t-ink-2:#22577A;--t-ink-muted:#3E7E92;--t-line:#C7F9CC;--t-line-strong:#22577A;--t-accent:#38A3A5;--t-accent-hover:#2E8C8E;--t-accent-press:#256F71;--t-on-accent:#FFFFFF;--t-accent-2:#57CC99;--t-accent-3:#80ED99;--t-inverse-surface:#22577A;--t-inverse-ink:#F4FCF6}
+
+[data-theme="nocturne"]{--t-paper:#1B2A20;--t-paper-raised:#2E5339;--t-paper-sunken:#141F18;--t-ink:#EFFBF4;--t-ink-2:#C9E7D8;--t-ink-muted:#93B7A2;--t-line:#495F41;--t-line-strong:#00FDDC;--t-accent:#00FDDC;--t-accent-hover:#33FEE3;--t-accent-press:#00D4B8;--t-on-accent:#0B1F19;--t-accent-2:#FF5666;--t-accent-3:#FFCCC9;--t-inverse-surface:#00FDDC;--t-inverse-ink:#0B1F19}
+
+[data-theme="playbill"]{--t-paper:#FFFBF2;--t-paper-raised:#FFFFFF;--t-paper-sunken:#FFF1DE;--t-ink:#20313D;--t-ink-2:#33505F;--t-ink-muted:#5F7A8A;--t-line:#FFD670;--t-line-strong:#FF70A6;--t-accent:#FF70A6;--t-accent-hover:#F1568F;--t-accent-press:#C94375;--t-on-accent:#20313D;--t-accent-2:#70D6FF;--t-accent-3:#FF9770;--t-inverse-surface:#20313D;--t-inverse-ink:#FFFBF2}
+
+[data-theme="lagoon"]{--t-paper:#F8FFE9;--t-paper-raised:#FFFFFF;--t-paper-sunken:#F3FFBD;--t-ink:#123F51;--t-ink-2:#1C5B75;--t-ink-muted:#4A8FA6;--t-line:#B2DBBF;--t-line-strong:#247BA0;--t-accent:#FF1654;--t-accent-hover:#E30E48;--t-accent-press:#B80B3A;--t-on-accent:#FFFFFF;--t-accent-2:#247BA0;--t-accent-3:#70C1B3;--t-inverse-surface:#247BA0;--t-inverse-ink:#F8FFE9}
+
+[data-theme="bauhaus"]{--t-paper:#EBEBD3;--t-paper-raised:#F7F7E8;--t-paper-sunken:#DEDEC2;--t-ink:#083D77;--t-ink-2:#0F4E8F;--t-ink-muted:#4B739F;--t-line:#CFCFB2;--t-line-strong:#083D77;--t-accent:#F95738;--t-accent-hover:#E14528;--t-accent-press:#B93720;--t-on-accent:#FFFFFF;--t-accent-2:#EE964B;--t-accent-3:#F4D35E;--t-inverse-surface:#083D77;--t-inverse-ink:#EBEBD3}
+
+[data-theme="sage"]{--t-paper:#F0F7F4;--t-paper-raised:#FFFFFF;--t-paper-sunken:#E1EBE6;--t-ink:#3C493F;--t-ink-2:#4E5F52;--t-ink-muted:#7E8D85;--t-line:#B3BFB8;--t-line-strong:#3C493F;--t-accent:#A2E3C4;--t-accent-hover:#8AD3B1;--t-accent-press:#6FB897;--t-on-accent:#22301F;--t-accent-2:#7E8D85;--t-accent-3:#B3BFB8;--t-inverse-surface:#3C493F;--t-inverse-ink:#F0F7F4}

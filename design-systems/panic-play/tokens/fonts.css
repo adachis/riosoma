@@ -1,0 +1,10 @@
+/* Panic Play webfonts.
+   NOTE: no source font binaries were supplied. These are Google Fonts stand-ins
+   chosen for the closest match to the intended voice. Swap for licensed files if available. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=Silkscreen:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+:root{
+  --font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --font-body:"Figtree",system-ui,-apple-system,sans-serif;
+  --font-pixel:"Silkscreen","Courier New",monospace;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+}

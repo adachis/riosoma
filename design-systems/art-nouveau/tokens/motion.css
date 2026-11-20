@@ -1,0 +1,29 @@
+:root{
+/* Easing. The "whiplash" curve mirrors the line itself: slow entry, decisive sweep, soft settle. */
+--ease-whiplash:cubic-bezier(.62,.03,.31,1); /* @kind other */
+--ease-tendril:cubic-bezier(.34,.84,.30,1); /* @kind other */
+--ease-out-soft:cubic-bezier(.20,.70,.30,1); /* @kind other */
+--ease-in-soft:cubic-bezier(.55,0,.75,.35); /* @kind other */
+
+--dur-quick:140ms; /* @kind other */
+--dur-base:240ms; /* @kind other */
+--dur-slow:420ms; /* @kind other */
+--dur-drape:700ms; /* @kind other */
+
+/* Ready-made transitions */
+
+--t-hover:color var(--dur-quick) var(--ease-out-soft),background-color var(--dur-quick) var(--ease-out-soft),border-color var(--dur-quick) var(--ease-out-soft),box-shadow var(--dur-quick) var(--ease-out-soft); /* @kind other */
+--t-press:transform var(--dur-quick) var(--ease-in-soft),box-shadow var(--dur-quick) var(--ease-in-soft); /* @kind other */
+--t-reveal:opacity var(--dur-base) var(--ease-out-soft),transform var(--dur-base) var(--ease-whiplash); /* @kind other */
+--t-drape:transform var(--dur-slow) var(--ease-whiplash),opacity var(--dur-slow) var(--ease-out-soft); /* @kind other */
+
+/* Press displacement — the plate shifts into its own shadow, never scales. */
+--press-shift:translate(2px,2px); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--dur-quick:0ms; /* @kind other */
+--dur-base:0ms; /* @kind other */
+--dur-slow:0ms; /* @kind other */
+--dur-drape:0ms; /* @kind other */
+--press-shift:none; /* @kind other */
+}}

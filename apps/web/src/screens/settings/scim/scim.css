@@ -1,0 +1,55 @@
+@layer rio.app {
+  .rio-scim {
+    display: grid;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+  }
+
+  /* List length is unknown on first paint, so saved entries scroll inside their reserved space. */
+  .rio-scim__viewport {
+    block-size: calc(var(--rio-space-8) * 12);
+    min-inline-size: 0;
+    overflow: auto;
+    overflow-wrap: anywhere;
+    scrollbar-gutter: stable;
+  }
+
+  .rio-scim__viewport--members {
+    block-size: calc(var(--rio-space-8) * 6);
+  }
+
+  .rio-scim__viewport:focus-visible {
+    outline: var(--rio-space-1) solid var(--rio-aa-focus);
+    outline-offset: var(--rio-space-1);
+  }
+
+  .rio-scim__list {
+    display: grid;
+    gap: var(--rio-space-3);
+    padding: var(--rio-space-1);
+    list-style: none;
+    margin: 0;
+  }
+
+  .rio-scim__list > li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-3);
+    padding: var(--rio-space-3);
+    border: calc(var(--rio-space-1) / 4) solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    min-inline-size: 0;
+  }
+
+  .rio-scim__list > li > strong,
+  .rio-scim__list > li > span {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-scim__warning {
+    color: var(--rio-aa-warning-text);
+  }
+}

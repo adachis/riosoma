@@ -1,0 +1,63 @@
+@layer rio.components {
+  /* Every item is a circle of a fixed size and overlaps the one before it by the same amount, so
+     the stack's width follows from the number of items alone and never from the names in them. */
+  .rio-avatar-stack {
+    display: inline-flex;
+    align-items: center;
+    min-inline-size: 0;
+    vertical-align: middle;
+  }
+
+  /* The ring keeps one avatar readable on top of the next.  A shadow rather than a border, so no
+     box grows and nothing under it moves. */
+  .rio-avatar-stack__item {
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--rio-bg);
+  }
+
+  .rio-avatar-stack__item:not(:first-child) {
+    margin-inline-start: calc(-1 * var(--rio-space-2));
+  }
+
+  /* The chip for the people who did not fit: the same circle as an avatar, so it costs the same
+     width whatever the names behind it are. */
+  .rio-avatar-stack__more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--rio-space-8);
+    block-size: var(--rio-space-8);
+    padding-inline: var(--rio-space-1);
+    border: 1px solid var(--rio-aa-border);
+    background-color: var(--rio-surface-raised);
+    color: var(--rio-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-xs);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .rio-avatar-stack[data-size='sm'] .rio-avatar-stack__more {
+    min-inline-size: var(--rio-space-6);
+    block-size: var(--rio-space-6);
+  }
+
+  /* The names in the chip's tooltip, one per line: a list is easier to scan than a sentence. */
+  .rio-avatar-stack__names {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (forced-colors: active) {
+    /* Forced colors drops shadows, so the ring becomes the chip's own border; the avatars keep
+       theirs from their own stylesheet. */
+    .rio-avatar-stack__more {
+      border-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@layer rio.app {
+  .rio-settings-save-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .rio-settings-save-bar__status {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rio-settings-save-bar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .rio-settings-save-bar .rio-button {
+      min-block-size: 0;
+      block-size: calc(var(--rio-footer-height) - 4px);
+      padding-inline: var(--rio-space-2);
+    }
+  }
+  @media (max-width: 767px) {
+    .rio-settings-save-bar .rio-button {
+      min-block-size: max(44px, var(--rio-target-primary));
+    }
+  }
+}

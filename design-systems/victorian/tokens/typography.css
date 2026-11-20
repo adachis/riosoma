@@ -1,0 +1,44 @@
+:root{
+/* Wood-type headline scale — broadsides set type to fill the measure, so the
+   steps are wide apart and the largest sizes are meant to be used. */
+--size-poster:clamp(3.5rem,9vw,7.5rem);
+--size-display-1:clamp(2.75rem,5.5vw,4.5rem);
+--size-display-2:clamp(2.25rem,4vw,3.25rem);
+--size-head-1:2rem;
+--size-head-2:1.5rem;
+--size-head-3:1.1875rem;
+--size-lede:1.1875rem;
+--size-body:1rem;
+--size-body-sm:.9375rem;
+--size-caption:.8125rem;
+--size-micro:.6875rem;
+
+--leading-poster:.86; /* @kind other */
+--leading-display:.95; /* @kind other */
+--leading-head:1.14; /* @kind other */
+--leading-body:1.62; /* @kind other */
+--leading-dense:1.42; /* @kind other */
+
+/* Letterpress caps are always tracked out; lowercase text never is. */
+--track-caps:.14em;
+--track-caps-wide:.26em;
+--track-display:.005em;
+--track-body:0; /* @kind other */
+
+--measure-narrow:34ch; /* @kind other */
+--measure-body:66ch; /* @kind other */
+--measure-column:48ch; /* @kind other */
+
+--weight-body:400; /* @kind other */
+--weight-emph:600; /* @kind other */
+--weight-bold:700; /* @kind other */
+--weight-black:900; /* @kind other */
+
+/* Composed type roles */
+--type-poster:var(--weight-body) var(--size-poster)/var(--leading-poster) var(--font-wood);
+--type-display:var(--weight-body) var(--size-display-1)/var(--leading-display) var(--font-ornate);
+--type-title:var(--weight-bold) var(--size-head-1)/var(--leading-head) var(--font-parlor);
+--type-body:var(--weight-body) var(--size-body)/var(--leading-body) var(--font-body);
+--type-label:var(--weight-body) var(--size-caption)/1.2 var(--font-label);
+--type-mono:var(--weight-body) var(--size-body-sm)/1.5 var(--font-mono);
+}

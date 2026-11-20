@@ -1,0 +1,11 @@
+@layer rio.app {
+  .rio-update-notice {
+    color: var(--rio-aa-text-muted);
+    white-space: nowrap;
+  }
+  .rio-update-notice--security {
+    color: var(--rio-aa-on-warning);
+    background: var(--rio-warning);
+    font-weight: var(--rio-weight-medium);
+  }
+}

@@ -1,0 +1,47 @@
+.rio-admin-panel {
+  display: grid;
+  gap: var(--rio-space-4);
+  min-width: 0;
+}
+.rio-admin-panel fieldset {
+  display: grid;
+  gap: var(--rio-space-3);
+  border: 1px solid var(--rio-border);
+  padding: var(--rio-space-4);
+}
+.rio-admin-diff {
+  display: grid;
+  gap: var(--rio-space-3);
+}
+.rio-admin-diff dd {
+  margin-inline-start: 0;
+  overflow-wrap: anywhere;
+}
+.rio-audit-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--rio-space-3);
+}
+.rio-audit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--rio-space-3);
+}
+.rio-audit-events {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--rio-space-3);
+}
+.rio-audit-events li {
+  display: grid;
+  gap: var(--rio-space-2);
+  padding-block: var(--rio-space-3);
+  border-block-end: 1px solid var(--rio-border);
+  overflow-wrap: anywhere;
+}
+.rio-audit-detail pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: var(--rio-font-mono);
+}

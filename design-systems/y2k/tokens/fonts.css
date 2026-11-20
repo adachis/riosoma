@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap");
+
+/* Display faces from the Y2K type library (bundled TTFs) */
+@font-face{font-family:"Y2K Avaben";src:url("../assets/fonts/Avaben.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Kabisat";src:url("../assets/fonts/Kabisat.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Kabisat Tall";src:url("../assets/fonts/KabisatTall.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Cuano";src:url("../assets/fonts/Cuano.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Cuano";src:url("../assets/fonts/CuanoBold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Punk Cyber";src:url("../assets/fonts/PunkCyber.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Punk Cyber Outline";src:url("../assets/fonts/PunkCyberOutline.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Bubbly";src:url("../assets/fonts/BubblyDoubly.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Bubbly";src:url("../assets/fonts/BubblyDoublyBold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Macarthur";src:url("../assets/fonts/Macarthur.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Moneter";src:url("../assets/fonts/DigitalMoneter.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Nostalgia";src:url("../assets/fonts/Y2kNostalgia.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Nostalgia Outline";src:url("../assets/fonts/Y2kNostalgiaOutline.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Keyute";src:url("../assets/fonts/Keyute.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Brickbond";src:url("../assets/fonts/Brickbond.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Flukin";src:url("../assets/fonts/Flukin.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Jawbyte";src:url("../assets/fonts/Jawbyte.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Pukor";src:url("../assets/fonts/Pukor.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Auror";src:url("../assets/fonts/Auror.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Euphemia";src:url("../assets/fonts/Euphemia.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Holly";src:url("../assets/fonts/Holly.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Oblado";src:url("../assets/fonts/Oblado.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Various";src:url("../assets/fonts/Various.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Y2K Nineties";src:url("../assets/fonts/Y2k.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}

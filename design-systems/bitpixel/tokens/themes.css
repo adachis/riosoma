@@ -1,0 +1,120 @@
+/* BitPixel color schemes. Default = midnight on :root; switch with data-bp-theme="<name>" on any element. */
+:root, [data-bp-theme="midnight"]{color-scheme:dark;
+--bp-bg:#000814;--bp-surface-1:#001229;--bp-surface-2:#001d3d;--bp-surface-3:#002850;
+--bp-line:#0d2c52;--bp-line-strong:#003566;
+--bp-text-1:#eef3fa;--bp-text-2:#9fb3cc;--bp-text-3:#5f7793;
+--bp-accent:#ffc300;--bp-accent-ink:#000814;--bp-accent-hover:#ffd60a;--bp-accent-2:#ffd60a;
+--bp-ok:#43aa8b;--bp-warn:#ffc300;--bp-danger:#f94144;--bp-info:#4d908e;
+--bp-focus:#ffc300;--bp-overlay:rgba(0,0,0,.66);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Spectrum — graphite base, ten-stop signal ramp. */
+[data-bp-theme="spectrum"]{color-scheme:dark;
+--bp-bg:#14161a;--bp-surface-1:#1b1e24;--bp-surface-2:#23272e;--bp-surface-3:#2b3038;
+--bp-line:#2e333c;--bp-line-strong:#3d444f;
+--bp-text-1:#f2f4f7;--bp-text-2:#a8b0bd;--bp-text-3:#6d7684;
+--bp-accent:#f8961e;--bp-accent-ink:#14161a;--bp-accent-hover:#f9c74f;--bp-accent-2:#277da1;
+--bp-ok:#90be6d;--bp-warn:#f9c74f;--bp-danger:#f94144;--bp-info:#4d908e;
+--bp-focus:#f8961e;--bp-overlay:rgba(0,0,0,.66);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Voltage — violet ground, hot magenta signal. */
+[data-bp-theme="voltage"]{color-scheme:dark;
+--bp-bg:#150029;--bp-surface-1:#1e0040;--bp-surface-2:#2b0060;--bp-surface-3:#390099;
+--bp-line:#3d0a80;--bp-line-strong:#5c1fb0;
+--bp-text-1:#fdf2ff;--bp-text-2:#c3a8e0;--bp-text-3:#8b6bb0;
+--bp-accent:#ff0054;--bp-accent-ink:#ffffff;--bp-accent-hover:#ff5400;--bp-accent-2:#ffbd00;
+--bp-ok:#00d68f;--bp-warn:#ffbd00;--bp-danger:#ff0054;--bp-info:#9e0059;
+--bp-focus:#ff0054;--bp-overlay:rgba(0,0,0,.66);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Signal — paper white, deep navy ink, red signal. */
+[data-bp-theme="signal"]{color-scheme:light;
+--bp-bg:#f1faee;--bp-surface-1:#ffffff;--bp-surface-2:#e6f2e8;--bp-surface-3:#d8e9e2;
+--bp-line:#cfe0dd;--bp-line-strong:#a8dadc;
+--bp-text-1:#1d3557;--bp-text-2:#457b9d;--bp-text-3:#7d97ad;
+--bp-accent:#e63946;--bp-accent-ink:#ffffff;--bp-accent-hover:#c92c38;--bp-accent-2:#457b9d;
+--bp-ok:#2a9d8f;--bp-warn:#e9c46a;--bp-danger:#e63946;--bp-info:#457b9d;
+--bp-focus:#e63946;--bp-overlay:rgba(20,24,31,.42);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Apricot — warm neutral paper, coral signal. */
+[data-bp-theme="apricot"]{color-scheme:light;
+--bp-bg:#f7ede2;--bp-surface-1:#fffaf4;--bp-surface-2:#f5cac3;--bp-surface-3:#efd9cd;
+--bp-line:#e6cfc2;--bp-line-strong:#f28482;
+--bp-text-1:#3d3033;--bp-text-2:#7a6a66;--bp-text-3:#a89a95;
+--bp-accent:#f28482;--bp-accent-ink:#3d3033;--bp-accent-hover:#e5615f;--bp-accent-2:#84a59d;
+--bp-ok:#84a59d;--bp-warn:#f6bd60;--bp-danger:#e5615f;--bp-info:#84a59d;
+--bp-focus:#f28482;--bp-overlay:rgba(20,24,31,.42);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Ember — slate blue ground, ember orange signal. */
+[data-bp-theme="ember"]{color-scheme:dark;
+--bp-bg:#16262e;--bp-surface-1:#1c3140;--bp-surface-2:#233d4d;--bp-surface-3:#2a4a5d;
+--bp-line:#2e4e60;--bp-line-strong:#3f6478;
+--bp-text-1:#f4f7f5;--bp-text-2:#a9bfc4;--bp-text-3:#6f8b95;
+--bp-accent:#fe7f2d;--bp-accent-ink:#16262e;--bp-accent-hover:#fcca46;--bp-accent-2:#fcca46;
+--bp-ok:#a1c181;--bp-warn:#fcca46;--bp-danger:#fe5b3d;--bp-info:#619b8a;
+--bp-focus:#fe7f2d;--bp-overlay:rgba(0,0,0,.66);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Mint — deep teal ground, mint signal. */
+[data-bp-theme="mint"]{color-scheme:dark;
+--bp-bg:#08243a;--bp-surface-1:#0d3452;--bp-surface-2:#16456a;--bp-surface-3:#22577a;
+--bp-line:#1c4a6b;--bp-line-strong:#38a3a5;
+--bp-text-1:#eafff4;--bp-text-2:#a5d6cf;--bp-text-3:#6fa39f;
+--bp-accent:#57cc99;--bp-accent-ink:#04202f;--bp-accent-hover:#80ed99;--bp-accent-2:#80ed99;
+--bp-ok:#57cc99;--bp-warn:#ffd166;--bp-danger:#ef476f;--bp-info:#38a3a5;
+--bp-focus:#57cc99;--bp-overlay:rgba(0,0,0,.66);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Matrix — near-black moss, cyan terminal signal. */
+[data-bp-theme="matrix"]{color-scheme:dark;
+--bp-bg:#0b1410;--bp-surface-1:#12211a;--bp-surface-2:#1d3325;--bp-surface-3:#2e5339;
+--bp-line:#2c4234;--bp-line-strong:#495f41;
+--bp-text-1:#e8ffee;--bp-text-2:#9dbfa6;--bp-text-3:#6b8a74;
+--bp-accent:#00fddc;--bp-accent-ink:#06120e;--bp-accent-hover:#7dfff0;--bp-accent-2:#ffccc9;
+--bp-ok:#00fddc;--bp-warn:#ffd166;--bp-danger:#ff5666;--bp-info:#7fe3d0;
+--bp-focus:#00fddc;--bp-overlay:rgba(0,0,0,.66);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Candy — bright white, sky and bubblegum signals. */
+[data-bp-theme="candy"]{color-scheme:light;
+--bp-bg:#fdfbff;--bp-surface-1:#ffffff;--bp-surface-2:#eaf7ff;--bp-surface-3:#dcefff;
+--bp-line:#d9e6ef;--bp-line-strong:#70d6ff;
+--bp-text-1:#1d2233;--bp-text-2:#5b6479;--bp-text-3:#9aa2b4;
+--bp-accent:#ff70a6;--bp-accent-ink:#1d2233;--bp-accent-hover:#ff9770;--bp-accent-2:#70d6ff;
+--bp-ok:#57cc99;--bp-warn:#ffd670;--bp-danger:#ff5c7a;--bp-info:#70d6ff;
+--bp-focus:#ff70a6;--bp-overlay:rgba(20,24,31,.42);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Lagoon — ocean blue ground, siren red signal. */
+[data-bp-theme="lagoon"]{color-scheme:dark;
+--bp-bg:#0a2230;--bp-surface-1:#0f3245;--bp-surface-2:#164257;--bp-surface-3:#247ba0;
+--bp-line:#1a4a63;--bp-line-strong:#247ba0;
+--bp-text-1:#eefaf6;--bp-text-2:#a4c9c8;--bp-text-3:#6f9a9c;
+--bp-accent:#ff1654;--bp-accent-ink:#ffffff;--bp-accent-hover:#ff3f72;--bp-accent-2:#f3ffbd;
+--bp-ok:#70c1b3;--bp-warn:#f3ffbd;--bp-danger:#ff1654;--bp-info:#247ba0;
+--bp-focus:#ff1654;--bp-overlay:rgba(0,0,0,.66);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Cobalt — cream stock, cobalt ink, vermilion signal. */
+[data-bp-theme="cobalt"]{color-scheme:light;
+--bp-bg:#ebebd3;--bp-surface-1:#f7f7ea;--bp-surface-2:#dedec4;--bp-surface-3:#d2d2b4;
+--bp-line:#cbcbb0;--bp-line-strong:#083d77;
+--bp-text-1:#083d77;--bp-text-2:#3f5b7d;--bp-text-3:#7d8aa0;
+--bp-accent:#f95738;--bp-accent-ink:#ffffff;--bp-accent-hover:#ee964b;--bp-accent-2:#f4d35e;
+--bp-ok:#4f9d69;--bp-warn:#f4d35e;--bp-danger:#f95738;--bp-info:#083d77;
+--bp-focus:#f95738;--bp-overlay:rgba(20,24,31,.42);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}
+/* Sage — muted green paper, forest ink. */
+[data-bp-theme="sage"]{color-scheme:light;
+--bp-bg:#f0f7f4;--bp-surface-1:#ffffff;--bp-surface-2:#dfe8e3;--bp-surface-3:#d0ded7;
+--bp-line:#c8d4cd;--bp-line-strong:#7e8d85;
+--bp-text-1:#3c493f;--bp-text-2:#5f6d63;--bp-text-3:#8b988f;
+--bp-accent:#3c493f;--bp-accent-ink:#f0f7f4;--bp-accent-hover:#2c352e;--bp-accent-2:#a2e3c4;
+--bp-ok:#4f9d69;--bp-warn:#d8b45a;--bp-danger:#c0574f;--bp-info:#7e8d85;
+--bp-focus:#3c493f;--bp-overlay:rgba(20,24,31,.42);
+--bp-grid-line:color-mix(in oklab, var(--bp-line) 60%, transparent);--bp-glow:color-mix(in oklab, var(--bp-accent) 22%, transparent);
+--bp-selection:color-mix(in oklab, var(--bp-accent) 32%, transparent)}

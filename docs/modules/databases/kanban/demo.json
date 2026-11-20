@@ -1,0 +1,25 @@
+{
+  "id": "kanban",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "database.views",
+      "say": "demos.kanban.views"
+    },
+    {
+      "anchor": "database.views.add",
+      "say": "demos.kanban.add",
+      "do": "open"
+    },
+    {
+      "anchor": "database.views.add",
+      "item": "kanban",
+      "say": "demos.kanban.kanban"
+    },
+    {
+      "anchor": "database.views.add",
+      "item": "kanban",
+      "say": "demos.kanban.drag"
+    }
+  ]
+}

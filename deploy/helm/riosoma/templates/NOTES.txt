@@ -1,0 +1,61 @@
+{{- $fullname := include "riosoma.fullname" . -}}
+{{- $ns := .Release.Namespace -}}
+{{- $settings := include "riosoma.settings" . | fromYaml -}}
+Riosoma {{ default .Chart.AppVersion .Values.image.tag }} is installing as {{ $fullname }} in the {{ $ns }} namespace.
+
+1. Wait until it's ready.  Migrations run before the server listens, so a first start or an
+   upgrade can take a few minutes:
+
+     kubectl -n {{ $ns }} rollout status deployment/{{ $fullname }} --timeout=15m
+
+2. Find the setup link.  The server writes it to its log when it starts, and it works until the
+   owner account exists:
+
+     kubectl -n {{ $ns }} logs deployment/{{ $fullname }} | grep "Finish setting up"
+
+{{- if .Values.secret.existingSecret }}
+
+   If your Secret sets RIOSOMA_SETUP_TOKEN, no link is printed.  Open
+   <base URL>/setup#token=<that token> instead.
+{{- else if .Values.secret.values.RIOSOMA_SETUP_TOKEN }}
+
+   RIOSOMA_SETUP_TOKEN is set, so no link is printed.  Open <base URL>/setup#token=<that token>.
+{{- end }}
+
+3. Open the link.
+{{- if .Values.ingress.enabled }}  It starts with {{ get $settings "RIOSOMA_BASE_URL" }}, served by the ingress.
+{{- else if get $settings "RIOSOMA_BASE_URL" }}  It starts with {{ get $settings "RIOSOMA_BASE_URL" }}, so that address must reach the
+   {{ $fullname }} Service.  To try it from this machine first:
+
+     kubectl -n {{ $ns }} port-forward service/{{ $fullname }} 8080:{{ .Values.service.port }}
+{{- else }}  With no ingress and no RIOSOMA_BASE_URL, the link starts with
+   http://localhost:8080, so forward that port first:
+
+     kubectl -n {{ $ns }} port-forward service/{{ $fullname }} 8080:{{ .Values.service.port }}
+
+   Set settings.RIOSOMA_BASE_URL to the address people will use before you invite anyone, since
+   emailed links are built from it.
+{{- end }}
+{{- if .Values.postgresql.enabled }}
+
+The bundled PostgreSQL is for trying Riosoma out: one pod, no backups, and no high availability.
+For production, use a managed database and set secret.values.RIOSOMA_DATABASE_URL instead.
+{{- else if and (not .Values.secret.existingSecret) (not .Values.secret.values.RIOSOMA_DATABASE_URL) (not .Values.secret.values.RIOSOMA_DATABASE_PROFILE) }}
+
+No database is set, so setup asks for one in the browser and keeps it in /config.  Setting
+secret.values.RIOSOMA_DATABASE_URL instead keeps it with the rest of the release's settings.
+{{- end }}
+
+helm uninstall leaves these behind, so a reinstall picks up where this one left off:
+{{- if not .Values.secret.existingSecret }}
+  - Secret {{ $fullname }}, which holds RIOSOMA_SECRET_KEY
+{{- end }}
+{{- if and .Values.persistence.enabled .Values.persistence.keep (not .Values.persistence.existingClaim) }}
+  - PersistentVolumeClaim {{ $fullname }}, which holds /config
+{{- end }}
+{{- if .Values.postgresql.enabled }}
+  - Secret {{ include "riosoma.postgresql.fullname" . }} and PersistentVolumeClaim data-{{ include "riosoma.postgresql.fullname" . }}-0
+{{- end }}
+  - everything in the database
+
+Settings: docs/install/settings.md.  Upgrades and rollbacks: docs/install/upgrades.md.

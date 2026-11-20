@@ -1,0 +1,22 @@
+@layer rio.app {
+  /* The badge sits on the bell's corner, out of the flow, so the button never changes size. */
+  .rio-notification-bell__badge {
+    position: absolute;
+    inset-block-start: calc(-1 * var(--rio-space-1));
+    inset-inline-end: calc(-1 * var(--rio-space-1));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-inline-size: 18px;
+    block-size: 18px;
+    padding-inline: var(--rio-space-1);
+    border-radius: 9px;
+    background: var(--rio-accent);
+    color: var(--rio-aa-on-accent);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-bold);
+    line-height: 1;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,94 @@
+/* Optical Illusion — base color scale + semantic aliases.
+   Base ramps are what themes override (tokens/themes.css).
+   Semantic aliases below only ever reference the ramps, so a theme scope
+   re-tints every component without touching component code. */
+:root{
+  /* --- ink ramp (sampled from the source contour artwork) --- */
+  --ink-900:#0E0F16;
+  --ink-800:#14161F;
+  --ink-700:#272935;
+  --ink-600:#3A3D4C;
+  --ink-500:#4C5062;
+  --ink-400:#5F6378;
+  --ink-300:#9A9DAD;
+
+  /* --- paper ramp --- */
+  --paper-000:#FDFCF6;
+  --paper-100:#F2F0E4;
+  --paper-200:#E6E3D3;
+  --paper-300:#D6D2BF;
+  --paper-400:#BCB8A4;
+
+  /* --- signal (primary action) --- */
+  --signal:#F2521E;
+  --signal-dark:#C63C10;
+  --signal-light:#FF8256;
+  --signal-ink:#0E0F16;
+  /* contrast-clamped pairs — computed, not chosen. See readme §6. */
+  --signal-text:#B6370F;
+  --status-positive-text:#2C705C;
+  --status-caution-text:#786026;
+  --status-critical-text:#BA2E39;
+  --status-info-text:#3A6C6B;
+
+  /* --- op bands: the five-step ordered hue set every theme supplies.
+         Used for op-art fills, data series, game UI, chart strokes. --- */
+  --op-1:#F2521E;
+  --op-2:#14161F;
+  --op-3:#F2F0E4;
+  --op-4:#8C8F9E;
+  --op-5:#C63C10;
+
+  /* --- semantic status --- */
+  --status-positive:#43AA8B;
+  --status-caution:#F9C74F;
+  --status-critical:#E63946;
+  --status-info:#4D908E;
+  /* text drawn ON a status fill — clamped against the fill, not chosen */
+  --text-on-positive:#0E0F16;
+  --text-on-caution:#0E0F16;
+  --text-on-critical:#0E0F16;
+  --text-on-info:#0E0F16;
+
+  --scrim-base:#0E0F16;
+}
+
+/* ============ semantic aliases ============
+   Declared on EVERY element, not on :root. A custom property whose value
+   contains var() is substituted at computed-value time on the element carrying
+   the declaration — so aliases declared only under :root resolve once against
+   html's ramps, and descendants inherit an already-resolved color that a
+   [data-theme] scope further down the tree cannot reach. Re-declaring them
+   here makes every element resolve its aliases against its OWN inherited
+   ramps, which is what makes data-theme work on any ancestor, not just html. */
+*,*::before,*::after{
+  --surface-page:var(--paper-100);
+  --surface-card:var(--paper-000);
+  --surface-sunken:var(--paper-200);
+  --surface-raised:var(--paper-000);
+  --surface-inverse:var(--ink-800);
+  --surface-inverse-soft:var(--ink-700);
+  --surface-accent:var(--signal);
+  --surface-scrim:color-mix(in oklab, var(--scrim-base) 72%, transparent);
+
+  --text-primary:var(--ink-800);
+  --text-secondary:var(--ink-500);
+  --text-muted:var(--ink-400);
+  --text-inverse:var(--paper-000);
+  --text-inverse-soft:var(--paper-300);
+  --text-accent:var(--signal-text);
+  --text-on-accent:var(--signal-ink);
+  --text-link:var(--signal-text);
+  --text-link-hover:var(--ink-900);
+
+  --line-strong:var(--ink-800);
+  --line-mid:var(--ink-300);
+  --line-soft:var(--paper-300);
+  --line-inverse:var(--paper-400);
+  --line-accent:var(--signal);
+
+  --field-bg:var(--paper-000);
+  --field-border:var(--ink-800);
+  --field-placeholder:var(--ink-400);
+  --focus-ring:var(--signal);
+}

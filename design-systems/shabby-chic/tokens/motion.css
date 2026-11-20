@@ -1,0 +1,37 @@
+:root{
+/* ── Motion: unhurried. Nothing in this system bounces, overshoots, or
+      springs. Things fade, settle, and lift by a hairline. ── */
+--ease-settle:cubic-bezier(.22,.61,.36,1); /* @kind other */
+--ease-out:cubic-bezier(.16,.84,.44,1); /* @kind other */
+--ease-in:cubic-bezier(.55,.09,.68,.53); /* @kind other */
+--ease-linear:linear; /* @kind other */
+
+--dur-instant:90ms; /* @kind other */
+--dur-fast:150ms; /* @kind other */
+--dur-base:240ms; /* @kind other */
+--dur-slow:380ms; /* @kind other */
+--dur-page:520ms; /* @kind other */
+--dur-drift:9s; /* @kind other */
+
+--t-control:all var(--dur-base) var(--ease-settle); /* @kind other */
+--t-surface:all var(--dur-slow) var(--ease-settle); /* @kind other */
+--t-fade:opacity var(--dur-base) var(--ease-settle); /* @kind other */
+
+/* ── Interaction deltas ── */
+--hover-lift:-1px; /* @kind other */
+--hover-lift-card:-2px; /* @kind other */
+--press-drop:1px; /* @kind other */
+--hover-tint:8%; /* @kind other */
+--press-tint:16%; /* @kind other */
+--disabled-opacity:.44; /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--dur-instant:0ms; /* @kind other */
+--dur-fast:0ms; /* @kind other */
+--dur-base:0ms; /* @kind other */
+--dur-slow:0ms; /* @kind other */
+--dur-page:0ms; /* @kind other */
+--hover-lift:0; /* @kind other */
+--hover-lift-card:0; /* @kind other */
+--press-drop:0; /* @kind other */
+}}

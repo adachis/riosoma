@@ -1,0 +1,220 @@
+@layer rio.app {
+  /* The dialog body scrolls as a whole, and the form inside keeps its natural height, so a tall
+     step never squeezes a control or a scrolling part of it.  The small inset keeps focus rings
+     clear of the scroll edge, and the matching negative margin keeps everything where it was. */
+  .rio-synced-body {
+    margin: calc(var(--rio-space-1) * -1);
+    padding: var(--rio-space-1);
+  }
+  .rio-synced-form {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+  .rio-synced-note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  /* What a live read left out, or why it failed, between the sync bar and the view. */
+  .rio-live-notice {
+    flex: none;
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+  }
+  .rio-live-notice ul {
+    margin: 0;
+    padding-inline-start: var(--rio-space-4);
+  }
+  .rio-live-notice__actions {
+    margin-block-start: var(--rio-space-2);
+  }
+  .rio-synced-status {
+    flex: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+    border-block-end: 1px solid var(--rio-border);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-synced-status [role='status'] {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    margin-inline-end: auto;
+    flex-wrap: wrap;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+    flex: 1 1 auto;
+  }
+  .rio-synced-elapsed {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-synced-status--first-copy {
+    padding: var(--rio-space-4);
+    align-items: start;
+  }
+  .rio-synced-status--first-copy [role='status'] {
+    flex-basis: 100%;
+  }
+  /* A file's size, and how many files read together, side by side. */
+  .rio-synced-object__meta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+  }
+  .rio-synced-column {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: var(--rio-space-2);
+    padding-block: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+  .rio-synced-editors {
+    block-size: min(50vh, 30rem);
+    overflow: auto;
+    min-inline-size: 0;
+    padding: var(--rio-space-1);
+  }
+  .rio-synced-editors:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-synced-field-tools {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-synced-keys {
+    display: grid;
+    gap: var(--rio-space-1);
+    max-block-size: calc(var(--rio-space-4) * 12);
+    overflow: auto;
+    padding: var(--rio-space-1);
+  }
+  .rio-synced-field-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: var(--rio-space-2);
+  }
+  .rio-synced-field-actions > .rio-field {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+  .rio-synced-column > p {
+    grid-column: span 2;
+  }
+  /* How a column comes across, under the whole row. */
+  .rio-synced-column > .rio-synced-column__note {
+    grid-column: 1 / -1;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-synced-record-value {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-synced-query textarea {
+    font-family: var(--rio-font-mono);
+  }
+  .rio-synced-objects {
+    max-block-size: 20rem;
+  }
+  .rio-synced-objects__empty {
+    margin: 0;
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-synced-sr-only {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .rio-synced-preview {
+    overflow-x: auto;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-synced-preview:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-synced-preview table {
+    min-inline-size: 100%;
+    border-collapse: collapse;
+  }
+  .rio-synced-preview th,
+  .rio-synced-preview td {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    text-align: start;
+    vertical-align: top;
+  }
+  .rio-synced-preview th {
+    border-block-end: 1px solid var(--rio-border);
+    background-color: var(--rio-surface-sunken);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-synced-preview tr + tr td {
+    border-block-start: 1px solid var(--rio-border);
+  }
+  /* One line per value: long ones end in an ellipsis instead of stretching their column. */
+  .rio-synced-preview__cell {
+    display: block;
+    max-inline-size: 16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-synced-record {
+    position: relative;
+  }
+  .rio-synced-override::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inline-size: var(--rio-space-2);
+    block-size: var(--rio-space-2);
+    background: var(--rio-warning);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+  .rio-synced-override[data-loading]::after {
+    display: none;
+  }
+  @media (max-width: 40rem) {
+    .rio-synced-column {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .rio-synced-column > p {
+      grid-column: auto;
+    }
+  }
+  .rio-synced-explanation {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  /* A webhook path someone types beside the button that adds it. */
+  .rio-synced-path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-synced-path > :first-child {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+}

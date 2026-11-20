@@ -1,0 +1,21 @@
+:root{
+--dur-instant:90ms; /* @kind other */
+--dur-fast:140ms; /* @kind other */
+--dur-med:220ms; /* @kind other */
+--dur-slow:380ms; /* @kind other */
+--dur-drift:900ms; /* @kind other */
+--ease-soft:cubic-bezier(.32,.72,.24,1); /* @kind other */
+--ease-out:cubic-bezier(.22,1,.36,1); /* @kind other */
+--ease-in-out:cubic-bezier(.55,.06,.32,1); /* @kind other */
+--ease-settle:cubic-bezier(.34,1.16,.64,1); /* @kind other */
+--t-hover:color var(--dur-fast) var(--ease-soft),background-color var(--dur-fast) var(--ease-soft),border-color var(--dur-fast) var(--ease-soft),box-shadow var(--dur-med) var(--ease-soft); /* @kind other */
+--t-press:transform var(--dur-instant) var(--ease-soft); /* @kind other */
+--t-panel:opacity var(--dur-med) var(--ease-out),transform var(--dur-med) var(--ease-out); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--dur-instant:0ms; /* @kind other */
+--dur-fast:0ms; /* @kind other */
+--dur-med:0ms; /* @kind other */
+--dur-slow:0ms; /* @kind other */
+--dur-drift:0ms; /* @kind other */
+}}

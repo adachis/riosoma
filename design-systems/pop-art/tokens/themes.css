@@ -1,0 +1,139 @@
+/* Palette variants. Each theme rewrites the same role tokens, so every component,
+   screen and print layout in the system re-skins with one attribute:
+   <html data-theme="voltage">  /  <div data-theme="mint">
+   Where a palette has no hue for a semantic role, the signature semantic colour is
+   kept as a fallback (documented in readme.md → Colour scheme variants). */
+
+[data-theme="signature"]{}
+
+[data-theme="spectrum"]{
+  --ink:#14232C;--ink-soft:#2B4250;--paper:#FFF3E2;--paper-2:#FFE7C8;--panel:#FFFFFF;--panel-sunk:#F4E8D6;
+  --accent:#F94144;--accent-2:#277DA1;--accent-3:#F9C74F;--accent-4:#F3722C;--accent-5:#43AA8B;
+  --on-accent:#FFFFFF;--on-accent-2:#FFFFFF;--on-accent-3:#14232C;--on-accent-4:#14232C;--on-accent-5:#14232C;
+  --text-strong:#14232C;--text-body:#14232C;--text-muted:#577590;--text-inverse:#FFF3E2;
+  --text-link:#277DA1;--text-link-hover:#F94144;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#90BE6D;--success-on:#14232C;--warning:#F8961E;--warning-on:#14232C;--danger:#F94144;--danger-on:#FFFFFF;--info:#4D908E;--info-on:#FFFFFF;
+  --dot:#F94144;--dot-2:#277DA1;--focus-ring:#F3722C;
+}
+
+[data-theme="midnight"]{
+  --ink:#000814;--ink-soft:#001D3D;--paper:#001D3D;--paper-2:#002A55;--panel:#003566;--panel-sunk:#001730;
+  --accent:#FFC300;--accent-2:#FFD60A;--accent-3:#003566;--accent-4:#4D8FD1;--accent-5:#000814;
+  --on-accent:#000814;--on-accent-2:#000814;--on-accent-3:#FFFFFF;--on-accent-4:#000814;--on-accent-5:#FFD60A;
+  --text-strong:#FFD60A;--text-body:#EAF2FF;--text-muted:#9DBBDD;--text-inverse:#000814;
+  --text-link:#FFC300;--text-link-hover:#FFD60A;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#02407A;--surface-sunk:var(--panel-sunk);--surface-ink:#000814;
+  --success:#66D19E;--success-on:#000814;--warning:#FFC300;--warning-on:#000814;--danger:#FF5C5C;--danger-on:#000814;--info:#4D8FD1;--info-on:#000814;
+  --dot:#FFC300;--dot-2:#4D8FD1;--focus-ring:#FFD60A;
+}
+
+[data-theme="voltage"]{
+  --ink:#15002E;--ink-soft:#390099;--paper:#FFF7E0;--paper-2:#FFEEC2;--panel:#FFFFFF;--panel-sunk:#F5E9D2;
+  --accent:#FF0054;--accent-2:#390099;--accent-3:#FFBD00;--accent-4:#FF5400;--accent-5:#9E0059;
+  --on-accent:#FFFFFF;--on-accent-2:#FFFFFF;--on-accent-3:#15002E;--on-accent-4:#15002E;--on-accent-5:#FFFFFF;
+  --text-strong:#15002E;--text-body:#1B0533;--text-muted:#6B4A80;--text-inverse:#FFF7E0;
+  --text-link:#FF0054;--text-link-hover:#390099;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#00A86B;--success-on:#FFFFFF;--warning:#FFBD00;--warning-on:#15002E;--danger:#FF0054;--danger-on:#FFFFFF;--info:#390099;--info-on:#FFFFFF;
+  --dot:#FF0054;--dot-2:#390099;--focus-ring:#FFBD00;
+}
+
+[data-theme="newsprint"]{
+  --ink:#1D3557;--ink-soft:#2B4A76;--paper:#F1FAEE;--paper-2:#E1EFDD;--panel:#FFFFFF;--panel-sunk:#DCEAE0;
+  --accent:#E63946;--accent-2:#457B9D;--accent-3:#A8DADC;--accent-4:#1D3557;--accent-5:#8AB4C9;
+  --on-accent:#FFFFFF;--on-accent-2:#FFFFFF;--on-accent-3:#1D3557;--on-accent-4:#F1FAEE;--on-accent-5:#1D3557;
+  --text-strong:#1D3557;--text-body:#1D3557;--text-muted:#5A7599;--text-inverse:#F1FAEE;
+  --text-link:#E63946;--text-link-hover:#457B9D;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#4C956C;--success-on:#FFFFFF;--warning:#E9A23B;--warning-on:#1D3557;--danger:#E63946;--danger-on:#FFFFFF;--info:#457B9D;--info-on:#FFFFFF;
+  --dot:#E63946;--dot-2:#457B9D;--focus-ring:#457B9D;
+}
+
+[data-theme="sherbet"]{
+  --ink:#3A3230;--ink-soft:#574B47;--paper:#F7EDE2;--paper-2:#F5CAC3;--panel:#FFFFFF;--panel-sunk:#EFE0D2;
+  --accent:#F28482;--accent-2:#84A59D;--accent-3:#F6BD60;--accent-4:#F5CAC3;--accent-5:#3A3230;
+  --on-accent:#3A3230;--on-accent-2:#3A3230;--on-accent-3:#3A3230;--on-accent-4:#3A3230;--on-accent-5:#F7EDE2;
+  --text-strong:#3A3230;--text-body:#3A3230;--text-muted:#7A6B64;--text-inverse:#F7EDE2;
+  --text-link:#C75C5A;--text-link-hover:#84A59D;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#6F9E92;--success-on:#FFFFFF;--warning:#F6BD60;--warning-on:#3A3230;--danger:#D8605D;--danger-on:#FFFFFF;--info:#84A59D;--info-on:#3A3230;
+  --dot:#F28482;--dot-2:#84A59D;--focus-ring:#F28482;
+}
+
+[data-theme="dockside"]{
+  --ink:#233D4D;--ink-soft:#365A70;--paper:#FFF7EA;--paper-2:#FDEBD2;--panel:#FFFFFF;--panel-sunk:#F0E5D4;
+  --accent:#FE7F2D;--accent-2:#619B8A;--accent-3:#FCCA46;--accent-4:#A1C181;--accent-5:#233D4D;
+  --on-accent:#233D4D;--on-accent-2:#233D4D;--on-accent-3:#233D4D;--on-accent-4:#233D4D;--on-accent-5:#FFF7EA;
+  --text-strong:#233D4D;--text-body:#233D4D;--text-muted:#5C7683;--text-inverse:#FFF7EA;
+  --text-link:#D8641A;--text-link-hover:#619B8A;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#619B8A;--success-on:#233D4D;--warning:#FCCA46;--warning-on:#233D4D;--danger:#D94F2B;--danger-on:#FFFFFF;--info:#4A7A8C;--info-on:#FFFFFF;
+  --dot:#FE7F2D;--dot-2:#619B8A;--focus-ring:#FE7F2D;
+}
+
+[data-theme="mint"]{
+  --ink:#14364A;--ink-soft:#22577A;--paper:#F2FFF5;--paper-2:#C7F9CC;--panel:#FFFFFF;--panel-sunk:#DEF3E2;
+  --accent:#22577A;--accent-2:#38A3A5;--accent-3:#57CC99;--accent-4:#80ED99;--accent-5:#C7F9CC;
+  --on-accent:#FFFFFF;--on-accent-2:#14364A;--on-accent-3:#14364A;--on-accent-4:#14364A;--on-accent-5:#14364A;
+  --text-strong:#14364A;--text-body:#14364A;--text-muted:#4A7288;--text-inverse:#F2FFF5;
+  --text-link:#22577A;--text-link-hover:#38A3A5;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#57CC99;--success-on:#14364A;--warning:#E9B949;--warning-on:#14364A;--danger:#D8434E;--danger-on:#FFFFFF;--info:#38A3A5;--info-on:#14364A;
+  --dot:#38A3A5;--dot-2:#22577A;--focus-ring:#22577A;
+}
+
+[data-theme="jungle"]{
+  --ink:#0F1A12;--ink-soft:#1D2E22;--paper:#2E5339;--paper-2:#395F42;--panel:#495F41;--panel-sunk:#26452F;
+  --accent:#00FDDC;--accent-2:#FF5666;--accent-3:#FFCCC9;--accent-4:#495F41;--accent-5:#2E5339;
+  --on-accent:#0F1A12;--on-accent-2:#0F1A12;--on-accent-3:#0F1A12;--on-accent-4:#F3FFF6;--on-accent-5:#F3FFF6;
+  --text-strong:#00FDDC;--text-body:#F3FFF6;--text-muted:#B9D3BF;--text-inverse:#0F1A12;
+  --text-link:#00FDDC;--text-link-hover:#FFCCC9;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#55704B;--surface-sunk:var(--panel-sunk);--surface-ink:#0F1A12;
+  --success:#00FDDC;--success-on:#0F1A12;--warning:#FFCCC9;--warning-on:#0F1A12;--danger:#FF5666;--danger-on:#0F1A12;--info:#8FE3D5;--info-on:#0F1A12;
+  --dot:#00FDDC;--dot-2:#FF5666;--focus-ring:#00FDDC;
+}
+
+[data-theme="bubblegum"]{
+  --ink:#1B1B2F;--ink-soft:#33334F;--paper:#F2FBFF;--paper-2:#DCF3FF;--panel:#FFFFFF;--panel-sunk:#E3EEF4;
+  --accent:#FF70A6;--accent-2:#70D6FF;--accent-3:#FFD670;--accent-4:#FF9770;--accent-5:#1B1B2F;
+  --on-accent:#1B1B2F;--on-accent-2:#1B1B2F;--on-accent-3:#1B1B2F;--on-accent-4:#1B1B2F;--on-accent-5:#F2FBFF;
+  --text-strong:#1B1B2F;--text-body:#1B1B2F;--text-muted:#5B5B78;--text-inverse:#F2FBFF;
+  --text-link:#E0417F;--text-link-hover:#1B9FD8;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#3FBF9B;--success-on:#1B1B2F;--warning:#FFD670;--warning-on:#1B1B2F;--danger:#E0417F;--danger-on:#FFFFFF;--info:#70D6FF;--info-on:#1B1B2F;
+  --dot:#FF70A6;--dot-2:#70D6FF;--focus-ring:#FF70A6;
+}
+
+[data-theme="lagoon"]{
+  --ink:#10394D;--ink-soft:#247BA0;--paper:#FBFFE9;--paper-2:#F3FFBD;--panel:#FFFFFF;--panel-sunk:#E9F2D6;
+  --accent:#FF1654;--accent-2:#247BA0;--accent-3:#70C1B3;--accent-4:#B2DBBF;--accent-5:#F3FFBD;
+  --on-accent:#FFFFFF;--on-accent-2:#FFFFFF;--on-accent-3:#10394D;--on-accent-4:#10394D;--on-accent-5:#10394D;
+  --text-strong:#10394D;--text-body:#10394D;--text-muted:#4C7285;--text-inverse:#FBFFE9;
+  --text-link:#FF1654;--text-link-hover:#247BA0;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#4FA98F;--success-on:#FFFFFF;--warning:#E8B23A;--warning-on:#10394D;--danger:#FF1654;--danger-on:#FFFFFF;--info:#247BA0;--info-on:#FFFFFF;
+  --dot:#FF1654;--dot-2:#247BA0;--focus-ring:#247BA0;
+}
+
+[data-theme="pressroom"]{
+  --ink:#083D77;--ink-soft:#1C5490;--paper:#EBEBD3;--paper-2:#DEDEC4;--panel:#FFFFFF;--panel-sunk:#DCDCC2;
+  --accent:#F95738;--accent-2:#083D77;--accent-3:#F4D35E;--accent-4:#EE964B;--accent-5:#052A55;
+  --on-accent:#0B0B0B;--on-accent-2:#EBEBD3;--on-accent-3:#083D77;--on-accent-4:#083D77;--on-accent-5:#EBEBD3;
+  --text-strong:#083D77;--text-body:#12305A;--text-muted:#5E6B7A;--text-inverse:#EBEBD3;
+  --text-link:#C93B1E;--text-link-hover:#083D77;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#3E8E5A;--success-on:#FFFFFF;--warning:#F4D35E;--warning-on:#083D77;--danger:#C93B1E;--danger-on:#FFFFFF;--info:#083D77;--info-on:#EBEBD3;
+  --dot:#F95738;--dot-2:#083D77;--focus-ring:#F95738;
+}
+
+[data-theme="sage"]{
+  --ink:#2A3329;--ink-soft:#3C493F;--paper:#F0F7F4;--paper-2:#DDE7E2;--panel:#FFFFFF;--panel-sunk:#E2EAE6;
+  --accent:#3C493F;--accent-2:#A2E3C4;--accent-3:#7E8D85;--accent-4:#B3BFB8;--accent-5:#2A3329;
+  --on-accent:#F0F7F4;--on-accent-2:#2A3329;--on-accent-3:#2A3329;--on-accent-4:#2A3329;--on-accent-5:#F0F7F4;
+  --text-strong:#2A3329;--text-body:#2A3329;--text-muted:#5E6B62;--text-inverse:#F0F7F4;
+  --text-link:#3C493F;--text-link-hover:#5E8A72;
+  --surface-page:var(--paper);--surface-card:var(--panel);--surface-raised:#FFFFFF;--surface-sunk:var(--panel-sunk);--surface-ink:var(--ink);
+  --success:#5E8A72;--success-on:#FFFFFF;--warning:#C2A559;--warning-on:#2A3329;--danger:#B0554E;--danger-on:#FFFFFF;--info:#7E8D85;--info-on:#2A3329;
+  --dot:#3C493F;--dot-2:#A2E3C4;--focus-ring:#3C493F;
+}

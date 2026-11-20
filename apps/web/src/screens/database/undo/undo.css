@@ -1,0 +1,31 @@
+@layer rio.app {
+  .rio-undo-history__intro {
+    margin-block: 0 var(--rio-space-3);
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-undo-history__section + .rio-undo-history__section {
+    margin-block-start: var(--rio-space-4);
+  }
+
+  .rio-undo-history__heading {
+    margin-block: 0 var(--rio-space-2);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-undo-history__empty {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-undo-history__list {
+    max-block-size: none;
+  }
+
+  .rio-undo-history__asks-first {
+    margin-inline-start: var(--rio-space-2);
+    color: var(--rio-aa-text-muted);
+  }
+}

@@ -1,0 +1,10 @@
+/* Webfonts. No binaries were supplied with the source references, so the closest
+   Google Fonts matches are used and loaded from the Google Fonts CDN.
+   See readme.md > VISUAL FOUNDATIONS > Type substitutions. */
+@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
+
+:root{
+  --font-display:"Familjen Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-text:"Hanken Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}

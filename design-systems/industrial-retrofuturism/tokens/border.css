@@ -1,0 +1,24 @@
+:root{
+  /* Radii. Hardware corners are small and deliberate; 999px is for pill
+     switches and lamps only. There is no 8/12/16px "card radius" here. */
+  --r-0:0px;
+  --r-2:2px;
+  --r-3:3px;
+  --r-6:6px;
+  --r-pill:999px;
+
+  --bw-hair:1px;
+  --bw-rule:1px;
+  --bw-heavy:2px;
+  --bw-frame:3px;
+
+  --border-hair:var(--bw-hair) solid var(--line-hair);
+  --border-strong:var(--bw-hair) solid var(--line-strong);
+  --border-quiet:var(--bw-hair) solid var(--line-quiet);
+  --border-heavy:var(--bw-heavy) solid var(--line-strong);
+
+  /* Perforation / dot-matrix fill used for speaker grilles and empty states. */
+  --pattern-dots:radial-gradient(var(--line-hair) 1px,transparent 1.2px) 0 0/6px 6px; /* @kind other */
+  --pattern-dots-tight:radial-gradient(var(--line-hair) 1px,transparent 1.2px) 0 0/4px 4px; /* @kind other */
+  --pattern-grid:linear-gradient(var(--line-quiet) 1px,transparent 1px) 0 0/100% 10px,linear-gradient(90deg,var(--line-quiet) 1px,transparent 1px) 0 0/10px 100%; /* @kind other */
+}

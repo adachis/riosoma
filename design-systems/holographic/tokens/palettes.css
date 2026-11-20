@@ -1,0 +1,164 @@
+/* Holographic — palette variants.
+   Twelve interchangeable colourways. Each sets only five things:
+   the dark anchor (--tone-deep), four accents, the ink that sits on accent fills,
+   and the spectrum stop list used by every iridescent gradient.
+   Everything else (canvas, glass, text, states) derives in tokens/color.css.
+   Apply with data-theme on :root or any subtree: <div data-theme="lagoon">.
+   Status colours are deliberately theme-independent — see tokens/color.css. */
+
+:root,
+[data-theme="spectral"] {
+  --theme-name: "Spectral"; /* @kind other */
+  --p-1: #f94144; /* @kind color */ --p-2: #f3722c; /* @kind color */ --p-3: #f8961e; /* @kind color */ --p-4: #f9844a; /* @kind color */ --p-5: #f9c74f; /* @kind color */
+  --p-6: #90be6d; /* @kind color */ --p-7: #43aa8b; /* @kind color */ --p-8: #4d908e; /* @kind color */ --p-9: #577590; /* @kind color */ --p-10: #277da1; /* @kind color */
+  --tone-deep: #577590; /* @kind color */
+  --accent: #f94144; /* @kind color */
+  --accent-2: #f8961e; /* @kind color */
+  --accent-3: #43aa8b; /* @kind color */
+  --accent-4: #277da1; /* @kind color */
+  --on-accent: #180608; /* @kind color */
+  --spectrum-stops: #f94144, #f8961e, #f9c74f, #90be6d, #43aa8b, #277da1; /* @kind other */
+}
+
+[data-theme="midnight"] {
+  --theme-name: "Midnight"; /* @kind other */
+  --p-1: #000814; /* @kind color */ --p-2: #001d3d; /* @kind color */ --p-3: #003566; /* @kind color */ --p-4: #ffc300; /* @kind color */ --p-5: #ffd60a; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #000814; /* @kind color */
+  --accent: #ffc300; /* @kind color */
+  --accent-2: #ffd60a; /* @kind color */
+  --accent-3: #003566; /* @kind color */
+  --accent-4: #001d3d; /* @kind color */
+  --on-accent: #000814; /* @kind color */
+  --spectrum-stops: #ffd60a, #ffc300, #003566, #001d3d, #003566, #ffd60a; /* @kind other */
+}
+
+[data-theme="ultraviolet"] {
+  --theme-name: "Ultraviolet"; /* @kind other */
+  --p-1: #390099; /* @kind color */ --p-2: #9e0059; /* @kind color */ --p-3: #ff0054; /* @kind color */ --p-4: #ff5400; /* @kind color */ --p-5: #ffbd00; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #390099; /* @kind color */
+  --accent: #ff0054; /* @kind color */
+  --accent-2: #ff5400; /* @kind color */
+  --accent-3: #ffbd00; /* @kind color */
+  --accent-4: #9e0059; /* @kind color */
+  --on-accent: #14000a; /* @kind color */
+  --spectrum-stops: #390099, #9e0059, #ff0054, #ff5400, #ffbd00; /* @kind other */
+}
+
+[data-theme="signal"] {
+  --theme-name: "Signal"; /* @kind other */
+  --p-1: #e63946; /* @kind color */ --p-2: #f1faee; /* @kind color */ --p-3: #a8dadc; /* @kind color */ --p-4: #457b9d; /* @kind color */ --p-5: #1d3557; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #1d3557; /* @kind color */
+  --accent: #e63946; /* @kind color */
+  --accent-2: #457b9d; /* @kind color */
+  --accent-3: #a8dadc; /* @kind color */
+  --accent-4: #f1faee; /* @kind color */
+  --on-accent: #ffffff; /* @kind color */
+  --spectrum-stops: #e63946, #f1faee, #a8dadc, #457b9d, #1d3557; /* @kind other */
+}
+
+[data-theme="apricot"] {
+  --theme-name: "Apricot"; /* @kind other */
+  --p-1: #f6bd60; /* @kind color */ --p-2: #f7ede2; /* @kind color */ --p-3: #f5cac3; /* @kind color */ --p-4: #84a59d; /* @kind color */ --p-5: #f28482; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #84a59d; /* @kind color */
+  --accent: #f28482; /* @kind color */
+  --accent-2: #f6bd60; /* @kind color */
+  --accent-3: #84a59d; /* @kind color */
+  --accent-4: #f5cac3; /* @kind color */
+  --on-accent: #2c1412; /* @kind color */
+  --spectrum-stops: #f6bd60, #f7ede2, #f5cac3, #f28482, #84a59d; /* @kind other */
+}
+
+[data-theme="terracotta"] {
+  --theme-name: "Terracotta"; /* @kind other */
+  --p-1: #233d4d; /* @kind color */ --p-2: #fe7f2d; /* @kind color */ --p-3: #fcca46; /* @kind color */ --p-4: #a1c181; /* @kind color */ --p-5: #619b8a; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #233d4d; /* @kind color */
+  --accent: #fe7f2d; /* @kind color */
+  --accent-2: #fcca46; /* @kind color */
+  --accent-3: #a1c181; /* @kind color */
+  --accent-4: #619b8a; /* @kind color */
+  --on-accent: #1c0c02; /* @kind color */
+  --spectrum-stops: #233d4d, #619b8a, #a1c181, #fcca46, #fe7f2d; /* @kind other */
+}
+
+[data-theme="lagoon"] {
+  --theme-name: "Lagoon"; /* @kind other */
+  --p-1: #22577a; /* @kind color */ --p-2: #38a3a5; /* @kind color */ --p-3: #57cc99; /* @kind color */ --p-4: #80ed99; /* @kind color */ --p-5: #c7f9cc; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #22577a; /* @kind color */
+  --accent: #57cc99; /* @kind color */
+  --accent-2: #38a3a5; /* @kind color */
+  --accent-3: #80ed99; /* @kind color */
+  --accent-4: #c7f9cc; /* @kind color */
+  --on-accent: #04231a; /* @kind color */
+  --spectrum-stops: #22577a, #38a3a5, #57cc99, #80ed99, #c7f9cc; /* @kind other */
+}
+
+[data-theme="foliage"] {
+  --theme-name: "Foliage"; /* @kind other */
+  --p-1: #00fddc; /* @kind color */ --p-2: #2e5339; /* @kind color */ --p-3: #495f41; /* @kind color */ --p-4: #ff5666; /* @kind color */ --p-5: #ffccc9; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #2e5339; /* @kind color */
+  --accent: #00fddc; /* @kind color */
+  --accent-2: #ff5666; /* @kind color */
+  --accent-3: #ffccc9; /* @kind color */
+  --accent-4: #495f41; /* @kind color */
+  --on-accent: #002420; /* @kind color */
+  --spectrum-stops: #00fddc, #495f41, #2e5339, #ff5666, #ffccc9; /* @kind other */
+}
+
+[data-theme="bubblegum"] {
+  --theme-name: "Bubblegum"; /* @kind other */
+  --p-1: #70d6ff; /* @kind color */ --p-2: #ff70a6; /* @kind color */ --p-3: #ff9770; /* @kind color */ --p-4: #ffd670; /* @kind color */ --p-5: none; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #70d6ff; /* @kind color */
+  --accent: #ff70a6; /* @kind color */
+  --accent-2: #70d6ff; /* @kind color */
+  --accent-3: #ff9770; /* @kind color */
+  --accent-4: #ffd670; /* @kind color */
+  --on-accent: #2c0718; /* @kind color */
+  --spectrum-stops: #70d6ff, #ff70a6, #ff9770, #ffd670, #70d6ff; /* @kind other */
+}
+
+[data-theme="reef"] {
+  --theme-name: "Reef"; /* @kind other */
+  --p-1: #247ba0; /* @kind color */ --p-2: #70c1b3; /* @kind color */ --p-3: #b2dbbf; /* @kind color */ --p-4: #f3ffbd; /* @kind color */ --p-5: #ff1654; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #247ba0; /* @kind color */
+  --accent: #ff1654; /* @kind color */
+  --accent-2: #70c1b3; /* @kind color */
+  --accent-3: #f3ffbd; /* @kind color */
+  --accent-4: #b2dbbf; /* @kind color */
+  --on-accent: #ffffff; /* @kind color */
+  --spectrum-stops: #247ba0, #70c1b3, #b2dbbf, #f3ffbd, #ff1654; /* @kind other */
+}
+
+[data-theme="sandstone"] {
+  --theme-name: "Sandstone"; /* @kind other */
+  --p-1: #083d77; /* @kind color */ --p-2: #ebebd3; /* @kind color */ --p-3: #f4d35e; /* @kind color */ --p-4: #ee964b; /* @kind color */ --p-5: #f95738; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #083d77; /* @kind color */
+  --accent: #f95738; /* @kind color */
+  --accent-2: #f4d35e; /* @kind color */
+  --accent-3: #ee964b; /* @kind color */
+  --accent-4: #ebebd3; /* @kind color */
+  --on-accent: #1e0703; /* @kind color */
+  --spectrum-stops: #083d77, #ebebd3, #f4d35e, #ee964b, #f95738; /* @kind other */
+}
+
+[data-theme="sage"] {
+  --theme-name: "Sage"; /* @kind other */
+  --p-1: #3c493f; /* @kind color */ --p-2: #7e8d85; /* @kind color */ --p-3: #b3bfb8; /* @kind color */ --p-4: #f0f7f4; /* @kind color */ --p-5: #a2e3c4; /* @kind color */
+  --p-6: none; /* @kind color */ --p-7: none; /* @kind color */ --p-8: none; /* @kind color */ --p-9: none; /* @kind color */ --p-10: none; /* @kind color */
+  --tone-deep: #3c493f; /* @kind color */
+  --accent: #a2e3c4; /* @kind color */
+  --accent-2: #7e8d85; /* @kind color */
+  --accent-3: #b3bfb8; /* @kind color */
+  --accent-4: #f0f7f4; /* @kind color */
+  --on-accent: #0e241a; /* @kind color */
+  --spectrum-stops: #3c493f, #7e8d85, #b3bfb8, #f0f7f4, #a2e3c4; /* @kind other */
+}

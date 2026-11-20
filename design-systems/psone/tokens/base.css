@@ -1,0 +1,11 @@
+/* Minimal global reset. Everything else is token-driven and component-local. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-app);color:var(--text-body);font:var(--type-body);text-shadow:var(--shadow-text)}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:var(--fw-bold);margin:0;text-shadow:var(--shadow-title)}
+p{margin:0}
+a{color:var(--text-link);text-decoration:none}
+a:hover{color:var(--text-link-hover);text-decoration:underline}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:var(--bw-inner) solid var(--text-placeholder);outline-offset:2px}
+img{max-width:100%;display:block}
+.psone-pixel{image-rendering:pixelated;-webkit-font-smoothing:none;font-smooth:never}

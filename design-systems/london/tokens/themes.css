@@ -1,0 +1,110 @@
+/* Twelve colour schemes. Apply with data-theme on :root or ANY subtree:
+   <div data-theme="nightbus"> … </div>. Semantic aliases in colors.css follow automatically.
+   Themes used for preview/switching only — a product picks one and ships it. */
+/* Signal — Default. Pillar-box red on ice-white paper, navy ink. */
+[data-theme="signal"]{
+  --paper:#f1faee;--paper-2:#ffffff;--paper-3:#e2efe4;
+  --ink:#1d3557;--ink-2:#2c4a72;--ink-3:#5b7595;
+  --brand:#e63946;--brand-2:#c22633;--on-brand:#fffdfa;
+  --accent-a:#457b9d;--accent-b:#a8dadc;--accent-c:#1d3557;--accent-d:#e63946;--accent-e:#f1faee;
+  --success:#2f7d4f;--warning:#c98a00;--danger:#b3261e;--info:#457b9d;
+}
+
+/* Spectral — Ten-step chromatic ramp, warm to cool. For data and route diagrams. */
+[data-theme="spectral"]{
+  --paper:#fdfaf4;--paper-2:#ffffff;--paper-3:#f6efe2;
+  --ink:#2a3742;--ink-2:#3d4d5b;--ink-3:#6c7d8c;
+  --brand:#f94144;--brand-2:#d92b2f;--on-brand:#fffaf7;
+  --accent-a:#277da1;--accent-b:#f9c74f;--accent-c:#43aa8b;--accent-d:#f3722c;--accent-e:#577590;
+  --success:#43aa8b;--warning:#f8961e;--danger:#f94144;--info:#4d908e;
+}
+
+/* Night Bus — Dark. Deep navy fields with amber signage type. */
+[data-theme="nightbus"]{
+  --paper:#000814;--paper-2:#001d3d;--paper-3:#00142c;
+  --ink:#ffd60a;--ink-2:#ffc300;--ink-3:#9fb4cd;
+  --brand:#ffc300;--brand-2:#ffd60a;--on-brand:#000814;
+  --accent-a:#003566;--accent-b:#001d3d;--accent-c:#ffd60a;--accent-d:#ffc300;--accent-e:#003566;
+  --success:#5bd68b;--warning:#ffc300;--danger:#ff6b5c;--info:#6ea8ff;
+}
+
+/* Neon — High-voltage campaign palette: violet, magenta, hot red, amber. */
+[data-theme="neon"]{
+  --paper:#fff8ea;--paper-2:#ffffff;--paper-3:#ffeccd;
+  --ink:#390099;--ink-2:#4b16b0;--ink-3:#7a5bc0;
+  --brand:#ff0054;--brand-2:#d10045;--on-brand:#fff8ea;
+  --accent-a:#9e0059;--accent-b:#ffbd00;--accent-c:#ff5400;--accent-d:#390099;--accent-e:#ff0054;
+  --success:#2f8f5b;--warning:#ff5400;--danger:#ff0054;--info:#390099;
+}
+
+/* Terracotta — Soft plaster and clay. Editorial, low contrast, print-friendly. */
+[data-theme="terracotta"]{
+  --paper:#f7ede2;--paper-2:#fffaf4;--paper-3:#f5cac3;
+  --ink:#3f3330;--ink-2:#5c4a45;--ink-3:#8a7570;
+  --brand:#f28482;--brand-2:#d1605e;--on-brand:#3f3330;
+  --accent-a:#84a59d;--accent-b:#f6bd60;--accent-c:#f5cac3;--accent-d:#f28482;--accent-e:#f7ede2;
+  --success:#5f8d7e;--warning:#d99a2b;--danger:#c9564f;--info:#84a59d;
+}
+
+/* Depot — Slate blue with hazard orange and yellow. Industrial, operational. */
+[data-theme="depot"]{
+  --paper:#fbf7ef;--paper-2:#ffffff;--paper-3:#eee7d8;
+  --ink:#233d4d;--ink-2:#33546a;--ink-3:#5f7b8c;
+  --brand:#fe7f2d;--brand-2:#dd6413;--on-brand:#1a2d39;
+  --accent-a:#619b8a;--accent-b:#fcca46;--accent-c:#a1c181;--accent-d:#233d4d;--accent-e:#fe7f2d;
+  --success:#619b8a;--warning:#fcca46;--danger:#d94f2b;--info:#3c6e8f;
+}
+
+/* Verdant — Teal-to-mint ramp. Calm, wayfinding-legible, single-hue family. */
+[data-theme="verdant"]{
+  --paper:#f3fdf6;--paper-2:#ffffff;--paper-3:#c7f9cc;
+  --ink:#0f3a52;--ink-2:#22577a;--ink-3:#4f7f96;
+  --brand:#38a3a5;--brand-2:#22577a;--on-brand:#f3fdf6;
+  --accent-a:#57cc99;--accent-b:#80ed99;--accent-c:#c7f9cc;--accent-d:#22577a;--accent-e:#38a3a5;
+  --success:#2f9e6b;--warning:#c98a00;--danger:#c1443a;--info:#38a3a5;
+}
+
+/* Mint Punch — Dark forest with electric mint and coral. Loud, nocturnal. */
+[data-theme="mintpunch"]{
+  --paper:#2e5339;--paper-2:#495f41;--paper-3:#26482f;
+  --ink:#f2fff8;--ink-2:#d9f7e6;--ink-3:#a9c9b6;
+  --brand:#00fddc;--brand-2:#00d6bb;--on-brand:#123021;
+  --accent-a:#ff5666;--accent-b:#ffccc9;--accent-c:#495f41;--accent-d:#00fddc;--accent-e:#ff5666;
+  --success:#00fddc;--warning:#ffccc9;--danger:#ff5666;--info:#7fe3d3;
+}
+
+/* Sherbet — Sky, bubblegum, peach, butter. Friendly consumer surfaces. */
+[data-theme="sherbet"]{
+  --paper:#fffaf1;--paper-2:#ffffff;--paper-3:#ffeed3;
+  --ink:#2b3a55;--ink-2:#3d5175;--ink-3:#6f7f9c;
+  --brand:#ff70a6;--brand-2:#e04b83;--on-brand:#2b1d26;
+  --accent-a:#70d6ff;--accent-b:#ffd670;--accent-c:#ff9770;--accent-d:#ff70a6;--accent-e:#70d6ff;
+  --success:#43b581;--warning:#ff9770;--danger:#e04b83;--info:#3aa9dd;
+}
+
+/* Lagoon — Sea blues and pale lime with one crimson alarm. */
+[data-theme="lagoon"]{
+  --paper:#fbffe9;--paper-2:#ffffff;--paper-3:#f3ffbd;
+  --ink:#123c4f;--ink-2:#247ba0;--ink-3:#5a8b9d;
+  --brand:#ff1654;--brand-2:#d80f43;--on-brand:#fbffe9;
+  --accent-a:#247ba0;--accent-b:#70c1b3;--accent-c:#b2dbbf;--accent-d:#f3ffbd;--accent-e:#ff1654;
+  --success:#3f9e7c;--warning:#c98a00;--danger:#ff1654;--info:#247ba0;
+}
+
+/* Ledger — Oxford blue on newsprint with mustard and vermilion. */
+[data-theme="ledger"]{
+  --paper:#ebebd3;--paper-2:#f7f7e8;--paper-3:#dedec0;
+  --ink:#083d77;--ink-2:#1a5490;--ink-3:#5b7ea6;
+  --brand:#f95738;--brand-2:#d43c20;--on-brand:#fff6ee;
+  --accent-a:#ee964b;--accent-b:#f4d35e;--accent-c:#083d77;--accent-d:#f95738;--accent-e:#ebebd3;
+  --success:#3d7d52;--warning:#ee964b;--danger:#f95738;--info:#083d77;
+}
+
+/* Sage — Near-monochrome greens. Quiet, documentary, long-read. */
+[data-theme="sage"]{
+  --paper:#f0f7f4;--paper-2:#ffffff;--paper-3:#dfe8e3;
+  --ink:#3c493f;--ink-2:#4f5f53;--ink-3:#7e8d85;
+  --brand:#3c493f;--brand-2:#2b352d;--on-brand:#f0f7f4;
+  --accent-a:#7e8d85;--accent-b:#b3bfb8;--accent-c:#a2e3c4;--accent-d:#3c493f;--accent-e:#f0f7f4;
+  --success:#4a8c69;--warning:#a2801f;--danger:#9c4b41;--info:#5c7b8a;
+}

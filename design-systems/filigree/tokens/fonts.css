@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Outfit:wght@200..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+:root{
+--font-display:"Italiana","Bodoni Moda",Georgia,serif;
+--font-serif:"Bodoni Moda",Georgia,"Times New Roman",serif;
+--font-ui:"Outfit","Helvetica Neue",Arial,sans-serif;
+--font-mono:"Space Mono","SFMono-Regular",Menlo,monospace;
+}

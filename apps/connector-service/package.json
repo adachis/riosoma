@@ -1,0 +1,34 @@
+{
+  "name": "@riosoma/connector-service",
+  "version": "0.95.0-rc.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/main.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@riosoma/connector-drivers": "workspace:*",
+    "@riosoma/connectors": "workspace:*",
+    "@riosoma/contracts": "workspace:*",
+    "fastify": "5.12.8",
+    "pino": "10.4.0"
+  },
+  "devDependencies": {
+    "@riosoma/testkit": "workspace:*",
+    "@types/node": "24.19.2",
+    "mongodb": "7.9.0",
+    "tsx": "4.23.15"
+  }
+}

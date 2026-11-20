@@ -1,0 +1,84 @@
+@layer rio.app {
+  /* The paused notice's text sits above its button. */
+  .rio-public-form-share__body .rio-public-form-share__paused {
+    margin-block: 0 var(--rio-space-2);
+  }
+
+  .rio-public-form-share {
+    display: flex;
+    align-items: center;
+    flex: none;
+    padding-inline: var(--rio-space-2);
+  }
+
+  .rio-public-form-share__body,
+  .rio-public-form-share__omitted {
+    display: grid;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-public-form-share__omitted {
+    gap: var(--rio-space-1);
+  }
+
+  .rio-public-form-share__theme {
+    padding-block-start: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+    min-inline-size: 0;
+  }
+
+  .rio-public-form-share__body p,
+  .rio-public-form-share__omitted ul {
+    margin-block: 0;
+  }
+
+  .rio-public-form-share__omitted ul {
+    padding-inline-start: var(--rio-space-5);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-public-form-share__help,
+  .rio-public-form-share__count,
+  .rio-public-form-share__note {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-public-form-share__switch,
+  .rio-public-form-share__link {
+    display: flex;
+    align-items: end;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-public-form-share__switch {
+    align-items: center;
+  }
+
+  .rio-public-form-share__link > .rio-field {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .rio-public-form-share__body > .rio-button {
+    justify-self: start;
+  }
+
+  .rio-public-form-share__error {
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-public-form-share__note:empty,
+  .rio-public-form-share__error:empty {
+    display: none;
+  }
+
+  @media (forced-colors: active) {
+    .rio-public-form-share__error {
+      color: CanvasText;
+    }
+  }
+}

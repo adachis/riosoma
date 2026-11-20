@@ -1,0 +1,39 @@
+/* PERSONA — shadows, textures, clip paths, overlays.
+   Shadows are hard offsets with zero blur (cut paper lying on a surface).
+   Soft blurred shadows appear only under floating layers (dialogs, sheets). */
+:root {
+  --shadow-none: none;
+  --shadow-hard-sm: 3px 3px 0 var(--ink);
+  --shadow-hard: 6px 6px 0 var(--ink);
+  --shadow-hard-lg: 10px 10px 0 var(--ink);
+  --shadow-hard-brand: 6px 6px 0 var(--brand);
+  --shadow-press: 1px 1px 0 var(--ink);
+  --shadow-float: 0 18px 44px rgba(0, 0, 0, 0.5);
+  --shadow-inset: inset 0 0 0 var(--stroke) var(--ink);
+
+  /* textures — CSS-generated, no image assets, tint follows the theme */
+  --tex-halftone: radial-gradient(var(--ink) 1.15px, transparent 1.25px); /* @kind other */
+  --tex-halftone-size: 6px 6px; /* @kind other */
+  --tex-halftone-brand: radial-gradient(var(--brand) 1.15px, transparent 1.25px); /* @kind other */
+  --tex-hatch: repeating-linear-gradient(135deg, var(--ink) 0 5px, transparent 5px 13px); /* @kind other */
+  --tex-rays: repeating-conic-gradient(from 0deg, var(--ink) 0deg 4deg, transparent 4deg 11deg); /* @kind other */
+  --tex-stripe-brand: repeating-linear-gradient(-45deg, var(--brand) 0 14px, var(--ink) 14px 28px); /* @kind other */
+  --tex-newsprint: repeating-linear-gradient(0deg, rgba(0,0,0,0.045) 0 1px, transparent 1px 3px); /* @kind other */
+
+  /* clip paths — the vocabulary of torn / cut shapes */
+  --clip-slab: polygon(3% 0%, 100% 4%, 97% 100%, 0% 94%); /* @kind other */
+  --clip-card: polygon(0 0, 100% 2.5%, 100% 100%, 0 97%); /* @kind other */
+  --clip-cut-tr: polygon(0 0, calc(100% - var(--cut-md)) 0, 100% var(--cut-md), 100% 100%, 0 100%); /* @kind other */
+  --clip-cut-bl: polygon(0 0, 100% 0, 100% 100%, var(--cut-md) 100%, 0 calc(100% - var(--cut-md))); /* @kind other */
+  --clip-cut-both: polygon(0 0, calc(100% - var(--cut-md)) 0, 100% var(--cut-md), 100% 100%, var(--cut-md) 100%, 0 calc(100% - var(--cut-md))); /* @kind other */
+  --clip-flag: polygon(0 0, 100% 0, calc(100% - 18px) 50%, 100% 100%, 0 100%); /* @kind other */
+  --clip-blade: polygon(0 0, 100% 0, 92% 100%, 0 100%); /* @kind other */
+  --clip-torn: polygon(0 6%, 8% 0, 21% 7%, 34% 1%, 48% 8%, 62% 2%, 76% 9%, 88% 2%, 100% 7%, 100% 93%, 89% 100%, 74% 92%, 60% 99%, 46% 91%, 31% 98%, 17% 91%, 5% 99%, 0 92%); /* @kind other */
+
+  /* legibility scrims over photography */
+  --scrim-bottom: linear-gradient(to top, color-mix(in srgb, var(--ink) 92%, transparent) 0%, transparent 72%); /* @kind other */
+  --scrim-side: linear-gradient(to right, color-mix(in srgb, var(--ink) 90%, transparent) 0%, transparent 60%); /* @kind other */
+
+  --blur-sheet: blur(14px) saturate(1.2); /* @kind other */
+  --opacity-disabled: 0.42; /* @kind other */
+}

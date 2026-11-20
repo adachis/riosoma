@@ -1,0 +1,34 @@
+:root{
+  /* display scale — 1.28 ratio, tuned so caps set at wide tracking still fit */
+  --fs-hero:clamp(3.25rem,7vw,6.5rem); /* @kind font */
+  --fs-d1:clamp(2.5rem,4.6vw,4rem); /* @kind font */
+  --fs-d2:clamp(2rem,3.4vw,3rem); /* @kind font */
+  --fs-d3:1.75rem; /* @kind font */
+  --fs-h1:1.5rem; /* @kind font */
+  --fs-h2:1.25rem; /* @kind font */
+  --fs-h3:1.0625rem; /* @kind font */
+  --fs-body-lg:1.0625rem; /* @kind font */
+  --fs-body:0.9375rem; /* @kind font */
+  --fs-sm:0.8125rem; /* @kind font */
+  --fs-xs:0.6875rem; /* @kind font */
+  --fs-micro:0.625rem; /* @kind font */
+
+  /* tracking — deco lives on air between letters */
+  --tr-hero:0.14em; /* @kind font */
+  --tr-display:0.10em; /* @kind font */
+  --tr-heading:0.06em; /* @kind font */
+  --tr-label:0.22em; /* @kind font */
+  --tr-eyebrow:0.34em; /* @kind font */
+  --tr-body:0.005em; /* @kind font */
+
+  --lh-tight:0.98; /* @kind font */
+  --lh-display:1.06; /* @kind font */
+  --lh-heading:1.22; /* @kind font */
+  --lh-body:1.62; /* @kind font */
+  --lh-loose:1.78; /* @kind font */
+
+  --wt-light:300; /* @kind font */
+  --wt-regular:400; /* @kind font */
+  --wt-medium:500; /* @kind font */
+  --wt-semibold:600; /* @kind font */
+}

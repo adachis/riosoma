@@ -1,0 +1,20 @@
+/* Japandi — raw palette.
+   Eight seed values are all a theme ever declares. Every neutral, tint,
+   hover and hairline in `colors.css` is derived from these by color-mix,
+   so a new theme is eight lines long. */
+:root {
+  /* ── Sumi (default): warm paper, sumi ink, ai indigo, shu vermillion ── */
+  --seed-paper: #f7f4ee;
+  --seed-ink: #1f1d1a;
+  --seed-accent: #22406b;
+  --seed-accent-ink: #f7f4ee;
+  --seed-accent-2: #c6472c;
+  --seed-accent-2-ink: #fdfbf7;
+  --seed-tint: #cfd6c8;
+
+  /* Semantics. Themes override only when their palette supplies a match. */
+  --seed-ok: #5e7a52;
+  --seed-warn: #b3842a;
+  --seed-danger: #a8391f;
+  --seed-info: #3d6580;
+}

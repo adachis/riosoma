@@ -1,0 +1,38 @@
+{
+  "id": "field-and-record-permissions",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "grid",
+      "say": "demos.permissions.field",
+      "do": "scroll"
+    },
+    {
+      "anchor": "database.table.menu",
+      "say": "demos.permissions.tableMenu",
+      "do": "open"
+    },
+    {
+      "anchor": "database.table.recordAccess",
+      "say": "demos.permissions.open",
+      "do": "open"
+    },
+    {
+      "anchor": "permissions.records.add",
+      "say": "demos.permissions.add",
+      "do": "open"
+    },
+    {
+      "anchor": "permissions.records.who",
+      "say": "demos.permissions.who"
+    },
+    {
+      "anchor": "permissions.records.condition",
+      "say": "demos.permissions.condition"
+    },
+    {
+      "anchor": "permissions.save",
+      "say": "demos.permissions.save"
+    }
+  ]
+}

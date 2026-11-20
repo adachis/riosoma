@@ -1,0 +1,15 @@
+/* Minimal, opt-in base layer. Consumers can skip this file and keep the tokens. */
+*,*::before,*::after{box-sizing:border-box}
+body.sdc-body-base{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-text);font-size:var(--fs-400);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration-color:var(--accent-line);text-underline-offset:3px;transition:var(--t-control)}
+a:hover{color:var(--accent-hover);text-decoration-color:var(--accent)}
+a:active{color:var(--accent-press)}
+:where(button,input,select,textarea){font-family:inherit;font-size:inherit}
+:where(:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+::selection{background:var(--accent-soft-2);color:var(--ink)}
+/* Any element carrying data-theme adopts that scheme's ink colour, so a themed
+   wrapper does not inherit the outer scheme's text colour. */
+[data-theme]{color:var(--ink)}
+.sdc-stack{display:flex;flex-direction:column}
+.sdc-row{display:flex;align-items:center}
+.sdc-tabular{font-variant-numeric:tabular-nums}

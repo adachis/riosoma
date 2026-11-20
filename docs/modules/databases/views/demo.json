@@ -1,0 +1,39 @@
+{
+  "id": "views",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "view.toolbar",
+      "say": "demos.views.toolbar"
+    },
+    {
+      "anchor": "view.filter",
+      "say": "demos.views.filter",
+      "do": "open"
+    },
+    {
+      "anchor": "view.filter.add",
+      "say": "demos.views.condition",
+      "do": "choose"
+    },
+    {
+      "anchor": "view.sort",
+      "say": "demos.views.sort",
+      "do": "open"
+    },
+    {
+      "anchor": "view.sort.add",
+      "say": "demos.views.sortAdd",
+      "do": "choose"
+    },
+    {
+      "anchor": "view.hide",
+      "say": "demos.views.hide",
+      "do": "open"
+    },
+    {
+      "anchor": "view.toolbar",
+      "say": "demos.views.shared"
+    }
+  ]
+}

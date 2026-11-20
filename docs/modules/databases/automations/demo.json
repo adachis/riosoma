@@ -1,0 +1,27 @@
+{
+  "id": "automations",
+  "where": "database",
+  "steps": [
+    {
+      "anchor": "automations.section",
+      "say": "demos.automations.section",
+      "do": "scroll"
+    },
+    {
+      "anchor": "automations.add",
+      "say": "demos.automations.add"
+    },
+    {
+      "anchor": "database.tables",
+      "say": "demos.automations.trigger"
+    },
+    {
+      "anchor": "automations.section",
+      "say": "demos.automations.steps"
+    },
+    {
+      "anchor": "automations.section",
+      "say": "demos.automations.history"
+    }
+  ]
+}

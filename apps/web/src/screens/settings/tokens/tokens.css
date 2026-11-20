@@ -1,0 +1,124 @@
+@layer rio.app {
+  .rio-tokens {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-5);
+    max-inline-size: 900px;
+  }
+
+  .rio-tokens p {
+    margin-block: 0;
+  }
+
+  .rio-tokens__intro {
+    max-inline-size: 62ch;
+    color: var(--rio-aa-text-muted);
+  }
+
+  /* One Create button at a time, in the empty state or above the list, so its name is never
+     on the page twice. */
+  .rio-tokens__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-tokens__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* A narrow screen scrolls the table sideways instead of squeezing its columns. */
+  .rio-tokens__scroll {
+    inline-size: 100%;
+    overflow-inline: auto;
+  }
+
+  .rio-tokens__table {
+    inline-size: 100%;
+    border-collapse: collapse;
+  }
+
+  .rio-tokens__table th,
+  .rio-tokens__table td {
+    padding: var(--rio-space-3);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  .rio-tokens__table thead th {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    white-space: nowrap;
+  }
+
+  .rio-tokens__name {
+    display: block;
+    overflow-wrap: anywhere;
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-tokens__created,
+  .rio-tokens__when {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-tokens__created {
+    display: block;
+  }
+
+  /* Scope labels and database names carry commas of their own, so each gets a line. */
+  .rio-tokens__values {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin-block: 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .rio-tokens__row-action {
+    text-align: end;
+    white-space: nowrap;
+  }
+
+  /* The form stands in for the dialog's own column, so the fields inside it still scroll. */
+  .rio-tokens__form {
+    flex: 1 1 auto;
+    min-block-size: 0;
+  }
+
+  .rio-tokens__fields {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-5);
+  }
+
+  /* The picker belongs to the choice above it, so it lines up under that choice's label. */
+  .rio-tokens__pick {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-3);
+    margin-inline-start: var(--rio-space-6);
+  }
+
+  .rio-tokens__reveal {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-4);
+  }
+
+  /* The secret fills the row and Copy waits at its end, level with the field. */
+  .rio-tokens__secret {
+    display: flex;
+    align-items: end;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-tokens__secret-field {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+}

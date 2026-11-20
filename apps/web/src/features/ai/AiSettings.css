@@ -1,0 +1,56 @@
+@layer rio.app {
+  .rio-ai-settings {
+    display: grid;
+    gap: var(--rio-space-4);
+    max-inline-size: 48rem;
+    min-inline-size: 0;
+  }
+  .rio-ai-settings__provider {
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    min-inline-size: 0;
+  }
+  .rio-ai-settings__consent {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2) var(--rio-space-4);
+  }
+  .rio-ai-settings__note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    overflow-wrap: anywhere;
+  }
+  .rio-ai-settings__key {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin-block-start: var(--rio-space-2);
+  }
+  .rio-ai-settings__actions,
+  .rio-ai-settings__model {
+    display: flex;
+    align-items: end;
+    gap: var(--rio-space-2);
+    flex-wrap: wrap;
+  }
+  @media (max-width: 40rem) {
+    .rio-ai-settings__consent {
+      align-items: start;
+      flex-direction: column;
+    }
+    .rio-ai-settings__model .rio-select {
+      min-inline-size: 0;
+      inline-size: 100%;
+    }
+  }
+  /* A model's footprint estimate shows while the pointer or focus is on it, and is always read out. */
+  .rio-ai-settings__choice:not([data-focused], [data-hovered]) .rio-listbox-item__description {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

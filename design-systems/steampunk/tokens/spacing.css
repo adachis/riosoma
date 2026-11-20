@@ -1,0 +1,18 @@
+:root{
+  /* Machined scale — not a clean 4/8 grid. 6 and 10 do most of the work. */
+  --sp-0:0; /* @kind spacing */ --sp-1:2px; --sp-2:4px; --sp-3:6px; --sp-4:10px; --sp-5:14px;
+  --sp-6:18px; --sp-7:24px; --sp-8:32px; --sp-9:44px; --sp-10:60px; --sp-11:80px; --sp-12:112px;
+
+  /* radii — machined, never pillowy */
+  --r-1:2px; --r-2:3px; --r-3:5px; --r-4:8px; --r-5:14px; --r-pill:999px;
+
+  /* border widths */
+  --bw-hair:1px; --bw:2px; --bw-thick:3px; --bw-frame:6px;
+
+  /* control sizes */
+  --ctl-sm:28px; --ctl-md:36px; --ctl-lg:46px; --ctl-xl:56px;
+  --tap-min:44px; /* mobile + game minimum hit target */
+
+  /* layout */
+  --page-max:1200px; --prose-max:68ch; --gutter:24px; --rail:264px;
+}

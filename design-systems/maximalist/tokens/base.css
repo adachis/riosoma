@@ -1,0 +1,23 @@
+/* Base. Minimal reset plus the element defaults the brand always wants. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:var(--type-body);text-wrap:pretty;-webkit-font-smoothing:antialiased}
+::selection{background:var(--selection-bg);color:var(--selection-fg)}
+h1,h2,h3,h4,h5,h6{margin:0 0 var(--sp-3);letter-spacing:var(--ls-display);text-wrap:balance}
+h1{font:var(--type-display);letter-spacing:var(--ls-poster);text-transform:uppercase}
+h2{font:800 var(--fs-display-3)/var(--lh-tight) var(--font-text)}
+h3{font:var(--type-title)}
+h4{font:var(--type-subtitle)}
+h5,h6{font:var(--type-label);text-transform:uppercase;letter-spacing:var(--ls-label)}
+p{margin:0 0 var(--sp-3);max-width:var(--measure)}
+a{color:var(--ink);text-decoration:underline;text-decoration-thickness:var(--bw);text-underline-offset:3px;transition:color var(--dur-fast) var(--ease-snap),background var(--dur-fast) var(--ease-snap)}
+a:hover{color:var(--on-accent);background:var(--accent);text-decoration-color:var(--ink)}
+a:focus-visible{outline:none;box-shadow:var(--ring-focus)}
+small{font-size:var(--fs-body-sm)}
+code,kbd,samp,pre{font-family:var(--font-mono);font-size:.92em}
+hr{border:none;border-top:var(--bw-slab) solid var(--ink);margin:var(--sp-5) 0}
+img,svg,video{max-width:100%;height:auto;display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:none;box-shadow:var(--ring-focus)}
+.mx-eyebrow{font:var(--type-label);text-transform:uppercase;letter-spacing:var(--ls-mono-label);color:var(--text-soft)}
+.mx-page{max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter)}

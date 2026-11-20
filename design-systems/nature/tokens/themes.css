@@ -1,0 +1,1225 @@
+/* Colour-scheme variants. Set data-nt-theme on <html>, <body> or any subtree;
+   each block is self-contained so nested scopes resolve correctly. */
+[data-nt-theme="spectrum"]{ /* Spectrum */
+  --nt-seed-ink:#26343d;
+  --nt-seed-paper:#fbf7f1;
+  --nt-seed-accent:#f94144;
+  --nt-seed-accent-2:#f8961e;
+  --nt-seed-accent-3:#90be6d;
+  --nt-seed-accent-4:#277da1;
+  --nt-seed-on-accent:#fbf7f1;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="midnight-gold"]{ /* Midnight Gold */
+  --nt-seed-ink:#000814;
+  --nt-seed-paper:#f4f6fa;
+  --nt-seed-accent:#ffc300;
+  --nt-seed-accent-2:#003566;
+  --nt-seed-accent-3:#001d3d;
+  --nt-seed-accent-4:#ffd60a;
+  --nt-seed-on-accent:#000814;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="neon-bloom"]{ /* Neon Bloom */
+  --nt-seed-ink:#240061;
+  --nt-seed-paper:#fbf6f7;
+  --nt-seed-accent:#ff0054;
+  --nt-seed-accent-2:#390099;
+  --nt-seed-accent-3:#ff5400;
+  --nt-seed-accent-4:#ffbd00;
+  --nt-seed-on-accent:#fbf6f7;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="field-red"]{ /* Field Red */
+  --nt-seed-ink:#1d3557;
+  --nt-seed-paper:#f1faee;
+  --nt-seed-accent:#e63946;
+  --nt-seed-accent-2:#457b9d;
+  --nt-seed-accent-3:#a8dadc;
+  --nt-seed-accent-4:#1d3557;
+  --nt-seed-on-accent:#f1faee;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="blush-sage"]{ /* Blush Sage */
+  --nt-seed-ink:#3c4a46;
+  --nt-seed-paper:#f7ede2;
+  --nt-seed-accent:#f28482;
+  --nt-seed-accent-2:#84a59d;
+  --nt-seed-accent-3:#f6bd60;
+  --nt-seed-accent-4:#f5cac3;
+  --nt-seed-on-accent:#3c4a46;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="harvest"]{ /* Harvest */
+  --nt-seed-ink:#233d4d;
+  --nt-seed-paper:#fbf7f0;
+  --nt-seed-accent:#fe7f2d;
+  --nt-seed-accent-2:#619b8a;
+  --nt-seed-accent-3:#fcca46;
+  --nt-seed-accent-4:#a1c181;
+  --nt-seed-on-accent:#fbf7f0;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="lagoon"]{ /* Lagoon */
+  --nt-seed-ink:#22577a;
+  --nt-seed-paper:#f2fbf4;
+  --nt-seed-accent:#38a3a5;
+  --nt-seed-accent-2:#57cc99;
+  --nt-seed-accent-3:#80ed99;
+  --nt-seed-accent-4:#c7f9cc;
+  --nt-seed-on-accent:#08303a;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="fern-coral"]{ /* Fern Coral */
+  --nt-seed-ink:#2e5339;
+  --nt-seed-paper:#f6f8f3;
+  --nt-seed-accent:#ff5666;
+  --nt-seed-accent-2:#00fddc;
+  --nt-seed-accent-3:#495f41;
+  --nt-seed-accent-4:#ffccc9;
+  --nt-seed-on-accent:#2e5339;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="sorbet"]{ /* Sorbet */
+  --nt-seed-ink:#2b3a4a;
+  --nt-seed-paper:#fbf7f4;
+  --nt-seed-accent:#ff70a6;
+  --nt-seed-accent-2:#70d6ff;
+  --nt-seed-accent-3:#ff9770;
+  --nt-seed-accent-4:#ffd670;
+  --nt-seed-on-accent:#26313d;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="reef"]{ /* Reef */
+  --nt-seed-ink:#17384a;
+  --nt-seed-paper:#f8fdec;
+  --nt-seed-accent:#247ba0;
+  --nt-seed-accent-2:#70c1b3;
+  --nt-seed-accent-3:#b2dbbf;
+  --nt-seed-accent-4:#ff1654;
+  --nt-seed-on-accent:#f8fdec;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="ochre"]{ /* Ochre */
+  --nt-seed-ink:#083d77;
+  --nt-seed-paper:#ebebd3;
+  --nt-seed-accent:#ee964b;
+  --nt-seed-accent-2:#f4d35e;
+  --nt-seed-accent-3:#f95738;
+  --nt-seed-accent-4:#083d77;
+  --nt-seed-on-accent:#16233a;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="stone-mint"]{ /* Stone Mint */
+  --nt-seed-ink:#3c493f;
+  --nt-seed-paper:#f0f7f4;
+  --nt-seed-accent:#a2e3c4;
+  --nt-seed-accent-2:#7e8d85;
+  --nt-seed-accent-3:#b3bfb8;
+  --nt-seed-accent-4:#3c493f;
+  --nt-seed-on-accent:#29332c;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,var(--nt-seed-ink) 75%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — deliberately constant across themes */
+  --nt-success:var(--nt-signal-success);
+  --nt-warning:var(--nt-signal-warning);
+  --nt-danger:var(--nt-signal-danger);
+  --nt-info:var(--nt-signal-info);
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,var(--nt-seed-ink) 7%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,var(--nt-seed-ink) 18%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,var(--nt-seed-ink) 26%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,var(--nt-seed-ink) 40%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 0%,color-mix(in oklab,var(--nt-seed-ink) 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+
+/* Dark schemes.  The seed formulas carry over with ink and paper swapped, but shadows, scrims,
+   and signal colors mix toward black and lighter signal tones, since a light ink would glow. */
+[data-nt-theme="night-grove"]{ /* Night Grove */
+  color-scheme:dark;
+  --nt-seed-ink:#e6eee2;
+  --nt-seed-paper:#141d16;
+  --nt-seed-accent:#8cc63f;
+  --nt-seed-accent-2:#e0b650;
+  --nt-seed-accent-3:#5fb3a1;
+  --nt-seed-accent-4:#c98b6b;
+  --nt-seed-on-accent:#0f160f;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,#000 70%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — the same hues, lightened to read on a dark page */
+  --nt-success:#6fcf97;
+  --nt-warning:#f2c94c;
+  --nt-danger:#ff8a80;
+  --nt-info:#7cc4ff;
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,#000 21%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,#000 54%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,#000 78%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,#000 80%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,#000 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,#000 75%,transparent) 0%,color-mix(in oklab,#000 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="night-lagoon"]{ /* Night Lagoon */
+  color-scheme:dark;
+  --nt-seed-ink:#e2f0f2;
+  --nt-seed-paper:#0e1b21;
+  --nt-seed-accent:#3fc1c9;
+  --nt-seed-accent-2:#f2c94c;
+  --nt-seed-accent-3:#8fd694;
+  --nt-seed-accent-4:#f28482;
+  --nt-seed-on-accent:#062025;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,#000 70%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — the same hues, lightened to read on a dark page */
+  --nt-success:#6fcf97;
+  --nt-warning:#f2c94c;
+  --nt-danger:#ff8a80;
+  --nt-info:#7cc4ff;
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,#000 21%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,#000 54%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,#000 78%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,#000 80%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,#000 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,#000 75%,transparent) 0%,color-mix(in oklab,#000 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="ember-night"]{ /* Ember Night */
+  color-scheme:dark;
+  --nt-seed-ink:#f2e8df;
+  --nt-seed-paper:#1c1512;
+  --nt-seed-accent:#f29e4c;
+  --nt-seed-accent-2:#e76f51;
+  --nt-seed-accent-3:#a7c957;
+  --nt-seed-accent-4:#9ecfd6;
+  --nt-seed-on-accent:#1f120a;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,#000 70%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — the same hues, lightened to read on a dark page */
+  --nt-success:#6fcf97;
+  --nt-warning:#f2c94c;
+  --nt-danger:#ff8a80;
+  --nt-info:#7cc4ff;
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,#000 21%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,#000 54%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,#000 78%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,#000 80%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,#000 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,#000 75%,transparent) 0%,color-mix(in oklab,#000 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}
+[data-nt-theme="moonlit-moss"]{ /* Moonlit Moss */
+  color-scheme:dark;
+  --nt-seed-ink:#e4e8e1;
+  --nt-seed-paper:#1b1f1b;
+  --nt-seed-accent:#a3c585;
+  --nt-seed-accent-2:#d4b483;
+  --nt-seed-accent-3:#8db1c4;
+  --nt-seed-accent-4:#c9a3c4;
+  --nt-seed-on-accent:#141a12;
+
+  /* Surfaces */
+  --nt-paper:var(--nt-seed-paper);
+  --nt-surface:var(--nt-seed-paper);
+  --nt-surface-soft:color-mix(in oklab,var(--nt-seed-accent) 12%,var(--nt-seed-paper));
+  --nt-surface-raised:color-mix(in oklab,var(--nt-seed-paper) 86%,#fff);
+  --nt-surface-sunken:color-mix(in oklab,var(--nt-seed-ink) 7%,var(--nt-seed-paper));
+  --nt-surface-ink:var(--nt-seed-ink);
+  --nt-surface-ink-soft:color-mix(in oklab,var(--nt-seed-ink) 86%,var(--nt-seed-paper));
+  --nt-scrim:color-mix(in oklab,#000 70%,transparent);
+
+  /* Text */
+  --nt-text-heading:var(--nt-seed-ink);
+  --nt-text-body:color-mix(in oklab,var(--nt-seed-ink) 62%,var(--nt-seed-paper));
+  --nt-text-muted:color-mix(in oklab,var(--nt-seed-ink) 42%,var(--nt-seed-paper));
+  --nt-text-faint:color-mix(in oklab,var(--nt-seed-ink) 26%,var(--nt-seed-paper));
+  --nt-text-inverse:var(--nt-seed-paper);
+  --nt-text-accent:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link:color-mix(in oklab,var(--nt-seed-accent) 88%,var(--nt-seed-ink));
+  --nt-text-link-hover:var(--nt-seed-ink);
+
+  /* Accent */
+  --nt-accent:var(--nt-seed-accent);
+  --nt-accent-strong:color-mix(in oklab,var(--nt-seed-accent) 80%,var(--nt-seed-ink));
+  --nt-accent-soft:color-mix(in oklab,var(--nt-seed-accent) 20%,var(--nt-seed-paper));
+  --nt-on-accent:var(--nt-seed-on-accent);
+  --nt-accent-2:var(--nt-seed-accent-2);
+  --nt-accent-3:var(--nt-seed-accent-3);
+  --nt-accent-4:var(--nt-seed-accent-4);
+
+  /* Lines */
+  --nt-border:color-mix(in oklab,var(--nt-seed-ink) 14%,var(--nt-seed-paper));
+  --nt-border-strong:color-mix(in oklab,var(--nt-seed-ink) 32%,var(--nt-seed-paper));
+  --nt-border-ink:var(--nt-seed-ink);
+  --nt-border-inverse:color-mix(in oklab,var(--nt-seed-paper) 55%,transparent);
+  --nt-focus:color-mix(in oklab,var(--nt-seed-accent) 70%,var(--nt-seed-ink));
+
+  /* State overlays */
+  --nt-state-hover:color-mix(in oklab,var(--nt-seed-ink) 8%,transparent);
+  --nt-state-press:color-mix(in oklab,var(--nt-seed-ink) 16%,transparent);
+  --nt-state-hover-inverse:color-mix(in oklab,var(--nt-seed-paper) 14%,transparent);
+  --nt-disabled-opacity:0.4; /* @kind other */
+
+  /* Signals — the same hues, lightened to read on a dark page */
+  --nt-success:#6fcf97;
+  --nt-warning:#f2c94c;
+  --nt-danger:#ff8a80;
+  --nt-info:#7cc4ff;
+
+  /* Elevation and overlays depend on the seeds, so they resolve per theme too */
+  --nt-shadow-soft:0 2px 10px color-mix(in oklab,#000 21%,transparent);
+  --nt-shadow-card:0 12px 32px -12px color-mix(in oklab,#000 54%,transparent);
+  --nt-shadow-lift:0 20px 48px -16px color-mix(in oklab,#000 78%,transparent);
+  --nt-shadow-overlay:0 32px 80px -24px color-mix(in oklab,#000 80%,transparent);
+  --nt-shadow-inset:inset 0 1px 0 color-mix(in oklab,var(--nt-seed-paper) 40%,transparent);
+  --nt-shadow-halo:-2px 0 7px color-mix(in oklab,var(--nt-seed-paper) 50%,transparent);
+  --nt-glass-bg:linear-gradient(241deg,color-mix(in oklab,var(--nt-seed-paper) 50%,transparent) -7.37%,color-mix(in oklab,var(--nt-seed-paper) 10%,transparent) 89.52%); /* @kind other */
+  --nt-glass-border:1px solid color-mix(in oklab,var(--nt-seed-paper) 50%,transparent); /* @kind other */
+  --nt-protect-bottom:linear-gradient(0deg,color-mix(in oklab,#000 85%,transparent) 0%,transparent 100%); /* @kind other */
+  --nt-protect-flat:linear-gradient(0deg,color-mix(in oklab,#000 75%,transparent) 0%,color-mix(in oklab,#000 75%,transparent) 100%); /* @kind other */
+
+  /* Data viz sequence */
+  --nt-viz-1:var(--nt-seed-accent);
+  --nt-viz-2:var(--nt-seed-accent-2);
+  --nt-viz-3:var(--nt-seed-accent-3);
+  --nt-viz-4:var(--nt-seed-accent-4);
+  --nt-viz-5:color-mix(in oklab,var(--nt-seed-ink) 55%,var(--nt-seed-paper));
+}

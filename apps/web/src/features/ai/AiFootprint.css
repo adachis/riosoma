@@ -1,0 +1,57 @@
+@layer rio.app {
+  .rio-ai-footprint {
+    display: grid;
+    gap: var(--rio-space-4);
+    max-inline-size: 48rem;
+    margin-block-start: var(--rio-space-6);
+    padding-block-start: var(--rio-space-4);
+    border-block-start: 1px solid var(--rio-border);
+  }
+  .rio-ai-footprint > p {
+    margin: 0;
+  }
+  .rio-ai-footprint__zone {
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+  .rio-ai-footprint__scroll {
+    max-inline-size: 100%;
+    overflow-x: auto;
+  }
+  .rio-ai-footprint__scroll:focus-visible {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: var(--rio-space-1);
+  }
+  .rio-ai-footprint__table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+    font-variant-numeric: tabular-nums;
+  }
+  .rio-ai-footprint__table caption {
+    padding-block-end: var(--rio-space-2);
+    font-weight: var(--rio-weight-bold);
+    text-align: start;
+  }
+  .rio-ai-footprint__table th,
+  .rio-ai-footprint__table td {
+    padding: var(--rio-space-1) var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+  }
+  .rio-ai-footprint__table thead th {
+    color: var(--rio-aa-text-muted);
+    font-weight: var(--rio-weight-medium);
+  }
+  .rio-ai-footprint__table td:last-child {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-ai-footprint__hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

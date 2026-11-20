@@ -1,0 +1,42 @@
+/* ============================================================
+   COLOR — raw palette + role layer.
+   The 13 palettes live in schemes.css; everything computed from
+   them lives in derived.css. Product code should reference the
+   semantic aliases (--text-primary, --surface-card, …), not these.
+   ============================================================ */
+
+:root{
+  /* --- raw palette: WERKBUND, the default ------------------- */
+  --bau-ink:#14110D;
+  --bau-canvas:#F2EBDC;
+  --bau-paper:#FBF7EE;
+  --bau-red:#E12B20;
+  --bau-yellow:#F4C60D;
+  --bau-blue:#1E4FA1;
+  --bau-green:#2E7D5B;
+
+  /* --- role layer (every [data-scheme] overrides these) ----- */
+  --ink:#14110D;            /* structural foreground: rules, type, blocks */
+  --canvas:#F2EBDC;         /* page ground */
+  --paper:#FBF7EE;          /* card / panel ground */
+  --line:#14110D;           /* keyline colour */
+
+  --accent-1:#E12B20;
+  --accent-2:#F4C60D;
+  --accent-3:#1E4FA1;
+  --accent-4:#2E7D5B;
+  --accent-5:#14110D;
+  --on-accent-1:#FBF7EE;
+  --on-accent-2:#14110D;
+  --on-accent-3:#FBF7EE;
+  --on-accent-4:#FBF7EE;
+  --on-accent-5:#FBF7EE;
+
+  --state-danger:#E12B20;
+  --state-warning:#F4C60D;
+  --state-success:#2E7D5B;
+  --state-info:#1E4FA1;
+
+  --scheme-mode:light;/* @kind other */
+  --scheme-label:"Werkbund";/* @kind other */
+}

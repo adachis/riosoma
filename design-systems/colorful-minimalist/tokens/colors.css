@@ -1,0 +1,33 @@
+/* Colorful Minimalist — color contract.
+   Every theme in themes.css sets EXACTLY these properties. Consumers should only ever
+   reference the semantic names, never a raw palette hex. Switch themes by setting
+   data-theme on any ancestor element (default = "spectrum" on :root).
+
+   paper / paper-2 / surface / surface-2  surfaces, lightest to most recessed
+   ink / ink-2 / ink-3                    text, primary to muted
+   line / line-strong                     hairline rules and 2px structural rules
+   accent  + on-accent                    primary color field
+   (every field / on-field pair below is verified at >= 4.5:1 contrast in every scheme;
+    --pop is an attention color for dots and rules only and is NOT contrast-checked)
+   accent-2 + on-accent-2                 secondary color field
+   accent-3 + on-accent-3                 tertiary color field
+   pop                                    small-dose attention color (dots, underlines)
+   success/warning/danger/info + on-*     status
+   invert + on-invert                     full-bleed dark section
+   focus                                  focus ring
+   chart-1..6                             data series, in plotting order
+*/
+:root{
+  color-scheme:light;
+  --white:#ffffff;
+  --black:#000000;
+  --transparent:rgba(0,0,0,0);
+  /* alpha ramps derived from --ink at runtime, for scrims and hovers */
+  --tint-4:color-mix(in oklab,var(--ink) 4%,transparent);
+  --tint-8:color-mix(in oklab,var(--ink) 8%,transparent);
+  --tint-14:color-mix(in oklab,var(--ink) 14%,transparent);
+  --tint-60:color-mix(in oklab,var(--ink) 60%,transparent);
+  --accent-tint:color-mix(in oklab,var(--accent) 12%,var(--paper));
+  --accent-2-tint:color-mix(in oklab,var(--accent-2) 12%,var(--paper));
+  --accent-3-tint:color-mix(in oklab,var(--accent-3) 22%,var(--paper));
+}

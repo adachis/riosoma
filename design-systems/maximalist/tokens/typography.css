@@ -1,0 +1,98 @@
+/* Type. Three families, and every one of them is single-weight or near it:
+     display = Anegra, the poster voice. High-contrast deco. Never below --fs-title-2.
+     text    = Banky Sans, everything readable, plus the sticker voice at large sizes.
+     mono    = Space Mono, labels, readouts, tabular data.
+   Because there is no weight ramp, emphasis comes from SIZE, CASE, COLOUR and the
+   treatment classes at the bottom of this file — outline, pattern-fill, hard-shadow,
+   squash, stretch. A collage needs many voices; this system makes them out of one face. */
+:root{
+  --font-display:"Anegra",Impact,"Haettenschweiler","Arial Black",sans-serif;
+  --font-accent:"Banky Sans","Helvetica Neue",Helvetica,sans-serif;
+  --font-text:"Banky Sans","Helvetica Neue",Helvetica,sans-serif;
+  --font-mono:"Space Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  /* Poster scale — 1.333 (perfect fourth), rounded to whole px, never snapped to 4px */
+  --fs-mega:118px;
+  --fs-display-1:86px;
+  --fs-display-2:62px;
+  --fs-display-3:45px;
+
+  /* Fluid display sizes. A pile's offsets are fixed, but its headline must not be — use these
+     wherever a display line has to survive a width change. Floors sit above 25px, below which
+     Anegra's thin strokes stop reading. */
+  --fs-hero:clamp(44px,8.6vw,118px);/* @kind font */
+  --fs-hero-2:clamp(36px,6.4vw,86px);/* @kind font */
+  --fs-hero-3:clamp(30px,4.6vw,62px);/* @kind font */
+  --fs-title-1:33px;
+  --fs-title-2:25px;
+  --fs-title-3:21px;
+  --fs-body-lg:18px;
+  --fs-body:15px;
+  --fs-body-sm:13px;
+  --fs-label:11px;
+  --fs-micro:9px;
+
+  --lh-poster:0.86;/* @kind other */
+  --lh-tight:1.04;/* @kind other */
+  --lh-snug:1.24;/* @kind other */
+  --lh-body:1.55;/* @kind other */
+  --lh-loose:1.72;/* @kind other */
+
+  --ls-poster:-0.02em;
+  --ls-display:-0.01em;
+  --ls-body:0em;
+  --ls-label:0.14em;
+  --ls-mono-label:0.2em;
+
+  --fw-text:400;
+  --fw-text-med:400;
+  --fw-text-bold:700;
+  --fw-text-black:700;
+
+  /* composed roles */
+  --type-mega:var(--fs-mega)/var(--lh-poster) var(--font-display);
+  --type-display:var(--fs-display-2)/var(--lh-poster) var(--font-display);
+  --type-title:700 var(--fs-title-1)/var(--lh-tight) var(--font-text);
+  --type-subtitle:700 var(--fs-title-3)/var(--lh-snug) var(--font-text);
+  --type-body:var(--fw-text) var(--fs-body)/var(--lh-body) var(--font-text);
+  --type-lead:var(--fw-text) var(--fs-body-lg)/var(--lh-loose) var(--font-text);
+  --type-label:700 var(--fs-label)/1.1 var(--font-mono);
+  --type-sticker:700 var(--fs-title-2)/1 var(--font-accent);
+
+  --stroke-outline:2px;
+  --stroke-outline-heavy:3px;
+}
+/* ── Type treatments ───────────────────────────────────────────────────────
+   The substitute for a weight ramp. Stack two or three on one page so a
+   single display face reads as several competing voices. Display sizes only —
+   none of these are legible below --fs-title-2. */
+
+/* Knocked-out letterforms: ink contour, no fill. Needs a busy ground behind it. */
+.mx-type-outline{color:transparent;-webkit-text-stroke:var(--stroke-outline) var(--ink);paint-order:stroke fill}
+.mx-type-outline-heavy{color:transparent;-webkit-text-stroke:var(--stroke-outline-heavy) var(--ink);paint-order:stroke fill}
+/* Solid fill AND contour — the poster standby. */
+.mx-type-cased{color:var(--paper);-webkit-text-stroke:var(--stroke-outline-heavy) var(--ink);paint-order:stroke fill}
+
+/* Letterforms filled with a source pattern. background-clip:text cannot take a mask, so these
+   use the theme-aware gradient fills from tokens/texture.css rather than the SVG tiles. */
+.mx-type-pattern{color:transparent;background-clip:text;-webkit-background-clip:text;background-color:var(--accent);background-image:var(--tex-stripe-accent);-webkit-text-stroke:var(--stroke-outline) var(--ink);paint-order:stroke fill}
+.mx-type-pattern-chevron{color:transparent;background-clip:text;-webkit-background-clip:text;background-color:var(--accent-2);background-image:var(--tex-check);background-size:var(--tex-tile-sm) var(--tex-tile-sm);-webkit-text-stroke:var(--stroke-outline) var(--ink);paint-order:stroke fill}
+/* Letterforms filled with a photograph. Mega sizes only — below ~70px the contour eats the fill. */
+.mx-type-photo{color:transparent;background-clip:text;-webkit-background-clip:text;background-image:var(--photo,url("../assets/photos/handpainted.jpg"));background-size:cover;background-position:center;-webkit-text-stroke:var(--stroke-outline) var(--ink);paint-order:stroke fill}
+
+/* Hard offset repeats — no blur, ever. */
+.mx-type-pop{text-shadow:var(--text-shadow-pop)}
+.mx-type-stack{text-shadow:var(--text-shadow-stack)}
+.mx-type-echo{text-shadow:6px 6px 0 var(--accent),12px 12px 0 var(--accent-2),18px 18px 0 var(--ink)}
+
+/* Metric abuse. Deco faces take vertical distortion better than horizontal. */
+.mx-type-squash{transform:scaleY(.72);transform-origin:bottom left}
+.mx-type-stretch{transform:scaleY(1.34);transform-origin:bottom left}
+.mx-type-lean{transform:skewX(-11deg)}
+.mx-type-lean-back{transform:skewX(9deg)}
+
+/* Runs of type that go vertical, sideways, or wrap round a corner. */
+.mx-type-vert{writing-mode:vertical-rl;text-orientation:mixed}
+.mx-type-vert-up{writing-mode:vertical-rl;transform:rotate(180deg)}
+.mx-type-wide{letter-spacing:.28em}
+.mx-type-crushed{letter-spacing:-.05em}

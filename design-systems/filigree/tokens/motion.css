@@ -1,0 +1,18 @@
+:root{
+--ease-quill:cubic-bezier(.22,.61,.36,1); /* @kind other */
+--ease-in-quill:cubic-bezier(.55,.06,.68,.19); /* @kind other */
+--ease-emphatic:cubic-bezier(.16,.84,.24,1); /* @kind other */
+--dur-1:110ms; /* @kind other */
+--dur-2:180ms; /* @kind other */
+--dur-3:280ms; /* @kind other */
+--dur-4:460ms; /* @kind other */
+--dur-5:820ms; /* @kind other */
+--t-hover:color var(--dur-2) var(--ease-quill),background-color var(--dur-2) var(--ease-quill),border-color var(--dur-2) var(--ease-quill),box-shadow var(--dur-2) var(--ease-quill); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){:root{
+--dur-1:0ms; /* @kind other */
+--dur-2:0ms; /* @kind other */
+--dur-3:0ms; /* @kind other */
+--dur-4:0ms; /* @kind other */
+--dur-5:0ms; /* @kind other */
+}}

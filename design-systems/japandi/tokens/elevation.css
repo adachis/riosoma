@@ -1,0 +1,46 @@
+/* Japandi — elevation.
+   Depth comes from hairlines and ground shifts first, shadow last. Shadows
+   are warm (mixed from ink, never neutral black), very large in blur and
+   very low in opacity — the read is "sunlight through paper", not "float".
+   Emitted twice so scoped themes re-derive; see the note in colors.css. */
+:root {
+  --shadow-none: none;
+  --shadow-hairline: 0 0 0 1px var(--line);
+  --shadow-xs: 0 1px 2px color-mix(in srgb, var(--seed-ink) 6%, transparent);
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--seed-ink) 5%, transparent), 0 4px 12px -6px color-mix(in srgb, var(--seed-ink) 10%, transparent);
+  --shadow-md: 0 2px 4px color-mix(in srgb, var(--seed-ink) 4%, transparent), 0 12px 28px -12px color-mix(in srgb, var(--seed-ink) 14%, transparent);
+  --shadow-lg: 0 4px 8px color-mix(in srgb, var(--seed-ink) 4%, transparent), 0 28px 64px -24px color-mix(in srgb, var(--seed-ink) 18%, transparent);
+  --shadow-overlay: 0 40px 120px -32px color-mix(in srgb, var(--seed-ink) 30%, transparent);
+
+  /* Inset — pressed controls, sunken wells, input interiors */
+  --shadow-inset: inset 0 1px 2px color-mix(in srgb, var(--seed-ink) 8%, transparent);
+  --shadow-inset-deep: inset 0 2px 6px color-mix(in srgb, var(--seed-ink) 14%, transparent);
+
+  /* Focus */
+  --ring: 0 0 0 var(--hairline-2) var(--focus-ring);
+  --ring-offset: 0 0 0 2px var(--ground), 0 0 0 4px var(--focus-ring);
+
+  /* Game/HUD surfaces: a hairline glow instead of a drop shadow */
+  --glow-accent: 0 0 0 1px var(--accent-line), 0 0 24px -6px color-mix(in srgb, var(--seed-accent) 45%, transparent);
+}
+
+[data-theme] {
+  --shadow-none: none;
+  --shadow-hairline: 0 0 0 1px var(--line);
+  --shadow-xs: 0 1px 2px color-mix(in srgb, var(--seed-ink) 6%, transparent);
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--seed-ink) 5%, transparent), 0 4px 12px -6px color-mix(in srgb, var(--seed-ink) 10%, transparent);
+  --shadow-md: 0 2px 4px color-mix(in srgb, var(--seed-ink) 4%, transparent), 0 12px 28px -12px color-mix(in srgb, var(--seed-ink) 14%, transparent);
+  --shadow-lg: 0 4px 8px color-mix(in srgb, var(--seed-ink) 4%, transparent), 0 28px 64px -24px color-mix(in srgb, var(--seed-ink) 18%, transparent);
+  --shadow-overlay: 0 40px 120px -32px color-mix(in srgb, var(--seed-ink) 30%, transparent);
+
+  /* Inset — pressed controls, sunken wells, input interiors */
+  --shadow-inset: inset 0 1px 2px color-mix(in srgb, var(--seed-ink) 8%, transparent);
+  --shadow-inset-deep: inset 0 2px 6px color-mix(in srgb, var(--seed-ink) 14%, transparent);
+
+  /* Focus */
+  --ring: 0 0 0 var(--hairline-2) var(--focus-ring);
+  --ring-offset: 0 0 0 2px var(--ground), 0 0 0 4px var(--focus-ring);
+
+  /* Game/HUD surfaces: a hairline glow instead of a drop shadow */
+  --glow-accent: 0 0 0 1px var(--accent-line), 0 0 24px -6px color-mix(in srgb, var(--seed-accent) 45%, transparent);
+}

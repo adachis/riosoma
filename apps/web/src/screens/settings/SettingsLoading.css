@@ -1,0 +1,21 @@
+@layer rio.app {
+  .rio-settings-loading {
+    display: grid;
+    min-inline-size: 0;
+  }
+
+  .rio-settings-loading__content,
+  .rio-settings-loading__indicator {
+    grid-area: 1 / 1;
+    min-inline-size: 0;
+  }
+
+  .rio-settings-loading[aria-busy='true'] > .rio-settings-loading__content {
+    visibility: hidden;
+  }
+
+  .rio-settings-loading__indicator {
+    align-self: start;
+    justify-self: start;
+  }
+}

@@ -1,0 +1,5 @@
+/* Webfonts. Bitmap-era faces; render them at integer multiples and never anti-alias-smooth them. */
+@font-face{font-family:"Seven Display";src:url("../assets/fonts/seven-display.woff2") format("woff2"),url("../assets/fonts/seven-display.woff") format("woff");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Seven UI";src:url("../assets/fonts/seven-ui.woff2") format("woff2"),url("../assets/fonts/seven-ui.woff") format("woff");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Seven Small";src:url("../assets/fonts/seven-small.woff2") format("woff2"),url("../assets/fonts/seven-small.woff") format("woff");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Seven Mono";src:url("../assets/fonts/seven-mono.woff2") format("woff2"),url("../assets/fonts/seven-mono.woff") format("woff");font-weight:400;font-style:normal;font-display:block}

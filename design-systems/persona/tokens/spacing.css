@@ -1,0 +1,55 @@
+/* PERSONA — spacing, sizing, geometry.
+   4px base. Geometry tokens matter as much as spacing here: the system is built
+   from tilted slabs and clipped corners, so the angles are tokens too. */
+:root {
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* corners are square by default. Softness is the exception, not the rule. */
+  --radius-none: 0px;
+  --radius-nick: 2px;
+  --radius-soft: 6px;
+  --radius-pill: 999px;
+
+  /* clipped-corner geometry, used instead of radii on slabs and panels */
+  --cut-sm: 8px;
+  --cut-md: 14px;
+  --cut-lg: 22px;
+
+  /* the tilt set. Never invent an angle outside this list. */
+  --tilt-hair: -1.5deg; /* @kind other */
+  --tilt-sm: -3deg; /* @kind other */
+  --tilt-md: -5.5deg; /* @kind other */
+  --tilt-lg: -8deg; /* @kind other */
+  --tilt-xl: -20deg; /* @kind other */
+  --tilt-pos-sm: 2.5deg; /* @kind other */
+  --tilt-pos-md: 6deg; /* @kind other */
+
+  --skew-slab: -12deg; /* @kind other */
+
+  /* strokes */
+  --stroke-hair: 1px;
+  --stroke-thin: 2px;
+  --stroke: 3px;
+  --stroke-heavy: 5px;
+  --stroke-brutal: 8px;
+
+  /* control sizing */
+  --control-sm: 30px;
+  --control-md: 40px;
+  --control-lg: 52px;
+  --touch-min: 44px;
+
+  --container-narrow: 720px; /* @kind spacing */
+  --container-text: 62ch; /* @kind spacing */
+  --container-wide: 1240px; /* @kind spacing */
+}

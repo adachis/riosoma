@@ -1,0 +1,133 @@
+@layer rio.components {
+  /*
+   * One fixed corner of the viewport, above everything else.  The region itself ignores the
+   * pointer so its empty space never blocks the page underneath; each toast turns it back on.
+   */
+  .rio-toast-region {
+    position: fixed;
+    /* Apps with something fixed in this corner (Riosoma's Rio) raise the stack above it. */
+    inset-block-end: var(--rio-toast-offset-block-end, 0px);
+    inset-inline-end: 0;
+    z-index: var(--rio-z-toast);
+    display: flex;
+    /* The newest toast comes first in the queue, so reversing the column keeps it in the corner
+       and lets the stack grow away from it. */
+    flex-direction: column-reverse;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-4);
+    /* Narrow on purpose: the stack hugs the corner and never covers the middle of the screen. */
+    max-inline-size: 360px;
+    pointer-events: none;
+  }
+
+  .rio-toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    /* The tone stripe is the same width for every tone, so toasts all take the same room. */
+    border-inline-start-width: 3px;
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface-raised);
+    color: var(--rio-text);
+    box-shadow: var(--rio-shadow-2);
+    pointer-events: auto;
+    animation: rio-toast-in var(--rio-duration-normal) var(--rio-ease-enter);
+  }
+
+  .rio-toast__content {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-toast__icon {
+    flex: none;
+  }
+
+  .rio-toast__text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+
+  .rio-toast__title {
+    /* The title's line box is as tall as the icon beside it, so the two share a line. */
+    font-size: var(--rio-text-md);
+    font-weight: var(--rio-weight-medium);
+    line-height: var(--rio-icon-size);
+  }
+
+  .rio-toast__description {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-normal);
+  }
+
+  .rio-toast__close {
+    flex: none;
+  }
+
+  .rio-toast[data-focus-visible] {
+    outline: none;
+    box-shadow: var(--rio-focus-ring), var(--rio-shadow-2);
+  }
+
+  .rio-toast[data-variant='info'] {
+    border-inline-start-color: var(--rio-info);
+  }
+
+  .rio-toast[data-variant='info'] .rio-toast__icon {
+    color: var(--rio-info);
+  }
+
+  .rio-toast[data-variant='success'] {
+    border-inline-start-color: var(--rio-success);
+  }
+
+  .rio-toast[data-variant='success'] .rio-toast__icon {
+    color: var(--rio-success);
+  }
+
+  .rio-toast[data-variant='warning'] {
+    border-inline-start-color: var(--rio-warning);
+  }
+
+  .rio-toast[data-variant='warning'] .rio-toast__icon {
+    color: var(--rio-warning);
+  }
+
+  .rio-toast[data-variant='danger'] {
+    border-inline-start-color: var(--rio-danger);
+  }
+
+  .rio-toast[data-variant='danger'] .rio-toast__icon {
+    color: var(--rio-danger);
+  }
+
+  @media (forced-colors: active) {
+    .rio-toast {
+      border-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+      box-shadow: none;
+    }
+
+    .rio-toast__icon {
+      color: CanvasText;
+    }
+  }
+}
+
+/* A toast slides in at full contrast, so its title and action stay readable throughout entry.
+   The duration tokens fall to zero at reduced motion. */
+@keyframes rio-toast-in {
+  from {
+    transform: translateY(var(--rio-space-2));
+  }
+}

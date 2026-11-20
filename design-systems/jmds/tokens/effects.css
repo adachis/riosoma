@@ -1,0 +1,46 @@
+/* JMDS SURFACE EFFECTS
+   Print rules: no blur, no soft shadow, no gradient. Depth comes from a hard
+   offset block (the screenprint misregistration), from a hairline, or from a
+   flat fill change. Corners are square except for the perfect circle and the
+   full pill. */
+:root{
+  --radius-0:0;
+  --radius-sm:2px;
+  --radius-pill:999px;
+  --radius-circle:50%;
+
+  --border-hair:1px;
+  --border-rule:2px;
+  --border-heavy:3px;
+  --border-block:6px;
+
+  /* Hard offset "print" shadows — zero blur, always */
+  --offset-sm:3px 3px 0 var(--shadow-ink);
+  --offset-md:6px 6px 0 var(--shadow-ink);
+  --offset-lg:10px 10px 0 var(--shadow-ink);
+  --offset-inset:inset 0 -3px 0 var(--shadow-ink);
+  --shadow-none:none;
+
+  /* Motion — mechanical. Print does not bounce. */
+  --ease-mech:cubic-bezier(0.2,0,0.1,1); /* @kind other */
+  --ease-out:cubic-bezier(0,0,0.2,1); /* @kind other */
+  --dur-instant:70ms; /* @kind other */
+  --dur-fast:130ms; /* @kind other */
+  --dur-base:200ms; /* @kind other */
+  --dur-slow:340ms; /* @kind other */
+  --transition-flat:background-color var(--dur-fast) var(--ease-mech),color var(--dur-fast) var(--ease-mech),border-color var(--dur-fast) var(--ease-mech);
+  --transition-shift:transform var(--dur-fast) var(--ease-mech),box-shadow var(--dur-fast) var(--ease-mech);
+
+  /* Overprint — the one legal transparency. Two inks crossing multiply. */
+  --overprint-mode:multiply; /* @kind other */
+  --overprint-alpha:0.82; /* @kind other */
+
+  /* Paper tooth. Applied as a repeating micro-dot, never a photo texture. */
+  --tooth:radial-gradient(var(--rule) 0.5px,transparent 0.5px);
+  --tooth-size:4px 4px;
+  --hatch:repeating-linear-gradient(45deg,var(--fg-1) 0 1px,transparent 1px 5px);
+  --stripe:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 16px);
+
+  /* Focus — a solid offset ring, never a glow */
+  --ring:0 0 0 2px var(--bg-page),0 0 0 4px var(--focus);
+}

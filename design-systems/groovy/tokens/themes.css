@@ -1,0 +1,867 @@
+/* Groovy — colour scheme variants.
+   Apply with data-gv-theme="<name>" on any element (usually <html> or a preview frame).
+   Every variant redeclares the same token contract, so components need no changes. */
+
+[data-gv-theme="sunburst"]{
+  --gv-paper:#FBEFD6;
+  --gv-paper-2:#FFF8E9;
+  --gv-paper-3:#F2E0BE;
+  --gv-ink:#3A2416;
+  --gv-ink-2:#6B4A32;
+  --gv-ink-3:#9A7A5C;
+  --gv-line:#3A2416;
+  --gv-primary:#E0692B;
+  --gv-primary-deep:#B44A18;
+  --gv-primary-ink:#FFF8E9;
+  --gv-secondary:#2E7391;
+  --gv-secondary-deep:#1D5570;
+  --gv-secondary-ink:#FFF8E9;
+  --gv-accent:#E5BA4A;
+  --gv-accent-deep:#C1922A;
+  --gv-accent-ink:#3A2416;
+  --gv-success:#6F9350;
+  --gv-success-ink:#FFF8E9;
+  --gv-warning:#E39125;
+  --gv-warning-ink:#3A2416;
+  --gv-danger:#D94A3E;
+  --gv-danger-ink:#FFF8E9;
+  --gv-info:#4E8785;
+  --gv-info-ink:#FFF8E9;
+  --gv-band-1:#D94A3E;
+  --gv-band-2:#E0692B;
+  --gv-band-3:#E5BA4A;
+  --gv-band-4:#85AE63;
+  --gv-band-5:#2E7391;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Sunburst"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="midnight-lounge"]{
+  --gv-paper:#0F1626;
+  --gv-paper-2:#18233A;
+  --gv-paper-3:#0A101C;
+  --gv-ink:#F6E7C1;
+  --gv-ink-2:#C9B98F;
+  --gv-ink-3:#8E8265;
+  --gv-line:#E8B22C;
+  --gv-primary:#E8B22C;
+  --gv-primary-deep:#B9871A;
+  --gv-primary-ink:#0F1626;
+  --gv-secondary:#24406B;
+  --gv-secondary-deep:#152A4A;
+  --gv-secondary-ink:#F6E7C1;
+  --gv-accent:#F2CE3E;
+  --gv-accent-deep:#C9A522;
+  --gv-accent-ink:#0F1626;
+  --gv-success:#7FA86B;
+  --gv-success-ink:#0F1626;
+  --gv-warning:#E8B22C;
+  --gv-warning-ink:#0F1626;
+  --gv-danger:#D9584A;
+  --gv-danger-ink:#F6E7C1;
+  --gv-info:#4E7FA8;
+  --gv-info-ink:#F6E7C1;
+  --gv-band-1:#0A101C;
+  --gv-band-2:#1B2A47;
+  --gv-band-3:#24406B;
+  --gv-band-4:#E8B22C;
+  --gv-band-5:#F2CE3E;
+  --gv-scheme:dark; /* @kind other */
+  --gv-theme-label:"Midnight Lounge"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="discotheque"]{
+  --gv-paper:#F7EEF7;
+  --gv-paper-2:#FFFBFF;
+  --gv-paper-3:#EBDDEE;
+  --gv-ink:#3A1152;
+  --gv-ink-2:#6A2C7A;
+  --gv-ink-3:#9A6BA6;
+  --gv-line:#3A1152;
+  --gv-primary:#C7305F;
+  --gv-primary-deep:#96204A;
+  --gv-primary-ink:#FFFBFF;
+  --gv-secondary:#4A1A7A;
+  --gv-secondary-deep:#33105A;
+  --gv-secondary-ink:#FFFBFF;
+  --gv-accent:#EBA92B;
+  --gv-accent-deep:#C4871A;
+  --gv-accent-ink:#3A1152;
+  --gv-success:#5E8E5C;
+  --gv-success-ink:#FFFBFF;
+  --gv-warning:#E4622A;
+  --gv-warning-ink:#FFFBFF;
+  --gv-danger:#C7305F;
+  --gv-danger-ink:#FFFBFF;
+  --gv-info:#7B3FA8;
+  --gv-info-ink:#FFFBFF;
+  --gv-band-1:#4A1A7A;
+  --gv-band-2:#94215C;
+  --gv-band-3:#C7305F;
+  --gv-band-4:#E4622A;
+  --gv-band-5:#EBA92B;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Discotheque"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="roller-rink"]{
+  --gv-paper:#F0EBDC;
+  --gv-paper-2:#FBF8EE;
+  --gv-paper-3:#E2DBC8;
+  --gv-ink:#23384F;
+  --gv-ink-2:#4A6379;
+  --gv-ink-3:#8598A8;
+  --gv-line:#23384F;
+  --gv-primary:#C9463F;
+  --gv-primary-deep:#9C3129;
+  --gv-primary-ink:#FBF8EE;
+  --gv-secondary:#4A7691;
+  --gv-secondary-deep:#31586F;
+  --gv-secondary-ink:#FBF8EE;
+  --gv-accent:#A6C9C8;
+  --gv-accent-deep:#7FA8A7;
+  --gv-accent-ink:#23384F;
+  --gv-success:#4F7F63;
+  --gv-success-ink:#FBF8EE;
+  --gv-warning:#D89A3C;
+  --gv-warning-ink:#23384F;
+  --gv-danger:#C9463F;
+  --gv-danger-ink:#FBF8EE;
+  --gv-info:#4A7691;
+  --gv-info-ink:#FBF8EE;
+  --gv-band-1:#23384F;
+  --gv-band-2:#4A7691;
+  --gv-band-3:#A6C9C8;
+  --gv-band-4:#D89A3C;
+  --gv-band-5:#C9463F;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Roller Rink"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="peach-parlor"]{
+  --gv-paper:#F5EADC;
+  --gv-paper-2:#FDF7EF;
+  --gv-paper-3:#EBDCCA;
+  --gv-ink:#4A3229;
+  --gv-ink-2:#7A5A4C;
+  --gv-ink-3:#A88C7C;
+  --gv-line:#4A3229;
+  --gv-primary:#C9605D;
+  --gv-primary-deep:#A44543;
+  --gv-primary-ink:#FDF7EF;
+  --gv-secondary:#63857B;
+  --gv-secondary-deep:#4A6960;
+  --gv-secondary-ink:#FDF7EF;
+  --gv-accent:#E9B25A;
+  --gv-accent-deep:#C68F38;
+  --gv-accent-ink:#4A3229;
+  --gv-success:#63857B;
+  --gv-success-ink:#FDF7EF;
+  --gv-warning:#C68F38;
+  --gv-warning-ink:#FDF7EF;
+  --gv-danger:#B54F44;
+  --gv-danger-ink:#FDF7EF;
+  --gv-info:#6E838F;
+  --gv-info-ink:#FDF7EF;
+  --gv-band-1:#4A3229;
+  --gv-band-2:#C9605D;
+  --gv-band-3:#EEC4BB;
+  --gv-band-4:#E9B25A;
+  --gv-band-5:#63857B;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Peach Parlor"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="harvest-table"]{
+  --gv-paper:#F4EDDE;
+  --gv-paper-2:#FCF7EB;
+  --gv-paper-3:#E6DCC6;
+  --gv-ink:#23414F;
+  --gv-ink-2:#3F5F6E;
+  --gv-ink-3:#7A929C;
+  --gv-line:#23414F;
+  --gv-primary:#D3651F;
+  --gv-primary-deep:#A94D12;
+  --gv-primary-ink:#FCF7EB;
+  --gv-secondary:#3E6E5F;
+  --gv-secondary-deep:#2B5245;
+  --gv-secondary-ink:#FCF7EB;
+  --gv-accent:#EBB93F;
+  --gv-accent-deep:#C6961F;
+  --gv-accent-ink:#23414F;
+  --gv-success:#6F9350;
+  --gv-success-ink:#FCF7EB;
+  --gv-warning:#C6961F;
+  --gv-warning-ink:#FCF7EB;
+  --gv-danger:#C0402B;
+  --gv-danger-ink:#FCF7EB;
+  --gv-info:#23414F;
+  --gv-info-ink:#FCF7EB;
+  --gv-band-1:#23414F;
+  --gv-band-2:#3E6E5F;
+  --gv-band-3:#94B276;
+  --gv-band-4:#EBB93F;
+  --gv-band-5:#D3651F;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Harvest Table"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="lagoon"]{
+  --gv-paper:#EEF3E6;
+  --gv-paper-2:#F8FBF2;
+  --gv-paper-3:#DCE7D2;
+  --gv-ink:#1B3A46;
+  --gv-ink-2:#2F5A66;
+  --gv-ink-3:#6A8A92;
+  --gv-line:#1B3A46;
+  --gv-primary:#2A7E80;
+  --gv-primary-deep:#1B5C5E;
+  --gv-primary-ink:#F8FBF2;
+  --gv-secondary:#22566F;
+  --gv-secondary-deep:#153E52;
+  --gv-secondary-ink:#F8FBF2;
+  --gv-accent:#86C98A;
+  --gv-accent-deep:#5FA366;
+  --gv-accent-ink:#1B3A46;
+  --gv-success:#3F8A64;
+  --gv-success-ink:#F8FBF2;
+  --gv-warning:#C08A2A;
+  --gv-warning-ink:#F8FBF2;
+  --gv-danger:#B84433;
+  --gv-danger-ink:#F8FBF2;
+  --gv-info:#2A7E80;
+  --gv-info-ink:#F8FBF2;
+  --gv-band-1:#22566F;
+  --gv-band-2:#2A7E80;
+  --gv-band-3:#55B383;
+  --gv-band-4:#86C98A;
+  --gv-band-5:#C2DFBE;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Lagoon"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="neon-cactus"]{
+  --gv-paper:#1E3327;
+  --gv-paper-2:#2A4632;
+  --gv-paper-3:#152318;
+  --gv-ink:#EDE6D5;
+  --gv-ink-2:#BCC7B2;
+  --gv-ink-3:#87957F;
+  --gv-line:#33D9C0;
+  --gv-primary:#E1555F;
+  --gv-primary-deep:#B33A44;
+  --gv-primary-ink:#FFF3F0;
+  --gv-secondary:#33D9C0;
+  --gv-secondary-deep:#1EA793;
+  --gv-secondary-ink:#152318;
+  --gv-accent:#EDBFBC;
+  --gv-accent-deep:#C9938F;
+  --gv-accent-ink:#152318;
+  --gv-success:#5FBE8A;
+  --gv-success-ink:#152318;
+  --gv-warning:#DDB35A;
+  --gv-warning-ink:#152318;
+  --gv-danger:#E1555F;
+  --gv-danger-ink:#FFF3F0;
+  --gv-info:#33D9C0;
+  --gv-info-ink:#152318;
+  --gv-band-1:#152318;
+  --gv-band-2:#2A4632;
+  --gv-band-3:#47563E;
+  --gv-band-4:#33D9C0;
+  --gv-band-5:#E1555F;
+  --gv-scheme:dark; /* @kind other */
+  --gv-theme-label:"Neon Cactus"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="bubblegum"]{
+  --gv-paper:#FDF2E9;
+  --gv-paper-2:#FFFBF6;
+  --gv-paper-3:#F4E2D3;
+  --gv-ink:#4A2E3E;
+  --gv-ink-2:#77505F;
+  --gv-ink-3:#A88592;
+  --gv-line:#4A2E3E;
+  --gv-primary:#D2517F;
+  --gv-primary-deep:#AC3862;
+  --gv-primary-ink:#FFFBF6;
+  --gv-secondary:#3F87A5;
+  --gv-secondary-deep:#2C6884;
+  --gv-secondary-ink:#FFFBF6;
+  --gv-accent:#EDC163;
+  --gv-accent-deep:#C89C3D;
+  --gv-accent-ink:#4A2E3E;
+  --gv-success:#4F9370;
+  --gv-success-ink:#FFFBF6;
+  --gv-warning:#CE6F4E;
+  --gv-warning-ink:#FFFBF6;
+  --gv-danger:#C43F58;
+  --gv-danger-ink:#FFFBF6;
+  --gv-info:#3F87A5;
+  --gv-info-ink:#FFFBF6;
+  --gv-band-1:#6FBEDA;
+  --gv-band-2:#D2517F;
+  --gv-band-3:#E4886A;
+  --gv-band-4:#EDC163;
+  --gv-band-5:#4A2E3E;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Bubblegum"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="seafoam"]{
+  --gv-paper:#F4F7E4;
+  --gv-paper-2:#FCFDF2;
+  --gv-paper-3:#E4EBCE;
+  --gv-ink:#1E3A47;
+  --gv-ink-2:#3A5D6B;
+  --gv-ink-3:#7593A0;
+  --gv-line:#1E3A47;
+  --gv-primary:#C41E43;
+  --gv-primary-deep:#991334;
+  --gv-primary-ink:#FCFDF2;
+  --gv-secondary:#2A6F93;
+  --gv-secondary-deep:#1B5071;
+  --gv-secondary-ink:#FCFDF2;
+  --gv-accent:#6BAEA3;
+  --gv-accent-deep:#4A8A80;
+  --gv-accent-ink:#1E3A47;
+  --gv-success:#41805F;
+  --gv-success-ink:#FCFDF2;
+  --gv-warning:#B98526;
+  --gv-warning-ink:#FCFDF2;
+  --gv-danger:#C41E43;
+  --gv-danger-ink:#FCFDF2;
+  --gv-info:#2A6F93;
+  --gv-info-ink:#FCFDF2;
+  --gv-band-1:#2A6F93;
+  --gv-band-2:#6BAEA3;
+  --gv-band-3:#ABC9B3;
+  --gv-band-4:#E4EBAC;
+  --gv-band-5:#C41E43;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Seafoam"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="denim-marigold"]{
+  --gv-paper:#E9E7D2;
+  --gv-paper-2:#F6F4E4;
+  --gv-paper-3:#D9D6BE;
+  --gv-ink:#12406E;
+  --gv-ink-2:#2E5B85;
+  --gv-ink-3:#6F87A3;
+  --gv-line:#12406E;
+  --gv-primary:#CD4527;
+  --gv-primary-deep:#A2321A;
+  --gv-primary-ink:#F6F4E4;
+  --gv-secondary:#12406E;
+  --gv-secondary-deep:#0A2B4C;
+  --gv-secondary-ink:#F6F4E4;
+  --gv-accent:#E5C55B;
+  --gv-accent-deep:#C0A035;
+  --gv-accent-ink:#12406E;
+  --gv-success:#587B4D;
+  --gv-success-ink:#F6F4E4;
+  --gv-warning:#C4762F;
+  --gv-warning-ink:#F6F4E4;
+  --gv-danger:#CD4527;
+  --gv-danger-ink:#F6F4E4;
+  --gv-info:#12406E;
+  --gv-info-ink:#F6F4E4;
+  --gv-band-1:#12406E;
+  --gv-band-2:#3C6B94;
+  --gv-band-3:#E5C55B;
+  --gv-band-4:#DC8B4A;
+  --gv-band-5:#CD4527;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Denim & Marigold"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}
+
+[data-gv-theme="avocado-kitchen"]{
+  --gv-paper:#EDF2EA;
+  --gv-paper-2:#F8FBF6;
+  --gv-paper-3:#DCE4D8;
+  --gv-ink:#2E3A31;
+  --gv-ink-2:#4E5C51;
+  --gv-ink-3:#7A8880;
+  --gv-line:#2E3A31;
+  --gv-primary:#5C7A52;
+  --gv-primary-deep:#425A39;
+  --gv-primary-ink:#F8FBF6;
+  --gv-secondary:#3B4740;
+  --gv-secondary-deep:#28322C;
+  --gv-secondary-ink:#F8FBF6;
+  --gv-accent:#C9A227;
+  --gv-accent-deep:#A48117;
+  --gv-accent-ink:#2E3A31;
+  --gv-success:#5C7A52;
+  --gv-success-ink:#F8FBF6;
+  --gv-warning:#A48117;
+  --gv-warning-ink:#F8FBF6;
+  --gv-danger:#A8503C;
+  --gv-danger-ink:#F8FBF6;
+  --gv-info:#57807B;
+  --gv-info-ink:#F8FBF6;
+  --gv-band-1:#2E3A31;
+  --gv-band-2:#5C7A52;
+  --gv-band-3:#96CFB2;
+  --gv-band-4:#C9A227;
+  --gv-band-5:#A8503C;
+  --gv-scheme:light; /* @kind other */
+  --gv-theme-label:"Avocado Kitchen"; /* @kind other */
+
+  /* ---- semantic aliases: use these in components ---- */
+  --surface-page:var(--gv-paper);
+  --surface-card:var(--gv-paper-2);
+  --surface-inset:var(--gv-paper-3);
+  --surface-raised:var(--gv-paper-2);
+  --text-heading:var(--gv-ink);
+  --text-body:var(--gv-ink);
+  --text-muted:var(--gv-ink-2);
+  --text-faint:var(--gv-ink-3);
+  --text-on-primary:var(--gv-primary-ink);
+  --text-on-accent:var(--gv-accent-ink);
+  --border-strong:var(--gv-line);
+  --border-soft:color-mix(in oklab, var(--gv-line) 28%, transparent);
+  --action-primary:var(--gv-primary);
+  --action-primary-press:var(--gv-primary-deep);
+  --action-secondary:var(--gv-secondary);
+  --action-secondary-press:var(--gv-secondary-deep);
+  --focus-ring:var(--gv-accent);
+  --ink-shadow:var(--gv-line);
+  /* derived values must live in the theme scope: a custom property's var()
+     references resolve on the element that declares it, not where it's used */
+  --shadow-sticker-sm:2px 2px 0 var(--gv-line);
+  --shadow-sticker:4px 4px 0 var(--gv-line);
+  --shadow-sticker-lg:7px 7px 0 var(--gv-line);
+  --shadow-sticker-xl:12px 12px 0 var(--gv-line);
+  --shadow-press:1px 1px 0 var(--gv-line);
+  --shadow-tint:5px 5px 0 var(--gv-accent);
+  --shadow-double:4px 4px 0 var(--gv-accent),8px 8px 0 var(--gv-line);
+  --shadow-lifted:0 18px 40px -12px color-mix(in oklab, var(--gv-ink) 45%, transparent);
+  --shadow-inset:inset 0 3px 0 color-mix(in oklab, var(--gv-ink) 14%, transparent);
+  --shadow-inset-deep:inset 0 4px 10px -2px color-mix(in oklab, var(--gv-ink) 30%, transparent);
+  --shadow-glow:0 0 0 4px color-mix(in oklab, var(--gv-accent) 45%, transparent);
+  --outline-ink:2px solid var(--gv-line); /* @kind other */
+  --outline-ink-thick:3px solid var(--gv-line); /* @kind other */
+  --rainbow-arc:linear-gradient(var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --rainbow-rule:linear-gradient(90deg,var(--gv-band-1) 0 20%,var(--gv-band-2) 20% 40%,var(--gv-band-3) 40% 60%,var(--gv-band-4) 60% 80%,var(--gv-band-5) 80% 100%); /* @kind other */
+  --sun-rays:repeating-conic-gradient(from 0deg,var(--gv-band-3) 0deg 9deg,transparent 9deg 18deg); /* @kind other */
+}

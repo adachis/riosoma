@@ -1,0 +1,11 @@
+{
+  "url": "/databases",
+  "method": "GET",
+  "response": {
+    "iterate": "{{body.databases}}",
+    "output": {
+      "label": "{{item.name}}",
+      "value": "{{item.id}}"
+    }
+  }
+}

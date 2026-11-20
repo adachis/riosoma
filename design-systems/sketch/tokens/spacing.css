@@ -1,0 +1,37 @@
+/* Sketch — spacing, sizing, layout.
+   Spacing runs on a drawn Fibonacci sequence: hand-measured intervals,
+   never a mechanical 8px rhythm. */
+:root{
+  --sp-0:0; /* @kind spacing */
+  --sp-1:3px; /* @kind spacing */
+  --sp-2:5px; /* @kind spacing */
+  --sp-3:8px; /* @kind spacing */
+  --sp-4:13px; /* @kind spacing */
+  --sp-5:21px; /* @kind spacing */
+  --sp-6:34px; /* @kind spacing */
+  --sp-7:55px; /* @kind spacing */
+  --sp-8:89px; /* @kind spacing */
+  --sp-9:144px; /* @kind spacing */
+
+  /* control heights — generous, thumb-first */
+  --control-sm:31px; /* @kind spacing */
+  --control-md:41px; /* @kind spacing */
+  --control-lg:51px; /* @kind spacing */
+  --touch-min:44px; /* @kind spacing */
+
+  /* measures */
+  --measure-tight:34ch; /* @kind spacing */
+  --measure:66ch;
+  --measure-wide:78ch; /* @kind spacing */
+
+  /* page frames */
+  --page-gutter:var(--sp-6); /* @kind spacing */
+  --page-max:1180px; /* @kind spacing */
+  --print-margin:16mm; /* @kind spacing */
+
+  --z-base:0; /* @kind other */
+  --z-raised:10; /* @kind other */
+  --z-sticky:100; /* @kind other */
+  --z-overlay:1000; /* @kind other */
+  --z-toast:1100; /* @kind other */
+}

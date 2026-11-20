@@ -1,0 +1,10 @@
+/* Diagram — webfaces. Core grotesque for UI, mono for annotation. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300..800;1,300..800&family=Archivo+Narrow:wght@400..700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
+:root{
+--font-core:"Archivo","Helvetica Neue",Helvetica,sans-serif;
+--font-condensed:"Archivo Narrow","Archivo",sans-serif;
+--font-annotate:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+--font-display:var(--font-core);
+--font-body:var(--font-core);
+--font-mono:var(--font-annotate);
+}

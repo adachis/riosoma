@@ -1,0 +1,36 @@
+@layer rio.app {
+  .rio-theme-picker {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  /* The theme and its color scheme sit side by side where there's room, and stack on a phone. */
+  .rio-theme-picker__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    gap: var(--rio-space-3);
+    align-items: start;
+    min-inline-size: 0;
+  }
+
+  .rio-theme-picker__theme,
+  .rio-theme-picker__scheme {
+    min-inline-size: 0;
+  }
+
+  .rio-theme-picker__note {
+    margin: 0;
+    padding: var(--rio-space-2) var(--rio-space-3);
+    border-inline-start: 3px solid var(--rio-aa-border);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+}
+
+@layer rio.app {
+  .rio-database-theme__help {
+    margin-block: 0 var(--rio-space-3);
+    color: var(--rio-aa-text-muted);
+  }
+}

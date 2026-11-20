@@ -1,0 +1,13 @@
+:root{
+/* Platinum-era geometry: square panels, small radii, no sci-fi chamfers. */
+--r-0:0; /* @kind radius */--r-1:2px;--r-2:3px;--r-3:4px;--r-4:6px;--r-5:10px;--r-pill:999px;--r-circle:50%;
+--chamfer:0px; /* @kind radius */--chamfer-sm:0px; /* @kind radius */
+--clip-chamfer:polygon(var(--chamfer) 0,100% 0,100% calc(100% - var(--chamfer)),calc(100% - var(--chamfer)) 100%,0 100%,0 var(--chamfer)); /* @kind radius */
+--clip-chamfer-sm:polygon(var(--chamfer-sm) 0,100% 0,100% calc(100% - var(--chamfer-sm)),calc(100% - var(--chamfer-sm)) 100%,0 100%,0 var(--chamfer-sm)); /* @kind radius */
+--clip-tag:polygon(0 0,100% 0,100% 100%,0 100%); /* @kind radius */
+--bw-1:1px; /* @kind radius */--bw-2:2px; /* @kind radius */--bw-3:3px; /* @kind radius */
+--rule:var(--bw-1) solid var(--stroke-1); /* @kind radius */
+--panel-border:var(--bw-1) solid var(--stroke-2); /* @kind radius */
+--accent-bar:3px; /* @kind radius */
+--titlebar-stripe:2px; /* @kind radius */
+}

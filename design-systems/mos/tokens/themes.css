@@ -1,0 +1,70 @@
+/* mOS themes. Every surface role is theme-scoped; set data-theme on <html>.
+   Dark = violet desktop + near-black windows. Light = mint desktop + cream paper windows. */
+[data-theme="dark"] {
+  --bg: #4d3aa3;
+  --bg-pattern: #5a45b8;
+  --window-bg: #141414;
+  --window-text: #f4efe2;
+  --window-muted: #8b8b8b;
+  --window-border: #0a0a0a;
+  --note-bg: #f5c518;
+  --note-text: #1a1a1a;
+  --menubar-bg: #141414;
+  --menubar-text: #f4efe2;
+  --menubar-logo: #f4efe2;
+  --dock-bg: rgba(20,20,20,0.78);
+  --dock-border: rgba(255,255,255,0.08);
+  --dock-sep: rgba(255,255,255,0.18);
+  --tooltip-bg: #f4efe2;
+  --tooltip-text: #1a1a1a;
+  --desktop-label: #f4efe2;
+  --desktop-icon-bg: #1a1a1a;
+  --fold-color: rgba(255,255,255,0.07);
+  --popover-bg: #1f1f1f;
+  --popover-text: #f4efe2;
+  --popover-hover: rgba(255,255,255,0.08);
+  --shadow-window: 0 18px 50px rgba(0,0,0,0.45), 0 4px 0 rgba(0,0,0,0.4);
+  --shadow-dock: 0 12px 36px rgba(0,0,0,0.5);
+  --link: var(--cyan);
+}
+[data-theme="light"] {
+  --bg: #9be3d9;
+  --bg-pattern: #aeece2;
+  --window-bg: #f7f0d8;
+  --window-text: #1a1a1a;
+  --window-muted: #6f6f6f;
+  --window-border: #1a1a1a;
+  --note-bg: #f5b800;
+  --note-text: #1a1a1a;
+  --menubar-bg: #f7f0d8;
+  --menubar-text: #1a1a1a;
+  --menubar-logo: #333333;
+  --dock-bg: rgba(255,255,255,0.78);
+  --dock-border: rgba(0,0,0,0.08);
+  --dock-sep: rgba(0,0,0,0.18);
+  --tooltip-bg: #1a1a1a;
+  --tooltip-text: #f4efe2;
+  --desktop-label: #1a1a1a;
+  --desktop-icon-bg: #f7f0d8;
+  --fold-color: rgba(0,0,0,0.10);
+  --popover-bg: #f7f0d8;
+  --popover-text: #1a1a1a;
+  --popover-hover: rgba(0,0,0,0.06);
+  --shadow-window: 0 18px 50px rgba(0,0,0,0.18), 0 4px 0 rgba(0,0,0,0.18);
+  --shadow-dock: 0 12px 36px rgba(0,0,0,0.18);
+  --link: var(--pink);
+}
+/* Default to dark if no attribute is set. */
+:root {
+  --bg: #4d3aa3; --bg-pattern: #5a45b8;
+  --window-bg: #141414; --window-text: #f4efe2; --window-muted: #8b8b8b; --window-border: #0a0a0a;
+  --note-bg: #f5c518; --note-text: #1a1a1a;
+  --menubar-bg: #141414; --menubar-text: #f4efe2; --menubar-logo: #f4efe2;
+  --dock-bg: rgba(20,20,20,0.78); --dock-border: rgba(255,255,255,0.08); --dock-sep: rgba(255,255,255,0.18);
+  --tooltip-bg: #f4efe2; --tooltip-text: #1a1a1a;
+  --desktop-label: #f4efe2; --desktop-icon-bg: #1a1a1a; --fold-color: rgba(255,255,255,0.07);
+  --popover-bg: #1f1f1f; --popover-text: #f4efe2; --popover-hover: rgba(255,255,255,0.08);
+  --shadow-window: 0 18px 50px rgba(0,0,0,0.45), 0 4px 0 rgba(0,0,0,0.4);
+  --shadow-dock: 0 12px 36px rgba(0,0,0,0.5);
+  --link: var(--cyan);
+}

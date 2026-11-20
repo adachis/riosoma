@@ -1,0 +1,207 @@
+/* ── Colour scheme variants ─────────────────────────────────────────────────
+   Apply with data-theme on any element: <body data-theme="midnight-brass">.
+   Themes only override the semantic layer, so structure, bevels, gradients and
+   type are identical across all of them.
+
+   --p1…--pN hold each scheme's raw source swatches, in source order, so a
+   designer can reach for the exact palette value when a chart or illustration
+   needs one. Light surfaces for schemes with no light swatch are mixed from
+   that scheme's lightest value (never invented from outside the palette).
+   Semantic slots a palette has no hue for (e.g. no red for --bad) intentionally
+   fall through to the default Brass & Soot value.
+*/
+
+/* Ember Signal */
+[data-theme="ember-signal"]{
+  --p1:#f94144;
+  --p2:#f3722c;
+  --p3:#f8961e;
+  --p4:#f9c74f;
+  --p5:#90be6d;
+  --p6:#43aa8b;
+  --p7:#4d908e;
+  --p8:#577590;
+  --p9:#277da1;
+  --m-hi:#f9c74f;--m-mid:#f8961e;--m-lo:#d0561f;--m-edge:#5d2410;
+  --deep:#2a2431;--deep-2:#38313f;--deep-3:#4a4152;
+  --paper:color-mix(in oklab,#f9c74f 14%,#fffdf3);--paper-2:color-mix(in oklab,#f9c74f 28%,#fffdf3);--panel:color-mix(in oklab,#f9c74f 6%,#fffef8);--panel-2:#fffdf6;
+  --ink:#3b1b16;--ink-2:#6d3a26;--ink-3:#9a705c;--on-metal:#3b1b16;--on-deep:color-mix(in oklab,#f9c74f 30%,#fff8e8);
+  --line:#e0b088;--line-2:#c0603a;--glow:#f8961e;
+  --ok:#43aa8b;--warn:#f8961e;--bad:#f94144;--info:#277da1;
+  --link:#c0603a;--link-hover:#d0561f;
+}
+
+/* Midnight Brass */
+[data-theme="midnight-brass"]{
+  --p1:#000814;
+  --p2:#001d3d;
+  --p3:#003566;
+  --p4:#ffc300;
+  --p5:#ffd60a;
+  --m-hi:#ffd60a;--m-mid:#ffc300;--m-lo:#b88900;--m-edge:#3a2b00;
+  --deep:#000814;--deep-2:#001d3d;--deep-3:#003566;
+  --paper:color-mix(in oklab,#ffd60a 14%,#fffdf3);--paper-2:color-mix(in oklab,#ffd60a 28%,#fffdf3);--panel:color-mix(in oklab,#ffd60a 6%,#fffef8);--panel-2:#fffdf6;
+  --ink:#000814;--ink-2:#001d3d;--ink-3:#4a5a70;--on-metal:#000814;--on-deep:color-mix(in oklab,#ffd60a 30%,#fff8e8);
+  --line:#c9a94a;--line-2:#003566;--glow:#ffd60a;
+  --warn:#ffc300;--info:#003566;
+  --link:#003566;--link-hover:#b88900;
+}
+
+/* Voltaic */
+[data-theme="voltaic"]{
+  --p1:#390099;
+  --p2:#9e0059;
+  --p3:#ff0054;
+  --p4:#ff5400;
+  --p5:#ffbd00;
+  --m-hi:#ffbd00;--m-mid:#ff5400;--m-lo:#c22f00;--m-edge:#3d1000;
+  --deep:#1c0049;--deep-2:#390099;--deep-3:#5a1eb0;
+  --paper:color-mix(in oklab,#ffbd00 14%,#fffdf3);--paper-2:color-mix(in oklab,#ffbd00 28%,#fffdf3);--panel:color-mix(in oklab,#ffbd00 6%,#fffef8);--panel-2:#fffdf6;
+  --ink:#2a0060;--ink-2:#9e0059;--ink-3:#8a6a9e;--on-metal:#2a0060;--on-deep:color-mix(in oklab,#ffbd00 30%,#fff8e8);
+  --line:#d09a3a;--line-2:#9e0059;--glow:#ff0054;
+  --warn:#ffbd00;--bad:#ff0054;--info:#390099;
+  --link:#9e0059;--link-hover:#c22f00;
+}
+
+/* Naval Signal */
+[data-theme="naval-signal"]{
+  --p1:#e63946;
+  --p2:#f1faee;
+  --p3:#a8dadc;
+  --p4:#457b9d;
+  --p5:#1d3557;
+  --m-hi:#d8e9ea;--m-mid:#a8dadc;--m-lo:#5f8f9a;--m-edge:#1d3557;
+  --deep:#1d3557;--deep-2:#26456e;--deep-3:#457b9d;
+  --paper:#f1faee;--paper-2:#dbe8dd;--panel:#f7fdf5;--panel-2:#ffffff;
+  --ink:#1d3557;--ink-2:#39587a;--ink-3:#7d94ab;--on-metal:#12233a;--on-deep:color-mix(in oklab,#d8e9ea 30%,#fff8e8);
+  --line:#a8dadc;--line-2:#457b9d;--glow:#e63946;
+  --bad:#e63946;--info:#457b9d;
+  --link:#457b9d;--link-hover:#5f8f9a;
+}
+
+/* Parlour Rose */
+[data-theme="parlour-rose"]{
+  --p1:#f6bd60;
+  --p2:#f7ede2;
+  --p3:#f5cac3;
+  --p4:#84a59d;
+  --p5:#f28482;
+  --m-hi:#fbd894;--m-mid:#f6bd60;--m-lo:#c8912f;--m-edge:#5c3f14;
+  --deep:#4a3b36;--deep-2:#5d4a44;--deep-3:#7a6259;
+  --paper:#f7ede2;--paper-2:#efdfcd;--panel:#fdf6ef;--panel-2:#fffdfa;
+  --ink:#4a332c;--ink-2:#7a5b50;--ink-3:#a98d80;--on-metal:#4a332c;--on-deep:color-mix(in oklab,#fbd894 30%,#fff8e8);
+  --line:#f5cac3;--line-2:#c99b90;--glow:#f28482;
+  --ok:#84a59d;--bad:#f28482;--info:#84a59d;
+  --link:#c99b90;--link-hover:#c8912f;
+}
+
+/* Foundry Dusk */
+[data-theme="foundry-dusk"]{
+  --p1:#233d4d;
+  --p2:#fe7f2d;
+  --p3:#fcca46;
+  --p4:#a1c181;
+  --p5:#619b8a;
+  --m-hi:#fcca46;--m-mid:#fe7f2d;--m-lo:#c65712;--m-edge:#3d1c05;
+  --deep:#233d4d;--deep-2:#2e4f63;--deep-3:#3d6579;
+  --paper:color-mix(in oklab,#fcca46 14%,#fffdf3);--paper-2:color-mix(in oklab,#fcca46 28%,#fffdf3);--panel:color-mix(in oklab,#fcca46 6%,#fffef8);--panel-2:#fffdf6;
+  --ink:#1a2e3a;--ink-2:#3d5c6b;--ink-3:#7d95a1;--on-metal:#2b1400;--on-deep:color-mix(in oklab,#fcca46 30%,#fff8e8);
+  --line:#d8b46a;--line-2:#619b8a;--glow:#fe7f2d;
+  --ok:#a1c181;--warn:#fcca46;--bad:#d1451f;--info:#619b8a;
+  --link:#619b8a;--link-hover:#c65712;
+}
+
+/* Verdigris Tide */
+[data-theme="verdigris-tide"]{
+  --p1:#22577a;
+  --p2:#38a3a5;
+  --p3:#57cc99;
+  --p4:#80ed99;
+  --p5:#c7f9cc;
+  --m-hi:#a9f0bd;--m-mid:#57cc99;--m-lo:#2c8a68;--m-edge:#12402f;
+  --deep:#0e2a3c;--deep-2:#22577a;--deep-3:#2e6f96;
+  --paper:#e9f9ec;--paper-2:#c7f9cc;--panel:#f4fdf5;--panel-2:#ffffff;
+  --ink:#0e2a3c;--ink-2:#22577a;--ink-3:#6a94a8;--on-metal:#0b2e22;--on-deep:color-mix(in oklab,#a9f0bd 30%,#fff8e8);
+  --line:#8fd9b3;--line-2:#38a3a5;--glow:#80ed99;
+  --ok:#57cc99;--info:#38a3a5;
+  --link:#38a3a5;--link-hover:#2c8a68;
+}
+
+/* Aether Green */
+[data-theme="aether-green"]{
+  --p1:#00fddc;
+  --p2:#2e5339;
+  --p3:#495f41;
+  --p4:#ff5666;
+  --p5:#ffccc9;
+  --m-hi:#7ffeeb;--m-mid:#00fddc;--m-lo:#00a893;--m-edge:#053a33;
+  --deep:#16241a;--deep-2:#2e5339;--deep-3:#495f41;
+  --paper:color-mix(in oklab,#7ffeeb 14%,#fffdf3);--paper-2:color-mix(in oklab,#7ffeeb 28%,#fffdf3);--panel:color-mix(in oklab,#7ffeeb 6%,#fffef8);--panel-2:#fffdf6;
+  --ink:#1b2a1d;--ink-2:#2e5339;--ink-3:#7b8c78;--on-metal:#05302a;--on-deep:color-mix(in oklab,#7ffeeb 30%,#fff8e8);
+  --line:#8fae8c;--line-2:#495f41;--glow:#00fddc;
+  --ok:#2e5339;--bad:#ff5666;--info:#00a893;
+  --link:#495f41;--link-hover:#00a893;
+}
+
+/* Carnival Pneumatic */
+[data-theme="carnival-pneumatic"]{
+  --p1:#70d6ff;
+  --p2:#ff70a6;
+  --p3:#ff9770;
+  --p4:#ffd670;
+  --m-hi:#ffe6a8;--m-mid:#ffd670;--m-lo:#d09a22;--m-edge:#4d3505;
+  --deep:#243447;--deep-2:#31465e;--deep-3:#3f5a78;
+  --paper:color-mix(in oklab,#ffe6a8 14%,#fffdf3);--paper-2:color-mix(in oklab,#ffe6a8 28%,#fffdf3);--panel:color-mix(in oklab,#ffe6a8 6%,#fffef8);--panel-2:#fffdf6;
+  --ink:#26313d;--ink-2:#4c5c6e;--ink-3:#8c9aa8;--on-metal:#3a2a05;--on-deep:color-mix(in oklab,#ffe6a8 30%,#fff8e8);
+  --line:#f0c88a;--line-2:#ff9770;--glow:#ff70a6;
+  --warn:#ff9770;--bad:#ff70a6;--info:#70d6ff;
+  --link:#ff9770;--link-hover:#d09a22;
+}
+
+/* Cartograph */
+[data-theme="cartograph"]{
+  --p1:#247ba0;
+  --p2:#70c1b3;
+  --p3:#b2dbbf;
+  --p4:#f3ffbd;
+  --p5:#ff1654;
+  --m-hi:#f3ffbd;--m-mid:#c7d97e;--m-lo:#8a9c42;--m-edge:#2f3a12;
+  --deep:#13384a;--deep-2:#247ba0;--deep-3:#3a92b8;
+  --paper:#f6ffe2;--paper-2:#e2f0d0;--panel:#fbffef;--panel-2:#ffffff;
+  --ink:#13384a;--ink-2:#2f5f75;--ink-3:#7ba0af;--on-metal:#2a3212;--on-deep:color-mix(in oklab,#f3ffbd 30%,#fff8e8);
+  --line:#b2dbbf;--line-2:#70c1b3;--glow:#ff1654;
+  --ok:#70c1b3;--bad:#ff1654;--info:#247ba0;
+  --link:#70c1b3;--link-hover:#8a9c42;
+}
+
+/* Ledger Blue */
+[data-theme="ledger-blue"]{
+  --p1:#083d77;
+  --p2:#ebebd3;
+  --p3:#f4d35e;
+  --p4:#ee964b;
+  --p5:#f95738;
+  --m-hi:#f8e394;--m-mid:#f4d35e;--m-lo:#c39b18;--m-edge:#4a3707;
+  --deep:#083d77;--deep-2:#0d4d92;--deep-3:#1a5fa8;
+  --paper:#ebebd3;--paper-2:#dcdcbe;--panel:#f6f6e6;--panel-2:#fdfdf5;
+  --ink:#062c56;--ink-2:#0d4d92;--ink-3:#6b86a5;--on-metal:#3a2c05;--on-deep:color-mix(in oklab,#f8e394 30%,#fff8e8);
+  --line:#e0c46a;--line-2:#ee964b;--glow:#f95738;
+  --warn:#ee964b;--bad:#f95738;--info:#083d77;
+  --link:#ee964b;--link-hover:#c39b18;
+}
+
+/* Moss Iron */
+[data-theme="moss-iron"]{
+  --p1:#3c493f;
+  --p2:#7e8d85;
+  --p3:#b3bfb8;
+  --p4:#f0f7f4;
+  --p5:#a2e3c4;
+  --m-hi:#cfe0d7;--m-mid:#a2e3c4;--m-lo:#5d8f76;--m-edge:#25382e;
+  --deep:#242c26;--deep-2:#3c493f;--deep-3:#55655a;
+  --paper:#f0f7f4;--paper-2:#dde7e2;--panel:#f8fbf9;--panel-2:#ffffff;
+  --ink:#2a352d;--ink-2:#4d5c52;--ink-3:#7e8d85;--on-metal:#20362a;--on-deep:color-mix(in oklab,#cfe0d7 30%,#fff8e8);
+  --line:#b3bfb8;--line-2:#7e8d85;--glow:#a2e3c4;
+  --ok:#a2e3c4;--info:#7e8d85;
+  --link:#7e8d85;--link-hover:#5d8f76;
+}

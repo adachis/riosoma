@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Field Notes &amp;amp; More</title>
+    <link>https://news.example.test/</link>
+    <atom:link href="https://news.example.test/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Notes from the field.</description>
+    <item>
+      <title>&lt;b&gt;Big&lt;/b&gt; news &amp;amp; &lt;i&gt;notes&lt;/i&gt;</title>
+      <link>https://news.example.test/posts/1</link>
+      <guid isPermaLink="false">note-1</guid>
+      <author>jo@example.test (Jo Park)</author>
+      <pubDate>Mon, 28 Sep 2026 10:00:00 GMT</pubDate>
+      <category>Field</category>
+      <category domain="https://news.example.test/tags">Weather</category>
+      <description>&lt;p&gt;The &lt;em&gt;first&lt;/em&gt; note.&lt;/p&gt;</description>
+      <content:encoded><![CDATA[
+        <p>The <strong>first</strong> note, with <a href="/about">a relative link</a>
+        and <a href="javascript:alert(1)">a bad one</a>.</p>
+        <script>document.write('never')</script>
+        <ul><li>One</li><li>Two</li></ul>
+        <img src="/pic.png" alt="A picture">
+      ]]></content:encoded>
+      <enclosure url="https://cdn.example.test/one.mp3" length="1024" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>A relative link</title>
+      <link>/posts/2</link>
+      <guid>note-2</guid>
+      <dc:creator>Sam Lee</dc:creator>
+      <pubDate>Tue, 29 Sep 2026 08:30:00 -0700</pubDate>
+      <description>Plain text, with no markup &amp; an ampersand.</description>
+      <enclosure url="/media/two.mp3" length="2048" type="audio/mpeg"/>
+    </item>
+    <item>
+      <title>No guid here</title>
+      <link>https://news.example.test/posts/3</link>
+      <pubDate>Wed, 30 Sep 2026 12:00:00 EST</pubDate>
+      <description>&lt;p&gt;Third.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

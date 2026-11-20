@@ -1,0 +1,44 @@
+{
+  "name": "@riosoma/connector-drivers",
+  "version": "0.95.0-rc.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@clickhouse/client": "1.25.0",
+    "@databricks/sql": "2.4.0",
+    "@google-cloud/bigquery": "9.6.1",
+    "@riosoma/connectors": "workspace:*",
+    "@riosoma/contracts": "workspace:*",
+    "@riosoma/db": "workspace:*",
+    "mongodb": "7.9.0",
+    "mssql": "12.7.14",
+    "mysql2": "3.24.6",
+    "node-firebird": "2.21.0",
+    "oracledb": "7.0.1",
+    "snowflake-sdk": "3.4.1"
+  },
+  "devDependencies": {
+    "@riosoma/testkit": "workspace:*",
+    "@types/mssql": "12.3.0",
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "pg": "8.23.1"
+  }
+}

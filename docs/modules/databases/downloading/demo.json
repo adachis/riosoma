@@ -1,0 +1,30 @@
+{
+  "id": "downloading",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "view.menu",
+      "say": "demos.downloading.menu",
+      "do": "open"
+    },
+    {
+      "anchor": "view.menu",
+      "item": "csv",
+      "say": "demos.downloading.csv"
+    },
+    {
+      "anchor": "view.menu",
+      "item": "xlsx",
+      "say": "demos.downloading.xlsx"
+    },
+    {
+      "anchor": "view.menu",
+      "item": "docx",
+      "say": "demos.downloading.office"
+    },
+    {
+      "anchor": "grid",
+      "say": "demos.downloading.scope"
+    }
+  ]
+}

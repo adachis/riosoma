@@ -1,0 +1,10 @@
+/* System 7 — global stylesheet entry. Imports only. */
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/themes.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/borders.css";
+@import "tokens/patterns.css";
+@import "css/base.css";
+@import "css/components.css";

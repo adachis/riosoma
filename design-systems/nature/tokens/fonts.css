@@ -1,0 +1,8 @@
+/* Typefaces. Both faces are variable TTFs shipped with the system. */
+@font-face{font-family:'Nature Display';src:url('../assets/fonts/PlusJakartaSans-Variable.ttf') format('truetype');font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:'Nature Text';src:url('../assets/fonts/DMSans-Variable.ttf') format('truetype');font-weight:100 1000;font-style:normal;font-display:swap}
+:root{
+  --nt-font-display:'Nature Display','Plus Jakarta Sans',system-ui,sans-serif;
+  --nt-font-text:'Nature Text','DM Sans',system-ui,sans-serif;
+  --nt-font-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}

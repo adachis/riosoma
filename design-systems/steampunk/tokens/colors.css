@@ -1,0 +1,36 @@
+/* ── Base ramps ─────────────────────────────────────────────────────────────
+   Raw material colours. Never reference these directly in a component;
+   use the semantic aliases below (or the theme-scoped overrides in themes.css).
+*/
+:root{
+  /* brass */
+  --brass-100:#F6E4B8; --brass-200:#E9CC8A; --brass-300:#D9AE5C;
+  --brass-400:#C08A2E; --brass-500:#A0701F; --brass-600:#7E5615; --brass-700:#4A3418;
+  /* copper */
+  --copper-200:#E0A87F; --copper-300:#C6835A; --copper-400:#A55A32; --copper-500:#7E4224;
+  /* iron / soot */
+  --iron-100:#8A8079; --iron-200:#5B534C; --iron-300:#3B3229; --iron-400:#292118;
+  --iron-500:#1B1714; --iron-600:#100D0B;
+  /* parchment */
+  --parch-50:#FDF7E8; --parch-100:#F8EFDA; --parch-200:#EFE1C2; --parch-300:#E0CDA6;
+  --parch-400:#CBB183; --parch-500:#A98E5F;
+  /* pigments */
+  --verdigris-400:#3E7A6E; --verdigris-300:#5C9C8E;
+  --oxblood-400:#8E2B22; --oxblood-300:#B34237;
+  --moss-400:#6E8B3D; --lamp-400:#F2A81E; --ink-blue-400:#2C4C6B;
+}
+
+/* ── Semantic aliases (the default "Brass & Soot" theme) ────────────────────
+   Every component reads only from this layer, so a theme swap is a
+   19-variable override and nothing else.
+*/
+:root{
+  --m-hi:var(--brass-200); --m-mid:var(--brass-400); --m-lo:var(--brass-600); --m-edge:var(--brass-700);
+  --paper:var(--parch-200); --paper-2:var(--parch-300); --panel:var(--parch-100); --panel-2:var(--parch-50);
+  --deep:var(--iron-500); --deep-2:var(--iron-400); --deep-3:var(--iron-300);
+  --ink:#241A12; --ink-2:#58452F; --ink-3:#8A7355; --on-metal:#2A1C08; --on-deep:#EFE1C2;
+  --line:var(--parch-400); --line-2:#8A6B3E;
+  --glow:var(--lamp-400);
+  --ok:var(--moss-400); --warn:#C98A16; --bad:var(--oxblood-400); --info:var(--verdigris-400);
+  --link:#7E4224; --link-hover:#A55A32;
+}

@@ -1,0 +1,24 @@
+@layer rio.app {
+  .rio-profile,
+  .rio-profile form {
+    display: grid;
+    gap: var(--rio-space-5);
+    min-inline-size: 0;
+  }
+  .rio-profile__picture {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-3);
+    flex-wrap: wrap;
+  }
+  .rio-profile__crop {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+    border: 1px solid var(--rio-border);
+  }
+  .rio-profile label:has(input[type='range']) {
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+}

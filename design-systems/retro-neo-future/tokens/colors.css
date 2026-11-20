@@ -1,0 +1,75 @@
+:root{
+/* ── raw ramp: warm platinum ───────────────────────────────── */
+--platinum-000:#ffffff;--platinum-050:#fbf8f0;--platinum-100:#f4efe2;--platinum-200:#e9e3d3;
+--platinum-300:#dad3c0;--platinum-400:#c7bfa8;--platinum-500:#a49b84;--platinum-600:#6f6959;
+--platinum-700:#403b33;--platinum-800:#26231d;--platinum-900:#1a1815;--platinum-999:#000000;
+/* ── raw accents (default scheme: Platinum Amber) ──────────── */
+--amber-400:#f2a03c;--amber-500:#e2661e;--amber-600:#b44e13;
+--slate-400:#4a8bab;--slate-500:#2e6e8e;--slate-600:#1e4d64;
+/* ── bevel light/dark, the whole 3D chrome system ──────────── */
+--bevel-light:rgba(255,255,255,.9);
+--bevel-dark:rgba(26,24,21,.34);
+--bevel-darker:rgba(26,24,21,.55);
+/* ── semantic surfaces ────────────────────────────────────── */
+--bg-base:var(--platinum-200);
+--bg-sunken:var(--platinum-300);
+--bg-panel:var(--platinum-050);
+--bg-panel-2:var(--platinum-100);
+--bg-elevated:var(--platinum-000);
+--bg-inset:#ffffff;
+--bg-hover:rgba(26,24,21,.06);
+--bg-active:rgba(26,24,21,.13);
+--bg-selected:rgba(226,102,30,.16);
+/* ── the screen: CRT/LCD inset used inside devices + heroes ── */
+--screen-bg:#14120c;
+--screen-fg:#f6ecd8;
+--screen-dim:rgba(246,236,216,.5);
+/* ── semantic text ────────────────────────────────────────── */
+--fg-1:var(--platinum-900);
+--fg-2:var(--platinum-700);
+--fg-3:var(--platinum-600);
+--fg-disabled:rgba(26,24,21,.35);
+--fg-invert:var(--platinum-050);
+--fg-accent:var(--amber-500);
+--fg-link:var(--amber-500);
+--fg-link-hover:var(--amber-600);
+/* ── accents ──────────────────────────────────────────────── */
+--accent:var(--amber-500);
+--accent-hi:var(--amber-400);
+--accent-lo:var(--amber-600);
+--accent-ink:#ffffff;
+--accent-soft:rgba(226,102,30,.14);
+--accent-line:rgba(226,102,30,.55);
+--accent-2:var(--slate-500);
+--accent-2-soft:rgba(46,110,142,.14);
+--accent-3:var(--platinum-500);
+/* ── strokes: 1px ink hairlines, not soft glows ───────────── */
+--stroke-1:rgba(26,24,21,.28);
+--stroke-2:rgba(26,24,21,.55);
+--stroke-strong:var(--platinum-900);
+--stroke-accent:var(--accent);
+--focus:var(--platinum-900);
+--focus-ring:0 0 0 2px var(--bg-panel),0 0 0 4px var(--focus); /* @kind shadow */
+/* ── status ───────────────────────────────────────────────── */
+--ok:#3f8f5f;--ok-soft:rgba(63,143,95,.14);
+--warn:#c98a12;--warn-soft:rgba(201,138,18,.14);
+--danger:#c33a2e;--danger-soft:rgba(195,58,46,.14);
+--info:var(--accent-2);--info-soft:var(--accent-2-soft);
+/* ── atmosphere ───────────────────────────────────────────── */
+--grid-line:rgba(26,24,21,.07);
+--grid-size:24px; /* @kind spacing */
+--scan-line:rgba(26,24,21,.05);
+--overlay:rgba(26,24,21,.5);
+--glass-bg:rgba(251,248,240,.86);
+--glass-stroke:rgba(26,24,21,.28);
+--glass-blur:6px; /* @kind spacing */
+--pinstripe-size:4px; /* @kind spacing */
+--grad-accent:linear-gradient(180deg,var(--accent-hi),var(--accent) 55%,var(--accent-lo)); /* @kind color */
+--grad-panel:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0) 70%); /* @kind color */
+--grad-chrome:linear-gradient(180deg,#ffffff,var(--platinum-100) 52%,var(--platinum-300)); /* @kind color */
+--grad-protect:linear-gradient(180deg,rgba(20,18,12,0),rgba(20,18,12,.82) 72%,rgba(20,18,12,.95)); /* @kind color */
+--grad-hero:linear-gradient(180deg,var(--platinum-050),var(--platinum-200) 100%); /* @kind color */
+--grad-screen:radial-gradient(120% 90% at 50% 0%,#231f16 0%,var(--screen-bg) 70%); /* @kind color */
+--grad-stripe:linear-gradient(90deg,var(--accent-hi) 0 20%,var(--accent) 20% 40%,var(--accent-lo) 40% 60%,var(--accent-2) 60% 80%,var(--accent-3) 80% 100%); /* @kind color */
+--sheen:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0) 60%); /* @kind color */
+}

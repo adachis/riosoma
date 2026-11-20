@@ -1,0 +1,43 @@
+.rio-grid-group {
+  background: var(--rio-surface);
+  color: var(--rio-text);
+  font-weight: var(--rio-weight-bold);
+}
+.rio-grid-group-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--rio-space-2);
+}
+.rio-grid-group-toggle,
+.rio-grid-group-add {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rio-space-2);
+  min-width: 0;
+  border: 0;
+  background: inherit;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.rio-grid-group-toggle {
+  flex: 1;
+  overflow: hidden;
+}
+.rio-grid-group-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rio-grid-group-count {
+  color: var(--rio-aa-text-muted);
+  font-size: var(--rio-text-xs);
+  white-space: nowrap;
+}
+.rio-grid-group-add {
+  flex: none;
+}
+.rio-grid-group-toggle:focus-visible,
+.rio-grid-group-add:focus-visible {
+  box-shadow: var(--rio-focus-ring);
+}

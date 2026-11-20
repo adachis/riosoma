@@ -1,0 +1,140 @@
+@layer rio.app {
+  /* The form sits between the dialog and its body, so it has to shrink for the body to scroll. */
+  .rio-booking-pages__form {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-block-size: 0;
+  }
+
+  .rio-booking-pages,
+  .rio-booking-pages__fields,
+  .rio-booking-pages__group {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+  }
+
+  .rio-booking-pages p {
+    margin-block: 0;
+  }
+
+  .rio-booking-pages__intro,
+  .rio-booking-pages__note,
+  .rio-booking-pages__facts {
+    max-inline-size: 62ch;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-booking-pages__facts,
+  .rio-booking-pages__note {
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-booking-pages__note:empty {
+    display: none;
+  }
+
+  .rio-booking-pages__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-booking-pages__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .rio-booking-pages__list,
+  .rio-booking-pages__days,
+  .rio-booking-pages__questions {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-booking-pages__item {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+
+  .rio-booking-pages__head,
+  .rio-booking-pages__link,
+  .rio-booking-pages__blocked {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-booking-pages__link > :first-child,
+  .rio-booking-pages__blocked > :first-child {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  .rio-booking-pages__group {
+    margin: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+
+  .rio-booking-pages__group > legend {
+    padding-inline: var(--rio-space-1);
+    font-weight: 600;
+  }
+
+  .rio-booking-pages__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: var(--rio-space-3);
+  }
+
+  .rio-booking-pages__day {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2) var(--rio-space-3);
+  }
+
+  .rio-booking-pages__day > .rio-switch {
+    flex: 0 0 9rem;
+  }
+
+  .rio-booking-pages__interval {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-booking-pages__days li,
+  .rio-booking-pages__questions li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-booking-pages__problem {
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  @media (forced-colors: active) {
+    .rio-booking-pages__item,
+    .rio-booking-pages__group {
+      border-color: CanvasText;
+    }
+  }
+}

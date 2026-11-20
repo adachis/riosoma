@@ -1,0 +1,40 @@
+/* Colorful Minimalist — shape. Flat by decree: hard corners on containers, full pills on
+   interactive controls, hairline rules instead of shadows. The only shadows in the system
+   are HARD OFFSET blocks (no blur) used sparingly for lift, plus one soft overlay shadow
+   reserved for modals and menus that float above the page. */
+:root{
+  --radius-none:0px;
+  --radius-xs:2px;
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:14px;
+  --radius-pill:999px;
+  --radius-circle:50%;
+
+  --radius-card:0px;
+  --radius-control:999px;
+  --radius-field:2px;
+  --radius-chip:999px;
+  --radius-window:10px;
+
+  --border-hairline:1px;
+  --border-strong:2px;
+  --border-heavy:3px;
+  --rule:var(--border-hairline) solid var(--line);
+  --rule-strong:var(--border-strong) solid var(--line-strong);
+
+  --shadow-none:none;
+  --shadow-block:4px 4px 0 0 var(--ink);
+  --shadow-block-accent:6px 6px 0 0 var(--accent);
+  --shadow-overlay:0 24px 60px -12px color-mix(in oklab,var(--ink) 30%,transparent);
+  --shadow-inset-field:inset 0 0 0 1px var(--line);
+
+  --focus-ring:0 0 0 2px var(--paper),0 0 0 4px var(--focus);
+  --focus-ring-tight:0 0 0 2px var(--focus);
+
+  /* recurring geometric motifs: diagonal stripe field + dot field */
+  --stripe:repeating-linear-gradient(45deg,var(--ink) 0 1px,transparent 1px 7px); /* @kind other */
+  --stripe-accent:repeating-linear-gradient(45deg,var(--accent) 0 2px,transparent 2px 9px); /* @kind other */
+  --dots:radial-gradient(var(--ink) 1px,transparent 1.2px) 0 0/12px 12px; /* @kind other */
+  --dots-accent:radial-gradient(var(--accent) 1.5px,transparent 1.8px) 0 0/14px 14px; /* @kind other */
+}

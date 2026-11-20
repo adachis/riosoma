@@ -1,0 +1,112 @@
+@layer rio.app {
+  .rio-palette .rio-listbox-item__label {
+    display: flex;
+    align-items: baseline;
+    gap: var(--rio-space-3);
+  }
+  .rio-palette__entry-label {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  .rio-palette__entry-keys {
+    flex: none;
+    max-inline-size: 55%;
+    overflow-wrap: anywhere;
+    margin-inline-start: auto;
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+  /* A search hangs below the top edge rather than in the middle of the screen, where a dialog that
+     answers a question belongs.  The overlay's own padding still keeps the panel off the edges. */
+  .rio-palette-overlay {
+    align-items: flex-start;
+    padding-block-start: 12dvh;
+  }
+
+  .rio-palette {
+    --rio-modal-inline-size: 640px;
+  }
+
+  /* Tighter than a form dialog: the field and the list are the whole thing, and the space between
+     them is what separates them. */
+  .rio-palette__dialog {
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-3);
+  }
+
+  .rio-palette__body {
+    position: relative;
+    display: grid;
+    min-block-size: 0;
+    gap: var(--rio-space-2);
+  }
+
+  /* The field and the list stay above anything drawn behind them. */
+  .rio-palette__search,
+  .rio-palette__results {
+    position: relative;
+    z-index: 1;
+  }
+
+  .rio-palette__results {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    max-block-size: min(50dvh, 26rem);
+  }
+
+  /* Inside the palette the list is flush: the panel draws the frame and does the scrolling. */
+  .rio-palette__results .rio-listbox {
+    overflow-y: visible;
+    padding-block: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  .rio-palette__empty {
+    margin: 0;
+    padding: var(--rio-space-4);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  /* The row the arrow keys are on.  A row under the pointer tints the same way, so the two never
+     look like they disagree about what Enter will open. */
+  .rio-palette__item--active {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  /* The keys that do the same thing as the button, drawn the way a keycap reads. */
+  .rio-palette__keys {
+    padding-inline: var(--rio-space-1);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    color: var(--rio-aa-text-muted);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-xs);
+    line-height: var(--rio-leading-tight);
+  }
+
+  /* At phone widths only the icon fits in the header; the button keeps its name for screen
+     readers, which is what the aria-label on it is for. */
+  @media (max-width: 767px) {
+    .rio-palette__label,
+    .rio-palette__keys {
+      display: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    /* A tint over the surface has no meaning here, so the active row is the one that flips. */
+    .rio-palette__item--active {
+      background-color: Highlight;
+      color: HighlightText;
+      forced-color-adjust: none;
+    }
+
+    .rio-palette__keys {
+      border-color: CanvasText;
+      color: CanvasText;
+    }
+  }
+}

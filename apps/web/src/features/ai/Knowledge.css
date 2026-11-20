@@ -1,0 +1,29 @@
+@layer rio.app {
+  .rio-knowledge {
+    display: grid;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+  }
+  .rio-knowledge--page {
+    padding: var(--rio-space-5);
+    max-inline-size: 48rem;
+    inline-size: 100%;
+    margin-inline: auto;
+    overflow-wrap: anywhere;
+  }
+  .rio-knowledge form {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+  .rio-knowledge__note {
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+  .rio-knowledge__actions {
+    display: flex;
+    gap: var(--rio-space-2);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

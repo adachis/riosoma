@@ -1,0 +1,193 @@
+@layer rio.app {
+  /* The form sits between the dialog and its body, so it has to shrink for the body to scroll. */
+  .rio-report-schedules__form {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-block-size: 0;
+  }
+
+  .rio-report-schedules,
+  .rio-report-schedules__fields {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-report-schedules p {
+    margin-block: 0;
+  }
+
+  .rio-report-schedules--settings {
+    max-inline-size: 48rem;
+    gap: var(--rio-space-5);
+  }
+
+  .rio-report-schedules__intro,
+  .rio-report-schedules__note {
+    max-inline-size: 62ch;
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-report-schedules__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-report-schedules__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .rio-report-schedules__section {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-report-schedules__heading {
+    margin: 0;
+    font-size: var(--rio-text-md);
+  }
+
+  .rio-report-schedules__list,
+  .rio-report-schedules__recipients,
+  .rio-report-schedules__deliveries {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-report-schedules__item,
+  .rio-report-schedules__run {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+
+  .rio-report-schedules__head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-report-schedules__facts {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: var(--rio-space-1) var(--rio-space-3);
+    margin: 0;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-report-schedules__facts > div {
+    display: contents;
+  }
+
+  .rio-report-schedules__facts dt {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-report-schedules__facts dd {
+    margin: 0;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-report-schedules__zone,
+  .rio-report-schedules__outside {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-report-schedules__status {
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-report-schedules__status[data-tone='warning'] {
+    color: var(--rio-aa-warning-text);
+  }
+
+  .rio-report-schedules__status[data-tone='danger'],
+  .rio-report-schedules__error,
+  .rio-report-schedules__problem {
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-report-schedules__place {
+    inline-size: fit-content;
+    font-size: var(--rio-text-sm);
+    color: var(--rio-aa-link);
+  }
+
+  .rio-report-schedules__when,
+  .rio-report-schedules__who {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-inline-size: 0;
+  }
+
+  .rio-report-schedules__when legend,
+  .rio-report-schedules__who legend {
+    padding: 0;
+    margin-block-end: var(--rio-space-2);
+    font-weight: 600;
+  }
+
+  .rio-report-schedules__recipients {
+    gap: var(--rio-space-1);
+  }
+
+  .rio-report-schedules__recipient {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-report-schedules__recipient > :first-child {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  .rio-report-schedules__address {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-report-schedules__deliveries {
+    gap: var(--rio-space-1);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-report-schedules__delivery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-1) var(--rio-space-3);
+  }
+
+  .rio-report-schedules__who-name {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-report-unsubscribe {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+}

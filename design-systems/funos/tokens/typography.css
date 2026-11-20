@@ -1,0 +1,31 @@
+:root{
+  /* Display — chunky, tight, always ink or paper, never mid-grey */
+  --display-1:clamp(3rem,7.4vw,6.5rem); /* @kind font */
+  --display-2:clamp(2.5rem,5.4vw,4.5rem); /* @kind font */
+  --display-3:clamp(2rem,3.4vw,3rem); /* @kind font */
+  --display-weight:900;
+  --display-tracking:-0.035em;
+  --display-leading:0.93;
+
+  --heading-1:2rem;
+  --heading-2:1.5rem;
+  --heading-3:1.1875rem;
+  --heading-weight:800;
+  --heading-tracking:-0.02em;
+  --heading-leading:1.15;
+
+  --body-lg:1.1875rem;
+  --body-md:1.0625rem;
+  --body-sm:0.9375rem;
+  --body-weight:400;
+  --body-leading:1.55;
+
+  --label:0.875rem;
+  --label-weight:700;
+  --label-tracking:-0.005em;
+
+  /* Kicker — letterspaced mono caps, the system's only all-caps style */
+  --kicker:0.6875rem;
+  --kicker-weight:500;
+  --kicker-tracking:0.14em;
+}

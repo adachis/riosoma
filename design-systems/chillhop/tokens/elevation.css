@@ -1,0 +1,16 @@
+:root{
+--shadow-tint:color-mix(in oklab,var(--ink) 22%,transparent);
+--shadow-tint-soft:color-mix(in oklab,var(--ink) 10%,transparent);
+--shadow-0:none;
+--shadow-1:0 1px 1px var(--shadow-tint-soft);
+--shadow-2:0 1px 2px var(--shadow-tint-soft),0 4px 10px -6px var(--shadow-tint);
+--shadow-3:0 2px 4px -2px var(--shadow-tint-soft),0 12px 28px -14px var(--shadow-tint);
+--shadow-4:0 4px 8px -4px var(--shadow-tint-soft),0 28px 56px -24px var(--shadow-tint);
+--shadow-lift:0 6px 12px -6px var(--shadow-tint-soft),0 20px 40px -18px var(--shadow-tint);
+--shadow-inset:inset 0 1px 2px var(--shadow-tint-soft);
+--shadow-focus:0 0 0 3px var(--focus-ring);
+/* Hard offset "print" shadow: the retro sleeve/sticker motif. No blur, ever. */
+--shadow-sticker:3px 3px 0 var(--ink);
+--shadow-sticker-lg:6px 6px 0 var(--ink);
+--shadow-sticker-accent:4px 4px 0 var(--accent-2);
+}

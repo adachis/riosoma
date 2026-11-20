@@ -1,0 +1,65 @@
+/* Base ramps for the default LACQUER theme.
+   Every theme in themes.css re-declares the same 24 anchors; semantic aliases
+   below never change, so components stay theme-agnostic. */
+:root{
+  --ad-mode:dark; /* @kind other */
+
+  /* palette anchors */
+  --c-1:#0d1622; --c-2:#132030; --c-3:#c9a227; --c-4:#e8d39a; --c-5:#f6efe0;
+
+  /* grounds */
+  --bg-deep:#080e16;
+  --bg:#0d1622;
+  --bg-raised:#152436;
+  --bg-inset:#0a121c;
+  --bg-scrim:rgba(6,10,16,.78);
+
+  /* ink */
+  --ink:#f6efe0;
+  --ink-2:#d3c8ae;
+  --ink-3:#93a1b1;
+
+  /* accent */
+  --accent:#c9a227;
+  --accent-2:#e8d39a;
+  --accent-3:#8a6a1f;
+  --accent-ink:#0d1622;
+  --accent-wash:rgba(201,162,39,.12);
+
+  /* rules */
+  --rule:rgba(201,162,39,.30);
+  --rule-strong:#c9a227;
+  --rule-quiet:rgba(246,239,224,.14);
+
+  /* status */
+  --ok:#5f9e6e;
+  --warn:#d8a13a;
+  --danger:#b8474a;
+  --info:#5c8ba8;
+
+  /* metal leaf — used for gilt strokes and gilt text fills */
+  --metal:linear-gradient(112deg,#8a6a1f 0%,#e8d39a 26%,#c9a227 48%,#f2e2b6 62%,#a97f22 86%,#e0c777 100%); /* @kind color */
+  --metal-soft:linear-gradient(180deg,rgba(232,211,154,.9),rgba(201,162,39,.55)); /* @kind color */
+  /* ink that always reads on metal leaf — metal is light in every theme, so this is
+     always a dark value, independent of --accent-ink */
+  --metal-ink:#0d1622;
+
+  /* semantic aliases — components use ONLY these */
+  --surface-page:var(--bg);
+  --surface-panel:var(--bg-raised);
+  --surface-inset:var(--bg-inset);
+  --surface-deep:var(--bg-deep);
+  --surface-scrim:var(--bg-scrim);
+  --text-strong:var(--ink);
+  --text-body:var(--ink-2);
+  --text-muted:var(--ink-3);
+  --text-accent:var(--accent-2);
+  --text-on-accent:var(--accent-ink);
+  --text-on-metal:var(--metal-ink);
+  --line-hairline:var(--rule-quiet);
+  --line-rule:var(--rule);
+  --line-strong:var(--rule-strong);
+  --focus-ring:var(--accent-2);
+  --link:var(--accent-2);
+  --link-hover:var(--ink);
+}

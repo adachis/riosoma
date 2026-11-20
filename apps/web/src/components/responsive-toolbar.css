@@ -1,0 +1,71 @@
+@layer rio.app {
+  .rio-responsive-toolbar {
+    position: relative;
+    min-inline-size: max(var(--rio-control-height), var(--rio-target-primary));
+    flex: var(--rio-toolbar-flex, 1 1 0);
+  }
+  .rio-responsive-toolbar > .rio-toolbar {
+    flex: 1;
+    flex-wrap: nowrap;
+    gap: var(--rio-space-1);
+    padding-inline: 0;
+    block-size: calc(max(var(--rio-control-height), var(--rio-target-primary)) + var(--rio-space-2));
+  }
+  .rio-responsive-toolbar__item,
+  .rio-responsive-toolbar__button {
+    flex: none;
+  }
+  .rio-responsive-toolbar__item[data-fit='overflow'] {
+    display: none;
+  }
+  .rio-responsive-toolbar__button[data-fit='icon'],
+  .rio-responsive-toolbar__button[data-fit='overflow'] {
+    inline-size: max(var(--rio-control-height), var(--rio-target-primary));
+    padding-inline: 0;
+  }
+  .rio-responsive-toolbar__button[role='img'] {
+    cursor: default;
+  }
+  .rio-responsive-toolbar__button[role='img']:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  .rio-responsive-toolbar__label {
+    flex: none;
+    white-space: nowrap;
+  }
+  .rio-responsive-toolbar__badge {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    padding-inline: var(--rio-space-1);
+    border-radius: var(--rio-radius);
+    background: var(--rio-accent);
+    color: var(--rio-aa-on-accent);
+    font-size: var(--rio-text-xs);
+    line-height: 1;
+  }
+  .rio-responsive-toolbar__button[data-active][data-variant='quiet'] {
+    color: var(--rio-aa-on-accent);
+    background: var(--rio-accent);
+  }
+  .rio-responsive-toolbar__measure {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    visibility: hidden;
+    pointer-events: none;
+    contain: layout;
+    display: flex;
+    inline-size: max-content;
+    gap: var(--rio-space-1);
+  }
+  .rio-responsive-toolbar__measure > div {
+    display: flex;
+  }
+  @media (forced-colors: active) {
+    .rio-responsive-toolbar__button[data-active][data-variant='quiet'] {
+      outline: 2px solid var(--rio-aa-focus);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+# Samba share definition for the test fleet.
+#
+# The container reads this file from /data/config.yml.  One share is enough to
+# exercise SMB reads, writes, listing, and delete, and one user is enough to
+# exercise authenticated access.  The share directory lives on a named volume,
+# so the files never touch the repository.
+auth:
+  - user: riosoma_test
+    group: riosoma
+    uid: 1000
+    gid: 1000
+    password: 'Riosoma-Test-2026!'
+
+global:
+  - 'force user = riosoma_test'
+  - 'force group = riosoma'
+
+share:
+  - name: riosoma
+    path: /samba/riosoma
+    browsable: yes
+    readonly: no
+    guestok: no
+    validusers: riosoma_test
+    writelist: riosoma_test
+    veto: no
+    recycle: no
+    options:
+      - 'create mask = 0644'
+      - 'directory mask = 0755'

@@ -1,0 +1,113 @@
+@layer rio.components {
+  .rio-radio {
+    display: block;
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+  }
+
+  /* The row is the label, so the radio can be chosen from its text as well as its circle. */
+  .rio-radio__control {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    max-inline-size: 100%;
+    min-block-size: var(--rio-control-height-sm);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .rio-radio__box {
+    position: relative;
+    flex: none;
+    inline-size: var(--rio-space-4);
+    block-size: var(--rio-space-4);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: 50%;
+    background-color: var(--rio-surface);
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  /* The dot is always laid out and only fades, so choosing a radio never moves the label.
+     It centers with auto margins because a translate would not mirror in a right-to-left layout. */
+  .rio-radio__box::after {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline: 0;
+    margin-inline: auto;
+    inline-size: var(--rio-space-2);
+    block-size: var(--rio-space-2);
+    border-radius: 50%;
+    background-color: var(--rio-aa-on-accent);
+    transform: translateY(-50%);
+    content: '';
+    opacity: 0;
+    transition: opacity var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-radio__control[data-selected] .rio-radio__box {
+    border-color: var(--rio-accent);
+    background-color: var(--rio-accent);
+  }
+
+  .rio-radio__control[data-selected] .rio-radio__box::after {
+    opacity: 1;
+  }
+
+  /* Hover and press tint the circle without replacing its fill, so every theme keeps working. */
+  .rio-radio__control[data-hovered] .rio-radio__box {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-radio__control[data-pressed] .rio-radio__box {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-radio__control[data-focus-visible] .rio-radio__box {
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-radio__control[data-invalid] .rio-radio__box {
+    border-color: var(--rio-aa-danger-text);
+  }
+
+  /* Supporting text retains its generated foreground when the control is disabled. */
+  .rio-radio[data-disabled] .rio-radio__control {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-radio[data-readonly] .rio-radio__control {
+    cursor: default;
+  }
+
+  /* Help text lines up under the label instead of under the circle. */
+  .rio-radio .rio-description {
+    margin-inline-start: calc(var(--rio-space-4) + var(--rio-space-2));
+  }
+
+  @media (forced-colors: active) {
+    .rio-radio__box {
+      border-color: ButtonText;
+      background-color: Field;
+    }
+
+    .rio-radio__control[data-selected] .rio-radio__box {
+      border-color: Highlight;
+      background-color: Highlight;
+    }
+
+    .rio-radio__box::after {
+      background-color: HighlightText;
+    }
+
+    /* Forced colors drops box shadows, so the focus ring needs a real outline. */
+    .rio-radio__control[data-focus-visible] .rio-radio__box {
+      outline: 2px solid CanvasText;
+      outline-offset: 2px;
+    }
+  }
+}

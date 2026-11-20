@@ -1,0 +1,31 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-core);font-size:var(--fs-md);line-height:var(--lh-body);font-weight:var(--fw-book);text-wrap:pretty;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6{margin:0;font-family:var(--font-display);font-weight:400;line-height:var(--lh-head);letter-spacing:var(--ls-display);text-transform:none}
+h1{font-size:var(--fs-4xl);line-height:var(--lh-tight);letter-spacing:var(--ls-poster)}
+h2{font-size:var(--fs-2xl);line-height:var(--lh-snug)}
+h3{font-size:var(--fs-xl)}
+h4{font-size:var(--fs-lg)}
+h5,h6{font-size:var(--fs-md)}
+p{margin:0 0 var(--s-5);max-width:var(--measure)}
+a{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:var(--primary);transition:var(--t-hover)}
+a:hover{color:var(--accent-ink);background:var(--accent);text-decoration-color:var(--accent-ink)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:var(--bw-thick) solid var(--focus);outline-offset:2px}
+hr{border:0;border-top:var(--rule);margin:var(--s-8) 0}
+small{font-size:var(--fs-xs)}
+code,kbd,pre{font-family:var(--font-mono);font-size:0.92em}
+::selection{background:var(--accent);color:var(--accent-ink)}
+img{max-width:100%;height:auto}
+/* Era typographic roles, usable as plain classes in prototypes. */
+.mc-eyebrow{font-family:var(--font-core);font-weight:var(--fw-semi);font-size:var(--fs-2xs);letter-spacing:var(--ls-eyebrow);text-transform:uppercase}
+.mc-poster{font-family:var(--font-display);font-size:var(--fs-6xl);line-height:var(--lh-tight);letter-spacing:var(--ls-poster);text-transform:uppercase}
+.mc-script{font-family:var(--font-script);font-size:var(--fs-3xl);line-height:1.1}
+.mc-ad{font-family:var(--font-ad);font-size:var(--fs-4xl);line-height:.94;letter-spacing:.005em;text-transform:uppercase}
+.mc-ad-sm{font-family:var(--font-ad);font-size:var(--fs-xl);line-height:1;letter-spacing:.01em;text-transform:uppercase}
+.mc-label{font-family:var(--font-core);font-weight:var(--fw-semi);font-size:var(--fs-2xs);letter-spacing:var(--ls-label);text-transform:uppercase}
+.mc-meta{font-family:var(--font-mono);font-size:var(--fs-2xs);letter-spacing:0.04em;text-transform:uppercase}
+.mc-lede{font-size:var(--fs-lg);line-height:var(--lh-body);max-width:var(--measure-narrow)}
+/* Ground treatments */
+.mc-grain{position:relative}
+.mc-grain::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:var(--field-rings);background-size:420px;mix-blend-mode:multiply;opacity:.14}
+.mc-hairline-frame{border:var(--border)}

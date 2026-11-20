@@ -1,0 +1,41 @@
+/* Sketch — type. Four roles, one scale.
+   The scale is drawn, not computed: sizes land on odd numbers so nothing
+   looks machine-set. Never snap these to a 4px grid. */
+:root{
+  --fs-1:13px;   /* micro caption, print folio */
+  --fs-2:15px;   /* UI small, table cell */
+  --fs-3:17px;   /* body */
+  --fs-4:21px;   /* lead, card title */
+  --fs-5:27px;   /* section heading */
+  --fs-6:34px;   /* page heading */
+  --fs-7:44px;
+  --fs-8:58px;
+  --fs-9:76px;   /* poster / hero */
+
+  --lh-tight:1.05; /* @kind font */
+  --lh-snug:1.22; /* @kind font */
+  --lh-body:1.55; /* @kind font */
+  --lh-loose:1.72; /* @kind font */
+
+  --ls-tight:-0.01em; /* @kind font */
+  --ls-normal:0; /* @kind font */
+  --ls-wide:0.06em; /* @kind font */
+  --ls-caps:0.14em;   /* stencil / label caps */
+
+  --fw-light:300; /* @kind font */
+  --fw-regular:400; /* @kind font */
+  --fw-medium:500; /* @kind font */
+  --fw-bold:700; /* @kind font */
+  --fw-heavy:800; /* @kind font */
+
+  /* composed roles */
+  --type-display:var(--fw-bold) var(--fs-8)/var(--lh-tight) var(--font-display); /* @kind font */
+  --type-title:var(--fw-bold) var(--fs-6)/var(--lh-snug) var(--font-display); /* @kind font */
+  --type-heading:var(--fw-bold) var(--fs-5)/var(--lh-snug) var(--font-ui); /* @kind font */
+  --type-lead:var(--fw-regular) var(--fs-4)/var(--lh-body) var(--font-ui); /* @kind font */
+  --type-body:var(--fw-regular) var(--fs-3)/var(--lh-body) var(--font-ui); /* @kind font */
+  --type-ui:var(--fw-medium) var(--fs-2)/1.3 var(--font-ui); /* @kind font */
+  --type-caption:var(--fw-regular) var(--fs-1)/1.4 var(--font-mono); /* @kind font */
+  --type-note:var(--fw-regular) var(--fs-4)/1.25 var(--font-hand); /* @kind font */
+  --type-label:var(--fw-bold) var(--fs-1)/1 var(--font-mono); /* @kind font */
+}

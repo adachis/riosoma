@@ -1,0 +1,14 @@
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bp-bg);color:var(--bp-text-1);font:var(--bp-weight-regular) var(--bp-size-base)/var(--bp-lh-normal) var(--bp-font-sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--bp-selection)}
+a{color:var(--bp-accent);text-decoration:none;border-bottom:1px solid color-mix(in oklab, var(--bp-accent) 40%, transparent);transition:var(--bp-transition-control)}
+a:hover{color:var(--bp-accent-hover);border-bottom-color:var(--bp-accent-hover)}
+h1,h2,h3,h4{font-family:var(--bp-font-display);font-weight:var(--bp-weight-semibold);letter-spacing:var(--bp-ls-heading);line-height:var(--bp-lh-snug);margin:0}
+h1{font-size:var(--bp-size-4xl);letter-spacing:var(--bp-ls-display);line-height:var(--bp-lh-tight)}
+h2{font-size:var(--bp-size-2xl)}h3{font-size:var(--bp-size-lg)}h4{font-size:var(--bp-size-md)}
+p{margin:0 0 var(--bp-space-6);max-width:var(--bp-measure-prose);text-wrap:pretty}
+code,kbd,samp,pre{font-family:var(--bp-font-mono);font-size:.92em}
+:focus-visible{outline:2px solid var(--bp-focus);outline-offset:2px}
+.bp-label{font:var(--bp-label);letter-spacing:var(--bp-ls-label);text-transform:uppercase;color:var(--bp-text-3)}
+.bp-num{font-family:var(--bp-font-mono);font-variant-numeric:tabular-nums}
+.bp-grid-field{background-image:var(--bp-grid-bg)}

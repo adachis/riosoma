@@ -1,0 +1,148 @@
+@layer rio.components {
+  /* An option's name on a tint of its own color, with body text on top.  The border is always
+     present and only takes a color in forced colors, so the pill keeps one size in every mode. */
+  .rio-choice-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    block-size: var(--rio-control-height-sm);
+    padding-inline: var(--rio-space-2);
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--rio-aa-choice-text);
+    font-family: var(--rio-font-body);
+    font-size: var(--rio-text-sm);
+    line-height: var(--rio-leading-tight);
+    vertical-align: middle;
+  }
+
+  /* The dense size for a grid cell: shorter, and tighter at the start so the name keeps its room
+     next to the remove button. */
+  .rio-choice-pill[data-size='sm'] {
+    block-size: var(--rio-space-5);
+    padding-inline: var(--rio-space-1) var(--rio-space-2);
+    font-size: var(--rio-text-xs);
+  }
+
+  .rio-choice-pill[data-color='gray'] {
+    background-color: var(--rio-aa-choice-gray-soft);
+  }
+
+  .rio-choice-pill[data-color='red'] {
+    background-color: var(--rio-aa-choice-red-soft);
+  }
+
+  .rio-choice-pill[data-color='orange'] {
+    background-color: var(--rio-aa-choice-orange-soft);
+  }
+
+  .rio-choice-pill[data-color='yellow'] {
+    background-color: var(--rio-aa-choice-yellow-soft);
+  }
+
+  .rio-choice-pill[data-color='green'] {
+    background-color: var(--rio-aa-choice-green-soft);
+  }
+
+  .rio-choice-pill[data-color='teal'] {
+    background-color: var(--rio-aa-choice-teal-soft);
+  }
+
+  .rio-choice-pill[data-color='blue'] {
+    background-color: var(--rio-aa-choice-blue-soft);
+  }
+
+  .rio-choice-pill[data-color='purple'] {
+    background-color: var(--rio-aa-choice-purple-soft);
+  }
+
+  .rio-choice-pill[data-color='pink'] {
+    background-color: var(--rio-aa-choice-pink-soft);
+  }
+
+  .rio-choice-pill[data-color='brown'] {
+    background-color: var(--rio-aa-choice-brown-soft);
+  }
+
+  /* One line, clipped; the tooltip carries whatever does not fit. */
+  .rio-choice-pill__label {
+    overflow: hidden;
+    min-inline-size: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* The remove button sits in the pill's own padding instead of adding to its length. */
+  .rio-choice-pill__remove {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--rio-target-min);
+    block-size: var(--rio-target-min);
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+  .rio-choice-pill:has(.rio-choice-pill__remove) {
+    min-block-size: var(--rio-target-min);
+    block-size: auto;
+  }
+  @media (max-width: 767px) {
+    .rio-choice-pill__remove {
+      inline-size: var(--rio-target-primary);
+      block-size: var(--rio-target-primary);
+    }
+    .rio-choice-pill:has(.rio-choice-pill__remove) {
+      min-block-size: var(--rio-target-primary);
+    }
+  }
+
+  /* Hover and press tint the button without replacing the pill's color, so every theme works. */
+  .rio-choice-pill__remove[data-hovered] {
+    background-color: var(--rio-hover);
+  }
+
+  .rio-choice-pill__remove[data-pressed] {
+    background-color: var(--rio-pressed);
+  }
+
+  .rio-choice-pill__remove[data-focus-visible] {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-choice-pill__remove[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    /* Forced colors has no room for a tint, so the pill keeps its outline and its text. */
+    .rio-choice-pill {
+      border-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+    }
+
+    .rio-choice-pill__remove {
+      border-color: transparent;
+      color: CanvasText;
+    }
+
+    /* Forced colors drops box shadows, so the focus ring needs a real outline. */
+    .rio-choice-pill__remove[data-focus-visible] {
+      outline: 2px solid CanvasText;
+      outline-offset: 2px;
+    }
+  }
+}

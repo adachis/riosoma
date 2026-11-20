@@ -1,0 +1,333 @@
+{
+  "id": "mos",
+  "name": "mOS",
+  "css": "theme.css",
+  "defaultScheme": "dark",
+  "schemes": [
+    {
+      "id": "dark",
+      "name": "Dark",
+      "appearance": "dark"
+    },
+    {
+      "id": "light",
+      "name": "Light",
+      "appearance": "light"
+    }
+  ],
+  "modes": [],
+  "defaultMode": null,
+  "surfaces": [],
+  "otherAttributes": [],
+  "externalImports": [],
+  "remoteFonts": [
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-01c04f4d69ca.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-0b5c2db19162.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlRFgsAXHNlYzg.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-0e213dc59c13.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwl9FgsAXHNlYzg.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-11ced52deb54.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-2532acb5e304.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1iEq131nj-otFQ.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-2d8cfbcbf9ec.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwl5FgsAXHNlYzg.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-2eab9668f909.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwl1FgsAXHNlYzg.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-4065b246a6a3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlRFgsAXHNlYzg.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-5778b1a20814.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-7300d08cc3cf.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwl5FgsAXHNlYzg.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-757e9d7228a6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1isq131nj-otFQ.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-784e5ede32c4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwl9FgsAXHNlYzg.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-bde7db924966.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1iAq131nj-otFQ.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-c3a25aa85495.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1iIq131nj-otFQ.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-mono-cb1a242b907c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwl1FgsAXHNlYzg.woff2",
+      "family": "IBM Plex Mono"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-sans-33ff57e97518.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbSB4ZhRNU.woff2",
+      "family": "IBM Plex Sans"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-sans-466e6a68c4ee.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxRKYbSB4ZhRNU.woff2",
+      "family": "IBM Plex Sans"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-sans-4e183d488cda.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxaKYbSB4ZhRNU.woff2",
+      "family": "IBM Plex Sans"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-sans-9d44a92983ac.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+      "family": "IBM Plex Sans"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-sans-cf65f680c0c9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxTKYbSB4ZhRNU.woff2",
+      "family": "IBM Plex Sans"
+    },
+    {
+      "path": "assets/fonts/remote/ibm-plex-sans-efbd4e0b7034.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxQKYbSB4ZhRNU.woff2",
+      "family": "IBM Plex Sans"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-0781a23a131a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kAHr4Y3qwzSEi.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-18c7e052b794.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US0r1aX2SzxEjst4.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-229e5b41057d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kA3r4Y3qwzSEi.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-43b3a414b2ef.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kAnr4Y3qwzSEi.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-69f650107d1b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US0r0aX2SzxEjst4.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-7b2b5394fb25.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kDnr4Y3qwzSEi.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-a62eba5dcb53.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US0r3aX2SzxEjst4.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-ad8163ff445c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US0r6aX2SzxEj.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-ad921d3811c4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US0r-aX2SzxEjst4.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-ed7458c7b3e5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kDXr4Y3qwzQ.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-f4077decc3b3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kCXr4Y3qwzSEi.woff2",
+      "family": "Source Serif 4"
+    },
+    {
+      "path": "assets/fonts/remote/source-serif-4-f93315a855e3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/sourceserif4/v14/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US0r5aX2SzxEjst4.woff2",
+      "family": "Source Serif 4"
+    }
+  ],
+  "droppedImports": [],
+  "removedImportant": 0,
+  "removedMotionRules": 0,
+  "semantic": {
+    "--rio-bg": "--bg",
+    "--rio-surface": "--window-bg",
+    "--rio-text": "--window-text",
+    "--rio-text-muted": "--ink-soft",
+    "--rio-border": "--window-border",
+    "--rio-accent": "--link",
+    "--rio-on-accent": "--rio-bg",
+    "--rio-link": "--link",
+    "--rio-focus": "--rio-accent",
+    "--rio-success": "#2f9e56",
+    "--rio-warning": "--yellow",
+    "--rio-danger": "#d92d20",
+    "--rio-info": "--rio-accent",
+    "--rio-font-body": "--font-sans",
+    "--rio-font-display": "--font-display",
+    "--rio-font-mono": "--font-mono",
+    "--rio-radius": "--radius"
+  },
+  "legibilityOnColors": {
+    "on-success": "--rio-on-accent",
+    "on-warning": "--rio-on-accent",
+    "on-danger": "--rio-on-accent",
+    "on-info": "--rio-on-accent"
+  },
+  "assets": [],
+  "unresolvedUrls": [],
+  "source": {
+    "designSystem": "design-systems/mos",
+    "originalSchemeSelector": "[data-theme=\"<id>\"]",
+    "tokenFiles": [
+      "tokens/fonts.css",
+      "tokens/colors.css",
+      "tokens/typography.css",
+      "tokens/layout.css",
+      "tokens/elevation.css",
+      "tokens/motion.css",
+      "tokens/themes.css",
+      "tokens/base.css"
+    ],
+    "zipFile": "mOS Design System.zip",
+    "zipContentHash": "3cbf9df7ee135f3c5ad95a81eaf0b09aa343169ad23976a2dc7d1d834a4848ca"
+  },
+  "legibility": {
+    "dark": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#f4efe2",
+        "--rio-aa-on-accent": "#4d3aa3",
+        "--rio-aa-accent-text": "#2bd4c4",
+        "--rio-aa-text-muted": "#e0e0df",
+        "--rio-aa-link": "#2bd4c4",
+        "--rio-aa-focus": "#2bd4c4",
+        "--rio-aa-border": "#9c9c9b",
+        "--rio-aa-success-text": "#8cf6a8",
+        "--rio-aa-on-success": "#290071",
+        "--rio-aa-warning-text": "#ffdd7b",
+        "--rio-aa-on-warning": "#4d3aa3",
+        "--rio-aa-danger-text": "#ffd7d0",
+        "--rio-aa-on-danger": "#f9f9ff",
+        "--rio-aa-info-text": "#5df7e6",
+        "--rio-aa-on-info": "#4d3aa3",
+        "--rio-legible-text": "#f4efe2",
+        "--rio-legible-text-muted": "#e0e0df",
+        "--rio-legible-on-accent": "#4d3aa3",
+        "--rio-aa-choice-text": "#f4efe2",
+        "--rio-aa-choice-gray": "#9c9c9b",
+        "--rio-aa-choice-gray-soft": "#5b53a3",
+        "--rio-aa-choice-red": "#ff6c6b",
+        "--rio-aa-choice-red-soft": "#714c9c",
+        "--rio-aa-choice-orange": "#e8812e",
+        "--rio-aa-choice-orange-soft": "#6b5195",
+        "--rio-aa-choice-yellow": "#c3951c",
+        "--rio-aa-choice-yellow-soft": "#625594",
+        "--rio-aa-choice-green": "#45b055",
+        "--rio-aa-choice-green-soft": "#4c5a98",
+        "--rio-aa-choice-teal": "#32ada1",
+        "--rio-aa-choice-teal-soft": "#4c57a4",
+        "--rio-aa-choice-blue": "#5d9bff",
+        "--rio-aa-choice-blue-soft": "#5350b7",
+        "--rio-aa-choice-purple": "#c17ef9",
+        "--rio-aa-choice-purple-soft": "#6549b6",
+        "--rio-aa-choice-pink": "#fa63bf",
+        "--rio-aa-choice-pink-soft": "#7247aa",
+        "--rio-aa-choice-brown": "#c59164",
+        "--rio-aa-choice-brown-soft": "#63529a"
+      }
+    },
+    "light": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1a1a1a",
+        "--rio-aa-on-accent": "#1a1a1a",
+        "--rio-aa-accent-text": "#b60051",
+        "--rio-aa-text-muted": "#333333",
+        "--rio-aa-link": "#b60051",
+        "--rio-aa-focus": "#e80069",
+        "--rio-aa-border": "#1a1a1a",
+        "--rio-aa-success-text": "#005526",
+        "--rio-aa-on-success": "#1a1a1a",
+        "--rio-aa-warning-text": "#5a4600",
+        "--rio-aa-on-warning": "#1a1a1a",
+        "--rio-aa-danger-text": "#970300",
+        "--rio-aa-on-danger": "#e4fffb",
+        "--rio-aa-info-text": "#940040",
+        "--rio-aa-on-info": "#1a1a1a",
+        "--rio-legible-text": "#1a1a1a",
+        "--rio-legible-text-muted": "#333333",
+        "--rio-legible-on-accent": "#1a1a1a",
+        "--rio-aa-choice-text": "#1a1a1a",
+        "--rio-aa-choice-gray": "#777676",
+        "--rio-aa-choice-gray-soft": "#94cac2",
+        "--rio-aa-choice-red": "#d83b43",
+        "--rio-aa-choice-red-soft": "#b7c3b8",
+        "--rio-aa-choice-orange": "#b95d00",
+        "--rio-aa-choice-orange-soft": "#abc7b1",
+        "--rio-aa-choice-yellow": "#977000",
+        "--rio-aa-choice-yellow-soft": "#9ecab1",
+        "--rio-aa-choice-green": "#0d8930",
+        "--rio-aa-choice-green-soft": "#80cfb4",
+        "--rio-aa-choice-teal": "#00847b",
+        "--rio-aa-choice-teal-soft": "#80cdc4",
+        "--rio-aa-choice-blue": "#2b72e4",
+        "--rio-aa-choice-blue-soft": "#81cbde",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#9fc6d9",
+        "--rio-aa-choice-pink": "#ce3798",
+        "--rio-aa-choice-pink-soft": "#b3c2cb",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#a1c8b7"
+      }
+    }
+  },
+  "legibilityAdjusted": 38
+}

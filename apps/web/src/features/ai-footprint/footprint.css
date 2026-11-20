@@ -1,0 +1,27 @@
+@layer rio.app {
+  .rio-footprint__line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-1) var(--rio-space-2);
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-footprint__help {
+    color: var(--rio-aa-text-muted);
+  }
+  .rio-footprint-leaves {
+    display: inline-flex;
+    gap: 0.125em;
+    margin-inline-start: var(--rio-space-2);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+  .rio-footprint-leaves__off {
+    opacity: 0.3;
+  }
+  .rio-footprint-leaves--none {
+    font-style: italic;
+  }
+}

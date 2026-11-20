@@ -1,0 +1,9 @@
+These responses are authored fixtures based on monday.com's documented GraphQL API shapes, pinned to 2026-10.  They contain synthetic data, not a capture of a personal account.
+
+The recordings cover every documented column type, paginated boards and items, groups, connected boards, mirrors, six formula columns read in batches, files with signed asset URLs, classic child boards, empty values, archived and deleted items, partial GraphQL failures, authentication errors, and complexity-limit errors.  `multilevel-responses.json` covers five hierarchy levels sharing one board, descendant lists, direct parent links, and calculated number, date, timeline, and battery status values.
+
+Selection settings use the current [status](https://developer.monday.com/api-reference/reference/status) and [dropdown](https://developer.monday.com/api-reference/reference/dropdown) label arrays, including deactivated labels and a status hex override.  The [rating](https://developer.monday.com/api-reference/reference/rating) fixture has a ten-point limit, heart symbols, a custom color, and an eight-point value.
+
+Sources: [column types](https://developer.monday.com/api-reference/reference/column-types-reference), [subitems](https://developer.monday.com/api-reference/reference/subitems-column), [multi-level boards](https://developer.monday.com/api-reference/docs/working-with-multi-level-boards), [mirrors](https://developer.monday.com/api-reference/reference/mirror), [file assets](https://developer.monday.com/api-reference/reference/files-1), and [rate limits](https://developer.monday.com/api-reference/docs/rate-limits).
+
+The read-only live suite runs when `RIOSOMA_TEST_MONDAY_TOKEN` is set.  Make exactly one board named `Riosoma tests`.  The test client permits that board and its child boards, and refuses unrelated connected boards.

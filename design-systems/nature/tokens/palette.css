@@ -1,0 +1,17 @@
+/* Raw palette ramps. Themes select from these; components never reference them directly. */
+:root{
+  /* Grove — the system's native palette, lifted from the source templates */
+  --nt-grove-bark:#374836;
+  --nt-grove-paper:#f9fbf3;
+  --nt-grove-moss:#e1ece3;
+  --nt-grove-leaf:#77a32a;
+  --nt-grove-stone:#7f8f80;
+  --nt-grove-line:#d9d9d9;
+  --nt-grove-haze:#a0a6a1;
+
+  /* Signal colours — constant across themes so status never changes meaning */
+  --nt-signal-success:#43aa8b;
+  --nt-signal-warning:#f8961e;
+  --nt-signal-danger:#e63946;
+  --nt-signal-info:#4d908e;
+}

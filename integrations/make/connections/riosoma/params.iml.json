@@ -1,0 +1,18 @@
+[
+  {
+    "name": "server",
+    "type": "url",
+    "label": "Riosoma address",
+    "help": "Enter the HTTPS address you open Riosoma at, without a path.",
+    "required": true,
+    "editable": true
+  },
+  {
+    "name": "token",
+    "type": "password",
+    "label": "Personal access token",
+    "help": "In Riosoma, open Settings, then Personal access tokens.  Create a token with Read tables, fields, and views and Read records.  To write records, also allow Add, change, and delete records.  Instant triggers also need Change tables, fields, and views and the Creator or Owner role.",
+    "required": true,
+    "editable": true
+  }
+]

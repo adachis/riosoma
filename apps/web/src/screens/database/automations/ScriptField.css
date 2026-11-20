@@ -1,0 +1,32 @@
+/* The code editor that automation steps and the script panel share. */
+.rio-script-field__body {
+  display: flex;
+  overflow: auto;
+  max-height: 28rem;
+  border: 1px solid var(--rio-border);
+  background: var(--rio-surface);
+}
+.rio-script-field__body textarea,
+.rio-script-field__lines {
+  font-family: var(--rio-font-mono);
+  font-size: var(--rio-text-sm);
+  line-height: 1.5;
+  padding: var(--rio-space-2);
+}
+.rio-script-field__body textarea {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  resize: none;
+  color: var(--rio-text);
+  background: var(--rio-surface);
+}
+.rio-script-field__lines {
+  color: var(--rio-aa-text-muted);
+  text-align: right;
+}
+.rio-script-field__lines [data-error='true'] {
+  color: var(--rio-danger);
+  background: var(--rio-bg);
+  font-weight: var(--rio-weight-bold);
+}

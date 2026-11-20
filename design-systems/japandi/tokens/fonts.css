@@ -1,0 +1,18 @@
+/* Japandi — webfonts.
+   Served from Google Fonts. No binaries are vendored into this project;
+   swap these @import lines for local @font-face rules if you self-host. */
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&display=swap");
+
+:root {
+  /* Display / editorial voice — headlines, pull quotes, numerals */
+  --font-display: "EB Garamond", "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
+  /* Interface voice — everything functional */
+  --font-ui: "Outfit", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Technical voice — data, codes, tiny wide-tracked labels */
+  --font-mono: "Martian Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* Japanese-set text (vertical writing, kanji specimens) */
+  --font-jp: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}

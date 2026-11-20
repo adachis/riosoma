@@ -1,0 +1,35 @@
+[
+  {
+    "url": "/databases/{{riosomaSegment(parameters.database, false)}}/tables",
+    "method": "GET",
+    "response": {
+      "temp": {
+        "table": "{{riosomaTable(body.tables, parameters.table)}}"
+      }
+    }
+  },
+  {
+    "url": "/tables/{{riosomaSegment(parameters.table, false)}}/records",
+    "method": "GET",
+    "qs": {
+      "shape": "airtable",
+      "fieldKey": "id",
+      "pageSize": 100,
+      "filter": "{{riosomaFilter(temp.table, parameters.searchField, parameters.searchValue)}}"
+    },
+    "response": {
+      "temp": {
+        "seen": "{{riosomaCursor(body.offset, temp.seen)}}"
+      },
+      "iterate": "{{body.records}}",
+      "limit": 1000,
+      "output": "{{item}}"
+    },
+    "pagination": {
+      "qs": {
+        "cursor": "{{body.offset}}"
+      },
+      "condition": "{{body.offset}}"
+    }
+  }
+]

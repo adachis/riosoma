@@ -1,0 +1,17 @@
+:root {
+  --r-0: 0px;
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-2xl: 28px;
+  --r-pill: 999px;
+  --r-control: var(--r-md);
+  --r-card: var(--r-lg);
+  --r-swatch: var(--r-md);
+  --r-sheet: var(--r-2xl);
+  --bw-hair: 1px; /* @kind spacing */
+  --bw-thick: 2px; /* @kind spacing */
+  --bw-heavy: 3px; /* @kind spacing */
+}

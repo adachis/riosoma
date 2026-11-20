@@ -1,0 +1,356 @@
+# Riosoma with Docker Compose.
+#
+#   docker compose up -d                        # Riosoma and its connector service, pointed at your own PostgreSQL
+#   docker compose --profile postgres up -d     # also run a PostgreSQL container
+#   docker compose --profile caddy up -d        # also put Caddy in front for automatic HTTPS
+#   docker compose --profile backup up -d       # also dump the database nightly, kept 14 days
+#   docker compose --profile updater up -d      # also update from Riosoma's settings in one click
+#   docker compose --profile pdf up -d          # also render PDF reports with Gotenberg
+#   docker compose --profile search up -d       # also run private web search with SearXNG
+#   docker compose --profile clamav up -d       # also run a virus scanner
+#
+# Profiles combine, as in docker compose --profile postgres --profile backup up -d, or name them once
+# in .env as COMPOSE_PROFILES=postgres,backup.  Settings go in a .env file next to this one (see
+# .env.example).  Open the app and follow the setup link printed in the logs:
+#   docker compose logs riosoma | grep "Finish setting up"
+name: riosoma
+
+services:
+  riosoma:
+    image: ${RIOSOMA_IMAGE:-ghcr.io/adachis/riosoma:0.95.0-rc.1}
+    restart: unless-stopped
+    ports:
+      - '${RIOSOMA_PUBLISH:-127.0.0.1:8080}:8080'
+    environment:
+      RIOSOMA_BASE_URL: ${RIOSOMA_BASE_URL:-http://localhost:8080}
+      RIOSOMA_LOG_LEVEL: ${RIOSOMA_LOG_LEVEL:-info}
+      # Empty or whitespace-only settings use the server defaults or stored values.
+      RIOSOMA_DATABASE_WAIT_SECONDS:
+      RIOSOMA_AUTOMATIONS_SCRIPT_MEMORY_MB:
+      RIOSOMA_AUTOMATIONS_SCRIPT_TIMEOUT_MS:
+      RIOSOMA_AUTOMATIONS_SCRIPT_OUTPUT_KB:
+      RIOSOMA_SCRIPTS_TIMEOUT_MS:
+      RIOSOMA_DATABASE_URL:
+      RIOSOMA_DATABASE_PROFILE:
+      RIOSOMA_OPENAI_API_KEY:
+      RIOSOMA_ANTHROPIC_API_KEY:
+      RIOSOMA_GEMINI_API_KEY:
+      RIOSOMA_MISTRAL_API_KEY:
+      RIOSOMA_OPENROUTER_API_KEY:
+      RIOSOMA_OLLAMA_API_KEY:
+      RIOSOMA_ANTHROPIC_WORKSPACE_ID:
+      RIOSOMA_SEARCH_URL:
+      RIOSOMA_AI_ELECTRICITY_ZONE:
+      RIOSOMA_CREDENTIAL_VAULTS:
+      RIOSOMA_CREDENTIAL_CACHE_SECONDS:
+      RIOSOMA_CREDENTIAL_ROTATE:
+      RIOSOMA_SECRET_KEY:
+      RIOSOMA_SETUP_TOKEN:
+      RIOSOMA_TLS_ASK_TOKEN:
+      RIOSOMA_TLS_ASK_ADDRESSES: ${RIOSOMA_TLS_ASK_ADDRESSES:-172.30.52.2}
+      RIOSOMA_CUSTOM_DOMAIN_TARGET:
+      RIOSOMA_CUSTOM_DOMAIN_LIMIT:
+      RIOSOMA_TRUST_PROXY:
+      RIOSOMA_DB_QUERY_TIMEOUT_MS:
+      RIOSOMA_SNAPSHOT_CACHE_MB:
+      RIOSOMA_DEMO_MODE: ${RIOSOMA_DEMO_MODE:-off}
+      RIOSOMA_DEMO_ACCOUNT: ${RIOSOMA_DEMO_ACCOUNT:-}
+      RIOSOMA_DEMO_LINK: ${RIOSOMA_DEMO_LINK:-}
+      RIOSOMA_DEMO_ADDRESS_LIMIT: ${RIOSOMA_DEMO_ADDRESS_LIMIT:-10}
+      RIOSOMA_DEMO_SESSION_LIMIT: ${RIOSOMA_DEMO_SESSION_LIMIT:-1000}
+      RIOSOMA_SESSION_IDLE_DAYS:
+      RIOSOMA_SESSION_MAX_DAYS:
+      RIOSOMA_SMTP_URL:
+      RIOSOMA_SMTP_ALLOW_PLAINTEXT:
+      RIOSOMA_MAIL_FROM:
+      RIOSOMA_MAIL_TRANSPORT:
+      RIOSOMA_SES_REGION:
+      RIOSOMA_SES_ACCESS_KEY_ID:
+      RIOSOMA_SES_SECRET_ACCESS_KEY:
+      RIOSOMA_ACS_CONNECTION_STRING:
+      RIOSOMA_ACS_ENDPOINT:
+      RIOSOMA_GRAPH_TENANT_ID:
+      RIOSOMA_GRAPH_CLIENT_ID:
+      RIOSOMA_GRAPH_CLIENT_SECRET:
+      RIOSOMA_GRAPH_SENDER:
+      RIOSOMA_GMAIL_SERVICE_ACCOUNT_JSON:
+      RIOSOMA_GMAIL_SENDER:
+      RIOSOMA_MAIL_RELAY_URL:
+      RIOSOMA_MAIL_RELAY_SECRET:
+      RIOSOMA_CLAMAV_URL:
+      RIOSOMA_CLAMAV_APPROVED_URLS:
+      RIOSOMA_PDF_RENDERER_URL:
+      RIOSOMA_DRIVERS_DIR: ${RIOSOMA_DRIVERS_DIR:-/config/drivers}
+      RIOSOMA_DRIVER_INSTALLS: ${RIOSOMA_DRIVER_INSTALLS:-on}
+      # The connector service below, reached on the network only the two share.  The token is
+      # generated on first start into storage both mount, unless RIOSOMA_CONNECTOR_SERVICE_TOKEN is set.
+      RIOSOMA_CONNECTOR_SERVICE_URL: ${RIOSOMA_CONNECTOR_SERVICE_URL:-http://connector-service:8091}
+      RIOSOMA_CONNECTOR_SERVICE_TOKEN:
+      RIOSOMA_CONNECTOR_SERVICE_TOKEN_FILE: ${RIOSOMA_CONNECTOR_SERVICE_TOKEN_FILE:-/connector-token/token}
+      RIOSOMA_FILES_STORAGE:
+      RIOSOMA_FILES_DIR:
+      RIOSOMA_ARCHIVE_WORK_DIR:
+      RIOSOMA_FILES_S3_ENDPOINT:
+      RIOSOMA_FILES_S3_REGION:
+      RIOSOMA_FILES_S3_BUCKET:
+      RIOSOMA_FILES_S3_PREFIX:
+      RIOSOMA_FILES_S3_ACCESS_KEY_ID:
+      RIOSOMA_FILES_S3_SECRET_ACCESS_KEY:
+      RIOSOMA_FILES_S3_PATH_STYLE:
+      RIOSOMA_FILES_S3_SSE:
+      RIOSOMA_FILES_S3_KMS_KEY_ID:
+      RIOSOMA_FILES_AZURE_ACCOUNT:
+      RIOSOMA_FILES_AZURE_CONTAINER:
+      RIOSOMA_FILES_AZURE_PREFIX:
+      RIOSOMA_FILES_AZURE_ACCOUNT_KEY:
+      RIOSOMA_FILES_AZURE_ENDPOINT:
+      RIOSOMA_FILES_AZURE_CLIENT_ID:
+      RIOSOMA_FILES_SIGNED_URL_SECONDS:
+      RIOSOMA_SOURCE_FILE_MAX_MB:
+      RIOSOMA_SOURCE_DUCKDB_ROOTS:
+      RIOSOMA_LIVE_TIMEOUT_MS:
+      RIOSOMA_LIVE_MAX_KEYS:
+      RIOSOMA_PUBLIC_FORM_HOURLY_LIMIT:
+      RIOSOMA_SHARED_VIEW_MINUTE_LIMIT:
+      RIOSOMA_AIRTABLE_API_SECOND_LIMIT:
+      RIOSOMA_SQL_POOL_MAX:
+      RIOSOMA_SQL_OUTSIDE_LOGINS:
+      RIOSOMA_SIGNATURE_REQUEST_HOURLY_LIMIT:
+      RIOSOMA_SIGNATURE_SIGNER_DAILY_LIMIT:
+      RIOSOMA_AUTOMATIONS_ALLOW_PRIVATE_HOSTS:
+      RIOSOMA_MAP_STYLE_URL:
+      RIOSOMA_GITHUB_API_URL:
+      RIOSOMA_HUB_URL:
+      RIOSOMA_DROPBOX_APP_KEY:
+      RIOSOMA_DROPBOX_APP_SECRET:
+      RIOSOMA_GITHUB_OAUTH_CLIENT_ID:
+      RIOSOMA_GITHUB_OAUTH_CLIENT_SECRET:
+      RIOSOMA_XERO_CLIENT_ID:
+      RIOSOMA_XERO_CLIENT_SECRET:
+      RIOSOMA_QUICKBOOKS_CLIENT_ID:
+      RIOSOMA_QUICKBOOKS_CLIENT_SECRET:
+      RIOSOMA_BOX_CLIENT_ID:
+      RIOSOMA_BOX_CLIENT_SECRET:
+      RIOSOMA_GOOGLE_OAUTH_CLIENT_ID:
+      RIOSOMA_GOOGLE_OAUTH_CLIENT_SECRET:
+      RIOSOMA_GOOGLE_PICKER_API_KEY:
+      RIOSOMA_UPDATE_CHECKS:
+      RIOSOMA_UPDATE_FEED_URL:
+      RIOSOMA_TELEMETRY:
+      RIOSOMA_TELEMETRY_URL:
+      # The updater is used only when RIOSOMA_UPDATER_TOKEN is set too.
+      RIOSOMA_UPDATER_URL: ${RIOSOMA_UPDATER_URL:-http://updater:8090}
+      RIOSOMA_UPDATER_TOKEN:
+      RIOSOMA_INSTALL_METHOD: ${RIOSOMA_INSTALL_METHOD:-compose}
+    networks:
+      default:
+      domains:
+        ipv4_address: 172.30.52.3
+      # Where only Riosoma reaches the updater, when its profile is on
+      updater:
+      pdf:
+      connectors:
+    volumes:
+      - riosoma-config:/config
+      - connector-token:/connector-token
+    # Waits for the bundled PostgreSQL when its profile is on, and for nothing otherwise.
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: false
+      gotenberg:
+        condition: service_healthy
+        required: false
+
+  # The connector service: the drivers for MySQL, SQL Server, Oracle, Firebird, Snowflake, BigQuery,
+  # Databricks, ClickHouse, and MongoDB, which run apart from Riosoma's own image.  It publishes no
+  # port.  Riosoma reaches it on the internal connectors network, with the token Riosoma writes on
+  # its first start, and it reaches databases the way Riosoma would, from the default network.
+  connectors:
+    image: ${RIOSOMA_CONNECTORS_IMAGE:-ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1}
+    restart: unless-stopped
+    environment:
+      RIOSOMA_LOG_LEVEL: ${RIOSOMA_LOG_LEVEL:-info}
+      RIOSOMA_CONNECTOR_SERVICE_TOKEN: ${RIOSOMA_CONNECTOR_SERVICE_TOKEN:-}
+    networks:
+      default:
+      connectors:
+        aliases:
+          - connector-service
+    volumes:
+      - connector-token:/connector-token:ro
+    # Riosoma starts first, so the token's storage begins as Riosoma's image lays it out.
+    depends_on:
+      riosoma:
+        condition: service_started
+
+  gotenberg:
+    profiles: [pdf]
+    image: gotenberg/gotenberg:8.32.0
+    restart: unless-stopped
+    command:
+      - gotenberg
+      - '--chromium-disable-javascript=true'
+      - '--chromium-deny-list=^https?://.*'
+      - '--chromium-deny-list=^file:(?!///tmp/).*'
+      - '--api-disable-download-from=true'
+      - '--webhook-disable=true'
+      - '--libreoffice-disable-routes=true'
+    networks:
+      pdf:
+    healthcheck:
+      test: ['CMD', 'curl', '--fail', '--silent', 'http://127.0.0.1:3000/health']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  search:
+    profiles: [search]
+    image: searxng/searxng:2026.9.25-12f8b6515
+    restart: unless-stopped
+    environment:
+      SEARXNG_SECRET: ${SEARXNG_SECRET:-}
+      # The settings file is mounted read-only, so the entrypoint must not change its ownership.
+      FORCE_OWNERSHIP: 'false'
+    volumes:
+      - ./search-settings.yml:/etc/searxng/settings.yml:ro
+    expose:
+      - '8080'
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '-O', '/dev/null', 'http://127.0.0.1:8080/healthz']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  clamav:
+    profiles: [clamav]
+    image: clamav/clamav-debian:1.4.6
+    restart: unless-stopped
+    volumes:
+      - clamav-data:/var/lib/clamav
+      - ./clamd.conf:/etc/clamav/clamd.conf:ro
+    healthcheck:
+      test: ['CMD', 'clamdscan', '--ping', '1']
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 180s
+
+  postgres:
+    profiles: [postgres]
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: riosoma
+      # Required with this profile: the container won't create a database without it.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-}
+      POSTGRES_DB: riosoma
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U riosoma -d riosoma']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # Automatic HTTPS for CADDY_DOMAIN, whose DNS must point at this machine with ports 80 and 443
+  # open.  Set RIOSOMA_BASE_URL to https:// and the same domain, and RIOSOMA_TRUST_PROXY to 172.30.52.2.
+  caddy:
+    profiles: [caddy]
+    image: caddy:2.11.4-alpine
+    restart: unless-stopped
+    environment:
+      CADDY_DOMAIN: ${CADDY_DOMAIN:-}
+      RIOSOMA_TLS_ASK_TOKEN: ${RIOSOMA_TLS_ASK_TOKEN:-}
+    networks:
+      domains:
+        ipv4_address: 172.30.52.2
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - riosoma
+
+  # A pg_dump every night at BACKUP_TIME (UTC) into the backups volume, each kept BACKUP_KEEP_DAYS
+  # days.  The PostgreSQL 18 client dumps every supported server, 14 and later.  Back up right now:
+  #   docker compose --profile backup run --rm backup once
+  # Restore one, with Riosoma stopped first (docker compose stop riosoma):
+  #   docker compose --profile backup run --rm backup restore riosoma-20260101T030000Z.dump
+  backup:
+    profiles: [backup]
+    image: postgres:18.6-alpine
+    restart: unless-stopped
+    entrypoint: ['/bin/sh', '/usr/local/bin/riosoma-backup']
+    command: ['schedule']
+    environment:
+      BACKUP_DATABASE_URL: ${BACKUP_DATABASE_URL:-${RIOSOMA_DATABASE_URL:-}}
+      BACKUP_TIME: ${BACKUP_TIME:-03:00}
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+    volumes:
+      - ./backup.sh:/usr/local/bin/riosoma-backup:ro
+      - backups:/backups
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: false
+
+  # One-click updates from Riosoma's settings.  When the owner picks a release, this checks that the
+  # backup service's database is Riosoma's, pulls the release's image by the digest the signed feed
+  # names, stops Riosoma, backs up the database with the backup service, and starts the new image
+  # with the same settings.  If the new version doesn't answer /healthz within
+  # UPDATER_HEALTH_SECONDS, it restores the backup and starts the old one again.  After an update it
+  # replaces itself with the new image too.  It needs the backup profile and RIOSOMA_UPDATER_TOKEN in
+  # .env, and runs from the Riosoma image.  The Docker socket is root's, so it runs as root, sits
+  # alone with Riosoma on the internal updater network, and answers only to the token.  It reaches
+  # the backup service through the Docker socket, not the network.  It writes the new image to
+  # RIOSOMA_IMAGE in .env, so this folder is mounted.
+  updater:
+    profiles: [updater]
+    image: ${RIOSOMA_IMAGE:-ghcr.io/adachis/riosoma:0.95.0-rc.1}
+    restart: unless-stopped
+    user: '0:0'
+    command: ['/app/updater/updater.mjs']
+    environment:
+      UPDATER_TOKEN: ${RIOSOMA_UPDATER_TOKEN:-}
+      UPDATER_HEALTH_SECONDS: ${UPDATER_HEALTH_SECONDS:-600}
+    # The image's own check asks for Riosoma on this container, which the updater isn't.
+    healthcheck:
+      disable: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/compose
+      - updater-state:/state
+    networks:
+      updater:
+
+networks:
+  default:
+  domains:
+    ipam:
+      config:
+        - subnet: 172.30.52.0/29
+  # Riosoma and the updater alone, with no way out, so nothing else on the host reaches the updater
+  updater:
+    internal: true
+  # Only Riosoma can reach the PDF renderer; the renderer has no outside network or published port.
+  pdf:
+    internal: true
+  # Where Riosoma calls the connector service, which nothing else joins
+  connectors:
+    internal: true
+
+volumes:
+  clamav-data:
+  riosoma-config:
+  connector-token:
+  postgres-data:
+  caddy-data:
+  caddy-config:
+  backups:
+  updater-state:

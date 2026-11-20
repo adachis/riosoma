@@ -1,0 +1,45 @@
+/* Motion. Durations and curves lifted from the source templates. */
+:root {
+  --dur-fast: 200ms; /* @kind other */
+  --dur-base: 300ms; /* @kind other */
+  --dur-slow: 400ms; /* @kind other */
+  --dur-slower: 700ms; /* @kind other */
+  --dur-entrance: 900ms; /* @kind other */
+
+  --ease-standard: ease; /* @kind other */
+  --ease-out: cubic-bezier(0.25, 0.25, 0.75, 0.75); /* @kind other */
+  --ease-emphasis: cubic-bezier(0.645, 0.045, 0.355, 1); /* @kind other */
+  --ease-entrance: cubic-bezier(0.2, 1, 0.22, 1); /* @kind other */
+  --ease-float: cubic-bezier(0.54, 0.085, 0.5, 0.92); /* @kind other */
+
+  --t-base: all var(--dur-base) var(--ease-standard) 0s; /* @kind other */
+  --t-slow: all var(--dur-slow) var(--ease-emphasis) 0s; /* @kind other */
+
+  /* Interaction deltas */
+  --hover-lift: -5px; /* @kind other */
+  --hover-opacity: 0.8; /* @kind other */
+  --press-scale: 0.97; /* @kind other */
+  --nudge-x: 6px;   /* arrow icons slide this far on hover */
+}
+
+@keyframes gds-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+@keyframes gds-wave {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.001; }
+}
+@keyframes gds-spin { to { transform: rotate(360deg); } }
+@keyframes gds-fade-in-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes gds-pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+  50% { box-shadow: 0 0 22px 4px color-mix(in srgb, var(--accent) 45%, transparent); }
+}
+@keyframes gds-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

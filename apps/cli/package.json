@@ -1,0 +1,32 @@
+{
+  "name": "@riosoma/cli",
+  "version": "0.95.0-rc.1",
+  "private": true,
+  "type": "module",
+  "description": "The riosoma command-line tool: sign in, read and change records, move data in and out, and save a database's schema",
+  "bin": {
+    "riosoma": "./dist/main.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@riosoma/sdk": "workspace:*"
+  },
+  "devDependencies": {
+    "@riosoma/contracts": "workspace:*",
+    "@riosoma/server": "workspace:*",
+    "@riosoma/testkit": "workspace:*",
+    "@types/node": "24.19.2"
+  }
+}

@@ -1,0 +1,28 @@
+@layer rio.components {
+  /* A rule has no meaning of its own, so it never takes part in the layout around it: no margin, no
+     border of its own, and no shrinking when a row runs out of room. */
+  .rio-separator {
+    flex-shrink: 0;
+    margin: 0;
+    border: 0;
+    background-color: var(--rio-border);
+  }
+
+  .rio-separator:not([aria-orientation='vertical']) {
+    inline-size: 100%;
+    block-size: 1px;
+  }
+
+  /* Reaches both edges of the row it divides, with a floor so it stays visible on its own. */
+  .rio-separator[aria-orientation='vertical'] {
+    align-self: stretch;
+    inline-size: 1px;
+    min-block-size: var(--rio-space-4);
+  }
+
+  @media (forced-colors: active) {
+    .rio-separator {
+      background-color: CanvasText;
+    }
+  }
+}

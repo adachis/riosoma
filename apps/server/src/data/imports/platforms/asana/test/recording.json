@@ -1,0 +1,364 @@
+{
+  "answers": [
+    {
+      "method": "GET",
+      "path": "/api/1.0/workspaces?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"1\",\"name\":\"Riosoma tests\",\"resource_type\":\"workspace\"}],\"next_page\":{\"offset\":\"w-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/workspaces?offset=w-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects?workspace=1&opt_fields=gid%2Cname%2Carchived%2Cteam.name&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"100\",\"name\":\"Tasks\",\"archived\":false,\"team\":{\"gid\":\"10\",\"name\":\"Product\"}}],\"next_page\":{\"offset\":\"p-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects?workspace=1&opt_fields=gid%2Cname%2Carchived%2Cteam.name&offset=p-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"200\",\"name\":\"Partners\",\"archived\":false,\"team\":{\"gid\":\"10\",\"name\":\"Product\"}},{\"gid\":\"300\",\"name\":\"Archive\",\"archived\":true,\"team\":null}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/100?opt_fields=gid%2Cname%2Cnotes%2Carchived%2Cdefault_view",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"100\",\"name\":\"Tasks\",\"notes\":\"Project notes\",\"archived\":false,\"default_view\":\"board\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/100/sections?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"s1\",\"name\":\"Doing\"}],\"next_page\":{\"offset\":\"s-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/100/sections?offset=s-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"s2\",\"name\":\"Done\"}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/100/custom_field_settings?opt_fields=custom_field.gid%2Ccustom_field.name%2Ccustom_field.resource_subtype%2Ccustom_field.description%2Ccustom_field.enum_options%2Ccustom_field.precision%2Ccustom_field.format%2Ccustom_field.currency_code%2Ccustom_field.custom_label%2Ccustom_field.custom_label_position%2Ccustom_field.is_formula_field%2Ccustom_field.is_value_read_only%2Ccustom_field.representation_type%2Ccustom_field.input_restrictions%2Ccustom_field.id_prefix&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"custom_field\":{\"gid\":\"cf-text\",\"name\":\"text\",\"resource_subtype\":\"text\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\"}},{\"custom_field\":{\"gid\":\"cf-enum\",\"name\":\"enum\",\"resource_subtype\":\"enum\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\"}},{\"custom_field\":{\"gid\":\"cf-multi_enum\",\"name\":\"multi_enum\",\"resource_subtype\":\"multi_enum\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\"}},{\"custom_field\":{\"gid\":\"cf-number\",\"name\":\"number\",\"resource_subtype\":\"number\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\"}}],\"next_page\":{\"offset\":\"f-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/100/custom_field_settings?opt_fields=custom_field.gid%2Ccustom_field.name%2Ccustom_field.resource_subtype%2Ccustom_field.description%2Ccustom_field.enum_options%2Ccustom_field.precision%2Ccustom_field.format%2Ccustom_field.currency_code%2Ccustom_field.custom_label%2Ccustom_field.custom_label_position%2Ccustom_field.is_formula_field%2Ccustom_field.is_value_read_only%2Ccustom_field.representation_type%2Ccustom_field.input_restrictions%2Ccustom_field.id_prefix&offset=f-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"custom_field\":{\"gid\":\"cf-date\",\"name\":\"date\",\"resource_subtype\":\"date\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\"}},{\"custom_field\":{\"gid\":\"cf-people\",\"name\":\"people\",\"resource_subtype\":\"people\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\"}},{\"custom_field\":{\"gid\":\"cf-reference\",\"name\":\"reference\",\"resource_subtype\":\"reference\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\"}},{\"custom_field\":{\"gid\":\"cf-id\",\"name\":\"id\",\"resource_subtype\":\"number\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"id_prefix\":\"TEST\",\"is_value_read_only\":true}},{\"custom_field\":{\"gid\":\"cf-future_type\",\"name\":\"future_type\",\"resource_subtype\":\"future_type\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\"}},{\"custom_field\":{\"gid\":\"cf-currency\",\"name\":\"currency\",\"resource_subtype\":\"number\",\"format\":\"currency\",\"currency_code\":\"USD\",\"precision\":2}},{\"custom_field\":{\"gid\":\"cf-percentage\",\"name\":\"percentage\",\"resource_subtype\":\"number\",\"format\":\"percentage\",\"precision\":1}},{\"custom_field\":{\"gid\":\"cf-formula\",\"name\":\"formula\",\"resource_subtype\":\"number\",\"is_formula_field\":true,\"is_value_read_only\":true}},{\"custom_field\":{\"gid\":\"cf-custom\",\"name\":\"custom\",\"resource_subtype\":\"number\",\"format\":\"custom\",\"custom_label\":\"units\",\"custom_label_position\":\"suffix\"}}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/200?opt_fields=gid%2Cname%2Cnotes%2Carchived%2Cdefault_view",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"200\",\"name\":\"Partners\",\"notes\":\"Project notes\",\"archived\":false,\"default_view\":\"board\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/200/sections?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"s1\",\"name\":\"Doing\"}],\"next_page\":{\"offset\":\"s-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/200/sections?offset=s-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"s2\",\"name\":\"Done\"}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/200/custom_field_settings?opt_fields=custom_field.gid%2Ccustom_field.name%2Ccustom_field.resource_subtype%2Ccustom_field.description%2Ccustom_field.enum_options%2Ccustom_field.precision%2Ccustom_field.format%2Ccustom_field.currency_code%2Ccustom_field.custom_label%2Ccustom_field.custom_label_position%2Ccustom_field.is_formula_field%2Ccustom_field.is_value_read_only%2Ccustom_field.representation_type%2Ccustom_field.input_restrictions%2Ccustom_field.id_prefix&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/300?opt_fields=gid%2Cname%2Cnotes%2Carchived%2Cdefault_view",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"300\",\"name\":\"Archive\",\"notes\":\"Project notes\",\"archived\":true,\"default_view\":\"board\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/300/sections?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"s1\",\"name\":\"Doing\"}],\"next_page\":{\"offset\":\"s-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/300/sections?offset=s-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"s2\",\"name\":\"Done\"}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/300/custom_field_settings?opt_fields=custom_field.gid%2Ccustom_field.name%2Ccustom_field.resource_subtype%2Ccustom_field.description%2Ccustom_field.enum_options%2Ccustom_field.precision%2Ccustom_field.format%2Ccustom_field.currency_code%2Ccustom_field.custom_label%2Ccustom_field.custom_label_position%2Ccustom_field.is_formula_field%2Ccustom_field.is_value_read_only%2Ccustom_field.representation_type%2Ccustom_field.input_restrictions%2Ccustom_field.id_prefix&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/100/tasks?completed_since=1970-01-01T00%3A00%3A00.000Z&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"a\"}],\"next_page\":{\"offset\":\"t-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/100/tasks?completed_since=1970-01-01T00%3A00%3A00.000Z&offset=t-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"gone\"}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/200/tasks?completed_since=1970-01-01T00%3A00%3A00.000Z&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"a\"},{\"gid\":\"b\"}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/300/tasks?completed_since=1970-01-01T00%3A00%3A00.000Z&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/a?opt_fields=gid%2Cname%2Cnotes%2Ccompleted%2Ccompleted_at%2Ccreated_at%2Cmodified_at%2Cstart_on%2Cstart_at%2Cdue_on%2Cdue_at%2Cassignee.name%2Cassignee.email%2Cfollowers.name%2Cfollowers.email%2Ctags.name%2Cparent.gid%2Cprojects.name%2Cmemberships.project.gid%2Cmemberships.section.gid%2Cpermalink_url%2Cresource_subtype%2Cactual_time_minutes%2Ccustom_fields.gid%2Ccustom_fields.name%2Ccustom_fields.resource_subtype%2Ccustom_fields.text_value%2Ccustom_fields.number_value%2Ccustom_fields.enum_value.gid%2Ccustom_fields.multi_enum_values.gid%2Ccustom_fields.date_value%2Ccustom_fields.people_value.name%2Ccustom_fields.people_value.email%2Ccustom_fields.reference_value%2Ccustom_fields.display_value",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"a\",\"name\":\"Main\",\"notes\":\"Details\",\"completed\":false,\"completed_at\":null,\"created_at\":\"2025-01-01T00:00:00.000Z\",\"modified_at\":\"2025-01-01T00:00:00.000Z\",\"start_on\":null,\"start_at\":null,\"due_on\":\"2025-01-02\",\"due_at\":null,\"assignee\":{\"gid\":\"u1\",\"name\":\"One\",\"email\":\"one@example.com\"},\"parent\":null,\"tags\":[{\"gid\":\"tag1\",\"name\":\"Launch\"}],\"projects\":[{\"gid\":\"100\",\"name\":\"Tasks\"},{\"gid\":\"200\",\"name\":\"Partners\"}],\"memberships\":[{\"project\":{\"gid\":\"100\"},\"section\":{\"gid\":\"s1\"}},{\"project\":{\"gid\":\"200\"},\"section\":{\"gid\":\"s2\"}}],\"permalink_url\":\"https://app.asana.com/0/100/a\",\"resource_subtype\":\"default_task\",\"actual_time_minutes\":0,\"custom_fields\":[{\"gid\":\"cf-text\",\"name\":\"text\",\"resource_subtype\":\"text\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":\"Details\"},{\"gid\":\"cf-enum\",\"name\":\"enum\",\"resource_subtype\":\"enum\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"enum_value\":{\"gid\":\"old\",\"name\":\"Retired\"}},{\"gid\":\"cf-multi_enum\",\"name\":\"multi_enum\",\"resource_subtype\":\"multi_enum\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"multi_enum_values\":[{\"gid\":\"low\"},{\"gid\":\"old\"}]},{\"gid\":\"cf-number\",\"name\":\"number\",\"resource_subtype\":\"number\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"number_value\":0},{\"gid\":\"cf-date\",\"name\":\"date\",\"resource_subtype\":\"date\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"date_value\":{\"date\":\"2025-01-01\",\"date_time\":null}},{\"gid\":\"cf-people\",\"name\":\"people\",\"resource_subtype\":\"people\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"people_value\":[{\"gid\":\"u1\",\"name\":\"One\",\"email\":\"one@example.com\"}]},{\"gid\":\"cf-reference\",\"name\":\"reference\",\"resource_subtype\":\"reference\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"reference_value\":[{\"gid\":\"b\",\"name\":\"Partner\",\"resource_type\":\"task\"},{\"gid\":\"goal\",\"name\":\"Goal\",\"resource_type\":\"goal\"}]},{\"gid\":\"cf-id\",\"name\":\"id\",\"resource_subtype\":\"number\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"display_value\":\"TEST-1\",\"id_prefix\":\"TEST\",\"is_value_read_only\":true},{\"gid\":\"cf-future_type\",\"name\":\"future_type\",\"resource_subtype\":\"future_type\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"new_value\":{\"shape\":true}},{\"gid\":\"cf-currency\",\"name\":\"currency\",\"resource_subtype\":\"number\",\"format\":\"currency\",\"currency_code\":\"USD\",\"precision\":2,\"number_value\":125.5},{\"gid\":\"cf-percentage\",\"name\":\"percentage\",\"resource_subtype\":\"number\",\"format\":\"percentage\",\"precision\":1,\"number_value\":0.25},{\"gid\":\"cf-formula\",\"name\":\"formula\",\"resource_subtype\":\"number\",\"is_formula_field\":true,\"is_value_read_only\":true,\"number_value\":42},{\"gid\":\"cf-custom\",\"name\":\"custom\",\"resource_subtype\":\"number\",\"format\":\"custom\",\"custom_label\":\"units\",\"custom_label_position\":\"suffix\",\"number_value\":8}]}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/a/dependencies?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"b\"}],\"next_page\":{\"offset\":\"d-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/a/dependencies?offset=d-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"deleted\"}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/a/subtasks?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"c\"}],\"next_page\":{\"offset\":\"c-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/a/subtasks?offset=c-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/attachments?parent=a&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"att1\"}],\"next_page\":{\"offset\":\"a-next\",\"path\":\"/ignored\",\"uri\":\"https://example.invalid/ignored\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/attachments?parent=a&offset=a-next&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"external\"}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/b?opt_fields=gid%2Cname%2Cnotes%2Ccompleted%2Ccompleted_at%2Ccreated_at%2Cmodified_at%2Cstart_on%2Cstart_at%2Cdue_on%2Cdue_at%2Cassignee.name%2Cassignee.email%2Cfollowers.name%2Cfollowers.email%2Ctags.name%2Cparent.gid%2Cprojects.name%2Cmemberships.project.gid%2Cmemberships.section.gid%2Cpermalink_url%2Cresource_subtype%2Cactual_time_minutes%2Ccustom_fields.gid%2Ccustom_fields.name%2Ccustom_fields.resource_subtype%2Ccustom_fields.text_value%2Ccustom_fields.number_value%2Ccustom_fields.enum_value.gid%2Ccustom_fields.multi_enum_values.gid%2Ccustom_fields.date_value%2Ccustom_fields.people_value.name%2Ccustom_fields.people_value.email%2Ccustom_fields.reference_value%2Ccustom_fields.display_value",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"b\",\"name\":\"Partner\",\"notes\":\"Details\",\"completed\":true,\"completed_at\":\"2025-01-02T00:00:00.000Z\",\"created_at\":\"2025-01-01T00:00:00.000Z\",\"modified_at\":\"2025-01-01T00:00:00.000Z\",\"start_on\":null,\"start_at\":null,\"due_on\":\"2025-01-02\",\"due_at\":null,\"assignee\":null,\"parent\":null,\"tags\":[{\"gid\":\"tag1\",\"name\":\"Launch\"}],\"projects\":[],\"memberships\":[],\"permalink_url\":\"https://app.asana.com/0/100/b\",\"resource_subtype\":\"default_task\",\"actual_time_minutes\":0,\"custom_fields\":[]}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/b/dependencies?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/b/subtasks?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/attachments?parent=b&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/c?opt_fields=gid%2Cname%2Cnotes%2Ccompleted%2Ccompleted_at%2Ccreated_at%2Cmodified_at%2Cstart_on%2Cstart_at%2Cdue_on%2Cdue_at%2Cassignee.name%2Cassignee.email%2Cfollowers.name%2Cfollowers.email%2Ctags.name%2Cparent.gid%2Cprojects.name%2Cmemberships.project.gid%2Cmemberships.section.gid%2Cpermalink_url%2Cresource_subtype%2Cactual_time_minutes%2Ccustom_fields.gid%2Ccustom_fields.name%2Ccustom_fields.resource_subtype%2Ccustom_fields.text_value%2Ccustom_fields.number_value%2Ccustom_fields.enum_value.gid%2Ccustom_fields.multi_enum_values.gid%2Ccustom_fields.date_value%2Ccustom_fields.people_value.name%2Ccustom_fields.people_value.email%2Ccustom_fields.reference_value%2Ccustom_fields.display_value",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"c\",\"name\":\"Child\",\"notes\":\"Details\",\"completed\":false,\"completed_at\":null,\"created_at\":\"2025-01-01T00:00:00.000Z\",\"modified_at\":\"2025-01-01T00:00:00.000Z\",\"start_on\":null,\"start_at\":null,\"due_on\":\"2025-01-02\",\"due_at\":null,\"assignee\":null,\"parent\":{\"gid\":\"a\"},\"tags\":[{\"gid\":\"tag1\",\"name\":\"Launch\"}],\"projects\":[],\"memberships\":[],\"permalink_url\":\"https://app.asana.com/0/100/c\",\"resource_subtype\":\"default_task\",\"actual_time_minutes\":0,\"custom_fields\":[{\"gid\":\"cf-text\",\"name\":\"text\",\"resource_subtype\":\"text\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-enum\",\"name\":\"enum\",\"resource_subtype\":\"enum\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-multi_enum\",\"name\":\"multi_enum\",\"resource_subtype\":\"multi_enum\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-number\",\"name\":\"number\",\"resource_subtype\":\"number\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-date\",\"name\":\"date\",\"resource_subtype\":\"date\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-people\",\"name\":\"people\",\"resource_subtype\":\"people\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-reference\",\"name\":\"reference\",\"resource_subtype\":\"reference\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-id\",\"name\":\"id\",\"resource_subtype\":\"number\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null,\"id_prefix\":\"TEST\",\"is_value_read_only\":true},{\"gid\":\"cf-future_type\",\"name\":\"future_type\",\"resource_subtype\":\"future_type\",\"enum_options\":[{\"gid\":\"low\",\"name\":\"Low\",\"enabled\":true,\"color\":\"blue\"},{\"gid\":\"old\",\"name\":\"Retired\",\"enabled\":false,\"color\":\"gray\"}],\"precision\":2,\"format\":\"none\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-currency\",\"name\":\"currency\",\"resource_subtype\":\"number\",\"format\":\"currency\",\"currency_code\":\"USD\",\"precision\":2,\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-percentage\",\"name\":\"percentage\",\"resource_subtype\":\"number\",\"format\":\"percentage\",\"precision\":1,\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-formula\",\"name\":\"formula\",\"resource_subtype\":\"number\",\"is_formula_field\":true,\"is_value_read_only\":true,\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"cf-custom\",\"name\":\"custom\",\"resource_subtype\":\"number\",\"format\":\"custom\",\"custom_label\":\"units\",\"custom_label_position\":\"suffix\",\"text_value\":null,\"number_value\":null,\"enum_value\":null,\"multi_enum_values\":[],\"date_value\":null,\"people_value\":[],\"reference_value\":[],\"display_value\":null},{\"gid\":\"child-only\",\"name\":\"Subtask details\",\"resource_subtype\":\"text\",\"text_value\":\"Child value\"}]}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/c/dependencies?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/c/subtasks?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[{\"gid\":\"d\"}],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/attachments?parent=c&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/d?opt_fields=gid%2Cname%2Cnotes%2Ccompleted%2Ccompleted_at%2Ccreated_at%2Cmodified_at%2Cstart_on%2Cstart_at%2Cdue_on%2Cdue_at%2Cassignee.name%2Cassignee.email%2Cfollowers.name%2Cfollowers.email%2Ctags.name%2Cparent.gid%2Cprojects.name%2Cmemberships.project.gid%2Cmemberships.section.gid%2Cpermalink_url%2Cresource_subtype%2Cactual_time_minutes%2Ccustom_fields.gid%2Ccustom_fields.name%2Ccustom_fields.resource_subtype%2Ccustom_fields.text_value%2Ccustom_fields.number_value%2Ccustom_fields.enum_value.gid%2Ccustom_fields.multi_enum_values.gid%2Ccustom_fields.date_value%2Ccustom_fields.people_value.name%2Ccustom_fields.people_value.email%2Ccustom_fields.reference_value%2Ccustom_fields.display_value",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"d\",\"name\":\"Grandchild\",\"notes\":\"Details\",\"completed\":false,\"completed_at\":null,\"created_at\":\"2025-01-01T00:00:00.000Z\",\"modified_at\":\"2025-01-01T00:00:00.000Z\",\"start_on\":null,\"start_at\":null,\"due_on\":\"2025-01-02\",\"due_at\":null,\"assignee\":null,\"parent\":{\"gid\":\"c\"},\"tags\":[{\"gid\":\"tag1\",\"name\":\"Launch\"}],\"projects\":[],\"memberships\":[],\"permalink_url\":\"https://app.asana.com/0/100/d\",\"resource_subtype\":\"default_task\",\"actual_time_minutes\":0,\"custom_fields\":[]}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/d/dependencies?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/d/subtasks?limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/attachments?parent=d&limit=100",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":[],\"next_page\":null}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/attachments/att1?opt_fields=gid%2Cname%2Cdownload_url%2Cpermanent_url%2Chost",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"att1\",\"name\":\"pixel.png\",\"download_url\":\"{{origin}}/files/pixel.png\",\"permanent_url\":\"https://app.asana.com/0/attachments/att1\",\"host\":\"asana\",\"size\":68}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/attachments/external?opt_fields=gid%2Cname%2Cdownload_url%2Cpermanent_url%2Chost",
+      "status": 200,
+      "type": "application/json",
+      "body": "{\"data\":{\"gid\":\"external\",\"name\":\"Cloud document\",\"download_url\":null,\"permanent_url\":\"https://drive.example.com/doc\",\"host\":\"external\"}}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/projects/missing",
+      "status": 404,
+      "type": "application/json",
+      "body": "{\"errors\":[{\"message\":\"Project not found\"}]}",
+      "encoding": "text"
+    },
+    {
+      "method": "GET",
+      "path": "/files/pixel.png",
+      "status": 200,
+      "type": "image/png",
+      "body": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4DwQACfsD/Z8ZQbYAAAAASUVORK5CYII=",
+      "encoding": "base64"
+    },
+    {
+      "method": "GET",
+      "path": "/api/1.0/tasks/gone?opt_fields=gid%2Cname%2Cnotes%2Ccompleted%2Ccompleted_at%2Ccreated_at%2Cmodified_at%2Cstart_on%2Cstart_at%2Cdue_on%2Cdue_at%2Cassignee.name%2Cassignee.email%2Cfollowers.name%2Cfollowers.email%2Ctags.name%2Cparent.gid%2Cprojects.name%2Cmemberships.project.gid%2Cmemberships.section.gid%2Cpermalink_url%2Cresource_subtype%2Cactual_time_minutes%2Ccustom_fields.gid%2Ccustom_fields.name%2Ccustom_fields.resource_subtype%2Ccustom_fields.text_value%2Ccustom_fields.number_value%2Ccustom_fields.enum_value.gid%2Ccustom_fields.multi_enum_values.gid%2Ccustom_fields.date_value%2Ccustom_fields.people_value.name%2Ccustom_fields.people_value.email%2Ccustom_fields.reference_value%2Ccustom_fields.display_value",
+      "status": 404,
+      "type": "application/json",
+      "body": "{\"errors\":[{\"message\":\"Task not found\"}]}",
+      "encoding": "text"
+    }
+  ]
+}

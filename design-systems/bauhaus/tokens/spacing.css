@@ -1,0 +1,33 @@
+/* ============================================================
+   SPACING & LAYOUT — 4px base unit, doubling scale.
+   The system is grid-first: everything sits on a 12-column
+   modular grid with a visible-if-you-look-for-it rhythm.
+   ============================================================ */
+
+:root{
+  --space-0:0px;   --space-px:1px;  --space-1:4px;   --space-2:8px;
+  --space-3:12px;  --space-4:16px;  --space-5:20px;  --space-6:24px;
+  --space-8:32px;  --space-10:40px; --space-12:48px; --space-16:64px;
+  --space-20:80px; --space-24:96px; --space-32:128px;--space-40:160px;
+
+  /* component insets */
+  --pad-control-y:10px;--pad-control-x:18px;
+  --pad-control-sm-y:6px;--pad-control-sm-x:12px;
+  --pad-control-lg-y:15px;--pad-control-lg-x:28px;
+  --pad-card:24px;
+  --pad-section-y:96px;--pad-section-x:48px;
+
+  /* control heights — hit targets never below 44px on touch */
+  --control-h-sm:32px;--control-h-md:44px;--control-h-lg:56px;
+  --touch-min:44px;
+
+  /* grid */
+  --grid-columns:12;/* @kind other */
+  --grid-gutter:24px;
+  --grid-margin:48px;
+  --container-sm:640px;--container-md:960px;
+  --container-lg:1280px;--container-xl:1600px;
+
+  /* stack rhythm */
+  --stack-tight:8px;--stack-default:16px;--stack-loose:32px;--stack-section:96px;
+}

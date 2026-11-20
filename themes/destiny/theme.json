@@ -1,0 +1,113 @@
+{
+  "id": "destiny",
+  "name": "Destiny",
+  "css": "theme.css",
+  "defaultScheme": "destiny",
+  "schemes": [
+    {
+      "id": "destiny",
+      "name": "Destiny",
+      "appearance": "dark"
+    }
+  ],
+  "modes": [],
+  "defaultMode": null,
+  "surfaces": [],
+  "otherAttributes": [],
+  "externalImports": [],
+  "remoteFonts": [],
+  "droppedImports": [],
+  "removedImportant": 0,
+  "removedMotionRules": 0,
+  "semantic": {
+    "--rio-bg": "--bg-app",
+    "--rio-surface": "--surface-card",
+    "--rio-text": "--text-primary",
+    "--rio-text-muted": "--text-muted",
+    "--rio-border": "--border-hairline",
+    "--rio-accent": "--accent",
+    "--rio-on-accent": "--rio-bg",
+    "--rio-link": "--cyan-500",
+    "--rio-focus": "--rio-accent",
+    "--rio-success": "--spectrum-green",
+    "--rio-warning": "--spectrum-amber",
+    "--rio-danger": "--spectrum-red",
+    "--rio-info": "--spectrum-blue",
+    "--rio-font-body": "--font-ui",
+    "--rio-font-display": "--rio-font-body",
+    "--rio-font-mono": "--font-mono",
+    "--rio-radius": "--r-md"
+  },
+  "legibilityOnColors": {
+    "on-success": "--rio-on-accent",
+    "on-warning": "--rio-on-accent",
+    "on-danger": "--rio-on-accent",
+    "on-info": "--rio-on-accent"
+  },
+  "assets": [],
+  "unresolvedUrls": [],
+  "source": {
+    "designSystem": "design-systems/destiny",
+    "originalSchemeSelector": null,
+    "tokenFiles": [
+      "tokens/colors.css",
+      "tokens/typography.css",
+      "tokens/spacing.css",
+      "tokens/radius.css",
+      "tokens/effects.css",
+      "tokens/base.css"
+    ],
+    "zipFile": "Destiny Design System.zip",
+    "zipContentHash": "ad3b841891fca60e0f2f72faa842e3c30396de6deefed5c4c3a1ef9cb555d50f"
+  },
+  "legibility": {
+    "destiny": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#ffffff",
+        "--rio-aa-on-accent": "#0a0a0f",
+        "--rio-aa-accent-text": "#38f7ff",
+        "--rio-aa-text-muted": "#9495af",
+        "--rio-aa-link": "#38f7ff",
+        "--rio-aa-focus": "#38f7ff",
+        "--rio-aa-border": "#5e5f6d",
+        "--rio-aa-success-text": "#7dff6b",
+        "--rio-aa-on-success": "#0a0a0f",
+        "--rio-aa-warning-text": "#f0b33d",
+        "--rio-aa-on-warning": "#0a0a0f",
+        "--rio-aa-danger-text": "#ff5d81",
+        "--rio-aa-on-danger": "#0a0a0f",
+        "--rio-aa-info-text": "#59a8ff",
+        "--rio-aa-on-info": "#0a0a0f",
+        "--rio-legible-text": "#ffffff",
+        "--rio-legible-text-muted": "#9495af",
+        "--rio-legible-on-accent": "#0a0a0f",
+        "--rio-aa-choice-text": "#ffffff",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#202024",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#34191d",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#311f19",
+        "--rio-aa-choice-yellow": "#b88a00",
+        "--rio-aa-choice-yellow-soft": "#2a2318",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#15261c",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#142527",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#16213a",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#251a33",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#31182a",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#261d1a"
+      }
+    }
+  },
+  "legibilityAdjusted": 3
+}

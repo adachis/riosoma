@@ -1,0 +1,15 @@
+/* Minimal element defaults. Components carry their own styling. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);background-image:var(--tex-paper);color:var(--ink);font-family:var(--font-text);font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:var(--fw-regular);line-height:var(--lh-head);letter-spacing:var(--ls-display);color:var(--ink);margin:0 0 var(--sp-4)}
+h1{font-size:var(--fs-1)}h2{font-size:var(--fs-2)}h3{font-size:var(--fs-3)}h4{font-size:var(--fs-4)}
+p{margin:0 0 var(--sp-5);text-wrap:pretty}
+a{color:var(--link);text-decoration-thickness:1px;text-underline-offset:3px;transition:color var(--dur-2) var(--ease-engage)}
+a:hover{color:var(--link-hover)}
+small{font-size:var(--fs-xs)}
+code,kbd,samp{font-family:var(--font-mono);font-size:.92em;letter-spacing:var(--ls-mono)}
+hr{border:0;height:1px;background:var(--line);margin:var(--sp-7) 0}
+::selection{background:color-mix(in oklab,var(--glow) 55%,transparent)}
+:focus-visible{outline:2px solid var(--glow);outline-offset:2px}
+.sp-caps{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:var(--ls-caps);font-weight:var(--fw-medium)}
+.sp-readout{font-family:var(--font-mono);letter-spacing:var(--ls-mono);font-variant-numeric:tabular-nums}

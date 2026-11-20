@@ -1,0 +1,21 @@
+/* Motion. Pixel art does not ease — it steps. Anything that moves moves in whole
+   pixels, on a small number of frames, at a fixed frame rate. No cubic-beziers,
+   no fractional translation, no blur-based transitions. */
+:root{
+  --frame:66ms; /* @kind other */                                  /* one animation frame at ~15fps */
+  --dur-instant:0ms; /* @kind other */                             /* state swaps: hover, press, select */
+  --dur-tick:calc(var(--frame) * 2); /* @kind other */             /* 132ms — small reveals */
+  --dur-beat:calc(var(--frame) * 4); /* @kind other */             /* 264ms — panels, modals */
+  --dur-scene:calc(var(--frame) * 8); /* @kind other */            /* 528ms — screen transitions */
+
+  --ease-step-2:steps(2,end); /* @kind other */
+  --ease-step-4:steps(4,end); /* @kind other */
+  --ease-step-8:steps(8,end); /* @kind other */
+  --ease-ui:steps(3,end); /* @kind other */                        /* default for opacity/position */
+
+  --press-offset:var(--px);                      /* pressed content drops exactly 1 art pixel */
+  --hover-lift:0px;                              /* nothing floats; hover changes colour, not height */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-tick:0ms; /* @kind other */ --dur-beat:0ms; /* @kind other */ --dur-scene:0ms /* @kind other */}
+}

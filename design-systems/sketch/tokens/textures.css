@@ -1,0 +1,28 @@
+/* Sketch — paper and hatching, all pure CSS gradients (no raster art).
+   Hatch fills stand in for tone the way pen hatching does on paper:
+   use them for disabled states, filled meters, and print tint blocks. */
+:root{
+  --paper-grain:
+    repeating-linear-gradient(92deg, var(--ink-a05) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(3deg, var(--ink-a05) 0 1px, transparent 1px 4px); /* @kind other */
+  --paper-ruled:repeating-linear-gradient(180deg, transparent 0 27px, var(--rule-soft) 27px 28px); /* @kind other */
+  --paper-grid:
+    repeating-linear-gradient(90deg, var(--rule-soft) 0 1px, transparent 1px 21px),
+    repeating-linear-gradient(180deg, var(--rule-soft) 0 1px, transparent 1px 21px); /* @kind other */
+  --paper-dots:radial-gradient(var(--ink-a12) 1px, transparent 1.2px) 0 0/13px 13px; /* @kind other */
+
+  --hatch-45:repeating-linear-gradient(45deg, var(--ink-1) 0 1.4px, transparent 1.4px 6px); /* @kind other */
+  --hatch-45-soft:repeating-linear-gradient(45deg, var(--ink-a20) 0 1.4px, transparent 1.4px 7px); /* @kind other */
+  --hatch-135:repeating-linear-gradient(135deg, var(--ink-1) 0 1.4px, transparent 1.4px 6px); /* @kind other */
+  --hatch-cross:
+    repeating-linear-gradient(45deg, var(--ink-a40) 0 1.2px, transparent 1.2px 7px),
+    repeating-linear-gradient(135deg, var(--ink-a40) 0 1.2px, transparent 1.2px 7px); /* @kind other */
+  --hatch-vert:repeating-linear-gradient(90deg, var(--ink-a40) 0 1.4px, transparent 1.4px 5px); /* @kind other */
+  --hatch-accent:repeating-linear-gradient(45deg, var(--accent) 0 2px, transparent 2px 7px); /* @kind other */
+  --hatch-dense:repeating-linear-gradient(45deg, var(--ink-1) 0 2px, transparent 2px 3.6px); /* @kind other */
+
+  /* marker highlight — a swipe that stops short of the ends */
+  --marker:linear-gradient(100deg, transparent 0 2%, var(--highlight) 3% 97%, transparent 98%); /* @kind other */
+  /* torn-edge mask for notes and pull-quotes */
+  --torn-edge:polygon(0 2%, 4% 0, 12% 3%, 26% 0, 41% 3%, 58% 0, 72% 3%, 87% 0, 96% 2%, 100% 1%, 99% 14%, 100% 33%, 98% 52%, 100% 71%, 99% 88%, 100% 99%, 88% 97%, 71% 100%, 54% 97%, 37% 100%, 21% 97%, 8% 100%, 0 98%, 1% 79%, 0 61%, 2% 42%, 0 24%, 1% 12%); /* @kind other */
+}

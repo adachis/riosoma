@@ -1,0 +1,20 @@
+**/node_modules
+**/dist
+**/.turbo
+**/coverage
+.git
+.github
+.cache
+.ci-assets
+.ci-logs
+design-systems
+**/*.test.ts
+**/*.test.tsx
+.DS_Store
+.env
+.env.*
+# The Zapier app, the hub, and the n8n node install and build on their own, outside the workspace and
+# this image.
+integrations/zapier
+apps/hub
+integrations/n8n

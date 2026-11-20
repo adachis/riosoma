@@ -1,0 +1,36 @@
+/* Spacing. Base 5px — the odd base is deliberate: nothing in this system lands on a 4/8 grid. */
+:root{
+  --sp-0:0;/* @kind spacing */
+  --sp-1:5px;
+  --sp-2:10px;
+  --sp-3:15px;
+  --sp-4:20px;
+  --sp-5:30px;
+  --sp-6:45px;
+  --sp-7:65px;
+  --sp-8:90px;
+  --sp-9:130px;
+  --sp-10:180px;
+
+  --gutter:var(--sp-5);
+  --gutter-tight:var(--sp-3);
+  --pad-card:var(--sp-4);
+  --pad-panel:var(--sp-5);
+  --pad-control-y:11px;
+  --pad-control-x:17px;
+  --pad-control-y-sm:7px;
+  --pad-control-x-sm:12px;
+  --pad-control-y-lg:16px;
+  --pad-control-x-lg:26px;
+
+  --control-h-sm:32px;
+  --meter-readout-w:5.2em;
+  --control-h:44px;
+  --control-h-lg:56px;
+  --hit-min:44px;
+
+  --measure:66ch;
+  --measure-tight:48ch;
+  --page-max:1240px;
+  --page-narrow:820px;
+}

@@ -1,0 +1,274 @@
+@layer rio.app {
+  /* The form sits between the dialog and its body, so it has to shrink for the body to scroll. */
+  .rio-routines__form {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-block-size: 0;
+  }
+
+  .rio-routines,
+  .rio-routines__fields,
+  .rio-routines__section {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-routines p,
+  .rio-routines__screen p {
+    margin-block: 0;
+  }
+
+  .rio-routines__screen {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-5);
+    inline-size: 100%;
+    max-inline-size: 56rem;
+    padding: var(--rio-space-4);
+    overflow: auto;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-routines__when {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-inline-size: 0;
+  }
+
+  .rio-routines__head,
+  .rio-routines__actions,
+  .rio-routines__restate {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-routines__head {
+    justify-content: space-between;
+  }
+
+  .rio-routines__note,
+  .rio-routines__status {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-routines__status[data-tone='warning'] {
+    color: var(--rio-aa-warning-text);
+  }
+
+  .rio-routines__status[data-tone='danger'] {
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-routines__status[data-tone='attention'] {
+    color: var(--rio-aa-accent-text);
+  }
+
+  .rio-routines__list {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .rio-routines__item,
+  .rio-routines__run,
+  .rio-routines__approval,
+  .rio-routines__plan {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+  }
+
+  .rio-routines__approval[data-status='pending'] {
+    border-inline-start: var(--rio-space-1) solid var(--rio-warning);
+  }
+
+  .rio-routines__item[data-paused] {
+    border-style: dashed;
+  }
+
+  .rio-routines__approval-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-routines__badge {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-routines__facts {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+  }
+
+  .rio-routines__facts > div {
+    display: grid;
+    grid-template-columns: minmax(8rem, max-content) 1fr;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-routines__facts dt {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-routines__facts dd {
+    margin: 0;
+    min-inline-size: 0;
+  }
+
+  .rio-routines__body {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /* What a plan does, as the server worked it out, comes first, and deletions stand out. */
+  .rio-routines__changes {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+
+  .rio-routines__changes ul {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin: 0;
+    padding-inline-start: var(--rio-space-4);
+  }
+
+  .rio-routines__changes li[data-deletes] {
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-routines__changes[data-compact] {
+    font-size: var(--rio-text-sm);
+  }
+
+  /* The model's own words sit apart, quieter, as what they are. */
+  .rio-routines__words,
+  .rio-routines__report {
+    display: grid;
+    gap: var(--rio-space-1);
+    padding-inline-start: var(--rio-space-3);
+    border-inline-start: 2px solid var(--rio-border);
+  }
+
+  .rio-routines__instructions {
+    margin: 0;
+    padding-inline-start: var(--rio-space-3);
+    border-inline-start: var(--rio-space-1) solid var(--rio-border);
+    white-space: pre-wrap;
+  }
+
+  .rio-routines__sends ul,
+  .rio-routines__sites,
+  .rio-routines__receipt ul {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding-inline-start: var(--rio-space-4);
+  }
+
+  /* Sites are addresses, which break anywhere rather than push the card wider. */
+  .rio-routines__sites {
+    overflow-wrap: anywhere;
+  }
+
+  .rio-routines__receipt {
+    display: grid;
+    gap: var(--rio-space-2);
+  }
+
+  @media (max-width: 40rem) {
+    .rio-routines__facts > div {
+      grid-template-columns: 1fr;
+      gap: var(--rio-space-1);
+    }
+  }
+
+  /* The sidebar's list, after the scripts. */
+  .rio-routine-list {
+    display: grid;
+    gap: var(--rio-space-1);
+    margin-block-start: var(--rio-space-2);
+    padding-block-start: var(--rio-space-3);
+    border-block-start: 1px solid var(--rio-border);
+  }
+  /* Body text, since muted text is legible only on the page and its surfaces, not the sidebar's. */
+  .rio-routine-list__heading {
+    margin: 0;
+    padding-inline: var(--rio-space-2);
+    color: var(--rio-text);
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    line-height: var(--rio-leading-tight);
+  }
+  .rio-routine-list__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rio-routine-list__item {
+    display: flex;
+    align-items: center;
+    min-block-size: var(--rio-target-primary);
+    border-radius: var(--rio-radius);
+  }
+  .rio-routine-list__item[data-active] {
+    background: var(--rio-selected);
+  }
+  .rio-routine-list__open {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    flex: 1;
+    min-inline-size: 0;
+    min-block-size: var(--rio-target-primary);
+    padding-inline: var(--rio-space-2);
+    border-radius: var(--rio-radius);
+    color: var(--rio-text);
+    text-decoration: none;
+  }
+  .rio-routine-list__open > span:first-of-type {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rio-routine-list__open:hover {
+    background: var(--rio-hover);
+  }
+  .rio-routine-list__open:focus-visible {
+    outline: 2px solid var(--rio-focus);
+    outline-offset: -2px;
+  }
+  .rio-routine-list__item[data-paused] .rio-routine-list__open {
+    font-style: italic;
+  }
+  .rio-routine-list__badge {
+    font-size: var(--rio-text-xs);
+    color: var(--rio-text);
+  }
+  .rio-routine-list__add {
+    justify-content: start;
+  }
+}

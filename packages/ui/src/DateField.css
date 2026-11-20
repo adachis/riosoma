@@ -1,0 +1,77 @@
+@layer rio.components {
+  /* The row of segments sits in the frame every field draws.  The frame keeps its own gap, which
+     lands between the segments and a clear button; the parts of the date sit next to each other
+     because the separators between them are segments of their own. */
+  .rio-date-field__input {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  .rio-date-field__segment {
+    padding-inline: 1px;
+    border-radius: var(--rio-radius);
+    color: inherit;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    caret-color: transparent;
+    cursor: text;
+    outline: none;
+  }
+
+  /* Widths stay put: a day typed as one digit keeps the room two digits would take, so nothing
+     after it moves while the reader types. */
+  .rio-date-field__segment[data-type='year'] {
+    min-inline-size: 4ch;
+  }
+
+  .rio-date-field__segment[data-type='month'],
+  .rio-date-field__segment[data-type='day'],
+  .rio-date-field__segment[data-type='hour'],
+  .rio-date-field__segment[data-type='minute'],
+  .rio-date-field__segment[data-type='second'],
+  .rio-date-field__segment[data-type='dayPeriod'] {
+    min-inline-size: 2ch;
+  }
+
+  /* A part nobody has typed yet reads as the frame's own hint text. */
+  .rio-date-field__segment[data-placeholder] {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-date-field__segment[data-type='literal'] {
+    padding-inline: 0;
+    color: var(--rio-aa-text-muted);
+    cursor: default;
+  }
+
+  .rio-date-field__segment[data-hovered] {
+    background-color: var(--rio-hover);
+  }
+
+  /* The frame draws the focus ring, so the segment the reader is in takes a tint instead; a second
+     ring inside the frame would only crowd it. */
+  .rio-date-field__segment[data-focused] {
+    background-color: var(--rio-selected);
+    color: var(--rio-text);
+  }
+
+  .rio-date-field__segment:focus,
+  .rio-date-field__segment:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .rio-date-field__segment[data-disabled] {
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    /* An outline carries focus when the system removes tints.  Enabled placeholders retain
+       the legible text token because GrayText is only suitable for disabled controls. */
+    .rio-date-field__segment[data-focused] {
+      outline: 1px solid var(--rio-aa-focus);
+    }
+  }
+}

@@ -1,0 +1,55 @@
+/* Fashion — layout. Wide fluid container, generous inner container for editorial
+   text, and platform-surface metrics for desktop / mobile / game kits. */
+:root {
+  --container-space-x: 30px; /* @kind spacing */
+  --container-max: calc(clamp(1100px, 93.8vw, 1785px) + var(--container-space-x)); /* @kind spacing */
+  --container-inner-max: calc(clamp(1100px, 73.31vw, 1395px) + var(--container-space-x)); /* @kind spacing */
+  --container-text-max: 68ch; /* @kind spacing */
+
+  --grid-cols: 12; /* @kind other */
+  --bp-xxs: 400px; /* @kind other */
+  --bp-xs: 576px; /* @kind other */
+  --bp-sm: 768px; /* @kind other */
+  --bp-md: 992px; /* @kind other */
+  --bp-lg: 1200px; /* @kind other */
+  --bp-xl: 1400px; /* @kind other */
+  --bp-xxl: 1600px; /* @kind other */
+
+  /* z-index ladder */
+  --z-base: 1; /* @kind other */
+  --z-sticky: 10; /* @kind other */
+  --z-header: 100; /* @kind other */
+  --z-dropdown: 200; /* @kind other */
+  --z-drawer: 999; /* @kind other */
+  --z-dialog: 1000; /* @kind other */
+  --z-toast: 1100; /* @kind other */
+  --z-preloader: 999999; /* @kind other */
+
+  /* platform chrome */
+  --titlebar-mac: 28px; /* @kind spacing */
+  --titlebar-win: 32px; /* @kind spacing */
+  --titlebar-linux: 37px; /* @kind spacing */
+  --sidebar-desktop: 260px; /* @kind spacing */
+  --toolbar-desktop: 52px; /* @kind spacing */
+
+  --statusbar-ios: 47px; /* @kind spacing */
+  --navbar-ios: 44px; /* @kind spacing */
+  --tabbar-ios: 83px; /* @kind spacing */
+  --statusbar-android: 24px; /* @kind spacing */
+  --appbar-android: 56px; /* @kind spacing */
+  --navbar-android: 48px; /* @kind spacing */
+  --hit-min: 44px; /* @kind spacing */
+
+  /* print */
+  --page-w-letter: 8.5in; /* @kind spacing */
+  --page-h-letter: 11in; /* @kind spacing */
+  --page-w-a4: 210mm; /* @kind spacing */
+  --page-h-a4: 297mm; /* @kind spacing */
+  --page-margin: 0.6in; /* @kind spacing */
+  --print-col-gap: 0.28in; /* @kind spacing */
+  --baseline-print: 14pt; /* @kind spacing */
+
+  /* game HUD */
+  --hud-inset: clamp(16px, 2vw, 40px); /* @kind spacing */
+  --hud-panel-w: 340px; /* @kind spacing */
+}

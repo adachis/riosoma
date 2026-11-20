@@ -1,0 +1,277 @@
+{
+  "fileVersion": 1,
+  "generalCodeFiles": {
+    "base": "base.iml.json",
+    "common": "common.iml.json",
+    "groups": "groups.iml.json",
+    "readme": "README.md"
+  },
+  "components": {
+    "connection": {
+      "riosoma": {
+        "label": "Riosoma",
+        "connectionType": "basic",
+        "codeFiles": {
+          "params": "connections/riosoma/params.iml.json",
+          "communication": "connections/riosoma/communication.iml.json"
+        }
+      }
+    },
+    "function": {
+      "riosomaApi": {
+        "codeFiles": {
+          "code": "functions/riosomaApi.js"
+        }
+      },
+      "riosomaCursor": {
+        "codeFiles": {
+          "code": "functions/riosomaCursor.js"
+        }
+      },
+      "riosomaEvents": {
+        "codeFiles": {
+          "code": "functions/riosomaEvents.js"
+        }
+      },
+      "riosomaFields": {
+        "codeFiles": {
+          "code": "functions/riosomaFields.js"
+        }
+      },
+      "riosomaFilter": {
+        "codeFiles": {
+          "code": "functions/riosomaFilter.js"
+        }
+      },
+      "riosomaMessage": {
+        "codeFiles": {
+          "code": "functions/riosomaMessage.js"
+        }
+      },
+      "riosomaOrigin": {
+        "codeFiles": {
+          "code": "functions/riosomaOrigin.js"
+        }
+      },
+      "riosomaRecord": {
+        "codeFiles": {
+          "code": "functions/riosomaRecord.js"
+        }
+      },
+      "riosomaSegment": {
+        "codeFiles": {
+          "code": "functions/riosomaSegment.js"
+        }
+      },
+      "riosomaTable": {
+        "codeFiles": {
+          "code": "functions/riosomaTable.js"
+        }
+      },
+      "riosomaWrite": {
+        "codeFiles": {
+          "code": "functions/riosomaWrite.js"
+        }
+      }
+    },
+    "rpc": {
+      "databases": {
+        "label": "Databases",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "rpcs/databases/communication.iml.json",
+          "params": "rpcs/databases/params.iml.json"
+        }
+      },
+      "tables": {
+        "label": "Tables",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "rpcs/tables/communication.iml.json",
+          "params": "rpcs/tables/params.iml.json"
+        }
+      },
+      "views": {
+        "label": "Views",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "rpcs/views/communication.iml.json",
+          "params": "rpcs/views/params.iml.json"
+        }
+      },
+      "fields": {
+        "label": "Writable fields",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "rpcs/fields/communication.iml.json",
+          "params": "rpcs/fields/params.iml.json"
+        }
+      },
+      "searchFields": {
+        "label": "Searchable fields",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "rpcs/searchFields/communication.iml.json",
+          "params": "rpcs/searchFields/params.iml.json"
+        }
+      }
+    },
+    "webhook": {
+      "watchNewRecords": {
+        "label": "Watch New Records",
+        "webhookType": "web",
+        "connection": "riosoma",
+        "codeFiles": {
+          "params": "webhooks/watchNewRecords/params.iml.json",
+          "communication": "webhooks/watchNewRecords/communication.iml.json",
+          "attach": "webhooks/watchNewRecords/attach.iml.json",
+          "detach": "webhooks/watchNewRecords/detach.iml.json",
+          "requiredScope": "webhooks/watchNewRecords/requiredScope.iml.json"
+        }
+      },
+      "watchUpdatedRecords": {
+        "label": "Watch Updated Records",
+        "webhookType": "web",
+        "connection": "riosoma",
+        "codeFiles": {
+          "params": "webhooks/watchUpdatedRecords/params.iml.json",
+          "communication": "webhooks/watchUpdatedRecords/communication.iml.json",
+          "attach": "webhooks/watchUpdatedRecords/attach.iml.json",
+          "detach": "webhooks/watchUpdatedRecords/detach.iml.json",
+          "requiredScope": "webhooks/watchUpdatedRecords/requiredScope.iml.json"
+        }
+      },
+      "watchNewRecordsInView": {
+        "label": "Watch New Records in a View",
+        "webhookType": "web",
+        "connection": "riosoma",
+        "codeFiles": {
+          "params": "webhooks/watchNewRecordsInView/params.iml.json",
+          "communication": "webhooks/watchNewRecordsInView/communication.iml.json",
+          "attach": "webhooks/watchNewRecordsInView/attach.iml.json",
+          "detach": "webhooks/watchNewRecordsInView/detach.iml.json",
+          "requiredScope": "webhooks/watchNewRecordsInView/requiredScope.iml.json"
+        }
+      }
+    },
+    "module": {
+      "createRecord": {
+        "label": "Create a Record",
+        "description": "Creates a record using the fields supplied.",
+        "moduleType": "action",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "modules/createRecord/communication.iml.json",
+          "mappableParams": "modules/createRecord/mappableParams.iml.json",
+          "scope": "modules/createRecord/scope.iml.json",
+          "staticParams": "shared/empty.iml.json",
+          "interface": "shared/record-interface.iml.json",
+          "samples": "shared/record-sample.iml.json"
+        }
+      },
+      "updateRecord": {
+        "label": "Update a Record",
+        "description": "Updates only the fields supplied for a record.",
+        "moduleType": "action",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "modules/updateRecord/communication.iml.json",
+          "mappableParams": "modules/updateRecord/mappableParams.iml.json",
+          "scope": "modules/updateRecord/scope.iml.json",
+          "staticParams": "shared/empty.iml.json",
+          "interface": "shared/record-interface.iml.json",
+          "samples": "shared/record-sample.iml.json"
+        }
+      },
+      "getRecord": {
+        "label": "Get a Record",
+        "description": "Reads a record using its ID.",
+        "moduleType": "action",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "modules/getRecord/communication.iml.json",
+          "mappableParams": "modules/getRecord/mappableParams.iml.json",
+          "scope": "modules/getRecord/scope.iml.json",
+          "staticParams": "shared/empty.iml.json",
+          "interface": "shared/record-interface.iml.json",
+          "samples": "shared/record-sample.iml.json"
+        }
+      },
+      "searchRecords": {
+        "label": "Search Records",
+        "description": "Finds up to 1,000 records with an exact text, numeric, or checkbox value.",
+        "moduleType": "search",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "modules/searchRecords/communication.iml.json",
+          "mappableParams": "modules/searchRecords/mappableParams.iml.json",
+          "scope": "modules/searchRecords/scope.iml.json",
+          "staticParams": "shared/empty.iml.json",
+          "interface": "shared/record-interface.iml.json",
+          "samples": "shared/record-sample.iml.json"
+        }
+      },
+      "apiCall": {
+        "label": "Make an API Call",
+        "description": "Makes an authenticated call to a Riosoma /api/v1 path.",
+        "moduleType": "universal",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "modules/apiCall/communication.iml.json",
+          "mappableParams": "modules/apiCall/mappableParams.iml.json",
+          "scope": "modules/apiCall/scope.iml.json",
+          "staticParams": "shared/empty.iml.json",
+          "interface": "shared/api-interface.iml.json",
+          "samples": "shared/record-sample.iml.json"
+        }
+      },
+      "watchNewRecords": {
+        "label": "Watch New Records",
+        "description": "Watches records created in the selected table.",
+        "moduleType": "instant_trigger",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "modules/watchNewRecords/communication.iml.json",
+          "mappableParams": "modules/watchNewRecords/mappableParams.iml.json",
+          "scope": "modules/watchNewRecords/scope.iml.json",
+          "staticParams": "shared/empty.iml.json",
+          "interface": "modules/watchNewRecords/interface.iml.json",
+          "samples": "modules/watchNewRecords/samples.iml.json"
+        },
+        "webhook": "watchNewRecords"
+      },
+      "watchUpdatedRecords": {
+        "label": "Watch Updated Records",
+        "description": "Watches records updated in the selected table.",
+        "moduleType": "instant_trigger",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "modules/watchUpdatedRecords/communication.iml.json",
+          "mappableParams": "modules/watchUpdatedRecords/mappableParams.iml.json",
+          "scope": "modules/watchUpdatedRecords/scope.iml.json",
+          "staticParams": "shared/empty.iml.json",
+          "interface": "modules/watchUpdatedRecords/interface.iml.json",
+          "samples": "modules/watchUpdatedRecords/samples.iml.json"
+        },
+        "webhook": "watchUpdatedRecords"
+      },
+      "watchNewRecordsInView": {
+        "label": "Watch New Records in a View",
+        "description": "Watches newly created records that match the selected view when processed.",
+        "moduleType": "instant_trigger",
+        "connection": "riosoma",
+        "codeFiles": {
+          "communication": "modules/watchNewRecordsInView/communication.iml.json",
+          "mappableParams": "modules/watchNewRecordsInView/mappableParams.iml.json",
+          "scope": "modules/watchNewRecordsInView/scope.iml.json",
+          "staticParams": "shared/empty.iml.json",
+          "interface": "modules/watchNewRecordsInView/interface.iml.json",
+          "samples": "modules/watchNewRecordsInView/samples.iml.json"
+        },
+        "webhook": "watchNewRecordsInView"
+      }
+    },
+    "endpoint": {}
+  },
+  "origins": []
+}

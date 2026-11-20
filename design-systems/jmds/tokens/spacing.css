@@ -1,0 +1,40 @@
+/* JMDS SPACE & GRID
+   Space is a material here, not a leftover. The references leave half a poster
+   empty on purpose (ma). Prefer jumping two steps over one. */
+:root{
+  --space-0:0;
+  --space-hair:1px;
+  --space-2:2px;
+  --space-3:3px;
+  --space-4:4px;
+  --space-6:6px;
+  --space-8:8px;
+  --space-12:12px;
+  --space-16:16px;
+  --space-20:20px;
+  --space-24:24px;
+  --space-32:32px;
+  --space-40:40px;
+  --space-56:56px;
+  --space-72:72px;
+  --space-96:96px;
+  --space-128:128px;
+  --space-176:176px;
+
+  /* Grid — 12 columns, hairline gutters, wide outer margin */
+  --grid-cols:12; /* @kind other */
+  --gutter:20px;
+  --gutter-tight:12px;
+  --margin-page:56px;
+  --margin-page-wide:96px;
+  --measure:64ch;      /* max body line length */
+  --measure-narrow:44ch;
+  --container:1240px;
+  --container-narrow:820px;
+
+  /* Control sizes */
+  --control-sm:28px;
+  --control-md:38px;
+  --control-lg:48px;
+  --touch-min:44px;
+}

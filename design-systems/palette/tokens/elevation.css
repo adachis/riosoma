@@ -1,0 +1,13 @@
+:root {
+  --shadow-0: none; /* @kind shadow */
+  --shadow-1: 0 1px 2px rgba(20, 23, 28, .07), 0 1px 1px rgba(20, 23, 28, .04); /* @kind shadow */
+  --shadow-2: 0 6px 18px -6px rgba(20, 23, 28, .16), 0 1px 2px rgba(20, 23, 28, .06); /* @kind shadow */
+  --shadow-3: 0 24px 48px -16px rgba(20, 23, 28, .22), 0 2px 6px rgba(20, 23, 28, .06); /* @kind shadow */
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, .55), inset 0 0 0 1px rgba(20, 23, 28, .06); /* @kind shadow */
+  --shadow-press: inset 0 2px 4px rgba(20, 23, 28, .18); /* @kind shadow */
+  --ring-focus: 0 0 0 3px var(--focus-ring); /* @kind shadow */
+  --ring-accent: 0 0 0 var(--bw-thick) var(--accent); /* @kind shadow */
+  --blur-sheet: saturate(160%) blur(18px); /* @kind other */
+  --scrim-top: linear-gradient(180deg, rgba(11,13,16,.62), rgba(11,13,16,0)); /* @kind color */
+  --scrim-bottom: linear-gradient(0deg, rgba(11,13,16,.62), rgba(11,13,16,0)); /* @kind color */
+}

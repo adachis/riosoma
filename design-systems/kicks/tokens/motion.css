@@ -1,0 +1,20 @@
+/* Motion is short, mechanical and mostly translation — things snap into place
+   like a printing plate. No bounce, no spring overshoot, no fade-only reveals. */
+:root{
+  --k-dur-instant:80ms; /* @kind other */
+  --k-dur-fast:120ms; /* @kind other */
+  --k-dur-base:180ms; /* @kind other */
+  --k-dur-slow:280ms; /* @kind other */
+  --k-dur-marquee:22s; /* @kind other */
+
+  --k-ease-out:cubic-bezier(.2,.8,.2,1); /* @kind other */
+  --k-ease-in-out:cubic-bezier(.6,0,.2,1); /* @kind other */
+  --k-ease-snap:cubic-bezier(.4,0,0,1); /* @kind other */
+
+  --k-press-shift:2px; /* @kind other */
+  --k-hover-lift:-2px; /* @kind other */
+  --k-transition-control:transform var(--k-dur-fast) var(--k-ease-snap),box-shadow var(--k-dur-fast) var(--k-ease-snap),background-color var(--k-dur-fast) var(--k-ease-out),color var(--k-dur-fast) var(--k-ease-out),border-color var(--k-dur-fast) var(--k-ease-out); /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{--k-dur-instant:0ms;/* @kind other */--k-dur-fast:0ms;/* @kind other */--k-dur-base:0ms;/* @kind other */--k-dur-slow:0ms;/* @kind other */--k-press-shift:0px;--k-hover-lift:0px}
+}

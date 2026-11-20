@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- The app icon: a rounded tile with a sprouting R. -->
+  <rect width="512" height="512" rx="112" fill="#374836"/>
+  <path d="M176 392V128h96c52 0 88 30 88 78 0 36-20 62-54 72l62 114h-64l-54-104h-18v104z M232 234h36c22 0 36-11 36-30s-14-30-36-30h-36z" fill="#f9fbf3"/>
+  <path d="M300 118c20-44 64-62 104-54-6 40-40 74-88 76" fill="#77a32a"/>
+</svg>

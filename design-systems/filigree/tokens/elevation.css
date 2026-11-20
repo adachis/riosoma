@@ -1,0 +1,12 @@
+:root{
+/* shadow is used sparingly: ornament reads as line work, not float */
+--shadow-0:none;
+--shadow-1:0 1px 2px color-mix(in oklab,#000 34%,transparent);
+--shadow-2:0 6px 18px -6px color-mix(in oklab,#000 52%,transparent);
+--shadow-3:0 18px 48px -14px color-mix(in oklab,#000 62%,transparent);
+--shadow-glow:0 0 0 1px var(--line-2),0 0 24px -8px color-mix(in oklab,var(--accent-1) 45%,transparent);
+--inset-hair:inset 0 0 0 1px var(--line-1);
+--inset-frame:inset 0 0 0 1px var(--line-2),inset 0 0 0 var(--frame-gap) var(--surface-1),inset 0 0 0 4px var(--line-1);
+--ring-focus:0 0 0 1px var(--bg),0 0 0 3px color-mix(in oklab,var(--focus) 62%,transparent);
+--blur-veil:saturate(120%) blur(14px); /* @kind other */
+}

@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap");
+:root{
+--font-display:"Outfit","Trebuchet MS",system-ui,sans-serif; /* @kind font */
+--font-ui:"Manrope","Helvetica Neue",system-ui,sans-serif; /* @kind font */
+--font-body:"Manrope","Helvetica Neue",system-ui,sans-serif; /* @kind font */
+--font-mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace; /* @kind font */
+}

@@ -1,0 +1,14 @@
+@layer rio.app {
+  .rio-select-options__group {
+    min-width: 0;
+    padding: var(--rio-space-3);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+
+  .rio-select-options__mapping {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-3);
+  }
+}

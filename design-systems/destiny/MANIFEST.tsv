@@ -1,0 +1,222 @@
+path	bytes
+.thumbnail	6414
+Destiny Design System.html	19275
+Destiny Mac - Directions.dc.html	30082
+Destiny for Mac v2.dc.html	258319
+Destiny for Mac.dc.html	111900
+Destiny for iPhone.dc.html	101511
+SKILL.md	1773
+_adherence.oxlintrc.json	12743
+_ds_bundle.js	22019
+_ds_manifest.json	18419
+assets/clover.svg	418
+assets/orb.svg	1374
+components/brand/Orb.d.ts	579
+components/brand/Orb.jsx	2479
+components/brand/Orb.prompt.md	406
+components/brand/orb.card.html	4266
+components/controls/Composer.d.ts	373
+components/controls/Composer.jsx	1272
+components/controls/Composer.prompt.md	168
+components/controls/SegmentedControl.d.ts	446
+components/controls/SegmentedControl.jsx	932
+components/controls/SegmentedControl.prompt.md	266
+components/controls/controls.card.html	2905
+components/core/Button.d.ts	620
+components/core/Button.jsx	1495
+components/core/Button.prompt.md	321
+components/core/GlyphIcon.d.ts	328
+components/core/GlyphIcon.jsx	406
+components/core/GlyphIcon.prompt.md	203
+components/core/IconButton.d.ts	395
+components/core/IconButton.jsx	797
+components/core/IconButton.prompt.md	296
+components/core/Pill.d.ts	579
+components/core/Pill.jsx	764
+components/core/Pill.prompt.md	294
+components/core/ProgressBar.d.ts	368
+components/core/ProgressBar.jsx	435
+components/core/ProgressBar.prompt.md	265
+components/core/SectionLabel.d.ts	262
+components/core/SectionLabel.jsx	438
+components/core/SectionLabel.prompt.md	230
+components/core/core.card.html	6230
+components/surfaces/Card.d.ts	501
+components/surfaces/Card.jsx	448
+components/surfaces/Card.prompt.md	249
+components/surfaces/ListRow.d.ts	313
+components/surfaces/ListRow.jsx	904
+components/surfaces/ListRow.prompt.md	286
+components/surfaces/StatCard.d.ts	457
+components/surfaces/StatCard.jsx	953
+components/surfaces/StatCard.prompt.md	231
+components/surfaces/surfaces.card.html	5338
+guidelines/brand-clover.html	1080
+guidelines/brand-orb.html	1010
+guidelines/colors-gradient.html	1726
+guidelines/colors-primary.html	2276
+guidelines/colors-spectrum.html	3231
+guidelines/colors-text.html	1909
+guidelines/colors-void.html	2042
+guidelines/effects-elevation.html	1100
+guidelines/effects-glow.html	1020
+guidelines/spacing-layout.html	1382
+guidelines/spacing-radius.html	2288
+guidelines/spacing-scale.html	2938
+guidelines/type-body.html	1003
+guidelines/type-display.html	1132
+guidelines/type-eyebrow.html	1006
+guidelines/type-mono.html	849
+readme.md	6385
+scraps/blog.png	13067
+scraps/check.png	28365
+scraps/files.png	13494
+scraps/rail.png	28365
+styles.css	266
+thumbnail.html	1087
+tokens/base.css	641
+tokens/colors.css	3006
+tokens/effects.css	1070
+tokens/radius.css	286
+tokens/spacing.css	520
+tokens/typography.css	1327
+ui_kits/iphone/README.md	679
+ui_kits/iphone/index.html	7639
+ui_kits/mac/README.md	781
+ui_kits/mac/index.html	12815
+uploads/Destiny Expanded Mac App-handoff/README.md	1672
+uploads/Destiny Expanded Mac App-handoff/project/.thumbnail	10180
+uploads/Destiny Expanded Mac App-handoff/project/Destiny Design System.html	19275
+uploads/Destiny Expanded Mac App-handoff/project/Destiny Mac - Directions.dc.html	30082
+uploads/Destiny Expanded Mac App-handoff/project/Destiny for Mac v2.dc.html	258319
+uploads/Destiny Expanded Mac App-handoff/project/Destiny for Mac.dc.html	111900
+uploads/Destiny Expanded Mac App-handoff/project/Destiny for iPhone.dc.html	101511
+uploads/Destiny Expanded Mac App-handoff/project/SKILL.md	1773
+uploads/Destiny Expanded Mac App-handoff/project/assets/clover.svg	418
+uploads/Destiny Expanded Mac App-handoff/project/assets/orb.svg	1374
+uploads/Destiny Expanded Mac App-handoff/project/components/brand/Orb.d.ts	579
+uploads/Destiny Expanded Mac App-handoff/project/components/brand/Orb.jsx	2479
+uploads/Destiny Expanded Mac App-handoff/project/components/brand/Orb.prompt.md	406
+uploads/Destiny Expanded Mac App-handoff/project/components/brand/orb.card.html	4266
+uploads/Destiny Expanded Mac App-handoff/project/components/controls/Composer.d.ts	373
+uploads/Destiny Expanded Mac App-handoff/project/components/controls/Composer.jsx	1272
+uploads/Destiny Expanded Mac App-handoff/project/components/controls/Composer.prompt.md	168
+uploads/Destiny Expanded Mac App-handoff/project/components/controls/SegmentedControl.d.ts	446
+uploads/Destiny Expanded Mac App-handoff/project/components/controls/SegmentedControl.jsx	932
+uploads/Destiny Expanded Mac App-handoff/project/components/controls/SegmentedControl.prompt.md	266
+uploads/Destiny Expanded Mac App-handoff/project/components/controls/controls.card.html	2905
+uploads/Destiny Expanded Mac App-handoff/project/components/core/Button.d.ts	620
+uploads/Destiny Expanded Mac App-handoff/project/components/core/Button.jsx	1495
+uploads/Destiny Expanded Mac App-handoff/project/components/core/Button.prompt.md	321
+uploads/Destiny Expanded Mac App-handoff/project/components/core/GlyphIcon.d.ts	328
+uploads/Destiny Expanded Mac App-handoff/project/components/core/GlyphIcon.jsx	406
+uploads/Destiny Expanded Mac App-handoff/project/components/core/GlyphIcon.prompt.md	203
+uploads/Destiny Expanded Mac App-handoff/project/components/core/IconButton.d.ts	395
+uploads/Destiny Expanded Mac App-handoff/project/components/core/IconButton.jsx	797
+uploads/Destiny Expanded Mac App-handoff/project/components/core/IconButton.prompt.md	296
+uploads/Destiny Expanded Mac App-handoff/project/components/core/Pill.d.ts	579
+uploads/Destiny Expanded Mac App-handoff/project/components/core/Pill.jsx	764
+uploads/Destiny Expanded Mac App-handoff/project/components/core/Pill.prompt.md	294
+uploads/Destiny Expanded Mac App-handoff/project/components/core/ProgressBar.d.ts	368
+uploads/Destiny Expanded Mac App-handoff/project/components/core/ProgressBar.jsx	435
+uploads/Destiny Expanded Mac App-handoff/project/components/core/ProgressBar.prompt.md	265
+uploads/Destiny Expanded Mac App-handoff/project/components/core/SectionLabel.d.ts	262
+uploads/Destiny Expanded Mac App-handoff/project/components/core/SectionLabel.jsx	438
+uploads/Destiny Expanded Mac App-handoff/project/components/core/SectionLabel.prompt.md	230
+uploads/Destiny Expanded Mac App-handoff/project/components/core/core.card.html	6230
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/Card.d.ts	501
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/Card.jsx	448
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/Card.prompt.md	249
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/ListRow.d.ts	313
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/ListRow.jsx	904
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/ListRow.prompt.md	286
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/StatCard.d.ts	457
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/StatCard.jsx	953
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/StatCard.prompt.md	231
+uploads/Destiny Expanded Mac App-handoff/project/components/surfaces/surfaces.card.html	5338
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/brand-clover.html	1080
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/brand-orb.html	1010
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/colors-gradient.html	1726
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/colors-primary.html	2276
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/colors-spectrum.html	3231
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/colors-text.html	1909
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/colors-void.html	2042
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/effects-elevation.html	1100
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/effects-glow.html	1020
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/spacing-layout.html	1382
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/spacing-radius.html	2288
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/spacing-scale.html	2938
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/type-body.html	1003
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/type-display.html	1132
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/type-eyebrow.html	1006
+uploads/Destiny Expanded Mac App-handoff/project/guidelines/type-mono.html	849
+uploads/Destiny Expanded Mac App-handoff/project/readme.md	6385
+uploads/Destiny Expanded Mac App-handoff/project/scraps/blog.png	13067
+uploads/Destiny Expanded Mac App-handoff/project/scraps/check.png	28365
+uploads/Destiny Expanded Mac App-handoff/project/scraps/files.png	13494
+uploads/Destiny Expanded Mac App-handoff/project/scraps/rail.png	28365
+uploads/Destiny Expanded Mac App-handoff/project/styles.css	266
+uploads/Destiny Expanded Mac App-handoff/project/support.js	66404
+uploads/Destiny Expanded Mac App-handoff/project/tokens/base.css	641
+uploads/Destiny Expanded Mac App-handoff/project/tokens/colors.css	3050
+uploads/Destiny Expanded Mac App-handoff/project/tokens/effects.css	905
+uploads/Destiny Expanded Mac App-handoff/project/tokens/radius.css	286
+uploads/Destiny Expanded Mac App-handoff/project/tokens/spacing.css	520
+uploads/Destiny Expanded Mac App-handoff/project/tokens/typography.css	971
+uploads/Destiny Expanded Mac App-handoff/project/ui_kits/iphone/README.md	679
+uploads/Destiny Expanded Mac App-handoff/project/ui_kits/iphone/index.html	7639
+uploads/Destiny Expanded Mac App-handoff/project/ui_kits/mac/README.md	781
+uploads/Destiny Expanded Mac App-handoff/project/ui_kits/mac/index.html	12815
+uploads/Destiny Expanded Mac App-handoff/project/uploads/CleanShot 2026-07-17 at 18.35.38@2x.png	225400
+uploads/Destiny Expanded Mac App-handoff/project/uploads/CleanShot 2026-07-17 at 19.02.23@2x.png	212455
+uploads/Destiny Expanded Mac App-handoff/project/uploads/CleanShot 2026-07-17 at 19.02.31@2x.png	118243
+uploads/Destiny Expanded Mac App-handoff/project/uploads/CleanShot 2026-07-17 at 19.02.37@2x.png	184438
+uploads/Destiny Expanded Mac App-handoff/project/uploads/CleanShot 2026-07-17 at 19.02.43@2x.png	116375
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny File Browser.PNG	234383
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/01-requirements-brief.md	5074
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/02-design-system.md	2661
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/README.md	950
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/Contents.json	3354
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ItunesArtwork-1x.png	419208
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-20-1x.png	1131
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-20-2x.png	3508
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-29-1x.png	2038
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-29-2x.png	6735
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-40-1x.png	3508
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-40-2x.png	10997
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-76-1x.png	9985
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-76-2x.png	28188
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/ipad-83.5-2x.png	31249
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/iphone-20-2x.png	3508
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/iphone-20-3x.png	6849
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/iphone-29-2x.png	6735
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/iphone-29-3x.png	12173
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/iphone-40-2x.png	10997
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/iphone-40-3x.png	19786
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/iphone-60-2x.png	19786
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/iphone-60-3x.png	35947
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-128-1x.png	21727
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-128-2x.png	59728
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-16-1x.png	819
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-16-2x.png	2455
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-256-1x.png	59728
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-256-2x.png	159306
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-32-1x.png	2455
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-32-2x.png	7601
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-512-1x.png	159306
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/AppIcon.appiconset/mac-512-2x.png	419208
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/destiny-design-system-brief.md	10972
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/destiny-icon.svg	1790
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/screen.css	4859
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/assets/tokens.css	4966
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/reference-mockups/Destiny Design System.dc.html	26878
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/reference-mockups/Destiny iPhone UI - Main.png	534498
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/reference-mockups/Destiny-Notch.dc.html	26152
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Mac App Design Handoff/reference-mockups/New Destiny Appearance for App.jpeg	7670329
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Main Chat Interface.PNG	686842
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Settings Panel.png	179321
+uploads/Destiny Expanded Mac App-handoff/project/uploads/Destiny Settings.PNG	184077
+uploads/Destiny Expanded Mac App-handoff/project/uploads/IMG_1768.PNG	102393
+uploads/Destiny Expanded Mac App-handoff/project/uploads/IMG_1769.PNG	416784
+uploads/Destiny Expanded Mac App-handoff/project/uploads/IMG_1770.PNG	184042
+uploads/Destiny Expanded Mac App-handoff/project/uploads/IMG_1771.PNG	130282

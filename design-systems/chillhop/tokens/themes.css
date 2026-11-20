@@ -1,0 +1,52 @@
+/* Colour-scheme variants. Set data-theme on <html> for a whole product, or on any
+   wrapper to preview a scheme in place. data-mode="dark" flips the default Loft scheme
+   to Night. Every variant supplies only paper / surface / ink / accent trio; the rest is
+   derived in colors.css so all 14 schemes stay in sync with one set of rules. */
+
+/* Loft (default) */
+:root,[data-theme="loft"]{color-scheme:light;--theme-name:"Loft (default)";/* @kind other */--paper:#FBF3E4;--surface:#FFFCF4;--ink:#241F2E;--accent:#1F7A6F;--accent-ink:#FFFCF4;--accent-2:#E8563F;--accent-2-ink:#FFFCF4;--accent-3:#F0B429;--accent-3-ink:#241F2E;--p-1:#FBF3E4;--p-2:#1F7A6F;--p-3:#E8563F;--p-4:#F0B429;--p-5:#241F2E;}
+
+/* Night */
+[data-theme="night"],:root[data-mode="dark"],[data-mode="dark"]{color-scheme:dark;--theme-name:"Night";/* @kind other */--paper:#17141F;--surface:#221D2E;--ink:#F6EFE2;--accent:#4FC2B0;--accent-ink:#10201E;--accent-2:#FF7A5E;--accent-2-ink:#231015;--accent-3:#F5C555;--accent-3-ink:#241F2E;--p-1:#17141F;--p-2:#4FC2B0;--p-3:#FF7A5E;--p-4:#F5C555;--p-5:#F6EFE2;}
+
+/* Boardwalk */
+[data-theme="boardwalk"]{color-scheme:light;--theme-name:"Boardwalk";/* @kind other */--paper:#FFF6EC;--surface:#FFFFFF;--ink:#2A3742;--accent:#43AA8B;--accent-ink:#FFFFFF;--accent-2:#F94144;--accent-2-ink:#FFFFFF;--accent-3:#F9C74F;--accent-3-ink:#2A3742;--p-1:#F94144;--p-2:#F8961E;--p-3:#F9C74F;--p-4:#90BE6D;--p-5:#277DA1;}
+
+/* Midnight Gold */
+[data-theme="midnight-gold"]{color-scheme:dark;--theme-name:"Midnight Gold";/* @kind other */--paper:#000814;--surface:#001D3D;--ink:#EAF2FF;--accent:#FFC300;--accent-ink:#000814;--accent-2:#FFD60A;--accent-2-ink:#000814;--accent-3:#003566;--accent-3-ink:#EAF2FF;--p-1:#000814;--p-2:#001D3D;--p-3:#003566;--p-4:#FFC300;--p-5:#FFD60A;}
+
+/* Neon Dusk */
+[data-theme="neon-dusk"]{color-scheme:dark;--theme-name:"Neon Dusk";/* @kind other */--paper:#1A0044;--surface:#2D0077;--ink:#FFF0F6;--accent:#FF0054;--accent-ink:#FFF0F6;--accent-2:#FF5400;--accent-2-ink:#1A0044;--accent-3:#FFBD00;--accent-3-ink:#1A0044;--p-1:#390099;--p-2:#9E0059;--p-3:#FF0054;--p-4:#FF5400;--p-5:#FFBD00;}
+
+/* Harbor */
+[data-theme="harbor"]{color-scheme:light;--theme-name:"Harbor";/* @kind other */--paper:#F1FAEE;--surface:#FFFFFF;--ink:#1D3557;--accent:#457B9D;--accent-ink:#F1FAEE;--accent-2:#E63946;--accent-2-ink:#F1FAEE;--accent-3:#A8DADC;--accent-3-ink:#1D3557;--p-1:#E63946;--p-2:#F1FAEE;--p-3:#A8DADC;--p-4:#457B9D;--p-5:#1D3557;}
+
+/* Soft Serve */
+[data-theme="soft-serve"]{color-scheme:light;--theme-name:"Soft Serve";/* @kind other */--paper:#F7EDE2;--surface:#FFF9F3;--ink:#4A403C;--accent:#84A59D;--accent-ink:#FFF9F3;--accent-2:#F28482;--accent-2-ink:#4A403C;--accent-3:#F6BD60;--accent-3-ink:#4A403C;--p-1:#F6BD60;--p-2:#F7EDE2;--p-3:#F5CAC3;--p-4:#84A59D;--p-5:#F28482;}
+
+/* Campfire */
+[data-theme="campfire"]{color-scheme:light;--theme-name:"Campfire";/* @kind other */--paper:#FBF3E7;--surface:#FFFFFF;--ink:#233D4D;--accent:#FE7F2D;--accent-ink:#FFFFFF;--accent-2:#619B8A;--accent-2-ink:#FFFFFF;--accent-3:#FCCA46;--accent-3-ink:#233D4D;--p-1:#233D4D;--p-2:#FE7F2D;--p-3:#FCCA46;--p-4:#A1C181;--p-5:#619B8A;}
+
+/* Tide Pool */
+[data-theme="tide-pool"]{color-scheme:light;--theme-name:"Tide Pool";/* @kind other */--paper:#F2FDF6;--surface:#FFFFFF;--ink:#22577A;--accent:#38A3A5;--accent-ink:#FFFFFF;--accent-2:#57CC99;--accent-2-ink:#0E3247;--accent-3:#C7F9CC;--accent-3-ink:#22577A;--p-1:#22577A;--p-2:#38A3A5;--p-3:#57CC99;--p-4:#80ED99;--p-5:#C7F9CC;}
+
+/* Fern & Flare */
+[data-theme="fern-flare"]{color-scheme:dark;--theme-name:"Fern & Flare";/* @kind other */--paper:#1B2A20;--surface:#2E5339;--ink:#F3FFF8;--accent:#00FDDC;--accent-ink:#143024;--accent-2:#FF5666;--accent-2-ink:#2A0F13;--accent-3:#FFCCC9;--accent-3-ink:#2A0F13;--p-1:#00FDDC;--p-2:#2E5339;--p-3:#495F41;--p-4:#FF5666;--p-5:#FFCCC9;}
+
+/* Bubblegum */
+[data-theme="bubblegum"]{color-scheme:light;--theme-name:"Bubblegum";/* @kind other */--paper:#FFF7EC;--surface:#FFFFFF;--ink:#2B2A4A;--accent:#FF70A6;--accent-ink:#2B2A4A;--accent-2:#70D6FF;--accent-2-ink:#2B2A4A;--accent-3:#FFD670;--accent-3-ink:#2B2A4A;--p-1:#70D6FF;--p-2:#FF70A6;--p-3:#FF9770;--p-4:#FFD670;--p-5:#2B2A4A;}
+
+/* Sea Glass */
+[data-theme="sea-glass"]{color-scheme:light;--theme-name:"Sea Glass";/* @kind other */--paper:#FAFFE8;--surface:#FFFFFF;--ink:#123A4C;--accent:#247BA0;--accent-ink:#FFFFFF;--accent-2:#FF1654;--accent-2-ink:#FFFFFF;--accent-3:#70C1B3;--accent-3-ink:#123A4C;--p-1:#247BA0;--p-2:#70C1B3;--p-3:#B2DBBF;--p-4:#F3FFBD;--p-5:#FF1654;}
+
+/* Sunset Deck */
+[data-theme="sunset-deck"]{color-scheme:light;--theme-name:"Sunset Deck";/* @kind other */--paper:#EBEBD3;--surface:#F8F8EC;--ink:#083D77;--accent:#F95738;--accent-ink:#FFFFFF;--accent-2:#083D77;--accent-2-ink:#EBEBD3;--accent-3:#F4D35E;--accent-3-ink:#083D77;--p-1:#083D77;--p-2:#EBEBD3;--p-3:#F4D35E;--p-4:#EE964B;--p-5:#F95738;}
+
+/* Sage */
+[data-theme="sage"]{color-scheme:light;--theme-name:"Sage";/* @kind other */--paper:#F0F7F4;--surface:#FFFFFF;--ink:#3C493F;--accent:#3C493F;--accent-ink:#F0F7F4;--accent-2:#A2E3C4;--accent-2-ink:#3C493F;--accent-3:#7E8D85;--accent-3-ink:#F0F7F4;--p-1:#3C493F;--p-2:#7E8D85;--p-3:#B3BFB8;--p-4:#F0F7F4;--p-5:#A2E3C4;}
+
+/* Boardwalk ships the full ten-step ramp its palette defines. */
+[data-theme="boardwalk"]{--p-6:#F9844A;--p-7:#43AA8B;--p-8:#4D908E;--p-9:#577590;--p-10:#F3722C;}
+
+/* Dark schemes lift the status colours so they hold up on a dark paper. */
+[data-theme="night"],[data-theme="midnight-gold"],[data-theme="neon-dusk"],[data-theme="fern-flare"],[data-mode="dark"]{--success:#5FC98A;--warn:#F0BE5A;--danger:#FF7A62;--info:#6FB4DA;}

@@ -1,0 +1,45 @@
+# pgcat pooler configuration for the test fleet.
+#
+# pgcat reads this file from /etc/pgcat/pgcat.toml inside the container.  The
+# pool is named riosoma_test, so clients connect to the pool by using that
+# name as the database, for example
+# postgres://riosoma_test:Riosoma-Test-2026!@127.0.0.1:15438/riosoma_test
+#
+# Transaction pooling is what Riosoma needs to exercise, because prepared
+# statements, session state, and advisory locks all behave differently behind a
+# transaction pooler.
+
+[general]
+host = "0.0.0.0"
+port = 6432
+enable_prometheus_exporter = false
+connect_timeout = 5000
+idle_timeout = 30000
+healthcheck_timeout = 2000
+shutdown_timeout = 60000
+log_client_connections = false
+log_client_disconnections = false
+server_tls = false
+verify_server_certificate = false
+admin_username = "riosoma_test"
+admin_password = "Riosoma-Test-2026!"
+
+[pools.riosoma_test]
+pool_mode = "transaction"
+load_balancing_mode = "random"
+default_role = "any"
+query_parser_enabled = false
+sharding_function = "pg_bigint_hash"
+connect_timeout = 5000
+idle_timeout = 30000
+
+[pools.riosoma_test.users.0]
+username = "riosoma_test"
+password = "Riosoma-Test-2026!"
+pool_mode = "transaction"
+pool_size = 10
+statement_timeout = 0
+
+[pools.riosoma_test.shards.0]
+servers = [["postgres17", 5432, "primary"]]
+database = "riosoma_test"

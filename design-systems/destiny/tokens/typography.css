@@ -1,0 +1,35 @@
+:root{
+  /* System UI stack — Destiny is a native macOS/iOS product; it wears the OS font. */
+  --font-ui:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;
+  --font-mono:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,monospace;
+
+  /* Weights — the system leans heavy: 600 for UI, 700 for titles, 800 for display numbers */
+  --w-regular:400; /* @kind font */
+  --w-medium:600; /* @kind font */
+  --w-bold:700; /* @kind font */
+  --w-heavy:800; /* @kind font */
+
+  /* Type scale (px) — dense, macOS-native rhythm */
+  --t-eyebrow:10px;    /* uppercase section labels @kind font */
+  --t-micro:10.5px; /* @kind font */
+  --t-meta:11.5px; /* @kind font */
+  --t-small:12.5px; /* @kind font */
+  --t-body:13.5px; /* @kind font */
+  --t-base:14px; /* @kind font */
+  --t-lg:15px; /* @kind font */
+  --t-title:18px; /* @kind font */
+  --t-h3:22px; /* @kind font */
+  --t-h2:24px; /* @kind font */
+  --t-display:30px; /* @kind font */
+  --t-hero:34px; /* @kind font */
+
+  /* Tracking */
+  --track-eyebrow:.12em;   /* uppercase labels @kind font */
+  --track-tight:-.02em;    /* display numbers & headlines @kind font */
+  --track-normal:0; /* @kind font */
+
+  /* Line heights */
+  --lh-tight:1.1; /* @kind font */
+  --lh-snug:1.35; /* @kind font */
+  --lh-body:1.55; /* @kind font */
+}

@@ -1,0 +1,5 @@
+/* Retro Neo Future typefaces — Google-hosted (no binaries shipped).
+   Display + core UI: Archivo (grotesk, Helvetica-lineage — the platinum-era UI voice).
+   Bitmap chrome/wordmarks: Silkscreen. Data/mono: IBM Plex Mono (Monaco-lineage).
+   CRT screen copy: VT323. Print/serif: Bitter (manual + spec-sheet slab). */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@300..700&family=Silkscreen:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=VT323&family=Bitter:wght@400;600&display=swap");

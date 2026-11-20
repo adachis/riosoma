@@ -1,0 +1,116 @@
+@layer rio.components {
+  .rio-popover {
+    display: flex;
+    flex-direction: column;
+    /* Where the surface travels in from, set per placement below. */
+    --rio-popover-slide: 0 0;
+    max-inline-size: 360px;
+    padding: var(--rio-space-4);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    font-size: var(--rio-text-md);
+    line-height: var(--rio-leading-normal);
+    box-shadow: var(--rio-shadow-2);
+    outline: none;
+  }
+
+  .rio-popover__content {
+    min-block-size: 0;
+    /* Leave room for the shared focus ring inside the scrolling clip */
+    padding: var(--rio-space-1);
+    margin: calc(-1 * var(--rio-space-1));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* The surface's own shadow would cover the shared focus ring, so a surface that takes focus draws
+     its own. */
+  .rio-popover:focus-visible {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: 2px;
+  }
+
+  /* Placement is physical, decided by where the surface ended up after flipping, so the travel
+     direction is written out for each side rather than derived from the writing direction. */
+  .rio-popover[data-placement='bottom'] {
+    --rio-popover-slide: 0 calc(-1 * var(--rio-space-1));
+  }
+
+  .rio-popover[data-placement='top'] {
+    --rio-popover-slide: 0 var(--rio-space-1);
+  }
+
+  .rio-popover[data-placement='left'] {
+    --rio-popover-slide: var(--rio-space-1) 0;
+  }
+
+  .rio-popover[data-placement='right'] {
+    --rio-popover-slide: calc(-1 * var(--rio-space-1)) 0;
+  }
+
+  .rio-popover[data-entering] {
+    animation: rio-popover-in var(--rio-duration-normal) var(--rio-ease-enter);
+  }
+
+  .rio-popover[data-exiting] {
+    animation: rio-popover-out var(--rio-duration-fast) var(--rio-ease-exit);
+  }
+
+  /* The overlay places the arrow; only its shape and color belong here.  It turns to follow the
+     placement, and the turn animates so a flip doesn't snap. */
+  .rio-popover__arrow svg {
+    display: block;
+    fill: var(--rio-surface);
+    transition: transform var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-popover__arrow[data-placement='top'] svg {
+    transform: rotate(180deg);
+  }
+
+  .rio-popover__arrow[data-placement='left'] svg {
+    transform: rotate(90deg);
+  }
+
+  .rio-popover__arrow[data-placement='right'] svg {
+    transform: rotate(270deg);
+  }
+
+  @media (forced-colors: active) {
+    /* Shadows disappear here, so the border is what separates the surface from the page.  The
+       arrow can't match a forced surface color, and the border already shows the edge it points
+       at, so it drops out. */
+    .rio-popover {
+      border: 1px solid CanvasText;
+    }
+
+    .rio-popover__arrow {
+      display: none;
+    }
+  }
+}
+
+@keyframes rio-popover-in {
+  from {
+    opacity: 0;
+    translate: var(--rio-popover-slide);
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes rio-popover-out {
+  from {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  to {
+    opacity: 0;
+    translate: var(--rio-popover-slide);
+  }
+}

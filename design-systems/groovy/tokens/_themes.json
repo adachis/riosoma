@@ -1,0 +1,146 @@
+[
+ {
+  "name": "sunburst",
+  "label": "Sunburst",
+  "dark": false,
+  "swatches": [
+   "#E0692B",
+   "#2E7391",
+   "#E5BA4A",
+   "#FBEFD6",
+   "#3A2416"
+  ]
+ },
+ {
+  "name": "midnight-lounge",
+  "label": "Midnight Lounge",
+  "dark": true,
+  "swatches": [
+   "#E8B22C",
+   "#24406B",
+   "#F2CE3E",
+   "#0F1626",
+   "#F6E7C1"
+  ]
+ },
+ {
+  "name": "discotheque",
+  "label": "Discotheque",
+  "dark": false,
+  "swatches": [
+   "#C7305F",
+   "#4A1A7A",
+   "#EBA92B",
+   "#F7EEF7",
+   "#3A1152"
+  ]
+ },
+ {
+  "name": "roller-rink",
+  "label": "Roller Rink",
+  "dark": false,
+  "swatches": [
+   "#C9463F",
+   "#4A7691",
+   "#A6C9C8",
+   "#F0EBDC",
+   "#23384F"
+  ]
+ },
+ {
+  "name": "peach-parlor",
+  "label": "Peach Parlor",
+  "dark": false,
+  "swatches": [
+   "#C9605D",
+   "#63857B",
+   "#E9B25A",
+   "#F5EADC",
+   "#4A3229"
+  ]
+ },
+ {
+  "name": "harvest-table",
+  "label": "Harvest Table",
+  "dark": false,
+  "swatches": [
+   "#D3651F",
+   "#3E6E5F",
+   "#EBB93F",
+   "#F4EDDE",
+   "#23414F"
+  ]
+ },
+ {
+  "name": "lagoon",
+  "label": "Lagoon",
+  "dark": false,
+  "swatches": [
+   "#2A7E80",
+   "#22566F",
+   "#86C98A",
+   "#EEF3E6",
+   "#1B3A46"
+  ]
+ },
+ {
+  "name": "neon-cactus",
+  "label": "Neon Cactus",
+  "dark": true,
+  "swatches": [
+   "#E1555F",
+   "#33D9C0",
+   "#EDBFBC",
+   "#1E3327",
+   "#EDE6D5"
+  ]
+ },
+ {
+  "name": "bubblegum",
+  "label": "Bubblegum",
+  "dark": false,
+  "swatches": [
+   "#D2517F",
+   "#3F87A5",
+   "#EDC163",
+   "#FDF2E9",
+   "#4A2E3E"
+  ]
+ },
+ {
+  "name": "seafoam",
+  "label": "Seafoam",
+  "dark": false,
+  "swatches": [
+   "#C41E43",
+   "#2A6F93",
+   "#6BAEA3",
+   "#F4F7E4",
+   "#1E3A47"
+  ]
+ },
+ {
+  "name": "denim-marigold",
+  "label": "Denim & Marigold",
+  "dark": false,
+  "swatches": [
+   "#CD4527",
+   "#12406E",
+   "#E5C55B",
+   "#E9E7D2",
+   "#12406E"
+  ]
+ },
+ {
+  "name": "avocado-kitchen",
+  "label": "Avocado Kitchen",
+  "dark": false,
+  "swatches": [
+   "#5C7A52",
+   "#3B4740",
+   "#C9A227",
+   "#EDF2EA",
+   "#2E3A31"
+  ]
+ }
+]

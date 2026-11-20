@@ -1,0 +1,1694 @@
+{
+  "id": "brutalist-neo",
+  "name": "Brutalist Neo",
+  "css": "theme.css",
+  "defaultScheme": "signal-jade",
+  "schemes": [
+    {
+      "id": "signal-jade",
+      "name": "Signal Jade",
+      "appearance": "light"
+    },
+    {
+      "id": "spectrum",
+      "name": "Spectrum",
+      "appearance": "light"
+    },
+    {
+      "id": "midnight-gold",
+      "name": "Midnight Gold",
+      "appearance": "light"
+    },
+    {
+      "id": "voltage",
+      "name": "Voltage",
+      "appearance": "light"
+    },
+    {
+      "id": "coral-slate",
+      "name": "Coral Slate",
+      "appearance": "light"
+    },
+    {
+      "id": "sherbet",
+      "name": "Sherbet",
+      "appearance": "light"
+    },
+    {
+      "id": "clay-ember",
+      "name": "Clay Ember",
+      "appearance": "light"
+    },
+    {
+      "id": "mint-stack",
+      "name": "Mint Stack",
+      "appearance": "light"
+    },
+    {
+      "id": "bubble-pop",
+      "name": "Bubble Pop",
+      "appearance": "light"
+    },
+    {
+      "id": "reef-flare",
+      "name": "Reef Flare",
+      "appearance": "light"
+    },
+    {
+      "id": "harbor-flame",
+      "name": "Harbor Flame",
+      "appearance": "light"
+    },
+    {
+      "id": "sage-fog",
+      "name": "Sage Fog",
+      "appearance": "light"
+    }
+  ],
+  "modes": [],
+  "defaultMode": null,
+  "surfaces": [],
+  "otherAttributes": [],
+  "externalImports": [],
+  "remoteFonts": [
+    {
+      "path": "assets/fonts/remote/allerta-stencil-6b34eb9a1f92.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/allertastencil/v24/HTx0L209KT-LmIE9N7OR6eiycOe1_Db29XP-vA.woff2",
+      "family": "Allerta Stencil"
+    },
+    {
+      "path": "assets/fonts/remote/anton-34f7e336a751.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8CSKlv.woff2",
+      "family": "Anton"
+    },
+    {
+      "path": "assets/fonts/remote/anton-8e604ae3fff1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3K9-C8CSKlvPfE.woff2",
+      "family": "Anton"
+    },
+    {
+      "path": "assets/fonts/remote/anton-dd050d9cf137.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3K8-C8CSKlvPfE.woff2",
+      "family": "Anton"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-01f1de1d39ea.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrW3bmtYkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-05be72b5afe6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxxL3I-JCGChYJ8VI-L6OO_au7B6xTj11HzlqsLaoJN.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-0b123f55628e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrF3Dmu4kGQLhExw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-0ea05d7cf336.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxzL3I-JCGChYJ8VI-L6OO_au7B6xTru2H-nKwpaLJM_5k.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-12757841bc06.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxzL3I-JCGChYJ8VI-L6OO_au7B6xTru2HxnKwpaLJM.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-12fe5b3d3087.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrc3PmtYkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-131e0d2b7243.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrB3XmtIkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-145e80f79f9b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lwz3bWuYMBYro.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-157031ba3631.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrF3DmtIkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-23646cbd83d8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTx3L3I-JCGChYJ8VI-L6OO_au7B6x_T2lv0tKk7aw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-24370c5f3eee.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873z3jWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-25478a44d6e9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrf3fmtIkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-335af48372c5.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrf3fmtYkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-348a713e81e1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3bWuYMBYro.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-35525e7502e7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTx3L3I-JCGChYJ8VI-L6OO_au7B6xHT2lv0tKk.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-370f7adb26fb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B497yz3bWuYMBYro.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-3c28853997d4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873z3bWuYMBYro.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-41b3dd1eea5e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrf3fmu4kGQLhExw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-512cd6704e9b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3jWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-55d8c5d08750.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrK3Lmu4kGQLhExw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-5b91d80fd3d6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47rxz3nWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-5c2b8ad785e4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873z3nWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-5deee55c4baa.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47b1z3jWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-6f41319bb1c1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxxL3I-JCGChYJ8VI-L6OO_au7B6xTj2FHzlqsLag.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-742b5cac6227.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B45L0z3jWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-7b9fc433d9a0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrB3XmtYkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-7d1112cb03ca.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrW3bmu4kGQLhExw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-7ddfa163f0da.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrB3Xmu4kGQLhExw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-900206a21d56.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrF3DmtYkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-90de7d143275.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrc3PmtIkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-93e33744b2ad.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrc3Pmu4kGQLhExw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-95a23ed66bc9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B45L0z3nWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-977ae7e9027e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrK3LmtYkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-994cf2b8a7b7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrY3TmtYkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-99e2992f41f7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47b1z3nWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-a2714bd2148e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxxL3I-JCGChYJ8VI-L6OO_au7B6xTj1lHzlqsLaoJN.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-a5f2461a3aa2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrY3TmtIkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-a79641dde962.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3nWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-a7968d818a3c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxzL3I-JCGChYJ8VI-L6OO_au7B6xTru2H_nKwpaLJM_5k.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-a9c97b908965.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B497yz3nWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-aca81328356b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B497yz3jWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-b09d21161637.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lwz3jWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-b5342cc33c1c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrY3Tmu4kGQLhExw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-b94719ae4e28.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrW3bmtIkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-c16fd4f9ec85.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lwz3nWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-c4c132e9960a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTx3L3I-JCGChYJ8VI-L6OO_au7B6x7T2lv0tKk7aw.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-c70542fd123b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrK3LmtIkGQLhEx6A5.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-d582e4d0bb17.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxxL3I-JCGChYJ8VI-L6OO_au7B43Lj11HzlqsLaoJN.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-d76306f29a47.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxxL3I-JCGChYJ8VI-L6OO_au7B43Lj1lHzlqsLaoJN.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-da1d3ddb8151.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47b1z3bWuYMBYro.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-da2a1d6fd91b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B45L0z3bWuYMBYro.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-e64c16649d34.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47rxz3bWuYMBYro.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-f0029bcc08c4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxxL3I-JCGChYJ8VI-L6OO_au7B43Lj2FHzlqsLag.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/barlow-condensed-f2cc6d5a9fc6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47rxz3jWuYMBYrp0xg.woff2",
+      "family": "Barlow Condensed"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0271ee33e583.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.93.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0396de9e135b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.95.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0afc23853f21.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.76.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0b549a6d4fe1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.111.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0ca2112f5acb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.8.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0de351f10e47.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.10.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0dedd8ae4b8f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.63.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0e719eaacf4b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.81.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-0ffd83ea96c0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.77.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-11742800689c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.25.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-15d9d0263dd3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.17.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-1660d3140094.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.112.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-1988dcd2aec4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.6.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-1b5206a9f9db.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.107.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-1c2629ad3790.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.69.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-1ceda6963ff2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.90.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-21704c64b3ae.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.12.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-21c55c12abe3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.34.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-2253cd496604.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.60.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-255d32c178ae.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.104.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-257f7843389b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.3.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-2742c56cfdc9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.109.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-2fd79f69f796.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.116.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-327e98c88a8a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.79.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-34c2843fe6d2.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.0.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-39f579e7cfd1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.97.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-3b0c7605c8a0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.31.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-3c396c6f1573.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.14.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-3e71ad32d226.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.88.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-3ed1941ca817.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.41.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-3fe8462e9ba8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.30.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-43affcd97264.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.108.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-442a924963ef.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.118.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-461211d5b2d3.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.101.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-46bed80b89e9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.23.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-495173eaa988.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBA2TUEIYgpLUTOw.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-4bc0c3a20bf7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.85.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-4bdb991f654a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.73.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-4e2de80f6290.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.105.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-50a9f112f2dc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.84.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-53eef7524390.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.70.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-548ae5bc6893.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBA2RkEIYgpLUTOw.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-55387457bceb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.40.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-5811f13cbc8d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.100.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-58c37ba154fe.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.96.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-5d7f2d0a30fc.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.51.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-5dc4aeac7c2a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.58.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-5e275f0af3a6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.16.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-5edc29426e99.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.50.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-6045dbda8c72.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.2.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-61114729bb7b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.19.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-652aa9d4affd.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.46.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-69c0c83efbd6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.49.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-6b727c262325.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBA2TEEIYgpLUTOw.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-6b85a3798ddb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.99.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-6bedb1565608.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.11.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-6c9f6c4ba179.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.1.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-6d24bfbf19b7.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBA2QUEIYgpLUTOw.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-7039a4d65716.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.66.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-76e6b40c2cde.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.114.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-78588e6dac67.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.56.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-78e7fcf90e1f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.21.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-78f0daa3c69d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.26.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-7cbb6df9082e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.72.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-7deca4f43c53.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.80.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-7f2ab880c0e1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.9.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-7fc10635e0fb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.86.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-855c8b253c4a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.7.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-85a81bebf7a1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.91.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-865823412add.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.89.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-87e35120d3cb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.61.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-8819d9f644db.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.4.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-8942a293a706.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.113.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-8a58044c7fe4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.117.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-8adf7a48c2e8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.67.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-8c499041a17a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.35.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-923a1c19f646.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.20.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-92f5bc7f0402.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.71.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-96aab7729087.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.18.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-97f8c25383e8.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.83.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-9b91075dcdd0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.78.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-9be4d4ca9f94.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.44.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-9bff8c6e170c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.68.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-9ca885aa9681.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.62.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-9d9d36c6f7fa.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.115.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-9e0762aa827f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.64.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-a0741d70395f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.24.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-a1ac14e31100.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.55.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-a586e230b25d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.110.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-a7782355517e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.29.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ab2122c6d351.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.22.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ab24c4937e3f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.65.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-abb19755c866.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.82.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ad2dfa72a898.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.42.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-aebd4030c2f0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.5.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-b31134a7e756.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.106.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-b66998a4b41f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.13.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-b7f19ad81a30.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.36.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-b9e6857f3e7c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.98.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-bfce162ccfa6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.59.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-c06e7eaca434.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.74.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-c1e3764a88f9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.45.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-c2cbad20d429.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.37.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-c9a938c49338.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.27.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-c9f03a75296c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.39.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ca02b1f3565e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.47.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-cd1de603c316.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.75.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-d1ee833dcc80.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.119.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-da122e27154b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.15.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-db4b8003373d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.92.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-dc8b1533c07b.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.103.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ded1bc2f18f0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.54.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-e17de600c913.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.94.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-e3054b58fef1.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.32.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-e51d4567fc76.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.57.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-e88ae5f7271c.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.102.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ec42aa58df30.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.28.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ecc4708f644a.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.48.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ee7509e9cd6e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.87.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-ef3c759d8ba4.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.43.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-f383cb34fccf.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.33.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-f8cbfdf3095e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBA2QkEIYgpLUQ.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dela-gothic-one-fd88faf6b9d0.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/delagothicone/v19/hESp6XxvMDRA-2eD0lXpDa6QkBAGQEsPQAgBRQGhdlWTf4ifQMmxfTPxmI8D_A6A.38.woff2",
+      "family": "Dela Gothic One"
+    },
+    {
+      "path": "assets/fonts/remote/dm-mono-3307f924d6b9.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/dmmono/v16/aFTR7PB1QTsUX8KYvrGyEYOtbYf-Vlg.woff2",
+      "family": "DM Mono"
+    },
+    {
+      "path": "assets/fonts/remote/dm-mono-3a8d71fce705.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/dmmono/v16/aFTR7PB1QTsUX8KYvrGyEY2tbYf-Vlh3uA.woff2",
+      "family": "DM Mono"
+    },
+    {
+      "path": "assets/fonts/remote/dm-mono-3b1fc0372704.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/dmmono/v16/aFTR7PB1QTsUX8KYvumzEYOtbYf-Vlg.woff2",
+      "family": "DM Mono"
+    },
+    {
+      "path": "assets/fonts/remote/dm-mono-53a90e281b5d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/dmmono/v16/aFTU7PB1QTsUX8KYthSQBK6PYK3EXw.woff2",
+      "family": "DM Mono"
+    },
+    {
+      "path": "assets/fonts/remote/dm-mono-712e6990c0fa.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/dmmono/v16/aFTR7PB1QTsUX8KYvumzEY2tbYf-Vlh3uA.woff2",
+      "family": "DM Mono"
+    },
+    {
+      "path": "assets/fonts/remote/dm-mono-a51212113a6e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/dmmono/v16/aFTW7PB1QTsUX8KYth-gBqSIQq_0Xg.woff2",
+      "family": "DM Mono"
+    },
+    {
+      "path": "assets/fonts/remote/dm-mono-cd6ed524815e.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/dmmono/v16/aFTU7PB1QTsUX8KYthqQBK6PYK0.woff2",
+      "family": "DM Mono"
+    },
+    {
+      "path": "assets/fonts/remote/dm-mono-ce8992795e99.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/dmmono/v16/aFTW7PB1QTsUX8KYth-gCKSIQq_0XmBO.woff2",
+      "family": "DM Mono"
+    },
+    {
+      "path": "assets/fonts/remote/fredoka-37da3335821d.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/fredoka/v17/X7n64b87HvSqjb_WIi2yDCRwoQ_k7367_DWg89XgHPyhRMw.woff2",
+      "family": "Fredoka"
+    },
+    {
+      "path": "assets/fonts/remote/fredoka-7edf8b8ebf36.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/fredoka/v17/X7n64b87HvSqjb_WIi2yDCRwoQ_k7367_DWu89XgHPyh.woff2",
+      "family": "Fredoka"
+    },
+    {
+      "path": "assets/fonts/remote/fredoka-cc8e13b21abb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/fredoka/v17/X7n64b87HvSqjb_WIi2yDCRwoQ_k7367_DWs89XgHPyhRMw.woff2",
+      "family": "Fredoka"
+    },
+    {
+      "path": "assets/fonts/remote/orbitron-de7794122e5f.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/orbitron/v35/yMJRMIlzdpvBhQQL_Qq7dy1biN15.woff2",
+      "family": "Orbitron"
+    },
+    {
+      "path": "assets/fonts/remote/outfit-562aff8e6b66.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2",
+      "family": "Outfit"
+    },
+    {
+      "path": "assets/fonts/remote/outfit-af882907be53.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2",
+      "family": "Outfit"
+    },
+    {
+      "path": "assets/fonts/remote/space-grotesk-0e49602d1607.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqU.woff2",
+      "family": "Space Grotesk"
+    },
+    {
+      "path": "assets/fonts/remote/space-grotesk-7cea2961b9eb.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPb54C_k3HqUtEw.woff2",
+      "family": "Space Grotesk"
+    },
+    {
+      "path": "assets/fonts/remote/space-grotesk-effb405c3de6.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPb94C_k3HqUtEw.woff2",
+      "family": "Space Grotesk"
+    },
+    {
+      "path": "assets/fonts/remote/teko-b388ec7245aa.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/teko/v23/LYjNdG7kmE0gfaJ9pQlCpVoXVQ.woff2",
+      "family": "Teko"
+    },
+    {
+      "path": "assets/fonts/remote/teko-e9afadebe703.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/teko/v23/LYjNdG7kmE0gfa19pQlCpVoXVQ.woff2",
+      "family": "Teko"
+    },
+    {
+      "path": "assets/fonts/remote/teko-fc3a54774061.woff2",
+      "sourceUrl": "https://fonts.gstatic.com/s/teko/v23/LYjNdG7kmE0gfaN9pQlCpVo.woff2",
+      "family": "Teko"
+    }
+  ],
+  "droppedImports": [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  ],
+  "removedImportant": 3,
+  "removedMotionRules": 1,
+  "semantic": {
+    "--rio-bg": "--surface-page",
+    "--rio-surface": "--surface-card",
+    "--rio-text": "--nb-ink",
+    "--rio-text-muted": "--text-muted",
+    "--rio-border": "--nb-ink",
+    "--rio-accent": "--nb-accent",
+    "--rio-on-accent": "--nb-on-accent",
+    "--rio-link": "--rio-accent",
+    "--rio-focus": "--rio-accent",
+    "--rio-success": "--nb-success",
+    "--rio-warning": "--nb-warning",
+    "--rio-danger": "--nb-danger",
+    "--rio-info": "--nb-info",
+    "--rio-font-body": "--nb-font-ui",
+    "--rio-font-display": "--nb-font-display",
+    "--rio-font-mono": "--nb-font-mono",
+    "--rio-radius": "--nb-radius"
+  },
+  "legibilityOnColors": {
+    "on-success": "--nb-on-success",
+    "on-warning": "--nb-on-warning",
+    "on-danger": "--nb-on-danger",
+    "on-info": "--nb-on-info"
+  },
+  "assets": [],
+  "unresolvedUrls": [],
+  "source": {
+    "designSystem": "design-systems/brutalist-neo",
+    "originalSchemeSelector": "[data-nb-theme=\"<id>\"]",
+    "tokenFiles": [
+      "tokens/fonts.css",
+      "tokens/icons.css",
+      "tokens/colors.css",
+      "tokens/typography.css",
+      "tokens/spacing.css",
+      "tokens/borders.css",
+      "tokens/motion.css"
+    ],
+    "zipFile": "Brutalist Neo Design System.zip",
+    "zipContentHash": "388a1beff2e60a03e2b0e9d37c79dafea6ac6a45c49f432c313a05aed956b210"
+  },
+  "legibility": {
+    "signal-jade": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#16261b",
+        "--rio-aa-on-accent": "#16261b",
+        "--rio-aa-accent-text": "#d62c46",
+        "--rio-aa-text-muted": "#495f41",
+        "--rio-aa-link": "#d62c46",
+        "--rio-aa-focus": "#fa5162",
+        "--rio-aa-border": "#16261b",
+        "--rio-aa-success-text": "#006c40",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#775900",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#bd022b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#185ab9",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#16261b",
+        "--rio-legible-text-muted": "#495f41",
+        "--rio-legible-on-accent": "#16261b",
+        "--rio-aa-choice-text": "#16261b",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#cce1db",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ecdad1",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#e6e1cb",
+        "--rio-aa-choice-yellow": "#b58700",
+        "--rio-aa-choice-yellow-soft": "#dbe5ca",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#bfeacf",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#bde8df",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#bee5fa",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#d4dbf1",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#e8d8e3",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#d6ddcd"
+      }
+    },
+    "spectrum": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1c2b33",
+        "--rio-aa-on-accent": "#1c2b33",
+        "--rio-aa-accent-text": "#517b2b",
+        "--rio-aa-text-muted": "#43607b",
+        "--rio-aa-link": "#517b2b",
+        "--rio-aa-focus": "#6d994a",
+        "--rio-aa-border": "#1c2b33",
+        "--rio-aa-success-text": "#006b40",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#765900",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#bd012b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#185ab9",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#1c2b33",
+        "--rio-legible-text-muted": "#43607b",
+        "--rio-legible-on-accent": "#1c2b33",
+        "--rio-aa-choice-text": "#1c2b33",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1dacf",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#ffd2c5",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#f9dabf",
+        "--rio-aa-choice-yellow": "#b28600",
+        "--rio-aa-choice-yellow-soft": "#eeddbe",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d5e3c4",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d4e2d4",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d4deef",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8d4e5",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#fad1d8",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9d6c2"
+      }
+    },
+    "midnight-gold": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#000814",
+        "--rio-aa-on-accent": "#ffd60a",
+        "--rio-aa-accent-text": "#001d3d",
+        "--rio-aa-text-muted": "#003566",
+        "--rio-aa-link": "#001d3d",
+        "--rio-aa-focus": "#001d3d",
+        "--rio-aa-border": "#000814",
+        "--rio-aa-success-text": "#005431",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#5d4500",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#960020",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#00449c",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#000814",
+        "--rio-legible-text-muted": "#003566",
+        "--rio-legible-on-accent": "#ffd60a",
+        "--rio-aa-choice-text": "#000814",
+        "--rio-aa-choice-gray": "#797878",
+        "--rio-aa-choice-gray-soft": "#e0c148",
+        "--rio-aa-choice-red": "#db3e45",
+        "--rio-aa-choice-red-soft": "#fab72c",
+        "--rio-aa-choice-orange": "#bc5f00",
+        "--rio-aa-choice-orange-soft": "#f1bb07",
+        "--rio-aa-choice-yellow": "#997200",
+        "--rio-aa-choice-yellow-soft": "#e8bf07",
+        "--rio-aa-choice-green": "#128b32",
+        "--rio-aa-choice-green-soft": "#d3c621",
+        "--rio-aa-choice-teal": "#00877e",
+        "--rio-aa-choice-teal-soft": "#d2c64b",
+        "--rio-aa-choice-blue": "#2e74e7",
+        "--rio-aa-choice-blue-soft": "#d2c676",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e6be6e",
+        "--rio-aa-choice-pink": "#d13a9a",
+        "--rio-aa-choice-pink-soft": "#f6b858",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9be29"
+      }
+    },
+    "voltage": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#16003d",
+        "--rio-aa-on-accent": "#16003d",
+        "--rio-aa-accent-text": "#972e00",
+        "--rio-aa-text-muted": "#390099",
+        "--rio-aa-link": "#972e00",
+        "--rio-aa-focus": "#c43e00",
+        "--rio-aa-border": "#16003d",
+        "--rio-aa-success-text": "#00492a",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#503c00",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#83001b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#003b89",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#16003d",
+        "--rio-legible-text-muted": "#390099",
+        "--rio-legible-on-accent": "#16003d",
+        "--rio-aa-choice-text": "#16003d",
+        "--rio-aa-choice-gray": "#6d6c6c",
+        "--rio-aa-choice-gray-soft": "#ddab40",
+        "--rio-aa-choice-red": "#cc2f39",
+        "--rio-aa-choice-red-soft": "#f6a123",
+        "--rio-aa-choice-orange": "#aa5600",
+        "--rio-aa-choice-orange-soft": "#eca600",
+        "--rio-aa-choice-yellow": "#8b6700",
+        "--rio-aa-choice-yellow-soft": "#e4a900",
+        "--rio-aa-choice-green": "#007e28",
+        "--rio-aa-choice-green-soft": "#d2b018",
+        "--rio-aa-choice-teal": "#007a71",
+        "--rio-aa-choice-teal-soft": "#d2b043",
+        "--rio-aa-choice-blue": "#2067d9",
+        "--rio-aa-choice-blue-soft": "#d0b06e",
+        "--rio-aa-choice-purple": "#904dc3",
+        "--rio-aa-choice-purple-soft": "#e4a865",
+        "--rio-aa-choice-pink": "#c22b8e",
+        "--rio-aa-choice-pink-soft": "#f2a250",
+        "--rio-aa-choice-brown": "#936236",
+        "--rio-aa-choice-brown-soft": "#e6a821"
+      }
+    },
+    "coral-slate": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1d3557",
+        "--rio-aa-on-accent": "#ffffff",
+        "--rio-aa-accent-text": "#417698",
+        "--rio-aa-text-muted": "#2f6383",
+        "--rio-aa-link": "#417698",
+        "--rio-aa-focus": "#457b9d",
+        "--rio-aa-border": "#1d3557",
+        "--rio-aa-success-text": "#006c40",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#775900",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#be032b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#185bb9",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#1d3557",
+        "--rio-legible-text-muted": "#2f6383",
+        "--rio-legible-on-accent": "#ffffff",
+        "--rio-aa-choice-text": "#1d3557",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d6ddd4",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f5d6ca",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#efddc4",
+        "--rio-aa-choice-yellow": "#b38600",
+        "--rio-aa-choice-yellow-soft": "#e4e0c3",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#cae6c8",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c8e5d8",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c9e1f3",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ded7ea",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f1d4dd",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#dfd9c6"
+      }
+    },
+    "sherbet": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#3d2e2a",
+        "--rio-aa-on-accent": "#3d2e2a",
+        "--rio-aa-accent-text": "#8f6200",
+        "--rio-aa-text-muted": "#68554f",
+        "--rio-aa-link": "#8f6200",
+        "--rio-aa-focus": "#b37d0e",
+        "--rio-aa-border": "#3d2e2a",
+        "--rio-aa-success-text": "#00673c",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#715500",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#b50029",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#1255b4",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#3d2e2a",
+        "--rio-legible-text-muted": "#68554f",
+        "--rio-legible-on-accent": "#3d2e2a",
+        "--rio-aa-choice-text": "#3d2e2a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#dbd3cb",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f8ccc0",
+        "--rio-aa-choice-orange": "#d16c09",
+        "--rio-aa-choice-orange-soft": "#f1d1b9",
+        "--rio-aa-choice-yellow": "#ac8000",
+        "--rio-aa-choice-yellow-soft": "#e6d5b9",
+        "--rio-aa-choice-green": "#2a9a41",
+        "--rio-aa-choice-green-soft": "#cedbbe",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#cedbcf",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#ced7ea",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e2cde1",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f4cad4",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e3cfbd"
+      }
+    },
+    "clay-ember": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#233d4d",
+        "--rio-aa-on-accent": "#233d4d",
+        "--rio-aa-accent-text": "#5b773b",
+        "--rio-aa-text-muted": "#436172",
+        "--rio-aa-link": "#5b773b",
+        "--rio-aa-focus": "#769557",
+        "--rio-aa-border": "#233d4d",
+        "--rio-aa-success-text": "#006b40",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#765900",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#bd002b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#185ab9",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#233d4d",
+        "--rio-legible-text-muted": "#436172",
+        "--rio-legible-on-accent": "#233d4d",
+        "--rio-aa-choice-text": "#233d4d",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#e1d8c8",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#fed1bd",
+        "--rio-aa-choice-orange": "#d67015",
+        "--rio-aa-choice-orange-soft": "#f8d7b7",
+        "--rio-aa-choice-yellow": "#b18400",
+        "--rio-aa-choice-yellow-soft": "#eedbb6",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#d5e2bc",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#d4e0cc",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#d4dde7",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#e8d3de",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#facfd1",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e9d5ba"
+      }
+    },
+    "mint-stack": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#0b2b3f",
+        "--rio-aa-on-accent": "#0b2b3f",
+        "--rio-aa-accent-text": "#007952",
+        "--rio-aa-text-muted": "#22577a",
+        "--rio-aa-link": "#007952",
+        "--rio-aa-focus": "#0a9869",
+        "--rio-aa-border": "#0b2b3f",
+        "--rio-aa-success-text": "#00643b",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#6f5300",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#b10028",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#0f53b2",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#0b2b3f",
+        "--rio-legible-text-muted": "#22577a",
+        "--rio-legible-on-accent": "#0b2b3f",
+        "--rio-aa-choice-text": "#0b2b3f",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#b6dcba",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#d8d6af",
+        "--rio-aa-choice-orange": "#d06a06",
+        "--rio-aa-choice-orange-soft": "#d0dba7",
+        "--rio-aa-choice-yellow": "#aa7f00",
+        "--rio-aa-choice-yellow-soft": "#c3dea7",
+        "--rio-aa-choice-green": "#299940",
+        "--rio-aa-choice-green-soft": "#a7e4ad",
+        "--rio-aa-choice-teal": "#02968c",
+        "--rio-aa-choice-teal-soft": "#a5e3be",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#a6e1da",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#bfd7d1",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#d3d4c3",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#c1d9ac"
+      }
+    },
+    "bubble-pop": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#1b1b22",
+        "--rio-aa-on-accent": "#1b1b22",
+        "--rio-aa-accent-text": "#6a5000",
+        "--rio-aa-text-muted": "#41414b",
+        "--rio-aa-link": "#6a5000",
+        "--rio-aa-focus": "#896900",
+        "--rio-aa-border": "#1b1b22",
+        "--rio-aa-success-text": "#004c2c",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#543e00",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#89001c",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#003e8f",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#1b1b22",
+        "--rio-legible-text-muted": "#41414b",
+        "--rio-legible-on-accent": "#1b1b22",
+        "--rio-aa-choice-text": "#1b1b22",
+        "--rio-aa-choice-gray": "#6e6d6d",
+        "--rio-aa-choice-gray-soft": "#74bedd",
+        "--rio-aa-choice-red": "#ce303b",
+        "--rio-aa-choice-red-soft": "#9bb8d4",
+        "--rio-aa-choice-orange": "#ac5600",
+        "--rio-aa-choice-orange-soft": "#8cbcce",
+        "--rio-aa-choice-yellow": "#8c6800",
+        "--rio-aa-choice-yellow-soft": "#7ebfce",
+        "--rio-aa-choice-green": "#007f29",
+        "--rio-aa-choice-green-soft": "#5ac3d1",
+        "--rio-aa-choice-teal": "#007b72",
+        "--rio-aa-choice-teal-soft": "#5cc1df",
+        "--rio-aa-choice-blue": "#2269db",
+        "--rio-aa-choice-blue-soft": "#5dbef8",
+        "--rio-aa-choice-purple": "#914ec5",
+        "--rio-aa-choice-purple-soft": "#81b9f3",
+        "--rio-aa-choice-pink": "#c42c8f",
+        "--rio-aa-choice-pink-soft": "#98b6e5",
+        "--rio-aa-choice-brown": "#946337",
+        "--rio-aa-choice-brown-soft": "#82bdd3"
+      }
+    },
+    "reef-flare": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#0e2b3a",
+        "--rio-aa-on-accent": "#0e2b3a",
+        "--rio-aa-accent-text": "#287e71",
+        "--rio-aa-text-muted": "#006588",
+        "--rio-aa-link": "#287e71",
+        "--rio-aa-focus": "#4a9b8e",
+        "--rio-aa-border": "#0e2b3a",
+        "--rio-aa-success-text": "#006b40",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#775900",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#bd022b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#185ab9",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#0e2b3a",
+        "--rio-legible-text-muted": "#006588",
+        "--rio-legible-on-accent": "#0e2b3a",
+        "--rio-aa-choice-text": "#0e2b3a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d8e1af",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f7daa3",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#f1e19d",
+        "--rio-aa-choice-yellow": "#b38700",
+        "--rio-aa-choice-yellow-soft": "#e6e49b",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#cbeaa2",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c9e9b4",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#cae6d0",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#dfdcc7",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f2d8b9",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#e1dda0"
+      }
+    },
+    "harbor-flame": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#083d77",
+        "--rio-aa-on-accent": "#083d77",
+        "--rio-aa-accent-text": "#9e5500",
+        "--rio-aa-text-muted": "#2e588a",
+        "--rio-aa-link": "#9e5500",
+        "--rio-aa-focus": "#c36e1b",
+        "--rio-aa-border": "#083d77",
+        "--rio-aa-success-text": "#00643b",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#6e5300",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#b10028",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#0f53b2",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#083d77",
+        "--rio-legible-text-muted": "#2e588a",
+        "--rio-legible-on-accent": "#083d77",
+        "--rio-aa-choice-text": "#083d77",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d1d2bf",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#efcab5",
+        "--rio-aa-choice-orange": "#cd6800",
+        "--rio-aa-choice-orange-soft": "#e7cfad",
+        "--rio-aa-choice-yellow": "#a87d00",
+        "--rio-aa-choice-yellow-soft": "#dcd2ad",
+        "--rio-aa-choice-green": "#26973e",
+        "--rio-aa-choice-green-soft": "#c4d9b2",
+        "--rio-aa-choice-teal": "#009489",
+        "--rio-aa-choice-teal-soft": "#c3d8c2",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c5d6df",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#d9ccd6",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#ebc9c8",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#daceb1"
+      }
+    },
+    "sage-fog": {
+      "default": {
+        "--rio-legible-surface-tint": "6%",
+        "--rio-legible-hover-tint": "8%",
+        "--rio-legible-pressed-tint": "14%",
+        "--rio-legible-selected-tint": "16%",
+        "--rio-aa-text": "#28312a",
+        "--rio-aa-on-accent": "#28312a",
+        "--rio-aa-accent-text": "#65726b",
+        "--rio-aa-text-muted": "#516056",
+        "--rio-aa-link": "#65726b",
+        "--rio-aa-focus": "#828f87",
+        "--rio-aa-border": "#28312a",
+        "--rio-aa-success-text": "#006b3f",
+        "--rio-aa-on-success": "#0b2b18",
+        "--rio-aa-warning-text": "#755800",
+        "--rio-aa-on-warning": "#2b1f00",
+        "--rio-aa-danger-text": "#bc002b",
+        "--rio-aa-on-danger": "#ffffff",
+        "--rio-aa-info-text": "#1759b8",
+        "--rio-aa-on-info": "#ffffff",
+        "--rio-legible-text": "#28312a",
+        "--rio-legible-text-muted": "#516056",
+        "--rio-legible-on-accent": "#28312a",
+        "--rio-aa-choice-text": "#28312a",
+        "--rio-aa-choice-gray": "#7c7c7c",
+        "--rio-aa-choice-gray-soft": "#d5dbd8",
+        "--rio-aa-choice-red": "#e5484d",
+        "--rio-aa-choice-red-soft": "#f4d4ce",
+        "--rio-aa-choice-orange": "#d9731a",
+        "--rio-aa-choice-orange-soft": "#eedbc9",
+        "--rio-aa-choice-yellow": "#b18500",
+        "--rio-aa-choice-yellow-soft": "#e2dec7",
+        "--rio-aa-choice-green": "#2f9e44",
+        "--rio-aa-choice-green-soft": "#c9e4cd",
+        "--rio-aa-choice-teal": "#0f9a8f",
+        "--rio-aa-choice-teal-soft": "#c7e2dd",
+        "--rio-aa-choice-blue": "#3b82f6",
+        "--rio-aa-choice-blue-soft": "#c8dff7",
+        "--rio-aa-choice-purple": "#9b59d0",
+        "--rio-aa-choice-purple-soft": "#ddd5ee",
+        "--rio-aa-choice-pink": "#d6409f",
+        "--rio-aa-choice-pink-soft": "#f0d2e1",
+        "--rio-aa-choice-brown": "#9c6b3f",
+        "--rio-aa-choice-brown-soft": "#ded7cb"
+      }
+    }
+  },
+  "legibilityAdjusted": 134
+}

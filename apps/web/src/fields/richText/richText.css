@@ -1,0 +1,335 @@
+@layer rio.app {
+  .rio-rich-text-preview {
+    position: relative;
+    min-inline-size: 0;
+  }
+
+  .rio-rich-text-preview__status {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    padding-inline: var(--rio-space-2);
+    background: var(--rio-surface);
+    border-radius: var(--rio-radius);
+  }
+
+  .rio-rich-text-preview__icon {
+    inline-size: var(--rio-icon-size);
+    block-size: var(--rio-icon-size);
+    flex: none;
+  }
+
+  .rio-rich-text {
+    display: grid;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+  }
+
+  .rio-rich-text__frame {
+    display: grid;
+    min-inline-size: 0;
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+  }
+
+  .rio-rich-text__frame:focus-within {
+    border-color: var(--rio-aa-focus);
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-rich-text__frame[data-invalid] {
+    border-color: var(--rio-aa-danger-text);
+  }
+
+  .rio-rich-text__tools {
+    min-inline-size: 0;
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-rich-text__toolbar {
+    flex-wrap: wrap;
+    padding-block: var(--rio-space-1);
+  }
+
+  .rio-rich-text__tool {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--rio-control-height-sm);
+    block-size: var(--rio-control-height-sm);
+    padding-inline: var(--rio-space-1);
+    border: 1px solid transparent;
+    border-radius: var(--rio-radius);
+    background-color: transparent;
+    color: var(--rio-text);
+    font: inherit;
+    font-size: var(--rio-text-sm);
+    font-weight: var(--rio-weight-medium);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-rich-text__tool[data-hovered] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-rich-text__tool[data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  .rio-rich-text__tool[data-selected] {
+    border-color: var(--rio-aa-border);
+    background-color: var(--rio-selected);
+  }
+
+  .rio-rich-text__tool[data-focus-visible] {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-rich-text__tool[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 767px) {
+    .rio-rich-text__tool {
+      min-inline-size: var(--rio-target-primary);
+      min-block-size: var(--rio-target-primary);
+    }
+  }
+
+  /* Lists and quotes point the other way in a right-to-left layout. */
+  .rio-rich-text__tool[data-mirror]:dir(rtl) .rio-icon {
+    transform: scaleX(-1);
+  }
+
+  .rio-rich-text__link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--rio-space-2);
+    padding: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-rich-text__link > .rio-field {
+    flex: 1 1 calc(var(--rio-space-12) * 4);
+    min-inline-size: 0;
+  }
+
+  .rio-rich-text__link-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-rich-text__body {
+    min-inline-size: 0;
+  }
+
+  .rio-rich-text__body .rio-rich-text__content {
+    min-block-size: 3lh;
+    max-block-size: 20lh;
+    overflow: auto;
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+    outline: none;
+  }
+
+  .rio-rich-text-view {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  /* What the editor needs to keep its text and caret right, which it would otherwise add itself. */
+  .rio-rich-text__content {
+    position: relative;
+    color: var(--rio-text);
+    line-height: var(--rio-leading-normal);
+    white-space: pre-wrap;
+    white-space: break-spaces;
+    overflow-wrap: anywhere;
+    font-variant-ligatures: none;
+  }
+
+  .rio-rich-text__content [contenteditable='false'] {
+    white-space: normal;
+  }
+
+  .rio-rich-text__content pre {
+    white-space: pre-wrap;
+  }
+
+  .rio-rich-text__content img.ProseMirror-separator {
+    display: inline;
+    inline-size: 0;
+    block-size: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  .rio-rich-text__content .ProseMirror-gapcursor {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .rio-rich-text__content.ProseMirror-focused .ProseMirror-gapcursor {
+    display: block;
+  }
+
+  .rio-rich-text__content .ProseMirror-gapcursor::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset-block-start: calc(var(--rio-space-1) * -0.5);
+    inline-size: var(--rio-space-5);
+    border-block-start: 1px solid var(--rio-text);
+  }
+
+  .rio-rich-text__content.ProseMirror-hideselection *::selection {
+    background: transparent;
+  }
+
+  .rio-rich-text__content.ProseMirror-hideselection * {
+    caret-color: transparent;
+  }
+
+  /* The formats */
+  .rio-rich-text__content > :first-child {
+    margin-block-start: 0;
+  }
+
+  .rio-rich-text__content > :last-child {
+    margin-block-end: 0;
+  }
+
+  .rio-rich-text__content p {
+    margin-block: 0 var(--rio-space-2);
+  }
+
+  .rio-rich-text__content :is(h1, h2, h3, h4, h5, h6) {
+    margin-block: var(--rio-space-3) var(--rio-space-2);
+    font-family: var(--rio-font-display);
+    font-weight: var(--rio-weight-bold);
+    line-height: var(--rio-leading-tight);
+  }
+
+  .rio-rich-text__content h1 {
+    font-size: var(--rio-text-xl);
+  }
+
+  .rio-rich-text__content h2 {
+    font-size: var(--rio-text-lg);
+  }
+
+  .rio-rich-text__content :is(h3, h4) {
+    font-size: var(--rio-text-md);
+  }
+
+  .rio-rich-text__content :is(h5, h6) {
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-rich-text__content :is(ul, ol) {
+    margin-block: 0 var(--rio-space-2);
+    padding-inline-start: var(--rio-space-6);
+  }
+
+  .rio-rich-text__content li > :is(p, ul, ol) {
+    margin-block: 0;
+  }
+
+  .rio-rich-text__content ul[data-type='taskList'] {
+    padding-inline-start: var(--rio-space-1);
+    list-style: none;
+  }
+
+  .rio-rich-text__content li[data-type='taskItem'] {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-rich-text__check {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    block-size: calc(1em * var(--rio-leading-normal));
+    user-select: none;
+  }
+
+  .rio-rich-text__check input {
+    margin: 0;
+    accent-color: var(--rio-accent);
+  }
+
+  .rio-rich-text__task {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  .rio-rich-text__content li[data-checked='true'] > .rio-rich-text__task {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-rich-text__content blockquote {
+    margin-block: 0 var(--rio-space-2);
+    margin-inline: 0;
+    padding-inline-start: var(--rio-space-3);
+    border-inline-start: 3px solid var(--rio-border);
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-rich-text__content code {
+    padding-inline: var(--rio-space-1);
+    border-radius: var(--rio-radius-sm);
+    background-color: var(--rio-surface-sunken);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-rich-text__content pre {
+    margin-block: 0 var(--rio-space-2);
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-3);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface-sunken);
+    overflow-x: auto;
+    tab-size: 2;
+  }
+
+  .rio-rich-text__content pre code {
+    padding: 0;
+    background: none;
+  }
+
+  .rio-rich-text__content a {
+    color: var(--rio-aa-link);
+    text-decoration: underline;
+  }
+
+  /* In the grid, the editor opens over the cell with room for a few paragraphs. */
+  .rio-rich-text-cell {
+    display: grid;
+    gap: var(--rio-space-2);
+    inline-size: min(calc(var(--rio-space-12) * 12), 90dvi);
+  }
+
+  @media (forced-colors: active) {
+    .rio-rich-text__tool[data-selected] {
+      border-color: Highlight;
+      background-color: Highlight;
+      color: HighlightText;
+    }
+
+    .rio-rich-text__frame:focus-within {
+      outline: 2px solid CanvasText;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@layer rio.app {
+  .rio-sparkline {
+    display: inline-block;
+    inline-size: 100%;
+    max-inline-size: 14rem;
+    min-inline-size: 2rem;
+    block-size: 1.5rem;
+    vertical-align: middle;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .rio-sparkline svg {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+  .rio-sparkline-setting {
+    display: grid;
+    gap: var(--rio-space-8);
+    min-inline-size: 0;
+  }
+  .rio-sparkline-setting .rio-view-row > * {
+    flex: 1 1 9rem;
+    min-inline-size: 0;
+  }
+  @media (forced-colors: active) {
+    .rio-sparkline path {
+      stroke: CanvasText;
+    }
+    .rio-sparkline circle,
+    .rio-sparkline rect {
+      fill: CanvasText;
+    }
+  }
+}

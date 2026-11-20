@@ -1,0 +1,34 @@
+# SearXNG configuration for the test fleet.
+#
+# The JSON format is the reason this file exists.  Riosoma reads search results
+# as JSON, and SearXNG only answers with JSON when the format is listed here.
+# The limiter is off, because every request comes from the local machine and the
+# bot detection would reject them.
+use_default_settings: true
+
+server:
+  secret_key: 'riosoma-test-searxng-secret'
+  bind_address: '0.0.0.0'
+  port: 8080
+  limiter: false
+  public_instance: false
+  image_proxy: false
+  method: 'GET'
+
+search:
+  safe_search: 0
+  autocomplete: ''
+  default_lang: 'en'
+  formats:
+    - html
+    - json
+
+ui:
+  static_use_hash: true
+  default_theme: simple
+  infinite_scroll: false
+
+outgoing:
+  request_timeout: 10.0
+  max_request_timeout: 20.0
+  useragent_suffix: 'riosoma-test-fleet'

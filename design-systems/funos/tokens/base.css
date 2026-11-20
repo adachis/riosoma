@@ -1,0 +1,11 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-text);font-size:var(--body-md);line-height:var(--body-leading);text-wrap:pretty}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-display);margin:0;letter-spacing:var(--heading-tracking);line-height:var(--heading-leading);font-weight:var(--heading-weight)}
+p{margin:0}
+a{color:var(--ink);text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:var(--flame)}
+:focus-visible{outline:3px solid var(--focus-ring);outline-offset:2px}
+.funos-kicker{font-family:var(--font-mono);font-size:var(--kicker);font-weight:var(--kicker-weight);letter-spacing:var(--kicker-tracking);text-transform:uppercase}
+.funos-display{font-family:var(--font-display);font-weight:var(--display-weight);letter-spacing:var(--display-tracking);line-height:var(--display-leading);color:var(--text-display)}
+.funos-container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}

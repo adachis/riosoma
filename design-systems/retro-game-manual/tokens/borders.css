@@ -1,0 +1,22 @@
+:root{
+--ds-border:4px;
+--ds-border-thin:2px;
+--ds-border-hair:1px;
+--ds-rule-hair:0.5px;
+--ds-notch:4px;
+--ds-notch-sm:2px;
+--ds-notch-lg:8px;
+--ds-radius:0;
+--ds-shadow-hard:4px 4px 0 var(--ds-shadow);
+--ds-shadow-hard-lg:8px 8px 0 var(--ds-shadow);
+--ds-shadow-inset:inset -4px -4px 0 var(--ds-shadow);
+--ds-shadow-inset-deep:inset -6px -6px 0 var(--ds-shadow);
+--ds-shadow-pressed:inset 4px 4px 0 var(--ds-shadow);
+--ds-focus-ring:0 0 0 6px color-mix(in srgb,var(--ds-primary) 30%,transparent); /* @kind shadow */
+}
+/* Stepped ("pixel") corners: a solid border plus corner clip. Fully themeable. */
+.ds-notch,.ds-frame{--n:var(--ds-notch);clip-path:polygon(0 var(--n),var(--n) var(--n),var(--n) 0,calc(100% - var(--n)) 0,calc(100% - var(--n)) var(--n),100% var(--n),100% calc(100% - var(--n)),calc(100% - var(--n)) calc(100% - var(--n)),calc(100% - var(--n)) 100%,var(--n) 100%,var(--n) calc(100% - var(--n)),0 calc(100% - var(--n)))}
+.ds-frame{border:var(--ds-border) solid var(--ds-line);background:var(--ds-paper-2)}
+.ds-notch-sm{--n:var(--ds-notch-sm)}
+.ds-notch-lg{--n:var(--ds-notch-lg)}
+.ds-square{clip-path:none}

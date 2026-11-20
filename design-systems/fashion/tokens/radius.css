@@ -1,0 +1,26 @@
+/* Fashion — corner radii. Deliberately chunky and stepped: 10 for inputs,
+   20 for cards, 30 for media, 40 for full-bleed panels, 999 for pills.
+   Product imagery inside a card is never rounded past the card itself. */
+:root {
+  --r-0: 0; /* @kind radius */
+  --r-sm: 10px; /* @kind radius */
+  --r-md: 20px; /* @kind radius */
+  --r-lg: 30px; /* @kind radius */
+  --r-xl: 40px; /* @kind radius */
+  --r-pill: 999px; /* @kind radius */
+  --r-circle: 50%; /* @kind radius */
+
+  /* fluid variants — collapse toward square at mobile, exactly as the source does */
+  --r-card-fluid: clamp(15px, 2.1vw, 20px); /* @kind radius */
+  --r-media-fluid: clamp(15px, 2.1vw, 30px); /* @kind radius */
+  --r-panel-fluid: clamp(15px, 2.1vw, 40px); /* @kind radius */
+
+  /* semantic */
+  --radius-input: var(--r-sm); /* @kind radius */
+  --radius-card: var(--r-md); /* @kind radius */
+  --radius-media: var(--r-lg); /* @kind radius */
+  --radius-panel: var(--r-xl); /* @kind radius */
+  --radius-button: var(--r-pill); /* @kind radius */
+  --radius-chip: var(--r-pill); /* @kind radius */
+  --radius-avatar: var(--r-circle); /* @kind radius */
+}

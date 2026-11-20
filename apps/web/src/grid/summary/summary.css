@@ -1,0 +1,50 @@
+@layer rio.app {
+  /* A footer cell: the summary's name, quiet, then its value, aligned the way the column is. */
+  .rio-grid-summary {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--rio-space-1);
+    max-inline-size: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .rio-grid-summary__kind {
+    flex: none;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+  }
+
+  .rio-grid-summary__value {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--rio-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* A column without a summary offers one only where the pointer or the keyboard is. */
+  .rio-grid-summary__hint {
+    color: var(--rio-aa-text-muted);
+    opacity: 0;
+  }
+
+  .rio-grid__footer-cell:hover .rio-grid-summary__hint,
+  .rio-grid__footer-cell[data-active] .rio-grid-summary__hint {
+    opacity: 1;
+  }
+
+  .rio-grid-summary-item .rio-menu-item__icon {
+    visibility: hidden;
+  }
+
+  .rio-grid-summary-item[data-selected] .rio-menu-item__icon {
+    visibility: visible;
+  }
+
+  @media (forced-colors: active) {
+    .rio-grid-summary__hint {
+      opacity: 1;
+    }
+  }
+}

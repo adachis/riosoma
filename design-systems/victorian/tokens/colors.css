@@ -1,0 +1,71 @@
+/* ── Base palette: pressroom inks & aged stock ───────────────────────────── */
+:root{
+/* paper stock */
+--stock-100:#fbf6ea;--stock-200:#f4ecd8;--stock-300:#ece0c6;--stock-400:#e0d0b0;
+--stock-500:#d1bd97;--stock-600:#b9a077;--stock-700:#8f7a56;
+/* ink — a warm bottle-green black, as mixed for letterpress */
+--ink-900:#12160f;--ink-800:#1b2118;--ink-700:#2b332a;--ink-600:#414a3f;
+--ink-500:#5d675a;--ink-400:#7f8a7c;--ink-300:#a4ada0;
+/* bottle green */
+--bottle-700:#0c2a1d;--bottle-600:#14452f;--bottle-500:#1f6041;--bottle-400:#3d8060;--bottle-200:#a9c9b6;
+/* oxblood */
+--oxblood-700:#4d100f;--oxblood-600:#6e1a17;--oxblood-500:#932a24;--oxblood-400:#b4544b;--oxblood-200:#e0b8b2;
+/* gold leaf */
+--gold-700:#6f5115;--gold-600:#8f6a1c;--gold-500:#b58a2b;--gold-400:#d3ab4d;--gold-200:#ecd9a4;
+/* prussian */
+--prussian-700:#12253c;--prussian-600:#1f3a5f;--prussian-500:#2f5580;--prussian-400:#5c7c9f;--prussian-300:#8ea7c2;--prussian-200:#b9cadb;
+/* sepia & rubric red (the second stone on a chromolithograph) */
+--sepia-600:#7a5c3e;--sepia-400:#a8875f;
+--rubric-600:#a52b1e;--rubric-500:#c4402c;
+}
+
+/* ── Semantic layer. Every theme scope re-declares exactly these. ─────────── */
+:root{
+--surface-page:var(--stock-200);
+--surface-panel:var(--stock-300);
+--surface-card:var(--stock-100);
+--surface-inset:var(--stock-400);
+--surface-invert:var(--ink-900);
+--surface-accent:var(--bottle-600);
+--surface-accent-soft:var(--bottle-200);
+
+--text-body:var(--ink-800);
+--text-muted:var(--ink-500);
+--text-faint:var(--ink-400);
+--text-display:var(--bottle-700);
+--text-on-accent:var(--stock-100);
+--text-on-invert:var(--stock-200);
+--text-link:var(--oxblood-600);
+--text-link-hover:var(--oxblood-500);
+
+--accent:var(--bottle-600);
+--accent-hover:var(--bottle-500);
+--accent-press:var(--bottle-700);
+--accent-2:var(--oxblood-600);
+--accent-3:var(--gold-500);
+--accent-4:var(--prussian-600);
+
+/* Rules always take their colour from the ink of the theme in force, so a
+   compound frame never disagrees with the type inside it. */
+--rule:color-mix(in srgb,var(--text-body) 34%,transparent);
+--rule-soft:color-mix(in srgb,var(--text-body) 16%,transparent);
+--rule-strong:var(--text-body);
+--rule-accent:var(--accent);
+--rule-gilt:var(--accent-3);
+
+--state-ok:var(--bottle-500);
+--state-warn:var(--gold-600);
+--state-danger:var(--oxblood-600);
+--state-info:var(--prussian-600);
+--state-ok-soft:color-mix(in srgb,var(--state-ok) 16%,var(--surface-card));
+--state-warn-soft:color-mix(in srgb,var(--state-warn) 18%,var(--surface-card));
+--state-danger-soft:color-mix(in srgb,var(--state-danger) 14%,var(--surface-card));
+--state-info-soft:color-mix(in srgb,var(--state-info) 14%,var(--surface-card));
+
+--focus-ring:var(--accent-3);
+--selection-bg:color-mix(in srgb,var(--accent-3) 45%,transparent);
+
+/* how much aging shows through */
+--grain-strength:.055; /* @kind other */
+--foxing-strength:.05; /* @kind other */
+}

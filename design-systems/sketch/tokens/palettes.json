@@ -1,0 +1,162 @@
+[
+ {
+  "id": "field-notes",
+  "name": "Field Notes",
+  "colors": [
+   "#233d4d",
+   "#fe7f2d",
+   "#fcca46",
+   "#a1c181",
+   "#619b8a"
+  ],
+  "accent": "#fe7f2d",
+  "note": "Default. Warm survey-notebook palette."
+ },
+ {
+  "id": "crayon-box",
+  "name": "Crayon Box",
+  "colors": [
+   "#f94144",
+   "#f3722c",
+   "#f8961e",
+   "#f9844a",
+   "#f9c74f",
+   "#90be6d",
+   "#43aa8b",
+   "#4d908e",
+   "#577590",
+   "#277da1"
+  ],
+  "accent": "#f94144",
+  "note": "Ten-step spectral ramp; good for data and category coding."
+ },
+ {
+  "id": "midnight-gold",
+  "name": "Midnight Gold",
+  "colors": [
+   "#000814",
+   "#001d3d",
+   "#003566",
+   "#ffc300",
+   "#ffd60a"
+  ],
+  "accent": "#ffc300",
+  "note": "Deep navy with a gold highlighter."
+ },
+ {
+  "id": "neon-marker",
+  "name": "Neon Marker",
+  "colors": [
+   "#390099",
+   "#9e0059",
+   "#ff0054",
+   "#ff5400",
+   "#ffbd00"
+  ],
+  "accent": "#ff0054",
+  "note": "Loud highlighter set; use one colour per view."
+ },
+ {
+  "id": "blueprint",
+  "name": "Blueprint",
+  "colors": [
+   "#e63946",
+   "#f1faee",
+   "#a8dadc",
+   "#457b9d",
+   "#1d3557"
+  ],
+  "accent": "#457b9d",
+  "note": "Drafting blues with a red correction pen."
+ },
+ {
+  "id": "pastel-chalk",
+  "name": "Pastel Chalk",
+  "colors": [
+   "#f6bd60",
+   "#f7ede2",
+   "#f5cac3",
+   "#84a59d",
+   "#f28482"
+  ],
+  "accent": "#f28482",
+  "note": "Soft chalk pastels; leans on ink for contrast."
+ },
+ {
+  "id": "sea-glass",
+  "name": "Sea Glass",
+  "colors": [
+   "#22577a",
+   "#38a3a5",
+   "#57cc99",
+   "#80ed99",
+   "#c7f9cc"
+  ],
+  "accent": "#38a3a5",
+  "note": "Cool monochromatic teal ramp."
+ },
+ {
+  "id": "moss-neon",
+  "name": "Moss & Neon",
+  "colors": [
+   "#00fddc",
+   "#2e5339",
+   "#495f41",
+   "#ff5666",
+   "#ffccc9"
+  ],
+  "accent": "#ff5666",
+  "note": "Field-green base, siren accents. Strong for game HUDs."
+ },
+ {
+  "id": "bubblegum",
+  "name": "Bubblegum",
+  "colors": [
+   "#70d6ff",
+   "#ff70a6",
+   "#ff9770",
+   "#ffd670"
+  ],
+  "accent": "#ff70a6",
+  "note": "Four-way playful ramp; sticker energy."
+ },
+ {
+  "id": "poster-paint",
+  "name": "Poster Paint",
+  "colors": [
+   "#247ba0",
+   "#70c1b3",
+   "#b2dbbf",
+   "#f3ffbd",
+   "#ff1654"
+  ],
+  "accent": "#ff1654",
+  "note": "Silkscreen poster set with a single hot red."
+ },
+ {
+  "id": "cardstock",
+  "name": "Cardstock",
+  "colors": [
+   "#083d77",
+   "#ebebd3",
+   "#f4d35e",
+   "#ee964b",
+   "#f95738"
+  ],
+  "accent": "#ee964b",
+  "note": "Print-first: ink navy, cream stock, warm spot colours."
+ },
+ {
+  "id": "slate-mint",
+  "name": "Slate Mint",
+  "colors": [
+   "#3c493f",
+   "#7e8d85",
+   "#b3bfb8",
+   "#f0f7f4",
+   "#a2e3c4"
+  ],
+  "accent": "#a2e3c4",
+  "note": "Quietest scheme; near-neutral with a mint lift."
+ }
+]

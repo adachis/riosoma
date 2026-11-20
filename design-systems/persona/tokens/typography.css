@@ -1,0 +1,45 @@
+/* PERSONA — type tokens.
+   Display: Anton (heavy condensed grotesque, stands in for the hand-cut UX face).
+   Sticker: Bungee (chips, badges, stamps, vertical rails).
+   UI/body: Barlow Semi Condensed (editorial, tight, magazine columns).
+   Data:    Space Mono (counters, currency, stats, timers). */
+:root {
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-sticker: "Bungee", "Anton", sans-serif;
+  --font-ui: "Barlow Semi Condensed", "Helvetica Neue", sans-serif;
+  --font-body: "Barlow Semi Condensed", Georgia, serif;
+  --font-data: "Space Mono", ui-monospace, monospace;
+
+  /* scale — 1.30 ratio, floored so nothing lands under 12px */
+  --size-3xs: 11px;
+  --size-2xs: 12px;
+  --size-xs: 14px;
+  --size-sm: 16px;
+  --size-md: 20px;
+  --size-lg: 26px;
+  --size-xl: 34px;
+  --size-2xl: 46px;
+  --size-3xl: 62px;
+  --size-4xl: 84px;
+  --size-5xl: 112px;
+  --size-6xl: 152px;
+
+  --leading-tight: 0.86; /* @kind font */
+  --leading-snug: 1.02; /* @kind font */
+  --leading-ui: 1.2; /* @kind font */
+  --leading-body: 1.38; /* @kind font */
+
+  --track-display: -0.01em; /* @kind font */
+  --track-ui: 0.01em; /* @kind font */
+  --track-caps: 0.08em; /* @kind font */
+  --track-sticker: 0.02em; /* @kind font */
+
+  --weight-body: 500; /* @kind font */
+  --weight-strong: 700; /* @kind font */
+
+  /* the four-corner black outline that makes type read on any photograph */
+  --ink-outline-1: -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink), 1px 1px 0 var(--ink); /* @kind font */
+  --ink-outline-2: -2px -2px 0 var(--ink), 2px -2px 0 var(--ink), -2px 2px 0 var(--ink), 2px 2px 0 var(--ink); /* @kind font */
+  --ink-outline-3: -3px -3px 0 var(--ink), 3px -3px 0 var(--ink), -3px 3px 0 var(--ink), 3px 3px 0 var(--ink); /* @kind font */
+  --ink-outline-4: -4px -4px 0 var(--ink), 4px -4px 0 var(--ink), -4px 4px 0 var(--ink), 4px 4px 0 var(--ink); /* @kind font */
+}

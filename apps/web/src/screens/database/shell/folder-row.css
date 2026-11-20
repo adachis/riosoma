@@ -1,0 +1,52 @@
+@layer rio.components {
+  .rio-sidebar-order__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .rio-sidebar-order__title {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    padding-inline: var(--rio-space-2);
+    font-size: var(--rio-text-sm);
+    color: var(--rio-text);
+  }
+  .rio-folder-row {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+    min-block-size: max(var(--rio-control-height), var(--rio-target-primary));
+    border-radius: var(--rio-radius);
+    padding-inline: var(--rio-space-1);
+  }
+  .rio-folder-row > svg {
+    flex: none;
+  }
+  .rio-folder-row__name {
+    flex: 1;
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--rio-text);
+    text-decoration: none;
+  }
+  .rio-folder-row__menu {
+    opacity: 0;
+  }
+  .rio-folder-row:is(:hover, :focus-within) .rio-folder-row__menu,
+  .rio-folder-row__menu[aria-expanded='true'] {
+    opacity: 1;
+  }
+  .rio-folder-row:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+  @media (hover: none) {
+    .rio-folder-row__menu {
+      opacity: 1;
+    }
+  }
+}

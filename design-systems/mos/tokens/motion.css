@@ -1,0 +1,11 @@
+/* mOS motion. Short, mechanical, no bounce. Hover is 120ms; window choreography is 250-320ms. */
+:root {
+  --dur-hover:  0.12s; /* @kind other */
+  --dur-quick:  0.15s; /* @kind other */
+  --dur-window: 0.25s; /* @kind other */
+  --dur-open:   0.32s; /* @kind other */
+  --ease-window: cubic-bezier(.45,.05,.55,.95); /* @kind other */
+  --ease-std:    ease; /* @kind other */
+  --lift-dock:   translateY(-6px) scale(1.06); /* @kind other */
+  --press-scale: scale(0.92); /* @kind other */
+}

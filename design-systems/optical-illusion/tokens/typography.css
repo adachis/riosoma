@@ -1,0 +1,53 @@
+/* Optical Illusion — typography.
+   Three voices: DISPLAY (Archivo, width axis pushed wide, uppercase),
+   BODY (Hanken Grotesk), LABEL/DATA (Space Mono, uppercase, wide tracking). */
+:root{
+  --font-display:"Archivo","Archivo Expanded",system-ui,sans-serif;
+  --font-body:"Hanken Grotesk",system-ui,sans-serif;
+  --font-mono:"Space Mono",ui-monospace,monospace;
+
+  /* width axis — the display voice is set WIDE, never condensed */
+  --width-display:118%; /* @kind other */
+  --width-display-max:125%; /* @kind other */
+  --width-body:100%; /* @kind other */
+
+  --weight-light:300;
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-semibold:600;
+  --weight-bold:700;
+  --weight-black:800;
+
+  /* type scale — 1.25 minor third, 16px root */
+  --size-3xs:11px;
+  --size-2xs:12px;
+  --size-xs:13px;
+  --size-sm:14px;
+  --size-md:16px;
+  --size-lg:20px;
+  --size-xl:25px;
+  --size-2xl:31px;
+  --size-3xl:39px;
+  --size-4xl:49px;
+  --size-5xl:61px;
+  --size-6xl:76px;
+  --size-7xl:96px;
+
+  --leading-flush:0.86;   /* stacked display lines that touch */
+  --leading-tight:1.02;
+  --leading-snug:1.18;
+  --leading-body:1.55;
+  --leading-loose:1.7;
+
+  --tracking-display:-0.03em;
+  --tracking-tight:-0.01em;
+  --tracking-normal:0;
+  --tracking-label:0.14em;
+  --tracking-mono:0.06em;
+
+  /* optical corrections — see readme "Optical corrections" */
+  --optical-overshoot:1.5%;      /* round shapes grow past the square grid */
+  --optical-cap-nudge:-0.06em;   /* pull all-caps blocks up off a baseline */
+  --optical-icon-lift:-0.08em;   /* inline glyph lift against x-height */
+  --optical-light-on-dark-shave:0.985; /* @kind other */
+}

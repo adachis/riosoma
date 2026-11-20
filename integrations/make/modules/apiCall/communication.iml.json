@@ -1,0 +1,15 @@
+{
+  "url": "{{riosomaOrigin(connection.server)}}{{riosomaApi('path', parameters.path)}}",
+  "method": "{{riosomaApi('method', parameters.method)}}",
+  "qs": {
+    "{{...}}": "{{riosomaApi('query', parameters.query)}}"
+  },
+  "body": "{{riosomaApi('json', parameters.body)}}",
+  "response": {
+    "output": {
+      "body": "{{body}}",
+      "headers": "{{headers}}",
+      "statusCode": "{{statusCode}}"
+    }
+  }
+}

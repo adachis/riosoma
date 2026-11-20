@@ -1,0 +1,22 @@
+/* Groovy — spacing + layout tokens. 4px base, generous at the top end:
+   the style wants air around chunky type. */
+:root{
+  --sp-0:0px;   --sp-1:4px;  --sp-2:8px;   --sp-3:12px;  --sp-4:16px; /* @kind spacing */
+  --sp-5:20px;  --sp-6:24px; --sp-7:32px;  --sp-8:40px;  --sp-9:48px; /* @kind spacing */
+  --sp-10:64px; --sp-11:80px; --sp-12:104px; --sp-13:136px; /* @kind spacing */
+
+  --gutter:var(--sp-6); /* @kind spacing */
+  --gutter-lg:var(--sp-9); /* @kind spacing */
+  --measure:66ch; /* @kind spacing */
+  --measure-tight:44ch; /* @kind spacing */
+  --page-max:1180px; /* @kind spacing */
+  --page-wide:1440px; /* @kind spacing */
+  --section-y:var(--sp-12); /* @kind spacing */
+  --stack:var(--sp-4); /* @kind spacing */
+  --inline:var(--sp-3); /* @kind spacing */
+
+  --control-h-sm:34px; /* @kind spacing */
+  --control-h:44px; /* @kind spacing */
+  --control-h-lg:56px; /* @kind spacing */
+  --touch-min:44px; /* @kind spacing */
+}

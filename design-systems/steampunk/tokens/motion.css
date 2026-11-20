@@ -1,0 +1,27 @@
+:root{
+  /* Mechanical easing: fast engage, hard settle. Nothing bounces. */
+  --ease-engage:cubic-bezier(.2,.8,.2,1); /* @kind other */
+  --ease-detent:cubic-bezier(.34,1.14,.64,1); /* @kind other */
+  --ease-linear:linear; /* @kind other */
+  --dur-1:90ms; /* @kind other */ /* press */
+  --dur-2:150ms; /* @kind other */ /* hover, toggle */
+  --dur-3:220ms; /* @kind other */ /* panel */
+  --dur-4:380ms; /* @kind other */ /* needle, dial */
+  --dur-slow:900ms; /* @kind other */ /* ambient */
+  --spin-gear:14s; /* @kind other */ /* full rotation, linear, infinite */
+}
+@keyframes sp-gear-cw{to{transform:rotate(360deg)}}
+@keyframes sp-gear-ccw{to{transform:rotate(-360deg)}}
+@keyframes sp-needle{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes sp-flicker{0%,100%{opacity:1}45%{opacity:.82}55%{opacity:.95}}
+@keyframes sp-steam{0%{opacity:0;transform:translateY(6px) scale(.9)}35%{opacity:.5}100%{opacity:0;transform:translateY(-22px) scale(1.5)}}
+@media (prefers-reduced-motion:reduce){
+  :root{
+    --dur-1:0ms; /* @kind other */
+    --dur-2:0ms; /* @kind other */
+    --dur-3:0ms; /* @kind other */
+    --dur-4:0ms; /* @kind other */
+    --dur-slow:0ms; /* @kind other */
+  }
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important}
+}

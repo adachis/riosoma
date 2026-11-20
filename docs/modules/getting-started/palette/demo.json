@@ -1,0 +1,25 @@
+{
+  "id": "palette",
+  "where": "anywhere",
+  "steps": [
+    {
+      "anchor": "palette.open",
+      "say": "demos.palette.open",
+      "do": "open"
+    },
+    {
+      "anchor": "palette.query",
+      "say": "demos.palette.type",
+      "do": "type",
+      "text": "demos.palette.sample"
+    },
+    {
+      "anchor": "palette.results",
+      "say": "demos.palette.results"
+    },
+    {
+      "anchor": "palette.query",
+      "say": "demos.palette.go"
+    }
+  ]
+}

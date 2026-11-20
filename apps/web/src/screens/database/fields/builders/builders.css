@@ -1,0 +1,16 @@
+@layer rio.app {
+  .rio-computed-builder {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+  }
+  .rio-computed-builder > * {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+  .rio-computed-builder p {
+    color: var(--rio-text);
+    overflow-wrap: anywhere;
+  }
+}

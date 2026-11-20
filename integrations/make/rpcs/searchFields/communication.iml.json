@@ -1,0 +1,8 @@
+{
+  "url": "/databases/{{riosomaSegment(parameters.database, false)}}/tables",
+  "method": "GET",
+  "response": {
+    "iterate": "{{riosomaFields(riosomaTable(body.tables, parameters.table), true)}}",
+    "output": "{{item}}"
+  }
+}

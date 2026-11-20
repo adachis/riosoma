@@ -1,0 +1,179 @@
+@layer rio.components {
+  .rio-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    block-size: var(--rio-control-height);
+    padding-inline: var(--rio-space-3);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    background-color: var(--rio-surface);
+    color: var(--rio-text);
+    font: inherit;
+    font-weight: var(--rio-weight-medium);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      background-color var(--rio-duration-fast) var(--rio-ease-standard),
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  /* Every button is a target of at least the minimum size, and a primary action grows to a
+     fingertip on phones.  A dialog's answers count as primary actions. */
+  .rio-button {
+    min-inline-size: var(--rio-target-min);
+    min-block-size: var(--rio-target-min);
+  }
+
+  .rio-button:is([data-variant='primary'], [data-primary-action]),
+  .rio-dialog__footer .rio-button {
+    min-inline-size: var(--rio-target-primary);
+    min-block-size: var(--rio-target-primary);
+  }
+
+  .rio-button__content {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+  .rio-button[data-icon-only] {
+    flex: none;
+    padding-inline: var(--rio-space-2);
+    inline-size: max(var(--rio-control-height), var(--rio-target-min));
+  }
+  @media (max-width: 640px) {
+    .rio-button[data-icon-only] {
+      min-inline-size: var(--rio-target-primary);
+      min-block-size: var(--rio-target-primary);
+    }
+  }
+
+  .rio-button[data-size='sm'] {
+    block-size: var(--rio-control-height-sm);
+    padding-inline: var(--rio-space-2);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-button[data-size='lg'] {
+    block-size: var(--rio-control-height-lg);
+    padding-inline: var(--rio-space-4);
+    font-size: var(--rio-text-lg);
+  }
+
+  .rio-button[data-variant='primary'] {
+    border-color: var(--rio-accent);
+    background-color: var(--rio-accent);
+    color: var(--rio-aa-on-accent);
+    transition:
+      border-color var(--rio-duration-fast) var(--rio-ease-standard),
+      box-shadow var(--rio-duration-fast) var(--rio-ease-standard);
+  }
+
+  .rio-button[data-variant='quiet'] {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  .rio-button[data-variant='danger'] {
+    border-color: var(--rio-aa-danger-text);
+    color: var(--rio-aa-danger-text);
+  }
+
+  /* Surface buttons use the theme's interaction tint. */
+  .rio-button[data-hovered] {
+    background-image: linear-gradient(var(--rio-hover), var(--rio-hover));
+  }
+
+  .rio-button[data-pressed] {
+    background-image: linear-gradient(var(--rio-pressed), var(--rio-pressed));
+  }
+
+  /* Accent text is tested against the exact accent fill; tinting it can break that contrast. */
+  .rio-button[data-variant='primary']:is([data-hovered], [data-pressed]) {
+    background-image: none;
+    box-shadow: inset 0 0 0 1px var(--rio-aa-on-accent);
+  }
+
+  .rio-button[data-variant='primary'][data-pressed] {
+    box-shadow: inset 0 0 0 2px var(--rio-aa-on-accent);
+  }
+
+  .rio-button[data-focus-visible] {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-button[data-variant='primary'][data-hovered][data-focus-visible] {
+    box-shadow:
+      inset 0 0 0 1px var(--rio-aa-on-accent),
+      var(--rio-focus-ring);
+  }
+
+  .rio-button[data-variant='primary'][data-pressed][data-focus-visible] {
+    box-shadow:
+      inset 0 0 0 2px var(--rio-aa-on-accent),
+      var(--rio-focus-ring);
+  }
+
+  .rio-button[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .rio-button[data-pending] {
+    cursor: progress;
+  }
+
+  /* Hidden with opacity, not visibility, so the label stays the button's accessible name. */
+  .rio-button[data-pending] .rio-button__content {
+    opacity: 0;
+  }
+
+  .rio-button__spinner {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    inline-size: 1em;
+    block-size: 1em;
+    border: 2px solid currentColor;
+    border-inline-end-color: transparent;
+    border-radius: 50%;
+    animation: rio-spin 700ms linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rio-button__spinner {
+      animation-duration: 1600ms;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-button {
+      border-color: ButtonText;
+    }
+
+    .rio-button[data-variant='primary'] {
+      /* Native button colors honor the system palette.  Highlight can be too light for text. */
+      background-color: var(--rio-accent);
+      color: var(--rio-aa-on-accent);
+      border-width: 2px;
+    }
+
+    /* Forced colors removes shadows, so keyboard focus needs a real outline. */
+    .rio-button:is(:focus-visible, [data-focus-visible]),
+    .rio-button[data-variant='primary']:is([data-hovered], [data-pressed])[data-focus-visible] {
+      outline: 2px solid CanvasText;
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+  }
+}
+
+@keyframes rio-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}

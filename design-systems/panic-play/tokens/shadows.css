@@ -1,0 +1,18 @@
+:root{
+  /* hard offset shadows — the signature elevation */
+  --shadow-hard-sm:2px 2px 0 var(--line-1);
+  --shadow-hard:4px 4px 0 var(--line-1);
+  --shadow-hard-lg:7px 7px 0 var(--line-1);
+  --shadow-hard-pressed:1px 1px 0 var(--line-1);
+  /* soft shadows — reserved for floating layers only */
+  --shadow-soft:0 6px 18px color-mix(in oklab, var(--ink-1) 14%, transparent);
+  --shadow-soft-lg:0 18px 44px color-mix(in oklab, var(--ink-1) 22%, transparent);
+  --shadow-inset:inset 0 2px 0 color-mix(in oklab, var(--ink-1) 10%, transparent);
+  --glow-brand:0 0 0 4px color-mix(in oklab, var(--brand-4) 35%, transparent);
+  --scrim:color-mix(in oklab, var(--ink-1) 62%, transparent);
+  --blur-scrim:6px;
+  --focus-ring:0 0 0 3px var(--paper-1), 0 0 0 6px var(--line-focus);
+  /* dot-grid page texture */
+  --texture-dots:radial-gradient(color-mix(in oklab, var(--ink-1) 16%, transparent) 1.5px, transparent 1.6px);
+  --texture-dots-size:14px 14px;
+}

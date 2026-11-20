@@ -1,0 +1,17 @@
+/* Minimal opt-in resets and element defaults. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:var(--type-body);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4,h5,h6{margin:0;color:var(--text-strong)}
+h1{font:var(--type-h1);letter-spacing:var(--ls-display)}
+h2{font:var(--type-h2);letter-spacing:var(--ls-display)}
+h3{font:var(--type-h3)}h4{font:var(--type-h4)}h5{font:var(--type-h5)}h6{font:var(--type-h6)}
+p{margin:0 0 var(--sp-4);max-width:var(--measure-body)}
+a{color:var(--text-link);text-decoration-color:color-mix(in oklab,var(--text-link) 40%,transparent);text-underline-offset:3px;transition:var(--t-hover)}
+a:hover{color:var(--text-link-hover);text-decoration-color:currentColor}
+small{font:var(--type-caption);color:var(--text-muted)}
+hr{border:0;border-top:var(--border-hair) solid var(--line-hairline);margin:var(--sp-6) 0}
+code,kbd,pre{font:var(--type-mono)}
+::selection{background:color-mix(in oklab,var(--brand-primary) 26%,transparent)}
+:focus-visible{outline:none;box-shadow:var(--ring-focus)}
+.boho-eyebrow{font:var(--type-label);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--text-muted)}
+.boho-script{font:var(--type-script);color:var(--brand-primary)}

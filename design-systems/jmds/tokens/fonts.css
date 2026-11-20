@@ -1,0 +1,11 @@
+/* JMDS webfonts — all four families are served from Google Fonts.
+   No source font binaries were supplied with the brief, so these are the
+   nearest-match substitutions. See readme.md > FONT SUBSTITUTIONS. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@400;600;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root{
+  --font-display:"Archivo Expanded","Archivo",system-ui,sans-serif;
+  --font-core:"Zen Kaku Gothic New","Archivo",system-ui,sans-serif;
+  --font-editorial:"Zen Old Mincho",Georgia,serif;
+  --font-mono:"Space Mono",ui-monospace,monospace;
+}

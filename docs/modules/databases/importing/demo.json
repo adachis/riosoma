@@ -1,0 +1,28 @@
+{
+  "id": "importing",
+  "where": "table",
+  "steps": [
+    {
+      "anchor": "database.tables.add",
+      "say": "demos.importing.add"
+    },
+    {
+      "anchor": "database.table.menu",
+      "say": "demos.importing.tableMenu",
+      "do": "open"
+    },
+    {
+      "anchor": "database.table.importInto",
+      "say": "demos.importing.choose",
+      "do": "open"
+    },
+    {
+      "anchor": "import.file",
+      "say": "demos.importing.file"
+    },
+    {
+      "anchor": "import.start",
+      "say": "demos.importing.start"
+    }
+  ]
+}

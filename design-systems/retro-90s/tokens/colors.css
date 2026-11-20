@@ -1,0 +1,50 @@
+/* Base palette — the "Arcade" default, sampled from the pixel-OS source art.
+   Semantic aliases live here and are re-pointed by every theme in themes.css. */
+:root{
+  --arcade-ink:#22383B;
+  --arcade-ink-2:#5B7679;
+  --arcade-paper:#DEDDC0;
+  --arcade-surface:#F4F1E1;
+  --arcade-surface-2:#C9C9A8;
+  --arcade-coral:#B7513C;
+  --arcade-mint:#6DBF9E;
+  --arcade-mustard:#F2B33D;
+  --arcade-teal:#3C7886;
+  --arcade-cream:#FFF6EC;
+
+  /* Semantic (default = Arcade) */
+  --ink:var(--arcade-ink);
+  --ink-2:var(--arcade-ink-2);
+  --text:var(--arcade-ink);
+  --text-2:#435551;
+  --paper:var(--arcade-paper);
+  --surface:var(--arcade-surface);
+  --surface-2:var(--arcade-surface-2);
+
+  --accent:var(--arcade-coral);
+  --on-accent:var(--arcade-cream);
+  --accent-2:var(--arcade-mint);
+  --on-accent-2:var(--arcade-ink);
+  --accent-3:var(--arcade-mustard);
+  --on-accent-3:var(--arcade-ink);
+  --accent-4:var(--arcade-teal);
+  --on-accent-4:var(--arcade-cream);
+
+  --success:#6DBF9E;--on-success:#22383B;
+  --warning:#F2B33D;--on-warning:#22383B;
+  --danger:#B7513C;--on-danger:#FFF6EC;
+  --info:#3C7886;--on-info:#FFF6EC;
+
+  --chrome:var(--arcade-coral);
+  --on-chrome:var(--arcade-cream);
+
+  /* Contrast-checked pairs. --link is guaranteed against --surface / --paper;
+     --wallpaper is the desktop/backdrop fill and --on-wallpaper its text colour. */
+  --link:#2E5861;
+  --wallpaper:#3C7886;
+  --on-wallpaper:#FFFFFF;
+
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --shadow-ink:var(--ink);
+}

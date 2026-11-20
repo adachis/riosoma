@@ -1,0 +1,23 @@
+/* Japandi — corner radius.
+   Panels, cards and images are square or near-square: the geometry is
+   joinery, not candy. Curvature is reserved for things the hand touches
+   (buttons, chips, switches) and for the single arch motif. */
+:root {
+  --radius-none: 0;
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 5px;
+  --radius-pill: 999px;
+
+  /* Semantic */
+  --radius-card: 2px;
+  --radius-panel: 2px;
+  --radius-input: 2px;
+  --radius-control: 999px;  /* buttons, chips, tags, switches */
+  --radius-image: 1px;
+  --radius-avatar: 999px;
+  --radius-sheet: 3px;
+  /* The arch — a shoji/torii silhouette used on hero imagery and cards */
+  --radius-arch: 50% 50% 2px 2px / 34% 34% 2px 2px;
+}

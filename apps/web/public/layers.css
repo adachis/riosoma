@@ -1,0 +1,3 @@
+/* Declares the cascade order before any stylesheet uses a layer, so a theme loaded early can't
+   reorder it.  Keep in step with packages/tokens/src/base.css. */
+@layer rio.defaults, rio.theme, rio.base, rio.components, rio.app;

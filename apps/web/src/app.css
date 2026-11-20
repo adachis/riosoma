@@ -1,0 +1,42 @@
+@layer rio.app {
+  .rio-skip-link {
+    position: absolute;
+    inset-block-start: var(--rio-space-2);
+    inset-inline-start: var(--rio-space-2);
+    z-index: var(--rio-z-tooltip);
+    padding: var(--rio-space-2) var(--rio-space-3);
+    border-radius: var(--rio-radius);
+    background: var(--rio-accent);
+    color: var(--rio-on-accent);
+    transform: translateY(-200%);
+  }
+
+  .rio-skip-link:focus-visible {
+    transform: none;
+  }
+
+  @media (forced-colors: active) {
+    .rio-skip-link {
+      background: Highlight;
+      color: HighlightText;
+      outline: 2px solid Highlight;
+    }
+  }
+
+  /* Pages outside the app frame (setup, sign-in) center one card on the page. */
+  .rio-page-center {
+    display: grid;
+    min-block-size: 100%;
+    place-items: center;
+    padding: var(--rio-space-6);
+  }
+
+  .rio-card {
+    inline-size: min(100%, 480px);
+    padding: var(--rio-space-8);
+    border: 1px solid var(--rio-border);
+    border-radius: calc(var(--rio-radius) * 2);
+    background: var(--rio-surface);
+    box-shadow: var(--rio-shadow-2);
+  }
+}

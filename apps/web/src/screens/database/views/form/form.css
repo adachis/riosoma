@@ -1,0 +1,200 @@
+@layer rio.app {
+  .rio-form-view {
+    overflow: auto;
+    scrollbar-gutter: stable;
+    overflow-anchor: none;
+    min-inline-size: 0;
+    inline-size: 100%;
+    padding-block: var(--rio-space-4);
+    padding-inline: var(--rio-space-4);
+  }
+
+  .rio-form-view__toolbar,
+  .rio-form-view__layout {
+    max-inline-size: 68rem;
+    margin-inline: auto;
+  }
+
+  .rio-form-view__toolbar {
+    margin-block-end: var(--rio-space-4);
+  }
+
+  .rio-form-view__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--rio-space-6);
+    align-items: start;
+  }
+
+  .rio-form-view__page {
+    min-inline-size: 0;
+    inline-size: 100%;
+    max-inline-size: 44rem;
+    margin-inline: auto;
+    padding-block: var(--rio-space-6);
+    padding-inline: var(--rio-space-6);
+    background: var(--rio-surface);
+    color: var(--rio-text);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-form-view h1,
+  .rio-form-view h2 {
+    margin-block: 0 var(--rio-space-4);
+    font-family: var(--rio-font-display);
+  }
+
+  .rio-form-view__description,
+  .rio-form-view__help,
+  .rio-form-view__thanks {
+    white-space: pre-wrap;
+  }
+
+  .rio-form-view__question {
+    margin-block-start: var(--rio-space-6);
+    min-inline-size: 0;
+  }
+
+  .rio-form-view__question-heading,
+  .rio-form-view__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-form-view__question-heading {
+    font-weight: 600;
+  }
+
+  .rio-form-view__help,
+  .rio-form-view__required {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-form-view__help {
+    margin-block: var(--rio-space-2);
+  }
+
+  .rio-form-view__editor {
+    border: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    min-inline-size: 0;
+  }
+
+  .rio-form-view__design,
+  .rio-form-view__fields {
+    display: grid;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-form-view__error,
+  .rio-form-view .rio-record-card__error {
+    /* Messages appear after someone answers or submits, so empty ones take no room. */
+    overflow: auto;
+    max-block-size: 3lh;
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+  .rio-form-view__error:empty,
+  .rio-form-view .rio-record-card__error:empty {
+    display: none;
+  }
+
+  .rio-form-view .rio-field,
+  .rio-form-view .rio-field__control,
+  .rio-form-view .rio-field__input,
+  .rio-form-view__submit,
+  .rio-form-view__file,
+  .rio-form-view__select {
+    min-inline-size: 0;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    box-sizing: border-box;
+  }
+
+  .rio-form-view .rio-record-card__long-text textarea {
+    /* The shared editor measures content; forms keep a fixed writing area instead. */
+    block-size: 6lh !important;
+    resize: none;
+    overflow: auto;
+  }
+
+  .rio-form-view .rio-record-card__choices,
+  .rio-form-view .rio-cell-editor__selected {
+    display: flex;
+    gap: var(--rio-space-2);
+    block-size: var(--rio-control-height);
+    overflow: auto;
+  }
+
+  .rio-form-view .rio-record-card__choices > * {
+    flex: none;
+  }
+
+  .rio-form-view .rio-record-card__open {
+    display: block;
+    block-size: 2lh;
+  }
+
+  .rio-form-view__select,
+  .rio-form-view__drag {
+    font: inherit;
+    color: var(--rio-text);
+    background: var(--rio-surface);
+    border: 1px solid var(--rio-aa-border);
+    border-radius: var(--rio-radius);
+    min-block-size: var(--rio-control-height);
+    padding-inline: var(--rio-space-2);
+  }
+
+  .rio-form-view__drag {
+    cursor: grab;
+    min-inline-size: var(--rio-control-height);
+  }
+
+  .rio-form-view :focus-visible {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: 2px;
+  }
+
+  .rio-form-view__attachments {
+    block-size: 6lh;
+    overflow: auto;
+  }
+
+  .rio-form-view__attachments > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-2);
+  }
+
+  @media (min-width: 800px) {
+    .rio-form-view[data-designing] .rio-form-view__layout {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .rio-form-view,
+    .rio-form-view__page {
+      padding-inline: var(--rio-space-3);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-form-view__page,
+    .rio-form-view__drag,
+    .rio-form-view__select {
+      border-color: CanvasText;
+    }
+  }
+}

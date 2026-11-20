@@ -1,0 +1,12 @@
+/* mOS base. Minimal resets + link colors. Components carry their own styling inline. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--window-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); text-underline-offset: 2px; }
+a:visited { color: var(--link); }
+a:hover { filter: brightness(1.15); }

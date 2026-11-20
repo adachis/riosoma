@@ -1,0 +1,47 @@
+/* Diagram — semantic colour, derived from the active variant's anchors.
+   Nothing here is a literal; swap the variant and the whole surface follows. */
+:root,[data-theme]{
+--surface-paper:var(--paper);
+--surface-raised:color-mix(in oklab,var(--paper) 92%,#FFFFFF 8%);
+--surface-sunken:color-mix(in oklab,var(--paper) 94%,var(--ink) 6%);
+--surface-wash:color-mix(in oklab,var(--paper) 88%,var(--accent) 12%);
+--surface-ink:var(--ink);
+--surface-overlay:color-mix(in oklab,var(--ink) 62%,transparent);
+
+--text-strong:var(--ink);
+--text-body:color-mix(in oklab,var(--ink) 88%,var(--paper));
+--text-mute:color-mix(in oklab,var(--ink) 58%,var(--paper));
+--text-faint:color-mix(in oklab,var(--ink) 38%,var(--paper));
+--text-invert:var(--paper);
+--text-accent:var(--accent);
+--text-link:var(--accent);
+--text-link-hover:var(--accent-2);
+
+--rule-hair:color-mix(in oklab,var(--ink) 16%,transparent);
+--rule-mid:color-mix(in oklab,var(--ink) 34%,transparent);
+--rule-strong:color-mix(in oklab,var(--ink) 68%,transparent);
+--rule-ink:var(--ink);
+--rule-accent:var(--accent);
+--rule-ghost:color-mix(in oklab,var(--ink) 9%,transparent);
+
+--accent-wash:color-mix(in oklab,var(--accent) 14%,var(--paper));
+--accent-wash-strong:color-mix(in oklab,var(--accent) 28%,var(--paper));
+--accent-hover:color-mix(in oklab,var(--accent) 84%,var(--ink));
+--accent-press:color-mix(in oklab,var(--accent) 70%,var(--ink));
+--accent-2-wash:color-mix(in oklab,var(--accent-2) 14%,var(--paper));
+--hi-wash:color-mix(in oklab,var(--hi) 40%,var(--paper));
+
+--ok-wash:color-mix(in oklab,var(--ok) 16%,var(--paper));
+--warn-wash:color-mix(in oklab,var(--warn) 20%,var(--paper));
+--danger-wash:color-mix(in oklab,var(--danger) 14%,var(--paper));
+--info-wash:color-mix(in oklab,var(--info) 14%,var(--paper));
+--ok-ink:color-mix(in oklab,var(--ok) 62%,var(--ink));
+--warn-ink:color-mix(in oklab,var(--warn) 46%,var(--ink));
+--danger-ink:color-mix(in oklab,var(--danger) 70%,var(--ink));
+--info-ink:color-mix(in oklab,var(--info) 70%,var(--ink));
+
+--focus-ring:var(--accent-2);
+--selection-bg:color-mix(in oklab,var(--hi) 60%,var(--paper));
+--selection-fg:var(--ink);
+}
+::selection{background:var(--selection-bg);color:var(--selection-fg)}

@@ -1,0 +1,15 @@
+:root{
+  /* Hard offset ink shadows — the signature. No blur, no opacity. */
+  --shadow-hard-xs:2px 2px 0 var(--ink);
+  --shadow-hard-sm:4px 4px 0 var(--ink);
+  --shadow-hard:6px 6px 0 var(--ink);
+  --shadow-hard-lg:10px 10px 0 var(--ink);
+  --shadow-hard-xl:16px 16px 0 var(--ink);
+  /* Paper-coloured offset, used on ink/flame surfaces */
+  --shadow-hard-paper:6px 6px 0 var(--paper);
+  /* Pressed state: shadow collapses, element translates onto it */
+  --shadow-pressed:0px 0px 0 var(--ink);
+  --press-shift:3px;
+  /* The only soft shadow in the system: floating overlays */
+  --shadow-soft:0 18px 44px -12px rgb(20 18 16 / 0.28);
+}

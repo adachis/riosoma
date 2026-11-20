@@ -1,0 +1,138 @@
+/* FunOS colour-scheme variants.
+   Apply on any ancestor: <html data-theme="midnight">, or scope a region:
+   <div data-theme="neon"> … </div>
+   Every variant overrides only the 19 base hues plus on-fill and semantic colours;
+   tints, tint text colours and body-on-fill colours derive automatically in colors.css.
+   Default (no attribute) is the FunOS house scheme: paper / ink / flame / lime. */
+
+/* Spectrum — Warm rainbow spread; red primary, amber accent, cool slate neutrals */
+[data-theme="spectrum"]{
+  --paper:#f4f7f9;--paper-2:#e7edf1;--paper-3:#d5dfe6;--white:#ffffff;
+  --ink:#1b2a33;--ink-2:#26414f;--ink-3:#47606d;--ink-4:#7a8f9b;
+  --flame:#f94144;--flame-dark:#d92b2f;--lime:#f9c74f;--lime-dark:#f3b62b;
+  --sun:#f8961e;--sea:#43aa8b;--sky:#277da1;--grape:#4d908e;--punch:#f3722c;
+  --on-flame:#ffffff;--on-lime:#1b2a33;--on-sun:#1b2a33;--on-sea:#ffffff;--on-sky:#ffffff;--on-grape:#ffffff;--on-punch:#1b2a33;
+  --text-on-dark:#f4f7f9;--text-on-dark-muted:#9fb3be;
+  --ok:#43aa8b;--warn:#f9c74f;--danger:#f94144;--info:#277da1;
+}
+
+/* Midnight — Dark theme — deep navy page, gold borders and display type */
+[data-theme="midnight"]{
+  --paper:#000814;--paper-2:#001d3d;--paper-3:#003566;--white:#00294f;
+  --ink:#ffd60a;--ink-2:#ffc300;--ink-3:#c3d3e8;--ink-4:#7d90a8;
+  --flame:#ffc300;--flame-dark:#e0a900;--lime:#ffd60a;--lime-dark:#e6c000;
+  --sun:#ffd60a;--sea:#003566;--sky:#001d3d;--grape:#003566;--punch:#ffc300;
+  --on-flame:#000814;--on-lime:#000814;--on-sun:#000814;--on-sea:#ffd60a;--on-sky:#ffd60a;--on-grape:#ffd60a;--on-punch:#000814;
+  --text-on-dark:#000814;--text-on-dark-muted:#4a3d00;--accent-on-dark:#000814;
+  --ok:#ffd60a;--warn:#ffc300;--danger:#ffc300;--info:#003566;
+}
+
+/* Voltage — Electric violet-to-amber ramp; hot pink primary on warm cream */
+[data-theme="voltage"]{
+  --paper:#fdf3e3;--paper-2:#f7e6cc;--paper-3:#eed6b3;--white:#fffdf8;
+  --ink:#2a0070;--ink-2:#390099;--ink-3:#5a3a8f;--ink-4:#8a76ab;
+  --flame:#ff0054;--flame-dark:#d90047;--lime:#ffbd00;--lime-dark:#e6a900;
+  --sun:#ffbd00;--sea:#390099;--sky:#9e0059;--grape:#ff5400;--punch:#ff0054;
+  --on-flame:#ffffff;--on-lime:#2a0070;--on-sun:#2a0070;--on-sea:#ffbd00;--on-sky:#ffbd00;--on-grape:#2a0070;--on-punch:#ffffff;
+  --text-on-dark:#fdf3e3;--text-on-dark-muted:#b9a6d6;
+  --ok:#390099;--warn:#ffbd00;--danger:#ff0054;--info:#9e0059;
+}
+
+/* Flag — Crisp civic palette; crimson primary, pale mint accent, deep navy ink */
+[data-theme="flag"]{
+  --paper:#f1faee;--paper-2:#e3f1de;--paper-3:#cfe4ca;--white:#ffffff;
+  --ink:#1d3557;--ink-2:#2b4a75;--ink-3:#457b9d;--ink-4:#7fa3ba;
+  --flame:#e63946;--flame-dark:#c62733;--lime:#a8dadc;--lime-dark:#8ac9cc;
+  --sun:#a8dadc;--sea:#457b9d;--sky:#1d3557;--grape:#457b9d;--punch:#e63946;
+  --on-flame:#ffffff;--on-lime:#1d3557;--on-sun:#1d3557;--on-sea:#ffffff;--on-sky:#ffffff;--on-grape:#ffffff;--on-punch:#ffffff;
+  --text-on-dark:#f1faee;--text-on-dark-muted:#a6bdd1;
+  --ok:#457b9d;--warn:#a8dadc;--danger:#e63946;--info:#1d3557;
+}
+
+/* Peach — Soft desaturated warmth; coral primary, apricot accent, sage support */
+[data-theme="peach"]{
+  --paper:#f7ede2;--paper-2:#f2e3d3;--paper-3:#e6d2bd;--white:#fffaf4;
+  --ink:#3a322b;--ink-2:#4f453b;--ink-3:#6b5d50;--ink-4:#9a8b7c;
+  --flame:#f28482;--flame-dark:#dd6866;--lime:#f6bd60;--lime-dark:#eaa93f;
+  --sun:#f6bd60;--sea:#84a59d;--sky:#6b8f88;--grape:#f5cac3;--punch:#f28482;
+  --on-flame:#3a322b;--on-lime:#3a322b;--on-sun:#3a322b;--on-sea:#ffffff;--on-sky:#ffffff;--on-grape:#3a322b;--on-punch:#3a322b;
+  --text-on-dark:#f7ede2;--text-on-dark-muted:#b8a898;
+  --ok:#84a59d;--warn:#f6bd60;--danger:#f28482;--info:#6b8f88;
+}
+
+/* Field — Outdoorsy field guide; orange primary, corn accent, teal-slate ink */
+[data-theme="field"]{
+  --paper:#f5f3ee;--paper-2:#e9e6dd;--paper-3:#d8d4c8;--white:#ffffff;
+  --ink:#233d4d;--ink-2:#2f5265;--ink-3:#4a6b7c;--ink-4:#7f97a3;
+  --flame:#fe7f2d;--flame-dark:#e2650f;--lime:#fcca46;--lime-dark:#eeb821;
+  --sun:#fcca46;--sea:#619b8a;--sky:#233d4d;--grape:#a1c181;--punch:#fe7f2d;
+  --on-flame:#233d4d;--on-lime:#233d4d;--on-sun:#233d4d;--on-sea:#ffffff;--on-sky:#ffffff;--on-grape:#233d4d;--on-punch:#233d4d;
+  --text-on-dark:#f5f3ee;--text-on-dark-muted:#9db1bb;
+  --ok:#619b8a;--warn:#fcca46;--danger:#fe7f2d;--info:#233d4d;
+}
+
+/* Mint — Fresh green ramp; teal primary, spring-green accent, deep teal ink */
+[data-theme="mint"]{
+  --paper:#f2fdf5;--paper-2:#e0f8e6;--paper-3:#c7f9cc;--white:#ffffff;
+  --ink:#123449;--ink-2:#22577a;--ink-3:#3d6d8c;--ink-4:#7a9cb0;
+  --flame:#38a3a5;--flame-dark:#2b8688;--lime:#80ed99;--lime-dark:#57cc99;
+  --sun:#c7f9cc;--sea:#38a3a5;--sky:#22577a;--grape:#57cc99;--punch:#80ed99;
+  --on-flame:#ffffff;--on-lime:#123449;--on-sun:#123449;--on-sea:#ffffff;--on-sky:#ffffff;--on-grape:#123449;--on-punch:#123449;
+  --text-on-dark:#f2fdf5;--text-on-dark-muted:#93b6c8;
+  --ok:#57cc99;--warn:#c7f9cc;--danger:#38a3a5;--info:#22577a;
+}
+
+/* Neon — Dark theme — forest page, cyan borders, coral primary. Built for game UI */
+[data-theme="neon"]{
+  --paper:#223d2b;--paper-2:#2e5339;--paper-3:#495f41;--white:#35603f;
+  --ink:#00fddc;--ink-2:#ffccc9;--ink-3:#c9e8d5;--ink-4:#93b9a1;
+  --flame:#ff5666;--flame-dark:#e63a4a;--lime:#00fddc;--lime-dark:#00d9bd;
+  --sun:#ffccc9;--sea:#00fddc;--sky:#495f41;--grape:#ff5666;--punch:#ffccc9;
+  --on-flame:#223d2b;--on-lime:#223d2b;--on-sun:#223d2b;--on-sea:#223d2b;--on-sky:#00fddc;--on-grape:#223d2b;--on-punch:#223d2b;
+  --text-on-dark:#223d2b;--text-on-dark-muted:#7a5f5d;--accent-on-dark:#223d2b;
+  --ok:#00fddc;--warn:#ffccc9;--danger:#ff5666;--info:#495f41;
+}
+
+/* Candy — Bubblegum quartet; pink primary, butter accent, sky and melon support */
+[data-theme="candy"]{
+  --paper:#fff8ec;--paper-2:#ffefd6;--paper-3:#ffe3b8;--white:#ffffff;
+  --ink:#2b2338;--ink-2:#3d3350;--ink-3:#5f5473;--ink-4:#938aa6;
+  --flame:#ff70a6;--flame-dark:#ef4f8c;--lime:#ffd670;--lime-dark:#f5c247;
+  --sun:#ffd670;--sea:#70d6ff;--sky:#70d6ff;--grape:#ff70a6;--punch:#ff9770;
+  --on-flame:#2b2338;--on-lime:#2b2338;--on-sun:#2b2338;--on-sea:#2b2338;--on-sky:#2b2338;--on-grape:#2b2338;--on-punch:#2b2338;
+  --text-on-dark:#fff8ec;--text-on-dark-muted:#a79bbd;
+  --ok:#70d6ff;--warn:#ffd670;--danger:#ff70a6;--info:#70d6ff;
+}
+
+/* Lagoon — Lagoon blues with a chartreuse page and a single hot-red primary */
+[data-theme="lagoon"]{
+  --paper:#f8ffe8;--paper-2:#f3ffbd;--paper-3:#dff0b0;--white:#ffffff;
+  --ink:#12384b;--ink-2:#247ba0;--ink-3:#3e6b7e;--ink-4:#7d9aa8;
+  --flame:#ff1654;--flame-dark:#dd0040;--lime:#f3ffbd;--lime-dark:#dff08f;
+  --sun:#f3ffbd;--sea:#70c1b3;--sky:#247ba0;--grape:#b2dbbf;--punch:#ff1654;
+  --on-flame:#ffffff;--on-lime:#12384b;--on-sun:#12384b;--on-sea:#12384b;--on-sky:#ffffff;--on-grape:#12384b;--on-punch:#ffffff;
+  --text-on-dark:#f8ffe8;--text-on-dark-muted:#a3c6d6;
+  --ok:#70c1b3;--warn:#f3ffbd;--danger:#ff1654;--info:#247ba0;
+}
+
+/* Navy — Editorial navy on bone; vermilion primary, mustard accent */
+[data-theme="navy"]{
+  --paper:#ebebd3;--paper-2:#e0e0c3;--paper-3:#cdcdac;--white:#f8f8ec;
+  --ink:#083d77;--ink-2:#0a4d94;--ink-3:#2f5f8f;--ink-4:#7089a8;
+  --flame:#f95738;--flame-dark:#dd3d1f;--lime:#f4d35e;--lime-dark:#e6c03d;
+  --sun:#f4d35e;--sea:#ee964b;--sky:#083d77;--grape:#ee964b;--punch:#f95738;
+  --on-flame:#ffffff;--on-lime:#083d77;--on-sun:#083d77;--on-sea:#083d77;--on-sky:#ffffff;--on-grape:#083d77;--on-punch:#ffffff;
+  --text-on-dark:#ebebd3;--text-on-dark-muted:#9db3cc;
+  --ok:#ee964b;--warn:#f4d35e;--danger:#f95738;--info:#083d77;
+}
+
+/* Sage — Quietest variant — muted greens, mint primary, near-monochrome */
+[data-theme="sage"]{
+  --paper:#f0f7f4;--paper-2:#e3ede8;--paper-3:#b3bfb8;--white:#ffffff;
+  --ink:#29332b;--ink-2:#3c493f;--ink-3:#56635a;--ink-4:#7e8d85;
+  --flame:#a2e3c4;--flame-dark:#7fd0aa;--lime:#b3bfb8;--lime-dark:#98a89f;
+  --sun:#a2e3c4;--sea:#7e8d85;--sky:#3c493f;--grape:#b3bfb8;--punch:#a2e3c4;
+  --on-flame:#29332b;--on-lime:#29332b;--on-sun:#29332b;--on-sea:#ffffff;--on-sky:#ffffff;--on-grape:#29332b;--on-punch:#29332b;
+  --text-on-dark:#f0f7f4;--text-on-dark-muted:#a3b0a8;
+  --ok:#7e8d85;--warn:#a2e3c4;--danger:#a2e3c4;--info:#3c493f;
+}

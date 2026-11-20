@@ -1,0 +1,38 @@
+:root{
+--font-display:"Archivo Black","Arial Black",Helvetica,sans-serif; /* @kind font */
+--font-core:"Jost","Futura","Century Gothic",Helvetica,sans-serif; /* @kind font */
+--font-ad:"Anton","News Gothic Extra Condensed","Impact",sans-serif; /* @kind font */
+--font-script:"Grand Hotel","Brush Script MT",cursive; /* @kind font */
+--font-mono:"Space Mono","Courier New",monospace; /* @kind font */
+--fs-3xs:11px; /* @kind font */
+--fs-2xs:12px; /* @kind font */
+--fs-xs:13px; /* @kind font */
+--fs-sm:15px; /* @kind font */
+--fs-md:17px; /* @kind font */
+--fs-lg:20px; /* @kind font */
+--fs-xl:25px; /* @kind font */
+--fs-2xl:32px; /* @kind font */
+--fs-3xl:42px; /* @kind font */
+--fs-4xl:56px; /* @kind font */
+--fs-5xl:76px; /* @kind font */
+--fs-6xl:104px; /* @kind font */
+--fs-7xl:148px; /* @kind font */
+--lh-tight:0.92; /* @kind font */
+--lh-snug:1.05; /* @kind font */
+--lh-head:1.14; /* @kind font */
+--lh-body:1.5; /* @kind font */
+--lh-loose:1.65; /* @kind font */
+--ls-poster:-0.03em; /* @kind font */
+--ls-display:-0.015em; /* @kind font */
+--ls-normal:0em; /* @kind font */
+--ls-label:0.09em; /* @kind font */
+--ls-eyebrow:0.22em; /* @kind font */
+--fw-light:300; /* @kind font */
+--fw-book:400; /* @kind font */
+--fw-medium:500; /* @kind font */
+--fw-semi:600; /* @kind font */
+--fw-bold:700; /* @kind font */
+--measure-narrow:34ch; /* @kind other */
+--measure:62ch; /* @kind other */
+--measure-wide:76ch; /* @kind other */
+}

@@ -1,0 +1,13 @@
+/* mOS depth. Two systems, used for different things:
+   soft ambient shadows lift floating surfaces; hard 2px offset shadows give icons a sticker look. */
+:root {
+  --shadow-hard:      2px 2px 0 var(--window-border);       /* desktop icons, app tiles */
+  --shadow-hard-soft: 2px 2px 0 rgba(0,0,0,0.35);           /* SVG icons with no border */
+  /* featured shortcut halo */
+  --glow-featured:    0 0 8px rgba(255,45,122,0.65); /* @kind shadow */
+  /* offset-print wordmark */
+  --text-shadow-wordmark: 4px 4px 0 var(--yellow); /* @kind shadow */
+  --text-shadow-terminal: 1px 1px 0 var(--ink-soft); /* @kind shadow */
+  --blur-dock: 20px; /* @kind other */
+  --blur-bubble: 22px; /* @kind other */
+}

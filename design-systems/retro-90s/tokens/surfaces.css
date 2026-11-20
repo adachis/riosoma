@@ -1,0 +1,29 @@
+:root{
+  /* Borders — the single most load-bearing token in the system */
+  --bw-hair:2px;
+  --bw:3px;
+  --bw-thick:5px;
+
+  /* Corners: square by default. Sticker/pill shapes are the only exception. */
+  --r-0:0px;
+  --r-1:2px;
+  --r-2:4px;
+  --r-pill:999px;
+
+  /* Hard offset shadows — never blurred, never soft */
+  --sh-xs:2px 2px 0 var(--shadow-ink);
+  --sh-sm:3px 3px 0 var(--shadow-ink);
+  --sh-md:5px 5px 0 var(--shadow-ink);
+  --sh-lg:8px 8px 0 var(--shadow-ink);
+  --sh-xl:12px 12px 0 var(--shadow-ink);
+  --sh-pressed:1px 1px 0 var(--shadow-ink);
+
+  /* Pixel 3D bevels for OS chrome */
+  --bevel-out:inset -3px -3px 0 var(--bevel-dark), inset 3px 3px 0 var(--bevel-light);
+  --bevel-in:inset 3px 3px 0 var(--bevel-dark), inset -3px -3px 0 var(--bevel-light);
+  --bevel-out-sm:inset -2px -2px 0 var(--bevel-dark), inset 2px 2px 0 var(--bevel-light);
+  --bevel-in-sm:inset 2px 2px 0 var(--bevel-dark), inset -2px -2px 0 var(--bevel-light);
+
+  --focus-ring:3px dashed var(--ink); /* @kind other */
+  --focus-offset:3px; /* @kind spacing */
+}

@@ -1,0 +1,107 @@
+/* ── Kicks colour schemes ─────────────────────────────────────────────────────
+   12 interchangeable accent schemes. Set data-theme on <html> or any wrapper:
+     <html data-theme="voltage">  ·  <div data-theme="court"> … </div>
+   Neutrals never change; only the five accent slots do. "riot" is the default
+   and is duplicated onto :root so an untagged document is still fully themed.
+   Slots: 1 deepest/structural · 2 secondary · 3 signal (primary CTA) · 4 warm
+   support · 5 highlight. --k-accent mirrors the scheme's primary CTA colour.
+──────────────────────────────────────────────────────────────────────────────*/
+
+:root{
+  --k-theme-name:"Riot"; /* @kind other */
+  --k-accent-1:#390099;--k-accent-2:#9e0059;--k-accent-3:#ff0054;--k-accent-4:#ff5400;--k-accent-5:#ffbd00;
+  --k-accent:#ff0054;--k-accent-ink:#ffffff;--k-accent-deep:#390099;--k-accent-hi:#ffbd00;
+  --k-accent-soft:color-mix(in srgb,#ff0054 14%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#ff0054 45%,var(--k-paper));
+}
+[data-theme="riot"]{
+  --k-theme-name:"Riot"; /* @kind other */
+  --k-accent-1:#390099;--k-accent-2:#9e0059;--k-accent-3:#ff0054;--k-accent-4:#ff5400;--k-accent-5:#ffbd00;
+  --k-accent:#ff0054;--k-accent-ink:#ffffff;--k-accent-deep:#390099;--k-accent-hi:#ffbd00;
+  --k-accent-soft:color-mix(in srgb,#ff0054 14%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#ff0054 45%,var(--k-paper));
+}
+[data-theme="spectrum"]{
+  --k-theme-name:"Spectrum"; /* @kind other */
+  --k-accent-1:#f94144;--k-accent-2:#f3722c;--k-accent-3:#f8961e;--k-accent-4:#f9844a;--k-accent-5:#f9c74f;
+  --k-accent-6:#90be6d;--k-accent-7:#43aa8b;--k-accent-8:#4d908e;--k-accent-9:#577590;--k-accent-10:#277da1;
+  --k-accent:#f94144;--k-accent-ink:#ffffff;--k-accent-deep:#277da1;--k-accent-hi:#f9c74f;
+  --k-accent-soft:color-mix(in srgb,#f94144 14%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#f94144 45%,var(--k-paper));
+}
+[data-theme="voltage"]{
+  --k-theme-name:"Voltage"; /* @kind other */
+  --k-accent-1:#000814;--k-accent-2:#001d3d;--k-accent-3:#003566;--k-accent-4:#ffc300;--k-accent-5:#ffd60a;
+  --k-accent:#ffc300;--k-accent-ink:#000814;--k-accent-deep:#000814;--k-accent-hi:#ffd60a;
+  --k-accent-soft:color-mix(in srgb,#ffc300 20%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#003566 45%,var(--k-paper));
+}
+[data-theme="court"]{
+  --k-theme-name:"Court"; /* @kind other */
+  --k-accent-1:#1d3557;--k-accent-2:#457b9d;--k-accent-3:#e63946;--k-accent-4:#a8dadc;--k-accent-5:#f1faee;
+  --k-accent:#e63946;--k-accent-ink:#ffffff;--k-accent-deep:#1d3557;--k-accent-hi:#a8dadc;
+  --k-accent-soft:color-mix(in srgb,#e63946 13%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#457b9d 45%,var(--k-paper));
+}
+[data-theme="peach"]{
+  --k-theme-name:"Peach"; /* @kind other */
+  --k-accent-1:#84a59d;--k-accent-2:#f5cac3;--k-accent-3:#f28482;--k-accent-4:#f6bd60;--k-accent-5:#f7ede2;
+  --k-accent:#f28482;--k-accent-ink:#3a1f1e;--k-accent-deep:#84a59d;--k-accent-hi:#f6bd60;
+  --k-accent-soft:color-mix(in srgb,#f28482 22%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#84a59d 55%,var(--k-paper));
+}
+[data-theme="field"]{
+  --k-theme-name:"Field"; /* @kind other */
+  --k-accent-1:#233d4d;--k-accent-2:#619b8a;--k-accent-3:#fe7f2d;--k-accent-4:#fcca46;--k-accent-5:#a1c181;
+  --k-accent:#fe7f2d;--k-accent-ink:#233d4d;--k-accent-deep:#233d4d;--k-accent-hi:#fcca46;
+  --k-accent-soft:color-mix(in srgb,#fe7f2d 18%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#619b8a 50%,var(--k-paper));
+}
+[data-theme="mint"]{
+  --k-theme-name:"Mint"; /* @kind other */
+  --k-accent-1:#22577a;--k-accent-2:#38a3a5;--k-accent-3:#57cc99;--k-accent-4:#80ed99;--k-accent-5:#c7f9cc;
+  --k-accent:#38a3a5;--k-accent-ink:#ffffff;--k-accent-deep:#22577a;--k-accent-hi:#80ed99;
+  --k-accent-soft:color-mix(in srgb,#57cc99 20%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#38a3a5 50%,var(--k-paper));
+}
+[data-theme="flux"]{
+  --k-theme-name:"Flux"; /* @kind other */
+  --k-accent-1:#2e5339;--k-accent-2:#495f41;--k-accent-3:#00fddc;--k-accent-4:#ff5666;--k-accent-5:#ffccc9;
+  --k-accent:#00fddc;--k-accent-ink:#12241b;--k-accent-deep:#2e5339;--k-accent-hi:#ff5666;
+  --k-accent-soft:color-mix(in srgb,#00fddc 22%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#2e5339 45%,var(--k-paper));
+}
+[data-theme="candy"]{
+  --k-theme-name:"Candy"; /* @kind other */
+  --k-accent-1:#70d6ff;--k-accent-2:#ff70a6;--k-accent-3:#ff9770;--k-accent-4:#ffd670;--k-accent-5:#70d6ff;
+  --k-accent:#ff70a6;--k-accent-ink:#2c1120;--k-accent-deep:#0b0b0c;--k-accent-hi:#ffd670;
+  --k-accent-soft:color-mix(in srgb,#ff70a6 20%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#70d6ff 60%,var(--k-paper));
+}
+[data-theme="lagoon"]{
+  --k-theme-name:"Lagoon"; /* @kind other */
+  --k-accent-1:#247ba0;--k-accent-2:#70c1b3;--k-accent-3:#ff1654;--k-accent-4:#b2dbbf;--k-accent-5:#f3ffbd;
+  --k-accent:#ff1654;--k-accent-ink:#ffffff;--k-accent-deep:#247ba0;--k-accent-hi:#f3ffbd;
+  --k-accent-soft:color-mix(in srgb,#ff1654 14%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#247ba0 45%,var(--k-paper));
+}
+[data-theme="press"]{
+  --k-theme-name:"Press"; /* @kind other */
+  --k-accent-1:#083d77;--k-accent-2:#ee964b;--k-accent-3:#f95738;--k-accent-4:#f4d35e;--k-accent-5:#ebebd3;
+  --k-accent:#f95738;--k-accent-ink:#ffffff;--k-accent-deep:#083d77;--k-accent-hi:#f4d35e;
+  --k-accent-soft:color-mix(in srgb,#f95738 15%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#083d77 45%,var(--k-paper));
+}
+[data-theme="sage"]{
+  --k-theme-name:"Sage"; /* @kind other */
+  --k-accent-1:#3c493f;--k-accent-2:#7e8d85;--k-accent-3:#a2e3c4;--k-accent-4:#b3bfb8;--k-accent-5:#f0f7f4;
+  --k-accent:#3c493f;--k-accent-ink:#f0f7f4;--k-accent-deep:#3c493f;--k-accent-hi:#a2e3c4;
+  --k-accent-soft:color-mix(in srgb,#a2e3c4 34%,var(--k-paper));
+  --k-accent-line:color-mix(in srgb,#7e8d85 55%,var(--k-paper));
+}
+
+/* Data-graphic series: always five distinguishable steps in the active scheme. */
+:root{
+  --k-chart-1:var(--k-accent-3);--k-chart-2:var(--k-accent-1);--k-chart-3:var(--k-accent-4);
+  --k-chart-4:var(--k-accent-2);--k-chart-5:var(--k-accent-5);
+}

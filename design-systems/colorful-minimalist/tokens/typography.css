@@ -1,0 +1,47 @@
+/* Colorful Minimalist — type scale.
+   Display = Instrument Sans, tight tracking, 600/700 only, never below 20px.
+   Text    = DM Sans 400/500.
+   Mono    = DM Mono, used ONLY for micro-labels (uppercase, wide tracking) and data. */
+:root{
+  /* families are declared in fonts.css: --font-display / --font-text / --font-mono */
+
+  --text-3xs:11px;
+  --text-2xs:12px;
+  --text-xs:13px;
+  --text-sm:15px;
+  --text-md:17px;
+  --text-lg:20px;
+  --text-xl:24px;
+  --display-sm:32px;
+  --display-md:44px;
+  --display-lg:64px;
+  --display-xl:92px;
+  --display-2xl:132px;
+
+  --leading-tight:0.94;
+  --leading-display:1.02;
+  --leading-snug:1.2;
+  --leading-body:1.55;
+  --leading-loose:1.7;
+
+  --tracking-display:-0.035em;
+  --tracking-display-tight:-0.045em;
+  --tracking-normal:0em;
+  --tracking-label:0.14em;
+  --tracking-label-wide:0.22em;
+
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-semibold:600;
+  --weight-bold:700;
+
+  /* semantic roles */
+  --type-hero:var(--weight-bold) var(--display-xl)/var(--leading-tight) var(--font-display);
+  --type-title:var(--weight-bold) var(--display-md)/var(--leading-display) var(--font-display);
+  --type-subtitle:var(--weight-semibold) var(--text-xl)/var(--leading-snug) var(--font-display);
+  --type-body:var(--weight-regular) var(--text-md)/var(--leading-body) var(--font-text);
+  --type-body-sm:var(--weight-regular) var(--text-sm)/var(--leading-body) var(--font-text);
+  --type-ui:var(--weight-medium) var(--text-sm)/1.2 var(--font-text);
+  --type-label:var(--weight-medium) var(--text-2xs)/1.1 var(--font-mono);
+  --type-data:var(--weight-regular) var(--text-sm)/1.4 var(--font-mono);
+}

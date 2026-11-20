@@ -1,0 +1,32 @@
+:root{
+/* ── Shadows: warm sepia, never grey, never tight. Light falls softly on
+      old paper, so every shadow is low-opacity and wide. ── */
+--sh-0:none; /* @kind shadow */
+--sh-1:0 1px 1px rgb(74 63 58 / .05); /* @kind shadow */
+--sh-2:0 1px 2px rgb(74 63 58 / .06),0 6px 16px -10px rgb(74 63 58 / .16); /* @kind shadow */
+--sh-3:0 2px 3px rgb(74 63 58 / .07),0 14px 30px -14px rgb(74 63 58 / .22); /* @kind shadow */
+--sh-4:0 4px 6px rgb(74 63 58 / .08),0 28px 56px -22px rgb(74 63 58 / .28); /* @kind shadow */
+--sh-5:0 8px 12px rgb(74 63 58 / .10),0 48px 96px -30px rgb(74 63 58 / .34); /* @kind shadow */
+--sh-lift:0 3px 4px rgb(74 63 58 / .08),0 20px 38px -18px rgb(74 63 58 / .26); /* @kind shadow */
+--sh-press:inset 0 1px 3px rgb(74 63 58 / .18); /* @kind shadow */
+
+/* ── The signature edge: white keyline + hairline, the look of a mounted
+      photograph or a letterpress card. ── */
+--edge-mount:inset 0 0 0 1px #FFFFFF,0 0 0 1px var(--rule-hair); /* @kind other */
+--edge-double:inset 0 0 0 1px #FFFFFF,inset 0 0 0 2px var(--rule-hair); /* @kind other */
+--edge-plate:inset 0 0 0 1px rgb(255 255 255 / .8),inset 0 0 0 5px transparent,inset 0 0 0 6px var(--rule-hair); /* @kind other */
+--edge-accent:inset 0 0 0 1px #FFFFFF,0 0 0 1px var(--accent-hair); /* @kind other */
+
+/* ── Inner shadow for wells and inputs ── */
+--inset-well:inset 0 1px 2px rgb(74 63 58 / .09),inset 0 0 0 1px var(--rule-hair); /* @kind other */
+--inset-deep:inset 0 2px 6px rgb(74 63 58 / .14); /* @kind other */
+
+/* ── Glow, used only in the game kit ── */
+--glow-accent:0 0 0 1px var(--accent-soft-2),0 0 18px -2px color-mix(in oklab,var(--accent) 55%,transparent); /* @kind other */
+
+/* ── Protection: the readable veil under type on imagery ── */
+--scrim-bottom:linear-gradient(to top,rgb(46 39 36 / .74) 0%,rgb(46 39 36 / .42) 42%,rgb(46 39 36 / 0) 100%); /* @kind other */
+--scrim-flat:rgb(46 39 36 / .52); /* @kind other */
+--veil-paper:linear-gradient(to top,rgb(253 251 247 / .95) 0%,rgb(253 251 247 / .72) 50%,rgb(253 251 247 / 0) 100%); /* @kind other */
+--blur-frost:blur(7px) saturate(.88); /* @kind other */
+}

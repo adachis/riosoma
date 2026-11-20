@@ -1,0 +1,32 @@
+:root{
+/* 4px base. The 1890s poster grid is generous — prefer the larger step when unsure. */
+--space-0:0;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;
+--space-6:24px;--space-8:32px;--space-10:40px;--space-12:48px;--space-16:64px;--space-20:80px;--space-24:96px;--space-32:128px;
+
+/* column gap in grids */
+--gutter:24px; /* @kind spacing */
+/* web + desktop page inset */
+--page-margin:40px; /* @kind spacing */
+--page-margin-mobile:20px; /* @kind spacing */
+/* print sheets */
+--print-margin:18mm; /* @kind spacing */
+
+/* web + desktop control heights */
+--control-h-sm:30px; /* @kind spacing */
+--control-h:38px; /* @kind spacing */
+--control-h-lg:48px; /* @kind spacing */
+/* mobile minimum hit target */
+--control-h-touch:48px; /* @kind spacing */
+--inset-control:0 16px; /* @kind spacing */
+--inset-control-lg:0 24px; /* @kind spacing */
+--inset-card:24px; /* @kind spacing */
+--inset-card-lg:32px; /* @kind spacing */
+--inset-panel:20px; /* @kind spacing */
+
+/* line-length caps */
+--measure-narrow:38ch; /* @kind other */
+--measure:62ch; /* @kind other */
+--measure-wide:78ch; /* @kind other */
+--max-content:1180px; /* @kind spacing */
+--max-prose:680px; /* @kind spacing */
+}

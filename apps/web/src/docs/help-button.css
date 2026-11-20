@@ -1,0 +1,26 @@
+@layer rio.components {
+  .rio-help-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+  .rio-help-heading > :first-child {
+    flex: 1;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  .rio-help-button {
+    flex: none;
+  }
+}
+
+@layer rio.components {
+  .rio-help-dialog-heading {
+    padding-inline-end: max(var(--rio-space-8), calc(var(--rio-target-primary) + var(--rio-space-2)));
+    flex: none;
+  }
+  .rio-help-dialog-heading .rio-dialog__title {
+    padding-inline-end: 0;
+  }
+}

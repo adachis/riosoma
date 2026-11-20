@@ -1,0 +1,7 @@
+/* Optical Illusion — webfonts.
+   No font binaries shipped with the source asset pack, so the three faces are
+   Google Fonts substitutions chosen to match the op-art source material:
+   Archivo (variable width axis) for the wide grotesque display voice,
+   Hanken Grotesk for geometric body text, Space Mono for labels + data.
+   Swap the @import for local @font-face rules if licensed binaries arrive. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");

@@ -1,0 +1,9 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "env": ["RIOSOMA_LOCALES"],
+      "inputs": ["$TURBO_EXTENDS$", "$TURBO_ROOT$/tools/locales.ts"]
+    }
+  }
+}

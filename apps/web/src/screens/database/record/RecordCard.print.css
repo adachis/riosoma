@@ -1,0 +1,80 @@
+@layer rio.app {
+  /*
+   * The browser's own Print, with a record open, prints the record rather than the screen behind
+   * it: every field at its full length, without the buttons, the comments, or the history.
+   */
+  @media print {
+    /* An open dialog locks the page's scrolling with an inline style, which would cut the
+       printout off after its first page. */
+    html:has(.rio-record-card) {
+      overflow: visible !important;
+    }
+
+    body:has(.rio-record-card) > :not(:has(> .rio-record-card)) {
+      display: none;
+    }
+
+    /* The scrim the card sits on becomes the page itself. */
+    body > :has(> .rio-record-card) {
+      position: static;
+      display: block;
+      padding: 0;
+      background: none;
+    }
+
+    .rio-record-card {
+      inline-size: auto;
+      block-size: auto;
+      max-block-size: none;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .rio-record-card .rio-dialog {
+      padding: 0;
+    }
+
+    .rio-record-card .rio-dialog__title {
+      white-space: normal;
+    }
+
+    .rio-record-card__body {
+      overflow: visible;
+    }
+
+    .rio-record-card__position,
+    .rio-record-card__navigation,
+    .rio-record-card__side {
+      display: none;
+    }
+
+    .rio-record-card__columns {
+      display: block;
+    }
+
+    .rio-record-card__row {
+      break-inside: avoid;
+      border-block-end: 1px solid var(--rio-border);
+    }
+
+    .rio-record-card__label span {
+      white-space: normal;
+    }
+
+    .rio-record-card__value,
+    .rio-record-card__choices,
+    .rio-record-card__long-text .rio-field__input {
+      block-size: auto;
+      max-block-size: none;
+      overflow: visible;
+    }
+
+    .rio-record-card__choices {
+      flex-wrap: wrap;
+    }
+
+    .rio-record-card__long-text .rio-field__input {
+      field-sizing: content;
+    }
+  }
+}

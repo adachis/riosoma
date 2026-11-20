@@ -1,0 +1,53 @@
+/* JMDS TYPE
+   Four voices: display (poster), core (interface + body), editorial (mincho),
+   mono (captions, labels, numerals). The system's defining move is extreme
+   size contrast — a 96px headline sitting directly against 11px mono caption
+   with nothing in between. Mid-sizes are deliberately thin in the scale. */
+:root{
+  /* Scale — poster jumps, not a linear ramp */
+  --text-2xs:10px;
+  --text-xs:11px;
+  --text-sm:13px;
+  --text-base:15px;
+  --text-md:17px;
+  --text-lg:21px;
+  --text-xl:27px;
+  --text-2xl:36px;
+  --text-3xl:48px;
+  --text-4xl:66px;
+  --text-5xl:92px;
+  --text-6xl:128px;
+  --text-poster:184px;
+
+  /* Line heights — display is set solid, body is generous */
+  --leading-solid:0.86;
+  --leading-tight:1.02;
+  --leading-snug:1.22;
+  --leading-body:1.62;
+  --leading-loose:1.85;
+
+  /* Tracking — display tightens, micro type opens right up */
+  --track-tight:-0.03em;
+  --track-snug:-0.015em;
+  --track-normal:0; /* @kind other */
+  --track-wide:0.06em;
+  --track-caps:0.14em;
+  --track-mega:0.26em;
+
+  /* Weights */
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-bold:700;
+  --weight-black:900;
+
+  /* Semantic roles */
+  --type-poster:var(--weight-black) var(--text-5xl)/var(--leading-solid) var(--font-display);
+  --type-display:var(--weight-black) var(--text-3xl)/var(--leading-tight) var(--font-display);
+  --type-headline:var(--weight-bold) var(--text-2xl)/var(--leading-tight) var(--font-core);
+  --type-title:var(--weight-bold) var(--text-lg)/var(--leading-snug) var(--font-core);
+  --type-body:var(--weight-regular) var(--text-base)/var(--leading-body) var(--font-core);
+  --type-body-sm:var(--weight-regular) var(--text-sm)/var(--leading-body) var(--font-core);
+  --type-quote:var(--weight-regular) var(--text-xl)/var(--leading-snug) var(--font-editorial);
+  --type-label:var(--weight-bold) var(--text-xs)/1 var(--font-mono);
+  --type-caption:var(--weight-regular) var(--text-xs)/var(--leading-snug) var(--font-mono);
+}

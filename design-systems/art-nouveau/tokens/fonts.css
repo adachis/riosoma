@@ -1,0 +1,18 @@
+/* Webfonts. Family names are role-based; source files are documented in readme.md → VISUAL FOUNDATIONS. */
+@font-face{font-family:"AN Display";src:url("../assets/fonts/VelvetCarousel-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Poster";src:url("../assets/fonts/ArtNouveau.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Title";src:url("../assets/fonts/Cajoles-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Title";src:url("../assets/fonts/Cajoles-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Title";src:url("../assets/fonts/Cajoles-Semibold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Title";src:url("../assets/fonts/Cajoles-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Text";src:url("../assets/fonts/Bankslab-ArtNouveau.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Label";src:url("../assets/fonts/Sauvage-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Label";src:url("../assets/fonts/Sauvage-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Accent";src:url("../assets/fonts/Capires-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Accent";src:url("../assets/fonts/Capires-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"AN Ornate";src:url("../assets/fonts/Melvca.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Editorial";src:url("../assets/fonts/Things-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Editorial";src:url("../assets/fonts/Things-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"AN Vine";src:url("../assets/fonts/Mosswick.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Stencil";src:url("../assets/fonts/Klear-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"AN Stencil Outline";src:url("../assets/fonts/Klear-Outline.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}

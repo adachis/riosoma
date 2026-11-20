@@ -1,0 +1,27 @@
+# Prometheus configuration for the test fleet.
+#
+# Only a few fleet members expose unauthenticated metrics, so the scrape list
+# is short on purpose.  Targets that are not running show up as down, which is
+# expected, because profiles start one at a time.  Add a target here when a
+# test needs to assert on scraped metrics.
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+  external_labels:
+    fleet: riosoma-test
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ['127.0.0.1:9090']
+
+  - job_name: influxdb2
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['influxdb2:8086']
+
+  - job_name: influxdb3
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['influxdb3:8181']

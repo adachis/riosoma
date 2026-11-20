@@ -1,0 +1,37 @@
+:root{
+/* Strokes. Lithography draws a contour first: nearly everything carries a visible line. */
+--stroke-hair:1px;--stroke:1.5px;--stroke-bold:2px;--stroke-heavy:3px;--stroke-plate:4px; /* @kind spacing */
+
+/* Radii. The signature move is the asymmetric "whiplash" corner — one corner opens, the
+   diagonal opposite stays tight. Never apply a uniform radius to a primary surface. */
+--radius-0:0;--radius-xs:2px;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--radius-pill:999px;
+--radius-whip:22px 3px 22px 3px;
+--radius-whip-alt:3px 22px 3px 22px;
+--radius-whip-sm:12px 2px 12px 2px;
+--radius-whip-lg:40px 4px 40px 4px;
+--radius-arch:999px 999px 4px 4px;      /* doorway / niche tops: buttons, hero plates */
+--radius-petal:60% 4px 60% 4px;         /* avatars, orbs, skill nodes */
+--radius-lozenge:50% / 22%;             /* cartouches, badges */
+
+/* Rules. A double rule (thin/thick pair) is the house divider. */
+--rule-hair:var(--stroke-hair) solid var(--line-hairline); /* @kind other */
+--rule:var(--stroke) solid var(--line-rule);
+--rule-strong:var(--stroke-bold) solid var(--line-strong); /* @kind other */
+--rule-gilt:var(--stroke) solid var(--line-gilt); /* @kind other */
+--rule-double:0 1px 0 0 var(--line-strong),0 4px 0 0 var(--line-hairline); /* @kind other */
+
+/* Shadows. Period print has no blur — depth comes from a hard offset plate.
+   Blur is reserved for things that genuinely float above the page (dialogs, sheets, tooltips). */
+--shadow-none:none;
+--shadow-letterpress:3px 3px 0 var(--line-hairline);
+--shadow-plate:6px 6px 0 var(--line-rule);
+--shadow-plate-gilt:6px 6px 0 var(--gilt);
+--shadow-hair:inset 0 0 0 1px var(--line-hairline);
+--shadow-gilt-inner:inset 0 1px 0 var(--gilt-2);
+--shadow-sunken:inset 0 2px 4px rgba(23,20,15,.16);
+--shadow-lifted:0 18px 34px -18px rgba(23,20,15,.42);
+--shadow-sheet:0 -12px 30px -14px rgba(23,20,15,.35);
+--shadow-glow-gilt:0 0 0 1px var(--gilt),0 0 18px -4px var(--gilt);
+
+--focus-ring:0 0 0 2px var(--surface-page),0 0 0 4px var(--accent); /* @kind shadow */
+}

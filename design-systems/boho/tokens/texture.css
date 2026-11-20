@@ -1,0 +1,23 @@
+:root{
+/* Pattern tiles live in assets/patterns/ and are passed as an explicit src, because a
+   relative url() inside a custom property resolves against the DOCUMENT, not the
+   stylesheet — so a token url would break at every directory depth. Use the tiles
+   directly: background-image:url(<your correct relative path>/assets/patterns/seamless-01.jpg)
+   and take size/blend/opacity from the tokens below. */
+--pattern-tile-sm:110px; /* @kind spacing */
+--pattern-tile-md:220px; /* @kind spacing */
+--pattern-tile-lg:520px; /* @kind spacing */
+--pattern-blend:multiply; /* @kind other */
+/* The supplied seamless JPGs are DARK-ground tiles (seamless-01 averages ~#60595c), so
+   these opacities are deliberately low — they are calibrated to keep a tinted cream ground
+   above 4.5:1 for body ink. A lighter tile can carry more; re-derive from the tile's mean
+   luminance rather than reusing these values blind. */
+--pattern-opacity-veil:.10; /* @kind other */
+--pattern-opacity-print:.10; /* @kind other */
+--grain:repeating-linear-gradient(115deg,rgba(46,42,38,.022) 0 1px,transparent 1px 3px); /* @kind other */
+--rib:repeating-linear-gradient(90deg,color-mix(in oklab,var(--line-hairline) 90%,transparent) 0 1px,transparent 1px 7px); /* @kind other */
+--sunray:repeating-conic-gradient(from 0deg,color-mix(in oklab,var(--brand-tertiary) 55%,transparent) 0deg 3deg,transparent 3deg 9deg); /* @kind other */
+--wash-warm:linear-gradient(180deg,var(--surface-page),var(--surface-sunken)); /* @kind other */
+--overlay-tint:color-mix(in oklab,var(--brand-deep) 42%,transparent); /* @kind other */
+--blur-veil:saturate(1.05) blur(14px); /* @kind other */
+}

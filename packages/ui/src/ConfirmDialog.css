@@ -1,0 +1,8 @@
+@layer rio.components {
+  /* A confirm dialog is one question with two answers, so the message sits closer to the title than
+     a general dialog's body does.  Both stay in the reading color: together they are the content,
+     not a caption under it. */
+  .rio-dialog.rio-confirm {
+    gap: var(--rio-space-3);
+  }
+}

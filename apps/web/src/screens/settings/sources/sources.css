@@ -1,0 +1,466 @@
+@layer rio.app {
+  .rio-sources {
+    display: grid;
+    align-content: start;
+    gap: var(--rio-space-5);
+  }
+
+  .rio-sources__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sources__empty {
+    display: grid;
+    justify-items: start;
+    gap: var(--rio-space-4);
+    padding: var(--rio-space-6);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+
+  .rio-sources__table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sources__table th,
+  .rio-sources__table td {
+    padding-block: var(--rio-space-3);
+    padding-inline: var(--rio-space-3) var(--rio-space-4);
+    border-block-end: 1px solid var(--rio-border);
+    text-align: start;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-sources__table thead th {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-sources__name {
+    display: grid;
+    gap: var(--rio-space-1);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-sources__kind {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-sources__kind-icon {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sources__where span {
+    display: block;
+  }
+
+  .rio-sources__row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--rio-space-1);
+  }
+
+  .rio-sources__dialog {
+    max-block-size: min(calc(100dvb - var(--rio-modal-top) - var(--rio-modal-bottom)), 900px);
+  }
+
+  /* The form sits between the dialog and its body, so it has to shrink for the body to scroll. */
+  .rio-sources__form {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+    min-block-size: 0;
+  }
+
+  .rio-sources__kind-line {
+    display: flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sources__kinds {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sources__kind-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: var(--rio-space-2);
+  }
+
+  .rio-sources__kind-button {
+    inline-size: 100%;
+    justify-content: flex-start;
+  }
+
+  .rio-sources__group,
+  .rio-sources__secrets {
+    display: grid;
+    gap: var(--rio-space-4);
+  }
+
+  .rio-sources__secret {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-3);
+    min-block-size: var(--rio-control-height);
+  }
+
+  .rio-sources__secret-name {
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-sources__app-key {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-sources__app-required {
+    margin-inline-start: var(--rio-space-2);
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-sources__app-key-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--rio-control-height);
+    min-block-size: var(--rio-control-height);
+    color: var(--rio-aa-link);
+    border-radius: var(--rio-radius);
+  }
+
+  .rio-sources__secret-actions {
+    display: flex;
+    gap: var(--rio-space-2);
+    margin-inline-start: auto;
+  }
+
+  /* A removal that hasn't been saved yet: the name stays, but it reads as taken back. */
+  .rio-sources__secret[data-removed] .rio-sources__secret-name {
+    color: var(--rio-aa-text-muted);
+    text-decoration: line-through;
+  }
+
+  /* Certificates and service account keys are blocks of text with their own line breaks. */
+  .rio-sources__pem textarea {
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sources__test {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sources__steps {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin: 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .rio-sources__step {
+    display: grid;
+    gap: var(--rio-space-1);
+    padding-block-end: var(--rio-space-3);
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-sources__step:last-child {
+    border-block-end: 0;
+    padding-block-end: 0;
+  }
+
+  .rio-sources__step-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+  }
+
+  .rio-sources__step-name {
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-sources__step-time {
+    margin-inline-start: auto;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rio-sources__step[data-status='ok'] .rio-sources__step-icon {
+    color: var(--rio-aa-success-text);
+  }
+
+  .rio-sources__step[data-status='failed'] .rio-sources__step-icon {
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-sources__step[data-status='skipped'] .rio-sources__step-icon {
+    color: var(--rio-aa-text-muted);
+  }
+
+  .rio-sources__step-message {
+    color: var(--rio-aa-danger-text);
+  }
+
+  .rio-sources__step-details {
+    justify-self: start;
+  }
+
+  .rio-sources__endpoints {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sources__endpoint-list {
+    display: grid;
+    gap: var(--rio-space-2);
+    margin: 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .rio-sources__endpoint {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-3);
+    padding-block: var(--rio-space-2);
+    border-block-end: 1px solid var(--rio-border);
+  }
+
+  .rio-sources__endpoint-text {
+    display: grid;
+    gap: var(--rio-space-1);
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-sources__endpoint-name {
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-sources__endpoint-path {
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sources__endpoint-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--rio-space-2);
+    margin-inline-start: auto;
+  }
+
+  .rio-sources__endpoint-add {
+    justify-self: start;
+  }
+
+  /* The endpoint being set up stands apart from the source's own settings around it. */
+  .rio-sources__endpoint-form {
+    display: grid;
+    gap: var(--rio-space-4);
+    padding: var(--rio-space-4);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+  }
+
+  .rio-sources__endpoint-preview {
+    display: grid;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-sources__endpoint-preview-title {
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-sources__preview {
+    overflow-x: auto;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sources__preview:focus-visible {
+    outline: none;
+    box-shadow: var(--rio-focus-ring);
+  }
+
+  .rio-sources__preview table {
+    min-inline-size: 100%;
+    border-collapse: collapse;
+  }
+
+  .rio-sources__preview th,
+  .rio-sources__preview td {
+    padding-block: var(--rio-space-1);
+    padding-inline: var(--rio-space-2);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  .rio-sources__preview th {
+    border-block-end: 1px solid var(--rio-border);
+    background-color: var(--rio-surface-sunken);
+    font-weight: var(--rio-weight-medium);
+  }
+
+  .rio-sources__preview tr + tr td {
+    border-block-start: 1px solid var(--rio-border);
+  }
+
+  /* One line per value: long ones end in an ellipsis instead of stretching their column. */
+  .rio-sources__preview-cell {
+    display: block;
+    max-inline-size: 14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rio-sources__preview-type {
+    display: block;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-xs);
+    font-weight: var(--rio-weight-regular);
+  }
+
+  @media (max-width: 767px) {
+    .rio-sources__table th,
+    .rio-sources__table td {
+      padding-inline: var(--rio-space-2);
+    }
+
+    .rio-sources__row-actions,
+    .rio-sources__endpoint-actions {
+      justify-content: flex-start;
+      margin-inline-start: 0;
+    }
+
+    .rio-sources__endpoint-form {
+      padding: var(--rio-space-3);
+    }
+  }
+
+  /* A service account's address beside the button that copies it. */
+  .rio-sources__share {
+    display: flex;
+    align-items: end;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sources__share-field {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  /* An Airtable source's bases, which can run to hundreds, so the list scrolls on its own. */
+  .rio-sources__bases {
+    display: grid;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sources__bases-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sources__bases-list .rio-checkbox-group__items {
+    max-block-size: calc(var(--rio-space-6) * 8);
+    overflow-y: auto;
+    padding: var(--rio-space-2);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+
+  /* A webhook's own settings, address, and delivery log. */
+  .rio-sources__note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-sources__hook {
+    display: grid;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-sources__hook-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-3);
+  }
+
+  .rio-sources__code {
+    margin: 0;
+    padding: var(--rio-space-3);
+    overflow-x: auto;
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    background: var(--rio-surface);
+    font-family: var(--rio-font-mono);
+    font-size: var(--rio-text-sm);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-sources__deliveries caption {
+    padding-block-end: var(--rio-space-2);
+    text-align: start;
+  }
+
+  .rio-sources__deliveries td:first-child {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+}
+
+.rio-drivers__entry {
+  display: grid;
+  gap: var(--rio-space-3);
+  padding: var(--rio-space-4);
+  border: 1px solid var(--rio-border);
+}
+.rio-drivers__license {
+  max-height: 24rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: var(--rio-space-3);
+  background: var(--rio-surface);
+  color: var(--rio-text);
+}
+.rio-drivers__upload {
+  display: grid;
+  gap: var(--rio-space-2);
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..700&family=Oswald:wght@300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap");
+/* Local display faces shipped with the system. Uppercase-heavy, decorative. */
+@font-face{font-family:"Machine Engraved";src:url("../assets/fonts/Machine.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Trill Plaque";src:url("../assets/fonts/Trill.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Underdove Blackletter";src:url("../assets/fonts/Underdove.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Izumi Poster";src:url("../assets/fonts/Izumi.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}

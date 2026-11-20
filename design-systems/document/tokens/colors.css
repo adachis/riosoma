@@ -1,0 +1,57 @@
+:root{
+  /* --- Paper (light neutral ramp, warm-neutral like uncoated stock) --- */
+  --paper-0:#ffffff;
+  --paper-1:#f8f8f6;
+  --paper-2:#f1f1ee;
+  --paper-3:#e7e7e2;
+  --paper-4:#dcdcd6;
+
+  /* --- Ink (near-black ramp; never pure #000) --- */
+  --ink-0:#0e0e0d;
+  --ink-1:#1c1c1a;
+  --ink-2:#3d3d39;
+  --ink-3:#5f5f59;
+  --ink-4:#84847c;
+  --ink-5:#a9a9a0;
+
+  /* --- Rules / hairlines --- */
+  --rule-hairline:#d8d8d2;
+  --rule-soft:#e7e7e2;
+  --rule-strong:#0e0e0d;
+
+  /* --- Semantic status (drawn from the brand palette set) --- */
+  --success:#2e5339;
+  --success-soft:#e7efe9;
+  --warning:#f8961e;
+  --warning-soft:#fdf0dd;
+  --danger:#e63946;
+  --danger-soft:#fce8ea;
+  --info:#457b9d;
+  --info-soft:#e8eef3;
+
+  /* --- Semantic aliases: text --- */
+  --text-display:var(--ink-0);
+  --text-body:var(--ink-1);
+  --text-secondary:var(--ink-3);
+  --text-muted:var(--ink-4);
+  --text-inverse:var(--paper-0);
+  --text-accent:var(--accent);
+
+  /* --- Semantic aliases: surface --- */
+  --surface-page:var(--paper-1);
+  --surface-card:var(--paper-0);
+  --surface-sunken:var(--paper-2);
+  --surface-inverse:var(--ink-0);
+  --surface-accent:var(--accent);
+  --surface-accent-soft:var(--accent-soft);
+
+  /* --- Semantic aliases: border --- */
+  --border-hairline:var(--rule-hairline);
+  --border-soft:var(--rule-soft);
+  --border-strong:var(--rule-strong);
+  --border-accent:var(--accent);
+
+  /* --- Focus --- */
+  --focus-ring:var(--ink-0);
+  --focus-ring-offset:2px; /* @kind spacing */
+}

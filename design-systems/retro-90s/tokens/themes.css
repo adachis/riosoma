@@ -1,0 +1,484 @@
+/* Colour scheme variants. Apply with data-theme="<id>" on any element (usually <html> or a preview wrapper).
+   Neutral paper / ink values are derived tints and shades of each palette's extremes where the source
+   palette supplies no usable neutral. Dark schemes (midnight) invert --text against --paper. */
+
+/* Arcade */
+[data-theme="arcade"]{
+  --ink:#22383B;
+  --ink-2:#5B7679;
+  --text:#22383B;
+  --text-2:#435551;
+  --paper:#DEDDC0;
+  --surface:#F4F1E1;
+  --surface-2:#C9C9A8;
+  --accent:#B7513C;
+  --on-accent:#FFF6EC;
+  --accent-2:#6DBF9E;
+  --on-accent-2:#22383B;
+  --accent-3:#F2B33D;
+  --on-accent-3:#22383B;
+  --accent-4:#3C7886;
+  --on-accent-4:#FFF6EC;
+  --success:#6DBF9E;
+  --on-success:#22383B;
+  --warning:#F2B33D;
+  --on-warning:#22383B;
+  --danger:#B7513C;
+  --on-danger:#FFF6EC;
+  --info:#3C7886;
+  --on-info:#FFF6EC;
+  --chrome:#B7513C;
+  --on-chrome:#FFF6EC;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Arcade"; /* @kind other */
+  --link:#2E5861; /* contrast-checked against --surface */
+  --wallpaper:#3C7886;
+  --on-wallpaper:#FFF6EC;
+  color:var(--text);
+}
+
+/* Spectrum */
+[data-theme="spectrum"]{
+  --ink:#223A47;
+  --ink-2:#577590;
+  --text:#223A47;
+  --text-2:#576567;
+  --paper:#FDF6E7;
+  --surface:#FFFFFF;
+  --surface-2:#F6E6C8;
+  --accent:#F94144;
+  --on-accent:#161615;
+  --accent-2:#277DA1;
+  --on-accent-2:#FFFFFE;
+  --accent-3:#F9C74F;
+  --on-accent-3:#223A47;
+  --accent-4:#43AA8B;
+  --on-accent-4:#2E2D2B;
+  --success:#90BE6D;
+  --on-success:#223A47;
+  --warning:#F8961E;
+  --on-warning:#223A47;
+  --danger:#F94144;
+  --on-danger:#161615;
+  --info:#4D908E;
+  --on-info:#161615;
+  --chrome:#277DA1;
+  --on-chrome:#FFFFFE;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Spectrum"; /* @kind other */
+  --link:#266C8B; /* contrast-checked against --surface */
+  --wallpaper:#277DA1;
+  --on-wallpaper:#FFFFFF;
+  color:var(--text);
+}
+
+/* Midnight */
+[data-theme="midnight"]{
+  --ink:#FFD60A;
+  --ink-2:#5C7FA3;
+  --text:#FFF7D6;
+  --text-2:#99A9A9;
+  --paper:#000814;
+  --surface:#001D3D;
+  --surface-2:#003566;
+  --accent:#FFC300;
+  --on-accent:#000814;
+  --accent-2:#003566;
+  --on-accent-2:#FFD60A;
+  --accent-3:#FFD60A;
+  --on-accent-3:#000814;
+  --accent-4:#001D3D;
+  --on-accent-4:#FFD60A;
+  --success:#3DDC97;
+  --on-success:#000814;
+  --warning:#FFC300;
+  --on-warning:#000814;
+  --danger:#FF4D4D;
+  --on-danger:#000814;
+  --info:#4D9DE0;
+  --on-info:#000814;
+  --chrome:#FFC300;
+  --on-chrome:#000814;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.30);
+  --bevel-dark:rgba(0,0,0,.55);
+  --theme-name:"Midnight"; /* @kind other */
+  --link:#FFC300; /* contrast-checked against --surface */
+  --wallpaper:#001D3D;
+  --on-wallpaper:#FFD60A;
+  color:var(--text);
+}
+
+/* Voltage */
+[data-theme="voltage"]{
+  --ink:#390099;
+  --ink-2:#7B4FD1;
+  --text:#2A0070;
+  --text-2:#755186;
+  --paper:#FFF3D9;
+  --surface:#FFFFFF;
+  --surface-2:#FFE7B0;
+  --accent:#FF0054;
+  --on-accent:#161614;
+  --accent-2:#390099;
+  --on-accent-2:#FFBD00;
+  --accent-3:#FFBD00;
+  --on-accent-3:#390099;
+  --accent-4:#9E0059;
+  --on-accent-4:#FFF3D9;
+  --success:#00B894;
+  --on-success:#2F2D29;
+  --warning:#FF5400;
+  --on-warning:#22211F;
+  --danger:#FF0054;
+  --on-danger:#161614;
+  --info:#390099;
+  --on-info:#FFBD00;
+  --chrome:#390099;
+  --on-chrome:#FFBD00;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Voltage"; /* @kind other */
+  --link:#9E0059; /* contrast-checked against --surface */
+  --wallpaper:#9E0059;
+  --on-wallpaper:#FFF3D9;
+  color:var(--text);
+}
+
+/* Sandlot */
+[data-theme="sandlot"]{
+  --ink:#1D3557;
+  --ink-2:#457B9D;
+  --text:#1D3557;
+  --text-2:#395672;
+  --paper:#F1FAEE;
+  --surface:#FFFFFF;
+  --surface-2:#A8DADC;
+  --accent:#E63946;
+  --on-accent:#0A0A0A;
+  --accent-2:#1D3557;
+  --on-accent-2:#F1FAEE;
+  --accent-3:#A8DADC;
+  --on-accent-3:#1D3557;
+  --accent-4:#1D3557;
+  --on-accent-4:#F1FAEE;
+  --success:#4CAF7D;
+  --on-success:#2D2E2C;
+  --warning:#F4A259;
+  --on-warning:#1D3557;
+  --danger:#E63946;
+  --on-danger:#0A0A0A;
+  --info:#1D3557;
+  --on-info:#F1FAEE;
+  --chrome:#1D3557;
+  --on-chrome:#F1FAEE;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Sandlot"; /* @kind other */
+  --link:#1D3557; /* contrast-checked against --surface */
+  --wallpaper:#1D3557;
+  --on-wallpaper:#F1FAEE;
+  color:var(--text);
+}
+
+/* Peach */
+[data-theme="peach"]{
+  --ink:#4A3C39;
+  --ink-2:#8A756F;
+  --text:#4A3C39;
+  --text-2:#64514E;
+  --paper:#F7EDE2;
+  --surface:#FFFFFF;
+  --surface-2:#F5CAC3;
+  --accent:#F28482;
+  --on-accent:#403532;
+  --accent-2:#84A59D;
+  --on-accent-2:#2E2C2A;
+  --accent-3:#F6BD60;
+  --on-accent-3:#4A3C39;
+  --accent-4:#F5CAC3;
+  --on-accent-4:#4A3C39;
+  --success:#84A59D;
+  --on-success:#2E2C2A;
+  --warning:#F6BD60;
+  --on-warning:#4A3C39;
+  --danger:#F28482;
+  --on-danger:#403532;
+  --info:#84A59D;
+  --on-info:#2E2C2A;
+  --chrome:#F6BD60;
+  --on-chrome:#4A3C39;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Peach"; /* @kind other */
+  --link:#525D59; /* contrast-checked against --surface */
+  --wallpaper:#F5CAC3;
+  --on-wallpaper:#4A3C39;
+  color:var(--text);
+}
+
+/* Campfire */
+[data-theme="campfire"]{
+  --ink:#233D4D;
+  --ink-2:#5A7383;
+  --text:#233D4D;
+  --text-2:#57676B;
+  --paper:#FBF3E4;
+  --surface:#FFFFFF;
+  --surface-2:#F2E3C6;
+  --accent:#FE7F2D;
+  --on-accent:#223A4A;
+  --accent-2:#619B8A;
+  --on-accent-2:#222120;
+  --accent-3:#FCCA46;
+  --on-accent-3:#233D4D;
+  --accent-4:#233D4D;
+  --on-accent-4:#FCCA46;
+  --success:#A1C181;
+  --on-success:#233D4D;
+  --warning:#FCCA46;
+  --on-warning:#233D4D;
+  --danger:#FE7F2D;
+  --on-danger:#223A4A;
+  --info:#619B8A;
+  --on-info:#222120;
+  --chrome:#233D4D;
+  --on-chrome:#FCCA46;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Campfire"; /* @kind other */
+  --link:#233D4D; /* contrast-checked against --surface */
+  --wallpaper:#233D4D;
+  --on-wallpaper:#FBF3E4;
+  color:var(--text);
+}
+
+/* Mintwave */
+[data-theme="mintwave"]{
+  --ink:#22577A;
+  --ink-2:#38A3A5;
+  --text:#123C55;
+  --text-2:#3F6B73;
+  --paper:#EEFCF2;
+  --surface:#FFFFFF;
+  --surface-2:#C7F9CC;
+  --accent:#38A3A5;
+  --on-accent:#212221;
+  --accent-2:#22577A;
+  --on-accent-2:#C7F9CC;
+  --accent-3:#80ED99;
+  --on-accent-3:#123C55;
+  --accent-4:#57CC99;
+  --on-accent-4:#123C55;
+  --success:#57CC99;
+  --on-success:#123C55;
+  --warning:#F2C14E;
+  --on-warning:#123C55;
+  --danger:#E4572E;
+  --on-danger:#151616;
+  --info:#22577A;
+  --on-info:#C7F9CC;
+  --chrome:#22577A;
+  --on-chrome:#C7F9CC;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Mintwave"; /* @kind other */
+  --link:#22577A; /* contrast-checked against --surface */
+  --wallpaper:#57CC99;
+  --on-wallpaper:#123C55;
+  color:var(--text);
+}
+
+/* Neon Fern */
+[data-theme="neonfern"]{
+  --ink:#2E5339;
+  --ink-2:#495F41;
+  --text:#21402A;
+  --text-2:#4D5C4A;
+  --paper:#FFF4F3;
+  --surface:#FFFFFF;
+  --surface-2:#FFCCC9;
+  --accent:#FF5666;
+  --on-accent:#222121;
+  --accent-2:#00FDDC;
+  --on-accent-2:#2E5339;
+  --accent-3:#2E5339;
+  --on-accent-3:#00FDDC;
+  --accent-4:#495F41;
+  --on-accent-4:#00FDDC;
+  --success:#00FDDC;
+  --on-success:#2E5339;
+  --warning:#FFB703;
+  --on-warning:#2E5339;
+  --danger:#FF5666;
+  --on-danger:#222121;
+  --info:#495F41;
+  --on-info:#00FDDC;
+  --chrome:#2E5339;
+  --on-chrome:#00FDDC;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Neon Fern"; /* @kind other */
+  --link:#495F41; /* contrast-checked against --surface */
+  --wallpaper:#495F41;
+  --on-wallpaper:#FFF4F3;
+  color:var(--text);
+}
+
+/* Bubblegum */
+[data-theme="bubblegum"]{
+  --ink:#2B2440;
+  --ink-2:#6B5F86;
+  --text:#2B2440;
+  --text-2:#6B5F69;
+  --paper:#FFF8E6;
+  --surface:#FFFFFF;
+  --surface-2:#FFE9C9;
+  --accent:#FF70A6;
+  --on-accent:#2B2440;
+  --accent-2:#70D6FF;
+  --on-accent-2:#2B2440;
+  --accent-3:#FFD670;
+  --on-accent-3:#2B2440;
+  --accent-4:#FF9770;
+  --on-accent-4:#2B2440;
+  --success:#7BD389;
+  --on-success:#2B2440;
+  --warning:#FFD670;
+  --on-warning:#2B2440;
+  --danger:#FF70A6;
+  --on-danger:#2B2440;
+  --info:#70D6FF;
+  --on-info:#2B2440;
+  --chrome:#FF70A6;
+  --on-chrome:#2B2440;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Bubblegum"; /* @kind other */
+  --link:#945948; /* contrast-checked against --surface */
+  --wallpaper:#FF9770;
+  --on-wallpaper:#2B2440;
+  color:var(--text);
+}
+
+/* Poolside */
+[data-theme="poolside"]{
+  --ink:#143D52;
+  --ink-2:#247BA0;
+  --text:#143D52;
+  --text-2:#345D68;
+  --paper:#F3FFBD;
+  --surface:#FFFFFF;
+  --surface-2:#B2DBBF;
+  --accent:#FF1654;
+  --on-accent:#161613;
+  --accent-2:#247BA0;
+  --on-accent-2:#F8FFDB;
+  --accent-3:#70C1B3;
+  --on-accent-3:#143D52;
+  --accent-4:#B2DBBF;
+  --on-accent-4:#143D52;
+  --success:#70C1B3;
+  --on-success:#143D52;
+  --warning:#F3D65A;
+  --on-warning:#143D52;
+  --danger:#FF1654;
+  --on-danger:#161613;
+  --info:#247BA0;
+  --on-info:#F8FFDB;
+  --chrome:#247BA0;
+  --on-chrome:#F8FFDB;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Poolside"; /* @kind other */
+  --link:#1D5F7D; /* contrast-checked against --surface */
+  --wallpaper:#B2DBBF;
+  --on-wallpaper:#143D52;
+  color:var(--text);
+}
+
+/* Playbill */
+[data-theme="playbill"]{
+  --ink:#083D77;
+  --ink-2:#3F6A99;
+  --text:#08243F;
+  --text-2:#495C65;
+  --paper:#EBEBD3;
+  --surface:#FFFFFF;
+  --surface-2:#E0E0BE;
+  --accent:#F95738;
+  --on-accent:#20201E;
+  --accent-2:#083D77;
+  --on-accent-2:#F4D35E;
+  --accent-3:#F4D35E;
+  --on-accent-3:#083D77;
+  --accent-4:#EE964B;
+  --on-accent-4:#08243F;
+  --success:#6BA368;
+  --on-success:#2C2C28;
+  --warning:#F4D35E;
+  --on-warning:#08243F;
+  --danger:#F95738;
+  --on-danger:#20201E;
+  --info:#083D77;
+  --on-info:#F4D35E;
+  --chrome:#083D77;
+  --on-chrome:#F4D35E;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Playbill"; /* @kind other */
+  --link:#083D77; /* contrast-checked against --surface */
+  --wallpaper:#EE964B;
+  --on-wallpaper:#083D77;
+  color:var(--text);
+}
+
+/* Sagebrush */
+[data-theme="sagebrush"]{
+  --ink:#3C493F;
+  --ink-2:#7E8D85;
+  --text:#2C362E;
+  --text-2:#404B43;
+  --paper:#F0F7F4;
+  --surface:#FFFFFF;
+  --surface-2:#B3BFB8;
+  --accent:#A2E3C4;
+  --on-accent:#2C362E;
+  --accent-2:#3C493F;
+  --on-accent-2:#A2E3C4;
+  --accent-3:#7E8D85;
+  --on-accent-3:#151616;
+  --accent-4:#B3BFB8;
+  --on-accent-4:#2C362E;
+  --success:#A2E3C4;
+  --on-success:#2C362E;
+  --warning:#D8C26A;
+  --on-warning:#2C362E;
+  --danger:#C4635A;
+  --on-danger:#0A0A0A;
+  --info:#7E8D85;
+  --on-info:#151616;
+  --chrome:#3C493F;
+  --on-chrome:#A2E3C4;
+  --shadow-ink:var(--ink);
+  --bevel-light:rgba(255,255,255,.82);
+  --bevel-dark:rgba(0,0,0,.26);
+  --theme-name:"Sagebrush"; /* @kind other */
+  --link:#3C493F; /* contrast-checked against --surface */
+  --wallpaper:#B3BFB8;
+  --on-wallpaper:#3C493F;
+  color:var(--text);
+}

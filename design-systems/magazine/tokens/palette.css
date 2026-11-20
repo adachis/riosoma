@@ -1,0 +1,122 @@
+/* Raw palette stops. Every theme exposes --p-1 … --p-n in source order. */
+:root{
+  --p-1: #1A1614;
+  --p-2: #D92B32;
+  --p-3: #E4B33A;
+  --p-4: #8C8074;
+  --p-5: #FAFAF8;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Press"; /* @kind other */
+}
+[data-theme="spectrum"]{
+  --p-1: #F94144;
+  --p-2: #F3722C;
+  --p-3: #F8961E;
+  --p-4: #F9844A;
+  --p-5: #F9C74F;
+  --p-6: #90BE6D;
+  --p-7: #43AA8B;
+  --p-8: #4D908E;
+  --p-9: #577590;
+  --p-10: #277DA1;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Spectrum"; /* @kind other */
+}
+[data-theme="midnight"]{
+  --p-1: #000814;
+  --p-2: #001D3D;
+  --p-3: #003566;
+  --p-4: #FFC300;
+  --p-5: #FFD60A;
+  --theme-mode: dark; /* @kind other */
+  --theme-name: "Midnight"; /* @kind other */
+}
+[data-theme="voltage"]{
+  --p-1: #390099;
+  --p-2: #9E0059;
+  --p-3: #FF0054;
+  --p-4: #FF5400;
+  --p-5: #FFBD00;
+  --theme-mode: dark; /* @kind other */
+  --theme-name: "Voltage"; /* @kind other */
+}
+[data-theme="broadsheet"]{
+  --p-1: #E63946;
+  --p-2: #F1FAEE;
+  --p-3: #A8DADC;
+  --p-4: #457B9D;
+  --p-5: #1D3557;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Broadsheet"; /* @kind other */
+}
+[data-theme="apricot"]{
+  --p-1: #F6BD60;
+  --p-2: #F7EDE2;
+  --p-3: #F5CAC3;
+  --p-4: #84A59D;
+  --p-5: #F28482;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Apricot"; /* @kind other */
+}
+[data-theme="almanac"]{
+  --p-1: #233D4D;
+  --p-2: #FE7F2D;
+  --p-3: #FCCA46;
+  --p-4: #A1C181;
+  --p-5: #619B8A;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Almanac"; /* @kind other */
+}
+[data-theme="verdigris"]{
+  --p-1: #22577A;
+  --p-2: #38A3A5;
+  --p-3: #57CC99;
+  --p-4: #80ED99;
+  --p-5: #C7F9CC;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Verdigris"; /* @kind other */
+}
+[data-theme="neonpine"]{
+  --p-1: #00FDDC;
+  --p-2: #2E5339;
+  --p-3: #495F41;
+  --p-4: #FF5666;
+  --p-5: #FFCCC9;
+  --theme-mode: dark; /* @kind other */
+  --theme-name: "Neon Pine"; /* @kind other */
+}
+[data-theme="sherbet"]{
+  --p-1: #70D6FF;
+  --p-2: #FF70A6;
+  --p-3: #FF9770;
+  --p-4: #FFD670;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Sherbet"; /* @kind other */
+}
+[data-theme="lagoon"]{
+  --p-1: #247BA0;
+  --p-2: #70C1B3;
+  --p-3: #B2DBBF;
+  --p-4: #F3FFBD;
+  --p-5: #FF1654;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Lagoon"; /* @kind other */
+}
+[data-theme="signal"]{
+  --p-1: #083D77;
+  --p-2: #EBEBD3;
+  --p-3: #F4D35E;
+  --p-4: #EE964B;
+  --p-5: #F95738;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Signal"; /* @kind other */
+}
+[data-theme="sage"]{
+  --p-1: #3C493F;
+  --p-2: #7E8D85;
+  --p-3: #B3BFB8;
+  --p-4: #F0F7F4;
+  --p-5: #A2E3C4;
+  --theme-mode: light; /* @kind other */
+  --theme-name: "Sage"; /* @kind other */
+}

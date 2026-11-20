@@ -1,0 +1,40 @@
+/* Effects — square corners, 1px rules, hard offset shadows, no soft elevation. */
+:root{
+--gl-radius:0;--gl-radius-round:999px;
+--gl-border-w:1px;--gl-border-w-thick:2px;
+--gl-border:var(--gl-border-w) solid var(--gl-line); /* @kind other */
+--gl-border-strong:var(--gl-border-w) solid var(--gl-line-strong); /* @kind other */
+--gl-border-accent:var(--gl-border-w) solid var(--gl-accent); /* @kind other */
+--gl-border-dashed:var(--gl-border-w) dashed var(--gl-line-strong); /* @kind other */
+/* marker underline — the system's only "highlight" treatment */
+--gl-mark:inset 0 -6px 0 0 var(--gl-highlight); /* @kind shadow */
+--gl-mark-thin:inset 0 -3px 0 0 var(--gl-highlight); /* @kind shadow */
+/* hard offsets stand in for elevation */
+--gl-shadow-hard:4px 4px 0 0 var(--gl-accent);
+--gl-shadow-hard-sm:2px 2px 0 0 var(--gl-accent);
+--gl-shadow-hard-ink:4px 4px 0 0 var(--gl-line-strong);
+--gl-shadow-inset:inset 0 0 0 1px var(--gl-line);
+--gl-glow:0 0 0 1px var(--gl-accent),0 0 18px -4px var(--gl-accent); /* @kind shadow */
+/* motion */
+--gl-ease:cubic-bezier(.2,.7,.3,1); /* @kind other */
+--gl-ease-step:steps(3,end); /* @kind other */
+--gl-dur-instant:80ms; /* @kind other */
+--gl-dur-fast:150ms; /* @kind other */
+--gl-dur:300ms; /* @kind other */
+--gl-dur-slow:600ms; /* @kind other */
+--gl-transition:all var(--gl-dur) var(--gl-ease); /* @kind other */
+/* transparency & blur — used only for overlays and HUD panels */
+--gl-blur:6px; /* @kind other */
+--gl-blur-heavy:14px; /* @kind other */
+--gl-veil:color-mix(in srgb,var(--gl-surface) 72%,transparent);
+--gl-veil-strong:color-mix(in srgb,var(--gl-surface) 92%,transparent);
+--gl-hud-fill:color-mix(in srgb,var(--gl-anchor-deep) 88%,transparent);
+/* z layers */
+--gl-z-base:1; /* @kind other */
+--gl-z-sticky:80; /* @kind other */
+--gl-z-header:100; /* @kind other */
+--gl-z-frame:105; /* @kind other */
+--gl-z-overlay:400; /* @kind other */
+--gl-z-modal:500; /* @kind other */
+--gl-z-toast:600; /* @kind other */
+}

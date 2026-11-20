@@ -1,0 +1,9 @@
+/* Webfonts.
+   Display: Anegra (local, assets/fonts/Anegra.woff2) — high-contrast deco poster face, one weight.
+   Text:    Banky Sans (local, assets/fonts/BankySans.otf) — humanist sans, one weight; 700 is synthesised.
+   Mono:    Space Mono (Google) — labels, readouts, tabular data.
+   Anegra and Banky Sans are single-weight, so this system gets its emphasis from size, case, colour
+   and the type treatments in tokens/typography.css — never from a weight ramp. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@font-face{font-family:"Anegra";src:url("../assets/fonts/Anegra.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Banky Sans";src:url("../assets/fonts/BankySans.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}

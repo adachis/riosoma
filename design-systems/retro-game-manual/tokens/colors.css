@@ -1,0 +1,44 @@
+:root{
+/* Console hardware palette — the fixed set every screen colour derives from. */
+--ds-hw-black:#000000;--ds-hw-gray-dk:#7c7c7c;--ds-hw-gray:#bcbcbc;--ds-hw-white:#fcfcfc;
+--ds-hw-blue-dk:#0000bc;--ds-hw-blue:#0078f8;--ds-hw-blue-lt:#3cbcfc;--ds-hw-blue-pale:#a4e4fc;
+--ds-hw-indigo:#4428bc;--ds-hw-violet:#6844fc;--ds-hw-lilac:#9878f8;
+--ds-hw-magenta:#d800cc;--ds-hw-pink:#f85898;--ds-hw-pink-lt:#f8a4c0;
+--ds-hw-red-dk:#a80020;--ds-hw-red:#e40058;--ds-hw-orange:#f83800;--ds-hw-orange-lt:#fca044;
+--ds-hw-gold:#ac7c00;--ds-hw-yellow:#f8b800;--ds-hw-cream:#f8d878;
+--ds-hw-lime:#b8f818;--ds-hw-green:#00b800;--ds-hw-green-lt:#58d854;--ds-hw-mint:#58f898;
+--ds-hw-teal:#008888;--ds-hw-cyan:#00e8d8;--ds-hw-cyan-lt:#00fcfc;
+
+/* Derived states — every theme inherits these formulas, so a theme only
+   declares its 14 base slots below. */
+--ds-primary-hover:color-mix(in oklab,var(--ds-primary) 84%,#000);
+--ds-primary-shadow:color-mix(in oklab,var(--ds-primary) 56%,#000);
+--ds-accent-hover:color-mix(in oklab,var(--ds-accent) 84%,#000);
+--ds-accent-shadow:color-mix(in oklab,var(--ds-accent) 56%,#000);
+--ds-success-hover:color-mix(in oklab,var(--ds-success) 84%,#000);
+--ds-success-shadow:color-mix(in oklab,var(--ds-success) 56%,#000);
+--ds-warning-hover:color-mix(in oklab,var(--ds-warning) 88%,#000);
+--ds-warning-shadow:color-mix(in oklab,var(--ds-warning) 60%,#000);
+--ds-danger-hover:color-mix(in oklab,var(--ds-danger) 84%,#000);
+--ds-danger-shadow:color-mix(in oklab,var(--ds-danger) 56%,#000);
+--ds-paper-hover:color-mix(in oklab,var(--ds-paper-2) 94%,#000);
+--ds-muted:color-mix(in oklab,var(--ds-ink) 42%,var(--ds-paper));
+--ds-line-soft:color-mix(in oklab,var(--ds-line) 34%,var(--ds-paper));
+--ds-tint-primary:color-mix(in oklab,var(--ds-primary) 14%,var(--ds-paper-2));
+--ds-tint-accent:color-mix(in oklab,var(--ds-accent) 14%,var(--ds-paper-2));
+--ds-tint-warning:color-mix(in oklab,var(--ds-warning) 22%,var(--ds-paper-2));
+--ds-tint-success:color-mix(in oklab,var(--ds-success) 16%,var(--ds-paper-2));
+--ds-tint-danger:color-mix(in oklab,var(--ds-danger) 12%,var(--ds-paper-2));
+--ds-disabled:#d3d3d3;
+--ds-disabled-shadow:#adafbc;
+
+/* Semantic aliases used by components */
+--ds-text-body:var(--ds-ink);
+--ds-text-quiet:var(--ds-ink-2);
+--ds-text-invert:var(--ds-paper-2);
+--ds-surface-page:var(--ds-paper);
+--ds-surface-card:var(--ds-paper-2);
+--ds-surface-sunk:var(--ds-paper-3);
+--ds-surface-plate:var(--ds-plate);
+--ds-surface-deep:var(--ds-deep);
+}

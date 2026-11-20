@@ -1,0 +1,14 @@
+/* Brutalist Neo — iconography.
+   The project's own Font Awesome kit is the documented source and should be
+   loaded by the host page:
+
+     <script src="https://kit.fontawesome.com/559791bdc6.js" crossorigin="anonymous"></script>
+
+   The kit renders SVG and needs its origin allow-listed. This @import adds the
+   Font Awesome 6 Free webfont from a public CDN as a fallback so `fa-solid`,
+   `fa-regular` and `fa-brands` still render in previews, sandboxes and offline
+   design tools where the kit's icon data cannot be fetched. Identical class
+   names, so nothing in the markup changes; when the kit does load, its SVG
+   replacement wins. Remove this file from styles.css once the kit is
+   allow-listed for your domain. */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');

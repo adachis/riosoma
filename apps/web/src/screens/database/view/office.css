@@ -1,0 +1,14 @@
+@layer rio.app {
+  .rio-office-download__body {
+    display: grid;
+    gap: var(--rio-space-4);
+    min-inline-size: 0;
+  }
+
+  .rio-office-download__note,
+  .rio-record-word__note {
+    margin: 0;
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+}

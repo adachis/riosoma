@@ -1,0 +1,7 @@
+@layer rio.app {
+  .rio-join {
+    display: grid;
+    gap: var(--rio-space-4);
+    inline-size: min(100%, 560px);
+  }
+}

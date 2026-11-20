@@ -1,0 +1,22 @@
+/* Groovy — corner radii. Nothing in this system is square by accident:
+   pills and arches carry the era. */
+:root{
+  --r-xs:6px; /* @kind radius */
+  --r-sm:10px; /* @kind radius */
+  --r-md:18px; /* @kind radius */
+  --r-lg:28px; /* @kind radius */
+  --r-xl:40px; /* @kind radius */
+  --r-pill:999px; /* @kind radius */
+  --r-arch:999px 999px var(--r-md) var(--r-md); /* @kind radius */
+  --r-arch-deep:50% 50% 8% 8% / 60% 60% 8% 8%; /* @kind radius */
+  --r-blob:62% 38% 44% 56% / 46% 58% 42% 54%; /* @kind radius */
+  --r-lozenge:999px / 60px; /* @kind radius */
+  /* organic radii — the fluid vocabulary. Four blobs so repeated shapes never rhyme. */
+  --r-blob-1:62% 38% 44% 56% / 46% 58% 42% 54%; /* @kind radius */
+  --r-blob-2:38% 62% 57% 43% / 55% 41% 59% 45%; /* @kind radius */
+  --r-blob-3:55% 45% 36% 64% / 62% 38% 62% 38%; /* @kind radius */
+  --r-blob-4:44% 56% 62% 38% / 40% 60% 40% 60%; /* @kind radius */
+  --r-petal:70% 30% 70% 30% / 30% 70% 30% 70%; /* @kind radius */
+  --r-leaf:0 999px 0 999px; /* @kind radius */
+  --r-pebble:36% 64% 58% 42% / 48% 44% 56% 52%; /* @kind radius */
+}

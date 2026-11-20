@@ -1,0 +1,12 @@
+{
+  "url": "/tables/{{riosomaSegment(payload.table, false)}}/records/{{riosomaSegment(payload.recordId, false)}}",
+  "method": "GET",
+  "qs": {
+    "shape": "airtable",
+    "fieldKey": "id"
+  },
+  "response": {
+    "valid": "{{statusCode == 200 || statusCode == 404}}",
+    "output": "{{riosomaRecord(body, payload)}}"
+  }
+}

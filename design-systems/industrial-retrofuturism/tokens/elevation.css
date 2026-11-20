@@ -1,0 +1,16 @@
+:root{
+  /* This system does not float. Flat UI is separated by hairlines, not shadow.
+     Shadows exist only to describe physical parts: keycaps, bevels, engravings. */
+  --shadow-none:none;
+  --shadow-key:0 1px 0 var(--grey-200),0 2px 3px rgba(0,0,0,.16);
+  --shadow-key-press:inset 0 1px 2px rgba(0,0,0,.32);
+  --shadow-key-dark:0 1px 0 #000,0 2px 3px rgba(0,0,0,.4);
+  --shadow-engraved:inset 0 1px 0 rgba(0,0,0,.28),inset 0 -1px 0 rgba(255,255,255,.55);
+  --shadow-bevel:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(0,0,0,.14);
+  --shadow-panel:0 1px 0 rgba(255,255,255,.55) inset,0 24px 48px -24px rgba(0,0,0,.22);
+  --shadow-display:inset 0 2px 6px rgba(0,0,0,.7);
+  --shadow-overlay:0 40px 80px -32px rgba(0,0,0,.45);
+  --glow-lamp:0 0 0 1px rgba(0,0,0,.25),0 0 7px 0px currentColor;
+
+  --focus-ring:0 0 0 var(--bw-heavy) var(--surface-page),0 0 0 4px var(--accent);
+}

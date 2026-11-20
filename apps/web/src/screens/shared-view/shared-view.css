@@ -1,0 +1,220 @@
+@layer rio.app {
+  .rio-shared-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--rio-space-4);
+    min-block-size: 100%;
+    padding-block: var(--rio-space-8);
+    padding-inline: var(--rio-space-4);
+    background: var(--rio-bg);
+    color: var(--rio-text);
+  }
+
+  /* Reading fills the window, so the view inside scrolls on its own and the page never does. */
+  .rio-shared-view[data-reading] {
+    align-items: stretch;
+    gap: var(--rio-space-3);
+    block-size: 100%;
+    padding-block: var(--rio-space-4);
+    overflow: hidden;
+  }
+
+  .rio-shared-view[data-framed] {
+    padding-block: var(--rio-space-2);
+    padding-inline: var(--rio-space-2);
+  }
+
+  .rio-shared-view__card {
+    display: grid;
+    gap: var(--rio-space-3);
+    justify-items: start;
+    min-inline-size: 0;
+    inline-size: 100%;
+    max-inline-size: 32rem;
+    padding-block: var(--rio-space-6);
+    padding-inline: var(--rio-space-6);
+    background: var(--rio-surface);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-shared-view__card h1,
+  .rio-shared-view__header h1 {
+    margin-block: 0;
+    font-family: var(--rio-font-display);
+    line-height: var(--rio-leading-tight);
+  }
+
+  .rio-shared-view__card h1 {
+    font-size: var(--rio-text-2xl);
+  }
+
+  .rio-shared-view__card p {
+    margin-block: 0;
+  }
+
+  .rio-shared-view__card .rio-field {
+    inline-size: 100%;
+  }
+
+  .rio-shared-view__kept {
+    display: grid;
+    gap: var(--rio-space-2);
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-shared-view__kept a {
+    color: var(--rio-aa-link);
+  }
+
+  .rio-shared-view__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rio-space-3);
+    min-inline-size: 0;
+  }
+
+  .rio-shared-view__header h1 {
+    min-inline-size: 0;
+    font-size: var(--rio-text-xl);
+    overflow-wrap: anywhere;
+  }
+
+  .rio-shared-view__tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+    min-inline-size: 0;
+  }
+
+  .rio-shared-view__search {
+    inline-size: 16rem;
+    max-inline-size: 100%;
+  }
+
+  .rio-shared-view__notice {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--rio-space-2);
+    color: var(--rio-aa-danger-text);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-shared-view__notice:empty {
+    display: none;
+  }
+
+  .rio-shared-view__body {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-block-size: 0;
+    min-inline-size: 0;
+    overflow: hidden;
+    background: var(--rio-surface);
+    border: 1px solid var(--rio-border);
+    border-radius: var(--rio-radius);
+  }
+
+  /* Without copying allowed, text can't be picked up and carried off by selecting it either. */
+  .rio-shared-view__body[data-copy='off'] {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Read-only: the view components' own controls for changing things have nothing to do here. */
+  .rio-shared-view .rio-gallery-view__actions,
+  .rio-shared-view [data-kanban-menu],
+  .rio-shared-view .rio-kanban__hidden {
+    display: none;
+  }
+
+  .rio-shared-view__footer {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+    text-align: center;
+  }
+
+  .rio-shared-view__record {
+    display: grid;
+    gap: var(--rio-space-3);
+    margin-block: 0;
+  }
+
+  .rio-shared-view__record dt {
+    color: var(--rio-aa-text-muted);
+    font-size: var(--rio-text-sm);
+  }
+
+  .rio-shared-view__record dd {
+    margin-inline: 0;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .rio-shared-view__long {
+    white-space: pre-wrap;
+  }
+
+  .rio-shared-view__files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rio-space-2);
+    margin-block: 0;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .rio-shared-view__files a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rio-space-2);
+    color: var(--rio-aa-link);
+  }
+
+  .rio-shared-view__files img {
+    block-size: var(--rio-control-height);
+    border-radius: var(--rio-radius);
+  }
+
+  .rio-shared-view :focus-visible {
+    outline: 2px solid var(--rio-aa-focus);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 480px) {
+    .rio-shared-view {
+      padding-block: var(--rio-space-4);
+      padding-inline: var(--rio-space-3);
+    }
+
+    .rio-shared-view__card {
+      padding-block: var(--rio-space-4);
+      padding-inline: var(--rio-space-4);
+    }
+
+    .rio-shared-view__tools,
+    .rio-shared-view__search {
+      inline-size: 100%;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .rio-shared-view__card,
+    .rio-shared-view__body {
+      border-color: CanvasText;
+    }
+
+    .rio-shared-view__notice {
+      color: CanvasText;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+/* Holographic — radius. Glass is thick, so corners are generous.
+   Nothing in this system is square except full-bleed media and print rules. */
+:root {
+  --r-xs: 6px; /* @kind radius */
+  --r-sm: 10px; /* @kind radius */
+  --r-md: 16px; /* @kind radius */
+  --r-lg: 22px; /* @kind radius */
+  --r-xl: 28px; /* @kind radius */
+  --r-2xl: 36px; /* @kind radius */
+  --r-3xl: 48px; /* @kind radius */
+  --r-pill: 999px; /* @kind radius */
+  --r-circle: 50%; /* @kind radius */
+
+  --r-control: var(--r-md); /* @kind radius */   /* inputs, selects */
+  --r-button: var(--r-pill); /* @kind radius */  /* buttons are capsules */
+  --r-card: var(--r-xl); /* @kind radius */
+  --r-panel: var(--r-2xl); /* @kind radius */
+  --r-sheet: var(--r-3xl); /* @kind radius */
+  --r-window: 12px; /* @kind radius */           /* desktop window chrome */
+  --r-phone: 44px; /* @kind radius */            /* device bezel inner */
+}

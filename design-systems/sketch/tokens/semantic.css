@@ -1,0 +1,49 @@
+/* Sketch — semantic aliases. Components reference THESE, not raw ink/paper. */
+:root{
+  /* text */
+  --text-body:var(--ink-1);
+  --text-muted:var(--ink-3);
+  --text-faint:var(--ink-4);
+  --text-inverse:var(--paper-4);
+  --text-link:var(--accent-deep);
+  --text-link-hover:var(--ink-1);
+  --text-accent:var(--accent-deep);
+  --text-annotation:var(--ink-2);
+
+  /* surfaces */
+  --surface-page:var(--paper-3);
+  --surface-card:var(--paper-4);
+  --surface-raised:var(--paper-5);
+  --surface-sunken:var(--paper-2);
+  --surface-fold:var(--paper-1);
+  --surface-inverse:var(--ink-1);
+  --surface-accent:var(--accent);
+  --surface-accent-soft:var(--accent-soft);
+  --surface-overlay:rgba(28,26,23,.42);
+
+  /* strokes */
+  --stroke-strong:var(--ink-1); /* @kind spacing */
+  --stroke-normal:var(--ink-2); /* @kind spacing */
+  --stroke-quiet:var(--ink-4); /* @kind spacing */
+  --stroke-rule:var(--rule); /* @kind spacing */
+  --stroke-draft:var(--graphite-soft); /* @kind spacing */
+  --stroke-accent:var(--accent); /* @kind spacing */
+
+  /* controls */
+  --control-face:var(--paper-4); /* @kind spacing */
+  --control-face-hover:var(--paper-5); /* @kind spacing */
+  --control-face-active:var(--accent-wash); /* @kind spacing */
+  --control-ink:var(--ink-1); /* @kind spacing */
+  --control-disabled-fill:var(--hatch-45-soft); /* @kind spacing */
+
+  /* fields */
+  --field-face:var(--paper-5);
+  --field-stroke:var(--ink-2);
+  --field-placeholder:var(--ink-4);
+
+  /* radii aliases by size of thing */
+  --radius-control:var(--wob-sm); /* @kind radius */
+  --radius-card:var(--wob-md); /* @kind radius */
+  --radius-panel:var(--wob-lg); /* @kind radius */
+  --radius-sheet:var(--wob-xl); /* @kind radius */
+}

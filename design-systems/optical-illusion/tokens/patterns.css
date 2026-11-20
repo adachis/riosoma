@@ -1,0 +1,74 @@
+/* Optical Illusion — the pattern system.
+   Six generated patterns (pure CSS, theme-aware) and four asset-backed
+   surfaces. Every generated pattern uses a --pitch-* period and the --op-*
+   band colors, so it re-tints with the active color scheme.
+   Rule of thumb: ONE pattern per view, behind type only when a protection
+   layer (.op-protect-*) sits between.
+   EVERY generated pattern honours --pattern-pitch. Set it on the element (or
+   pass OpticalSurface's pitch prop); the --*--fine / --broad modifiers are
+   shorthands for the same thing. Small containers need a small pitch: under
+   about 8 cells per axis a pattern reads as blocks, not a figure. */
+/* Declared on every element, not :root — a custom property containing var() is
+   substituted at computed-value time on the element carrying the declaration,
+   so a :root-only declaration resolves once against html's tokens and cannot
+   follow a [data-theme] scope further down the tree. */
+*,*::before,*::after{
+  --pattern-angle:45deg; /* @kind other */
+  --pattern-pitch:var(--pitch-mid);
+  --pattern-ink:var(--op-2);
+  --pattern-ground:var(--op-3);
+  --pattern-opacity:1; /* @kind other */
+}
+
+/* --- generated --- */
+.op-stripes{background-image:repeating-linear-gradient(var(--pattern-angle),var(--pattern-ink) 0 calc(var(--pattern-pitch) / 2),var(--pattern-ground) calc(var(--pattern-pitch) / 2) var(--pattern-pitch))}
+.op-stripes--hair{background-image:repeating-linear-gradient(var(--pattern-angle),var(--pattern-ink) 0 calc(var(--pitch-hair) / 2),var(--pattern-ground) calc(var(--pitch-hair) / 2) var(--pitch-hair))}
+.op-stripes--fine{background-image:repeating-linear-gradient(var(--pattern-angle),var(--pattern-ink) 0 calc(var(--pitch-fine) / 2),var(--pattern-ground) calc(var(--pitch-fine) / 2) var(--pitch-fine))}
+.op-stripes--wide{background-image:repeating-linear-gradient(var(--pattern-angle),var(--pattern-ink) 0 calc(var(--pitch-wide) / 2),var(--pattern-ground) calc(var(--pitch-wide) / 2) var(--pitch-wide))}
+.op-stripes--vertical{background-image:repeating-linear-gradient(90deg,var(--pattern-ink) 0 calc(var(--pattern-pitch) / 2),var(--pattern-ground) calc(var(--pattern-pitch) / 2) var(--pattern-pitch))}
+.op-stripes--horizontal{background-image:repeating-linear-gradient(0deg,var(--pattern-ink) 0 calc(var(--pattern-pitch) / 2),var(--pattern-ground) calc(var(--pattern-pitch) / 2) var(--pattern-pitch))}
+
+.op-checker{background-color:var(--pattern-ground);background-image:conic-gradient(var(--pattern-ink) 0 25%,transparent 0 50%,var(--pattern-ink) 0 75%,transparent 0);background-size:var(--pattern-pitch) var(--pattern-pitch)}
+.op-checker--fine{background-size:var(--pitch-fine) var(--pitch-fine)}
+.op-checker--broad{background-size:var(--pitch-broad) var(--pitch-broad)}
+
+/* Hermann grid — the ghost-blob illusion. Never put text on this, and never
+   under about 8 intersections per axis: below that it reads as blocks, not a
+   grid. Set --pattern-pitch to --pitch-mid or finer in small containers. */
+.op-hermann{background-color:var(--pattern-ink);background-image:linear-gradient(var(--pattern-ground) var(--border-strong),transparent 0),linear-gradient(90deg,var(--pattern-ground) var(--border-strong),transparent 0);background-size:var(--pattern-pitch) var(--pattern-pitch)}
+.op-hermann--broad{background-size:var(--pitch-broad) var(--pitch-broad)}
+
+/* concentric rings — the house motif */
+.op-concentric{background-color:var(--pattern-ground);background-image:repeating-radial-gradient(circle at var(--pattern-origin,50% 50%),var(--pattern-ink) 0 calc(var(--pattern-pitch) / 2),var(--pattern-ground) calc(var(--pattern-pitch) / 2) var(--pattern-pitch))}
+.op-concentric--corner{background-image:repeating-radial-gradient(circle at 0% 100%,var(--pattern-ink) 0 calc(var(--pattern-pitch) / 2),var(--pattern-ground) calc(var(--pattern-pitch) / 2) var(--pattern-pitch))}
+
+/* halftone dots that grow toward one edge */
+.op-halftone{background-color:var(--pattern-ground);background-image:radial-gradient(circle,var(--pattern-ink) 34%,transparent 36%);background-size:var(--pattern-pitch) var(--pattern-pitch);mask-image:linear-gradient(var(--pattern-angle),#000 0 35%,transparent 115%)}
+
+/* moire — two stripe fields at a small angular offset */
+.op-moire{background-image:repeating-linear-gradient(44deg,var(--pattern-ink) 0 2px,transparent 2px 7px),repeating-linear-gradient(48deg,var(--pattern-ink) 0 2px,transparent 2px 7px);background-color:var(--pattern-ground)}
+
+/* scanline overlay for game + video surfaces */
+.op-scanline{background-image:repeating-linear-gradient(0deg,color-mix(in oklab,var(--scrim-base) 26%,transparent) 0 1px,transparent 1px 3px)}
+
+/* --- asset-backed surfaces --- */
+.op-surface-contour{background:var(--paper-100) url("../assets/imagery/liquid-01.jpg") center/cover no-repeat}
+.op-surface-contour-alt{background:var(--paper-100) url("../assets/imagery/liquid-07.jpg") center/cover no-repeat}
+.op-surface-halftone{background:var(--paper-100) url("../assets/imagery/halftone-01.jpg") center/cover no-repeat}
+.op-surface-ripple{background:var(--paper-100) url("../assets/patterns/ripple-lines-01.png") center/cover no-repeat}
+.op-surface-checker{background:var(--paper-100) url("../assets/patterns/checkerboard-warp.jpg") center/480px repeat}
+.op-surface-diamond{background:var(--paper-100) url("../assets/patterns/diamond-illusion.jpg") center/360px repeat}
+
+/* --- protection layers: what makes type legal on a pattern --- */
+.op-protect-bottom{background-image:linear-gradient(to top,var(--surface-page) 0%,color-mix(in oklab,var(--surface-page) 82%,transparent) 46%,transparent 100%)}
+.op-protect-top{background-image:linear-gradient(to bottom,var(--surface-page) 0%,color-mix(in oklab,var(--surface-page) 82%,transparent) 46%,transparent 100%)}
+.op-protect-ink{background-image:linear-gradient(to top,var(--surface-inverse) 0%,color-mix(in oklab,var(--surface-inverse) 78%,transparent) 52%,transparent 100%)}
+/* the alternative to a gradient: an opaque capsule. Use on dense patterns. */
+.op-capsule{background:var(--surface-card);border:var(--border-strong) solid var(--line-strong);padding:var(--space-4) var(--space-6);box-shadow:var(--shadow-block-sm)}
+
+/* --- drift: the only ambient animation in the system --- */
+@keyframes op-drift{from{background-position:0 0}to{background-position:var(--pitch-broad) var(--pitch-broad)}}
+@keyframes op-drift-x{from{background-position:0 0}to{background-position:var(--pitch-broad) 0}}
+.op-drift{animation:op-drift var(--drift-loop) linear infinite}
+.op-drift-x{animation:op-drift-x var(--drift-loop) linear infinite}
+@media (prefers-reduced-motion:reduce){.op-drift,.op-drift-x{animation:none}}
