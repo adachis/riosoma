@@ -28,7 +28,7 @@
     "@riosoma/contracts": "workspace:*",
     "@riosoma/db": "workspace:*",
     "mongodb": "7.9.0",
-    "mssql": "12.7.14",
+    "mssql": "12.7.15",
     "mysql2": "3.24.6",
     "node-firebird": "2.21.0",
     "oracledb": "7.0.1",

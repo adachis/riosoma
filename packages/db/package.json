@@ -21,7 +21,7 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@aws-sdk/rds-signer": "3.1169.0",
+    "@aws-sdk/rds-signer": "3.1172.0",
     "@azure/identity": "4.14.1",
     "@riosoma/contracts": "workspace:*",
     "google-auth-library": "11.3.4",
