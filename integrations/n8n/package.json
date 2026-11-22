@@ -41,8 +41,8 @@
     ]
   },
   "devDependencies": {
-    "@n8n/eslint-plugin-community-nodes": "0.40.0",
-    "n8n-workflow": "2.48.2"
+    "@n8n/eslint-plugin-community-nodes": "0.41.0",
+    "n8n-workflow": "2.49.1"
   },
   "peerDependencies": {
     "n8n-workflow": "*"
