@@ -1,13 +1,13 @@
 # Releasing Riosoma
 
-Current release: **v0.95.0-rc.1**.
+Current release: **v0.95.0**.
 
 Development stays in `adachis/riosoma-dev`.  Each public release is a single commit containing the private checkout's files, without its development history.  Public tags in `adachis/riosoma` run the release workflow on GitHub-hosted runners.  The commands below describe publishing steps for a maintainer.  Preparing this pipeline does not run them.
 
 1. Choose a semantic version, with no leading `v`, from a clean private checkout.  Use Node 24 or later and the pnpm version in the root manifest.
 
    ```bash
-   VERSION=0.95.0-rc.1
+   VERSION=0.95.0
    node tools/release/version.mjs "$VERSION"
    ```
 

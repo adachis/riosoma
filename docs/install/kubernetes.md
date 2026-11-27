@@ -47,7 +47,7 @@ Write `values.yaml`:
 
 ```yaml
 image:
-  tag: '0.95.0-rc.1'
+  tag: '0.95.0'
 secret:
   existingSecret: riosoma-settings
 settings:
@@ -183,7 +183,7 @@ If your own Secret omits the key, the server stores it in `/config/riosoma.confi
 Back up the database, then upgrade.  Migrations run when the new pod starts.  See [Upgrades, backups, and rollbacks](upgrades.md).
 
 ```bash
-helm upgrade riosoma ./deploy/helm/riosoma -n riosoma -f values.yaml --set image.tag=0.95.0-rc.1
+helm upgrade riosoma ./deploy/helm/riosoma -n riosoma -f values.yaml --set image.tag=0.95.0
 kubectl -n riosoma rollout status deployment/riosoma --timeout=15m
 kubectl -n riosoma rollout status deployment/riosoma-connectors --timeout=5m
 kubectl -n riosoma logs deployment/riosoma | grep -E 'migrations applied|Server listening'

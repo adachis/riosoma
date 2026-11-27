@@ -20,7 +20,7 @@ Riosoma runs as a Cloud Run service, and its database is a Cloud SQL for Postgre
 ```bash
 PROJECT=$(gcloud config get-value project)
 REGION=us-central1
-VERSION=0.95.0-rc.1
+VERSION=0.95.0
 REPO=$REGION-docker.pkg.dev/$PROJECT/riosoma
 gcloud services enable run.googleapis.com sqladmin.googleapis.com artifactregistry.googleapis.com \
   secretmanager.googleapis.com servicenetworking.googleapis.com compute.googleapis.com
@@ -84,6 +84,8 @@ gcloud run deploy riosoma --region=$REGION --service-account=$SA \
   --min-instances=1 --max-instances=1 --no-cpu-throttling --timeout=3600 \
   --network=default --subnet=default --vpc-egress=private-ranges-only --allow-unauthenticated \
   --container=riosoma --image=$REPO/riosoma:$VERSION --port=8080 --cpu=1 --memory=2Gi \
+  --startup-probe=httpGet.path=/readyz,httpGet.port=8080,periodSeconds=10,failureThreshold=24,timeoutSeconds=5 \
+  --liveness-probe=httpGet.path=/healthz,httpGet.port=8080,periodSeconds=30,timeoutSeconds=5 \
   --set-secrets=RIOSOMA_SECRET_KEY=riosoma-secret-key:latest,RIOSOMA_DATABASE_URL=riosoma-database-url:latest,RIOSOMA_CONNECTOR_SERVICE_TOKEN=riosoma-connector-token:latest \
   --set-env-vars=RIOSOMA_TRUST_PROXY=1,RIOSOMA_CONNECTOR_SERVICE_URL=http://127.0.0.1:8091 \
   --container=connectors --image=$REPO/riosoma-connectors:$VERSION --cpu=1 --memory=1Gi \
@@ -91,6 +93,12 @@ gcloud run deploy riosoma --region=$REGION --service-account=$SA \
   --set-env-vars=RIOSOMA_CONNECTOR_SERVICE_HOST=127.0.0.1
 URL=$(gcloud run services describe riosoma --region=$REGION --format='value(status.url)')
 gcloud run services update riosoma --region=$REGION --container=riosoma --update-env-vars=RIOSOMA_BASE_URL=$URL
+```
+
+Cloud Run reserves some paths that end in `z`, so `/healthz` and `/readyz` don't answer from outside.  The probes above call them inside the instance instead, and Cloud Run sends traffic to a new revision only once `/readyz` reports the database reachable.  To check the service, look for a ready revision:
+
+```bash
+gcloud run services describe riosoma --region=$REGION --format='value(status.latestReadyRevisionName)'
 ```
 
 `--allow-unauthenticated` lets anyone reach the sign-in page, which is what a web app needs.  Riosoma handles its own sign-in.  Cloud Run ends TLS in front of the container, which is why `RIOSOMA_TRUST_PROXY` is `1`.
@@ -124,16 +132,16 @@ Cloud SQL backs up daily and keeps 14 backups, with point-in-time recovery, as c
 Back up, copy the new images, and deploy them.  Migrations run when the new revision starts.  See [Upgrades, backups, and rollbacks](upgrades.md).
 
 ```bash
-VERSION=0.95.0-rc.1
+VERSION=0.95.0
 gcloud sql backups create --instance=riosoma --description="before $VERSION"
 for image in riosoma riosoma-connectors; do
   docker pull --platform linux/amd64 ghcr.io/adachis/$image:$VERSION
   docker tag ghcr.io/adachis/$image:$VERSION $REPO/$image:$VERSION
   docker push $REPO/$image:$VERSION
 done
-gcloud run deploy riosoma --region=$REGION --container=riosoma --image=$REPO/riosoma:$VERSION \
+gcloud run deploy riosoma --region=$REGION --container=riosoma --image=$REPO/riosoma:$VERSION --port=8080 \
   --container=connectors --image=$REPO/riosoma-connectors:$VERSION
-curl -s $URL/healthz
+gcloud run services describe riosoma --region=$REGION --format='value(status.latestReadyRevisionName)'
 ```
 
 Cloud Run keeps the old revision serving until the new one is ready, so both run for a moment during the switch.

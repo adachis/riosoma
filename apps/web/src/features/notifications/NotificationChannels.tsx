@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useLingui } from '@lingui/react/macro';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import {
+  CommandId,
   DigestSchedule,
   newId,
   NOTIFICATION_CHANNELS,
@@ -58,6 +59,25 @@ type CommandInput = NotificationCommand extends infer C
   : never;
 export type SaveNotificationCommand = (command: CommandInput) => Promise<NotificationCommandResult>;
 
+const teamsConnectionErrors = new Map([
+  ['drives.connect.failed', 'notifications.connection.teamsFailed'],
+  ['drives.unavailable', 'notifications.connection.teamsUnavailable'],
+  ['drives.appRefused', 'notifications.connection.teamsAppRefused'],
+]);
+
+function readConnectionOutcome() {
+  const search = new URLSearchParams(window.location.search);
+  const connected = search.get('connected') === 'microsoft-teams';
+  const error = search.get('connectError');
+  const action = CommandId.safeParse(search.get('connectionAction'));
+  return {
+    connected,
+    error:
+      error && /^drives\.[A-Za-z.]{1,60}$/.test(error) ? (teamsConnectionErrors.get(error) ?? error) : null,
+    actionId: connected && action.success ? action.data : null,
+  };
+}
+
 export function NotificationChannels({
   preferences,
   shown,
@@ -74,7 +94,8 @@ export function NotificationChannels({
   const client = useQueryClient();
   const [failure, setFailure] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [lastAction, setLastAction] = useState<string | null>(null);
+  const [outcome] = useState(readConnectionOutcome);
+  const [lastAction, setLastAction] = useState(outcome.actionId);
   const [connectionDraft, setConnectionDraft] = useState<{
     channel: NotificationChannel;
     complete: boolean;
@@ -82,6 +103,10 @@ export function NotificationChannels({
   const connectionRequired = t({
     id: 'notifications.connection.required',
     message: 'Complete each field for this delivery connection.',
+  });
+  const teamsConnectionRequired = t({
+    id: 'notifications.connection.teamsRequired',
+    message: 'Sign in with Microsoft before turning on Teams delivery.',
   });
   const missingConnection = (value: NotificationChannelPreferences, channel: NotificationChannel) =>
     ['sms', 'slack', 'teams'].includes(channel) &&
@@ -125,9 +150,8 @@ export function NotificationChannels({
         if (!value) return null;
         if (!DigestSchedule.safeParse(value.digest).success)
           return t({ id: 'notifications.digest.invalidZone', message: 'Enter a valid time zone.' });
-        return NOTIFICATION_CHANNELS.some((channel) => missingConnection(value, channel))
-          ? connectionRequired
-          : null;
+        const missing = NOTIFICATION_CHANNELS.find((channel) => missingConnection(value, channel));
+        return missing === 'teams' ? teamsConnectionRequired : missing ? connectionRequired : null;
       },
     },
   );
@@ -193,9 +217,11 @@ export function NotificationChannels({
       />
     );
   const value = draft.value!;
+  const connectError = outcome.error ? { key: outcome.error } : null;
+  const connectedName = labels.teams;
   return (
     <>
-      <ErrorBanner error={failure ? { key: failure } : null} />
+      <ErrorBanner error={failure ? { key: failure } : value.canAdminister ? null : connectError} />
       <nav
         className="rio-notification-channels__links"
         aria-label={t({ id: 'notifications.sections', message: 'Notification sections' })}
@@ -308,6 +334,12 @@ export function NotificationChannels({
         <SettingItem definition={channelSettings.organization}>
           <section id="organization" className="rio-notification-channels__section">
             <h2>{t({ id: 'notifications.organization.title', message: 'Organization channels' })}</h2>
+            {outcome.connected && value.available.teams && (
+              <Banner tone="success">
+                {t({ id: 'drives.accounts.connected', message: `${connectedName} is connected.` })}
+              </Banner>
+            )}
+            <ErrorBanner error={connectError} />
             <p>
               {t({
                 id: 'notifications.organization.detail',
@@ -321,7 +353,13 @@ export function NotificationChannels({
                   isSelected={value.enabled[channel]}
                   isDisabled={busy}
                   isInvalid={missingConnection(value, channel)}
-                  description={missingConnection(value, channel) ? connectionRequired : undefined}
+                  description={
+                    missingConnection(value, channel)
+                      ? channel === 'teams'
+                        ? teamsConnectionRequired
+                        : connectionRequired
+                      : undefined
+                  }
                   onChange={(enabled) =>
                     run({ kind: 'notifications.organization', update: { enabled: { [channel]: enabled } } })
                   }
@@ -333,7 +371,8 @@ export function NotificationChannels({
             <NotificationConnections
               save={save}
               busy={busy}
-              available={value.available}
+              preferences={value}
+              showTeams={Boolean(outcome.connected || outcome.error)}
               onDraftChange={setConnectionDraft}
             />
           </section>

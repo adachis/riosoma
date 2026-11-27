@@ -134,27 +134,34 @@ export async function sendTeams(
   const recipient = Array.isArray(people) && people.length === 1 ? people[0] : undefined;
   if (typeof sender.id !== 'string') throw failed('me');
   if (typeof recipient?.id !== 'string') throw failed('users');
-  const chat = await json(
-    request,
-    `${root}/chats`,
-    {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        chatType: 'oneOnOne',
-        members: [...new Set([sender.id, recipient.id])].map((id) => ({
-          '@odata.type': '#microsoft.graph.aadUserConversationMember',
-          roles: ['owner'],
-          'user@odata.bind': `${root}/users('${encodeURIComponent(id)}')`,
-        })),
-      }),
-    },
-    'chats',
-  );
-  if (typeof chat.id !== 'string') throw failed('chats');
+  // Graph makes a one-on-one chat only between two people, so a notification for the connected
+  // account itself goes to that person's chat with themselves, which Teams calls 48:notes.
+  const chatId =
+    recipient.id === sender.id
+      ? '48:notes'
+      : (
+          await json(
+            request,
+            `${root}/chats`,
+            {
+              method: 'POST',
+              headers,
+              body: JSON.stringify({
+                chatType: 'oneOnOne',
+                members: [sender.id, recipient.id].map((id) => ({
+                  '@odata.type': '#microsoft.graph.aadUserConversationMember',
+                  roles: ['owner'],
+                  'user@odata.bind': `${root}/users('${encodeURIComponent(id)}')`,
+                })),
+              }),
+            },
+            'chats',
+          )
+        ).id;
+  if (typeof chatId !== 'string') throw failed('chats');
   await json(
     request,
-    `${root}/chats/${encodeURIComponent(chat.id)}/messages`,
+    `${root}/chats/${encodeURIComponent(chatId)}/messages`,
     {
       method: 'POST',
       headers,

@@ -3,6 +3,7 @@ import { randomBytes } from 'node:crypto';
 import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { LIVE_CONNECTOR_SETTINGS } from './connector_live_settings.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const packageRoot = join(root, 'packages/connectors');
@@ -37,7 +38,7 @@ export function fixtureGaps(kit, observed, results) {
 }
 
 async function fixtures(kit) {
-  await run(['exec', 'node', '--test', 'tools/connector_contract.test.mjs']);
+  await run(['exec', 'node', '--test', 'tools/connector_contract.test.mjs', 'tools/connector_live_accounts.test.mjs']);
   const reports = await mkdtemp(join(root, 'tools/.contract-reports-'));
   const env = { ...process.env, RIOSOMA_CONTRACT_REPORT_DIR: reports };
   try {
@@ -77,10 +78,77 @@ async function fixtures(kit) {
   }
 }
 
-export async function runLiveAdapters(kit, contracts, version, directory, suiteFailures = new Set()) {
+const SUITE_KINDS = [
+  [
+    packageRoot,
+    'contract-live.config.ts',
+    new Set([
+      'teradata', 'db2', 'informix', 'druid', 'trino', 'elasticsearch', 'opensearch', 'meilisearch',
+      'typesense', 'neo4j', 'influxdb', 'prometheus', 'motherduck', 'redshift', 'athena', 'app',
+      'dynamodb', 'couchdb', 'couchbase', 'firestore', 'cosmosdb',
+    ]),
+  ],
+  [
+    driversRoot,
+    'contract-live.config.ts',
+    new Set([
+      'postgres', 'mysql', 'sqlserver', 'oracle', 'firebird', 'mongodb', 'clickhouse',
+      'bigquery', 'databricks', 'snowflake',
+    ]),
+  ],
+  [
+    join(root, 'apps/server'),
+    'connector-contract-live.config.ts',
+    new Set([
+      'postgres', 'mongodb', 'bucket', 'airtable', 'google-sheets',
+      'sharepoint-list', 'excel-online', 'dataverse',
+    ]),
+  ],
+];
+
+export function parseKindFilter(raw, validKinds) {
+  if (raw === undefined || raw.trim() === '') return null;
+  const kinds = raw.split(',').map((item) => item.trim()).filter(Boolean);
+  if (!kinds.length) return null;
+  for (const kind of kinds) {
+    if (!validKinds.includes(kind)) throw new Error('sources.contract.unknownConnector');
+  }
+  return new Set(kinds);
+}
+
+export function filterEnvForKinds(env, kindsFilter, liveSettings = LIVE_CONNECTOR_SETTINGS) {
+  if (!kindsFilter) return env;
+  const copy = { ...env };
+  for (const [kind, descriptor] of Object.entries(liveSettings)) {
+    if (kindsFilter.has(kind)) continue;
+    delete copy[descriptor.json];
+    for (const key of descriptor.required) {
+      if (key !== 'RIOSOMA_TEST_DATABASE_URL') delete copy[key];
+    }
+  }
+  if (!kindsFilter.has('influxdb')) delete copy.RIOSOMA_TEST_INFLUXDB3_SETTINGS;
+  return copy;
+}
+
+export function selectVitestTargets(kindsFilter) {
+  return SUITE_KINDS.filter(([, , kinds]) => !kindsFilter || [...kindsFilter].some((kind) => kinds.has(kind)))
+    .map(([cwd, config]) => [cwd, config]);
+}
+
+export async function runLiveAdapters(
+  kit,
+  contracts,
+  version,
+  directory,
+  suiteFailures = new Set(),
+  kindsFilter = null,
+) {
   const outcomes = []
   const seen = new Set()
-  for (let adapter of contracts) {
+  const selected = kindsFilter
+    ? contracts.filter((adapter) => kindsFilter.has(adapter.connector.kind))
+    : contracts
+  for (let adapter of selected) {
     const { connector } = adapter
     kit.invariant(!seen.has(connector.kind), 'live.duplicate')
     seen.add(connector.kind)
@@ -124,30 +192,31 @@ export async function runLiveAdapters(kit, contracts, version, directory, suiteF
     }
   }
   for (const connector of kit.SHIPPED_CONNECTORS)
-    if (!seen.has(connector)) outcomes.push({ connector, status: 'unconfigured' })
+    if ((!kindsFilter || kindsFilter.has(connector)) && !seen.has(connector))
+      outcomes.push({ connector, status: 'unconfigured' })
   return outcomes
 }
 
 async function live(kit, version) {
   // Existing account suites provide additional service-specific coverage when configured.
+  const kindsFilter = parseKindFilter(process.env.RIOSOMA_CONTRACT_KINDS, kit.SHIPPED_CONNECTORS);
+  const targets = selectVitestTargets(kindsFilter);
   let suitesPassed = true;
   const suiteFailures = new Set();
   const reports = await mkdtemp(join(root, 'tools/.contract-live-reports-'));
+  const needsPostgres = !kindsFilter || targets.length > 0 || kindsFilter.has('postgres');
   const { startTestPostgres } = await import(
     pathToFileURL(join(root, 'packages/testkit/dist/index.js')).href
   );
   // A distinct credential avoids collisions with diagnostic keys and authenticates the local fleet.
-  const postgres = process.env.RIOSOMA_TEST_DATABASE_URL
+  const postgres = !needsPostgres || process.env.RIOSOMA_TEST_DATABASE_URL
     ? undefined
     : await startTestPostgres({ password: randomBytes(24).toString('hex') });
-  const env = { ...process.env, RIOSOMA_CONTRACT_REPORT_DIR: reports,
+  const filteredEnv = filterEnvForKinds(process.env, kindsFilter);
+  const env = { ...filteredEnv, RIOSOMA_CONTRACT_REPORT_DIR: reports,
     ...(postgres ? { RIOSOMA_TEST_DATABASE_URL: postgres.url } : {}) };
   try {
-    for (const [index, [cwd, config]] of [
-      [packageRoot, 'contract-live.config.ts'],
-      [driversRoot, 'contract-live.config.ts'],
-      [join(root, 'apps/server'), 'connector-contract-live.config.ts'],
-    ].entries()) {
+    for (const [index, [cwd, config]] of targets.entries()) {
       const output = join(reports, `${index}.json`);
       try {
         await run(['exec', 'vitest', 'run', '--config', config, '--maxWorkers=3',
@@ -173,7 +242,7 @@ async function live(kit, version) {
   const contracts =
     typeof configured.contracts === 'function' ? await configured.contracts() : configured.contracts;
   kit.invariant(Array.isArray(contracts), 'live.adapters');
-  const outcomes = await runLiveAdapters(kit, contracts, version, certificates, suiteFailures);
+  const outcomes = await runLiveAdapters(kit, contracts, version, certificates, suiteFailures, kindsFilter);
   if (outcomes.some((outcome) => outcome.status === 'failed')) process.exitCode = 1;
   process.stdout.write(`${JSON.stringify({ mode, suitesPassed, outcomes }, null, 2)}\n`);
 }

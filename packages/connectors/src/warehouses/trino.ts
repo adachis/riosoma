@@ -23,7 +23,7 @@ import {
   type HttpFetch,
 } from './http.js';
 import { describeColumn, type Described, type TypeClass } from './mapping.js';
-import { guard, literal, quotePath, TRINO } from './sql.js';
+import { guard, guardedSelect, literal, quotePath, TRINO } from './sql.js';
 import { exactInteger, ownSchemaFirst, textOr, wholeNumber } from './values.js';
 
 /**
@@ -600,11 +600,15 @@ class TrinoSession implements WarehouseSession {
           `${trinoProjection(entry, TRINO.quote(entry.column.name))} AS ${TRINO.quote(entry.column.name)}`,
       )
       .join(', ');
-    const from =
+    const max = limit === undefined ? undefined : positive(limit, 50);
+    const sql =
       select.kind === 'object'
-        ? quotePath([this.settings.catalog, this.schemaOf(select.object), select.object.name], TRINO)
-        : guard(select.sql, TRINO);
-    const sql = `SELECT ${projection} FROM ${from}${limit === undefined ? '' : ` LIMIT ${positive(limit, 50)}`}`;
+        ? `SELECT ${projection} FROM ${quotePath([this.settings.catalog, this.schemaOf(select.object), select.object.name], TRINO)}${max === undefined ? '' : ` LIMIT ${max}`}`
+        : guardedSelect(select.sql, projection, TRINO, {
+            limit: max,
+            columns: columns.map((entry) => entry.column.name),
+            qualifyOrder: true,
+          });
     for await (const page of this.pages(sql, true))
       if (page.data && page.data.length > 0)
         yield page.data.map((values) =>

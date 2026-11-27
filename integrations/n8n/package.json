@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-riosoma",
-  "version": "0.95.0-rc.1",
+  "version": "0.95.0",
   "description": "Read and write Riosoma records from n8n workflows, and start workflows when records change.",
   "license": "MIT",
   "homepage": "https://github.com/adachis/riosoma/tree/main/integrations/n8n",

@@ -46,7 +46,7 @@ umask 077
 cp .env.example .env
 cat >> .env <<EOF
 COMPOSE_PROFILES=postgres,caddy,backup
-RIOSOMA_IMAGE=ghcr.io/adachis/riosoma:0.95.0-rc.1
+RIOSOMA_IMAGE=ghcr.io/adachis/riosoma:0.95.0
 CADDY_DOMAIN=riosoma.example.com
 RIOSOMA_BASE_URL=https://riosoma.example.com
 RIOSOMA_TRUST_PROXY=172.30.52.2
@@ -113,8 +113,8 @@ The listening address, port, version, production mode, config directory, web dir
 | Variable | Default | Meaning |
 |---|---|---|
 | `COMPOSE_PROFILES` | none | Profiles to run, comma-separated |
-| `RIOSOMA_IMAGE` | `ghcr.io/adachis/riosoma:0.95.0-rc.1` | The image.  Pin a release. |
-| `RIOSOMA_CONNECTORS_IMAGE` | `ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1` | The connector service's image.  Pin the same release as `RIOSOMA_IMAGE`. |
+| `RIOSOMA_IMAGE` | `ghcr.io/adachis/riosoma:0.95.0` | The image.  Pin a release. |
+| `RIOSOMA_CONNECTORS_IMAGE` | `ghcr.io/adachis/riosoma-connectors:0.95.0` | The connector service's image.  Pin the same release as `RIOSOMA_IMAGE`. |
 | `RIOSOMA_PUBLISH` | `127.0.0.1:8080` | The host address and port for Riosoma |
 | `POSTGRES_PASSWORD` | none | The bundled PostgreSQL's password, required with the `postgres` profile |
 | `CADDY_DOMAIN` | none | The domain Caddy serves, required with the `caddy` profile |
@@ -159,8 +159,8 @@ Migrations run when the new release starts, so back up first.  See [Upgrades, ba
 
 ```bash
 docker compose run --rm backup once
-sed -i.bak -e 's|^RIOSOMA_IMAGE=.*|RIOSOMA_IMAGE=ghcr.io/adachis/riosoma:0.95.0-rc.1|' \
-  -e 's|^RIOSOMA_CONNECTORS_IMAGE=.*|RIOSOMA_CONNECTORS_IMAGE=ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1|' .env
+sed -i.bak -e 's|^RIOSOMA_IMAGE=.*|RIOSOMA_IMAGE=ghcr.io/adachis/riosoma:0.95.0|' \
+  -e 's|^RIOSOMA_CONNECTORS_IMAGE=.*|RIOSOMA_CONNECTORS_IMAGE=ghcr.io/adachis/riosoma-connectors:0.95.0|' .env
 docker compose pull riosoma connectors
 docker compose up -d --wait --wait-timeout 600
 docker compose logs riosoma | grep -E 'migrations applied|Server listening'

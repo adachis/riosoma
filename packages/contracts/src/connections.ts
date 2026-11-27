@@ -36,6 +36,9 @@ export const CONNECTED_PROVIDERS = [
 export const ConnectedProvider = z.enum(CONNECTED_PROVIDERS);
 export type ConnectedProvider = z.infer<typeof ConnectedProvider>;
 
+export const IntegrationProvider = z.enum([...CONNECTED_PROVIDERS, 'microsoft-teams']);
+export type IntegrationProvider = z.infer<typeof IntegrationProvider>;
+
 /** The drives with Riosoma's own picker.  Google Drive uses Google's. */
 export const BROWSED_PROVIDERS = ['dropbox', 'box'] as const;
 export const BrowsedProvider = z.enum(BROWSED_PROVIDERS);
@@ -130,7 +133,7 @@ export type ImportEvent = z.infer<typeof ImportEvent>;
 
 /** A provider's app, as admin settings show it.  Secrets go in and never come back out. */
 export const IntegrationView = z.object({
-  provider: ConnectedProvider,
+  provider: IntegrationProvider,
   tenantId: z.string().default(''),
   clientId: z.string(),
   hasSecret: z.boolean(),

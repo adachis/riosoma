@@ -4,7 +4,7 @@ import { ConnectorError } from '../types.js';
 import type { WarehouseSession } from '../warehouses/frame.js';
 import type { Described } from '../warehouses/mapping.js';
 import { objectMissing } from '../warehouses/errors.js';
-import { guard, TRINO } from '../warehouses/sql.js';
+import { guardedSelect, TRINO } from '../warehouses/sql.js';
 import { type EngineHttp, record, records, nameOf, type Row } from './http.js';
 import { engineColumn, sampled } from './search.js';
 
@@ -427,10 +427,16 @@ export class GraphMetricsSession implements WarehouseSession {
             : `from(bucket: ${fluxString(settings.database)}) |> ${window} |> filter(fn: (r) => r._measurement == ${fluxString(select.object.name)}) |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")${preview === undefined ? '' : ` |> limit(n: ${preview})`}`,
         );
       } else {
-        const source =
-          select.kind === 'query' ? `(${guard(select.sql, TRINO)})` : TRINO.quote(select.object.name);
+        const bounds = `time >= '${this.start}' AND time < '${this.end}'`;
+        const rowLimit = Number.isFinite(limit) ? limit : undefined;
         rows = await this.sql(
-          `SELECT * FROM ${source} AS rio_source WHERE time >= '${this.start}' AND time < '${this.end}' ORDER BY time${Number.isFinite(limit) ? ` LIMIT ${limit}` : ''}`,
+          select.kind === 'query'
+            ? guardedSelect(select.sql, '*', TRINO, {
+                where: bounds,
+                defaultOrder: 'time',
+                limit: rowLimit,
+              })
+            : `SELECT * FROM ${TRINO.quote(select.object.name)} AS rio_source WHERE ${bounds} ORDER BY time${rowLimit === undefined ? '' : ` LIMIT ${rowLimit}`}`,
         );
       }
       rows = rows.map((row) => ({ ...row, _timeKey: row._time ?? row.time ?? null }));

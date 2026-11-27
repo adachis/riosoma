@@ -117,6 +117,19 @@ export interface TestPostgresOptions {
   password?: string;
   /** PEM material copied into the private cluster with restricted key permissions. */
   tls?: { certPem: string; keyPem: string };
+  /** Where a private cluster's port comes from, which only the kit's own tests choose. */
+  choosePort?: () => Promise<number>;
+}
+
+/** How many ports a private cluster tries when something else takes each one before it can. */
+const PORT_ATTEMPTS = 5;
+
+/**
+ * Whether a postmaster's log says it couldn't listen because something else had the address.
+ * The cluster runs with the C locale, so the message is PostgreSQL's English one.
+ */
+function addressTaken(log: string): boolean {
+  return /could not bind IPv4 address "127\.0\.0\.1": Address already in use/.test(log);
 }
 
 /** True while a process with this ID exists, including ones owned by other users. */
@@ -195,7 +208,8 @@ async function sweepOrphanSegments(): Promise<void> {
 
 export async function startTestPostgres(options: TestPostgresOptions = {}): Promise<TestPostgres> {
   const external = process.env.RIOSOMA_TEST_DATABASE_URL;
-  if (external && !options.password && !options.tls) return makeKit(external, async () => undefined);
+  if (external && !options.password && !options.tls && !options.choosePort)
+    return makeKit(external, async () => undefined);
 
   const bin = findBin();
   await sweepAbandoned(bin);
@@ -203,7 +217,8 @@ export async function startTestPostgres(options: TestPostgresOptions = {}): Prom
   // Recorded so a later run can stop this cluster if this process dies without cleaning up.
   writeFileSync(join(dir, 'owner.pid'), String(process.pid));
   const data = join(dir, 'data');
-  const port = await freePort();
+  const log = join(dir, 'server.log');
+  let port = 0;
   // macOS refuses to start the postmaster without an explicit locale in the environment.
   const env = { ...process.env, LC_ALL: 'C', LANG: 'C' };
   try {
@@ -229,20 +244,35 @@ export async function startTestPostgres(options: TestPostgresOptions = {}): Prom
       writeFileSync(join(data, 'server.key'), options.tls.keyPem, { mode: 0o600 });
       appendFileSync(join(data, 'postgresql.conf'), '\nssl = on\n');
     }
-    await run(
-      join(bin, 'pg_ctl'),
-      [
-        '-D',
-        data,
-        '-l',
-        join(dir, 'server.log'),
-        '-w',
-        '-o',
-        `-p ${port} -k ${dir} -c listen_addresses=127.0.0.1 -c fsync=off -c synchronous_commit=off -c full_page_writes=off`,
-        'start',
-      ],
-      { env },
-    );
+    // The port comes from a listener that closes before the postmaster binds it, since a server in
+    // another process can't take over a socket bound here, and anything on the machine can take
+    // the port in between.  When the postmaster's log says that happened, it starts on another
+    // port.  Every other failure ends the start.
+    for (let attempt = 1; ; attempt++) {
+      port = await (options.choosePort ?? freePort)();
+      const before = existsSync(log) ? readFileSync(log, 'utf8').length : 0;
+      try {
+        await run(
+          join(bin, 'pg_ctl'),
+          [
+            '-D',
+            data,
+            '-l',
+            log,
+            '-w',
+            '-o',
+            `-p ${port} -k ${dir} -c listen_addresses=127.0.0.1 -c fsync=off -c synchronous_commit=off -c full_page_writes=off`,
+            'start',
+          ],
+          { env },
+        );
+        break;
+      } catch (error) {
+        const said = existsSync(log) ? readFileSync(log, 'utf8').slice(before) : '';
+        if (attempt < PORT_ATTEMPTS && addressTaken(said)) continue;
+        throw error;
+      }
+    }
   } catch (error) {
     rmSync(dir, { recursive: true, force: true });
     throw error;

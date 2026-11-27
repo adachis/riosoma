@@ -1,4 +1,5 @@
 import { FixtureBoundary } from '../contract/boundary.test-support.js';
+import { contractAdapter } from '../contract/adapter.js';
 import { strictFixture } from '../contract/strict.test-support.js';
 import { randomBytes, randomUUID } from 'node:crypto';
 import { describe, expect, it, vi } from 'vitest';
@@ -18,7 +19,7 @@ import { liveKeys, liveMatching, liveRows, type LiveTarget } from '../live/reade
 import { nativeRows, searchKeys, searchRows } from './reader.js';
 import { registerConnector, sourceKey } from '../registry.js';
 import { analyticsHost } from '../warehouses/index.js';
-import type { ConnectorContext } from '../types.js';
+import { ConnectorError, type ConnectorContext } from '../types.js';
 
 const endpoint = () => `https://${randomUUID()}.invalid`;
 const secret = () => randomBytes(24).toString('base64url');
@@ -487,6 +488,39 @@ describe('graph and metrics responses', () => {
     expect(rows).toEqual([{ name: 'A', _id: 'node-a', '_links.OWNS.Asset': ['node-b'] }]);
     await session.close();
   });
+  it('bounds InfluxDB 3 SQL queries to the time range without duplicating aliases', async () => {
+    const queries: string[] = [];
+    const session = new GraphMetricsSession(
+      new EngineHttp(
+        {
+          connection: connection('influxdb', {
+            version: '3',
+            start: '2026-01-01T00:00:00Z',
+            end: '2026-01-02T00:00:00Z',
+          }),
+          secrets: {},
+        },
+        {
+          fetch: async (_url, init) => {
+            const body = JSON.parse(String(init.body)) as { q: string };
+            queries.push(body.q);
+            return response([{ time: '2026-01-01T01:00:00Z', amount: 25 }]);
+          },
+        },
+      ),
+    );
+    for await (const _rows of session.rows(
+      { kind: 'query', sql: 'SELECT * FROM "readings" ORDER BY "amount" DESC' },
+      [],
+      10,
+      5,
+    ))
+      continue;
+    expect(queries[0]).not.toContain(') AS q) AS rio_source');
+    expect(queries[0]).toContain("WHERE time >= '2026-01-01T00:00:00Z' AND time < '2026-01-02T00:00:00Z'");
+    expect(queries[0]).toContain('ORDER BY "amount" DESC LIMIT 5');
+    await session.close();
+  });
   it('bounds InfluxDB 3 SQL to the configured time range', async () => {
     const session = new GraphMetricsSession(
       new EngineHttp(
@@ -871,3 +905,250 @@ it.each(['elasticsearch', 'opensearch', 'meilisearch', 'typesense'] as const)(
     );
   },
 );
+
+it('never picks _id for Elasticsearch sort pushdown and rejects explicit _id sorts cleanly', async () => {
+  const boundary = new FixtureBoundary();
+  const rows = [
+    { id: 1, name: 'Alpha', amount: 10 },
+    { id: 2, name: 'Bravo', amount: 30 },
+    { id: 3, name: 'Charlie', amount: 20 },
+  ];
+  const requests: string[] = [];
+  const esConnector = createHttpEngineConnector('elasticsearch', {
+    fetch: boundary.wrap(async (url: string, init: RequestInit) => {
+      const path = new URL(url).pathname;
+      const bodyText = String(init.body ?? '');
+      requests.push(`${init.method ?? 'GET'} ${path} ${bodyText}`);
+      const body = bodyText ? (JSON.parse(bodyText) as Record<string, unknown>) : {};
+      if (init.method === 'DELETE') return response({ succeeded: true });
+      if (path === '/_alias') return response({ products: { aliases: {} } });
+      if (path.endsWith('/_mapping'))
+        return response({
+          products: {
+            mappings: {
+              properties: {
+                id: { type: 'integer' },
+                name: { type: 'keyword' },
+                amount: { type: 'double' },
+              },
+            },
+          },
+        });
+      if (path.includes('_pit')) return response({ id: 'fixture' });
+      if (path === '/_search') {
+        const sort = (body.sort ?? []) as Array<Record<string, { order?: 'asc' | 'desc' }> | string>;
+        const primary = sort.find(
+          (item): item is Record<string, { order?: 'asc' | 'desc' }> => typeof item === 'object',
+        );
+        if (primary && ('_id' in primary || '_index' in primary)) {
+          return new Response(
+            JSON.stringify({
+              error: { type: 'illegal_argument_exception', reason: 'Fielddata is disabled on [_id]' },
+            }),
+            { status: 400 },
+          );
+        }
+        const sorted = [...rows];
+        if (primary) {
+          const [col, spec] = Object.entries(primary)[0]!;
+          sorted.sort((a, b) => {
+            const av = a[col as keyof typeof a];
+            const bv = b[col as keyof typeof b];
+            const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+            return spec.order === 'desc' ? -cmp : cmp;
+          });
+        }
+        const offset = Number((body.search_after as number[] | undefined)?.[0] ?? 0);
+        const count = Number(body.size ?? 1000);
+        const page = sorted.slice(offset, offset + count);
+        return response({
+          hits: {
+            hits: page.map((row, index) => ({
+              _source: row,
+              _id: String(row.id),
+              _index: 'products',
+              sort: [offset + index + 1],
+            })),
+          },
+        });
+      }
+      return response({});
+    }, 'fetch'),
+  });
+  const ctx: ConnectorContext = { connection: connection('elasticsearch'), secrets: {} };
+  const preview = await esConnector.preview(ctx, object, 10);
+  const columns = preview.columns.filter((col) => col.suggested);
+  const index = (name: string) => preview.columns.findIndex((col) => col.name === name);
+  const adapter = contractAdapter({
+    connector: esConnector,
+    context: ctx,
+    select: object,
+    columns,
+    keys: [['_index', '_id']],
+    read: {
+      columns: columns.map((col) => col.name),
+      keyColumns: ['_index', '_id'],
+      batchSize: 1,
+      types: Object.fromEntries(columns.map((col) => [col.name, col.suggested!.type])),
+    },
+    expectedRows: preview.rows.map((row) => ({
+      key: JSON.stringify([row[index('_index')], row[index('_id')]]),
+      values: Object.fromEntries(columns.map((col) => [col.name, row[index(col.name)] ?? null])),
+    })),
+    requests: () => requests,
+    failure: async () => {
+      throw new ConnectorError('sources.engines.request', undefined, { status: 500 });
+    },
+  });
+  expect(adapter.sort?.requestIncludes).not.toContain('_id');
+  expect(adapter.sort?.requestIncludes).not.toContain('_index');
+  const sortResult = await adapter.sort!.run(ctx);
+  expect(sortResult.rows).toEqual(adapter.sort!.expectedRows);
+  for (const col of ['_id', '_index']) {
+    const plan = planLive({
+      dialect: 'elasticsearch',
+      fields: new Map([
+        ['meta', { id: 'meta', type: 'text', options: {}, source: { column: col, sourceType: 'keyword' } }],
+      ]),
+      filter: null,
+      sorts: [{ fieldId: 'meta', direction: 'desc' }],
+      rules: null,
+      context: { now: new Date(), timeZone: 'UTC' },
+    });
+    expect(plan.order).toEqual([]);
+    expect(plan.skipped).toEqual([{ part: 'sort', fieldId: 'meta', reason: 'unsupported' }]);
+  }
+  const osPlan = planLive({
+    dialect: 'opensearch',
+    fields: new Map([
+      ['meta', { id: 'meta', type: 'text', options: {}, source: { column: '_id', sourceType: 'keyword' } }],
+    ]),
+    filter: null,
+    sorts: [{ fieldId: 'meta', direction: 'desc' }],
+    rules: null,
+    context: { now: new Date(), timeZone: 'UTC' },
+  });
+  expect(osPlan.order[0]?.nativeOrder).toEqual({ column: '_id', direction: 'desc' });
+  await expect(
+    (async () => {
+      for await (const _batch of esConnector.search!(ctx, object, {
+        where: { op: 'true' },
+        order: [{ column: '_id', direction: 'desc' }],
+        limit: 10,
+      }))
+        continue;
+    })(),
+  ).rejects.toMatchObject({ messageKey: 'sources.live.unsupported' });
+});
+
+it('excludes unsortable Typesense columns from sorting and rejects explicit unsortable sorts cleanly', async () => {
+  const boundary = new FixtureBoundary();
+  const rows = [
+    { id: 'item-1', title: 'Zeta', count: 3, tags: ['x'], amount: 10 },
+    { id: 'item-2', title: 'Alpha', count: 1, tags: ['y'], amount: 30 },
+    { id: 'item-3', title: 'Mu', count: 2, tags: ['z'], amount: 20 },
+  ];
+  const requests: string[] = [];
+  const tsConnector = createHttpEngineConnector('typesense', {
+    fetch: boundary.wrap(async (url: string) => {
+      const parsed = new URL(url);
+      const path = parsed.pathname;
+      requests.push(`${path}${parsed.search}`);
+      if (path === '/collections') return response([{ name: 'products', num_documents: rows.length }]);
+      if (path === '/collections/products')
+        return response({
+          fields: [
+            // `string` without `sort: true`, `int32` with `sort: false`, and `string[]` are all unsortable.
+            { name: 'title', type: 'string' },
+            { name: 'count', type: 'int32', sort: false },
+            { name: 'tags', type: 'string[]' },
+            { name: 'amount', type: 'float', sort: true },
+          ],
+        });
+      if (path === '/collections/products/documents/search') {
+        const sortBy = parsed.searchParams.get('sort_by') ?? '';
+        if (sortBy) {
+          const [col, dir] = sortBy.split(':');
+          if (col !== 'amount')
+            return new Response(
+              JSON.stringify({
+                message: `Could not find a field named \`${col}\` in the schema for sorting.`,
+              }),
+              { status: 400 },
+            );
+          const sorted = [...rows].sort((a, b) =>
+            dir === 'desc' ? b.amount - a.amount : a.amount - b.amount,
+          );
+          return response({ hits: sorted.map((document) => ({ document })), found: sorted.length });
+        }
+        return response({ hits: rows.map((document) => ({ document })), found: rows.length });
+      }
+      return response({});
+    }, 'fetch'),
+  });
+  const ctx: ConnectorContext = { connection: connection('typesense'), secrets: {} };
+  const preview = await tsConnector.preview(ctx, object, 10);
+  expect(preview.columns.map((col) => col.name)).toEqual(['amount', 'title', 'count', 'tags', 'id']);
+  const columns = preview.columns.filter((col) => col.suggested);
+  const index = (name: string) => preview.columns.findIndex((col) => col.name === name);
+  const adapter = contractAdapter({
+    connector: tsConnector,
+    context: ctx,
+    select: object,
+    columns,
+    keys: [['id']],
+    read: {
+      columns: columns.map((col) => col.name),
+      keyColumns: ['id'],
+      batchSize: 1,
+      types: Object.fromEntries(columns.map((col) => [col.name, col.suggested!.type])),
+    },
+    expectedRows: preview.rows.map((row) => ({
+      key: JSON.stringify([row[index('id')]]),
+      values: Object.fromEntries(columns.map((col) => [col.name, row[index(col.name)] ?? null])),
+    })),
+    requests: () => requests,
+    failure: async () => {
+      throw new ConnectorError('sources.engines.request', undefined, { status: 500 });
+    },
+  });
+  expect(adapter.sort?.requestIncludes).toContain('amount');
+  expect(adapter.sort?.requestIncludes).not.toContain('id');
+  expect(adapter.sort?.requestIncludes).not.toContain('title');
+  const sortResult = await adapter.sort!.run(ctx);
+  expect(sortResult.rows).toEqual(adapter.sort!.expectedRows);
+  for (const [col, sourceType, fieldType] of [
+    ['id', 'string', 'text'],
+    ['tags', 'string[]', 'text'],
+    ['wild', 'string*', 'text'],
+    ['dyn', 'auto', 'text'],
+    ['loc', 'geopoint', 'location'],
+  ] as const) {
+    const plan = planLive({
+      dialect: 'typesense',
+      fields: new Map([
+        ['f', { id: 'f', type: fieldType, options: {}, source: { column: col, sourceType } }],
+      ]),
+      filter: null,
+      sorts: [{ fieldId: 'f', direction: 'desc' }],
+      rules: null,
+      context: { now: new Date(), timeZone: 'UTC' },
+    });
+    expect(plan.order).toEqual([]);
+    expect(plan.skipped).toEqual([{ part: 'sort', fieldId: 'f', reason: 'unsupported' }]);
+  }
+  const beforeSearch = requests.length;
+  for (const col of ['id', 'title', 'count', 'tags', 'missing']) {
+    await expect(
+      (async () => {
+        for await (const _batch of tsConnector.search!(ctx, object, {
+          where: { op: 'true' },
+          order: [{ column: col, direction: 'desc' }],
+          limit: 10,
+        }))
+          continue;
+      })(),
+    ).rejects.toMatchObject({ messageKey: 'sources.live.unsupported' });
+  }
+  expect(requests.slice(beforeSearch).some((req) => req.includes('/documents/search'))).toBe(false);
+});

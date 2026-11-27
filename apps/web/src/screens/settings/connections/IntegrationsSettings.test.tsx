@@ -103,3 +103,38 @@ it.each([false, true])(
     expect(screen.getByText('No unsaved changes')).toBeTruthy();
   },
 );
+
+it('saves the calendar tenant while the untouched Teams panel still asks for its tenant', async () => {
+  const calendar = integration('microsoft-calendar');
+  // A provider nobody has set up is on by default, so Teams shows its missing tenant from the start.
+  const teams = {
+    ...integration('microsoft-teams'),
+    clientId: '',
+    hasSecret: false,
+    enabled: true,
+    configured: false,
+  };
+  const updates: { url: string; update: IntegrationUpdate }[] = [];
+  vi.spyOn(connectionStore, 'load').mockResolvedValue(undefined);
+  vi.stubGlobal('fetch', async (url: string, init?: RequestInit) => {
+    if (init?.method !== 'PUT') return json([calendar, teams]);
+    const update = JSON.parse(String(init.body)) as IntegrationUpdate;
+    updates.push({ url, update });
+    Object.assign(calendar, { tenantId: update.tenantId ?? calendar.tenantId });
+    return json(calendar);
+  });
+  renderSettings(<IntegrationsSettings />);
+  const calendarPanel = await screen.findByRole('region', { name: 'Microsoft 365 Calendar' });
+  const teamsPanel = screen.getByRole('region', { name: 'Microsoft Teams notifications' });
+  const teamsTenant = within(teamsPanel).getByRole('textbox', { name: 'Tenant ID' });
+  expect(teamsTenant.getAttribute('aria-invalid')).toBe('true');
+  fireEvent.change(within(calendarPanel).getByRole('textbox', { name: 'Tenant ID' }), {
+    target: { value: 'organizations' },
+  });
+  await userEvent.setup().click(save());
+  await waitFor(() => expect(screen.getByText('No unsaved changes')).toBeTruthy());
+  expect(updates).toHaveLength(1);
+  expect(updates[0]?.url).toMatch(/\/api\/admin\/integrations\/microsoft-calendar$/);
+  expect(updates[0]?.update).toMatchObject({ tenantId: 'organizations' });
+  expect(document.activeElement).not.toBe(teamsTenant);
+});

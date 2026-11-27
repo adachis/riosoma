@@ -66,13 +66,32 @@ async function open(ctx: ConnectorContext, endpoint: Endpoint): Promise<Session>
       active.delete(request);
     }
   }
+  // Fabric warehouses refuse this view with error 15871 but answer the procedure that does the same
+  // job, so a session that's refused once asks the procedure from then on.
+  let byProcedure = false;
+  async function describeRows(statement: string): Promise<Row[]> {
+    if (!byProcedure)
+      try {
+        return await query(
+          `SELECT name,system_type_name,is_nullable,error_number,error_message
+          FROM sys.dm_exec_describe_first_result_set(@statement,NULL,0) WHERE is_hidden=0 OR error_number IS NOT NULL ORDER BY column_ordinal`,
+          { statement },
+        );
+      } catch (error) {
+        if ((error as { number?: number }).number !== 15871) throw error;
+        byProcedure = true;
+      }
+    try {
+      const rows = await query('EXEC sp_describe_first_result_set @tsql=@statement', { statement });
+      return rows.filter((r) => !r.is_hidden);
+    } catch (error) {
+      // The procedure raises a query's own error, such as 208 for a missing table, and then a
+      // general one (11501 or 11529) that says only that the query can't be described.
+      throw (error as { precedingErrors?: unknown[] }).precedingErrors?.[0] ?? error;
+    }
+  }
   async function describe(select: SourceSelect): Promise<SourceColumn[]> {
-    const sql = `SELECT * FROM ${fromSql(select, 'sqlserver')}`;
-    const rows = await query(
-      `SELECT name,system_type_name,is_nullable,error_number,error_message
-      FROM sys.dm_exec_describe_first_result_set(@statement,NULL,0) WHERE is_hidden=0 OR error_number IS NOT NULL ORDER BY column_ordinal`,
-      { statement: sql },
-    );
+    const rows = await describeRows(`SELECT * FROM ${fromSql(select, 'sqlserver')}`);
     return rows.map((r) => {
       if (r.error_number) {
         const error = new Error(String(r.error_message));

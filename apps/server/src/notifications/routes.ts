@@ -4,19 +4,21 @@ import {
   NotificationId,
   NotificationPreferencesUpdate,
   NotificationsQuery,
+  TeamsAccount,
   type NotificationPreferences,
   type NotificationsPage,
   type UnreadCount,
 } from '@riosoma/contracts';
 import { newId, NotificationCommand, type NotificationCommandResult } from '@riosoma/contracts';
 import { AccessScope } from '../data/access.js';
-import { channelPreferences } from '../data/notifications.js';
+import { channelPreferences, credential } from '../data/notifications.js';
 import { runNotificationCommand } from '../data/commands/notifications.js';
 import type { FastifyInstance } from 'fastify';
 import { z } from 'zod';
 import { requireActor } from '../auth/sessions.js';
 import { dataStore } from '../data/context.js';
 import { parse } from '../http/validate.js';
+import { availableApp } from '../oauth/apps.js';
 import {
   emailChoices,
   listNotifications,
@@ -57,14 +59,41 @@ export async function notificationRoutes(app: FastifyInstance): Promise<void> {
   const emailAvailable = () => Boolean(app.ctx.mailer && app.ctx.config.baseUrl);
   app.get('/api/notifications/channels', session, async (request) => {
     const { pool, schemas } = dataStore(app.ctx);
-    return channelPreferences(
+    const actor = requireActor(request);
+    const key = app.ctx.config.secretKey;
+    const preferences = await channelPreferences(
       pool,
       schemas,
-      app.ctx.config.secretKey,
-      requireActor(request),
+      key,
+      actor,
       emailAvailable(),
       Boolean(app.ctx.config.baseUrl?.startsWith('https:')),
     );
+    if (!preferences.canAdminister) return preferences;
+    const [teamsSignInAvailable, teams] = await Promise.all([
+      availableApp(app.ctx, pool, actor.orgId, 'microsoft-teams').then(
+        () => true,
+        (error: unknown) => {
+          if (error instanceof AppError) return false;
+          throw error;
+        },
+      ),
+      preferences.available.teams
+        ? credential<{ account?: unknown }>(pool, schemas, key, actor.orgId, 'teams').catch(
+            (error: unknown) => {
+              if (error instanceof AppError && error.messageKey === 'notifications.credentials.unavailable')
+                return null;
+              throw error;
+            },
+          )
+        : null,
+    ]);
+    const account = TeamsAccount.safeParse(teams?.account);
+    return {
+      ...preferences,
+      teamsSignInAvailable,
+      ...(account.success ? { teamsAccount: account.data } : {}),
+    };
   });
   app.post('/api/notifications/commands', session, async (request) => {
     const input = parse(NotificationCommand, request.body);

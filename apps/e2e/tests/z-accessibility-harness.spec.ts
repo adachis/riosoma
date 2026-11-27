@@ -1,4 +1,5 @@
 import AxeBuilder from '@axe-core/playwright';
+import { readFile } from 'node:fs/promises';
 import { labelName, createDatabase, openTable, signIn } from '../helpers';
 import { assertAccessible, expect, test, type Locator } from '../accessibility';
 import { AccessibilityBudget, accessibilityDeadline, accessibilityScanTimeout, base } from '../base';
@@ -139,6 +140,8 @@ test('scans the new document when navigation interrupts settling', async ({ page
 });
 
 test('scans the final document after consecutive navigation interruptions', async ({ page }) => {
+  const start = `${base()}/accessibility-start`;
+  const middle = `${base()}/accessibility-middle`;
   const destination = `${base()}/accessibility-final`;
   await page.route(`${base()}/accessibility-*`, (route) =>
     route.fulfill({
@@ -148,25 +151,31 @@ test('scans the final document after consecutive navigation interruptions', asyn
     }),
   );
   const evaluate = page.evaluate.bind(page);
-  const destinations = [`${base()}/accessibility-middle`, destination];
+  const redirects = [
+    { from: start, to: middle },
+    { from: middle, to: destination },
+  ];
   page.evaluate = new Proxy(evaluate, {
     async apply(method, target, args: unknown[]) {
-      const next = destinations.shift();
-      if (next)
+      const redirect = redirects.shift();
+      if (redirect) {
+        // The previous evaluation can reject before the next document is ready to evaluate in.
+        await page.waitForURL(redirect.from);
         return evaluate(async (url) => {
           location.assign(url);
           await new Promise<void>(() => {});
-        }, next);
+        }, redirect.to);
+      }
       return Reflect.apply(method, target, args);
     },
   });
   try {
-    await page.goto(`${base()}/accessibility-start`);
+    await page.goto(start);
     await expect(page).toHaveURL(destination);
     await expect(page.getByRole('heading', { name: 'Settled' })).toBeVisible();
-    expect(
-      test.info().attachments.filter((attachment) => attachment.name === 'accessibility').length,
-    ).toBeGreaterThan(0);
+    const scans = test.info().attachments.filter((attachment) => attachment.name === 'accessibility');
+    expect(scans).toHaveLength(1);
+    expect(JSON.parse(await readFile(scans[0]!.path!, 'utf8'))).toMatchObject({ url: destination });
   } finally {
     page.evaluate = evaluate;
   }

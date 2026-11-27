@@ -17,12 +17,12 @@ Check out a release tag, not a branch, so you know what you're running:
 ```bash
 git clone https://github.com/adachis/riosoma.git
 cd riosoma
-git checkout v0.95.0-rc.1
+git checkout v0.95.0
 pnpm install --frozen-lockfile
 pnpm turbo run build --filter=@riosoma/server... --filter=@riosoma/web
 ```
 
-That builds the server, the packages it uses, its connector service, and the web app into `apps/server/dist`, `apps/connector-service/dist`, and `apps/web/dist`. Theme fonts and textures aren't in git. Without them the themes fall back to system fonts. `node tools/release/fetch-theme-assets.mjs 0.95.0-rc.1` downloads and verifies the optional asset bundle for this release.
+That builds the server, the packages it uses, its connector service, and the web app into `apps/server/dist`, `apps/connector-service/dist`, and `apps/web/dist`. Theme fonts and textures aren't in git. Without them the themes fall back to system fonts. `node tools/release/fetch-theme-assets.mjs 0.95.0` downloads and verifies the optional asset bundle for this release.
 
 ## The database
 
@@ -133,8 +133,8 @@ Back up the config directory (or keep `RIOSOMA_SECRET_KEY`) with it.
 Back up, then check out the new tag, rebuild, and restart.  Migrations run when the server starts.  See [Upgrades, backups, and rollbacks](upgrades.md).
 
 ```bash
-pg_dump --format=custom --dbname="$RIOSOMA_DATABASE_URL" --file=riosoma-before-0.95.0-rc.1.dump
-git fetch --tags && git checkout v0.95.0-rc.1
+pg_dump --format=custom --dbname="$RIOSOMA_DATABASE_URL" --file=riosoma-before-0.95.0.dump
+git fetch --tags && git checkout v0.95.0
 pnpm install --frozen-lockfile
 pnpm turbo run build --filter=@riosoma/server... --filter=@riosoma/web
 sudo systemctl restart riosoma
@@ -146,5 +146,5 @@ journalctl -u riosoma --since '5 minutes ago' | grep -E 'migrations applied|Serv
 ```bash
 sudo systemctl stop riosoma
 psql "$RIOSOMA_DATABASE_URL" -c 'DROP SCHEMA IF EXISTS rio_app, rio_data, rio_audit CASCADE'
-pg_restore --clean --if-exists --no-owner --dbname="$RIOSOMA_DATABASE_URL" riosoma-before-0.95.0-rc.1.dump
+pg_restore --clean --if-exists --no-owner --dbname="$RIOSOMA_DATABASE_URL" riosoma-before-0.95.0.dump
 ```

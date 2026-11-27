@@ -1,4 +1,9 @@
 {
+  "0.95.0": {
+    "date": "2026-11-27",
+    "security": false,
+    "minimumVersion": "0.95.0-rc.1"
+  },
   "0.95.0-rc.1": {
     "date": "2026-11-20",
     "security": false,

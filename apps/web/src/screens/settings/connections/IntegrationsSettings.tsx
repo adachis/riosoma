@@ -5,11 +5,12 @@ import { Setting, defineSettingsPage } from '../Setting';
 
 import { canManageIntegrations } from '../access';
 import { StripeSettings } from '../../../features/payments/StripeSettings';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { useLingui } from '@lingui/react/macro';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type { IntegrationTestResult, IntegrationUpdate, IntegrationView } from '@riosoma/contracts';
 import { Banner, Button, Heading, PasswordField, Spinner, Switch, TextField, toast } from '@riosoma/ui';
 import { api } from '../../../api';
+import { channelsQuery } from '../../../features/notifications/queries';
 import { connectionStore } from '../../../files/pickers/api';
 import { useProviderNames } from '../../../files/pickers/ConnectPrompt';
 import { useServerMessage } from '../../../messages/useServerMessage';
@@ -49,6 +50,7 @@ export { canManageIntegrations } from '../access';
  * server's settings shows as such, and only its switch works here.
  */
 export function IntegrationsSettings() {
+  const { t } = useLingui();
   const session = useSession();
   const integrations = useQuery({
     queryKey: KEY,
@@ -66,11 +68,11 @@ export function IntegrationsSettings() {
         <div className="rio-integrations">
           <StripeSettings />
           <p>
-            <Trans id="integrations.intro">
-              Set up providers for attachments, calendar events, and app sources. Each person connects their
-              own account. App sources share that account’s read access with everyone allowed to sync from
-              them.
-            </Trans>
+            {t({
+              id: 'integrations.intro',
+              message:
+                'Set up providers for attachments, calendar events, app sources, and Teams notifications.  Each person connects their own account for attachments, calendars, and app sources.  App sources share that account’s read access with everyone allowed to sync from them.',
+            })}
           </p>
           <ErrorBanner error={errorInfo(integrations.error)} />
           {integrations.isPending && <Spinner />}
@@ -90,7 +92,13 @@ function IntegrationPanel({ integration }: { integration: IntegrationView }) {
   const { t } = useLingui();
   const message = useServerMessage();
   const queryClient = useQueryClient();
-  const name = useProviderNames()[integration.provider];
+  const names = useProviderNames();
+  const { provider } = integration;
+  const teams = provider === 'microsoft-teams';
+  const name = teams
+    ? t({ id: 'integrations.microsoftTeams', message: 'Microsoft Teams notifications' })
+    : names[provider];
+  const tenantRequired = t({ id: 'integrations.tenant.required', message: 'Enter the directory tenant ID.' });
   const locked = integration.fromEnvironment;
   const saved = async (update: IntegrationUpdate) => {
     const view = await api<IntegrationView>(`/api/admin/integrations/${integration.provider}`, {
@@ -100,7 +108,8 @@ function IntegrationPanel({ integration }: { integration: IntegrationView }) {
     queryClient.setQueryData<IntegrationView[]>(KEY, (current) =>
       current?.map((entry) => (entry.provider === view.provider ? view : entry)),
     );
-    void connectionStore.load(true);
+    if (teams) void queryClient.invalidateQueries({ queryKey: channelsQuery.queryKey });
+    else void connectionStore.load(true);
     return view;
   };
   const draft = useSettingsDraft(
@@ -129,18 +138,20 @@ function IntegrationPanel({ integration }: { integration: IntegrationView }) {
           enabled: current.enabled === submitted.enabled ? stored.enabled : current.enabled,
         };
       },
-      validate: (value) =>
-        value.enabled &&
-        !locked &&
-        (!value.clientId.trim() ||
+      validate: (value) => {
+        if (!value.enabled || locked) return null;
+        if (teams && !value.tenantId.trim()) return tenantRequired;
+        if (
+          !value.clientId.trim() ||
           (!value.secret.trim() && !integration.hasSecret) ||
-          (integration.apiKey !== null && !value.apiKey.trim()))
-          ? t({
-              id: 'drives.incompleteApp',
-              message:
-                'Complete the client ID, secret, and required API key before enabling this connection.',
-            })
-          : null,
+          (integration.apiKey !== null && !value.apiKey.trim())
+        )
+          return t({
+            id: 'drives.incompleteApp',
+            message: 'Complete the client ID, secret, and required API key before enabling this connection.',
+          });
+        return null;
+      },
     },
   );
   const { clientId, secret, tenantId, apiKey, enabled } = draft.value;
@@ -224,24 +235,32 @@ function IntegrationPanel({ integration }: { integration: IntegrationView }) {
           isReadOnly={locked}
         />
       </Setting>
-      {integration.provider === 'microsoft-calendar' && (
+      {(teams || integration.provider === 'microsoft-calendar') && (
         <Setting
           page={settingsPage}
           id="tenant"
           label={msg({ id: 'integrations.tenant', message: 'Tenant ID' })}
           help={msg({
-            id: 'integrations.tenant.help',
-            message:
-              'Use your directory tenant ID for a single-tenant app.  Leave blank for a multitenant app.',
+            id: 'integrations.tenant.settingsHelp',
+            message: 'The directory tenant ID for the Microsoft app.',
           })}
         >
           <TextField
             label={t({ id: 'integrations.tenant', message: 'Tenant ID' })}
-            description={t({
-              id: 'integrations.tenant.help',
-              message:
-                'Use your directory tenant ID for a single-tenant app.  Leave blank for a multitenant app.',
-            })}
+            description={
+              teams
+                ? t({
+                    id: 'integrations.tenant.teamsHelp',
+                    message: 'Use the directory tenant ID for your Teams app.',
+                  })
+                : t({
+                    id: 'integrations.tenant.help',
+                    message:
+                      'Use your directory tenant ID for a single-tenant app.  Leave blank for a multitenant app.',
+                  })
+            }
+            isInvalid={teams && enabled && !locked && !tenantId.trim()}
+            errorMessage={teams ? tenantRequired : undefined}
             value={tenantId}
             onChange={setTenantId}
             isDisabled={locked || draft.saving}

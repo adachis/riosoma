@@ -120,9 +120,11 @@ test('saves the automation AI controls and calendar tenant from admin settings',
     page.getByRole('textbox', { name: 'Most one automation run may spend (US dollars)' }),
   ).toHaveValue('0.25');
   await page.goto(`${base()}/settings/integrations`);
-  const tenant = page.getByRole('textbox', { name: 'Tenant ID', exact: true });
+  // Teams notifications has its own Tenant ID field on this page.
+  const calendar = page.getByRole('region', { name: 'Microsoft 365 Calendar', exact: true });
+  const tenant = calendar.getByRole('textbox', { name: 'Tenant ID', exact: true });
   await tenant.fill('organizations');
-  await tenant.locator('xpath=ancestor::section[1]').getByRole('switch').press('Space');
+  await calendar.getByRole('switch').press('Space');
   const tenantSaved = page.waitForResponse(
     (response) =>
       response.url().endsWith('/api/admin/integrations/microsoft-calendar') &&

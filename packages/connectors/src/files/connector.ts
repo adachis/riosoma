@@ -435,8 +435,13 @@ export function createFileConnector(kind: FileSourceKind, options: FileConnector
           more: false,
         };
       }
-      const listing = parseListing((await readSome(response.body, 16 * 1024 * 1024)).toString('utf8'));
-      response.close();
+      let bodyText: string;
+      try {
+        bodyText = (await readSome(response.body, 16 * 1024 * 1024)).toString('utf8');
+      } finally {
+        response.close();
+      }
+      const listing = parseListing(bodyText);
       for (const object of listing.objects) {
         // Folder markers end in a slash and hold nothing.
         if (object.key.endsWith('/') || !isPrefixedKey(object.key, prefix)) continue;

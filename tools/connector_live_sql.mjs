@@ -2,11 +2,17 @@ import { accountContracts } from './connector_live_accounts.mjs';
 export { LIVE_CONNECTOR_SETTINGS } from './connector_live_settings.mjs';
 import { createRequire } from 'node:module';
 import { randomBytes } from 'node:crypto';
+import { setTimeout as delay } from 'node:timers/promises';
 import { SourceConnection } from '../packages/contracts/dist/index.js';
 import { connectorFor } from '../packages/connectors/dist/index.js';
+import { createDriverConnectors } from '../packages/connector-drivers/dist/index.js';
 import { startTestPostgres } from '../packages/testkit/dist/index.js';
 
 const requireDriver = createRequire(new URL('../packages/connectors/package.json', import.meta.url));
+const requireDriverPackage = createRequire(
+  new URL('../packages/connector-drivers/package.json', import.meta.url),
+);
+const driverConnectors = new Map(createDriverConnectors().map((connector) => [connector.kind, connector]));
 const ports = { postgres: 5432, mysql: 3306, sqlserver: 1433, oracle: 1521, firebird: 3050 };
 const settings = {
   postgres: process.env.RIOSOMA_TEST_DATABASE_URL,
@@ -23,7 +29,7 @@ function traceMethods(target, names, trace) {
     const original = target[name];
     if (typeof original !== 'function') continue;
     target[name] = function (...args) {
-      if (/end|close|detach|destroy/i.test(name)) {
+      if (/end|close|detach|destroy|disconnect/i.test(name)) {
         const result = Reflect.apply(original, this, args);
         if (result && typeof result.then === 'function')
           return result.then((value) => {
@@ -33,7 +39,7 @@ function traceMethods(target, names, trace) {
         trace.closed++;
         return result;
       } else {
-        const statement = typeof args[0] === 'string' ? args[0] : args[0]?.text;
+        const statement = typeof args[0] === 'string' ? args[0] : (args[0]?.sql ?? args[0]?.text);
         if (statement) trace.requests.push(statement);
       }
       return Reflect.apply(original, this, args);
@@ -45,6 +51,28 @@ function traceMethods(target, names, trace) {
   return () => {
     for (const restore of restores.reverse()) restore();
   };
+}
+
+async function waitForOracleFixture(admin, table, rowCount) {
+  // A read-only snapshot can lag newly committed DDL by about a second.  Check the fixture with
+  // a fresh transaction on each attempt so the contract starts with all its seeded rows visible.
+  const deadline = performance.now() + 5_000;
+  for (;;) {
+    let stale;
+    await admin.execute('SET TRANSACTION READ ONLY');
+    try {
+      const result = await admin.execute(`SELECT * FROM ${table}`);
+      if (result.rows?.length === rowCount) return;
+    } catch (error) {
+      if (error?.code !== 'ORA-01466') throw error;
+      stale = error;
+    } finally {
+      await admin.rollback();
+    }
+    if (performance.now() >= deadline)
+      throw stale ?? new Error('Oracle contract fixture rows did not become visible.');
+    await delay(50);
+  }
 }
 
 async function sqlContracts(kinds) {
@@ -85,21 +113,16 @@ async function sqlContracts(kinds) {
       } else {
         url = new URL(settings[kind]);
         if (kind === 'mysql') {
-          const mysql = requireDriver('mysql2/promise');
-          const original = mysql.createConnection;
-          mysql.createConnection = async (...args) => {
-            const connection = await original(...args);
-            traceMethods(connection, ['query', 'execute', 'end', 'destroy'], trace);
-            return connection;
-          };
-          restores.push(() => {
-            mysql.createConnection = original;
-          });
-          admin = await mysql.createConnection(settings[kind]);
+          const mysql = requireDriverPackage('mysql2');
+          restores.push(
+            traceMethods(mysql.Connection.prototype, ['query', 'execute', 'end', 'destroy'], trace),
+          );
+          const mysqlPromise = requireDriverPackage('mysql2/promise');
+          admin = await mysqlPromise.createConnection(settings[kind]);
           execute = (text) => admin.query(text);
           close = () => admin.end();
         } else if (kind === 'sqlserver') {
-          const mssql = requireDriver('mssql');
+          const mssql = requireDriverPackage('mssql');
           restores.push(traceMethods(mssql.Request.prototype, ['query'], trace));
           restores.push(traceMethods(mssql.ConnectionPool.prototype, ['close'], trace));
           admin = await new mssql.ConnectionPool({
@@ -113,7 +136,7 @@ async function sqlContracts(kinds) {
           execute = (text) => admin.request().query(text);
           close = () => admin.close();
         } else if (kind === 'oracle') {
-          const oracle = requireDriver('oracledb');
+          const oracle = requireDriverPackage('oracledb');
           const original = oracle.getConnection;
           oracle.getConnection = async (...args) => {
             const connection = await original(...args);
@@ -134,12 +157,12 @@ async function sqlContracts(kinds) {
           };
           close = () => admin.close();
         } else {
-          const firebird = requireDriver('node-firebird');
-          for (const module of ['database', 'transaction'])
+          const firebird = requireDriverPackage('node-firebird');
+          for (const module of ['database', 'transaction', 'connection'])
             restores.push(
               traceMethods(
-                requireDriver(`node-firebird/lib/wire/${module}.js`).prototype,
-                ['queryAsync', 'executeAsync', 'detachAsync'],
+                requireDriverPackage(`node-firebird/lib/wire/${module}.js`).prototype,
+                ['queryAsync', 'executeAsync', 'detachAsync', 'disconnect'],
                 trace,
               ),
             );
@@ -175,7 +198,7 @@ async function sqlContracts(kinds) {
         .filter((part) => part !== null)
         .map(quote)
         .join('.');
-      const connector = connectorFor(kind);
+      const connector = driverConnectors.get(kind) ?? connectorFor(kind);
       const context = {
         connection: SourceConnection.parse({
           kind,
@@ -193,6 +216,7 @@ async function sqlContracts(kinds) {
       };
       const select = { kind: 'object', object: { schema, name: table } };
       const rows = [1, 2, 3].map((id) => ({ id, title: `item-${id}` }));
+      const drop = () => execute(`DROP TABLE ${qualified}`);
       try {
         await execute(
           `CREATE TABLE ${qualified} (${quote('id')} INTEGER NOT NULL PRIMARY KEY, ${quote('title')} VARCHAR(80))`,
@@ -201,6 +225,14 @@ async function sqlContracts(kinds) {
           await execute(
             `INSERT INTO ${qualified} (${quote('id')}, ${quote('title')}) VALUES (${row.id}, '${row.title}')`,
           );
+        if (kind === 'oracle') {
+          try {
+            await waitForOracleFixture(admin, qualified, rows.length);
+          } catch (error) {
+            await drop().catch(() => undefined);
+            throw error;
+          }
+        }
         let beforeTimeout = 0;
         const probe = (text) => async (ctx) => {
           trace.requests.length = 0;
@@ -273,7 +305,7 @@ async function sqlContracts(kinds) {
           },
           cleanup: async () => {
             try {
-              await execute(`DROP TABLE ${qualified}`);
+              await drop();
             } finally {
               await close();
               for (const restore of restores.reverse()) restore();

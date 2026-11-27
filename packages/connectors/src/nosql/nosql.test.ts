@@ -9,7 +9,8 @@ import { ALL, parseSelector, querySql } from './query.js';
 import { documentPlan, documentRuleTranslates } from './live.js';
 import type { LiveField, LiveInput } from '../live/translate.js';
 import { Leaf } from '../rest/records.js';
-import type { ConnectorContext, SourceRow } from '../types.js';
+import { sourceKey } from '../registry.js';
+import type { ConnectorContext, SourceRow, Validators } from '../types.js';
 import { serviceAccount } from '../service-account.test-helpers.js';
 
 const endpoint = new URL('http://127.0.0.1:18000').origin;
@@ -507,4 +508,444 @@ it('budgets Firestore key batches against source and access-rule disjunctions', 
   };
   expect(documentKeyBatchSize(target, parseSelector('{"n":{"$in":[1,2]}}'))).toBe(5);
   expect(documentKeyBatchSize({ ...target, select })).toBe(30);
+});
+
+it('matches DynamoDB composite S + N keys to row values for small and large N and keeps deletes consistent', async () => {
+  const composite = (items: Array<Record<string, unknown>>) =>
+    createNoSqlConnector('dynamodb', {
+      fetch: async (_url, init) => {
+        const operation = new Headers(init.headers).get('x-amz-target')!.split('.').at(-1);
+        if (operation === 'DescribeTable')
+          return answer({
+            Table: {
+              KeySchema: [
+                { AttributeName: 'pk', KeyType: 'HASH' },
+                { AttributeName: 'id', KeyType: 'RANGE' },
+              ],
+              AttributeDefinitions: [
+                { AttributeName: 'pk', AttributeType: 'S' },
+                { AttributeName: 'id', AttributeType: 'N' },
+              ],
+            },
+          });
+        return answer({ Items: items });
+      },
+    });
+  const ctx = context('dynamodb', { segments: 1 });
+
+  // Small N only: id stays a number in both values and key.
+  const smallItems = [
+    { pk: { S: 'fixture' }, id: { N: '1' }, name: { S: 'One' } },
+    { pk: { S: 'fixture' }, id: { N: '2' }, name: { S: 'Two' } },
+  ];
+  const smallRows: SourceRow[] = [];
+  for await (const batch of composite(smallItems).read(ctx, select, {
+    columns: ['pk', 'id', 'name'],
+    types: {},
+    keyColumns: ['pk', 'id'],
+  }))
+    smallRows.push(...batch);
+  expect(smallRows.map((row) => row.values.id)).toEqual([1, 2]);
+  for (const row of smallRows) expect(row.key).toBe(sourceKey([row.values.pk!, row.values.id!]));
+
+  // Describe places the sortable RANGE key first regardless of attribute order in Items.
+  const reordered = composite([
+    { active: { BOOL: true }, name: { S: 'One' }, pk: { S: 'fixture' }, id: { N: '1' } },
+  ]);
+  expect((await reordered.describe(ctx, select)).map((c) => c.name)[0]).toBe('id');
+
+  // Mixed small N + N above 2^53: exactness turns id into strings in both values and key.
+  const mixedItems = [
+    { pk: { S: 'fixture' }, id: { N: '1' }, name: { S: 'Small' } },
+    { pk: { S: 'fixture' }, id: { N: '9007199254740993' }, name: { S: 'Large' } },
+  ];
+  const mixedRows: SourceRow[] = [];
+  for await (const batch of composite(mixedItems).read(ctx, select, {
+    columns: ['pk', 'id', 'name'],
+    types: {},
+    keyColumns: ['pk', 'id'],
+  }))
+    mixedRows.push(...batch);
+  expect(mixedRows.map((row) => row.values.id)).toEqual(['1', '9007199254740993']);
+  for (const row of mixedRows) expect(row.key).toBe(sourceKey([row.values.pk!, row.values.id!]));
+
+  // Deleted-row path matches the row it removes.
+  const couch = createNoSqlConnector('couchdb', {
+    fetch: async (url) => {
+      if (url.includes('_all_docs')) return answer({ rows: [{ id: '1', doc: { _id: '1', name: 'Alpha' } }] });
+      if (url.includes('_changes'))
+        return answer({ results: [{ id: '1', deleted: true }], last_seq: 'seq-2', pending: 0 });
+      return answer({ update_seq: 'seq-1' });
+    },
+  });
+  let checkpoint: Validators | undefined;
+  const initial: SourceRow[] = [];
+  for await (const batch of couch.read(context('couchdb'), select, {
+    columns: ['_id', 'name'],
+    types: {},
+    keyColumns: ['_id'],
+    onValidators: (v: Validators) => {
+      checkpoint = v;
+    },
+  }))
+    initial.push(...batch);
+  expect(initial[0]!.key).toBe(sourceKey([initial[0]!.values._id!]));
+  const changes: SourceRow[] = [];
+  for await (const batch of couch.read(context('couchdb'), select, {
+    columns: ['_id', 'name'],
+    types: {},
+    keyColumns: ['_id'],
+    since: checkpoint,
+  }))
+    changes.push(...batch);
+  expect(changes[0]).toEqual({ key: initial[0]!.key, values: {}, deleted: true });
+});
+
+it('carries HTTP status and a short scrubbed error code from nosql/http without exposing bodies or headers', async () => {
+  const bodies = [
+    {
+      status: 400,
+      code: 'BadRequest',
+      body: { code: 'BadRequest', message: `secret=${secret} full-body-text` },
+    },
+    {
+      status: 400,
+      code: 'ValidationException',
+      body: { __type: 'com.amazonaws.dynamodb.v20120810#ValidationException', message: secret },
+    },
+    {
+      status: 400,
+      code: 'no_usable_index',
+      body: { error: `no_usable_index_${secret}`, reason: 'detailed-body' },
+    },
+  ];
+  for (const entry of bodies) {
+    const connector = createNoSqlConnector('cosmosdb', {
+      fetch: async () =>
+        new Response(JSON.stringify(entry.body), {
+          status: entry.status,
+          headers: { 'x-ms-secret-header': secret },
+        }),
+    });
+    let caught: unknown;
+    try {
+      await connector.listObjects(context('cosmosdb'));
+    } catch (error) {
+      caught = error;
+    }
+    expect(caught).toMatchObject({ messageKey: 'sources.sync.read', params: { status: entry.status } });
+    expect((caught as { detail?: string }).detail).toContain(entry.code);
+    const serialized = JSON.stringify(caught);
+    expect(serialized).not.toContain(secret);
+    expect(serialized).not.toContain('full-body-text');
+    expect(serialized).not.toContain('detailed-body');
+    expect(serialized).not.toContain('x-ms-secret-header');
+  }
+});
+
+it('pins Cosmos filter and sort pushdown queries and rejects system-property pushdown', async () => {
+  const docs = [
+    {
+      id: '1',
+      name: 'Alpha',
+      amount: 12.5,
+      active: true,
+      day: '2026-01-15',
+      _rid: 'r1',
+      _etag: 'e1',
+      _ts: 1,
+    },
+    {
+      id: '2',
+      name: 'Bravo',
+      amount: 3.75,
+      active: false,
+      day: '2026-01-16',
+      _rid: 'r2',
+      _etag: 'e2',
+      _ts: 2,
+    },
+  ];
+  const queries: Array<{
+    query: string;
+    parameters: Array<{ name: string; value: unknown }>;
+    headers: Record<string, string>;
+  }> = [];
+  const connector = createNoSqlConnector('cosmosdb', {
+    fetch: async (url, init) => {
+      if (url.endsWith('/pkranges')) return answer({ PartitionKeyRanges: [{ id: '0' }] });
+      if (!url.endsWith('/docs')) return answer({ partitionKey: { paths: ['/id'] } });
+      const body = JSON.parse(String(init.body)) as {
+        query: string;
+        parameters: Array<{ name: string; value: unknown }>;
+      };
+      const headers = Object.fromEntries(new Headers(init.headers).entries());
+      if (
+        body.query.includes('ORDER BY') &&
+        !headers['x-ms-documentdb-partitionkey'] &&
+        !headers['x-ms-documentdb-partitionkeyrangeid']
+      )
+        return new Response(
+          JSON.stringify({
+            code: 'BadRequest',
+            message: 'The provided cross partition query can not be directly served by the gateway.',
+          }),
+          { status: 400, headers: { 'content-type': 'application/json', 'x-ms-substatus': '1004' } },
+        );
+      queries.push({ ...body, headers });
+      return answer({ Documents: docs });
+    },
+  });
+  const ctx = context('cosmosdb');
+  await connector.documentQuery!(ctx, select, {
+    predicate: { op: 'eq', field: 'name', value: 'Bravo' },
+    order: [],
+    limit: 6,
+    columns: ['id', 'name', 'amount', 'active', 'day'],
+    types: {},
+    keyColumns: ['id'],
+  });
+  await connector.documentQuery!(ctx, select, {
+    predicate: ALL,
+    order: [{ field: 'name', direction: 'desc' }],
+    limit: 6,
+    columns: ['id', 'name', 'amount', 'active', 'day'],
+    types: {},
+    keyColumns: ['id'],
+  });
+  const filterQuery = queries[1]!;
+  expect(filterQuery.query).toBe('SELECT * FROM c WHERE c["name"] = @p1');
+  expect(filterQuery.parameters).toEqual([{ name: '@p1', value: 'Bravo' }]);
+  expect(filterQuery.headers['x-ms-documentdb-query-enablecrosspartition']).toBe('true');
+
+  const sortQuery = queries[3]!;
+  expect(sortQuery.query).toBe('SELECT * FROM c WHERE true ORDER BY c["name"] DESC');
+  expect(sortQuery.parameters).toEqual([]);
+  expect(sortQuery.headers['x-ms-documentdb-partitionkeyrangeid']).toBe('0');
+  expect(sortQuery.headers['x-ms-documentdb-query-enablecrosspartition']).toBeUndefined();
+
+  for (const system of ['_rid', '_self', '_etag', '_attachments', '_ts']) {
+    const systemFields = new Map<string, LiveField>([
+      [system, { id: system, type: 'text', options: {}, source: { column: system, sourceType: 'string' } }],
+    ]);
+    const rule = {
+      conjunction: 'and' as const,
+      conditions: [{ id: 'c1', fieldId: system, operator: 'is' as const, value: 'x' }],
+    };
+    expect(documentRuleTranslates(rule, systemFields, 'cosmosdb')).toBe(false);
+    await expect(
+      connector.documentQuery!(ctx, select, {
+        predicate: { op: 'eq', field: system, value: 'x' },
+        order: [],
+        limit: 5,
+        columns: ['id'],
+        types: {},
+        keyColumns: ['id'],
+      }),
+    ).rejects.toMatchObject({ messageKey: 'sources.live.unsupported' });
+    await expect(
+      connector.documentQuery!(ctx, select, {
+        predicate: ALL,
+        order: [{ field: system, direction: 'desc' }],
+        limit: 5,
+        columns: ['id'],
+        types: {},
+        keyColumns: ['id'],
+      }),
+    ).rejects.toMatchObject({ messageKey: 'sources.live.unsupported' });
+  }
+});
+
+it('fetches Cosmos pkranges and merges cross-partition ORDER BY streams when gateway rejects un-ranged sorts', async () => {
+  const ranges: Record<string, Array<Record<string, unknown>>> = {
+    '0': [
+      { id: 'd1', name: 'Delta', score: 40 },
+      { id: 'd2', name: 'Bravo', score: 20 },
+      { id: 'd3', name: 'NullA', score: null },
+    ],
+    '1': [
+      { id: 'd4', name: 'Echo', score: 50 },
+      { id: 'd5', name: 'Charlie', score: 30 },
+      { id: 'd6', name: 'Missing' },
+    ],
+    '2': [
+      { id: 'd7', name: 'Alpha', score: 10 },
+      { id: 'd8', name: 'Tie', score: 30 },
+    ],
+  };
+  const requests: Array<{
+    url: string;
+    query: string;
+    rangeId: string | null;
+    cross: string | null;
+    pk: string | null;
+  }> = [];
+  const connector = createNoSqlConnector('cosmosdb', {
+    fetch: async (url, init) => {
+      if (init.signal?.aborted) throw new DOMException('Aborted', 'AbortError');
+      const headers = new Headers(init.headers);
+      if (url.endsWith('/pkranges')) {
+        const cont = headers.get('x-ms-continuation');
+        if (!cont)
+          return answer(
+            { PartitionKeyRanges: [{ id: '0' }, { id: '1' }] },
+            { 'x-ms-continuation': 'pk-page-2' },
+          );
+        return answer({ PartitionKeyRanges: [{ id: '2' }] });
+      }
+      if (!url.endsWith('/docs')) return answer({ partitionKey: { paths: ['/id'] } });
+      const body = JSON.parse(String(init.body)) as { query: string };
+      const rangeId = headers.get('x-ms-documentdb-partitionkeyrangeid');
+      const cross = headers.get('x-ms-documentdb-query-enablecrosspartition');
+      const pk = headers.get('x-ms-documentdb-partitionkey');
+      requests.push({ url, query: body.query, rangeId, cross, pk });
+      if (body.query.includes('ORDER BY') && !pk && !rangeId) {
+        return new Response(
+          JSON.stringify({
+            code: 'BadRequest',
+            message: 'The provided cross partition query can not be directly served by the gateway.',
+          }),
+          { status: 400, headers: { 'content-type': 'application/json', 'x-ms-substatus': '1004' } },
+        );
+      }
+      if (pk) {
+        const key = JSON.parse(pk)[0] as string;
+        const all = Object.values(ranges)
+          .flat()
+          .filter((doc) => doc.id === key);
+        return answer({ Documents: all });
+      }
+      const docs = [...(ranges[rangeId ?? '0'] ?? [])];
+      if (body.query.includes('ORDER BY c["score"] ASC')) {
+        const rank = (v: unknown) => (v === undefined ? 0 : v === null ? 1 : 2);
+        docs.sort((a, b) => {
+          const ra = rank(a.score);
+          const rb = rank(b.score);
+          return ra !== rb ? ra - rb : ra === 2 ? Number(a.score) - Number(b.score) : 0;
+        });
+      } else if (body.query.includes('ORDER BY c["score"] DESC')) {
+        const rank = (v: unknown) => (v === undefined ? 0 : v === null ? 1 : 2);
+        docs.sort((a, b) => {
+          const ra = rank(a.score);
+          const rb = rank(b.score);
+          return ra !== rb ? rb - ra : ra === 2 ? Number(b.score) - Number(a.score) : 0;
+        });
+      }
+      // Simulate paging with an empty continuation page on range 0.
+      const cont = headers.get('x-ms-continuation');
+      if (rangeId === '0') {
+        if (!cont) return answer({ Documents: [] }, { 'x-ms-continuation': 'r0-p1' });
+        if (cont === 'r0-p1')
+          return answer({ Documents: docs.slice(0, 2) }, { 'x-ms-continuation': 'r0-p2' });
+        return answer({ Documents: docs.slice(2) });
+      }
+      const offset = Number(cont ?? 0);
+      const page = docs.slice(offset, offset + 2);
+      return answer(
+        { Documents: page },
+        offset + 2 < docs.length ? { 'x-ms-continuation': String(offset + 2) } : {},
+      );
+    },
+  });
+
+  const ctx = context('cosmosdb');
+  const descRows = await connector.documentQuery!(ctx, select, {
+    predicate: ALL,
+    order: [{ field: 'score', direction: 'desc' }],
+    limit: 20,
+    columns: ['id', 'name', 'score'],
+    types: { id: 'text', name: 'text', score: 'number' },
+    keyColumns: ['id'],
+  });
+  expect(descRows.map((r) => r.values.id)).toEqual(['d4', 'd1', 'd5', 'd8', 'd2', 'd7', 'd3', 'd6']);
+  const sortRequests = requests.filter((r) => r.query.includes('ORDER BY'));
+  expect(sortRequests.length).toBeGreaterThan(0);
+  expect(sortRequests.every((r) => r.rangeId !== null && r.cross === null)).toBe(true);
+
+  const ascLimited = await connector.documentQuery!(ctx, select, {
+    predicate: ALL,
+    order: [{ field: 'score', direction: 'asc' }],
+    limit: 4,
+    columns: ['id', 'name', 'score'],
+    types: { id: 'text', name: 'text', score: 'number' },
+    keyColumns: ['id'],
+  });
+  expect(ascLimited.map((r) => r.values.id)).toEqual(['d6', 'd3', 'd7', 'd2']);
+
+  // Single logical partition sort still routes with x-ms-documentdb-partitionkey directly.
+  const beforeSingle = requests.length;
+  const single = await connector.documentQuery!(ctx, select, {
+    predicate: { op: 'eq', field: 'id', value: 'd1' },
+    order: [{ field: 'score', direction: 'desc' }],
+    limit: 5,
+    columns: ['id', 'score'],
+    types: { id: 'text', score: 'number' },
+    keyColumns: ['id'],
+  });
+  expect(single.map((r) => r.values.id)).toEqual(['d1']);
+  expect(requests.slice(beforeSingle).filter((r) => r.query.includes('ORDER BY'))).toEqual([
+    {
+      url: expect.stringMatching(/\/docs$/),
+      query: 'SELECT * FROM c WHERE c["id"] = @p1 ORDER BY c["score"] DESC',
+      rangeId: null,
+      cross: null,
+      pk: '["d1"]',
+    },
+  ]);
+
+  // Cancellation aborts in-flight sorted range queries without continuing to later pages.
+  const controller = new AbortController();
+  const callsBeforeAbort = requests.length;
+  controller.abort();
+  await expect(
+    connector.documentQuery!({ ...ctx, signal: controller.signal }, select, {
+      predicate: ALL,
+      order: [{ field: 'score', direction: 'desc' }],
+      limit: 5,
+      columns: ['id'],
+      types: {},
+      keyColumns: ['id'],
+    }),
+  ).rejects.toMatchObject({ messageKey: 'sources.test.timeout' });
+  expect(requests.length).toBe(callsBeforeAbort);
+
+  // Early generator break stops paging without fetching remaining continuations.
+  const { cosmosBackend } = await import('./cosmos.js');
+  const backend = cosmosBackend(ctx, ctx.connection as Extract<typeof ctx.connection, { kind: 'cosmosdb' }>, {
+    fetch: async (url, init) => {
+      const headers = new Headers(init.headers);
+      if (url.endsWith('/pkranges')) return answer({ PartitionKeyRanges: [{ id: '0' }, { id: '1' }] });
+      if (!url.endsWith('/docs')) return answer({ partitionKey: { paths: ['/id'] } });
+      const rangeId = headers.get('x-ms-documentdb-partitionkeyrangeid')!;
+      const cont = headers.get('x-ms-continuation');
+      requests.push({
+        url,
+        query: JSON.parse(String(init.body)).query as string,
+        rangeId,
+        cross: headers.get('x-ms-documentdb-query-enablecrosspartition'),
+        pk: headers.get('x-ms-documentdb-partitionkey'),
+      });
+      if (!cont) {
+        return answer(
+          {
+            Documents:
+              rangeId === '0'
+                ? [
+                    { id: 'a', score: 10 },
+                    { id: 'b', score: 9 },
+                  ]
+                : [{ id: 'c', score: 8 }],
+          },
+          { 'x-ms-continuation': `next-${rangeId}` },
+        );
+      }
+      throw new Error(`Should not fetch continuation page ${cont} after early break`);
+    },
+  });
+  const firstBatch: unknown[] = [];
+  for await (const page of backend.pages(select.object, ALL, [{ field: 'score', direction: 'desc' }], 10)) {
+    firstBatch.push(...page.documents);
+    break;
+  }
+  expect(firstBatch).toHaveLength(2);
 });

@@ -1,0 +1,16 @@
+{
+  "connector": "mongodb",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:25:04.518Z",
+  "serverVersionTested": "MongoDB 8.0.32",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

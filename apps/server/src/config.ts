@@ -88,7 +88,7 @@ function isRelayUrl(value: string): boolean {
  * guarded by a one-time setup token printed to the log.
  */
 const EnvSchema = z.object({
-  RIOSOMA_VERSION: z.string().default('0.95.0-rc.1'),
+  RIOSOMA_VERSION: z.string().default('0.95.0'),
   RIOSOMA_SMOKE_PROFILE: z.string().optional(),
   RIOSOMA_DATABASE_WAIT_SECONDS: z.coerce.number().int().nonnegative().max(2_147_483).default(120),
   RIOSOMA_AUTOMATIONS_SCRIPT_MEMORY_MB: z.coerce
@@ -330,6 +330,18 @@ const EnvSchema = z.object({
   RIOSOMA_GOOGLE_OAUTH_CLIENT_ID: z.string().trim().min(1).optional(),
   RIOSOMA_GOOGLE_OAUTH_CLIENT_SECRET: z.string().trim().min(1).optional(),
   RIOSOMA_GOOGLE_PICKER_API_KEY: z.string().trim().min(1).optional(),
+  /** The Microsoft Entra app for Teams direct-message notifications. */
+  RIOSOMA_MICROSOFT_TEAMS_TENANT_ID: z
+    .string()
+    .trim()
+    .refine((value) => z.uuid().safeParse(value).success)
+    .optional(),
+  RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID: z
+    .string()
+    .trim()
+    .refine((value) => z.uuid().safeParse(value).success)
+    .optional(),
+  RIOSOMA_MICROSOFT_TEAMS_CLIENT_SECRET: z.string().trim().min(1).optional(),
   /** `off` stops update checks entirely, for servers with no way out to the internet */
   RIOSOMA_UPDATE_CHECKS: z.enum(['on', 'off']).default('on'),
   /** The signed feed of releases the server checks once a day */
@@ -794,6 +806,11 @@ export function loadConfig(
       github: {
         clientId: e.RIOSOMA_GITHUB_OAUTH_CLIENT_ID,
         clientSecret: e.RIOSOMA_GITHUB_OAUTH_CLIENT_SECRET,
+      },
+      'microsoft-teams': {
+        tenantId: e.RIOSOMA_MICROSOFT_TEAMS_TENANT_ID,
+        clientId: e.RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID,
+        clientSecret: e.RIOSOMA_MICROSOFT_TEAMS_CLIENT_SECRET,
       },
       dropbox: { clientId: e.RIOSOMA_DROPBOX_APP_KEY, clientSecret: e.RIOSOMA_DROPBOX_APP_SECRET },
       box: { clientId: e.RIOSOMA_BOX_CLIENT_ID, clientSecret: e.RIOSOMA_BOX_CLIENT_SECRET },

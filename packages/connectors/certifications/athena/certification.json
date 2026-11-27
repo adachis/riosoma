@@ -1,0 +1,18 @@
+{
+  "connector": "athena",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:40:22.382Z",
+  "serverVersionTested": "Athena",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

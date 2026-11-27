@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { expect, test } from '../accessibility';
+import { downloadNamedBlob } from '../downloads';
 import { createDatabase, newId, openTable, OWNER, runCommands, signIn } from '../helpers';
 import { waitForMail } from '../people';
 import { rows } from '../sql';
@@ -77,10 +78,11 @@ test('schedules a PDF report, reads its email attachment, and downloads it', asy
   expect(emailed[0]!.text.replaceAll(' ', '')).toContain('東京山田고객주문');
 
   await report.getByRole('button', { name: 'More for Harbor PDF' }).click();
-  const downloadReady = page.waitForEvent('download');
-  await page.getByRole('menuitem', { name: 'Download PDF' }).click();
-  const download = await downloadReady;
-  expect(download.suggestedFilename()).toBe('Orders - Grid.pdf');
+  const download = await downloadNamedBlob(
+    page,
+    page.getByRole('menuitem', { name: 'Download PDF' }),
+    'Orders - Grid.pdf',
+  );
   const downloaded = await readReportPdf(await readFile((await download.path())!));
   expect(downloaded).toHaveLength(1);
   for (const text of ['Harbor PDF', 'Customer', 'Amount', 'Harbor order', 'Marina order', 'Page 1 of 1'])

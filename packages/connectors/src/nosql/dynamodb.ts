@@ -2,7 +2,7 @@ import type { NoSqlConnection } from '@riosoma/contracts';
 import { payloadHash, signAwsRequest } from '../files/s3.js';
 import { Leaf } from '../rest/records.js';
 import { ConnectorError, type ConnectorContext } from '../types.js';
-import { identify, object, type DocumentBackend, type DocumentPage } from './backend.js';
+import { object, type DocumentBackend, type DocumentPage } from './backend.js';
 import { fieldName, fieldParts } from './paths.js';
 import { client, endpoint, nextCursor, secret, type NoSqlOptions } from './http.js';
 import { conjunction, equality, type Predicate, type Scalar } from './query.js';
@@ -21,29 +21,6 @@ type Attribute = {
 };
 type Item = Record<string, Attribute>;
 
-/** Equivalent decimal spellings share an exact identity without floating-point conversion. */
-function numericKey(text: string): string {
-  const match = /^([+-]?)(\d+)(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/.exec(text);
-  if (!match) throw new ConnectorError('sources.sync.keyEmpty');
-  const [, sign, whole, fraction = '', exponent = '0'] = match;
-  let digits = (whole! + fraction).replace(/^0+/, '');
-  if (!digits) return '0';
-  let shift = Number(exponent) - fraction.length;
-  if (!Number.isSafeInteger(shift) || Math.abs(shift) > 300)
-    throw new ConnectorError('sources.sync.keyEmpty');
-  while (digits.endsWith('0')) {
-    digits = digits.slice(0, -1);
-    shift++;
-  }
-  const point = digits.length + shift;
-  const value =
-    point <= 0
-      ? `0.${'0'.repeat(-point)}${digits}`
-      : point >= digits.length
-        ? digits + '0'.repeat(shift)
-        : `${digits.slice(0, point)}.${digits.slice(point)}`;
-  return (sign === '-' ? '-' : '') + value;
-}
 export function dynamoValue(value: Attribute): unknown {
   if (value.S !== undefined) return value.S;
   if (value.N !== undefined) {
@@ -215,15 +192,10 @@ export function dynamoBackend(
             return {
               documents: (result.Items ?? []).map((item) => {
                 const document = dynamoDocument(item);
-                const identity = new Map<string, string>();
                 for (const key of keys) {
-                  const attribute = item[key.AttributeName];
-                  const value = attribute?.S;
+                  const value = item[key.AttributeName]?.S;
                   if (value !== undefined) document[key.AttributeName] = new Leaf(value, 'key', value, value);
-                  const native = attribute?.N !== undefined ? numericKey(attribute.N) : value;
-                  if (native !== undefined) identity.set(fieldName([key.AttributeName]), native);
                 }
-                identify(document, identity);
                 return document;
               }),
             } satisfies DocumentPage;

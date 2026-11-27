@@ -35,7 +35,21 @@ const policy = [
   "form-action 'none'",
 ].join('; ');
 
-export function manifest(target: Target, version: string) {
+/**
+ * Chrome and Firefox accept only one to four dot-separated integers as an extension's version, and
+ * Chrome refuses to load anything else, so a release candidate such as 0.95.0-rc.1 installs as
+ * 0.95.0.  Each part is held to Chrome's limits: 0 to 65535, with no leading zeros.
+ */
+export function extensionVersion(release: string): string {
+  const numeric = release.replace(/[-+].*$/, '');
+  const parts = numeric.split('.');
+  if (parts.length > 4 || parts.some((part) => !/^(0|[1-9]\d*)$/.test(part) || Number(part) > 65535))
+    throw new Error(`No extension version can be made from ${release}`);
+  return numeric;
+}
+
+export function manifest(target: Target, release: string) {
+  const version = extensionVersion(release);
   const common = {
     manifest_version: 3,
     name: '__MSG_name__',
@@ -47,7 +61,14 @@ export function manifest(target: Target, version: string) {
     action: { default_popup: 'popup.html', default_title: '__MSG_name__' },
     content_security_policy: { extension_pages: policy },
   };
-  if (target === 'chrome') return { ...common, background: { service_worker: 'worker.js' } };
+  if (target === 'chrome')
+    return {
+      ...common,
+      // Chrome shows this label in place of the version, so testers can tell a candidate apart.
+      // Firefox has no such field and flags it.
+      ...(release !== version ? { version_name: release } : {}),
+      background: { service_worker: 'worker.js' },
+    };
   const firefox = {
     ...common,
     background: { scripts: ['worker.js'] },

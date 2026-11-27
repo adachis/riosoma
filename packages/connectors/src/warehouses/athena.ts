@@ -199,14 +199,46 @@ class AthenaSession implements WarehouseSession {
     return 'Athena';
   }
 
+  private async hasListedGlueCatalog(name: string): Promise<boolean> {
+    let token: string | undefined;
+    const seen = new Set<string>();
+    do {
+      const page = await this.api<{
+        DataCatalogsSummary?: Array<{ CatalogName?: string; Type?: string }>;
+        NextToken?: string;
+      }>('ListDataCatalogs', { MaxResults: 50, ...(token ? { NextToken: token } : {}) });
+      const match = page.DataCatalogsSummary?.find((entry) => entry.CatalogName === name);
+      if (match) return match.Type === 'GLUE';
+      token = page.NextToken;
+      if (token && seen.has(token)) throw new ConnectorError('sources.sync.read');
+      if (token) seen.add(token);
+    } while (token);
+    return false;
+  }
+
   private async glueCatalog(): Promise<{ CatalogId?: string }> {
     if (!this.catalogChecked) {
-      const result = await this.api<{ DataCatalog?: { Type?: string; Parameters?: Record<string, string> } }>(
-        'GetDataCatalog',
-        { Name: this.settings.catalog },
-      );
-      if (result.DataCatalog?.Type !== 'GLUE') throw new ConnectorError('sources.athena.glueCatalog');
-      this.catalogId = result.DataCatalog.Parameters?.['catalog-id'];
+      // AwsDataCatalog is the account's built-in Glue catalog, and GetDataCatalog can reject it.
+      if (this.settings.catalog !== 'AwsDataCatalog') {
+        try {
+          const result = await this.api<{
+            DataCatalog?: { Type?: string; Parameters?: Record<string, string> };
+          }>('GetDataCatalog', { Name: this.settings.catalog });
+          if (result.DataCatalog?.Type !== 'GLUE') throw new ConnectorError('sources.athena.glueCatalog');
+          this.catalogId = result.DataCatalog.Parameters?.['catalog-id'];
+        } catch (error) {
+          if (
+            error instanceof ConnectorError &&
+            error.messageKey === 'sources.sync.read' &&
+            /\bnot found\b/i.test(error.detail ?? '')
+          ) {
+            if (!(await this.hasListedGlueCatalog(this.settings.catalog)))
+              throw new ConnectorError('sources.athena.glueCatalog');
+          } else {
+            throw error;
+          }
+        }
+      }
       this.catalogChecked = true;
     }
     return this.catalogId ? { CatalogId: this.catalogId } : {};

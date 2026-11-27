@@ -151,6 +151,93 @@ describe('shared connector contract', () => {
     expect(result.capabilitiesPassed).toEqual(requiredCapabilities('graphql').sort());
   });
 
+  it('sends the timeout probe’s request even when earlier requests still wait for their turn', async () => {
+    // At 100 requests a second, each request's turn is 10 ms after the last, which is the probe's
+    // whole budget.  Three requests queued just before the probe put its own turn 20 ms or more
+    // past its deadline, so unless the kit waits for those turns the probe times out unsent.
+    let slow = false;
+    let stopped = false;
+    let probes = 0;
+    const executions: string[] = [];
+    const queued: Promise<unknown>[] = [];
+    const data = [1, 2, 3].map((id) => ({ id, title: 'row' }));
+    const connector = createGraphQlConnector({
+      sockets: { connect: async () => {}, handshake: async () => {} },
+      network: {
+        allowsAddress: () => true,
+        check: async () => ({ address: '192.0.2.1', family: 4 }),
+        request: async ({ url, signal, body }) => {
+          if (String(body).includes('query First')) executions.push(String(body));
+          if (slow && !String(body).includes('query Queued')) {
+            probes++;
+            return new Promise((_resolve, reject) => {
+              signal.addEventListener(
+                'abort',
+                () => {
+                  stopped = true;
+                  reject(new FileNetworkError('failed'));
+                },
+                { once: true },
+              );
+            });
+          }
+          return {
+            url,
+            status: 200,
+            headers: {},
+            close() {},
+            body: (async function* () {
+              yield Buffer.from(JSON.stringify({ data: { items: data } }));
+            })(),
+          };
+        },
+      },
+    });
+    const graphql = (query: string) => ({
+      connection: SourceConnection.parse({
+        kind: 'graphql',
+        baseUrl: 'https://192.0.2.1/service',
+        query,
+        records: 'data.items',
+        requestsPerSecond: 100,
+      }),
+      secrets: {},
+      timeoutMs: 1000,
+    });
+    const context = graphql('query { items { id title } }');
+    // The same API and pace, told apart by the query they send.
+    const waiting = graphql('query Queued { items { id title } }');
+    const selected = { kind: 'object' as const, object: { schema: null, name: 'query' } };
+    const result = await runConnectorContract({
+      connector,
+      context,
+      select: selected,
+      types: { id: { type: 'number', options: { precision: 0 } }, title: { type: 'text', options: {} } },
+      keys: [['id']],
+      read: {
+        columns: ['id', 'title'],
+        types: { id: 'number', title: 'text' },
+        keyColumns: ['id'],
+        batchSize: 1,
+      },
+      expectedRows: data.map((values) => ({ key: JSON.stringify([values.id]), values })),
+      failure: (ctx) => {
+        // The step just before the timeout probe leaves three requests waiting for their turns.
+        for (let index = 0; index < 3; index++) queued.push(connector.describe(waiting, selected));
+        return connector.describe(ctx, { kind: 'query', sql: 'mutation { remove }' });
+      },
+      timeout: (ctx) => {
+        slow = true;
+        return connector.describe(ctx, selected);
+      },
+      stopped: () => stopped,
+      executions: () => executions,
+    });
+    await Promise.all(queued);
+    expect(probes).toBe(1);
+    expect(result.capabilitiesPassed).toEqual(requiredCapabilities('graphql').sort());
+  });
+
   it('rejects a correct local filter when the request omitted its predicate', async () => {
     const spec = relational('postgres');
     spec.filter!.run = async () => ({

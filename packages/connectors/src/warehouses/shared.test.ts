@@ -27,8 +27,10 @@ import {
   DRUID,
   DUCKDB,
   guard,
+  guardedSelect,
   literal,
   quotePath,
+  selectSql,
   SNOWFLAKE,
   TRINO,
   type Dialect,
@@ -86,6 +88,37 @@ describe.each(DIALECTS)('the %s query guard', (_name, dialect) => {
 
   it('drops one trailing semicolon, which is how people paste a query', () => {
     expect(guard('  SELECT 1 AS one;  ', dialect)).toBe('(\nSELECT 1 AS one\n) AS q');
+  });
+
+  it('keeps top-level ORDER BY at the outer query level for sorted and paged reads', () => {
+    const sorted = selectSql(
+      { kind: 'query', sql: 'SELECT * FROM t ORDER BY id DESC, name ASC' },
+      ['id', 'name'],
+      dialect,
+      () => ['t'],
+      10,
+    );
+    expect(sorted).toBe(
+      `SELECT ${dialect.quote('id')}, ${dialect.quote('name')} FROM (\nSELECT * FROM t\n) AS q ORDER BY id DESC, name ASC LIMIT 10`,
+    );
+    const qualified = guardedSelect('SELECT * FROM t ORDER BY "id" DESC', '"id" AS "id"', dialect, {
+      limit: 5,
+      columns: ['id'],
+      qualifyOrder: true,
+    });
+    expect(qualified).toBe(
+      'SELECT "id" AS "id" FROM (\nSELECT * FROM t\n) AS q ORDER BY q."id" DESC LIMIT 5',
+    );
+    const windowed = selectSql(
+      { kind: 'query', sql: 'SELECT id, ROW_NUMBER() OVER (ORDER BY id DESC) AS rn FROM t' },
+      ['id', 'rn'],
+      dialect,
+      () => ['t'],
+      5,
+    );
+    expect(windowed).toBe(
+      `SELECT ${dialect.quote('id')}, ${dialect.quote('rn')} FROM (\nSELECT id, ROW_NUMBER() OVER (ORDER BY id DESC) AS rn FROM t\n) AS q LIMIT 5`,
+    );
   });
 });
 
@@ -872,5 +905,362 @@ describe('warehouse calls', () => {
       ),
     ).toEqual([['id']]);
     expect(log.closed).toBe(3);
+  });
+});
+
+describe('guardedSelect adversarial cases', () => {
+  interface GuardedCase {
+    label: string;
+    sql: string;
+    dialect: Dialect;
+    projection?: string;
+    options?: Parameters<typeof guardedSelect>[3];
+    expected: string;
+  }
+
+  const CASES: GuardedCase[] = [
+    // ORDER BY with ASC, DESC, NULLS FIRST, NULLS LAST, and mixed case
+    {
+      label: 'mixed-case ORDER BY with ASC, DESC, NULLS FIRST, NULLS LAST',
+      sql: 'SELECT id, name FROM t oRdEr By id dEsC nUlLs LaSt, name aSc NuLlS fIrSt',
+      dialect: TRINO,
+      options: { columns: ['id', 'name'] },
+      expected:
+        'SELECT * FROM (\nSELECT id, name FROM t\n) AS q ORDER BY id DESC NULLS LAST, name ASC NULLS FIRST',
+    },
+    {
+      label: 'ORDER BY with NULLS FIRST and no explicit direction',
+      sql: 'SELECT id FROM t ORDER BY id nulls first',
+      dialect: TRINO,
+      options: { columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM t\n) AS q ORDER BY id NULLS FIRST',
+    },
+    // Quoted column with spaces or doubled quote, in each dialect's quote style
+    {
+      label: 'double-quoted column with spaces and doubled quotes (Trino)',
+      sql: 'SELECT "first name", "a ""b""" FROM t ORDER BY "first name" ASC, "a ""b""" DESC',
+      dialect: TRINO,
+      options: { columns: ['first name', 'a "b"'], qualifyOrder: true },
+      expected:
+        'SELECT * FROM (\nSELECT "first name", "a ""b""" FROM t\n) AS q ORDER BY q."first name" ASC, q."a ""b""" DESC',
+    },
+    {
+      label: 'double-quoted column with spaces and doubled quotes (Snowflake)',
+      sql: 'SELECT "first name", "a ""b""" FROM t ORDER BY "first name" DESC',
+      dialect: SNOWFLAKE,
+      options: { columns: ['first name', 'a "b"'] },
+      expected: 'SELECT * FROM (\nSELECT "first name", "a ""b""" FROM t\n) AS q ORDER BY "first name" DESC',
+    },
+    {
+      label: 'double-quoted column with spaces and doubled quotes (DuckDB)',
+      sql: 'SELECT "first name", "a ""b""" FROM t ORDER BY "a ""b""" DESC',
+      dialect: DUCKDB,
+      options: { columns: ['first name', 'a "b"'] },
+      expected: 'SELECT * FROM (\nSELECT "first name", "a ""b""" FROM t\n) AS q ORDER BY "a ""b""" DESC',
+    },
+    {
+      label: 'double-quoted column with spaces and doubled quotes (Druid)',
+      sql: 'SELECT "first name", "a ""b""" FROM t ORDER BY "first name" DESC',
+      dialect: DRUID,
+      options: { columns: ['first name', 'a "b"'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT "first name", "a ""b""" FROM t\n) AS q ORDER BY q."first name" DESC',
+    },
+    {
+      label: 'backtick-quoted column with spaces and doubled backticks (ClickHouse)',
+      sql: 'SELECT `first name`, `a ``b` FROM t ORDER BY `first name` ASC, `a ``b` DESC',
+      dialect: CLICKHOUSE,
+      options: { columns: ['first name', 'a `b'] },
+      expected:
+        'SELECT * FROM (\nSELECT `first name`, `a ``b` FROM t\n) AS q ORDER BY `first name` ASC, `a ``b` DESC',
+    },
+    {
+      label: 'backtick-quoted column with spaces and doubled backticks (Databricks)',
+      sql: 'SELECT `first name`, `a ``b` FROM t ORDER BY `a ``b` DESC',
+      dialect: DATABRICKS,
+      options: { columns: ['first name', 'a `b'] },
+      expected: 'SELECT * FROM (\nSELECT `first name`, `a ``b` FROM t\n) AS q ORDER BY `a ``b` DESC',
+    },
+    {
+      label: 'backtick-quoted column with spaces (BigQuery)',
+      sql: 'SELECT `first name` FROM t ORDER BY `first name` DESC',
+      dialect: BIGQUERY,
+      options: { columns: ['first name'] },
+      expected: 'SELECT * FROM (\nSELECT `first name` FROM t\n) AS q ORDER BY `first name` DESC',
+    },
+    // Ordinals and expressions must not move
+    {
+      label: 'ORDER BY ordinal without limit stays inside',
+      sql: 'SELECT id, name FROM t ORDER BY 1 DESC',
+      dialect: TRINO,
+      options: { columns: ['id', 'name'] },
+      expected: 'SELECT * FROM (\nSELECT id, name FROM t ORDER BY 1 DESC\n) AS q',
+    },
+    {
+      label: 'ORDER BY ordinal with limit pairs LIMIT inside',
+      sql: 'SELECT id, name FROM t ORDER BY 1 DESC',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id', 'name'] },
+      expected: 'SELECT * FROM (\nSELECT id, name FROM t ORDER BY 1 DESC LIMIT 5\n) AS q',
+    },
+    {
+      label: 'ORDER BY ordinal ending in line comment pairs LIMIT on a new line',
+      sql: 'SELECT id, name FROM t ORDER BY 1 DESC -- keep ordinal',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id', 'name'] },
+      expected: 'SELECT * FROM (\nSELECT id, name FROM t ORDER BY 1 DESC -- keep ordinal\nLIMIT 5\n) AS q',
+    },
+    {
+      label: 'ORDER BY expression without limit stays inside',
+      sql: 'SELECT id, name FROM t ORDER BY lower(name) ASC',
+      dialect: TRINO,
+      options: { columns: ['id', 'name'] },
+      expected: 'SELECT * FROM (\nSELECT id, name FROM t ORDER BY lower(name) ASC\n) AS q',
+    },
+    {
+      label: 'ORDER BY expression with limit pairs LIMIT inside',
+      sql: 'SELECT id, name FROM t ORDER BY lower(name) ASC',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id', 'name'] },
+      expected: 'SELECT * FROM (\nSELECT id, name FROM t ORDER BY lower(name) ASC LIMIT 5\n) AS q',
+    },
+    {
+      label: 'ORDER BY ordinal with where and defaultOrder pages by the default order',
+      sql: 'SELECT time, val FROM cpu ORDER BY 1 DESC',
+      dialect: TRINO,
+      options: { where: "time >= '2026-01-01'", defaultOrder: 'time', limit: 5 },
+      expected:
+        "SELECT * FROM (\nSELECT time, val FROM cpu ORDER BY 1 DESC\n) AS q WHERE time >= '2026-01-01' ORDER BY time LIMIT 5",
+    },
+    // ORDER BY followed by LIMIT, LIMIT ... OFFSET, OFFSET ... FETCH FIRST n ROWS ONLY, ClickHouse SETTINGS
+    {
+      label: 'ORDER BY followed by LIMIT',
+      sql: 'SELECT id FROM t ORDER BY id DESC LIMIT 5',
+      dialect: TRINO,
+      options: { limit: 10, columns: ['id'], qualifyOrder: true },
+      expected:
+        'SELECT * FROM (\nSELECT id FROM t ORDER BY id DESC LIMIT 5\n) AS q ORDER BY q.id DESC LIMIT 10',
+    },
+    {
+      label: 'ORDER BY followed by LIMIT ... OFFSET',
+      sql: 'SELECT id FROM t ORDER BY id DESC LIMIT 5 OFFSET 2',
+      dialect: TRINO,
+      options: { limit: 10, columns: ['id'] },
+      expected:
+        'SELECT * FROM (\nSELECT id FROM t ORDER BY id DESC LIMIT 5 OFFSET 2\n) AS q ORDER BY id DESC LIMIT 10',
+    },
+    {
+      label: 'ORDER BY followed by OFFSET ... FETCH FIRST n ROWS ONLY',
+      sql: 'SELECT id FROM t ORDER BY id DESC OFFSET 2 FETCH FIRST 5 ROWS ONLY',
+      dialect: TRINO,
+      options: { limit: 10, columns: ['id'] },
+      expected:
+        'SELECT * FROM (\nSELECT id FROM t ORDER BY id DESC OFFSET 2 FETCH FIRST 5 ROWS ONLY\n) AS q ORDER BY id DESC LIMIT 10',
+    },
+    {
+      label: 'ORDER BY followed by ClickHouse SETTINGS',
+      sql: 'SELECT id FROM t ORDER BY id DESC SETTINGS max_threads = 2',
+      dialect: CLICKHOUSE,
+      options: { limit: 10, columns: ['id'] },
+      expected:
+        'SELECT * FROM (\nSELECT id FROM t ORDER BY id DESC SETTINGS max_threads = 2\n) AS q ORDER BY id DESC LIMIT 10',
+    },
+    {
+      label: 'qualified column named limit after ORDER BY does not split at limit',
+      sql: 'SELECT id, t.limit FROM t ORDER BY t.limit',
+      dialect: TRINO,
+      options: { columns: ['id', 'limit'] },
+      expected: 'SELECT * FROM (\nSELECT id, t.limit FROM t ORDER BY t.limit\n) AS q',
+    },
+    // UNION and UNION ALL with trailing ORDER BY (and branch ORDER BY before UNION)
+    {
+      label: 'UNION with trailing ORDER BY',
+      sql: 'SELECT id FROM a UNION SELECT id FROM b ORDER BY id DESC',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM a UNION SELECT id FROM b\n) AS q ORDER BY id DESC LIMIT 5',
+    },
+    {
+      label: 'UNION ALL with trailing ORDER BY',
+      sql: 'SELECT id FROM a UNION ALL SELECT id FROM b ORDER BY id ASC',
+      dialect: CLICKHOUSE,
+      options: { limit: 5, columns: ['id'] },
+      expected:
+        'SELECT * FROM (\nSELECT id FROM a UNION ALL SELECT id FROM b\n) AS q ORDER BY id ASC LIMIT 5',
+    },
+    {
+      label: 'ORDER BY on left branch of UNION does not lift to outer query',
+      sql: 'SELECT id FROM a ORDER BY id DESC UNION SELECT id FROM b',
+      dialect: CLICKHOUSE,
+      options: { limit: 5, columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM a ORDER BY id DESC UNION SELECT id FROM b\n) AS q LIMIT 5',
+    },
+    // CTE, subquery, and window function inner orders must not move
+    {
+      label: 'CTE inner ORDER BY does not move',
+      sql: 'WITH x AS (SELECT id FROM t ORDER BY id DESC) SELECT id FROM x',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id'] },
+      expected:
+        'SELECT * FROM (\nWITH x AS (SELECT id FROM t ORDER BY id DESC) SELECT id FROM x\n) AS q LIMIT 5',
+    },
+    {
+      label: 'subquery inner ORDER BY does not move',
+      sql: 'SELECT id FROM (SELECT id FROM t ORDER BY id DESC) sub',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM (SELECT id FROM t ORDER BY id DESC) sub\n) AS q LIMIT 5',
+    },
+    {
+      label: 'window OVER (PARTITION BY ... ORDER BY ...) does not move',
+      sql: 'SELECT id, ROW_NUMBER() OVER (PARTITION BY a ORDER BY b) AS rn FROM t',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id', 'rn'] },
+      expected:
+        'SELECT * FROM (\nSELECT id, ROW_NUMBER() OVER (PARTITION BY a ORDER BY b) AS rn FROM t\n) AS q LIMIT 5',
+    },
+    // Words "order by" inside string literal, quoted identifier, -- comment, /* */ comment
+    {
+      label: 'order by inside string literal does not move',
+      sql: "SELECT 'order by id' AS s FROM t",
+      dialect: TRINO,
+      options: { limit: 5, columns: ['s'] },
+      expected: "SELECT * FROM (\nSELECT 'order by id' AS s FROM t\n) AS q LIMIT 5",
+    },
+    {
+      label: 'order by inside quoted identifier does not trigger ORDER BY',
+      sql: 'SELECT "order by" FROM t',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['order by'] },
+      expected: 'SELECT * FROM (\nSELECT "order by" FROM t\n) AS q LIMIT 5',
+    },
+    {
+      label: 'order by inside -- line comment does not trigger ORDER BY',
+      sql: 'SELECT id FROM t -- order by id',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM t -- order by id\n) AS q LIMIT 5',
+    },
+    {
+      label: 'order by inside /* */ block comment does not trigger ORDER BY',
+      sql: 'SELECT id FROM t /* order by id */',
+      dialect: TRINO,
+      options: { limit: 5, columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM t /* order by id */\n) AS q LIMIT 5',
+    },
+    // Trailing semicolon, trailing whitespace or comments after ORDER BY
+    {
+      label: 'trailing semicolon and whitespace after ORDER BY',
+      sql: '  SELECT id FROM t ORDER BY id DESC;  ',
+      dialect: TRINO,
+      options: { columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM t\n) AS q ORDER BY id DESC',
+    },
+    {
+      label: 'trailing -- comment and semicolon after ORDER BY',
+      sql: 'SELECT id FROM t ORDER BY id DESC  -- tail\n ; ',
+      dialect: TRINO,
+      options: { columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM t\n) AS q ORDER BY id DESC',
+    },
+    {
+      label: 'trailing /* */ comment and semicolon after ORDER BY',
+      sql: 'SELECT id FROM t ORDER BY id DESC /* tail */;',
+      dialect: TRINO,
+      options: { columns: ['id'] },
+      expected: 'SELECT * FROM (\nSELECT id FROM t\n) AS q ORDER BY id DESC',
+    },
+    // ORDER BY column not in columns (aliases, q.-qualified, mixed-case mismatch), with and without qualifyOrder
+    {
+      label: 'ORDER BY source column hidden behind alias does not move (unqualified)',
+      sql: 'SELECT id AS item_id FROM t ORDER BY id DESC',
+      dialect: TRINO,
+      options: { columns: ['item_id'], qualifyOrder: false },
+      expected: 'SELECT * FROM (\nSELECT id AS item_id FROM t ORDER BY id DESC\n) AS q',
+    },
+    {
+      label: 'ORDER BY source column hidden behind alias does not move (qualified)',
+      sql: 'SELECT id AS item_id FROM t ORDER BY id DESC',
+      dialect: TRINO,
+      options: { columns: ['item_id'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT id AS item_id FROM t ORDER BY id DESC\n) AS q',
+    },
+    {
+      label: 'ORDER BY q.-qualified column does not move (qualifyOrder: false)',
+      sql: 'SELECT id FROM t ORDER BY q.id DESC',
+      dialect: TRINO,
+      options: { columns: ['id'], qualifyOrder: false },
+      expected: 'SELECT * FROM (\nSELECT id FROM t ORDER BY q.id DESC\n) AS q',
+    },
+    {
+      label: 'ORDER BY q.-qualified column does not move (qualifyOrder: true)',
+      sql: 'SELECT id FROM t ORDER BY q.id DESC',
+      dialect: TRINO,
+      options: { columns: ['id'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT id FROM t ORDER BY q.id DESC\n) AS q',
+    },
+    {
+      label: 'ORDER BY unquoted name against mixed-case column does not move',
+      sql: 'SELECT "Id" FROM t ORDER BY id DESC',
+      dialect: TRINO,
+      options: { columns: ['Id'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT "Id" FROM t ORDER BY id DESC\n) AS q',
+    },
+    // With where set (keyset paging) and without it, with and without limit
+    {
+      label: 'keyset where without limit lifts ORDER BY',
+      sql: 'SELECT id FROM t ORDER BY id DESC',
+      dialect: DRUID,
+      options: { where: 'id > 10', columns: ['id'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT id FROM t\n) AS q WHERE id > 10 ORDER BY q.id DESC',
+    },
+    {
+      label: 'keyset where with limit lifts ORDER BY',
+      sql: 'SELECT id FROM t ORDER BY id DESC',
+      dialect: DRUID,
+      options: { where: 'id > 10', limit: 5, columns: ['id'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT id FROM t\n) AS q WHERE id > 10 ORDER BY q.id DESC LIMIT 5',
+    },
+    {
+      label: 'no where and no limit lifts ORDER BY',
+      sql: 'SELECT id FROM t ORDER BY id DESC',
+      dialect: DRUID,
+      options: { columns: ['id'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT id FROM t\n) AS q ORDER BY q.id DESC',
+    },
+    {
+      label: 'no where with limit lifts ORDER BY',
+      sql: 'SELECT id FROM t ORDER BY id DESC',
+      dialect: DRUID,
+      options: { limit: 5, columns: ['id'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT id FROM t\n) AS q ORDER BY q.id DESC LIMIT 5',
+    },
+    {
+      label: 'non-liftable ORDER BY with keyset where and limit',
+      sql: 'SELECT id FROM t ORDER BY 1',
+      dialect: DRUID,
+      options: { where: 'id > 10', limit: 5, columns: ['id'], qualifyOrder: true },
+      expected: 'SELECT * FROM (\nSELECT id FROM t ORDER BY 1\n) AS q WHERE id > 10 LIMIT 5',
+    },
+    // Query with no ORDER BY at all matches pre-branch wrapping exactly
+    {
+      label: 'no ORDER BY and no limit',
+      sql: 'SELECT id, name FROM t',
+      dialect: TRINO,
+      projection: '"id", "name"',
+      options: { columns: ['id', 'name'] },
+      expected: 'SELECT "id", "name" FROM (\nSELECT id, name FROM t\n) AS q',
+    },
+    {
+      label: 'no ORDER BY with limit',
+      sql: 'SELECT id, name FROM t',
+      dialect: TRINO,
+      projection: '"id", "name"',
+      options: { limit: 10, columns: ['id', 'name'] },
+      expected: 'SELECT "id", "name" FROM (\nSELECT id, name FROM t\n) AS q LIMIT 10',
+    },
+  ];
+
+  it.each(CASES)('$label', ({ sql, dialect, projection = '*', options, expected }) => {
+    expect(guardedSelect(sql, projection, dialect, options)).toBe(expected);
   });
 });

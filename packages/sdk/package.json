@@ -1,6 +1,6 @@
 {
   "name": "@riosoma/sdk",
-  "version": "0.95.0-rc.1",
+  "version": "0.95.0",
   "private": true,
   "type": "module",
   "description": "A typed client for the Riosoma REST API, for Node.js and browsers, with no runtime dependencies",

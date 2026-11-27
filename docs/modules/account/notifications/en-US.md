@@ -64,7 +64,11 @@ Select the {{ui:notifications.channel.digest}} column for each kind to include. 
 
 Choose {{ui:notifications.channel.slack}} or {{ui:notifications.channel.teams}} in [the channel grid](/settings/notifications#channels).  An Integrations administrator connects the organization first.  Your Riosoma account email must match the account that receives your direct messages.  Messages contain a short summary and a link, and delivery checks your current access again.
 
-Slack uses a bot with `users:read.email`, `im:write`, and `chat:write` scopes.  Teams uses the organization's Graph app and a delegated connection with `User.Read`, `User.ReadBasic.All`, `Chat.Create`, `ChatMessage.Send`, and `offline_access`.  A client-credentials token alone cannot send these Teams chat messages.  Messages come from the delegated account.
+Slack uses a bot with `users:read.email`, `im:write`, and `chat:write` scopes.
+
+For Teams, set up a Microsoft Entra app under [Integrations](/settings/integrations).  Register the redirect address shown there as a **Web** platform redirect, and grant admin consent for the delegated Microsoft Graph permissions `offline_access`, `User.Read`, `User.ReadBasic.All`, `Chat.Create`, and `ChatMessage.Send`.
+
+In [organization channels](/settings/notifications#organization), choose {{ui:notifications.channel.teams}} under {{ui:notifications.connection.title}}, then choose {{ui:notifications.connection.teamsSignIn}}.  Sign in with the account messages should come from.  Riosoma shows the sender and stores the connection without asking you to copy a token.
 
 ## Admin SMS
 
@@ -74,7 +78,7 @@ SMS delivers only security alerts, failed backups, an unreachable notification v
 
 ## Organization controls
 
-Integrations administrators can open [organization channels](/settings/notifications#organization) and turn any channel off for everyone.  Personal preferences are kept.  {{ui:notifications.connection.title}} stores encrypted Slack, Teams, and Twilio credentials.  {{ui:notifications.connection.disconnect}} removes a connection.  Changes are audited, and {{ui:notifications.undo}} restores an unchanged setting when available.  Undo cannot restore a phone verification challenge or replace the installation's permanent push identity.
+Integrations administrators can open [organization channels](/settings/notifications#organization) and turn any channel off for everyone.  Personal preferences are kept.  {{ui:notifications.connection.title}} stores encrypted Slack, Teams, and Twilio credentials.  {{ui:notifications.connection.disconnect}} removes a Slack or Twilio connection.  Choose {{ui:drives.accounts.disconnect}} to remove the Teams connection.  Changes are audited, and {{ui:notifications.undo}} restores an unchanged setting when available.  Undo cannot restore a phone verification challenge or replace the installation's permanent push identity.
 
 When the credential vault that holds those connections cannot be reached, the owner and Integrations administrators hear about it through {{ui:notifications.settings.vaultUnavailable}}, at most once an hour while it lasts.  Other administrators don't, since only the owner and Integrations administrators can open this section.  That notification opens this section, so the connections can be checked or replaced.  Slack, Teams, and text messages for that time weren't sent, and each notification stays in the bell.
 

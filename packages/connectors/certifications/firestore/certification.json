@@ -1,0 +1,17 @@
+{
+  "connector": "firestore",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:53:30.959Z",
+  "serverVersionTested": "Firestore API v1",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

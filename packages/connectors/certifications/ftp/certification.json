@@ -1,0 +1,15 @@
+{
+  "connector": "ftp",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:13:19.851Z",
+  "serverVersionTested": "220---------- Welcome to Pure-FTPd [privsep] [TLS] ----------",
+  "capabilitiesPassed": [
+    "describe",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

@@ -1,38 +1,57 @@
 import { createRequire } from 'node:module';
-import { expect, test, type BrowserContext } from '../accessibility';
+import { readFileSync } from 'node:fs';
+import { expect, test, type Download, type Page } from '../accessibility';
 import { base } from '../base';
+import {
+  isSelectReport,
+  policyViolations,
+  selectConsoleError,
+  type PolicyReport,
+} from '../policy-violations';
 import { createDatabase, createView, offlineMap, openTable, signIn, visit } from '../helpers';
 
 // Chromium's headless shell stalls on PDF navigations.  The full browser includes the viewer.
 test.use({
+  serviceWorkers: async ({ browserName }, use) => {
+    // Playwright's Linux WebKit never routes requests from a page that a service worker controls,
+    // so the mocked map style below cannot reach the page while the worker runs.  The style's URL
+    // is fixed by the server's configuration, so no route the test server answers can serve it
+    // instead.  Block the worker in WebKit only, and only in this spec.  Chromium and Firefox
+    // keep it.
+    await use(browserName === 'webkit' ? 'block' : 'allow');
+  },
   channel: async ({ browserName }, use) => {
     await use(browserName === 'chromium' ? 'chromium' : undefined);
   },
+  launchOptions: async ({ browserName, launchOptions }, use) => {
+    if (browserName !== 'firefox') return use(launchOptions);
+    // The automation profile forces PDF downloads.  Restore Firefox's built-in viewer for this spec.
+    await use({
+      ...launchOptions,
+      firefoxUserPrefs: { ...launchOptions.firefoxUserPrefs, 'pdfjs.disabled': false },
+    });
+  },
 });
 
-async function policyViolations(context: BrowserContext): Promise<string[]> {
-  const violations: string[] = [];
-  await context.exposeBinding('recordPolicyViolation', (_source, detail: string) => violations.push(detail));
-  await context.addInitScript(() => {
-    document.addEventListener('securitypolicyviolation', (event) => {
-      void Reflect.get(
-        window,
-        'recordPolicyViolation',
-      )(
-        JSON.stringify({
-          directive: event.effectiveDirective,
-          blocked: event.blockedURI,
-          source: event.sourceFile,
-          line: event.lineNumber,
-        }),
-      );
-    });
+// WebKit can report one browser-internal slot attribute per created select.  Count inserted
+// selects and require the app bundle as the source to bound the exception in the main test.
+function withoutWebKitSelectReports(violations: PolicyReport[], selects: number): PolicyReport[] {
+  let excused = 0;
+  return violations.filter((report) => {
+    if (excused < selects && isSelectReport(report) && report.source.startsWith(`${base()}/assets/`)) {
+      excused += 1;
+      return false;
+    }
+    return true;
   });
-  return violations;
 }
 
-test('main screens run under enforced Trusted Types without CSP violations', async ({ page, context }) => {
-  const violations = await policyViolations(context);
+test('main screens run under enforced Trusted Types without CSP violations', async ({
+  page,
+  context,
+  browserName,
+}) => {
+  const { violations, selects } = await policyViolations(context, browserName === 'webkit');
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await signIn(page);
@@ -43,9 +62,20 @@ test('main screens run under enforced Trusted Types without CSP violations', asy
   expect(response.headers()['content-security-policy']).toContain(
     'trusted-types rio-sanitizer rio-html rio-script-url',
   );
-  await expect
-    .poll(() => page.evaluate(async () => (await navigator.serviceWorker.ready).active?.state))
-    .toBe('activated');
+  if (browserName === 'webkit') {
+    // The fixture above blocks service workers in WebKit so the map style's route can reach the
+    // page, and ready never resolves there.  Check that the app still ships its worker script
+    // and that no worker registered or controls the page instead.
+    const worker = await page.request.get(`${base()}/sw.js`);
+    expect(worker.ok()).toBe(true);
+    expect(worker.headers()['content-type']).toContain('javascript');
+    expect(await page.evaluate(() => navigator.serviceWorker.getRegistrations())).toEqual([]);
+    expect(await page.evaluate(() => navigator.serviceWorker.controller)).toBeNull();
+  } else {
+    await expect
+      .poll(() => page.evaluate(async () => (await navigator.serviceWorker.ready).active?.state))
+      .toBe('activated');
+  }
   const database = await createDatabase(page, 'Trusted Types screens', [
     {
       name: 'Notes',
@@ -66,15 +96,52 @@ test('main screens run under enforced Trusted Types without CSP violations', asy
   const editor = page.locator('.rio-rich-text__content[contenteditable="true"]').last();
   await expect(editor).toBeVisible();
   await editor.fill('Edited safely');
-  // Exercise ProseMirror's HTML clipboard parser, including hostile pasted markup.
+  // A real paste under the enforced policy: a trusted copy event carries the hostile HTML to the
+  // clipboard, and the keyboard shortcut pastes it back.  The capture listener exists only for
+  // this step and removes itself once the copy fires.
+  const payload =
+    '<p><strong>Pasted text</strong><img src=x onerror="attack()"><script>attack()</script></p>';
   await editor.evaluate((element) => {
-    const clipboardData = new DataTransfer();
-    clipboardData.setData(
-      'text/html',
-      '<p><strong>Pasted text</strong><img src=x onerror="attack()"><script>attack()</script></p>',
+    const record = { isTrusted: false, html: '' };
+    Reflect.set(window, 'trustedTypesPaste', record);
+    element.addEventListener(
+      'paste',
+      (event) => {
+        const paste = event as ClipboardEvent;
+        record.isTrusted = paste.isTrusted;
+        record.html = paste.clipboardData?.getData('text/html') ?? '';
+      },
+      { capture: true, once: true },
     );
-    element.dispatchEvent(new ClipboardEvent('paste', { bubbles: true, cancelable: true, clipboardData }));
   });
+  await editor.press('ControlOrMeta+a');
+  const copied = page.evaluate(
+    (html) =>
+      new Promise<boolean>((resolve) => {
+        window.addEventListener(
+          'copy',
+          (event) => {
+            const copy = event as ClipboardEvent;
+            copy.stopPropagation();
+            copy.preventDefault();
+            copy.clipboardData?.setData('text/html', html);
+            copy.clipboardData?.setData('text/plain', 'Pasted text');
+            resolve(copy.isTrusted);
+          },
+          { capture: true, once: true },
+        );
+      }),
+    payload,
+  );
+  await page.keyboard.press('ControlOrMeta+c');
+  expect(await copied).toBe(true);
+  await editor.press('ControlOrMeta+v');
+  const paste = (await page.evaluate(() => Reflect.get(window, 'trustedTypesPaste'))) as {
+    isTrusted: boolean;
+    html: string;
+  };
+  expect(paste.isTrusted).toBe(true);
+  expect(paste.html).toBe(payload);
   await expect(editor).toContainText('Pasted text');
   await expect(editor.locator('script, img, [onerror]')).toHaveCount(0);
   const form = await createView(page, database, 'Notes', {
@@ -114,7 +181,53 @@ test('main screens run under enforced Trusted Types without CSP violations', asy
   await visit(page, `${base()}/settings/appearance`);
   await expect(page.getByRole('combobox', { name: 'Search settings' })).toBeVisible();
   expect(errors).toEqual([]);
-  expect(violations).toEqual([]);
+  if (browserName === 'webkit') {
+    // The Appearance screen's pickers create <select> elements, so the counting must have seen them.
+    expect(selects()).toBeGreaterThan(0);
+    expect(withoutWebKitSelectReports(violations, selects())).toEqual([]);
+  } else {
+    expect(violations).toEqual([]);
+  }
+});
+
+test('only WebKit reports creating a <select>, which the main test excuses there', async ({
+  page,
+  context,
+  browserName,
+}) => {
+  const { violations } = await policyViolations(context);
+  await signIn(page);
+  await visit(page, `${base()}/`);
+  await expect(page.getByRole('heading', { name: 'Databases', exact: true })).toBeVisible();
+  const start = violations.length;
+  const consoleErrors: ReturnType<typeof selectConsoleError>[] = [];
+  page.on('console', (message) => {
+    if (message.type() !== 'error') return;
+    const { url, lineNumber: line, columnNumber: column } = message.location();
+    consoleErrors.push({ text: message.text(), url, line, column });
+  });
+  await page.evaluate(() => {
+    document.createElement('select');
+    // A blocked inline <style> reports in every engine, after any report the <select> raised.
+    const sentinel = document.createElement('style');
+    sentinel.textContent = 'body {}';
+    document.head.append(sentinel);
+    sentinel.remove();
+  });
+  const reports = () => violations.slice(start);
+  await expect.poll(() => reports().filter((report) => report.directive === 'style-src-elem').length).toBe(1);
+  // When this fails in WebKit, Playwright's WebKit includes the upstream fix: remove the exception above.
+  if (browserName === 'webkit') {
+    expect(reports().map((report) => report.directive)).toEqual(['style-src-attr', 'style-src-elem']);
+    expect(reports().filter(isSelectReport)).toHaveLength(1);
+    // The sentinel has identical console text.  Its style-src-elem report must stay distinguishable.
+    await expect
+      .poll(() => consoleErrors)
+      .toEqual([selectConsoleError(page.url()), selectConsoleError(page.url())]);
+  } else {
+    expect(reports()).toHaveLength(1);
+    expect(reports().filter(isSelectReport)).toHaveLength(0);
+  }
 });
 
 test('untyped DOM sinks and unapproved policy names are rejected', async ({ page, browserName }) => {
@@ -170,8 +283,12 @@ test('untyped DOM sinks and unapproved policy names are rejected', async ({ page
 });
 
 test.describe('native PDF viewer', () => {
-  test('PDF attachment previews open the native viewer under the app policy', async ({ page, context }) => {
-    const violations = await policyViolations(context);
+  test('PDF attachment previews open the native viewer under the app policy', async ({
+    page,
+    context,
+    browserName,
+  }) => {
+    const { violations } = await policyViolations(context);
     await signIn(page);
     const database = await createDatabase(page, 'Trusted PDF preview', [
       {
@@ -205,12 +322,34 @@ test.describe('native PDF viewer', () => {
     const link = preview.getByRole('link', { name: /^Open in a new tab/ });
     const response = await page.request.get(new URL((await link.getAttribute('href'))!, base()).href);
     expect(response.headers()['content-type']).toContain('application/pdf');
+    expect(response.headers()['content-disposition']).toMatch(/^inline;/);
     expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-');
+    // The Linux WebKit build has no built-in PDF viewer, so it downloads the inline PDF and
+    // leaves the new tab empty instead of showing it.  Real Safari renders the same response in
+    // its native viewer.  Assert the download WebKit performs, carrying the same file the
+    // response checks above read, and keep the popup and violation checks.
+    const downloads: Download[] = [];
+    const collect = (openedPage: Page) => openedPage.on('download', (download) => downloads.push(download));
+    collect(page);
+    context.on('page', collect);
     const opened = page.waitForEvent('popup');
     await link.click();
     const viewer = await opened;
-    await viewer.waitForLoadState('domcontentloaded');
-    expect(viewer.url()).toContain('/api/files/');
+    if (browserName === 'webkit') {
+      await expect.poll(() => downloads.length).toBe(1);
+      expect(downloads[0]!.suggestedFilename()).toBe('Paper.pdf');
+      expect(
+        readFileSync(await downloads[0]!.path())
+          .subarray(0, 5)
+          .toString(),
+      ).toBe('%PDF-');
+    } else {
+      await viewer.waitForLoadState('domcontentloaded');
+      expect(viewer.url()).toContain('/api/files/');
+      if (browserName === 'firefox') {
+        await expect(viewer.locator('#viewer .page[data-page-number="1"] canvas')).toBeVisible();
+      }
+    }
     await viewer.close();
     expect(violations).toEqual([]);
   });

@@ -369,6 +369,12 @@ describe('the public demo boundary', () => {
     expect(Date.parse(session.expiresAt!) - Date.now()).toBeLessThanOrEqual(DEMO_LIFETIME_MS);
   });
 
+  it.each(['start', 'callback'])('refuses Teams OAuth %s in the public demo', async (step) => {
+    const response = await server.app.inject({ url: `/api/oauth/${step}/microsoft-teams`, headers });
+    expect(response.statusCode, response.body).toBe(403);
+    expect(response.json().error).toMatchObject({ code: 'forbidden', messageKey: 'demo.readOnly' });
+  });
+
   it('requires a decision for every registered route and enforces refusals before parsing', async () => {
     const registered = [...new Set(demoRoutes(server.app))];
     expect(registered.filter((route) => !Object.hasOwn(routeCorpus, route))).toEqual([]);

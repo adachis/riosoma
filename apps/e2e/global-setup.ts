@@ -1,10 +1,20 @@
+import os from 'node:os';
 import type { FullConfig } from '@playwright/test';
+import { checkLoopbackOnly } from './loopback-only';
 import { startStack, type Stack } from './stack';
 import { buildTestWeb, validateTestWebBuild } from './web-build';
 import { startDisplay } from './display';
 
 /** One fresh server and database per browser, so each browser walks the first-run journey itself. */
 export default async function globalSetup(config: FullConfig): Promise<() => Promise<void>> {
+  // Host interface changes fail Chromium's loopback requests, so CI browser steps run in the
+  // loopback-only namespace that tools/ci/loopback-only.sh creates.  Check before anything starts.
+  const { warning } = checkLoopbackOnly({
+    env: process.env,
+    platform: process.platform,
+    interfaces: Object.keys(os.networkInterfaces()),
+  });
+  if (warning) console.warn(warning);
   // The shard coordinator owns one immutable build; every shard owns its mutable stack.
   const shared = process.env.RIOSOMA_E2E_SHARED_WEB_DIR;
   if (shared) validateTestWebBuild(shared);

@@ -389,6 +389,20 @@ Development and test builds keep every language and the pseudo-locales regardles
 
 **`RIOSOMA_GOOGLE_PICKER_API_KEY`.**  The API key Google's Picker opens with.  Every browser that opens the Picker receives it, so restrict it to the Picker API and to this server's address in Google Cloud.
 
+## Notification delivery
+
+| Setting | Default | Accepts | Secret |
+|---|---|---|---|
+| `RIOSOMA_MICROSOFT_TEAMS_TENANT_ID` | Unset | Text |  |
+| `RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID` | Unset | Text |  |
+| `RIOSOMA_MICROSOFT_TEAMS_CLIENT_SECRET` | Unset | Text | Yes |
+
+**`RIOSOMA_MICROSOFT_TEAMS_TENANT_ID`.**  The directory tenant ID for the Microsoft Entra app that sends Teams direct-message notifications.  Set it with `RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID` and `RIOSOMA_MICROSOFT_TEAMS_CLIENT_SECRET` to configure the app on the server.  An administrator can also enter the app under Settings, Integrations, which shows the Web redirect address to register.  See [Teams direct messages](microsoft-365.md#direct-message-notifications).
+
+**`RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID`.**  The application client ID for the Teams direct-message app named by `RIOSOMA_MICROSOFT_TEAMS_TENANT_ID`.
+
+**`RIOSOMA_MICROSOFT_TEAMS_CLIENT_SECRET`.**  The client secret for the Teams direct-message app named by `RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID`.
+
 ## Updates and usage counts
 
 | Setting | Default | Accepts | Secret |
@@ -422,7 +436,7 @@ Development and test builds keep every language and the pseudo-locales regardles
 
 | Setting | Default | Accepts | Secret |
 |---|---|---|---|
-| `RIOSOMA_VERSION` | `0.95.0-rc.1` | Text |  |
+| `RIOSOMA_VERSION` | `0.95.0` | Text |  |
 | `RIOSOMA_PORT` | `8080` | Whole number, 1 or more |  |
 | `NODE_ENV` | `production` | Text |  |
 | `RIOSOMA_DRIVERS_DIR` | Unset | Text |  |

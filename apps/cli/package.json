@@ -1,6 +1,6 @@
 {
   "name": "@riosoma/cli",
-  "version": "0.95.0-rc.1",
+  "version": "0.95.0",
   "private": true,
   "type": "module",
   "description": "The riosoma command-line tool: sign in, read and change records, move data in and out, and save a database's schema",

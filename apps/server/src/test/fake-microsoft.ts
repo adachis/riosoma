@@ -1,3 +1,4 @@
+import { randomBytes } from 'node:crypto';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import type { AddressInfo } from 'node:net';
 
@@ -57,8 +58,15 @@ async function bodyOf(req: IncomingMessage): Promise<string> {
   return Buffer.concat(chunks).toString();
 }
 
-export async function startFakeMicrosoft(): Promise<FakeMicrosoft> {
-  const tenant = 'garden.onmicrosoft.com';
+export interface FakeMicrosoftDelegation {
+  tenant: string;
+  account: { id: string; name: string; email: string };
+  messages: unknown[];
+  refreshToken?: string;
+}
+
+export async function startFakeMicrosoft(delegation?: FakeMicrosoftDelegation): Promise<FakeMicrosoft> {
+  const tenant = delegation?.tenant ?? 'garden.onmicrosoft.com';
   const siteId =
     'garden.sharepoint.com,11111111-aaaa-4bbb-8ccc-000000000001,22222222-aaaa-4bbb-8ccc-000000000002';
   const fake: FakeMicrosoft = {
@@ -89,12 +97,41 @@ export async function startFakeMicrosoft(): Promise<FakeMicrosoft> {
         });
       const token = `eyJ0.fake.${fake.tokens.length + 1}`;
       fake.tokens.push(token);
-      return send(res, 200, { token_type: 'Bearer', expires_in: 3599, access_token: token });
+      const grant = form.get('grant_type');
+      let refreshToken: string | undefined;
+      if (delegation && grant === 'authorization_code') {
+        if (!form.get('code_verifier') || !['approved', 'without-refresh'].includes(form.get('code') ?? ''))
+          return send(res, 400, { error: 'invalid_grant' });
+        if (form.get('code') === 'approved')
+          refreshToken = delegation.refreshToken = randomBytes(24).toString('base64url');
+      }
+      if (delegation && grant === 'refresh_token') {
+        if (!delegation.refreshToken || form.get('refresh_token') !== delegation.refreshToken)
+          return send(res, 400, { error: 'invalid_grant' });
+        refreshToken = delegation.refreshToken = randomBytes(24).toString('base64url');
+      }
+      return send(res, 200, {
+        token_type: 'Bearer',
+        expires_in: 3599,
+        access_token: token,
+        ...(refreshToken ? { refresh_token: refreshToken } : {}),
+      });
     }
     const bearer = String(req.headers.authorization ?? '').replace(/^Bearer /, '');
     if (!fake.tokens.includes(bearer))
       return problem(res, 401, 'InvalidAuthenticationToken', 'Token is empty.');
     const path = url.pathname;
+    if (delegation) {
+      const { id, name, email } = delegation.account;
+      if (path === '/v1.0/me')
+        return send(res, 200, { id, displayName: name, mail: null, userPrincipalName: email });
+      if (path === '/v1.0/users') return send(res, 200, { value: [{ id: 'recipient' }] });
+      if (path === '/v1.0/chats') return send(res, 201, { id: 'direct' });
+      if (path === '/v1.0/chats/direct/messages') {
+        delegation.messages.push(JSON.parse(await bodyOf(req)));
+        return send(res, 201, { id: 'message' });
+      }
+    }
     if (path === '/v1.0/sites/garden.sharepoint.com:/sites/Nursery')
       return send(res, 200, { id: siteId, displayName: 'Nursery', webUrl: fake.site });
     const prefix = `/v1.0/sites/${encodeURIComponent(siteId)}`;

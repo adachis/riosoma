@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   DEFAULT_NOTIFICATION_EMAIL,
+  newId,
   NOTIFICATION_CHANNELS,
   NotificationCommand,
   type NotificationChannelPreferences,
@@ -43,7 +44,13 @@ const LABELS = [
   'An automation’s calendar event stays after I undo it',
 ];
 
-function start(options: { saved?: Partial<NotificationPreferences>; refuse?: boolean } = {}) {
+function start(
+  options: {
+    saved?: Partial<NotificationPreferences>;
+    refuse?: boolean;
+    channelSettings?: Partial<NotificationChannelPreferences>;
+  } = {},
+) {
   let preferences: NotificationPreferences = {
     email: { ...DEFAULT_NOTIFICATION_EMAIL },
     emailAvailable: true,
@@ -72,6 +79,7 @@ function start(options: { saved?: Partial<NotificationPreferences>; refuse?: boo
     phone: null,
     canAdminister: true,
     canReceiveSms: true,
+    ...options.channelSettings,
   };
   const fetcher = vi.fn(async (url: string, init?: RequestInit) => {
     if (url === '/api/notifications/channels') return json(channels);
@@ -312,4 +320,87 @@ it('requires a delivery connection and saves its draft with the organization swi
     update: { enabled: { slack: true } },
   });
   await waitFor(() => expect(save).toHaveProperty('disabled', true));
+});
+
+async function deliveryConnections(channel: string) {
+  const group = await screen.findByRole('group', { name: 'Delivery connections' });
+  await userEvent.selectOptions(within(group).getByRole('combobox', { name: 'Channel' }), channel);
+  return within(group);
+}
+
+it('offers Microsoft sign-in without credential fields and keeps Slack and SMS inputs', async () => {
+  start({ channelSettings: { teamsSignInAvailable: true } });
+  renderSharing(<NotificationSettings />);
+  const delivery = await deliveryConnections('teams');
+  expect(delivery.getByRole('button', { name: 'Sign in with Microsoft' })).toHaveProperty('disabled', false);
+  for (const name of ['Tenant ID', 'Client ID', 'Client secret', 'Delegated refresh token'])
+    expect(delivery.queryByLabelText(name)).toBeNull();
+  await userEvent.selectOptions(delivery.getByRole('combobox'), 'slack');
+  expect(delivery.getByLabelText('Bot token')).toHaveProperty('type', 'password');
+  await userEvent.selectOptions(delivery.getByRole('combobox'), 'sms');
+  expect(delivery.getByLabelText('Account SID')).toHaveProperty('type', 'text');
+  expect(delivery.getByLabelText('Auth token')).toHaveProperty('type', 'password');
+  expect(delivery.getByLabelText('Sending phone number')).toHaveProperty('type', 'tel');
+});
+
+it('disables Teams sign-in and links to Integrations when the app is unavailable', async () => {
+  start({ channelSettings: { teamsSignInAvailable: false } });
+  renderSharing(<NotificationSettings />);
+  const delivery = await deliveryConnections('teams');
+  expect(delivery.getByRole('button', { name: 'Sign in with Microsoft' })).toHaveProperty('disabled', true);
+  expect(delivery.getByRole('link', { name: 'Integrations' }).getAttribute('href')).toBe(
+    '/settings/integrations',
+  );
+});
+
+it.each([
+  [{ name: 'Teams Sender', email: 'sender@example.test' }, 'Connected as Teams Sender (sender@example.test)'],
+  [undefined, 'Connected'],
+] as const)('shows the connected Teams sender or the legacy status (%j)', async (account, status) => {
+  const { channels } = start({ channelSettings: { ...(account ? { teamsAccount: account } : {}) } });
+  channels.available.teams = true;
+  renderSharing(<NotificationSettings />);
+  const delivery = await deliveryConnections('teams');
+  expect(delivery.getByText(status)).toBeDefined();
+  expect(delivery.getByRole('button', { name: /^Disconnect$/ })).toBeDefined();
+});
+
+it.each([
+  ['?connected=microsoft-teams', 'Teams is connected.'],
+  ['?connectError=drives.connect.failed', 'Teams didn’t finish connecting.  Try again.'],
+  [
+    '?connectError=drives.unavailable',
+    'Teams sign-in isn’t set up for your organization, or an admin turned it off.',
+  ],
+  ['?connectError=drives.appRefused', 'Microsoft refused Riosoma’s app, so Teams can’t connect right now.'],
+  ['?connectError=drives.connect.denied', 'The account wasn’t connected, because access wasn’t allowed.'],
+  ['?connectError=drives.connect.state', 'Connecting took too long or started somewhere else.'],
+])('shows the OAuth outcome and selects Teams (%s)', async (search, message) => {
+  window.history.replaceState(null, '', `/settings/notifications${search}#organization`);
+  try {
+    const { channels } = start();
+    channels.available.teams = search.includes('connected=');
+    renderSharing(<NotificationSettings />);
+    expect(await screen.findByText(message, { exact: false, collapseWhitespace: false })).toBeDefined();
+    expect(screen.queryByText(/cloud drive/i)).toBeNull();
+    const delivery = within(screen.getByRole('group', { name: 'Delivery connections' }));
+    expect(delivery.getByRole('combobox')).toHaveProperty('value', 'teams');
+  } finally {
+    window.history.replaceState(null, '', '/');
+  }
+});
+
+it('uses the notification undo command for a completed Teams sign-in', async () => {
+  const actionId = newId('command');
+  const search = new URLSearchParams({ connected: 'microsoft-teams', connectionAction: actionId });
+  window.history.replaceState(null, '', `/settings/notifications?${search}#organization`);
+  try {
+    const { channels, commands } = start();
+    channels.available.teams = true;
+    renderSharing(<NotificationSettings />);
+    await userEvent.click(await screen.findByRole('button', { name: 'Undo last change' }));
+    expect(commands).toMatchObject([{ kind: 'notifications.undo', actionId }]);
+  } finally {
+    window.history.replaceState(null, '', '/');
+  }
 });

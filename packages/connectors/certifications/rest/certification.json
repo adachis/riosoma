@@ -1,0 +1,15 @@
+{
+  "connector": "rest",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:11:30.243Z",
+  "serverVersionTested": "Riosoma-Test-Fleet/1.0",
+  "capabilitiesPassed": [
+    "describe",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

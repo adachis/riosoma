@@ -1,7 +1,8 @@
 import { createHash, timingSafeEqual } from 'node:crypto';
-import ssh2, { type SFTPWrapper, type Stats } from 'ssh2';
+import type { Readable } from 'node:stream';
+import ssh2, { type Client, type SFTPWrapper, type Stats } from 'ssh2';
 
-const { Client, utils } = ssh2;
+const { Client: SshClient, utils } = ssh2;
 
 export interface SftpOptions {
   address: string;
@@ -13,6 +14,7 @@ export interface SftpOptions {
   passphrase?: string;
   signal: AbortSignal;
   timeoutMs: number;
+  createClient?: () => Client;
 }
 
 /** The caller supplies a checked address so SSH never resolves the host a second time */
@@ -21,8 +23,15 @@ export async function openSftp(options: SftpOptions) {
   if (key instanceof Error || key.isPrivateKey()) throw new Error('sources.remote.hostKey');
   const hash = (value: Buffer) => createHash('sha256').update(value).digest();
   const expected = hash(key.getPublicSSH());
-  const client = new Client();
-  const stop = () => client.destroy();
+  const client = options.createClient ? options.createClient() : new SshClient();
+  const streams = new Set<Readable>();
+  const closeClient = (streamError?: Error) => {
+    options.signal.removeEventListener('abort', stop);
+    for (const stream of streams) stream.destroy(streamError);
+    streams.clear();
+    client.destroy();
+  };
+  const stop = () => closeClient(new Error('sources.test.timeout'));
   options.signal.throwIfAborted();
   options.signal.addEventListener('abort', stop, { once: true });
   let mismatch = false;
@@ -57,6 +66,7 @@ export async function openSftp(options: SftpOptions) {
       client.once('close', closed);
       client.sftp(finish);
     });
+    sftp.on('error', () => undefined);
     const call = <T>(run: (done: (error: Error | undefined, value: T) => void) => void) =>
       new Promise<T>((resolve, reject) => {
         const abort = () => finish(new Error('sources.test.timeout'));
@@ -97,22 +107,26 @@ export async function openSftp(options: SftpOptions) {
       },
       read(path: string) {
         const stream = sftp.createReadStream(path);
+        streams.add(stream);
+        // Keep an error listener until the stream is gone so ssh2 request cleanup cannot crash the process.
+        stream.on('error', () => undefined);
         let timer = setTimeout(() => stream.destroy(new Error('sources.test.timeout')), options.timeoutMs);
         stream.on('readable', () => {
           clearTimeout(timer);
           timer = setTimeout(() => stream.destroy(new Error('sources.test.timeout')), options.timeoutMs);
         });
-        stream.once('close', () => clearTimeout(timer));
+        stream.once('close', () => {
+          clearTimeout(timer);
+          streams.delete(stream);
+        });
         return stream;
       },
       close() {
-        options.signal.removeEventListener('abort', stop);
-        client.destroy();
+        closeClient();
       },
     };
   } catch (error) {
-    options.signal.removeEventListener('abort', stop);
-    client.destroy();
+    closeClient();
     throw error;
   }
 }

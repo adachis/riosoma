@@ -1,0 +1,18 @@
+{
+  "connector": "oracle",
+  "version": "0.95.0",
+  "date": "2026-11-26T04:14:54.733Z",
+  "serverVersionTested": "Oracle Database 23.26.3.0.0",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

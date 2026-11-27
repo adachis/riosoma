@@ -1,5 +1,5 @@
 import { createECDH, randomBytes, randomInt } from 'node:crypto';
-import { expect, test } from '../accessibility';
+import { assertAccessible, expect, test } from '../accessibility';
 import {
   NOTIFICATION_CHANNELS,
   type NotificationChannelPreferences,
@@ -183,5 +183,46 @@ test('notification channels work on a phone with keyboard controls and device ac
   await expect
     .poll(() => commands.some((command) => command.kind === 'notifications.organization'))
     .toBe(true);
+  const channel = page.getByRole('combobox', { name: 'Channel', exact: true });
+  await channel.selectOption('teams');
+  const signInWithMicrosoft = page.getByRole('button', { name: 'Sign in with Microsoft' });
+  await expect(signInWithMicrosoft).toBeDisabled();
+  await expect(page.getByRole('link', { name: 'Integrations', exact: true }).last()).toHaveAttribute(
+    'href',
+    '/settings/integrations',
+  );
+  await assertAccessible(page);
+
+  state.teamsSignInAvailable = true;
+  await page.route('**/api/oauth/start/microsoft-teams?**', async (route) => {
+    const next = new URL(route.request().url()).searchParams.get('next');
+    expect(next).toBe('/settings/notifications#organization');
+    state.available.teams = true;
+    // A tenant's default domain makes a long address with nowhere to break.
+    state.teamsAccount = {
+      name: 'Teams Sender',
+      email: 'notifications-sender@exampleorganization.onmicrosoft.test',
+    };
+    await route.fulfill({
+      status: 302,
+      headers: { location: '/settings/notifications?connected=microsoft-teams#organization' },
+    });
+  });
+  await page.reload();
+  await channel.selectOption('teams');
+  await expect(signInWithMicrosoft).toBeEnabled();
+  await signInWithMicrosoft.press('Enter');
+  const account = page.getByText(
+    'Connected as Teams Sender (notifications-sender@exampleorganization.onmicrosoft.test)',
+  );
+  await expect(account).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Disconnect', exact: true })).toBeVisible();
+  // Nothing in the connections box reaches past its edge, however long the account's address.
+  const box = (await page.getByRole('group', { name: 'Delivery connections', exact: true }).boundingBox())!;
+  for (const inside of [channel, account, signInWithMicrosoft]) {
+    const part = (await inside.boundingBox())!;
+    expect(part.x + part.width).toBeLessThanOrEqual(box.x + box.width);
+  }
+  await assertAccessible(page);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });

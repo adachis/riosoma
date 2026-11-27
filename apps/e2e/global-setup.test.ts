@@ -19,6 +19,8 @@ const config = {
 } as FullConfig;
 
 function fixture(stops: Array<() => Promise<void>>) {
+  // The loopback-only namespace guard reads CI, and these tests exercise setup, not the runner.
+  vi.stubEnv('CI', undefined);
   vi.stubEnv('RIOSOMA_E2E_WEB_DIR', undefined);
   vi.stubEnv('RIOSOMA_E2E_SHARED_WEB_DIR', undefined);
   vi.stubEnv('RIOSOMA_E2E_SHARD_PROJECT', undefined);

@@ -1,6 +1,7 @@
 import { isDeepStrictEqual } from 'node:util';
 import type { SourceColumn, SourceSelect } from '@riosoma/contracts';
 import type { Connector, ConnectorContext, ConnectorError, ReadOptions, SourceRow } from '../types.js';
+import { pacesCaughtUp } from '../rest/http.js';
 import { declaredCapabilities, requiredCapabilities, type ContractCapability } from './capabilities.js';
 import {
   assertBatch,
@@ -190,6 +191,10 @@ export async function runConnectorContract(spec: ConnectorContract): Promise<Con
     if (caps.timeout) {
       invariant(spec.timeout && spec.stopped, 'timeout.probe');
       const timed = { ...ctx, timeoutMs: 10, statementTimeoutMs: 10 };
+      // Requests that earlier steps left waiting for their turn under an API's pace would push the
+      // probe's own request past its 10 ms budget, and a call that times out before it sends
+      // anything leaves no request to stop.  The probe starts once those turns have come.
+      await pacesCaughtUp();
       const started = performance.now();
       const error = await rejects(() => spec.timeout!(timed), timed);
       invariant(

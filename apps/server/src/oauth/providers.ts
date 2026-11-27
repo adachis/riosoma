@@ -1,4 +1,6 @@
 import type { AccountSettingChoices, IntegrationTestResult } from '@riosoma/contracts';
+import type { FastifyInstance } from 'fastify';
+import type { Actor } from '../http/policy.js';
 
 /**
  * The OAuth 2 providers people connect accounts at.  Each one describes itself here once: where
@@ -52,6 +54,20 @@ export interface OAuthProvider {
   invalidClientErrors?: readonly string[];
   /** Whether the app needs an API key as well as a client ID and secret */
   needsApiKey?: boolean;
+  /** Extra requirements an app must meet before it is offered. */
+  appComplete?(app: OAuthApp): boolean;
+  /** An organization grant and the admin area required to connect it. */
+  organization?: {
+    area: string;
+    landing: string;
+    complete(
+      server: FastifyInstance,
+      actor: Actor,
+      app: OAuthApp,
+      tokens: OAuthTokens,
+      account: OAuthAccount,
+    ): Promise<string>;
+  };
   /** Who the token belongs to */
   account(
     accessToken: string,
@@ -91,7 +107,7 @@ export function limited(signal?: AbortSignal, timeoutMs = API_TIMEOUT_MS): Abort
 /** Microsoft apps can restrict both authorization and token exchange to their own tenant. */
 export function oauthEndpoint(provider: OAuthProvider, app: OAuthApp, kind: 'authorize' | 'token'): string {
   const url = kind === 'authorize' ? provider.authorizeUrl : provider.tokenUrl;
-  return provider.id === 'microsoft-calendar' && app.tenantId
+  return provider.id.startsWith('microsoft-') && app.tenantId
     ? url.replace('/common/', `/${encodeURIComponent(app.tenantId)}/`)
     : url;
 }

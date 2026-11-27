@@ -1,0 +1,18 @@
+{
+  "connector": "duckdb-file",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:10:37.121Z",
+  "serverVersionTested": "DuckDB v1.5.5",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

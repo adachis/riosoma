@@ -111,8 +111,13 @@ describe.each(apps)('%s through the server’s guarded network', (app) => {
   let limited = false;
   let limitedPath = refusedPath;
   let elsewhere = false;
-  const requests: { path: string; query: URLSearchParams; method: string; signed: boolean; at: number }[] =
-    [];
+  const requests: { path: string; query: URLSearchParams; method: string; signed: boolean }[] = [];
+  /**
+   * When the connector let each request go, which is where its pace is kept.  When the test server
+   * saw each one also depends on how long delivery took, which a busy machine stretches and
+   * squeezes.
+   */
+  const sent: number[] = [];
 
   beforeAll(async () => {
     listener = createServer((req, res) => {
@@ -129,7 +134,6 @@ describe.each(apps)('%s through the server’s guarded network', (app) => {
         query: url.searchParams,
         method: req.method ?? '',
         signed,
-        at: Date.now(),
       });
       const json = (status: number, body: unknown, headers = {}) => {
         res.writeHead(status, { 'content-type': 'application/json', ...headers });
@@ -186,6 +190,7 @@ describe.each(apps)('%s through the server’s guarded network', (app) => {
 
   beforeEach(() => {
     requests.length = 0;
+    sent.length = 0;
     empty = false;
     emptyChildren = false;
     refused = 0;
@@ -202,10 +207,22 @@ describe.each(apps)('%s through the server’s guarded network', (app) => {
   });
 
   function connector(local = true) {
+    const options = restConnectorOptions(
+      { production: false, automationsAllowPrivateHosts: true },
+      async () => [{ address: '127.0.0.1', family: 4 }],
+    );
+    const network = options.network!;
     return createAppConnector(
-      restConnectorOptions({ production: false, automationsAllowPrivateHosts: true }, async () => [
-        { address: '127.0.0.1', family: 4 },
-      ]),
+      {
+        ...options,
+        network: {
+          ...network,
+          request: (request) => {
+            sent.push(Date.now());
+            return network.request(request);
+          },
+        },
+      },
       // Substitute only the destination, preserving the preset's sign-in, paging, and pacing.
       [
         {
@@ -271,8 +288,9 @@ describe.each(apps)('%s through the server’s guarded network', (app) => {
         parent: app === 'gitlab' ? 'sample/project-3' : app === 'okta' ? 'Group 3' : 'Audience 3',
       });
     assertRequests();
-    for (let index = 1; index < requests.length; index++)
-      expect(requests[index]!.at - requests[index - 1]!.at).toBeGreaterThanOrEqual(
+    expect(sent).toHaveLength(requests.length);
+    for (let index = 1; index < sent.length; index++)
+      expect(sent[index]! - sent[index - 1]!).toBeGreaterThanOrEqual(
         1_000 / preset.target.requestsPerSecond - 30,
       );
   });

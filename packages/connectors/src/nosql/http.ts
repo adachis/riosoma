@@ -22,6 +22,52 @@ export function secret(ctx: ConnectorContext, name: keyof ConnectorContext['secr
   if (!value) throw new ConnectorError('sources.secretsMissing');
   return value;
 }
+const ERROR_BODY_LIMIT = 64 * 1024;
+
+async function readErrorCode(answer: Response): Promise<string | undefined> {
+  const reader = answer.body?.getReader();
+  if (!reader) return undefined;
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  try {
+    while (size < ERROR_BODY_LIMIT) {
+      const part = await reader.read();
+      if (part.done) break;
+      const remaining = ERROR_BODY_LIMIT - size;
+      chunks.push(part.value.byteLength > remaining ? part.value.subarray(0, remaining) : part.value);
+      size += part.value.byteLength;
+    }
+  } catch {
+    return undefined;
+  } finally {
+    await reader.cancel().catch(() => undefined);
+  }
+  try {
+    const parsed = JSON.parse(Buffer.concat(chunks).toString('utf8')) as Record<string, unknown>;
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return undefined;
+    const nested =
+      parsed.error && typeof parsed.error === 'object'
+        ? (parsed.error as Record<string, unknown>)
+        : undefined;
+    const raw =
+      parsed.code ??
+      parsed.__type ??
+      parsed.Code ??
+      (typeof parsed.error === 'string' ? parsed.error : undefined) ??
+      nested?.status ??
+      nested?.code ??
+      (Array.isArray(parsed.errors) && parsed.errors[0] && typeof parsed.errors[0] === 'object'
+        ? (parsed.errors[0] as Record<string, unknown>).code
+        : undefined);
+    if (typeof raw === 'number' && Number.isFinite(raw)) return String(raw);
+    if (typeof raw !== 'string') return undefined;
+    const clean = raw.replace(/\s+/g, ' ').trim();
+    return clean ? clean.slice(0, 120) : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 export function client(ctx: ConnectorContext, options: NoSqlOptions) {
   return async <T>(url: string, init: RequestInit = {}): Promise<{ data: T; headers: Headers }> => {
     const signal = AbortSignal.any([
@@ -36,14 +82,15 @@ export function client(ctx: ConnectorContext, options: NoSqlOptions) {
       const fetcher = options.fetch ?? (agent ? agentFetch(agent, options.hostGuard) : fetch);
       const answer = await fetcher(url, { ...init, redirect: 'error', signal });
       if (!answer.ok) {
-        await answer.body?.cancel();
-        throw new ConnectorError(
+        const messageKey =
           answer.status === 401 || answer.status === 403
             ? 'sources.nosql.denied'
             : answer.status === 404
               ? 'sources.sync.objectMissing'
-              : 'sources.sync.read',
-        );
+              : 'sources.sync.read';
+        const code = await readErrorCode(answer);
+        const detail = scrubDetail(code ? `HTTP ${answer.status}: ${code}` : `HTTP ${answer.status}`, ctx);
+        throw new ConnectorError(messageKey, detail, { status: answer.status });
       }
       const reader = answer.body?.getReader();
       if (!reader) throw new ConnectorError('sources.sync.read');

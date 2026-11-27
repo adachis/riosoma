@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test, type Locator, type Page } from '../accessibility';
+import { downloadNamedBlob } from '../downloads';
 import { paragraphs, part, slides, tableRows, texts, unzip } from '../files';
 import { asOwner, createDatabase, openTable, signIn } from '../helpers';
 
@@ -19,10 +20,10 @@ const CROSSINGS = [
   { Name: 'Evening run', Vessel: 'Kittiwake', Passengers: 97 },
 ];
 
-/** Waits for the browser to save the file a press starts, and returns its name and bytes. */
-async function saved(page: Page, press: Locator): Promise<{ name: string; bytes: Buffer }> {
-  const [file] = await Promise.all([page.waitForEvent('download'), press.click()]);
-  return { name: file.suggestedFilename(), bytes: readFileSync((await file.path())!) };
+/** Reads the bytes saved by a press and checks the download name. */
+async function saved(page: Page, press: Locator, name: string): Promise<Buffer> {
+  const file = await downloadNamedBlob(page, press, name);
+  return readFileSync((await file.path())!);
 }
 
 /** Chooses a download from the view's menu, which opens the dialog for a title. */
@@ -61,10 +62,13 @@ test('a view downloads as a Word document and a PowerPoint deck, and one record 
   // A Word document of the view: its title, then a table of the view's fields and records.
   const word = await fromViewMenu(page, 'Word document', 'Download a Word document');
   await word.getByRole('textbox', { name: 'Title' }).fill('Crossings this week');
-  const document = await saved(page, word.getByRole('button', { name: 'Download', exact: true }));
+  const document = await saved(
+    page,
+    word.getByRole('button', { name: 'Download', exact: true }),
+    'Crossings - Grid.docx',
+  );
   await expect(word).toBeHidden();
-  expect(document.name).toBe('Crossings - Grid.docx');
-  const docx = part(unzip(document.bytes), 'word/document.xml');
+  const docx = part(unzip(document), 'word/document.xml');
   expect(paragraphs(docx)[0]).toBe('Crossings this week');
   expect(paragraphs(docx).join('\n')).toContain('3 records');
   const rows = tableRows(docx);
@@ -76,9 +80,12 @@ test('a view downloads as a Word document and a PowerPoint deck, and one record 
   const deck = await fromViewMenu(page, 'PowerPoint deck', 'Download a PowerPoint deck');
   await deck.getByRole('textbox', { name: 'Title' }).fill('Ferry briefing');
   await expect(deck.getByRole('radio', { name: /^A slide for each record/ })).toBeChecked();
-  const presentation = await saved(page, deck.getByRole('button', { name: 'Download', exact: true }));
-  expect(presentation.name).toBe('Crossings - Grid.pptx');
-  const pages = slides(unzip(presentation.bytes));
+  const presentation = await saved(
+    page,
+    deck.getByRole('button', { name: 'Download', exact: true }),
+    'Crossings - Grid.pptx',
+  );
+  const pages = slides(unzip(presentation));
   expect(pages).toHaveLength(1 + CROSSINGS.length);
   expect(texts(pages[0]!, 'a:t')).toContain('Ferry briefing');
   const perRecord = pages.slice(1).map((slide) => texts(slide, 'a:t'));
@@ -91,7 +98,13 @@ test('a view downloads as a Word document and a PowerPoint deck, and one record 
   await table.getByText('A table', { exact: true }).click();
   await expect(table.getByRole('radio', { name: /^A table/ })).toBeChecked();
   const tabled = slides(
-    unzip((await saved(page, table.getByRole('button', { name: 'Download', exact: true }))).bytes),
+    unzip(
+      await saved(
+        page,
+        table.getByRole('button', { name: 'Download', exact: true }),
+        'Crossings - Grid.pptx',
+      ),
+    ),
   );
   expect(tabled).toHaveLength(2);
   expect(texts(tabled[1]!, 'a:t')).toEqual(
@@ -104,10 +117,13 @@ test('a view downloads as a Word document and a PowerPoint deck, and one record 
   await card.getByRole('button', { name: 'More for this record' }).click();
   await page.getByRole('menuitem', { name: 'Download as Word' }).click();
   const asWord = page.getByRole('dialog', { name: 'Download as Word' });
-  const record = await saved(page, asWord.getByRole('button', { name: 'Download', exact: true }));
+  const record = await saved(
+    page,
+    asWord.getByRole('button', { name: 'Download', exact: true }),
+    'Crossings - Noon run.docx',
+  );
   await expect(asWord).toBeHidden();
-  expect(record.name).toBe('Crossings - Noon run.docx');
-  const lines = paragraphs(part(unzip(record.bytes), 'word/document.xml'));
+  const lines = paragraphs(part(unzip(record), 'word/document.xml'));
   expect(lines[0]).toBe('Noon run');
   const body = lines.join('\n');
   for (const text of ['Vessel', 'Gannet', 'Passengers', '64']) expect(body).toContain(text);

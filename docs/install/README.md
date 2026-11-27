@@ -24,9 +24,9 @@ Seven pages apply to every guide:
 
 ## The image
 
-The image is `ghcr.io/adachis/riosoma`, tagged by release, such as `ghcr.io/adachis/riosoma:0.95.0-rc.1`.  Pin a release tag rather than `latest`, so an upgrade happens only when you choose it.
+The image is `ghcr.io/adachis/riosoma`, tagged by release, such as `ghcr.io/adachis/riosoma:0.95.0`.  Pin a release tag rather than `latest`, so an upgrade happens only when you choose it.
 
-The runtime is distroless: Node and the app, with no shell and no package manager.  It runs as the unprivileged `nonroot` user (UID 65532), writes only to `/config` and `/tmp`, and works with a read-only root file system.  `GET /healthz` answers `{"status":"ok","version":"0.95.0-rc.1","connectors":"ok"}` once the server is listening, where `connectors` says whether the connector service answers: `ok`, `unavailable`, or `refused` when it doesn't accept the token.
+The runtime is distroless: Node and the app, with no shell and no package manager.  It runs as the unprivileged `nonroot` user (UID 65532), writes only to `/config` and `/tmp`, and works with a read-only root file system.  `GET /healthz` answers `{"status":"ok","version":"0.95.0","connectors":"ok"}` once the server is listening, where `connectors` says whether the connector service answers: `ok`, `unavailable`, or `refused` when it doesn't accept the token.
 
 ## The connector service
 
@@ -37,13 +37,13 @@ Compose and the Helm chart run it, point Riosoma at it, and generate the token, 
 To build your own, for example for a private registry, run this from a checkout.  The cloud platforms here run `linux/amd64`.
 
 ```bash
-docker buildx build --platform linux/amd64 --build-arg RIOSOMA_VERSION=0.95.0-rc.1 \
-  -t registry.example.com/riosoma:0.95.0-rc.1 --push .
-docker buildx build --platform linux/amd64 --build-arg RIOSOMA_VERSION=0.95.0-rc.1 --target connectors \
-  -t registry.example.com/riosoma-connectors:0.95.0-rc.1 --push .
+docker buildx build --platform linux/amd64 --build-arg RIOSOMA_VERSION=0.95.0 \
+  -t registry.example.com/riosoma:0.95.0 --push .
+docker buildx build --platform linux/amd64 --build-arg RIOSOMA_VERSION=0.95.0 --target connectors \
+  -t registry.example.com/riosoma-connectors:0.95.0 --push .
 ```
 
-Theme fonts and textures aren't in git. Fetch them into `themes/` first with `node tools/release/fetch-theme-assets.mjs 0.95.0-rc.1`, or build without them and the themes fall back to system fonts. The fetch verifies the release bundle against its checked-in SHA-256 before unpacking it.
+Theme fonts and textures aren't in git. Fetch them into `themes/` first with `node tools/release/fetch-theme-assets.mjs 0.95.0`, or build without them and the themes fall back to system fonts. The fetch verifies the release bundle against its checked-in SHA-256 before unpacking it.
 
 ## First-run setup
 

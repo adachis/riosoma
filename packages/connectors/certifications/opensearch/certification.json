@@ -1,0 +1,17 @@
+{
+  "connector": "opensearch",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:26:47.446Z",
+  "serverVersionTested": "opensearch 3.8.0",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

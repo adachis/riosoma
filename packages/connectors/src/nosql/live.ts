@@ -8,6 +8,7 @@ import {
 } from '@riosoma/contracts';
 import type { Fragment } from '../live/fragment.js';
 import type { LiveField, LiveInput, LivePlan, LiveSkip } from '../live/translate.js';
+import { COSMOS_SYSTEM_FIELDS } from './cosmos.js';
 import { ALL, NONE, and, type Predicate } from './query.js';
 import { fieldParts } from './paths.js';
 
@@ -18,6 +19,7 @@ function condition(
 ): Predicate | undefined {
   if (!field?.source || field.overridden) return undefined;
   const name = field.source.column;
+  if (dialect === 'cosmosdb' && COSMOS_SYSTEM_FIELDS.has(name)) return undefined;
   try {
     const path = fieldParts(name);
     if ((!dialect || dialect === 'couchdb') && path.some((part) => /[.\\$]/.test(part))) return undefined;

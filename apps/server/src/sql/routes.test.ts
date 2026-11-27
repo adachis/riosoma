@@ -1,3 +1,4 @@
+import { AsyncLocalStorage } from 'node:async_hooks';
 import { randomUUID } from 'node:crypto';
 import { setTimeout as delay } from 'node:timers/promises';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
@@ -114,6 +115,46 @@ async function observer<T>(fn: (client: pg.Client) => Promise<T>): Promise<T> {
   } finally {
     await client.end();
   }
+}
+
+/**
+ * Which SQL runs hold connections of the app's pool.  Requests sent inside `as` carry their run's
+ * ID, so the server's own workers, which share that pool, never count as a run's.
+ */
+function appPoolHolders(pool: pg.Pool) {
+  type Done = (release?: unknown) => void;
+  type Callback = (error: Error | undefined, client: pg.PoolClient | undefined, done: Done) => void;
+  const runs = new AsyncLocalStorage<string>();
+  const holders = new Map<pg.PoolClient, string>();
+  const connect = pool.connect;
+  const withCallback = connect as unknown as (this: pg.Pool, callback: Callback) => void;
+  const promised = connect as unknown as (this: pg.Pool) => Promise<pg.PoolClient>;
+  const hold = (id: string | undefined, client: pg.PoolClient | undefined) => {
+    if (id !== undefined && client) holders.set(client, id);
+  };
+  pool.connect = function (this: pg.Pool, callback?: Callback) {
+    const id = runs.getStore();
+    if (callback)
+      return withCallback.call(this, (error, client, done) => {
+        hold(id, client);
+        callback(error, client, done);
+      });
+    return promised.call(this).then((client) => {
+      hold(id, client);
+      return client;
+    });
+  } as pg.Pool['connect'];
+  const released = (_error: unknown, client: pg.PoolClient) => holders.delete(client);
+  pool.on('release', released);
+  return {
+    as: <T>(id: string, work: () => T): T => runs.run(id, work),
+    /** How many of the app pool's connections these runs hold right now */
+    heldBy: (ids: readonly string[]) => [...holders.values()].filter((id) => ids.includes(id)).length,
+    stop() {
+      pool.connect = connect;
+      pool.off('release', released);
+    },
+  };
 }
 
 const loginObjects = (login: SqlLogin) =>
@@ -706,26 +747,32 @@ describe('permission aware SQL on PostgreSQL', () => {
       fixture.persons.editor.signed,
       fixture.persons.reader.signed,
     ];
+    // The server's own workers share the app pool, so a moment when it has someone waiting says
+    // nothing about the editor.  What app requests must never wait behind is an editor query
+    // holding one of the app pool's connections while it runs.
+    const holders = appPoolHolders(server.pool);
     // Two runs each, more than the app's own pool holds.  One of each pair has to wait its turn.
     const runs = people.flatMap((who) =>
-      [randomUUID(), randomUUID()].map((id) => ({ who, id, response: run(who, SLOW, id) })),
+      [randomUUID(), randomUUID()].map((id) => ({
+        who,
+        id,
+        response: holders.as(id, () => run(who, SLOW, id)),
+      })),
     );
     const ids = runs.map((item) => item.id);
+    /** The runs whose editor query is running now, past the bookkeeping before it */
+    const querying = () =>
+      observer(async (client) =>
+        (
+          await client.query<{ id: string }>(
+            `SELECT substr(application_name, 9) AS id FROM pg_catalog.pg_stat_activity
+              WHERE application_name LIKE 'rio_sql:%' AND state = 'active' AND query ILIKE '%recursive%'`,
+          )
+        ).rows.map((row) => row.id),
+      );
     try {
       await expect
-        .poll(
-          () =>
-            observer(
-              async (client) =>
-                (
-                  await client.query<{ count: number }>(
-                    `SELECT count(*)::int AS count FROM pg_catalog.pg_stat_activity
-                    WHERE application_name LIKE 'rio_sql:%'`,
-                  )
-                ).rows[0]!.count,
-            ),
-          { timeout: 20_000, interval: 50 },
-        )
+        .poll(async () => (await querying()).length, { timeout: 20_000, interval: 50 })
         .toBeGreaterThanOrEqual(3);
       const started = performance.now();
       const answers = await Promise.all(
@@ -734,7 +781,9 @@ describe('permission aware SQL on PostgreSQL', () => {
       const elapsed = performance.now() - started;
       expect(answers.map((answer) => answer.statusCode)).toEqual(people.map(() => 200));
       expect(elapsed).toBeLessThan(5_000);
-      expect(server.pool.waitingCount).toBe(0);
+      const running = await querying();
+      expect(running).toHaveLength(3);
+      expect(holders.heldBy(running)).toBe(0);
       const busy = await observer(
         async (client) =>
           (
@@ -761,6 +810,7 @@ describe('permission aware SQL on PostgreSQL', () => {
         )
         .toBe(people.length);
     } finally {
+      holders.stop();
       for (const item of runs) await inject(server, item.who, 'POST', base(`/runs/${item.id}/cancel`), {});
       await inject(server, server.owner, 'PUT', base('/settings'), settings);
     }

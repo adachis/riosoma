@@ -83,7 +83,7 @@ export async function openFtp(options: {
   let failed: Error | undefined;
   const close = () => {
     options.signal.removeEventListener('abort', aborted);
-    for (const connection of sockets) connection.destroy();
+    for (const connection of [...sockets].reverse()) connection.destroy();
   };
   const fail = (error: Error) => {
     failed ??= error;

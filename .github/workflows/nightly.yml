@@ -70,8 +70,15 @@ jobs:
         run: pnpm turbo run build --concurrency=2
       - name: Baseline and OpenAPI scans
         run: pnpm --filter @riosoma/server exec tsx ../e2e/zap.ts
+      - name: Keep the scan reports on the runner
+        if: always()
+        continue-on-error: true
+        run: python3 tools/ci/keep_report.py .unit-logs/zap "nightly-zap-${{ github.run_id }}-${{ github.run_attempt }}"
+      # The scan step already fails on a missing or empty JSON report, so an upload refused because
+      # artifact storage is full only loses this copy.
       - name: Keep the scan reports
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: zap-report-nightly
@@ -80,7 +87,7 @@ jobs:
             .unit-logs/zap/*.html
             .unit-logs/zap/*.json
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 3
 
   browser-plan:
     if: github.repository == 'adachis/riosoma-dev'
@@ -179,7 +186,7 @@ jobs:
             export RIOSOMA_E2E_SHARDS="$BURST_SHARDS"
             export RIOSOMA_E2E_SHARD_INDEX="$SHARD_INDEX"
           fi
-          pnpm --filter @riosoma/e2e e2e:nightly "$BROWSER"
+          bash tools/ci/loopback-only.sh pnpm --filter @riosoma/e2e e2e:nightly "$BROWSER"
         env:
           BROWSER: ${{ matrix.browser }}
           RIOSOMA_E2E_ALL_BROWSERS: '1'
@@ -188,7 +195,7 @@ jobs:
           SHARD_INDEX: ${{ matrix.shard }}
       - name: The tests where browsers differ most
         if: "!inputs.burst && steps.plan.outputs.whole != 'yes'"
-        run: pnpm --filter @riosoma/e2e e2e:engines --project="$BROWSER"
+        run: bash tools/ci/loopback-only.sh pnpm --filter @riosoma/e2e e2e:engines --project="$BROWSER"
         env:
           BROWSER: ${{ matrix.browser }}
           RIOSOMA_E2E_ALL_BROWSERS: '1'
@@ -205,7 +212,7 @@ jobs:
         with:
           name: playwright-report-nightly-${{ matrix.browser }}${{ matrix.shard && format('-shard-{0}', matrix.shard) || '' }}
           path: ${{ matrix.shard && format('apps/e2e/playwright-report/{0}/{1}', matrix.browser, matrix.shard) || 'apps/e2e/playwright-report' }}
-          retention-days: 7
+          retention-days: 3
 
   zapier:
     if: github.repository == 'adachis/riosoma-dev'
@@ -301,6 +308,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      # The runner imports the built contracts and connectors packages, and a fresh checkout has neither.
+      - name: Build the packages the contracts import
+        run: pnpm turbo run build --filter=@riosoma/server... --filter=@riosoma/connector-drivers...
       - name: Connector contracts
         run: node tools/connector_contract.mjs contract
 
@@ -339,7 +349,7 @@ jobs:
         run: |
           baseline="$HOME/riosoma-ci/perf/last.json"
           if [ -f "$baseline" ]; then export RIOSOMA_PERF_BASELINE="$baseline"; fi
-          pnpm --filter @riosoma/e2e perf
+          bash tools/ci/loopback-only.sh pnpm --filter @riosoma/e2e perf
       - name: Keep this run as the next baseline
         run: mkdir -p "$HOME/riosoma-ci/perf" && cp apps/e2e/perf/results/last.json "$HOME/riosoma-ci/perf/last.json"
       - name: Keep the report on the runner
@@ -353,4 +363,4 @@ jobs:
         with:
           name: perf-report-nightly
           path: apps/e2e/perf/results/report.json
-          retention-days: 7
+          retention-days: 3

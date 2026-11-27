@@ -195,6 +195,9 @@ export function planSearch(input: LiveInput, kind: SearchSourceKind): LivePlan {
       !['number', 'date', 'text'].includes(field.type) ||
       !['integer', 'float', 'timestamp', 'text'].includes(column.kind) ||
       column.column.sourceType === 'text' ||
+      (kind === 'elasticsearch' && (column.column.name === '_id' || column.column.name === '_index')) ||
+      (kind === 'typesense' &&
+        (column.column.name === 'id' || /^(?:string\*|auto|image)$/.test(column.column.sourceType))) ||
       !/^[A-Za-z_][A-Za-z0-9_.]*$/.test(column.column.name)
     ) {
       skipped.push({

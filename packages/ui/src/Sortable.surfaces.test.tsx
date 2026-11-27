@@ -149,6 +149,29 @@ it('lets a touch swipe scroll and picks up only after a stationary hold', async 
   expect(move).toHaveBeenCalledExactlyOnceWith(0, 1);
 });
 
+it('cancels a touch ending beyond the scroll panel before the preview can update', async () => {
+  const { rows, move } = mount();
+  const source = rows[0]!;
+  const panel = source.parentElement!;
+  panel.style.overflow = 'auto';
+  vi.spyOn(panel, 'getBoundingClientRect').mockReturnValue(new DOMRect(0, 0, 288, 200));
+  vi.spyOn(panel, 'clientWidth', 'get').mockReturnValue(288);
+  vi.spyOn(panel, 'clientHeight', 'get').mockReturnValue(200);
+  const touch = (clientX: number, clientY: number) => ({ identifier: 1, target: source, clientX, clientY });
+
+  fireEvent.touchStart(source, { touches: [touch(100, 30)] });
+  await settle(TOUCH_DRAG_ACTIVATION.delay + 20);
+  fireEvent.touchMove(source, { touches: [touch(100, 130)] });
+  await settle();
+  expect(rows[2]!.getAttribute('data-drop-before')).toBe('true');
+
+  fireEvent.touchEnd(source, { touches: [], changedTouches: [touch(295, 130)] });
+  expect(document.querySelector('.rio-sortable-announcement')?.textContent).toContain(
+    'Canceled moving Alpha',
+  );
+  expect(move).not.toHaveBeenCalled();
+});
+
 it.each(['ltr', 'rtl'])('uses one shared activator for an edited row in %s', (direction) => {
   const { rows } = mount(true);
   rows[0]!.dir = direction;

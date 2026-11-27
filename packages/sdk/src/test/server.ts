@@ -1,6 +1,5 @@
-import { createServer } from 'node:net';
 import { startServer, type ServerFixture, type SignedIn } from '@riosoma/server/dist/test/fixture.js';
-import { startTestPostgres, type TestPostgres } from '@riosoma/testkit';
+import { holdPort, startTestPostgres, type TestPostgres } from '@riosoma/testkit';
 import {
   newId,
   type CommandBatchResult,
@@ -88,26 +87,22 @@ export interface TestApiServerOptions {
   config?: Parameters<typeof startServer>[2];
 }
 
-/** A port nothing is listening on, taken and let go so the server can take it. */
-function freePort(): Promise<number> {
-  return new Promise((settle, fail) => {
-    const probe = createServer();
-    probe.once('error', fail);
-    probe.listen(0, '127.0.0.1', () => {
-      const address = probe.address();
-      probe.close(() => settle(typeof address === 'object' && address ? address.port : 0));
-    });
-  });
-}
-
 export async function startApiServer(options: TestApiServerOptions = {}): Promise<TestApiServer> {
   const prefix = options.prefix ?? 'sdk';
-  const port = await freePort();
   // OAuth names its issuer after the configured address, so it has to be known before the start.
-  const baseUrl = `http://127.0.0.1:${port}`;
-  const kit: TestPostgres = await startTestPostgres();
-  const server = await startServer(kit, prefix, { baseUrl, ...options.config });
-  await server.app.listen({ port, host: '127.0.0.1' });
+  // The port stays held until the server listens on it, since anything could take it in between.
+  const port = await holdPort();
+  const baseUrl = `http://127.0.0.1:${port.port}`;
+  const started = (async () => {
+    const kit: TestPostgres = await startTestPostgres();
+    const server = await startServer(kit, prefix, { baseUrl, ...options.config });
+    await port.serve(server.app);
+    return { kit, server };
+  })();
+  const { kit, server } = await started.catch(async (error: unknown) => {
+    await port.release();
+    throw error;
+  });
 
   const created = await post<TokenCreated>(server, '/api/tokens', {
     name: 'SDK test',

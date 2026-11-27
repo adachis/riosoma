@@ -1,6 +1,6 @@
 {
   "name": "@riosoma/e2e",
-  "version": "0.95.0-rc.1",
+  "version": "0.95.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,6 +9,7 @@
     "e2e:smoke": "playwright test --project=chromium tests/boot.spec.ts tests/journey.spec.ts tests/qa-first-run.spec.ts tests/qa-grid-editing.spec.ts tests/qa-views.spec.ts tests/qa-records-and-files.spec.ts tests/qa-home-and-sharing.spec.ts tests/m-joined-tables.spec.ts tests/m-synced-tables.spec.ts tests/m-dashboards.spec.ts tests/m-automations.spec.ts tests/m-public-forms.spec.ts tests/m-command-palette.spec.ts tests/qa-site-presentation.spec.ts tests/public-demo-mode.spec.ts",
     "e2e:engines": "playwright test --workers=1 tests/boot.spec.ts tests/journey.spec.ts tests/qa-first-run.spec.ts tests/qa-offline-mobile.spec.ts tests/qa-version-change.spec.ts",
     "perf": "playwright test -c perf/playwright.config.ts",
+    "test": "node --test process-shutdown.test.mjs && vitest run",
     "typecheck": "tsc -p tsconfig.json",
     "lint": "eslint ."
   },

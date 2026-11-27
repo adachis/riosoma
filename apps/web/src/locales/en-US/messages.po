@@ -9060,11 +9060,13 @@ msgid "drives.accounts.connect"
 msgstr "Connect {name}"
 
 #. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationChannels.tsx
 #: apps/web/src/screens/settings/connections/ConnectedAccounts.tsx
 msgid "drives.accounts.connected"
 msgstr "{connectedName} is connected."
 
 #. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationConnections.tsx
 #: apps/web/src/screens/settings/connections/ConnectedAccounts.tsx
 msgid "drives.accounts.disconnect"
 msgstr "Disconnect"
@@ -19681,7 +19683,12 @@ msgstr "This app is set in the server’s settings.  Change it there, or turn it
 #. js-lingui-explicit-id
 #: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
 msgid "integrations.intro"
-msgstr "Set up providers for attachments, calendar events, and app sources. Each person connects their own account. App sources share that account’s read access with everyone allowed to sync from them."
+msgstr "Set up providers for attachments, calendar events, app sources, and Teams notifications.  Each person connects their own account for attachments, calendars, and app sources.  App sources share that account’s read access with everyone allowed to sync from them."
+
+#. js-lingui-explicit-id
+#: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
+msgid "integrations.microsoftTeams"
+msgstr "Microsoft Teams notifications"
 
 #. js-lingui-explicit-id
 #: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
@@ -19722,6 +19729,21 @@ msgstr "Tenant ID"
 #: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
 msgid "integrations.tenant.help"
 msgstr "Use your directory tenant ID for a single-tenant app.  Leave blank for a multitenant app."
+
+#. js-lingui-explicit-id
+#: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
+msgid "integrations.tenant.required"
+msgstr "Enter the directory tenant ID."
+
+#. js-lingui-explicit-id
+#: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
+msgid "integrations.tenant.settingsHelp"
+msgstr "The directory tenant ID for the Microsoft app."
+
+#. js-lingui-explicit-id
+#: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
+msgid "integrations.tenant.teamsHelp"
+msgstr "Use the directory tenant ID for your Teams app."
 
 #. js-lingui-explicit-id
 #: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
@@ -23138,16 +23160,6 @@ msgstr "Channel"
 
 #. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationConnections.tsx
-msgid "notifications.connection.clientId"
-msgstr "Client ID"
-
-#. js-lingui-explicit-id
-#: apps/web/src/features/notifications/NotificationConnections.tsx
-msgid "notifications.connection.clientSecret"
-msgstr "Client secret"
-
-#. js-lingui-explicit-id
-#: apps/web/src/features/notifications/NotificationConnections.tsx
 msgid "notifications.connection.disconnect"
 msgstr "Disconnect channel"
 
@@ -23155,11 +23167,6 @@ msgstr "Disconnect channel"
 #: apps/web/src/features/notifications/NotificationConnections.tsx
 msgid "notifications.connection.from"
 msgstr "Sending phone number"
-
-#. js-lingui-explicit-id
-#: apps/web/src/features/notifications/NotificationConnections.tsx
-msgid "notifications.connection.refreshToken"
-msgstr "Delegated refresh token"
 
 #. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationChannels.tsx
@@ -23178,14 +23185,57 @@ msgid "notifications.connection.smsHelp"
 msgstr "Use a Twilio sending number.  Credentials are encrypted in the credential store, and only verified organization administrators receive alert messages."
 
 #. js-lingui-explicit-id
+#. placeholder {0}: teamsAccount.name
+#. placeholder {1}: teamsAccount.email
+#: apps/web/src/features/notifications/NotificationConnections.tsx
+msgid "notifications.connection.teamsAccount"
+msgstr "Connected as {0} ({1})"
+
+#. js-lingui-explicit-id
+#. placeholder {0}: teamsAccount.name
+#: apps/web/src/features/notifications/NotificationConnections.tsx
+msgid "notifications.connection.teamsAccountName"
+msgstr "Connected as {0}"
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/messages.ts
+msgid "notifications.connection.teamsAppRefused"
+msgstr "Microsoft refused Riosoma’s app, so Teams can’t connect right now.  An admin needs to check the app’s tenant ID, client ID, and secret in Settings, Integrations."
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationConnections.tsx
+msgid "notifications.connection.teamsConnected"
+msgstr "Connected"
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/messages.ts
+msgid "notifications.connection.teamsFailed"
+msgstr "Teams didn’t finish connecting.  Try again."
+
+#. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationConnections.tsx
 msgid "notifications.connection.teamsHelp"
 msgstr "Connect a Graph app with delegated User.Read, User.ReadBasic.All, Chat.Create, ChatMessage.Send, and offline_access permissions.  Messages come from the connected account and go to each person’s account email."
 
 #. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationChannels.tsx
+msgid "notifications.connection.teamsRequired"
+msgstr "Sign in with Microsoft before turning on Teams delivery."
+
+#. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationConnections.tsx
-msgid "notifications.connection.tenantId"
-msgstr "Tenant ID"
+msgid "notifications.connection.teamsSetup"
+msgstr "Set up the Teams app in <0>Integrations</0>."
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationConnections.tsx
+msgid "notifications.connection.teamsSignIn"
+msgstr "Sign in with Microsoft"
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/messages.ts
+msgid "notifications.connection.teamsUnavailable"
+msgstr "Teams sign-in isn’t set up for your organization, or an admin turned it off."
 
 #. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationConnections.tsx

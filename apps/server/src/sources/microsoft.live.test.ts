@@ -23,6 +23,7 @@ import {
   workbookAddressOf,
   type CommandBatchResult,
   type DatabaseSchema,
+  type FieldOptionsOf,
   type RowData,
   type SourceMeta,
   type SourceObject,
@@ -293,12 +294,20 @@ describe.skipIf(!app || !site)('SharePoint list sources against the real Microso
         stats: { added: 3 },
       });
       const thyme = (await rows(tableId)).find((row) => row.values[field.Title!] === 'Thyme')!;
+      // A choice column becomes a single select, and a row keeps the ID of its choice.
+      const season = (await loadFields(server.pool, server.schemas, [tableId])).find(
+        (entry) => entry.id === field.Season,
+      )!;
+      const summer = (season.options as FieldOptionsOf<'singleSelect'>).choices.find(
+        (choice) => choice.name === 'Summer',
+      );
+      expect(summer, JSON.stringify(season.options)).toBeDefined();
       // A date-only column keeps the day it was given, whatever the site's time zone.
       expect(thyme.values).toMatchObject({
         [field.Price!]: 4,
         [field.Planted!]: '2026-04-09',
         [field.Organic!]: false,
-        [field.Season!]: 'Summer',
+        [field.Season!]: summer!.id,
       });
       await applied({
         kind: 'record.update',
@@ -460,9 +469,11 @@ describe.skipIf(!app || !environment)('Dataverse sources against a real environm
     await started('m365_live');
   }, 180_000);
 
+  // Dataverse takes its time deleting a fresh account: one delete of three took 93 seconds on
+  // November 27, so they run together and get as long as the test.
   afterAll(async () => {
-    for (const id of made) await liveRequest(token, 'DELETE', `${api}/accounts(${id})`);
-  }, 60_000);
+    await Promise.all(made.map((id) => liveRequest(token, 'DELETE', `${api}/accounts(${id})`)));
+  }, 300_000);
 
   it(
     'syncs a table, keeps an override when a row changes, and keeps the secret to itself',

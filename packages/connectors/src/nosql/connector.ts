@@ -73,6 +73,12 @@ export function createNoSqlConnector(kind: NoSqlKind, options: NoSqlOptions = {}
     if (kind === 'cosmosdb')
       for (const name of await backend(ctx).keys(ref))
         if (!columns.some((column) => column.column.name === name)) columns.push(plainColumn(name));
+    // Only the DynamoDB range key supports server-side ordering, so list it first.
+    if (kind === 'dynamodb') {
+      const range = (await backend(ctx).keys(ref))[1];
+      const index = range ? columns.findIndex((column) => column.column.name === range) : -1;
+      if (index > 0) columns.unshift(...columns.splice(index, 1));
+    }
     return { columns, documents };
   }
   function row(
@@ -85,9 +91,13 @@ export function createNoSqlConnector(kind: NoSqlKind, options: NoSqlOptions = {}
     const cells = cellsOf(document, c, fieldName);
     const byName = new Map(columns.map((column) => [column.column.name, column]));
     const column = (name: string) => byName.get(name) ?? plainColumn(name);
-    const keys = read.keyColumns.map(
-      (name) => documentKey(document, name) ?? column(name).key(cells.get(name)),
-    );
+    const keys = read.keyColumns.map((name) => {
+      const entry = documentKey(document, name);
+      if (entry !== undefined) return entry;
+      const col = column(name);
+      const cell = cells.get(name);
+      return col.reading.type === 'text' ? col.value(cell, 'text') : col.key(cell);
+    });
     if (keys.some((key) => key === null || key === '')) throw new ConnectorError('sources.sync.keyEmpty');
     return {
       key: sourceKey(keys),

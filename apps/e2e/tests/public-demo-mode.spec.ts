@@ -1,4 +1,10 @@
 import { expect, test, type Page } from '../accessibility';
+import {
+  isSelectReport,
+  policyViolations,
+  selectConsoleError,
+  type PolicyReport,
+} from '../policy-violations';
 import { spawn, type ChildProcess } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import { resolve } from 'node:path';
@@ -96,12 +102,14 @@ async function stopDemo() {
 }
 
 function browserFailures(page: Page) {
-  const errors: string[] = [];
+  const errors: Array<{ text: string; url?: string; line?: number; column?: number }> = [];
   const refusals: string[] = [];
   page.on('console', (message) => {
-    if (message.type() === 'error') errors.push(message.text());
+    if (message.type() !== 'error') return;
+    const { url, lineNumber: line, columnNumber: column } = message.location();
+    errors.push({ text: message.text(), url, line, column });
   });
-  page.on('pageerror', (error) => errors.push(error.message));
+  page.on('pageerror', (error) => errors.push({ text: error.message }));
   page.on('response', (response) => {
     if (
       new URL(response.url()).origin === new URL(address).origin &&
@@ -111,6 +119,27 @@ function browserFailures(page: Page) {
       refusals.push(`${response.status()} ${response.url()}`);
   });
   return { errors, refusals };
+}
+
+function expectOnlyWebKitSelectReports(
+  errors: ReturnType<typeof browserFailures>['errors'],
+  reports: PolicyReport[],
+  url: string,
+) {
+  const assetPath = `${new URL(url).origin}/assets/`;
+  expect(
+    reports.filter(
+      (report) =>
+        !isSelectReport(report) ||
+        report.documentURL !== url ||
+        !report.source.startsWith(assetPath) ||
+        !report.source.endsWith('.js') ||
+        (report.target !== 'SELECT' && report.target !== '#document'),
+    ),
+  ).toEqual([]);
+  expect(errors).toEqual(reports.map(() => selectConsoleError(url)));
+  errors.length = 0;
+  reports.length = 0;
 }
 
 test.describe('Editor demo interactions', () => {
@@ -307,9 +336,13 @@ for (const role of ['reader', 'editor', 'creator', 'owner'] as const) {
     test.beforeEach(() => startDemo(role));
     test.afterEach(stopDemo);
     for (const width of [1280, 390]) {
-      test(`${role} demo tour opens without refused requests at ${width}px`, async ({ page }) => {
+      test(`${role} demo tour opens without refused requests at ${width}px`, async ({
+        page,
+        browserName,
+      }) => {
         await page.setViewportSize({ width, height: 900 });
         const { errors, refusals } = browserFailures(page);
+        const { violations } = await policyViolations(page.context());
         const schemaResponse = page.waitForResponse(
           (response) => response.url() === `${address}/api/databases/${databaseId}/schema`,
         );
@@ -341,6 +374,8 @@ for (const role of ['reader', 'editor', 'creator', 'owner'] as const) {
             await expect(record.getByText('No signature requests for this record.')).toBeVisible();
             if (level !== 'simple') {
               await record.getByRole('button', { name: 'More for this record', exact: true }).click();
+              expect(errors).toEqual([]);
+              expect(violations).toEqual([]);
               await page.getByRole('menuitem', { name: 'Request signatures', exact: true }).click();
               const request = page.getByRole('dialog', { name: 'Request signatures', exact: true });
               await expect(request.getByRole('combobox', { name: 'PDF attachment' })).toContainText(
@@ -348,13 +383,21 @@ for (const role of ['reader', 'editor', 'creator', 'owner'] as const) {
               );
               await expect(request.getByRole('textbox', { name: 'Email address' })).toBeVisible();
               await page.waitForLoadState('networkidle');
-              expect(errors).toEqual([]);
+              // WebKit commit 5949381 fixes the native <select> slot attribute reported here.
+              // Pair each enforcement report with a console error inside this dialog's opening.
+              if (browserName === 'webkit') {
+                expectOnlyWebKitSelectReports(errors, violations, page.url());
+              } else {
+                expect(errors).toEqual([]);
+                expect(violations).toEqual([]);
+              }
               expect(refusals).toEqual([]);
               await request.getByRole('button', { name: 'Close', exact: true }).click();
             }
           }
           await page.waitForLoadState('networkidle');
           expect(errors).toEqual([]);
+          expect(violations).toEqual([]);
           expect(refusals).toEqual([]);
         }
         await page.goto(`${address}/${databaseId}/interfaces/${interfaceId}/${pageId}`);
@@ -374,7 +417,13 @@ for (const role of ['reader', 'editor', 'creator', 'owner'] as const) {
         const share = page.getByRole('dialog', { name: /^Share / });
         await expect(share).toBeVisible();
         await page.waitForLoadState('networkidle');
-        expect(errors).toEqual([]);
+        // ShareDialog's RoleSelect creates the same native control for owners.
+        if (browserName === 'webkit' && role === 'owner') {
+          expectOnlyWebKitSelectReports(errors, violations, page.url());
+        } else {
+          expect(errors).toEqual([]);
+          expect(violations).toEqual([]);
+        }
         expect(refusals).toEqual([]);
         await share.getByRole('button', { name: 'Close', exact: true }).click();
         await page.getByRole('button', { name: /^Search (?:⌘K|Ctrl\+K)$/ }).click();
@@ -393,6 +442,7 @@ for (const role of ['reader', 'editor', 'creator', 'owner'] as const) {
         await expect(page.locator('[data-demo]')).toBeVisible();
         await page.waitForLoadState('networkidle');
         expect(errors).toEqual([]);
+        expect(violations).toEqual([]);
         expect(refusals).toEqual([]);
       });
     }

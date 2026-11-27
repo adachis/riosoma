@@ -16,8 +16,8 @@ This guide uses the account's default VPC to stay short: the load balancer and t
 ```bash
 export AWS_REGION=us-east-1
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
-IMAGE=ghcr.io/adachis/riosoma:0.95.0-rc.1
-CONNECTORS_IMAGE=ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1
+IMAGE=ghcr.io/adachis/riosoma:0.95.0
+CONNECTORS_IMAGE=ghcr.io/adachis/riosoma-connectors:0.95.0
 DOMAIN=riosoma.example.com
 CERT_ARN=arn:aws:acm:us-east-1:111122223333:certificate/your-certificate-id
 ```
@@ -167,7 +167,11 @@ aws ecs register-task-definition --cli-input-json file://task-definition.json
 
 **The service.**  One task, always running, since automations, webhooks, scheduled reports, and syncs run inside the server.  A minimum healthy percent of 0 stops the old task before a new one starts, so two releases never share the database.
 
+An account that has never used ECS doesn't have its service-linked role yet.  `create-cluster` makes it, but `create-service` can run before the role is ready and fail with "Unable to assume the service linked role", so create the role first.  The first command finds it if it already exists:
+
 ```bash
+aws iam get-role --role-name AWSServiceRoleForECS >/dev/null 2>&1 || \
+  aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com
 aws ecs create-cluster --cluster-name riosoma
 aws ecs create-service --cluster riosoma --service-name riosoma --task-definition riosoma \
   --desired-count 1 --launch-type FARGATE \
@@ -212,10 +216,11 @@ RDS takes a snapshot daily and keeps 14 days of point-in-time restore, as create
 Snapshot the database, then move the service to a task definition with the new image.  Migrations run when the new task starts.  See [Upgrades, backups, and rollbacks](upgrades.md).
 
 ```bash
-aws rds create-db-snapshot --db-instance-identifier riosoma --db-snapshot-identifier riosoma-before-0-6-0
-aws rds wait db-snapshot-available --db-snapshot-identifier riosoma-before-0-6-0
-sed -i.bak -e 's|ghcr.io/adachis/riosoma-connectors:[^"]*|ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1|' \
-  -e 's|ghcr.io/adachis/riosoma:[^"]*|ghcr.io/adachis/riosoma:0.95.0-rc.1|' task-definition.json
+SNAPSHOT=riosoma-before-$(date -u +%Y%m%d-%H%M)
+aws rds create-db-snapshot --db-instance-identifier riosoma --db-snapshot-identifier $SNAPSHOT
+aws rds wait db-snapshot-available --db-snapshot-identifier $SNAPSHOT
+sed -i.bak -e 's|ghcr.io/adachis/riosoma-connectors:[^"]*|ghcr.io/adachis/riosoma-connectors:0.95.0|' \
+  -e 's|ghcr.io/adachis/riosoma:[^"]*|ghcr.io/adachis/riosoma:0.95.0|' task-definition.json
 aws ecs register-task-definition --cli-input-json file://task-definition.json
 aws ecs update-service --cluster riosoma --service riosoma --task-definition riosoma
 aws ecs wait services-stable --cluster riosoma --services riosoma
@@ -234,7 +239,7 @@ If the upgrade applied migrations, stop the service first (`--desired-count 0`),
 ```bash
 aws ecs update-service --cluster riosoma --service riosoma --desired-count 0
 aws rds restore-db-instance-from-db-snapshot --db-instance-identifier riosoma-restored \
-  --db-snapshot-identifier riosoma-before-0-6-0 --db-instance-class db.t4g.small \
+  --db-snapshot-identifier $SNAPSHOT --db-instance-class db.t4g.small \
   --vpc-security-group-ids $DB_SG --no-publicly-accessible
 aws rds wait db-instance-available --db-instance-identifier riosoma-restored
 # Rebuild profile.json with the new host, then:

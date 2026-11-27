@@ -1,5 +1,55 @@
 # Changelog
 
+## [0.95.0] - 2026-11-27
+
+Riosoma 0.95.0 is the first public release, and it's a feature-complete preview before 1.0.  It includes everything from 0.95.0-rc.1 (listed below), plus the fixes from running the release candidate against live services and going through each install guide.  This release is English only.  Translation catalogs exist, but the translations aren't finished yet.
+
+- Run the web app and API in one container on AMD64 or ARM64.
+- You can install it using Docker Compose, the Helm chart, or the install guides for AWS, Azure, and Google Cloud, with a connector service that runs the driver-based sources.
+- Pick a theme, and the app falls back to system fonts when the optional assets aren't there.
+- You get signed update notices, and you can use the optional Compose updater to back up and update an install.
+- Update straight from 0.95.0-rc.1, since it doesn't need any database changes.
+
+### Connector certification
+
+- The source connectors are certified against live services and a local test fleet, and each one has a dated certificate in [packages/connectors/certifications](packages/connectors/certifications/) showing the checks it passed.
+
+### Data Source
+
+- SFTP reads won't crash the server anymore if a connection closes while a read is still open.  FTP data connections also close before their control connection.
+- Sorted results actually stay in order on Trino, Druid, ClickHouse, InfluxDB 3, and Redshift when a query sorts inside a subquery.
+- You get a clear error message now instead of an HTTP error when a sort asks for a column that Elasticsearch or Typesense can't sort on (like `_id`, `_index`, or a Typesense field that isn't marked as sortable).
+- Firebird sign-in timeouts report as timeouts.
+- Athena sources using the default `AwsDataCatalog` work, whereas before they failed on every account.
+- DynamoDB row keys now match each row's actual key values and keep very large numbers exact.  This changes the row keys for any DynamoDB syncs made with 0.95.0-rc.1.
+- Cosmos DB was refusing sorted reads across partitions, so those now run on each partition key range and get merged together.  Filters and sorts on Cosmos DB system properties are also refused now.
+- You can now preview and sync Fabric warehouses and read from them live.  Before, Riosoma connected to the warehouses and listed their tables, but every read failed.  Fabric refuses to run the query Riosoma used to get information about a table's columns.
+- NoSQL connector errors now include the HTTP status and the service's error code, but never the response body.
+- If Salesforce and Zoho CRM requests stall during setup, they'll retry within the operation's deadline instead of just failing the whole preview or read.
+
+### File ingest
+
+- The file reader was counting touched memory twice, so some workbooks were rejected with a memory limit error.  That's fixed, and each file reader gets 128 MB now.
+
+### Notifications
+
+- Go to Settings, Notifications, and use the Sign in with Microsoft button to connect Teams direct messages instead of pasting a refresh token.  An Integrations administrator sets up the Microsoft app once, either in Settings, Integrations, or using the new `RIOSOMA_MICROSOFT_TEAMS_*` settings.  Then they sign in with the account the messages should come from.  The page shows the sender's account.
+
+### Interface
+
+- Sortable lists will cancel a touch drag if you release it outside the panel, even if the preview hasn't caught up yet.
+- The web clipper uses a version format every browser accepts, so release candidates load in Chrome.
+
+### Install guides
+
+- For Azure Container Apps, the guide creates and links a private DNS zone before setting up the database.  It also uses point-in-time restore for rollbacks because burstable servers refuse on-demand backups.
+- For Google Cloud Run, the guide now puts startup and liveness probes on `/readyz` and `/healthz` (which Cloud Run's front end reserves), and it adds `--port=8080` to the upgrade deploy command.
+- For AWS ECS on Fargate, the guide now creates the ECS service-linked role before the cluster on new accounts, and it uses a dated snapshot name for upgrades.
+
+### Development
+
+- Browser, connector contract, and CI runs are all steadier now across Chromium, Firefox, and WebKit.
+
 ## [0.95.0-rc.1] - 2026-11-20
 
 This release candidate for 0.95.0 checks the install guides on each cloud before the release.  The first public build of Riosoma is a feature-complete preview before 1.0.  This release is English only.  Translation catalogs exist, but translations are incomplete.

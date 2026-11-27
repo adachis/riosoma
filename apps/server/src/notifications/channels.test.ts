@@ -330,6 +330,36 @@ describe('direct message transports', () => {
     expect(calls).toHaveLength(5);
   });
 
+  it('sends a notification for the connected account to its chat with itself', async () => {
+    const connection: Extract<NotificationConnection, { channel: 'teams' }> = {
+      channel: 'teams',
+      tenantId: randomUUID(),
+      clientId: randomUUID(),
+      clientSecret: randomBytes(24).toString('hex'),
+      refreshToken: randomBytes(24).toString('hex'),
+    };
+    const message = payload();
+    const calls: string[] = [];
+    const request: typeof fetch = async (input, init) => {
+      const url = new URL(String(input));
+      calls.push(`${init?.method ?? 'GET'} ${url.pathname}`);
+      if (url.pathname.endsWith('/token')) return json({ access_token: randomBytes(24).toString('hex') });
+      // Graph refuses a one-on-one chat with a single member.
+      if (url.pathname.endsWith('/chats'))
+        return json({ error: { code: 'BadRequest', message: 'requires 2 members' } }, 400);
+      if (url.pathname.endsWith('/me')) return json({ id: 'admin' });
+      if (url.pathname.endsWith('/users')) return json({ value: [{ id: 'admin' }] });
+      expect(JSON.parse(String(init?.body)).body.content).toContain(message.title);
+      return json({ id: randomUUID() });
+    };
+    expect(await sendTeams(connection, `${randomUUID()}@example.test`, message, request)).toBeNull();
+    expect(calls.slice(1)).toEqual([
+      'GET /v1.0/me',
+      'GET /v1.0/users',
+      'POST /v1.0/chats/48%3Anotes/messages',
+    ]);
+  });
+
   it('retains OAuth and Graph error codes without their response text', async () => {
     const connection: Extract<NotificationConnection, { channel: 'teams' }> = {
       channel: 'teams',

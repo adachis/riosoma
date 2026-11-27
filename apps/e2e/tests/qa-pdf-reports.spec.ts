@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { expect, test, type Locator, type Page } from '../accessibility';
+import { downloadNamedBlob } from '../downloads';
 import { base } from '../base';
 import { csvRows, part, slides, tableRows, texts, unzip, workbookRows } from '../files';
 import {
@@ -22,7 +23,7 @@ test.use({ serviceWorkers: 'block' });
 
 async function saved(page: Page, press: Locator) {
   const [file] = await Promise.all([page.waitForEvent('download'), press.click()]);
-  return { name: file.suggestedFilename(), bytes: await readFile((await file.path())!) };
+  return { bytes: await readFile((await file.path())!) };
 }
 
 async function reports(page: Page, view = 'Grid') {
@@ -201,34 +202,32 @@ test('reads all five report formats from every view with filters and hidden fiel
         .getByRole('navigation', { name: 'Views' })
         .getByRole('button', { name: `More for ${view.name}` })
         .click();
-      let file: Awaited<ReturnType<typeof saved>>;
+      let press = page.getByRole('menuitem', { name: label });
       if (format === 'docx' || format === 'pptx') {
-        await page.getByRole('menuitem', { name: label }).click();
-        file = await saved(
-          page,
-          page
-            .getByRole('dialog', {
-              name: format === 'docx' ? 'Download a Word document' : 'Download a PowerPoint deck',
-            })
-            .getByRole('button', { name: 'Download', exact: true }),
-        );
-      } else file = await saved(page, page.getByRole('menuitem', { name: label }));
-      expect(file.name).toBe(`Orders - ${view.name}.${format}`);
+        await press.click();
+        press = page
+          .getByRole('dialog', {
+            name: format === 'docx' ? 'Download a Word document' : 'Download a PowerPoint deck',
+          })
+          .getByRole('button', { name: 'Download', exact: true });
+      }
+      const file = await downloadNamedBlob(page, press, `Orders - ${view.name}.${format}`);
+      const bytes = await readFile((await file.path())!);
       let content: string;
       if (format === 'csv') {
-        const cells = csvRows(file.bytes);
+        const cells = csvRows(bytes);
         expect(cells).toHaveLength(2);
         content = cells.flat().join(' ');
       } else if (format === 'docx')
-        content = tableRows(part(unzip(file.bytes), 'word/document.xml'))
+        content = tableRows(part(unzip(bytes), 'word/document.xml'))
           .flat()
           .join(' ');
       else if (format === 'pptx')
-        content = slides(unzip(file.bytes))
+        content = slides(unzip(bytes))
           .flatMap((slide) => texts(slide, 'a:t'))
           .join(' ');
       else {
-        const sheets = await workbookRows(file.bytes);
+        const sheets = await workbookRows(bytes);
         expect(sheets[0]).toHaveLength(2);
         expect(sheets[0]![1]).toContain(120);
         content = sheets.flat(2).join(' ');

@@ -182,9 +182,119 @@ describe('Athena over signed HTTP', () => {
       { schema: 'events', name: 'daily', type: 'view', rowEstimate: null },
     ]);
     expect((await connector.describe(ctx, select)).map((c) => c.name)).toEqual(['id', 'label', 'day']);
-    expect(calls.find((c) => c.operation === 'GetTable')?.body.CatalogId).toBe('123456789012');
+    expect(calls.some((c) => c.operation === 'GetDataCatalog')).toBe(false);
+    expect(calls.find((c) => c.operation === 'GetTable')?.body.CatalogId).toBeUndefined();
     expect(headers['x-amz-security-token']).toBe(secrets.sessionToken);
     expect(headers.authorization).toContain('/us-east-1/glue/aws4_request');
+  });
+  it('treats AwsDataCatalog as Glue without GetDataCatalog and falls back to ListDataCatalogs for other catalogs', async () => {
+    const catalogs = new Map<string, { status: number; body: unknown }>([
+      [
+        'AwsDataCatalog',
+        {
+          status: 400,
+          body: { __type: 'InvalidRequestException', message: 'DataCatalog AwsDataCatalog was not found' },
+        },
+      ],
+      [
+        'shared_glue',
+        {
+          status: 400,
+          body: { __type: 'InvalidRequestException', message: 'DataCatalog shared_glue was not found' },
+        },
+      ],
+      [
+        'federated_lambda',
+        {
+          status: 400,
+          body: { __type: 'InvalidRequestException', message: 'DataCatalog federated_lambda was not found' },
+        },
+      ],
+      [
+        'missing_catalog',
+        {
+          status: 400,
+          body: { __type: 'InvalidRequestException', message: 'DataCatalog missing_catalog was not found' },
+        },
+      ],
+      [
+        'custom_glue',
+        {
+          status: 200,
+          body: { DataCatalog: { Type: 'GLUE', Parameters: { 'catalog-id': '123456789012' } } },
+        },
+      ],
+      ['lambda_direct', { status: 200, body: { DataCatalog: { Type: 'LAMBDA' } } }],
+    ]);
+    const operations: Array<{ operation: string; body: Record<string, unknown> }> = [];
+    const fakeClient: typeof fetch = async (_url, init) => {
+      const operation = new Headers(init?.headers).get('x-amz-target')!.split('.').at(-1)!;
+      const body = JSON.parse(String(init?.body ?? '{}')) as Record<string, unknown>;
+      operations.push({ operation, body });
+      if (operation === 'GetWorkGroup')
+        return new Response(
+          JSON.stringify({ WorkGroup: { Configuration: { BytesScannedCutoffPerQuery: cutoff } } }),
+        );
+      if (operation === 'GetDataCatalog') {
+        const entry = catalogs.get(String(body.Name))!;
+        return new Response(JSON.stringify(entry.body), { status: entry.status });
+      }
+      if (operation === 'ListDataCatalogs')
+        return new Response(
+          JSON.stringify(
+            body.NextToken
+              ? { DataCatalogsSummary: [{ CatalogName: 'shared_glue', Type: 'GLUE' }] }
+              : {
+                  DataCatalogsSummary: [
+                    { CatalogName: 'AwsDataCatalog', Type: 'GLUE' },
+                    { CatalogName: 'federated_lambda', Type: 'LAMBDA' },
+                  ],
+                  NextToken: 'catalogs-next',
+                },
+          ),
+        );
+      if (operation === 'GetTables') return new Response(JSON.stringify({ TableList: [{ Name: 'visits' }] }));
+      if (operation === 'GetTable')
+        return new Response(
+          JSON.stringify({
+            Table: { Name: 'visits', StorageDescriptor: { Columns: [{ Name: 'id', Type: 'bigint' }] } },
+          }),
+        );
+      return new Response('{}');
+    };
+    const connector = createAthenaConnector({ fetch: fakeClient, pollMs: 1 });
+    const withCatalog = (catalog: string) => ({
+      ...ctx,
+      connection: SourceConnection.parse({ ...connection, catalog }),
+    });
+
+    expect(await connector.listObjects(withCatalog('AwsDataCatalog'))).toHaveLength(1);
+    expect(operations.some((c) => c.operation === 'GetDataCatalog')).toBe(false);
+    expect(operations.some((c) => c.operation === 'ListDataCatalogs')).toBe(false);
+    expect(operations.find((c) => c.operation === 'GetTables')?.body.CatalogId).toBeUndefined();
+
+    operations.length = 0;
+    expect(await connector.listObjects(withCatalog('custom_glue'))).toHaveLength(1);
+    expect(operations.find((c) => c.operation === 'GetTables')?.body.CatalogId).toBe('123456789012');
+
+    operations.length = 0;
+    expect(await connector.listObjects(withCatalog('shared_glue'))).toHaveLength(1);
+    expect(operations.some((c) => c.operation === 'GetDataCatalog')).toBe(true);
+    expect(operations.filter((c) => c.operation === 'ListDataCatalogs')).toHaveLength(2);
+    expect(operations.find((c) => c.operation === 'GetTables')?.body.CatalogId).toBeUndefined();
+
+    await expect(connector.listObjects(withCatalog('federated_lambda'))).rejects.toMatchObject({
+      messageKey: 'sources.athena.glueCatalog',
+    });
+    await expect(connector.listObjects(withCatalog('missing_catalog'))).rejects.toMatchObject({
+      messageKey: 'sources.athena.glueCatalog',
+    });
+
+    operations.length = 0;
+    await expect(connector.listObjects(withCatalog('lambda_direct'))).rejects.toMatchObject({
+      messageKey: 'sources.athena.glueCatalog',
+    });
+    expect(operations.some((c) => c.operation === 'ListDataCatalogs')).toBe(false);
   });
   it.each([
     ['float', 'real', 'number'],

@@ -1,0 +1,18 @@
+{
+  "connector": "trino",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:21:09.017Z",
+  "serverVersionTested": "Trino 483",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

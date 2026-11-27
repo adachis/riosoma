@@ -1,5 +1,6 @@
-# Secret scanning uses the default rules, plus four exceptions: the local test fleet's documented,
-# deliberately fake password (ops/test-fleet/README.md), which its health checks pass to curl,
+# Secret scanning uses the default rules, plus five exceptions: the local test fleet's documented,
+# deliberately fake password (ops/test-fleet/README.md), which its health checks pass to curl, the
+# Cosmos DB emulator's published key, which every local emulator accepts,
 # build output, which is generated and never committed, the theme font fingerprints, which map
 # public font addresses to SHA-256 hashes of the font files, and the demo's contract fingerprints,
 # which map the names of response shapes (some with "auth", "token", or "password" in them) to
@@ -8,9 +9,13 @@
 useDefault = true
 
 [allowlist]
-description = "Fake test fleet credentials, generated build output, public font file hashes, and response shape hashes"
+description = "Fake test fleet credentials, the public Cosmos emulator key, generated build output, public font file hashes, and response shape hashes"
 regexTarget = "secret"
-regexes = ['''Riosoma-Test-2026!''']
+regexes = [
+  '''Riosoma-Test-2026!''',
+  # The Azure Cosmos DB emulator's fixed key, which Microsoft publishes for every local emulator.
+  '''^C2y6yDjf5/R\+ob0N8A7Cgv30VRDJIWEHLM\+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==$''',
+]
 paths = [
   '''(^|/)dist/''',
   '''(^|/)node_modules/''',

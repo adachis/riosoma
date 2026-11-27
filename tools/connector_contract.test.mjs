@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { createRequire } from 'node:module'
 import { test } from 'node:test'
 import { pathToFileURL } from 'node:url'
 
@@ -43,6 +44,64 @@ test('retains independent successful certifications when another account suite f
 test('provides a settings adapter for every shipped connector kind', async () => {
   const live = await import(pathToFileURL(new URL('./connector_live_sql.mjs', import.meta.url).pathname).href)
   assert.deepEqual(Object.keys(live.LIVE_CONNECTOR_SETTINGS ?? {}).sort(), [...kit.SHIPPED_CONNECTORS].sort())
+})
+
+test('waits for the seeded Oracle table to be visible in a read-only transaction', async (t) => {
+  const require = createRequire(new URL('../packages/connector-drivers/package.json', import.meta.url))
+  const oracle = require('oracledb')
+  const statements = []
+  const admin = {
+    async execute(sql) {
+      statements.push(sql)
+      if (/^SELECT \* FROM /.test(sql)) {
+        const attempts = statements.filter((statement) => /^SELECT \* FROM /.test(statement)).length
+        if (attempts === 1) throw Object.assign(new Error('stale snapshot'), { code: 'ORA-01466' })
+        if (attempts === 2) return { rows: [] }
+        return {
+          rows: [
+            [1, 'item-1'],
+            [2, 'item-2'],
+            [3, 'item-3'],
+          ],
+        }
+      }
+    },
+    async commit() {
+      statements.push('COMMIT')
+    },
+    async rollback() {
+      statements.push('ROLLBACK')
+    },
+    async close() {},
+  }
+  t.mock.method(oracle, 'getConnection', async () => admin)
+  const previous = process.env.RIOSOMA_TEST_ORACLE_URL
+  process.env.RIOSOMA_TEST_ORACLE_URL = 'oracle://reader:test@127.0.0.1:1521/FREEPDB1'
+  try {
+    const { contracts } = await import('./connector_live_sql.mjs?oracle-fixture-test')
+    const candidate = (await contracts()).find(({ connector }) => connector.kind === 'oracle')
+    const adapter = await candidate.prepare()
+    try {
+      const { schema, name } = adapter.select.object
+      const select = `SELECT * FROM "${schema}"."${name}"`
+      assert.deepEqual(statements.slice(statements.indexOf('SET TRANSACTION READ ONLY')), [
+        'SET TRANSACTION READ ONLY',
+        select,
+        'ROLLBACK',
+        'SET TRANSACTION READ ONLY',
+        select,
+        'ROLLBACK',
+        'SET TRANSACTION READ ONLY',
+        select,
+        'ROLLBACK',
+      ])
+    } finally {
+      await adapter.cleanup()
+    }
+  } finally {
+    if (previous === undefined) delete process.env.RIOSOMA_TEST_ORACLE_URL
+    else process.env.RIOSOMA_TEST_ORACLE_URL = previous
+  }
 })
 
 test('schedules a strict adapter for every remaining configured connector', async () => {
@@ -130,4 +189,47 @@ test('runs a configured HTTP account adapter through the real transport', async 
     service.closeAllConnections()
     await new Promise((resolve) => service.close(resolve))
   }
+})
+
+test('parses and applies RIOSOMA_CONTRACT_KINDS filter without altering default behavior', async () => {
+  assert.equal(runner.parseKindFilter(undefined, kit.SHIPPED_CONNECTORS), null)
+  assert.equal(runner.parseKindFilter('  ', kit.SHIPPED_CONNECTORS), null)
+  assert.throws(() => runner.parseKindFilter('not-a-connector', kit.SHIPPED_CONNECTORS))
+
+  const filter = runner.parseKindFilter('mysql, clickhouse', kit.SHIPPED_CONNECTORS)
+  assert.deepEqual([...filter], ['mysql', 'clickhouse'])
+
+  const filteredEnv = runner.filterEnvForKinds({
+    RIOSOMA_TEST_DATABASE_URL: 'postgres://localhost/db',
+    RIOSOMA_TEST_MYSQL_URL: 'mysql://localhost/db',
+    RIOSOMA_TEST_CLICKHOUSE_SETTINGS: '{}',
+    RIOSOMA_TEST_TRINO_URL: 'http://localhost:8080/tpch',
+    RIOSOMA_TEST_INFLUXDB3_SETTINGS: '{}',
+  }, filter)
+  assert.equal(filteredEnv.RIOSOMA_TEST_DATABASE_URL, 'postgres://localhost/db')
+  assert.equal(filteredEnv.RIOSOMA_TEST_MYSQL_URL, 'mysql://localhost/db')
+  assert.equal(filteredEnv.RIOSOMA_TEST_CLICKHOUSE_SETTINGS, '{}')
+  assert.equal(filteredEnv.RIOSOMA_TEST_TRINO_URL, undefined)
+  assert.equal(filteredEnv.RIOSOMA_TEST_INFLUXDB3_SETTINGS, undefined)
+
+  const written = []
+  const fake = {
+    ...kit,
+    runConnectorContract: async ({ connector }) => ({
+      connector: connector.kind,
+      capabilitiesPassed: kit.requiredCapabilities(connector.kind),
+    }),
+    assertSecretFree() {},
+    writeCertification: async (_directory, result) => written.push(result.connector),
+  }
+  const adapters = ['postgres', 'mysql', 'oracle'].map((kind) => ({
+    connector: { kind, test: async () => ({ ok: true, serverVersion: 'test-1', steps: [] }) },
+    context: {},
+  }))
+  const outcomes = await runner.runLiveAdapters(fake, adapters, '1', '.', new Set(), filter)
+  assert.deepEqual(written, ['mysql'])
+  assert.deepEqual(outcomes, [
+    { connector: 'mysql', status: 'passed' },
+    { connector: 'clickhouse', status: 'unconfigured' },
+  ])
 })

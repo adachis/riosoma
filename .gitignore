@@ -31,3 +31,8 @@ playwright-report/
 
 # Downloaded tool binaries and scratch space for tools/release/helm-smoke.sh
 .cache/
+
+# Local test fleet certification scratch directories
+ops/test-fleet/.contract-results/
+ops/test-fleet/.drivers/
+ops/test-fleet/.fixtures/

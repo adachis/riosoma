@@ -1,0 +1,15 @@
+{
+  "connector": "sftp",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:15:19.850Z",
+  "serverVersionTested": "SSH-2.0-OpenSSH_9.2p1 Debian-2+deb12u10",
+  "capabilitiesPassed": [
+    "describe",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

@@ -6,6 +6,7 @@ import {
   type BrowsedProvider,
   type CloudProvider,
   type ConnectedProvider,
+  type IntegrationProvider,
   type DriveExportFormat,
   type DriveListing,
   type GooglePickerConfig,
@@ -21,7 +22,7 @@ export async function disconnect(provider: ConnectedProvider, confirmed = false)
 }
 
 /** Where connecting starts.  The server sends the browser on to the provider and back to `next`. */
-export function connectUrl(provider: ConnectedProvider, next: string): string {
+export function connectUrl(provider: IntegrationProvider, next: string): string {
   return `/api/oauth/start/${provider}?next=${encodeURIComponent(next)}`;
 }
 

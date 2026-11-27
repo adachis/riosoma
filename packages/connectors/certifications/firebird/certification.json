@@ -1,0 +1,18 @@
+{
+  "connector": "firebird",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:17:21.736Z",
+  "serverVersionTested": "Firebird 5.0.4",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

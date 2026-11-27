@@ -23,6 +23,7 @@ Each part asks for Microsoft Graph **application** permissions, never delegated 
 | Dataverse tables | None | An application user in the environment, [below](#adding-the-app-to-a-dataverse-environment) |
 | Fabric warehouses | None | A workspace role and a tenant setting, [below](#fabric-warehouses) |
 | Teams posts | None | A Workflows webhook, [below](#teams) |
+| Teams direct messages | Delegated permissions, [below](#direct-message-notifications) | Web redirect and sender sign-in |
 
 `Sites.Selected` grants nothing on its own: the app reaches only the sites an administrator names.  `Sites.Read.All` instead reads every site in the tenant, which is simpler and much broader.  Graph's Excel workbook API doesn't accept an app's sign-in, so Riosoma downloads a workbook's file and reads it itself, which `Sites.Selected` allows.
 
@@ -91,6 +92,13 @@ Automations post to Teams through a Workflows webhook, which needs no app regist
 
 Riosoma accepts webhook addresses on `*.environment.api.powerplatform.com`, where workflows made since late 2025 answer, and on `*.logic.azure.com` and `*.webhook.office.com`, for older ones.  The server has to reach them over HTTPS.  The address works for anyone who has it, so it's sealed when the automation is saved.
 
+### Direct-message notifications
+
+1. In Riosoma, open **Settings**, then **Integrations**, and find **Microsoft Teams notifications**.  In the Entra app registration, add a **Web** platform under **Authentication** and register the redirect address shown in Integrations.
+2. Under **API permissions**, add the delegated Microsoft Graph permissions `offline_access`, `User.Read`, `User.ReadBasic.All`, `Chat.Create`, and `ChatMessage.Send`.  Have a tenant administrator grant admin consent.
+3. In Integrations, enter the app's directory tenant ID, application client ID, and client secret, or set them in the [server settings](settings.md).
+4. In Riosoma, open **Settings**, then **Notifications**, then **Organization channels**.  Choose **Teams** under **Delivery connections**, choose **Sign in with Microsoft**, and sign in with the account Teams messages should come from.  Riosoma shows the connected account and stores the grant without asking you to copy a token.
+
 ## Microsoft Forms
 
 Microsoft doesn't offer an API for a form's responses.  Forms keeps a form's responses in an Excel workbook, for forms made in a group or a team, or opened with **Open results in Excel**, and an Excel workbook source syncs that.
@@ -98,10 +106,10 @@ Microsoft doesn't offer an API for a form's responses.  Forms keeps a form's res
 ## What the server reaches
 
 - `login.microsoftonline.com`, for every sign-in
-- `graph.microsoft.com`, for email, SharePoint lists, and Excel workbooks
+- `graph.microsoft.com`, for email, SharePoint lists, Excel workbooks, and Teams direct messages
 - `*.sharepoint.com`, where Graph sends a workbook's download
 - `*.crm.dynamics.com` and its regional forms, like `*.crm4.dynamics.com`, for Dataverse
 - `*.datawarehouse.fabric.microsoft.com` on port 1433, for Fabric
 - the Workflows webhook hosts above, for Teams
 
-SharePoint, Excel, Dataverse, and Teams go through the server's guarded network, like other sources and webhooks, so a name that resolves to a private address is refused unless the operator allows private hosts.
+SharePoint, Excel, Dataverse, and Teams Workflows go through the server's guarded network, like other sources and webhooks, so a name that resolves to a private address is refused unless the operator allows private hosts.

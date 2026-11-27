@@ -1,6 +1,19 @@
 import { msg } from '@lingui/core/macro';
 
 export const NOTIFICATION_MESSAGES = {
+  'notifications.connection.teamsFailed': msg({
+    id: 'notifications.connection.teamsFailed',
+    message: 'Teams didn’t finish connecting.  Try again.',
+  }),
+  'notifications.connection.teamsUnavailable': msg({
+    id: 'notifications.connection.teamsUnavailable',
+    message: 'Teams sign-in isn’t set up for your organization, or an admin turned it off.',
+  }),
+  'notifications.connection.teamsAppRefused': msg({
+    id: 'notifications.connection.teamsAppRefused',
+    message:
+      'Microsoft refused Riosoma’s app, so Teams can’t connect right now.  An admin needs to check the app’s tenant ID, client ID, and secret in Settings, Integrations.',
+  }),
   'notifications.credentials.unavailable': msg({
     id: 'notifications.credentials.unavailable',
     message: 'The credential store could not be read.  An administrator needs to check the connection.',

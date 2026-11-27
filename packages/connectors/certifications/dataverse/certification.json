@@ -1,0 +1,15 @@
+{
+  "connector": "dataverse",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:41:27.980Z",
+  "serverVersionTested": "Dataverse API v9.2",
+  "capabilitiesPassed": [
+    "describe",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

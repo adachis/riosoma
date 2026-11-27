@@ -32,7 +32,13 @@ import {
   type Described,
   type TypeClass,
 } from '@riosoma/connectors/internal/warehouses/mapping.js';
-import { CLICKHOUSE, guard, literal, quotePath } from '@riosoma/connectors/internal/warehouses/sql.js';
+import {
+  CLICKHOUSE,
+  guard,
+  guardedSelect,
+  literal,
+  quotePath,
+} from '@riosoma/connectors/internal/warehouses/sql.js';
 import {
   exactInteger,
   ownSchemaFirst,
@@ -588,9 +594,15 @@ class ClickHouseSession implements WarehouseSession {
     const projectionOf = (entries: readonly Described[]) =>
       entries.map((entry) => clickHouseProjection(entry, CLICKHOUSE.quote(entry.column.name))).join(', ');
     const projection = projectionOf(columns);
+    const names = columns.map((entry) => entry.column.name);
     // A preview reads the first rows, in whatever order they come.
     if (limit !== undefined) {
-      yield* this.page(`SELECT ${projection} FROM ${from} LIMIT ${positive(limit, 50)}`, columns);
+      const max = positive(limit, 50);
+      const sql =
+        select.kind === 'object'
+          ? `SELECT ${projection} FROM ${from} LIMIT ${max}`
+          : guardedSelect(select.sql, projection, CLICKHOUSE, { limit: max, columns: names });
+      yield* this.page(sql, columns);
       return;
     }
     const sortingKey = await this.sortingKey(select, table);
@@ -640,7 +652,11 @@ class ClickHouseSession implements WarehouseSession {
       if (sortable(entry) && !order.includes(entry.column.name)) order.push(entry.column.name);
     if (order.length === 0) {
       // With nothing to sort by, no order can split the rows into pages, so they come in one request.
-      yield* this.page(`SELECT ${projection} FROM ${from}`, columns);
+      const sql =
+        select.kind === 'object'
+          ? `SELECT ${projection} FROM ${from}`
+          : guardedSelect(select.sql, projection, CLICKHOUSE, { columns: names });
+      yield* this.page(sql, columns);
       return;
     }
     const orderBy = order.map((name) => CLICKHOUSE.quote(name)).join(', ');

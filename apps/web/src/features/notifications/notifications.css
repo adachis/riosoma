@@ -274,6 +274,8 @@
 
   .rio-notification-channels__section {
     display: grid;
+    /* One column as wide as the box, so a long word wraps instead of widening every field. */
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--rio-space-3);
     min-inline-size: 0;
     margin: 0;
@@ -286,6 +288,7 @@
   .rio-notification-channels__section h2,
   .rio-notification-channels__section p {
     margin: 0;
+    overflow-wrap: anywhere;
   }
 
   .rio-notification-channels__section label {

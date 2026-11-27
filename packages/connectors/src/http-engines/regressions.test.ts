@@ -204,10 +204,10 @@ describe('search conversion regressions', () => {
     try {
       const preview = await connector.preview(ctx, object, 5);
       expect(preview.rows).toEqual([
-        ['a', 42, false],
-        ['b', 0, null],
-        ['c', null, null],
-        ['d', null, null],
+        [42, false, 'a'],
+        [0, null, 'b'],
+        [null, null, 'c'],
+        [null, null, 'd'],
       ]);
       const rows: SourceRow[] = [];
       for await (const page of connector.read(ctx, object, {

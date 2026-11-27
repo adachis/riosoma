@@ -1,7 +1,7 @@
 import { createHash, randomBytes } from 'node:crypto';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
-import { startTestPostgres, type TestPostgres } from '@riosoma/testkit';
+import { holdPort, startTestPostgres, type TestPostgres } from '@riosoma/testkit';
 import type { Page } from '@playwright/test';
 import { expect, test } from '../accessibility';
 import { base } from '../base';
@@ -534,7 +534,9 @@ test('passkeys register, sign in, recover from a canceled prompt, and protect re
   test.setTimeout(90_000);
   const postgres = await startTestPostgres();
   // A domain-based local installation exercises the same origin checks as a secure deployment.
-  const origin = `http://localhost:${await freePort()}`;
+  // The port stays held until the server listens on it, since anything could take it in between.
+  const port = await holdPort();
+  const origin = `http://localhost:${port.port}`;
   const fixtureUrl = new URL('../../server/dist/test/fixture.js', import.meta.url).href;
   const { startServer } = (await import(fixtureUrl)) as {
     startServer(
@@ -552,12 +554,13 @@ test('passkeys register, sign in, recover from a canceled prompt, and protect re
     webDir: fileURLToPath(new URL('../../web/dist/', import.meta.url)),
     themesDir: fileURLToPath(new URL('../../../themes/', import.meta.url)),
   }).catch(async (error: unknown) => {
+    await port.release();
     await postgres.stop();
     throw error;
   });
   let stop: () => Promise<void> = async () => undefined;
   try {
-    await server.app.listen({ port: Number(new URL(origin).port), host: '127.0.0.1' });
+    await port.serve(server.app);
     stop = await virtualAuthenticator(page, origin);
     const cookie = server.owner.headers.cookie;
     await page

@@ -53,7 +53,11 @@ it('reports an early display failure without publishing an unusable address', as
   expect(process.env.DISPLAY).toBeUndefined();
 });
 
-it('finds Xvfb on PATH when no override is supplied', async () => {
+// startDisplay looks for Xvfb on PATH only on Linux.  Elsewhere it starts one only when
+// RIOSOMA_E2E_XVFB names it.
+const linux = process.platform === 'linux';
+
+it.runIf(linux)('finds Xvfb on PATH when no override is supplied', async () => {
   const executable = binary(`import { writeSync } from 'node:fs';
     writeSync(3, '28\\n');
     setInterval(() => {}, 1000);`);
@@ -65,9 +69,16 @@ it('finds Xvfb on PATH when no override is supplied', async () => {
   expect(process.env.DISPLAY).toBe(':28');
 });
 
-it('requires Xvfb when neither PATH nor an override supplies it', async () => {
+it.runIf(linux)('requires Xvfb when neither PATH nor an override supplies it', async () => {
   vi.stubEnv('DISPLAY', undefined);
   vi.stubEnv('RIOSOMA_E2E_XVFB', undefined);
   vi.stubEnv('PATH', '');
   await expect(startDisplay()).rejects.toThrow('Xvfb is required');
+});
+
+it.skipIf(linux)('starts no display outside Linux unless an override is supplied', async () => {
+  vi.stubEnv('DISPLAY', undefined);
+  vi.stubEnv('RIOSOMA_E2E_XVFB', undefined);
+  running = await startDisplay();
+  expect(process.env.DISPLAY).toBeUndefined();
 });

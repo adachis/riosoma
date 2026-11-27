@@ -522,3 +522,16 @@ arm64 build while still pinned to `linux/amd64`, and stale digest pins.
 The wrapper generates credentials at runtime.  The smoke command inherits `FILE_SOURCES_PASSWORD` and can find ports through `docker compose --project-name riosoma-file-sources --file ops/test-fleet/file-sources.compose.yaml --profile file-sources port <service> <port>`.  Use `file-sources-sftp`, `file-sources-webdav`, `file-sources-ftp`, and `file-sources-samba` as service names.  Obtain the SFTP public host key from the container before testing, and pass it as the source’s pinned key.
 
 SMB remains deferred.  `smb3-client` is MIT-licensed and maintained, but its documented alpha status does not yet provide a stable dependency choice for this unit.  Older SMB2 candidates did not establish the required signing and encryption behavior.  Samba stays in the profile for future validation.  FTP and FTPS use the unit’s bounded passive client, so no dependency or lockfile change is needed.
+
+## Certifying connectors
+
+`bash ops/test-fleet/contract-live.sh` runs `node tools/connector_contract.mjs contract:live` family by family against the local fleet, keeps concurrent container memory below 10 GB, writes each family’s JSON summary to `ops/test-fleet/.contract-results/`, stops every container and volume with `down -v` after each family finishes, and prints a combined Markdown table at the end.
+
+Before running the commercial SQL families (`sql-mssql`, `sql-db2`, and `sql-informix`), copy `ops/test-fleet/.env.example` to `ops/test-fleet/.env` and set `FLEET_ACCEPT_MSSQL_EULA`, `FLEET_ACCEPT_DB2_LICENSE`, and `FLEET_ACCEPT_INFORMIX_LICENSE`—or export them in your shell.  You can also pass one or more family names to run a subset:
+
+```sh
+bash ops/test-fleet/contract-live.sh storage-files nosql
+```
+
+Helper scripts under `ops/test-fleet/` cover the supporting pieces:  `fixture-server.mjs` serves the HTTP-based sources (`file-url`, `graphql`, `odata`, `rest`, and `feed`), `contract-seed.mjs` seeds idempotent fixture data per engine, and `contract-settings.mjs` prints the `RIOSOMA_TEST_*` environment exports consumed by the runner.
+

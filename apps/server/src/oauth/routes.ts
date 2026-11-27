@@ -40,6 +40,7 @@ import { googleCalendar, microsoftCalendar } from './calendars.js';
 import { github } from './github.js';
 import { xero } from './xero.js';
 import { quickbooks } from './quickbooks.js';
+import { microsoftTeams } from './microsoft-teams.js';
 import { registerOAuthProvider } from './providers.js';
 
 registerOAuthProvider(github);
@@ -50,6 +51,7 @@ registerOAuthProvider(box);
 registerOAuthProvider(google);
 registerOAuthProvider(googleCalendar);
 registerOAuthProvider(microsoftCalendar);
+registerOAuthProvider(microsoftTeams);
 
 const BROWSABLE: Record<(typeof BROWSED_PROVIDERS)[number], BrowsableDrive> = {
   dropbox: dropboxDrive,

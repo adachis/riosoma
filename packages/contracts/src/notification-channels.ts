@@ -63,6 +63,14 @@ export const PushSubscriptionInput = z.object({
 });
 export type PushSubscriptionInput = z.infer<typeof PushSubscriptionInput>;
 export const NotificationPhone = z.string().regex(/^\+[1-9][0-9]{7,14}$/);
+export const TEAMS_ACCOUNT_NAME_MAX_LENGTH = 256;
+export const TEAMS_ACCOUNT_EMAIL_MAX_LENGTH = 320;
+export const TeamsAccount = z.object({
+  name: z.string().min(1).max(TEAMS_ACCOUNT_NAME_MAX_LENGTH),
+  email: z.string().max(TEAMS_ACCOUNT_EMAIL_MAX_LENGTH).nullable(),
+});
+export type TeamsAccount = z.infer<typeof TeamsAccount>;
+
 export const NotificationConnection = z.discriminatedUnion('channel', [
   z.object({ channel: z.literal('slack'), token: z.string().min(10).max(4096) }),
   z.object({
@@ -77,6 +85,7 @@ export const NotificationConnection = z.discriminatedUnion('channel', [
     clientId: z.uuid(),
     clientSecret: z.string().min(1).max(4096),
     refreshToken: z.string().min(1).max(8192),
+    account: TeamsAccount.optional(),
   }),
 ]);
 export type NotificationConnection = z.infer<typeof NotificationConnection>;
@@ -89,6 +98,8 @@ export interface NotificationChannelPreferences {
   phone: { number: string; verified: boolean } | null;
   canAdminister: boolean;
   canReceiveSms: boolean;
+  teamsSignInAvailable?: boolean;
+  teamsAccount?: TeamsAccount;
 }
 export const NotificationCommand = z.discriminatedUnion('kind', [
   z.object({

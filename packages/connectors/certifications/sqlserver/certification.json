@@ -1,0 +1,18 @@
+{
+  "connector": "sqlserver",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:18:36.319Z",
+  "serverVersionTested": "Microsoft SQL Server 2022 (RTM-CU27) (KB5104824) - 16.0.4295.3 (X64) \n\tAug 26 2026 11:02:22 \n\tCopyright (C) 2022 Microsoft Corporation\n\tDeveloper Edition (64-bit) on Linux (Ubuntu 22.04.5 LTS) <X64>",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

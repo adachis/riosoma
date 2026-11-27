@@ -1,9 +1,8 @@
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { createServer } from 'node:net';
 import { startServer, type ServerFixture, type SignedIn } from '@riosoma/server/dist/test/fixture.js';
-import { startTestPostgres, type TestPostgres } from '@riosoma/testkit';
+import { holdPort, startTestPostgres, type TestPostgres } from '@riosoma/testkit';
 import { newId, type CommandBatchResult, type FieldMeta, type TokenCreated } from '@riosoma/contracts';
 import { runCli } from '../cli.js';
 import { terminalIo, type Io, type Spawned, type Spawn } from '../io.js';
@@ -91,25 +90,22 @@ export interface HarnessOptions {
   records?: Array<Record<string, unknown>>;
 }
 
-function freePort(): Promise<number> {
-  return new Promise((settle, fail) => {
-    const probe = createServer();
-    probe.once('error', fail);
-    probe.listen(0, '127.0.0.1', () => {
-      const address = probe.address();
-      probe.close(() => settle(typeof address === 'object' && address ? address.port : 0));
-    });
-  });
-}
-
 export async function startHarness(options: HarnessOptions = {}): Promise<Harness> {
   const prefix = options.prefix ?? 'cli';
-  const port = await freePort();
   // OAuth names its issuer after the configured address, so it's known before the server starts.
-  const baseUrl = `http://127.0.0.1:${port}`;
-  const kit: TestPostgres = await startTestPostgres();
-  const server = await startServer(kit, prefix, { baseUrl, webhooksPollMs: 0 });
-  await server.app.listen({ port, host: '127.0.0.1' });
+  // The port stays held until the server listens on it, since anything could take it in between.
+  const port = await holdPort();
+  const baseUrl = `http://127.0.0.1:${port.port}`;
+  const started = (async () => {
+    const kit: TestPostgres = await startTestPostgres();
+    const server = await startServer(kit, prefix, { baseUrl, webhooksPollMs: 0 });
+    await port.serve(server.app);
+    return { kit, server };
+  })();
+  const { kit, server } = await started.catch(async (error: unknown) => {
+    await port.release();
+    throw error;
+  });
   const home = mkdtempSync(join(tmpdir(), 'rio-cli-test-'));
 
   const created = await send<TokenCreated>(server, {

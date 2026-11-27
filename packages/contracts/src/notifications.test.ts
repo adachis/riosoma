@@ -8,6 +8,7 @@ import {
   NotificationEmail,
   NotificationPreferencesUpdate,
   NotificationTarget,
+  TeamsAccount,
   idKind,
   newId,
   notificationPath,
@@ -138,5 +139,15 @@ describe('notifications', () => {
     expect(MarkNotificationsRead.safeParse({ ids: [newId('notification')] }).success).toBe(true);
     expect(MarkNotificationsRead.safeParse({ ids: [] }).success).toBe(false);
     expect(MarkNotificationsRead.safeParse({ all: false }).success).toBe(false);
+  });
+
+  it('bounds the Teams sender name and email', () => {
+    const name = 'x'.repeat(256);
+    const email = 'x'.repeat(320);
+    expect(TeamsAccount.safeParse({ name: 'x', email: null }).success).toBe(true);
+    expect(TeamsAccount.safeParse({ name, email }).success).toBe(true);
+    expect(TeamsAccount.safeParse({ name: '', email }).success).toBe(false);
+    expect(TeamsAccount.safeParse({ name: `${name}x`, email }).success).toBe(false);
+    expect(TeamsAccount.safeParse({ name, email: `${email}x` }).success).toBe(false);
   });
 });

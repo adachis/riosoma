@@ -5,6 +5,7 @@ import { createNode } from 'oracledb/lib/thin/sqlnet/connStrategy.js';
 import { describe, expect, it } from 'vitest';
 import { FieldOptions, SourceConnection } from '@riosoma/contracts';
 import { makeConnector } from '@riosoma/connectors/internal/common.js';
+import { liveError } from '@riosoma/connectors/internal/live/reader.js';
 import { LEGACY_REFUSED, NOT_ENCRYPTED, attachFirebird, firebirdType } from './firebird.js';
 import { connectorFor } from '@riosoma/connectors';
 import './register.test-support.js';
@@ -593,6 +594,41 @@ describe('Firebird sign-in with wire encryption required', () => {
       await expect(db.queryAsync('SELECT 1 FROM RDB$DATABASE')).rejects.toThrow();
       expect(Date.now() - started).toBeLessThan(500);
       expect(server.connections()).toBe(1);
+    } finally {
+      await server.close();
+    }
+  });
+
+  it('classifies a sign-in timeout as a timeout error when attach never resolves', async () => {
+    const server = await fakeServer([]);
+    try {
+      const ctx = {
+        connection: {
+          kind: 'firebird' as const,
+          host: '127.0.0.1',
+          port: server.port,
+          database: 'employee',
+          user: 'reader',
+          wireCrypt: 'required' as const,
+        },
+        secrets: { password: ['stand', 'in', randomBytes(4).toString('hex')].join('-') },
+        timeoutMs: 10,
+      };
+      const caught = await attachFirebird(
+        {
+          host: '127.0.0.1',
+          port: server.port,
+          database: 'employee',
+          user: 'reader',
+          password: ctx.secrets.password,
+          wireCrypt: 2,
+        },
+        true,
+        10,
+      ).catch((error: unknown) => error);
+      expect(caught).toBeInstanceOf(ConnectorError);
+      expect(caught).toMatchObject({ messageKey: 'sources.test.timeout' });
+      expect(liveError(caught, ctx).messageKey).toBe('sources.live.timeout');
     } finally {
       await server.close();
     }

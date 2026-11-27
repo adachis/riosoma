@@ -12,3 +12,5 @@ packages/ecologits/src/data/
 packages/ecologits/fixtures/reference.json
 # The Make app's component files are written by its build and compared byte for byte by its tests.
 integrations/make/**/*.iml.json
+# Connector certificates are written by the live contract runner.
+packages/connectors/certifications/

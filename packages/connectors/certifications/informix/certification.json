@@ -1,0 +1,18 @@
+{
+  "connector": "informix",
+  "version": "0.95.0",
+  "date": "2026-11-26T06:45:24.994Z",
+  "serverVersionTested": "IBM Informix Dynamic Server Version 15.0.1.0.3DE",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

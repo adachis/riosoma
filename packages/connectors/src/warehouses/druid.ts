@@ -24,7 +24,7 @@ import {
   type HttpFetch,
 } from './http.js';
 import { describeColumn, type Described, type TypeClass } from './mapping.js';
-import { DRUID, guard, quotePath } from './sql.js';
+import { DRUID, guard, guardedSelect, quotePath } from './sql.js';
 import { exactInteger, textOr, wholeNumber } from './values.js';
 
 /**
@@ -548,8 +548,14 @@ class DruidSession implements WarehouseSession {
       .join(', ');
     const from =
       select.kind === 'object' ? quotePath(['druid', select.object.name], DRUID) : guard(select.sql, DRUID);
+    const names = columns.map((entry) => entry.column.name);
     if (limit !== undefined) {
-      yield* this.page(`SELECT ${projection} FROM ${from} LIMIT ${positive(limit, 50)}`, columns);
+      const max = positive(limit, 50);
+      const sql =
+        select.kind === 'object'
+          ? `SELECT ${projection} FROM ${from} LIMIT ${max}`
+          : guardedSelect(select.sql, projection, DRUID, { limit: max, columns: names, qualifyOrder: true });
+      yield* this.page(sql, columns);
       return;
     }
     // A datasource always has `__time`, and a query pages by its own when it has one.
@@ -570,7 +576,11 @@ class DruidSession implements WarehouseSession {
       }
     }
     // Without a time to page by, the rows come in one request, streamed as they arrive.
-    yield* this.page(`SELECT ${projection} FROM ${from}`, columns);
+    const sql =
+      select.kind === 'object'
+        ? `SELECT ${projection} FROM ${from}`
+        : guardedSelect(select.sql, projection, DRUID, { columns: names, qualifyOrder: true });
+    yield* this.page(sql, columns);
   }
 }
 

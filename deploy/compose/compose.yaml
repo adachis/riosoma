@@ -17,7 +17,7 @@ name: riosoma
 
 services:
   riosoma:
-    image: ${RIOSOMA_IMAGE:-ghcr.io/adachis/riosoma:0.95.0-rc.1}
+    image: ${RIOSOMA_IMAGE:-ghcr.io/adachis/riosoma:0.95.0}
     restart: unless-stopped
     ports:
       - '${RIOSOMA_PUBLISH:-127.0.0.1:8080}:8080'
@@ -134,6 +134,9 @@ services:
       RIOSOMA_GOOGLE_OAUTH_CLIENT_ID:
       RIOSOMA_GOOGLE_OAUTH_CLIENT_SECRET:
       RIOSOMA_GOOGLE_PICKER_API_KEY:
+      RIOSOMA_MICROSOFT_TEAMS_TENANT_ID:
+      RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID:
+      RIOSOMA_MICROSOFT_TEAMS_CLIENT_SECRET:
       RIOSOMA_UPDATE_CHECKS:
       RIOSOMA_UPDATE_FEED_URL:
       RIOSOMA_TELEMETRY:
@@ -167,7 +170,7 @@ services:
   # port.  Riosoma reaches it on the internal connectors network, with the token Riosoma writes on
   # its first start, and it reaches databases the way Riosoma would, from the default network.
   connectors:
-    image: ${RIOSOMA_CONNECTORS_IMAGE:-ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1}
+    image: ${RIOSOMA_CONNECTORS_IMAGE:-ghcr.io/adachis/riosoma-connectors:0.95.0}
     restart: unless-stopped
     environment:
       RIOSOMA_LOG_LEVEL: ${RIOSOMA_LOG_LEVEL:-info}
@@ -312,7 +315,7 @@ services:
   # RIOSOMA_IMAGE in .env, so this folder is mounted.
   updater:
     profiles: [updater]
-    image: ${RIOSOMA_IMAGE:-ghcr.io/adachis/riosoma:0.95.0-rc.1}
+    image: ${RIOSOMA_IMAGE:-ghcr.io/adachis/riosoma:0.95.0}
     restart: unless-stopped
     user: '0:0'
     command: ['/app/updater/updater.mjs']

@@ -79,7 +79,9 @@ connectors without queries to refuse the same inputs.  GraphQL and other native
 syntaxes must also exercise the guard on the settings/query path they use.  The
 protocol suites include those native guard scenarios.
 
-The timeout probe receives a ten-millisecond budget.  It must produce a typed timeout
+The timeout probe receives a ten-millisecond budget.  It starts once requests that
+earlier steps left waiting for their turn under an API's pace have gone, so the budget
+covers the probe's own request.  It must produce a typed timeout
 error and finish within that budget plus 100 milliseconds of scheduling tolerance.
 A separate two-second watchdog detects an operation that never settles.  Delayed
 unrelated failures and immediate errors both fail the timeout contract.

@@ -1,64 +1,58 @@
 import { useSettingsSection, useSettingsLeaveGuard } from '../../screens/settings/SettingsDraft';
 import { useEffect, useState } from 'react';
-import { useLingui } from '@lingui/react/macro';
+import { Trans, useLingui } from '@lingui/react/macro';
 import { Button } from '@riosoma/ui';
-import type { NotificationChannel, NotificationConnection } from '@riosoma/contracts';
+import { Link } from '@tanstack/react-router';
+import type {
+  NotificationChannel,
+  NotificationChannelPreferences,
+  NotificationConnection,
+} from '@riosoma/contracts';
+import { connectUrl } from '../../files/pickers/api';
 import type { SaveNotificationCommand } from './NotificationChannels';
 
 export function NotificationConnections({
   save,
   busy,
-  available,
+  preferences,
+  showTeams,
   onDraftChange,
 }: {
   save: SaveNotificationCommand;
   busy: boolean;
-  available: Record<NotificationChannel, boolean>;
+  preferences: NotificationChannelPreferences;
+  showTeams: boolean;
   onDraftChange?(draft: { channel: NotificationChannel; complete: boolean }): void;
 }) {
   const { t } = useLingui();
   const requestLeave = useSettingsLeaveGuard();
   const [invalid, setInvalid] = useState(false);
-  const [channel, setChannel] = useState<'slack' | 'teams' | 'sms'>('slack');
+  const [channel, setChannel] = useState<'slack' | 'teams' | 'sms'>(showTeams ? 'teams' : 'slack');
   const [fields, setFields] = useState<Record<string, string>>({});
+  const { available, teamsAccount, teamsSignInAvailable } = preferences;
   const labels: Record<string, string> = {
     token: t({ id: 'notifications.connection.botToken', message: 'Bot token' }),
     accountSid: t({ id: 'notifications.connection.accountSid', message: 'Account SID' }),
     authToken: t({ id: 'notifications.connection.authToken', message: 'Auth token' }),
     from: t({ id: 'notifications.connection.from', message: 'Sending phone number' }),
-    tenantId: t({ id: 'notifications.connection.tenantId', message: 'Tenant ID' }),
-    clientId: t({ id: 'notifications.connection.clientId', message: 'Client ID' }),
-    clientSecret: t({ id: 'notifications.connection.clientSecret', message: 'Client secret' }),
-    refreshToken: t({ id: 'notifications.connection.refreshToken', message: 'Delegated refresh token' }),
   };
   const names =
-    channel === 'slack'
-      ? ['token']
-      : channel === 'sms'
-        ? ['accountSid', 'authToken', 'from']
-        : ['tenantId', 'clientId', 'clientSecret', 'refreshToken'];
-  const complete = names.every((name) => Boolean(fields[name]?.trim()));
+    channel === 'slack' ? ['token'] : channel === 'sms' ? ['accountSid', 'authToken', 'from'] : [];
+  const complete = names.length > 0 && names.every((name) => Boolean(fields[name]?.trim()));
   useEffect(() => {
     onDraftChange?.({ channel, complete });
   }, [channel, complete, onDraftChange]);
   async function connect() {
+    if (channel === 'teams') return;
     const connection: NotificationConnection =
       channel === 'slack'
         ? { channel, token: fields.token ?? '' }
-        : channel === 'sms'
-          ? {
-              channel,
-              accountSid: fields.accountSid ?? '',
-              authToken: fields.authToken ?? '',
-              from: fields.from ?? '',
-            }
-          : {
-              channel,
-              tenantId: fields.tenantId ?? '',
-              clientId: fields.clientId ?? '',
-              clientSecret: fields.clientSecret ?? '',
-              refreshToken: fields.refreshToken ?? '',
-            };
+        : {
+            channel,
+            accountSid: fields.accountSid ?? '',
+            authToken: fields.authToken ?? '',
+            from: fields.from ?? '',
+          };
     await save({ kind: 'notifications.connection', connection });
     setFields({});
   }
@@ -125,13 +119,7 @@ export function NotificationConnections({
         <label key={name}>
           {labels[name]}
           <input
-            type={
-              ['token', 'authToken', 'clientSecret', 'refreshToken'].includes(name)
-                ? 'password'
-                : name === 'from'
-                  ? 'tel'
-                  : 'text'
-            }
+            type={['token', 'authToken'].includes(name) ? 'password' : name === 'from' ? 'tel' : 'text'}
             autoComplete="off"
             value={fields[name] ?? ''}
             disabled={busy}
@@ -148,6 +136,49 @@ export function NotificationConnections({
           )}
         </label>
       ))}
+      {channel === 'teams' && (
+        <>
+          {available.teams && (
+            <p>
+              {teamsAccount?.email
+                ? t({
+                    id: 'notifications.connection.teamsAccount',
+                    message: `Connected as ${teamsAccount.name} (${teamsAccount.email})`,
+                  })
+                : teamsAccount
+                  ? t({
+                      id: 'notifications.connection.teamsAccountName',
+                      message: `Connected as ${teamsAccount.name}`,
+                    })
+                  : t({ id: 'notifications.connection.teamsConnected', message: 'Connected' })}
+            </p>
+          )}
+          <Button
+            isDisabled={busy || !teamsSignInAvailable}
+            onPress={() => {
+              void requestLeave().then((accepted) => {
+                if (accepted)
+                  window.location.assign(
+                    connectUrl('microsoft-teams', '/settings/notifications#organization'),
+                  );
+              });
+            }}
+          >
+            {t({ id: 'notifications.connection.teamsSignIn', message: 'Sign in with Microsoft' })}
+          </Button>
+          {!teamsSignInAvailable && (
+            <p>
+              <Trans id="notifications.connection.teamsSetup">
+                Set up the Teams app in{' '}
+                <Link to="/settings/$section" params={{ section: 'integrations' }}>
+                  Integrations
+                </Link>
+                .
+              </Trans>
+            </p>
+          )}
+        </>
+      )}
       {available[channel] ? (
         <Button
           variant="quiet"
@@ -156,7 +187,9 @@ export function NotificationConnections({
             void save({ kind: 'notifications.disconnect', channel }).catch(() => undefined);
           }}
         >
-          {t({ id: 'notifications.connection.disconnect', message: 'Disconnect channel' })}
+          {channel === 'teams'
+            ? t({ id: 'drives.accounts.disconnect', message: 'Disconnect' })
+            : t({ id: 'notifications.connection.disconnect', message: 'Disconnect channel' })}
         </Button>
       ) : null}
     </fieldset>

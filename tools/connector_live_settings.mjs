@@ -96,6 +96,8 @@ export function liveSettings(kind, env = process.env) {
       sites: [sharePointSiteOf(env.RIOSOMA_TEST_SHAREPOINT_SITE) ?? env.RIOSOMA_TEST_SHAREPOINT_SITE], workbooks: env.RIOSOMA_TEST_EXCEL_WORKBOOK ? [env.RIOSOMA_TEST_EXCEL_WORKBOOK] : [],
       environmentUrl: env.RIOSOMA_TEST_DATAVERSE_URL ? dataverseEnvironmentOf(env.RIOSOMA_TEST_DATAVERSE_URL) : undefined })
     secrets.clientSecret = env.RIOSOMA_TEST_M365_CLIENT_SECRET
+    // Dataverse counts no rows, so the contract can't pick its fixture table by size and needs its name.
+    if (kind === 'dataverse' && env.RIOSOMA_TEST_DATAVERSE_TABLE) object = { schema: null, name: env.RIOSOMA_TEST_DATAVERSE_TABLE }
   } else if (kind === 'bucket') {
     Object.assign(connection, { endpoint: env.RIOSOMA_TEST_MINIO_URL, bucket: env.RIOSOMA_TEST_MINIO_BUCKET ?? 'connector-contract', region: 'us-east-1', format: 'csv' })
     secrets.accessKeyId = env.RIOSOMA_TEST_MINIO_ACCESS_KEY ?? ['minio', 'admin'].join('')

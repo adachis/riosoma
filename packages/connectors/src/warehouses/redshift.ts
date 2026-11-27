@@ -3,10 +3,18 @@ import type { SourceColumn, SourceSelect } from '@riosoma/contracts';
 import { makeConnector, scrub, type Session } from '../common.js';
 import { element } from '../files/s3.js';
 import { registerConnector } from '../registry.js';
-import { fromSql, positive, quote } from '../sql.js';
+import { fromSql, objectSql, positive, quote } from '../sql.js';
 import { column } from '../values.js';
 import { ConnectorError, type ConnectorContext } from '../types.js';
 import { AwsClient, type AwsOptions } from './aws.js';
+import { guardedSelect, type Dialect } from './sql.js';
+
+const REDSHIFT_DIALECT: Dialect = {
+  quote: (name) => quote(name, 'postgres'),
+  quotes: ["'", '"'],
+  lineComments: ['--'],
+  dollarQuotes: 'tagged',
+};
 
 export async function redshiftCredentials(
   ctx: ConnectorContext,
@@ -209,9 +217,15 @@ export function createRedshiftConnector(options: RedshiftOptions = {}) {
           })
           .join(', ');
         try {
-          await query(
-            `DECLARE source_rows CURSOR FOR SELECT ${projection} FROM ${fromSql(select, 'postgres')}${limit ? ` LIMIT ${limit}` : ''}`,
-          );
+          const statement =
+            select.kind === 'object'
+              ? `SELECT ${projection} FROM ${objectSql(select.object, 'postgres')}${limit ? ` LIMIT ${limit}` : ''}`
+              : guardedSelect(select.sql, projection, REDSHIFT_DIALECT, {
+                  limit,
+                  columns: columns.map((col) => col.name),
+                  qualifyOrder: true,
+                });
+          await query(`DECLARE source_rows CURSOR FOR ${statement}`);
           for (;;) {
             const result = await query(`FETCH FORWARD ${batchSize} FROM source_rows`);
             if (!result.rows.length) break;

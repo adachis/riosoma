@@ -82,6 +82,19 @@ export async function pace(
   await sleep(at - moment, signal);
 }
 
+/**
+ * Waits until no API's next request slot is still ahead, so a request made then goes out at once.
+ * It reads the same clock `pace` does, and a timer can end a little before that clock catches up,
+ * so it checks again after each wait.
+ */
+export async function pacesCaughtUp(now: () => number = Date.now): Promise<void> {
+  for (;;) {
+    const ahead = Math.max(0, ...pacers.values()) - now();
+    if (ahead <= 0) return;
+    await wait(ahead);
+  }
+}
+
 /** What a Retry-After header asks for, in milliseconds, or null when it asks for nothing readable. */
 export function retryAfterMs(header: string | undefined, now: number): number | null {
   const text = header?.trim();

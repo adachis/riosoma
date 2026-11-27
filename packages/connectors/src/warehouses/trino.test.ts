@@ -771,3 +771,22 @@ it('runs every declared contract against the native protocol fixture', async () 
     boundary,
   );
 });
+
+it('keeps outer ORDER BY when wrapping a sorted query with LIMIT', async () => {
+  const fake = fakeTrino(({ query }) => {
+    if (/LIMIT 0$/.test(query)) return [{ columns: [{ name: 'id', type: 'bigint' }], data: [] }];
+    if (/FROM \(\s*SELECT \* FROM sales\.orders ORDER BY "id" DESC\s*\) AS q LIMIT 2/i.test(query))
+      return [{ columns: [{ name: 'id', type: 'varchar' }], data: [['1'], ['2']] }];
+    if (/ORDER BY (?:q\.)?"id" DESC LIMIT 2/i.test(query))
+      return [{ columns: [{ name: 'id', type: 'varchar' }], data: [['3'], ['2']] }];
+    return undefined;
+  });
+  const preview = await connector(fake).preview(
+    contextFor(),
+    { kind: 'query', sql: 'SELECT * FROM sales.orders ORDER BY "id" DESC' },
+    2,
+  );
+  const executed = fake.log.queries.at(-1)!.query;
+  expect(executed).toMatch(/ORDER BY (?:q\.)?"id" DESC LIMIT 2$/);
+  expect(preview.rows).toEqual([[3], [2]]);
+});

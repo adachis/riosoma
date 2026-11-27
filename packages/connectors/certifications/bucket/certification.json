@@ -1,0 +1,15 @@
+{
+  "connector": "bucket",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:12:41.960Z",
+  "serverVersionTested": "MinIO",
+  "capabilitiesPassed": [
+    "describe",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

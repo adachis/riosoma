@@ -140,6 +140,7 @@ function stop(cnx: Connection) {
   const wire = cnx as unknown as WireConnection;
   wire._isDetach = true;
   clearTimeout(wire._retry_connection_id);
+  if (wire._socket) (cnx as unknown as { disconnect?(): void }).disconnect?.();
   wire._socket?.destroy();
 }
 
@@ -206,7 +207,10 @@ function attachOnce(options: Options, required: boolean, plugin: string | undefi
       wire._isOpened = false;
       wire._rejectPending?.(wire.error ?? new Error('Firebird closed the connection.'));
     });
-    const timer = setTimeout(() => fail(new Error('Firebird timed out while signing in.')), ms);
+    const timer = setTimeout(
+      () => fail(new ConnectorError('sources.test.timeout', 'Firebird timed out while signing in.')),
+      ms,
+    );
     timer.unref();
     function fail(error: unknown) {
       if (settled) return;

@@ -14,7 +14,14 @@ import {
   type Identity,
   type Store,
 } from './model';
-import { clipperLoopback, hasPort, manifest, optionalHosts, originPattern } from './manifest';
+import {
+  clipperLoopback,
+  extensionVersion,
+  hasPort,
+  manifest,
+  optionalHosts,
+  originPattern,
+} from './manifest';
 import { loopbackHosts, type Table } from '../../shared/schema';
 import { IntegrationError, errorKey } from '../../../packages/ui/src/integrations/messages';
 
@@ -235,6 +242,27 @@ describe('the Riosoma address chosen at run time', () => {
 });
 
 describe('manifests and host permissions', () => {
+  it('gives every browser a version it can load, and shows Chrome testers the full release', () => {
+    // Chrome refuses to load an extension whose version is not one to four dot-separated integers.
+    const loadable = /^(0|[1-9]\d{0,4})(\.(0|[1-9]\d{0,4})){0,3}$/;
+    for (const release of ['0.95.0-rc.1', '0.95.0', '1.2.3+build.7', '2.0.0-beta.2+sha.1'])
+      for (const target of ['chrome', 'firefox'] as const)
+        expect(manifest(target, release).version).toMatch(loadable);
+    expect(manifest('chrome', '0.95.0-rc.1')).toMatchObject({
+      version: '0.95.0',
+      version_name: '0.95.0-rc.1',
+    });
+    expect(manifest('chrome', '0.95.0')).not.toHaveProperty('version_name');
+    expect(manifest('firefox', '0.95.0-rc.1').version).toBe('0.95.0');
+    expect(manifest('firefox', '0.95.0-rc.1')).not.toHaveProperty('version_name');
+  });
+
+  it('refuses a release that no browser could load as a version', () => {
+    for (const release of ['', 'rc.1', '1.2.3.4.5', '01.2.3', '1.65536.0', '1..2', 'v1.2.3'])
+      expect(() => extensionVersion(release)).toThrow(release || 'No extension version');
+    expect(extensionVersion('1.2.3.4')).toBe('1.2.3.4');
+  });
+
   it('asks for nothing at install and lets the sign-in button grant HTTPS addresses or this computer', () => {
     const chrome = manifest('chrome', '1.0.0');
     expect(chrome).not.toHaveProperty('host_permissions');

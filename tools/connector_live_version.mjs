@@ -34,7 +34,7 @@ export async function accountVersion(kind, context, options, requests, headers) 
       else if (kind === 'meilisearch') version = (await http.json('/version')).pkgVersion
       else if (kind === 'typesense') version = (await http.json('/debug')).version
       else if (kind === 'prometheus') version = (await http.json('/api/v1/status/buildinfo')).data?.version
-      else if (kind === 'influxdb') version = (await http.json('/health')).version
+      else if (kind === 'influxdb') version = (await http.json(context.connection.version === '3' ? '/ping' : '/health')).version
       else {
         const { GraphMetricsSession } = await import('../packages/connectors/dist/http-engines/graph-metrics.js')
         const rows = await new GraphMetricsSession(http).cypher('CALL dbms.components() YIELD versions RETURN versions')

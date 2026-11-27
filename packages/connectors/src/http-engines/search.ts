@@ -257,6 +257,18 @@ function checkBody(body: unknown, nested: readonly string[], depth: number): voi
   }
 }
 
+const TYPESENSE_DEFAULT_SORTABLE = new Set(['int32', 'int64', 'float', 'bool']);
+const TYPESENSE_SORTABLE = new Set([...TYPESENSE_DEFAULT_SORTABLE, 'string']);
+
+/** Typesense sorts on scalar numeric/bool fields by default, and on string fields only when `sort: true`. */
+function typesenseSortable(field: Row): boolean {
+  const name = typeof field.name === 'string' ? field.name : '';
+  const type = typeof field.type === 'string' ? field.type : '';
+  if (!name || name === 'id' || !TYPESENSE_SORTABLE.has(type)) return false;
+  if (typeof field.sort === 'boolean') return field.sort;
+  return TYPESENSE_DEFAULT_SORTABLE.has(type);
+}
+
 export class SearchSession implements WarehouseSession {
   readonly kind: SearchSourceKind;
   constructor(readonly http: EngineHttp) {
@@ -319,10 +331,7 @@ export class SearchSession implements WarehouseSession {
     const name = objectName(select);
     if (this.kind === 'elasticsearch' || this.kind === 'opensearch') {
       const result = record(await this.http.json(`/${name}/_mapping`));
-      const columns = new Map<string, Described>([
-        ['_index', engineColumn('_index', 'keyword')],
-        ['_id', engineColumn('_id', 'keyword')],
-      ]);
+      const columns = new Map<string, Described>();
       for (const index of Object.values(result)) {
         const mapping = record(record(index).mappings);
         for (const [name, value] of Object.entries(record(mapping.properties ?? {}))) {
@@ -335,6 +344,8 @@ export class SearchSession implements WarehouseSession {
           );
         }
       }
+      if (!columns.has('_index')) columns.set('_index', engineColumn('_index', 'keyword'));
+      if (!columns.has('_id')) columns.set('_id', engineColumn('_id', 'keyword'));
       // Mappings describe element types without cardinality, so sampled arrays need JSON fields.
       for await (const page of this.pages(select, 500, { limit: 1_000 })) {
         for (const row of page) {
@@ -357,11 +368,15 @@ export class SearchSession implements WarehouseSession {
     }
     if (this.kind === 'typesense') {
       const schema = record(await this.http.json(`/collections/${name}`));
+      const fields = records(schema.fields).filter((field) => field.name !== 'id');
       return [
-        engineColumn('id', 'string'),
-        ...records(schema.fields)
-          .filter((field) => field.name !== 'id')
+        ...fields
+          .filter(typesenseSortable)
           .map((field) => engineColumn(nameOf(field.name), nameOf(field.type))),
+        ...fields
+          .filter((field) => !typesenseSortable(field))
+          .map((field) => engineColumn(nameOf(field.name), nameOf(field.type))),
+        engineColumn('id', 'string'),
       ];
     }
     const rows: Row[] = [];
@@ -428,6 +443,11 @@ export class SearchSession implements WarehouseSession {
       return;
     }
     if (kind === 'elasticsearch' || kind === 'opensearch') {
+      if (
+        kind === 'elasticsearch' &&
+        request.order?.some((order) => order.column === '_id' || order.column === '_index')
+      )
+        throw new ConnectorError('sources.live.unsupported');
       const opened = record(
         await http.json(
           kind === 'elasticsearch'
@@ -502,6 +522,18 @@ export class SearchSession implements WarehouseSession {
     // closed early would end the one they sit in.  Either would exempt documents from the rules,
     // which is why such a filter is refused at the top of this read and when a table is saved.
     const filterBy = parts.map((part) => `(${part})`).join(' && ');
+    if (kind === 'typesense' && request.order?.length) {
+      if (request.order.some((order) => order.column === 'id'))
+        throw new ConnectorError('sources.live.unsupported');
+      const schema = record(await http.json(`/collections/${name}`));
+      const sortable = new Set(
+        records(schema.fields)
+          .filter(typesenseSortable)
+          .map((field) => nameOf(field.name)),
+      );
+      if (request.order.some((order) => !sortable.has(order.column)))
+        throw new ConnectorError('sources.live.unsupported');
+    }
     while (read < maximum) {
       const count = Math.min(size, 250, maximum - read);
       let rows: Row[];

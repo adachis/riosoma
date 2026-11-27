@@ -541,7 +541,7 @@ services:
     depends_on:
       druid-zookeeper:
         condition: service_healthy
-    command: ['coordinator-overlord']
+    command: ['coordinator']
     environment: &druid-env
       DRUID_SINGLE_NODE_CONF: micro-quickstart
       ZOOKEEPER: druid-zookeeper
@@ -553,13 +553,13 @@ services:
       druid_indexer_logs_directory: /opt/shared/indexing-logs
       druid_processing_numThreads: '1'
       druid_processing_numMergeBuffers: '1'
+      druid_processing_buffer_sizeBytes: 64MiB
       DRUID_LOG_LEVEL: info
     volumes:
       - fleet-druid-shared:/opt/shared
       - fleet-druid-coordinator-var:/opt/druid/var
     healthcheck:
-      test:
-        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8081/status/health | grep -q ''"healthy":true'' || exit 1']
+      test: ['CMD-SHELL', 'wget -q -O- http://127.0.0.1:8081/status/health | grep -qx true || exit 1']
       interval: 15s
       timeout: 10s
       retries: 30
@@ -586,8 +586,7 @@ services:
     volumes:
       - fleet-druid-broker-var:/opt/druid/var
     healthcheck:
-      test:
-        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8082/status/health | grep -q ''"healthy":true'' || exit 1']
+      test: ['CMD-SHELL', 'wget -q -O- http://127.0.0.1:8082/status/health | grep -qx true || exit 1']
       interval: 15s
       timeout: 10s
       retries: 30
@@ -615,8 +614,7 @@ services:
       - fleet-druid-shared:/opt/shared
       - fleet-druid-historical-var:/opt/druid/var
     healthcheck:
-      test:
-        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8083/status/health | grep -q ''"healthy":true'' || exit 1']
+      test: ['CMD-SHELL', 'wget -q -O- http://127.0.0.1:8083/status/health | grep -qx true || exit 1']
       interval: 15s
       timeout: 10s
       retries: 30
@@ -646,8 +644,7 @@ services:
       - fleet-druid-shared:/opt/shared
       - fleet-druid-middlemanager-var:/opt/druid/var
     healthcheck:
-      test:
-        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8091/status/health | grep -q ''"healthy":true'' || exit 1']
+      test: ['CMD-SHELL', 'wget -q -O- http://127.0.0.1:8091/status/health | grep -qx true || exit 1']
       interval: 15s
       timeout: 10s
       retries: 30
@@ -677,8 +674,7 @@ services:
       # entry point for the console and the query API.
       - '127.0.0.1:18888:8888'
     healthcheck:
-      test:
-        ['CMD-SHELL', 'curl -fsS http://127.0.0.1:8888/status/health | grep -q ''"healthy":true'' || exit 1']
+      test: ['CMD-SHELL', 'wget -q -O- http://127.0.0.1:8888/status/health | grep -qx true || exit 1']
       interval: 15s
       timeout: 10s
       retries: 30
@@ -988,12 +984,15 @@ services:
     command:
       - 'influxdb3'
       - 'serve'
+      - '--node-id'
+      - 'node1'
       - '--object-store'
-      - 'directory'
-      - '--db-dir'
+      - 'file'
+      - '--data-dir'
       - '/var/lib/influxdb3'
-      - '--http-bind-address'
+      - '--http-bind'
       - '0.0.0.0:8181'
+      - '--without-auth'
     environment:
       INFLUXDB3_LOG_FILTER: info
     ports:
@@ -1146,7 +1145,7 @@ services:
       test:
         [
           'CMD-SHELL',
-          'curl -fsS -o /dev/null http://127.0.0.1:8108/health || wget -q --spider http://127.0.0.1:8108/health || exit 1',
+          "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8108 && printf \"GET /health HTTP/1.0\\r\\nHost: 127.0.0.1\\r\\n\\r\\n\" >&3 && grep -q \"\\\"ok\\\":true\" <&3' || exit 1",
         ]
       interval: 10s
       timeout: 10s
@@ -1316,6 +1315,27 @@ services:
     image: stilliard/pure-ftpd:trixie-1.0.50
     platform: linux/amd64
     profiles: ['ftp', 'storage']
+    entrypoint:
+      - '/bin/bash'
+      - '-c'
+      - |-
+        set -e
+        mkdir -p /etc/ssl/private
+        if [ ! -f /etc/ssl/private/pure-ftpd.pem ]; then
+          openssl dhparam -dsaparam -out /etc/ssl/private/pure-ftpd-dhparams.pem 2048
+          openssl req -x509 -nodes -newkey rsa:2048 -sha256 -days 30 \
+            -subj '/CN=127.0.0.1/O=Riosoma/C=US' \
+            -addext 'subjectAltName=IP:127.0.0.1,DNS:localhost' \
+            -keyout /etc/ssl/private/pure-ftpd.pem \
+            -out /etc/ssl/private/pure-ftpd.pem
+          chmod 600 /etc/ssl/private/pure-ftpd*.pem
+        fi
+        exec "$@"
+      - 'pure-ftpd-wrapper'
+    command:
+      - '/bin/sh'
+      - '-c'
+      - '/run.sh -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P "$$PUBLICHOST"'
     environment:
       FTP_USER_NAME: riosoma_test
       FTP_USER_PASS: 'Riosoma-Test-2026!'
@@ -1325,6 +1345,7 @@ services:
       FTP_MAX_CLIENTS: '10'
       FTP_MAX_CONNECTIONS: '10'
       FTP_PASSIVE_PORTS: '30000:30009'
+      ADDED_FLAGS: '--tls=1'
     ports:
       - '127.0.0.1:12121:21'
       # Passive transfers negotiate a port in this range, so the range has to be

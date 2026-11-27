@@ -140,8 +140,21 @@ it.each(['dynamodb', 'couchdb', 'couchbase', 'firestore', 'cosmosdb'] as const)(
         });
       }
       if (url.endsWith('/colls')) return json({ DocumentCollections: [{ id: 'items' }] });
+      if (url.endsWith('/pkranges')) return json({ PartitionKeyRanges: [{ id: '0' }] });
       if (!url.endsWith('/docs')) return json({ partitionKey: { paths: ['/tenant'] } });
       const headers = new Headers(init.headers);
+      if (
+        String(body.query).includes('ORDER BY') &&
+        !headers.get('x-ms-documentdb-partitionkey') &&
+        !headers.get('x-ms-documentdb-partitionkeyrangeid')
+      )
+        return new Response(
+          JSON.stringify({
+            code: 'BadRequest',
+            message: 'The provided cross partition query can not be directly served by the gateway.',
+          }),
+          { status: 400, headers: { 'x-ms-substatus': '1004' } },
+        );
       const offset = Number(headers.get('x-ms-continuation') ?? 0);
       const limit = Number(headers.get('x-ms-max-item-count') ?? 1000);
       const selected = JSON.stringify(body.parameters).includes('2')

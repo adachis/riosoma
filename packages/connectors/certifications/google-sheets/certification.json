@@ -1,0 +1,15 @@
+{
+  "connector": "google-sheets",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:40:45.820Z",
+  "serverVersionTested": "Google Sheets API v4",
+  "capabilitiesPassed": [
+    "describe",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

@@ -17,7 +17,7 @@ import mssql from 'mssql';
 import { SqlServerConnection, type SourceSelect } from '@riosoma/contracts';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { connectorFor } from '@riosoma/connectors/internal/registry.js';
-import './sqlserver.js';
+import './register.test-support.js';
 import type { ConnectorContext, SourceRow } from '@riosoma/connectors/internal/types.js';
 
 const env = (name: string): string | undefined => process.env[`RIOSOMA_TEST_${name}`]?.trim() || undefined;
@@ -174,6 +174,11 @@ describe.skipIf(!tenantId || !clientId || !clientSecret || !workspace)(
         { key: '["P-2"]', values: { plant: 'Thyme', price: 4, planted: '2026-04-09', organic: false } },
         { key: '["P-3"]', values: { plant: 'Sage', price: 5.25, planted: '2026-04-16', organic: true } },
       ]);
+      // Fabric describes a query with a procedure that wraps the query's own error in a general one,
+      // and a missing table must still read as missing.
+      await expect(
+        connector.preview(ctx, { kind: 'object', object: { schema: 'dbo', name: 'rio_test_missing' } }, 1),
+      ).rejects.toMatchObject({ messageKey: 'sources.sync.objectMissing' });
     });
   },
 );

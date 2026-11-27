@@ -1,0 +1,17 @@
+{
+  "connector": "cosmosdb",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:40:29.139Z",
+  "serverVersionTested": "Cosmos DB API 2018-12-31",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "@riosoma/ecologits",
-  "version": "0.95.0-rc.1",
+  "version": "0.95.0",
   "private": true,
   "description": "A TypeScript port of EcoLogits 0.11.1, which estimates the energy use and environmental impacts of generative model requests.",
   "license": "MPL-2.0",

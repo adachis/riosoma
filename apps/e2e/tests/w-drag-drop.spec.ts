@@ -404,6 +404,25 @@ test.describe('phone touch', () => {
         expect(rows.some((row) => row.y <= outside.y && row.bottom >= outside.y)).toBe(true);
       }
       const session = await pointerInput(page, context);
+      const release = await popover.evaluateHandle((element, side) => {
+        let outside = false;
+        const record = (event: TouchEvent) => {
+          const contact = event.changedTouches[0];
+          if (!contact) return;
+          const { clientX: x, clientY: y } = contact;
+          const { left, right, bottom } = element.getBoundingClientRect();
+          const hit = document.elementFromPoint(x, y);
+          outside =
+            !!hit &&
+            !element.contains(hit) &&
+            (side === 'below' ? y > bottom : side === 'left' ? x < left : x > right);
+        };
+        window.addEventListener('touchend', record, { capture: true, once: true });
+        return {
+          isOutside: () => outside,
+          dispose: () => window.removeEventListener('touchend', record, true),
+        };
+      }, side);
       try {
         await session.touch({
           type: 'touchStart',
@@ -414,10 +433,13 @@ test.describe('phone touch', () => {
         await expect(panel.locator('[data-drop-before]')).toHaveCount(1);
         await session.touch({ type: 'touchMove', touchPoints: [outside] });
         await session.touch({ type: 'touchEnd', touchPoints: [] });
+        expect(await release.evaluate(({ isOutside }) => isOutside())).toBe(true);
         await expect(page.locator('.rio-sortable-overlay')).toBeHidden();
         await expect(panel.locator('.rio-sortable-announcement')).toContainText('Canceled moving');
         expect((await saved()).filter).toEqual(before);
       } finally {
+        await release.evaluate(({ dispose }) => dispose());
+        await release.dispose();
         await session.detach();
       }
     });

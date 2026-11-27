@@ -46,8 +46,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # The connector service: the drivers for MySQL, SQL Server, Oracle, Firebird, Snowflake, BigQuery,
 # Databricks, ClickHouse, and MongoDB, behind a small API only the server calls.  It keeps no shell,
 # package manager, or system tools either, and publishes no port of its own.
-FROM gcr.io/distroless/nodejs24-debian13:nonroot@sha256:9eeb7f5887d0e239e78264b06f7f11d2e14be534050481803a9e4728fcdd278e AS connectors
-ARG RIOSOMA_VERSION=0.95.0-rc.1
+FROM gcr.io/distroless/nodejs24-debian13:nonroot@sha256:675c532423b908f9e56f9d60a4e62309b63cd2a3175acb90a46b96f7ee68e121 AS connectors
+ARG RIOSOMA_VERSION=0.95.0
 # The token comes from the file the server writes into storage both mount, unless it's set outright.
 ENV NODE_ENV=production \
     RIOSOMA_VERSION=${RIOSOMA_VERSION} \
@@ -65,9 +65,9 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s \
 CMD ["dist/main.js"]
 
 # The runtime keeps no shell, package manager, or system tools.
-FROM gcr.io/distroless/nodejs24-debian13:nonroot@sha256:9eeb7f5887d0e239e78264b06f7f11d2e14be534050481803a9e4728fcdd278e AS runtime
+FROM gcr.io/distroless/nodejs24-debian13:nonroot@sha256:675c532423b908f9e56f9d60a4e62309b63cd2a3175acb90a46b96f7ee68e121 AS runtime
 # The release this image was built from, reported by /healthz.
-ARG RIOSOMA_VERSION=0.95.0-rc.1
+ARG RIOSOMA_VERSION=0.95.0
 # The connector service image built with this one, by digest, which the one-click updater reads to
 # update the connector service along with Riosoma.  Empty in a local build.
 ARG RIOSOMA_CONNECTORS_DIGEST=

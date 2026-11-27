@@ -9060,11 +9060,13 @@ msgid "drives.accounts.connect"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationChannels.tsx
 #: apps/web/src/screens/settings/connections/ConnectedAccounts.tsx
 msgid "drives.accounts.connected"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationConnections.tsx
 #: apps/web/src/screens/settings/connections/ConnectedAccounts.tsx
 msgid "drives.accounts.disconnect"
 msgstr ""
@@ -19685,6 +19687,11 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
+msgid "integrations.microsoftTeams"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
 msgid "integrations.redirect"
 msgstr ""
 
@@ -19721,6 +19728,21 @@ msgstr ""
 #. js-lingui-explicit-id
 #: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
 msgid "integrations.tenant.help"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
+msgid "integrations.tenant.required"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
+msgid "integrations.tenant.settingsHelp"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/screens/settings/connections/IntegrationsSettings.tsx
+msgid "integrations.tenant.teamsHelp"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -23138,27 +23160,12 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationConnections.tsx
-msgid "notifications.connection.clientId"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: apps/web/src/features/notifications/NotificationConnections.tsx
-msgid "notifications.connection.clientSecret"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: apps/web/src/features/notifications/NotificationConnections.tsx
 msgid "notifications.connection.disconnect"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationConnections.tsx
 msgid "notifications.connection.from"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: apps/web/src/features/notifications/NotificationConnections.tsx
-msgid "notifications.connection.refreshToken"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -23178,13 +23185,56 @@ msgid "notifications.connection.smsHelp"
 msgstr ""
 
 #. js-lingui-explicit-id
+#. placeholder {0}: teamsAccount.name
+#. placeholder {1}: teamsAccount.email
+#: apps/web/src/features/notifications/NotificationConnections.tsx
+msgid "notifications.connection.teamsAccount"
+msgstr ""
+
+#. js-lingui-explicit-id
+#. placeholder {0}: teamsAccount.name
+#: apps/web/src/features/notifications/NotificationConnections.tsx
+msgid "notifications.connection.teamsAccountName"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/messages.ts
+msgid "notifications.connection.teamsAppRefused"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationConnections.tsx
+msgid "notifications.connection.teamsConnected"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/messages.ts
+msgid "notifications.connection.teamsFailed"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationConnections.tsx
 msgid "notifications.connection.teamsHelp"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationChannels.tsx
+msgid "notifications.connection.teamsRequired"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: apps/web/src/features/notifications/NotificationConnections.tsx
-msgid "notifications.connection.tenantId"
+msgid "notifications.connection.teamsSetup"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/NotificationConnections.tsx
+msgid "notifications.connection.teamsSignIn"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: apps/web/src/features/notifications/messages.ts
+msgid "notifications.connection.teamsUnavailable"
 msgstr ""
 
 #. js-lingui-explicit-id

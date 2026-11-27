@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '../accessibility';
+import { downloadNamedBlob } from '../downloads';
 import { base } from '../base';
 import { csvRows, part, slides, tableRows, texts, unzip, workbookRows } from '../files';
 import { asOwner, createDatabase, createView, openTable, runCommands, signIn } from '../helpers';
@@ -428,8 +429,7 @@ test('each view exports its filtered records and visible fields in all four file
           })
           .getByRole('button', { name: 'Download', exact: true });
       }
-      const [file] = await Promise.all([page.waitForEvent('download'), press.click()]);
-      expect(file.suggestedFilename()).toBe(`Records - ${name}.${format}`);
+      const file = await downloadNamedBlob(page, press, `Records - ${name}.${format}`);
       const bytes = readFileSync((await file.path())!);
       let values: unknown[][];
       if (format === 'csv') values = csvRows(bytes);

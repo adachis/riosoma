@@ -1,0 +1,16 @@
+{
+  "connector": "graphql",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:11:29.899Z",
+  "serverVersionTested": "Riosoma-Test-Fleet/1.0",
+  "capabilitiesPassed": [
+    "describe",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

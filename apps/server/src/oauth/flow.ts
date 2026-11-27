@@ -1,4 +1,3 @@
-import { oauthEndpoint } from './providers.js';
 import { createHash, randomBytes } from 'node:crypto';
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { AppError } from '@riosoma/contracts';
@@ -8,10 +7,12 @@ import { auditEvent, authDatabase } from '../auth/database.js';
 import { requireActor } from '../auth/sessions.js';
 import { safeNext } from '../auth/sso/accounts.js';
 import { dataStore } from '../data/context.js';
+import type { Actor } from '../http/policy.js';
+import { organizationAdmin } from '../org-units/store.js';
 import { seal, unseal } from '../secrets.js';
 import { availableApp, callbackUri } from './apps.js';
 import { exchangeCode, saveConnection, TokensRefused } from './connections.js';
-import { limited } from './providers.js';
+import { limited, oauthEndpoint, oauthProvider } from './providers.js';
 
 /**
  * Connecting an account: the authorization-code flow with PKCE, the same for every provider in
@@ -46,17 +47,31 @@ const hashOf = (value: string) => createHash('sha256').update(value).digest('hex
 const flowsTable = (ctx: AppContext) => ident(dataStore(ctx).schemas.app, 'oauth_flows');
 const verifierContext = (stateHash: string) => `oauth-flow:${stateHash}`;
 
-/** Where the browser goes when it can't be told anything better: the page that closes the window. */
-const landing = (provider: string) => `/connected/${provider}`;
+/** Where the browser goes when the flow has no return address. */
+const landing = (provider: string) =>
+  oauthProvider(provider)?.organization?.landing ?? `/connected/${provider}`;
 
 /** Adds the outcome to where the browser goes next, as `connected` or `connectError`. */
-function outcome(next: string, provider: string, failure?: ConnectFailure): string {
+function outcome(next: string, provider: string, failure?: ConnectFailure, actionId?: string): string {
   const url = new URL(safeNext(next), 'https://next.invalid');
   url.searchParams.delete('connected');
   url.searchParams.delete('connectError');
+  url.searchParams.delete('connectionAction');
   if (failure) url.searchParams.set('connectError', failure);
-  else url.searchParams.set('connected', provider);
+  else {
+    url.searchParams.set('connected', provider);
+    if (actionId) url.searchParams.set('connectionAction', actionId);
+  }
   return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function matchesFlow(actor: Actor | null, flow: FlowRow): actor is Actor {
+  return Boolean(
+    actor &&
+    actor.sessionId === flow.session_id &&
+    actor.userId === flow.user_id &&
+    actor.orgId === flow.org_id,
+  );
 }
 
 export async function oauthFlowRoutes(app: FastifyInstance): Promise<void> {
@@ -70,7 +85,10 @@ export async function oauthFlowRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/oauth/start/:provider', session, async (request, reply) => {
     const actor = requireActor(request);
     const id = String((request.params as { provider?: unknown }).provider ?? '').slice(0, 40);
+    const organization = oauthProvider(id)?.organization;
     const next = safeNext((request.query as Record<string, unknown>).next ?? landing(id));
+    if (organization && !organizationAdmin(actor, organization.area))
+      return reply.redirect(outcome(next, id, 'drives.connect.denied'));
     const { pool } = dataStore(ctx);
     let found;
     try {
@@ -119,18 +137,14 @@ export async function oauthFlowRoutes(app: FastifyInstance): Promise<void> {
         )
       : null;
     const flow = taken?.rows[0];
+    const organization = oauthProvider(id)?.organization;
     const fail = (failure: ConnectFailure, next = flow?.next ?? landing(id)) =>
       reply.redirect(outcome(next, id, failure));
     if (!flow || flow.provider !== id || flow.expires_at.getTime() <= Date.now())
       return fail('drives.connect.state');
     const actor = await ctx.sessions.resolve(request);
-    if (
-      !actor ||
-      actor.sessionId !== flow.session_id ||
-      actor.userId !== flow.user_id ||
-      actor.orgId !== flow.org_id
-    )
-      return fail('drives.connect.state', landing(id));
+    if (!matchesFlow(actor, flow)) return fail('drives.connect.state', landing(id));
+    if (organization && !organizationAdmin(actor, organization.area)) return fail('drives.connect.denied');
     if (parameters.error !== undefined || typeof parameters.code !== 'string' || !parameters.code)
       return fail('drives.connect.denied');
     return complete(request, reply, flow, actor, parameters.code, fail);
@@ -140,7 +154,7 @@ export async function oauthFlowRoutes(app: FastifyInstance): Promise<void> {
     request: FastifyRequest,
     reply: FastifyReply,
     flow: FlowRow,
-    actor: NonNullable<Awaited<ReturnType<AppContext['sessions']['resolve']>>>,
+    actor: Actor,
     code: string,
     fail: (failure: ConnectFailure) => FastifyReply,
   ) {
@@ -178,6 +192,13 @@ export async function oauthFlowRoutes(app: FastifyInstance): Promise<void> {
       }
       if (Object.keys(accountValues).length) tokens.accountValues = accountValues;
       const account = await provider.account(tokens.accessToken, limited(), tokens.accountValues);
+      if (provider.organization) {
+        const current = await ctx.sessions.resolve(request);
+        if (!matchesFlow(current, flow)) return fail('drives.connect.state');
+        if (!organizationAdmin(current, provider.organization.area)) return fail('drives.connect.denied');
+        const actionId = await provider.organization.complete(app, current, client, tokens, account);
+        return reply.redirect(outcome(flow.next, provider.id, undefined, actionId));
+      }
       if (account.settingChoices) tokens.settingChoices = account.settingChoices;
       const { audit } = authDatabase(ctx);
       await withTransaction(pool, async (db) => {
@@ -185,6 +206,8 @@ export async function oauthFlowRoutes(app: FastifyInstance): Promise<void> {
         await auditEvent(db, audit, 'oauth.connection.created', actor, { provider: provider.id });
       });
     } catch (error) {
+      if (provider.organization && error instanceof AppError && error.code === 'forbidden')
+        return fail('drives.connect.denied');
       // A refused app is for an admin to fix, so it's logged as an error and said as such.
       const appRefused = error instanceof AppError && error.messageKey === 'drives.appRefused';
       request.log[appRefused ? 'error' : 'warn'](

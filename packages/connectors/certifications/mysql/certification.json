@@ -1,0 +1,18 @@
+{
+  "connector": "mysql",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:17:20.662Z",
+  "serverVersionTested": "8.4.11",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "query",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

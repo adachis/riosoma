@@ -185,12 +185,16 @@ function SortableRoot({
   const dragging = useRef<string | null>(null);
   const keyboard = useRef(false);
   const pointer = useRef<{ x: number; y: number } | null>(null);
+  const releasePoint = useRef<{ x: number; y: number } | null>(null);
+  const pointerCollisionInput = useRef<Parameters<CollisionDetection>[0] | null>(null);
   const nativeSource = useRef<HTMLElement | null>(null);
   useEffect(() => {
     const track = (event: PointerEvent | TouchEvent) => {
       if (!dragging.current || keyboard.current) return;
       const coordinates = getEventCoordinates(event);
-      if (coordinates) pointer.current = coordinates;
+      if (!coordinates) return;
+      pointer.current = coordinates;
+      if (event.type === 'pointerup' || event.type === 'touchend') releasePoint.current = coordinates;
     };
     // A release can precede the next collision pass, so keep its actual destination.
     window.addEventListener('pointermove', track, true);
@@ -470,9 +474,7 @@ function SortableRoot({
     useSensor(SortableTouchSensor, touchOptions),
     useSensor(SortableKeyboardSensor, keyboardOptions),
   );
-  const collisions: CollisionDetection = (args) => {
-    pointer.current = args.pointerCoordinates;
-    if (keyboard.current) return [{ id: args.active.id }];
+  const findPointerCollisions: CollisionDetection = (args) => {
     const point = args.pointerCoordinates;
     if (!point) return [];
     const droppableRects = new Map(args.droppableRects);
@@ -534,6 +536,12 @@ function SortableRoot({
         (aRect ? aRect.width * aRect.height : Infinity) - (bRect ? bRect.width * bRect.height : Infinity)
       );
     });
+  };
+  const collisions: CollisionDetection = (args) => {
+    pointer.current = args.pointerCoordinates;
+    if (keyboard.current) return [{ id: args.active.id }];
+    pointerCollisionInput.current = args;
+    return findPointerCollisions(args);
   };
   function pointerTarget(over: Over | null): SortableLocation | null {
     const id = dragging.current;
@@ -628,6 +636,8 @@ function SortableRoot({
     }
     dragging.current = null;
     nativeSource.current = null;
+    releasePoint.current = null;
+    pointerCollisionInput.current = null;
     pending.current = null;
     candidate.current = null;
     setActiveId(null);
@@ -717,7 +727,16 @@ function SortableRoot({
         onDragEnd={({ over }) => {
           let external = false;
           const source = nativeSource.current;
-          const point = pointer.current;
+          const point = releasePoint.current;
+          const collisionInput = pointerCollisionInput.current;
+          // The sensor can end before the preview reflects the last move.  Check the release
+          // against the same clipping bounds and gap tolerance before committing that preview.
+          const canceled =
+            !keyboard.current &&
+            (!over ||
+              !point ||
+              !collisionInput ||
+              findPointerCollisions({ ...collisionInput, pointerCoordinates: point }).length === 0);
           // Native destinations still receive their existing data and authorization path.
           if (!keyboard.current && source && point) {
             const destination = document.elementFromPoint(point.x, point.y);
@@ -742,7 +761,7 @@ function SortableRoot({
               source.dispatchEvent(new DragEvent('dragend', { bubbles: true, dataTransfer }));
             }
           }
-          finish(!keyboard.current && !over, external);
+          finish(canceled, external);
         }}
         onDragCancel={() => finish(true)}
       >

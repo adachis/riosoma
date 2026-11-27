@@ -27,8 +27,8 @@ LOCATION=eastus2
 PG=riosoma-db-$RANDOM
 ENVIRONMENT=riosoma-env
 APP=riosoma
-IMAGE=ghcr.io/adachis/riosoma:0.95.0-rc.1
-CONNECTORS_IMAGE=ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1
+IMAGE=ghcr.io/adachis/riosoma:0.95.0
+CONNECTORS_IMAGE=ghcr.io/adachis/riosoma-connectors:0.95.0
 DB_PASSWORD=$(openssl rand -hex 24)
 SECRET_KEY=$(openssl rand -base64 32)
 CONNECTOR_TOKEN=$(openssl rand -hex 32)
@@ -47,13 +47,17 @@ az network vnet subnet create -g $RG --vnet-name riosoma-vnet -n db \
   --address-prefixes 10.40.2.0/24 --delegations Microsoft.DBforPostgreSQL/flexibleServers
 ```
 
-**The database.**  A private server in the `db` subnet.  The CLI makes a private DNS zone for it and links it to the network.  Backups are kept for 14 days with point-in-time restore.
+**The database.**  A private server in the `db` subnet.  Its name resolves through a private DNS zone linked to the network, so the app finds it at its usual address.  Current CLI releases need the zone to exist first, and don't link it themselves.  Backups are kept for 14 days with point-in-time restore.
 
 ```bash
+az network private-dns zone create -g $RG -n riosoma.private.postgres.database.azure.com
+az network private-dns link vnet create -g $RG -z riosoma.private.postgres.database.azure.com \
+  -n riosoma-vnet -v riosoma-vnet -e false
 az postgres flexible-server create -g $RG -n $PG -l $LOCATION \
   --version 16 --tier Burstable --sku-name Standard_B2s --storage-size 32 \
   --admin-user riosoma --admin-password "$DB_PASSWORD" \
-  --vnet riosoma-vnet --subnet db --backup-retention 14 --yes
+  --vnet riosoma-vnet --subnet db --private-dns-zone riosoma.private.postgres.database.azure.com \
+  --backup-retention 14 --yes
 az postgres flexible-server db create -g $RG --server-name $PG --name riosoma
 ```
 
@@ -93,7 +97,7 @@ The app is now at `https://$FQDN`, with a certificate Azure manages.  Container 
 az containerapp show -g $RG -n $APP -o yaml > app.yaml
 # Add this to properties.template.containers in app.yaml, beside the riosoma container:
 #   - name: connectors
-#     image: ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1
+#     image: ghcr.io/adachis/riosoma-connectors:0.95.0
 #     resources: { cpu: 0.5, memory: 1Gi }
 #     env:
 #       - { name: RIOSOMA_CONNECTOR_SERVICE_HOST, value: 127.0.0.1 }
@@ -141,26 +145,26 @@ The flexible server backs itself up daily and keeps 14 days of point-in-time res
 
 ## Upgrades
 
-Take an on-demand backup, then change the image.  Migrations run when the new revision starts.  See [Upgrades, backups, and rollbacks](upgrades.md).
+Note the time, then change the image.  Burstable servers can't take on-demand backups, so the way back is a point-in-time restore to that moment.  Migrations run when the new revision starts.  See [Upgrades, backups, and rollbacks](upgrades.md).
 
 ```bash
-az postgres flexible-server backup create -g $RG --server-name $PG --name before-0-6-0
-az containerapp update -g $RG -n $APP --container-name connectors --image ghcr.io/adachis/riosoma-connectors:0.95.0-rc.1
-az containerapp update -g $RG -n $APP --container-name riosoma --image ghcr.io/adachis/riosoma:0.95.0-rc.1
+BEFORE_UPGRADE=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+az containerapp update -g $RG -n $APP --container-name connectors --image ghcr.io/adachis/riosoma-connectors:0.95.0
+az containerapp update -g $RG -n $APP --container-name riosoma --image ghcr.io/adachis/riosoma:0.95.0
 az containerapp logs show -g $RG -n $APP --container riosoma --type console --tail 300 | grep -E 'migrations applied|Server listening'
 curl -s https://$FQDN/healthz
 ```
 
 Container Apps keeps the old revision serving until the new one is ready, so both run for a moment during the switch.
 
-**Rolling back:** run the same two `az containerapp update` commands with the previous release.  If the upgrade's log showed `database migrations applied`, restore the database to a moment before the upgrade first.  A restore makes a new server, in the same network, so point the app at it:
+**Rolling back:** run the same two `az containerapp update` commands with the previous release.  If the upgrade's log showed `database migrations applied`, restore the database to the time you noted first.  A restore makes a new server, in the same network, so point the app at it:
 
 ```bash
 az postgres flexible-server restore -g $RG --name $PG-restored --source-server $PG \
-  --restore-time 2026-09-28T02:55:00Z
+  --restore-time "$BEFORE_UPGRADE"
 az containerapp secret set -g $RG -n $APP --secrets \
   database-url="postgres://riosoma:$DB_PASSWORD@$PG-restored.postgres.database.azure.com:5432/riosoma?sslmode=verify-full"
-az containerapp update -g $RG -n $APP --container-name riosoma --image ghcr.io/adachis/riosoma:0.95.0-rc.1
+az containerapp update -g $RG -n $APP --container-name riosoma --image ghcr.io/adachis/riosoma:0.95.0
 ```
 
 ## Removing it

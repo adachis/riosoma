@@ -1,0 +1,17 @@
+{
+  "connector": "dynamodb",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:40:24.947Z",
+  "serverVersionTested": "DynamoDB API 2012-08-10",
+  "capabilitiesPassed": [
+    "describe",
+    "filter",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "sort",
+    "timeout"
+  ]
+}

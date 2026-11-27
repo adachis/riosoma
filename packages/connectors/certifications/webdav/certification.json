@@ -1,0 +1,15 @@
+{
+  "connector": "webdav",
+  "version": "0.95.0",
+  "date": "2026-11-26T03:13:58.877Z",
+  "serverVersionTested": "rclone/v1.75.1",
+  "capabilitiesPassed": [
+    "describe",
+    "keys",
+    "list",
+    "paging",
+    "read",
+    "secrets",
+    "timeout"
+  ]
+}

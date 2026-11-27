@@ -125,6 +125,10 @@ export async function visit(
           `Network changed again while visiting ${url}: ${failure.url} failed with ${failure.errorText}`,
           { cause: error },
         );
+      // The retry hides the interruption, so count it here instead of losing it.
+      console.warn(
+        `A network change interrupted ${url}: ${failure.url} failed with ${failure.errorText}.  Loading the page once more.`,
+      );
     } finally {
       if (chromium) page.off('requestfailed', requestFailed);
       interrupted.abort();

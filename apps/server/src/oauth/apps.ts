@@ -3,9 +3,8 @@ import { randomBytes } from 'node:crypto';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import {
   AppError,
-  CONNECTED_PROVIDERS,
+  IntegrationProvider,
   IntegrationUpdate,
-  type ConnectedProvider,
   type IntegrationTestResult,
   type IntegrationView,
 } from '@riosoma/contracts';
@@ -59,7 +58,12 @@ export function callbackUri(ctx: AppContext, request: FastifyRequest, provider: 
 }
 
 function complete(provider: OAuthProvider, app: OAuthApp): boolean {
-  return Boolean(app.clientId && app.clientSecret && (!provider.needsApiKey || app.apiKey));
+  return Boolean(
+    app.clientId &&
+    app.clientSecret &&
+    (!provider.needsApiKey || app.apiKey) &&
+    (provider.appComplete?.(app) ?? true),
+  );
 }
 
 function environmentApp(ctx: AppContext, provider: OAuthProvider): OAuthApp | null {
@@ -197,7 +201,7 @@ export function installPickerHosts(app: FastifyInstance): void {
   });
 }
 
-const Params = z.object({ provider: z.enum(CONNECTED_PROVIDERS) });
+const Params = z.object({ provider: IntegrationProvider });
 const TestRequest = IntegrationUpdate.pick({
   clientId: true,
   clientSecret: true,
@@ -283,7 +287,7 @@ export async function integrationRoutes(app: FastifyInstance): Promise<void> {
   async function view(
     request: FastifyRequest,
     db: Queryable,
-    id: ConnectedProvider,
+    id: IntegrationProvider,
   ): Promise<IntegrationView> {
     const provider = oauthProvider(id)!;
     const resolved = await resolveApp(ctx, db, requireActor(request).orgId, provider);
@@ -303,7 +307,8 @@ export async function integrationRoutes(app: FastifyInstance): Promise<void> {
   app.get('/api/admin/integrations', integrations, async (request): Promise<IntegrationView[]> => {
     const { pool } = dataStore(ctx);
     const views: IntegrationView[] = [];
-    for (const id of CONNECTED_PROVIDERS) if (oauthProvider(id)) views.push(await view(request, pool, id));
+    for (const id of IntegrationProvider.options)
+      if (oauthProvider(id)) views.push(await view(request, pool, id));
     return views;
   });
 

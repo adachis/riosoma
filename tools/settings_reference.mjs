@@ -25,6 +25,7 @@ const GROUPS = [
   ['files', 'Files'],
   ['limits', 'Limits and outside services'],
   ['drives', 'Cloud drives'],
+  ['notifications', 'Notification delivery'],
   ['updates', 'Updates and usage counts'],
   ['image', 'Set by the image'],
 ];
@@ -506,6 +507,19 @@ const DETAILS = {
   RIOSOMA_GOOGLE_PICKER_API_KEY: {
     group: 'drives',
     text: 'The API key Google\'s Picker opens with.  Every browser that opens the Picker receives it, so restrict it to the Picker API and to this server\'s address in Google Cloud.',
+  },
+  RIOSOMA_MICROSOFT_TEAMS_TENANT_ID: {
+    group: 'notifications',
+    text: 'The directory tenant ID for the Microsoft Entra app that sends Teams direct-message notifications.  Set it with `RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID` and `RIOSOMA_MICROSOFT_TEAMS_CLIENT_SECRET` to configure the app on the server.  An administrator can also enter the app under Settings, Integrations, which shows the Web redirect address to register.  See [Teams direct messages](microsoft-365.md#direct-message-notifications).',
+  },
+  RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID: {
+    group: 'notifications',
+    text: 'The application client ID for the Teams direct-message app named by `RIOSOMA_MICROSOFT_TEAMS_TENANT_ID`.',
+  },
+  RIOSOMA_MICROSOFT_TEAMS_CLIENT_SECRET: {
+    group: 'notifications',
+    secret: true,
+    text: 'The client secret for the Teams direct-message app named by `RIOSOMA_MICROSOFT_TEAMS_CLIENT_ID`.',
   },
   RIOSOMA_UPDATE_CHECKS: {
     group: 'updates',

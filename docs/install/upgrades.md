@@ -43,7 +43,7 @@ Restoring into the same database with `pg_restore` works when you first drop Rio
 |---|---|---|---|
 | [Docker Compose](docker-compose.md#upgrades) | `docker compose run --rm backup once` | `RIOSOMA_IMAGE` and `RIOSOMA_CONNECTORS_IMAGE` in `.env` | `docker compose run --rm backup restore FILE` |
 | [Kubernetes](kubernetes.md#upgrades) | Your database's snapshots, or `pg_dump` | `helm rollback` | Your database's restore, or `pg_restore` |
-| [Container Apps](azure-container-apps.md#upgrades) | `az postgres flexible-server backup create` | `az containerapp update --image` | `az postgres flexible-server restore` |
+| [Container Apps](azure-container-apps.md#upgrades) | Note the time for point-in-time restore | `az containerapp update --image` | `az postgres flexible-server restore` |
 | [ECS on Fargate](aws-ecs-fargate.md#upgrades) | `aws rds create-db-snapshot` | `aws ecs update-service --task-definition` | `aws rds restore-db-instance-from-db-snapshot` |
 | [Cloud Run](google-cloud-run.md#upgrades) | `gcloud sql backups create` | `gcloud run services update-traffic` | `gcloud sql backups restore` |
 | [From source](from-source.md#upgrades) | `pg_dump` | `git checkout` the previous tag and rebuild | `pg_restore` |

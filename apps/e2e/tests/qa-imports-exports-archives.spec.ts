@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { expect, test } from '../accessibility';
+import { downloadNamedBlob } from '../downloads';
 import { base } from '../base';
 import { createDatabase, newId, openTable, runCommands, signIn, visit } from '../helpers';
 
@@ -30,11 +31,11 @@ test('a downloaded JSON snapshot preserves typed values and restores the origina
   await dialog.getByRole('button', { name: 'Take a snapshot' }).click();
   await expect(dialog.getByRole('button', { name: 'More for Synthetic before import' })).toBeVisible();
   await dialog.getByRole('button', { name: 'More for Synthetic before import' }).click();
-  const [download] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('menuitem', { name: 'Download', exact: true }).click(),
-  ]);
-  expect(download.suggestedFilename()).toBe('Synthetic snapshot - Synthetic before import.riosoma.json');
+  const download = await downloadNamedBlob(
+    page,
+    page.getByRole('menuitem', { name: 'Download', exact: true }),
+    'Synthetic snapshot - Synthetic before import.riosoma.json',
+  );
   const archive = JSON.parse(readFileSync((await download.path())!, 'utf8')) as {
     format: string;
     version: number;
